@@ -1,0 +1,7 @@
+// Shared version numbers — edit here to update all targets at once.
+// Do NOT edit MARKETING_VERSION or CURRENT_PROJECT_VERSION via the
+// Xcode identity panel; that creates a per-target override that shadows
+// this file and causes targets to drift apart again.
+
+MARKETING_VERSION = 1.0
+CURRENT_PROJECT_VERSION = 1
