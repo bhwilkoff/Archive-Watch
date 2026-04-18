@@ -2,19 +2,25 @@
 
 ## Current State
 
-- **Status**: M0 in progress — research + networking scaffold complete; Xcode project pending
+- **Status**: M0 mostly done — Xcode project creation is the only blocker. Editorial pipeline (dashboard + featured.json) is live.
 - **Active milestone**: M0 → M1
-- **Last session**: 2026-04-17 — research, decisions, scaffold
+- **Last session**: 2026-04-18 — featured.json seed, editorial dashboard, validate-pipeline.sh, Decisions 011–014, app-icon spec
 - **Next actions**:
-  1. Create Xcode tvOS project at repo root (Product Name: `ArchiveWatch`, no spaces, tvOS 17+)
+  1. **(Owner, at desk)** Create Xcode tvOS project at repo root (Product Name: `ArchiveWatch`, no spaces, tvOS 17+)
   2. Move Swift files from `ios/` into the Xcode-created `ArchiveWatch/` group, then delete `ios/`
-  3. Create `Secrets.xcconfig` (gitignored) with `TMDB_BEARER_TOKEN`
-  4. Build an empty tvOS shell on Simulator and verify `AppVersion.xcconfig` is wired
-  5. Wire a smoke-test harness against 5 known-good Archive IDs to validate the enrichment cascade
-- **Open questions**:
-  - Serif body type (New York) on tvOS — distinctive-correct or distracting? Prototype on real panel.
+  3. Create `Secrets.xcconfig` (gitignored) with `TMDB_BEARER_TOKEN` (free TMDb account → API → v4 read token)
+  4. Run `tools/validate-pipeline.sh` from desktop to confirm the 7 personal favorites are well-formed (IMDb, playable derivative)
+  5. Run `tools/validate-pipeline.sh --tmdb` (with token in env) to confirm TMDb match rate
+  6. Push to GitHub Pages (Settings → Pages → main branch root) so the dashboard is live
+- **Open questions** (resolved):
+  - Adult content filtered by default? **Yes** — Decision 012
+  - Per-category accent colors? **Yes** — Decision 013
+  - Random actions in M1? **Yes** — Decision 014
+  - App icon direction? **Photographic film frame on bold category color** — see `docs/design/app-icon.md`
+  - Serif body type? **Yes — stylized + bold** (Fraunces in dashboard; New York or similar on tvOS, prototype on panel)
+- **Open questions** (still open):
+  - Which still goes in the v1 app icon? Méliès moon recommended; needs owner sign-off
   - Silent preview loop on Detail focus — ship without, or generate 10s clips server-side via GitHub Actions?
-  - Per-collection accent color (subtle tint) or strict consistency?
 
 ---
 
@@ -31,28 +37,37 @@ Model does not apply here.
 
 ### M0 — Project Setup
 - [x] Research docs (`docs/research/metadata-sources.md`, `docs/research/design-reference.md`)
-- [x] Architecture decisions logged (DECISIONS 006–010)
+- [x] Architecture decisions logged (DECISIONS 006–014)
 - [x] Networking + model scaffold in `ios/`
 - [x] CLAUDE.md identity filled in
+- [x] `featured.json` seed (curated picks + dynamic shelves + categories)
+- [x] Editorial dashboard (replaces template `index.html`; doubles as live pipeline validator)
+- [x] `tools/validate-pipeline.sh` (CLI smoke test for the cascade)
+- [x] App icon spec (`docs/design/app-icon.md`)
 - [ ] Xcode tvOS project created at repo root as `ArchiveWatch`
 - [ ] Swift files moved from `ios/` into Xcode group, `ios/` deleted
 - [ ] `AppVersion.xcconfig` wired to tvOS target (Debug + Release)
 - [ ] `Secrets.xcconfig` created (gitignored) with `TMDB_BEARER_TOKEN`
 - [ ] Empty tvOS shell runs on Simulator
+- [ ] GitHub Pages enabled (so the dashboard goes live)
 
 ### M1 — Watch a film end-to-end
-> User launches the app, lands on Home, sees a shelf of enriched titles
-> with real posters, opens a detail page, and plays the film through
-> native AVPlayer transport controls with resume-on-reopen.
+> User launches the app, lands on Home, sees shelves of enriched titles
+> with real posters, opens a detail page, plays the film through native
+> AVPlayer transport controls with resume-on-reopen, and can hit
+> "Surprise Me" to be sent to a random film.
 
 - **Learning check**: [x] Deepens understanding [x] Invites participation [x] Supports agency
 - **Acceptance criteria**:
-  - [ ] Home has at least 3 shelves populated from curated Archive IDs
+  - [ ] Home reads `featured.json` from GitHub Pages and renders curated + dynamic shelves
   - [ ] Every card shows a TMDb-sourced poster (not Archive thumb) for titles with IMDb IDs
   - [ ] Detail page shows synopsis, cast, year, runtime, source attribution
   - [ ] AVPlayerViewController plays the h.264 MP4 derivative end-to-end
   - [ ] Playback position persists across app launches (SwiftData)
   - [ ] Rate limit handling on 429 (Archive + TMDb) works under load
+  - [ ] Three random actions wired: Random Movie, Random Category, Random Collection (Decision 014)
+  - [ ] Adult-content filter on by default; toggle in Settings (Decision 012)
+  - [ ] Per-category accent colors applied to shelf titles + focus glow (Decision 013)
 
 ### M2 — Search + Favorites
 > User searches the Archive, filters by facets, and favorites titles to
@@ -125,18 +140,21 @@ Model does not apply here.
 ## Web App Status
 
 ### Completed
-- (none yet — template scaffold only)
+- Editorial dashboard (`index.html` + `js/app.js` + `js/api.js` + `css/styles.css`) — live `featured.json` editor with metadata preview that doubles as a pipeline validator
+- `featured.json` seed with 7 personal favorites + 9 dynamic popularity shelves + 8 categories + adult-content filter list + random-action config
 
 ### Next for Web
-- Editorial dashboard for `featured.json` maintenance — not until M1+
+- Enable GitHub Pages on `main` (Owner action — Settings → Pages → branch: main, root)
+- Once live, link the dashboard URL in README
+- (Future) Drag-and-drop reorder for shelves and items (currently up/down buttons)
 
 ---
 
 ## Open Questions
 
-- Serif body type (New York) on tvOS — prototype on real panel before committing
+- Which still goes in the v1 app icon? Méliès moon recommended (see `docs/design/app-icon.md`); needs owner sign-off
 - Silent preview clips on Detail focus — ship without, or generate server-side?
-- Per-collection accent color — subtle variation or strict consistency?
+- Serif body type on tvOS — Fraunces in dashboard works; prototype the same on tvOS panel before committing
 
 ---
 
@@ -156,3 +174,33 @@ Model does not apply here.
     TMDbClient, WikidataClient, DerivativePicker, ArtworkResolver,
     EnrichmentService, ContentItem, Taxonomy, response types
 - **State left**: Ready for Xcode tvOS project creation (M0 final gate before M1 UI work).
+
+### 2026-04-18 — Editorial pipeline, validator, decisions, app icon
+- **State found**: Owner away from desktop; needed productive non-Xcode work.
+- **Work done**:
+  - Tried to live-validate the cascade against the 7 personal favorites via `curl`
+    and `WebFetch` — both blocked by sandbox policy on archive.org. Pivoted.
+  - Drafted `featured.json` seed (8 categories with accent colors, 1 curated
+    "Editor's Picks" shelf with the 7 favorites, 9 dynamic popularity shelves,
+    `adultCollections` filter list, `randomActions` config).
+  - Built the editorial dashboard (`index.html` + `js/app.js` + `js/api.js`
+    + `css/styles.css`): loads `featured.json`, lets the curator add/remove/
+    reorder/edit-note Archive IDs with live metadata preview from
+    Archive.org. Each row surfaces an "IMDb ✓ / No IMDb" badge and a
+    "Playable ✓ / Not playable" badge — same checks the Swift
+    `EnrichmentService` will run, so the dashboard doubles as a pipeline
+    validator that runs in any browser.
+  - Wrote `tools/validate-pipeline.sh` — a Bash + curl + jq script that
+    runs the same checks from the command line for the desktop
+    smoke-test workflow. Optional `--tmdb` flag probes TMDb /find when
+    `TMDB_BEARER_TOKEN` is set. `--json` for machine output.
+  - Logged Decisions 011 (hybrid curation: editor's picks + dynamic
+    popularity shelves), 012 (adult content filter on by default),
+    013 (per-category accent palette), 014 (random actions in M1).
+  - Drafted `docs/design/app-icon.md` — photographic film frame on
+    bold category color; layered tvOS icon variants; recommended
+    starting still: Méliès moon.
+- **State left**: Editorial pipeline live (pending GitHub Pages enable).
+  Validation harness ready for desktop. Scaffold + dashboard + decisions
+  in sync. Next time at desk: create Xcode project, run validator,
+  enable Pages.
