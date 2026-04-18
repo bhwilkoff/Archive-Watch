@@ -200,10 +200,19 @@ enum ContentTypeClassifier {
         runtimeSeconds: Int?,
         year: Int?
     ) -> ContentType {
+        // 1. Authoritative registry (docs/taxonomy/collections.json).
+        //    The highest-weight collection with a known category wins.
+        if let dominant = CollectionRegistry.dominantCollection(from: collections),
+           let typed = ContentType(rawValue: dominant.info.category) {
+            return typed
+        }
+
+        // 2. Fall back to string-contains heuristics for unregistered
+        //    collections (still want to do the right thing for obscure
+        //    tags that haven't been added to the registry yet).
         let cols = Set(collections.map { $0.lowercased() })
         let subs = subjects.map { $0.lowercased() }
 
-        // Strong collection signals first.
         if cols.contains(where: { $0.contains("classic_tv") || $0.contains("classictv") }) {
             return .tvSeries
         }
@@ -223,13 +232,13 @@ enum ContentTypeClassifier {
             return .homeMovie
         }
 
-        // Silent-era fallback by year.
+        // 3. Year-based silent fallback.
         if let y = year, y < 1928 { return .silentFilm }
 
-        // Documentary via subject tags.
+        // 4. Documentary via subject tags.
         if subs.contains(where: { $0.contains("documentary") }) { return .documentary }
 
-        // Runtime-based split for everything else.
+        // 5. Runtime-based split for everything else.
         if let r = runtimeSeconds {
             if r < 40 * 60 { return .shortFilm }
             if r > 55 * 60 { return .featureFilm }

@@ -1,0 +1,180 @@
+{
+  "$schema": "This file is the authoritative map of Archive.org collection identifiers to Archive Watch categorization metadata. Edited by hand; read by both the browser catalog generator (js/build-catalog.js) and the Swift CollectionRegistry (ios/Models/Taxonomy.swift). Add a collection entry when we start surfacing it in a shelf; keep weights honest because the content classifier uses the highest-weight collection to pick a ContentType when an item belongs to multiple.",
+
+  "version": 1,
+  "updatedAt": "2026-04-19",
+
+  "collections": {
+
+    "feature_films": {
+      "displayName": "Feature Films",
+      "category": "feature-film",
+      "description": "Public-domain feature-length films from the pre-1978 American corpus and beyond.",
+      "weight": 1.0,
+      "posterAspect": "2:3",
+      "popularityThreshold": 500
+    },
+
+    "classic_tv": {
+      "displayName": "Classic Television",
+      "category": "tv-series",
+      "description": "Vintage American broadcast television \u2014 comedies, dramas, westerns, variety.",
+      "weight": 1.0,
+      "posterAspect": "16:9",
+      "popularityThreshold": 250
+    },
+
+    "classic_cartoons": {
+      "displayName": "Classic Cartoons",
+      "category": "animation",
+      "description": "Pre-1970 animated shorts. Fleischer, Terrytoons, Famous Studios, Van Beuren.",
+      "weight": 0.9,
+      "posterAspect": "2:3",
+      "popularityThreshold": 500
+    },
+
+    "silent_films": {
+      "displayName": "Silent Era",
+      "category": "silent-film",
+      "description": "Pre-1928 silent cinema, American and international.",
+      "weight": 1.0,
+      "posterAspect": "2:3",
+      "popularityThreshold": 300
+    },
+
+    "prelinger": {
+      "displayName": "The Prelinger Archive",
+      "category": "ephemeral",
+      "description": "Rick Prelinger's landmark collection of ephemeral, industrial, and educational film.",
+      "weight": 1.0,
+      "posterAspect": "16:9",
+      "popularityThreshold": 200
+    },
+
+    "newsandpublicaffairs": {
+      "displayName": "News & Public Affairs",
+      "category": "newsreel",
+      "description": "Newsreels, press conferences, and public-affairs programming.",
+      "weight": 0.8,
+      "posterAspect": "16:9",
+      "popularityThreshold": 150
+    },
+
+    "sci-fi_horror": {
+      "displayName": "Sci-Fi / Horror",
+      "category": "feature-film",
+      "description": "Genre feature films \u2014 Universal originals, B-movie classics, Cold War paranoia.",
+      "weight": 0.9,
+      "posterAspect": "2:3",
+      "popularityThreshold": 500
+    },
+
+    "film_noir": {
+      "displayName": "Film Noir",
+      "category": "feature-film",
+      "description": "Mid-century American crime melodrama \u2014 shadows, cigarettes, wrong decisions.",
+      "weight": 0.9,
+      "posterAspect": "2:3",
+      "popularityThreshold": 500
+    },
+
+    "classic_commercials": {
+      "displayName": "Classic Commercials",
+      "category": "ephemeral",
+      "description": "Vintage television and cinema advertising.",
+      "weight": 0.6,
+      "posterAspect": "16:9",
+      "popularityThreshold": 100
+    },
+
+    "moviesandfilms": {
+      "displayName": "Movies & Films",
+      "category": "feature-film",
+      "description": "Umbrella collection for moving-image media. Very broad \u2014 prefer more specific sub-collections when possible.",
+      "weight": 0.3,
+      "posterAspect": "2:3",
+      "popularityThreshold": 1000
+    },
+
+    "fedflix": {
+      "displayName": "FedFlix",
+      "category": "ephemeral",
+      "description": "Federal government films released via Public.Resource.Org.",
+      "weight": 0.8,
+      "posterAspect": "16:9",
+      "popularityThreshold": 100
+    },
+
+    "nasa": {
+      "displayName": "NASA Films",
+      "category": "documentary",
+      "description": "NASA mission footage, educational films, and public-affairs reels.",
+      "weight": 0.85,
+      "posterAspect": "16:9",
+      "popularityThreshold": 200
+    },
+
+    "educationalfilms": {
+      "displayName": "Educational Films",
+      "category": "ephemeral",
+      "description": "Classroom and institutional educational film.",
+      "weight": 0.7,
+      "posterAspect": "16:9",
+      "popularityThreshold": 100
+    },
+
+    "academic_films": {
+      "displayName": "Academic Films",
+      "category": "ephemeral",
+      "description": "University teaching films, lectures, and educational shorts.",
+      "weight": 0.75,
+      "posterAspect": "16:9",
+      "popularityThreshold": 100
+    },
+
+    "computerchronicles": {
+      "displayName": "Computer Chronicles",
+      "category": "tv-series",
+      "description": "Stewart Cheifet's 80s\u201390s PBS series on personal computing. A time capsule.",
+      "weight": 0.9,
+      "posterAspect": "16:9",
+      "popularityThreshold": 100
+    }
+  },
+
+  "adultCollections": [
+    "adult",
+    "moviesandfilms_adult",
+    "stagvideos",
+    "adult_reviews"
+  ],
+
+  "subjectKeywordMap": {
+    "western":              "western",
+    "horror":               "horror",
+    "sci-fi":               "sci-fi",
+    "science fiction":      "sci-fi",
+    "comedy":               "comedy",
+    "drama":                "drama",
+    "musical":              "musical",
+    "war":                  "war",
+    "noir":                 "crime",
+    "crime":                "crime",
+    "detective":            "crime",
+    "gangster":             "crime",
+    "cartoon":              "animation",
+    "animation":            "animation",
+    "animated":             "animation",
+    "romance":              "romance",
+    "love story":           "romance",
+    "mystery":              "mystery",
+    "thriller":             "thriller",
+    "documentary":          "documentary",
+    "fantasy":              "fantasy",
+    "family":               "family",
+    "children":             "family",
+    "action":               "action",
+    "adventure":            "action",
+    "swashbuckler":         "action"
+  }
+}

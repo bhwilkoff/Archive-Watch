@@ -47,3 +47,4 @@ node_modules/
 .env.local
 *.key
 credentials.json
+Secrets.xcconfig

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Catalog — Archive Watch</title>
+
+  <meta name="theme-color" content="#0A0A0A">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/build-catalog.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="topbar">
+    <div class="topbar-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <h1 class="brand-name">Archive Watch</h1>
+      <span class="brand-tag">Build Seed Catalog</span>
+    </div>
+    <div class="topbar-actions">
+      <a href="index.html" class="btn btn-ghost">← Dashboard</a>
+      <a href="whats-new.html" class="btn btn-ghost">What's New</a>
+    </div>
+  </header>
+
+  <main id="main" class="bc-main">
+
+    <section class="bc-intro">
+      <h2>Build the tvOS app's seed catalog.</h2>
+      <p>
+        This page reads <code>featured.json</code>, resolves every dynamic
+        shelf against Archive.org, fetches per-item metadata, and (if you
+        provide a TMDb bearer token) enriches each result with poster art
+        and credits. The output is <code>catalog.json</code>, which ships
+        inside the tvOS app bundle so the app has polished content on
+        first launch without any network calls.
+      </p>
+      <p class="bc-muted">
+        Runs entirely in your browser. Nothing leaves this page except
+        the direct API calls to archive.org and (optionally) themoviedb.org.
+      </p>
+    </section>
+
+    <section class="bc-config">
+      <h3>Configuration</h3>
+
+      <label class="control">
+        <span class="control-label">TMDb bearer token (optional, v4 read)</span>
+        <input id="bc-tmdb" type="password"
+               class="control-input"
+               placeholder="eyJhbGciOiJIUzI1NiJ9…"
+               autocomplete="off">
+      </label>
+      <p class="bc-hint">
+        Without a token, items get Archive-only metadata (titles + durations + tags)
+        and the app will enrich them from TMDb at runtime. With a token, the
+        catalog ships fully enriched and first-launch needs zero network. The
+        token is stored in this browser's localStorage, never transmitted anywhere
+        except directly to TMDb.
+      </p>
+
+      <div class="bc-config-row">
+        <label class="control">
+          <span class="control-label">Items per shelf</span>
+          <input id="bc-per-shelf" type="number" min="6" max="100" value="24" class="control-input">
+        </label>
+        <label class="control">
+          <span class="control-label">Max concurrent requests</span>
+          <input id="bc-concurrency" type="number" min="1" max="4" value="2" class="control-input">
+          <span class="bc-hint">Archive.org rate-limits; keep this low.</span>
+        </label>
+        <label class="control">
+          <span class="control-label">Skip items without playable video</span>
+          <select id="bc-skip-broken" class="control-input">
+            <option value="true" selected>Yes (recommended)</option>
+            <option value="false">No — include all</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="bc-actions">
+        <button id="bc-start" class="btn btn-primary">Build catalog</button>
+        <button id="bc-stop" class="btn btn-ghost" disabled>Stop</button>
+        <button id="bc-download" class="btn btn-ghost" disabled>Download catalog.json</button>
+      </div>
+    </section>
+
+    <section class="bc-progress" aria-live="polite">
+      <div class="bc-bar">
+        <div id="bc-bar-fill" class="bc-bar-fill"></div>
+      </div>
+      <div class="bc-stats" id="bc-stats">Ready.</div>
+    </section>
+
+    <section class="bc-log" aria-label="Build log">
+      <h3>Log</h3>
+      <ol id="bc-log" class="bc-log-list"></ol>
+    </section>
+
+  </main>
+
+  <template id="tpl-log-row">
+    <li class="bc-log-row" data-kind="">
+      <span class="bc-log-dot" aria-hidden="true"></span>
+      <span class="bc-log-time"></span>
+      <span class="bc-log-msg"></span>
+    </li>
+  </template>
+
+  <script src="js/api.js"></script>
+  <script src="js/build-catalog.js"></script>
+</body>
+</html>
