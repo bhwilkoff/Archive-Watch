@@ -1,9 +1,11 @@
 import SwiftUI
 import SwiftData
 
+// Rename this type + file to `ArchiveWatchApp` when the Xcode tvOS
+// project is created. The name must match the Product Name exactly.
+
 @main
 struct AppNameApp: App {
-    // Configure URLCache at launch for better image/network caching
     init() {
         URLCache.shared = URLCache(
             memoryCapacity: 100_000_000,  // 100 MB
@@ -15,8 +17,7 @@ struct AppNameApp: App {
         WindowGroup {
             ContentView()
                 .environment(AppStore())
-                // .environment(AuthManager())  // FILL IN: your auth manager
         }
-        // .modelContainer(for: [/* your SwiftData models */])
+        .modelContainer(for: [ContentItem.self])
     }
 }

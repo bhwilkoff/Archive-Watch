@@ -1,4 +1,4 @@
-# [APP NAME] — Claude Code Project Context
+# Archive Watch — Claude Code Project Context
 
 ## A Note on Why We Build
 
@@ -35,12 +35,25 @@ implementation attempt.
 
 ## What This App Does
 
-<!-- FILL IN: One paragraph describing what your app does and who it's for -->
+**Archive Watch** is a tvOS (Apple TV) app that turns the Internet Archive's
+vast public-domain moving-image collection — feature films, classic TV,
+newsreels, silent cinema, animation, ephemeral industrial films — into a
+cinematheque-style browsing and viewing experience. Titles are enriched
+with posters, cast, synopses, and genres sourced from TMDb (with Wikidata,
+Wikimedia Commons, and the Library of Congress as fallbacks), so archival
+content is presented with the same care and visual dignity as a modern
+streaming service. The audience is curious viewers who would rather
+wander a well-stocked repertory cinema than doomscroll a recommendation
+feed.
 
-This app is available as both a **web app** and a **native iOS app**. The two
-platforms are developed separately but maintain **feature parity** as a goal.
-When adding a feature to one platform, note in SCRATCHPAD.md whether the
-equivalent work is needed on the other.
+**Primary platform: tvOS 17+.** The Apple TV app is the product.
+
+The `index.html` / `css/` / `js/` web scaffold in this repo is retained
+for a future **companion editorial dashboard** — a tiny static page
+published via GitHub Pages where curators maintain the "Editor's Picks"
+JSON that the tvOS app fetches. It is not a consumer-facing viewer, and
+the Dual-Platform Feature Parity Model below does **not** apply in the
+usual sense.
 
 ---
 
