@@ -1,0 +1,132 @@
+/* ================================================================
+   Build Catalog — Generator UI
+
+   Companion to the editorial dashboard and What's New ticker.
+   Inherits tokens from styles.css.
+================================================================ */
+
+.bc-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-6) 100px;
+}
+
+.bc-intro {
+  padding-bottom: var(--space-5);
+  margin-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+}
+.bc-intro h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.bc-intro p {
+  color: var(--color-text);
+  line-height: 1.55;
+  margin-bottom: 8px;
+  max-width: 720px;
+}
+.bc-muted { color: var(--color-text-muted); font-size: 0.88rem; }
+
+/* Config ---------------------------------------------------------- */
+
+.bc-config {
+  margin-bottom: var(--space-6);
+}
+.bc-config h3,
+.bc-log h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+.bc-config .control { margin-bottom: var(--space-3); max-width: 520px; }
+.bc-hint {
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.bc-config-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  max-width: 680px;
+}
+
+.bc-actions {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  flex-wrap: wrap;
+}
+
+/* Progress -------------------------------------------------------- */
+
+.bc-progress { margin-bottom: var(--space-5); }
+.bc-bar {
+  height: 6px;
+  background: var(--color-surface-2);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.bc-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-accent), #FF8B5C);
+  width: 0%;
+  transition: width 0.18s ease-out;
+}
+.bc-stats {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* Log ------------------------------------------------------------- */
+
+.bc-log-list {
+  list-style: none;
+  max-height: 420px;
+  overflow-y: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  padding: 8px 0;
+}
+.bc-log-row {
+  display: grid;
+  grid-template-columns: 14px 70px 1fr;
+  gap: 8px;
+  padding: 5px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-text);
+  align-items: baseline;
+}
+.bc-log-row:hover { background: var(--color-surface-2); }
+.bc-log-dot {
+  width: 8px; height: 8px;
+  border-radius: 999px;
+  background: var(--color-text-dim);
+  align-self: center;
+}
+.bc-log-row[data-kind="info"]    .bc-log-dot { background: #6E9CFF; }
+.bc-log-row[data-kind="success"] .bc-log-dot { background: #38C172; }
+.bc-log-row[data-kind="warn"]    .bc-log-dot { background: #F6AD55; }
+.bc-log-row[data-kind="error"]   .bc-log-dot { background: #F45B69; }
+
+.bc-log-time { color: var(--color-text-dim); }
+.bc-log-msg { white-space: pre-wrap; word-break: break-word; }
+
+@media (max-width: 640px) {
+  .bc-log-row { grid-template-columns: 10px 56px 1fr; padding: 5px 10px; font-size: 0.72rem; }
+}
