@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's New — Archive Watch Curation</title>
+
+  <meta name="theme-color" content="#0A0A0A">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/whats-new.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="topbar">
+    <div class="topbar-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <h1 class="brand-name">Archive Watch</h1>
+      <span class="brand-tag">What's New · Curation Ticker</span>
+    </div>
+    <div class="topbar-actions">
+      <a href="index.html" class="btn btn-ghost" title="Back to dashboard">← Dashboard</a>
+      <button id="btn-refresh" class="btn btn-primary" title="Reload feeds">Refresh</button>
+    </div>
+  </header>
+
+  <main id="main" class="wn-main">
+
+    <section class="wn-controls" aria-label="Filters">
+      <div class="wn-controls-row">
+        <label class="control">
+          <span class="control-label">Time window</span>
+          <select id="wn-window" class="control-input">
+            <option value="7">Last 7 days</option>
+            <option value="14" selected>Last 14 days</option>
+            <option value="30">Last 30 days</option>
+            <option value="90">Last 90 days</option>
+          </select>
+        </label>
+        <label class="control">
+          <span class="control-label">Per collection</span>
+          <select id="wn-limit" class="control-input">
+            <option value="10">10 items</option>
+            <option value="20" selected>20 items</option>
+            <option value="40">40 items</option>
+          </select>
+        </label>
+        <label class="control">
+          <span class="control-label">Show seen items</span>
+          <select id="wn-show-seen" class="control-input">
+            <option value="false" selected>Hide</option>
+            <option value="true">Show all</option>
+          </select>
+        </label>
+        <div class="wn-stats" id="wn-stats">—</div>
+      </div>
+
+      <div class="wn-collections" role="tablist" aria-label="Collections">
+        <button class="wn-coll-btn is-active" data-coll="feature_films" data-cat="feature-film" role="tab">Feature Films</button>
+        <button class="wn-coll-btn" data-coll="classic_tv" data-cat="tv-series" role="tab">Classic TV</button>
+        <button class="wn-coll-btn" data-coll="silent_films" data-cat="silent-film" role="tab">Silent Era</button>
+        <button class="wn-coll-btn" data-coll="classic_cartoons" data-cat="animation" role="tab">Animation</button>
+        <button class="wn-coll-btn" data-coll="newsandpublicaffairs" data-cat="newsreel" role="tab">Newsreels</button>
+        <button class="wn-coll-btn" data-coll="prelinger" data-cat="ephemeral" role="tab">Prelinger</button>
+        <button class="wn-coll-btn" data-coll="sci-fi_horror" data-cat="feature-film" role="tab">Sci-Fi / Horror</button>
+        <button class="wn-coll-btn" data-coll="film_noir" data-cat="feature-film" role="tab">Film Noir</button>
+      </div>
+    </section>
+
+    <section class="wn-feed" aria-label="Recent uploads">
+      <ol id="wn-list" class="wn-list"></ol>
+      <div id="wn-status" class="wn-status">Pick a collection to begin.</div>
+    </section>
+
+  </main>
+
+  <!-- Toast tray -->
+  <div id="toast" class="toast" hidden></div>
+
+  <!-- Templates -->
+  <template id="tpl-feed-item">
+    <li class="wn-item" data-archive-id="">
+      <a class="wn-poster" target="_blank" rel="noopener">
+        <img alt="" loading="lazy">
+        <div class="wn-poster-fallback" aria-hidden="true"></div>
+      </a>
+      <div class="wn-body">
+        <div class="wn-title">Loading…</div>
+        <div class="wn-meta"></div>
+        <div class="wn-desc"></div>
+      </div>
+      <div class="wn-actions">
+        <button class="btn btn-icon wn-act-copy" title="Copy Archive ID to clipboard">⧉</button>
+        <button class="btn btn-icon wn-act-seen" title="Mark as seen">✓</button>
+        <button class="btn btn-primary wn-act-add" title="Send to dashboard's Editor's Picks pending tray">Send to Picks</button>
+      </div>
+    </li>
+  </template>
+
+  <script src="js/api.js"></script>
+  <script src="js/whats-new.js"></script>
+</body>
+</html>

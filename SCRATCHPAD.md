@@ -2,9 +2,9 @@
 
 ## Current State
 
-- **Status**: M0 mostly done — Xcode project creation is the only blocker. Editorial pipeline (dashboard + featured.json) is live.
+- **Status**: M0 mostly done — Xcode project creation is the only blocker. Editorial pipeline + What's New ticker live; app icon master + tvOS integration plan complete.
 - **Active milestone**: M0 → M1
-- **Last session**: 2026-04-18 — featured.json seed, editorial dashboard, validate-pipeline.sh, Decisions 011–014, app-icon spec
+- **Last session**: 2026-04-18 (cont.) — Méliès moon SVG, icon composite + preview, What's New ticker, tvOS home-screen integration research, Decision 015
 - **Next actions**:
   1. **(Owner, at desk)** Create Xcode tvOS project at repo root (Product Name: `ArchiveWatch`, no spaces, tvOS 17+)
   2. Move Swift files from `ios/` into the Xcode-created `ArchiveWatch/` group, then delete `ios/`
@@ -36,14 +36,16 @@ Model does not apply here.
 ## Milestones
 
 ### M0 — Project Setup
-- [x] Research docs (`docs/research/metadata-sources.md`, `docs/research/design-reference.md`)
-- [x] Architecture decisions logged (DECISIONS 006–014)
+- [x] Research docs (`docs/research/metadata-sources.md`, `docs/research/design-reference.md`, `docs/research/tvos-home-screen-integration.md`)
+- [x] Architecture decisions logged (DECISIONS 006–015)
 - [x] Networking + model scaffold in `ios/`
 - [x] CLAUDE.md identity filled in
 - [x] `featured.json` seed (curated picks + dynamic shelves + categories)
 - [x] Editorial dashboard (replaces template `index.html`; doubles as live pipeline validator)
+- [x] What's New curation ticker (`whats-new.html`) with seen-tracking + dashboard handoff via localStorage
 - [x] `tools/validate-pipeline.sh` (CLI smoke test for the cascade)
-- [x] App icon spec (`docs/design/app-icon.md`)
+- [x] App icon spec (`docs/design/app-icon.md`) + master SVG (`assets/app-icon/icon-1024.svg`) + Méliès moon (`assets/app-icon/melies-moon.svg`) + multi-size preview page (`assets/app-icon/preview.html`)
+- [x] tvOS home-screen integration plan (Top Shelf + NSUserActivity + App Intents)
 - [ ] Xcode tvOS project created at repo root as `ArchiveWatch`
 - [ ] Swift files moved from `ios/` into Xcode group, `ios/` deleted
 - [ ] `AppVersion.xcconfig` wired to tvOS target (Debug + Release)
@@ -69,15 +71,18 @@ Model does not apply here.
   - [ ] Adult-content filter on by default; toggle in Settings (Decision 012)
   - [ ] Per-category accent colors applied to shelf titles + focus glow (Decision 013)
 
-### M2 — Search + Favorites
-> User searches the Archive, filters by facets, and favorites titles to
-> return to. Continue Watching appears on Home.
+### M2 — Search + Favorites + Siri reach
+> User searches the Archive, filters by facets, favorites titles, and
+> can launch random actions or save items via Siri.
 
 - **Acceptance criteria**:
   - [ ] Siri Remote keyboard + dictation search
   - [ ] Facet chips (Type / Decade / Length)
   - [ ] Favorites tab with SwiftData persistence
   - [ ] Continue Watching shelf (second row on Home), timecode not percent
+  - [ ] Deep link routing: `archivewatch://item/{id}`, `/play/{id}`, `/random/...` (Decision 015)
+  - [ ] NSUserActivity declared on Detail screens — "Hey Siri, add this to my Up Next" works (Decision 015)
+  - [ ] Three App Intents: SurpriseMe, RandomCategory, RandomCollection (Decisions 014 + 015)
 
 ### M3 — Browse + Taxonomy
 > User browses by decade, genre, and collection; list/grid toggle
@@ -94,9 +99,12 @@ Model does not apply here.
 > Store / TestFlight submission.
 
 - **Acceptance criteria**:
-  - [ ] Top Shelf extension (Continue Watching + New This Week)
+  - [ ] Top Shelf extension target with `.sectioned` content (Continue Watching + Editor's Picks + What's New) — Decision 015
+  - [ ] App Group container `group.com.bhwilkoff.archivewatch` with snapshot writers in main app
+  - [ ] BGAppRefreshTask updates the What's New cache periodically
   - [ ] Ambient dim on focus-hold > 2s
   - [ ] Shuffle Collection action on each shelf
+  - [ ] App icon shipped (master at `assets/app-icon/icon-1024.svg`; layered tvOS variants exported per `docs/design/app-icon.md`)
   - [ ] App Store screenshots + promotional copy
   - [ ] Attribution screen (TMDb logo + notice, Archive, Wikidata, Commons, LoC)
   - [ ] Privacy policy (trivial: "no data leaves your device except API calls to public services")
@@ -141,7 +149,9 @@ Model does not apply here.
 
 ### Completed
 - Editorial dashboard (`index.html` + `js/app.js` + `js/api.js` + `css/styles.css`) — live `featured.json` editor with metadata preview that doubles as a pipeline validator
+- What's New ticker (`whats-new.html` + `js/whats-new.js` + `css/whats-new.css`) — recent uploads from each major collection, tracks "seen" in localStorage, hands off picks to dashboard via `aw_pending` queue
 - `featured.json` seed with 7 personal favorites + 9 dynamic popularity shelves + 8 categories + adult-content filter list + random-action config
+- App icon master + Méliès moon SVG + multi-size preview at `assets/app-icon/preview.html`
 
 ### Next for Web
 - Enable GitHub Pages on `main` (Owner action — Settings → Pages → branch: main, root)
@@ -152,9 +162,10 @@ Model does not apply here.
 
 ## Open Questions
 
-- Which still goes in the v1 app icon? Méliès moon recommended (see `docs/design/app-icon.md`); needs owner sign-off
+- Méliès moon icon shipped as vector master at `assets/app-icon/icon-1024.svg`; production version may swap the illustration for a high-res photographic still from the 1902 film (PD via LoC / Wikimedia Commons). Owner to decide post-launch.
 - Silent preview clips on Detail focus — ship without, or generate server-side?
 - Serif body type on tvOS — Fraunces in dashboard works; prototype the same on tvOS panel before committing
+- Should the Top Shelf "What's New" section pull from the editorial-picks list or directly from the Archive recent-uploads feed? (See `docs/research/tvos-home-screen-integration.md` open questions.)
 
 ---
 
@@ -175,7 +186,42 @@ Model does not apply here.
     EnrichmentService, ContentItem, Taxonomy, response types
 - **State left**: Ready for Xcode tvOS project creation (M0 final gate before M1 UI work).
 
-### 2026-04-18 — Editorial pipeline, validator, decisions, app icon
+### 2026-04-18 (later) — Méliès moon, What's New ticker, tvOS integration plan
+- **State found**: Editorial pipeline + decisions in place; owner approved going forward with Méliès moon icon + What's New ticker, asked for tvOS home-screen integration research.
+- **Work done**:
+  - Researched tvOS home-screen integration surfaces (Top Shelf
+    extension styles, NSUserActivity for "add to Up Next" via Siri,
+    App Intents for voice-launched random actions, Apple TV App
+    partner program). Wrote
+    `docs/research/tvos-home-screen-integration.md` covering
+    architecture, App Group plumbing, deep-link routes, milestone
+    landing, and known gotchas.
+  - Logged Decision 015: ship Top Shelf (`.sectioned`) + NSUserActivity
+    + App Intents in M2 + M4; defer Apple TV App partner program to v2.
+  - Designed and implemented the Méliès moon as a hand-illustrated
+    SVG (`assets/app-icon/melies-moon.svg`) — anthropomorphic moon
+    face with rocket lodged in right eye, scaled to read clearly
+    from 64px to 1024px. Composed full app icon master
+    (`assets/app-icon/icon-1024.svg`) with bold orange field,
+    sprocketed black film frame (10 perforations top + bottom),
+    charcoal photo gutter, and the moon centered inside.
+  - Built `assets/app-icon/preview.html` — multi-size icon preview
+    plus a Home Screen mock with Apple TV / Netflix / Disney+ / Plex
+    neighbors so the brand signal can be evaluated at a glance.
+  - Built the What's New ticker (`whats-new.html` +
+    `js/whats-new.js` + `css/whats-new.css`) — collection-tabbed feed
+    of the 8 major collections, sorted by `-publicdate`, with
+    seen-tracking in localStorage, IMDb + Playable badge hydration
+    per item, copy-to-clipboard, and "Send to Picks" which queues
+    archiveIDs in `aw_pending`. Dashboard now shows a banner when
+    pending items are waiting and offers a one-click "Add to
+    Editor's Picks" merge.
+- **State left**: Curation tooling fully assembled (dashboard +
+  ticker + pipeline validator). Icon master ready for export. tvOS
+  integration plan documented end-to-end. Still awaiting owner-at-desk
+  steps: Xcode project, GitHub Pages enable, validator run.
+
+### 2026-04-18 (earlier) — Editorial pipeline, validator, decisions, app icon spec
 - **State found**: Owner away from desktop; needed productive non-Xcode work.
 - **Work done**:
   - Tried to live-validate the cascade against the 7 personal favorites via `curl`

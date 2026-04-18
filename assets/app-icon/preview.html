@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive Watch — Icon Preview</title>
+  <style>
+    :root {
+      --bg: #0A0A0A;
+      --surface: #15151A;
+      --text: #F4F4F6;
+      --text-muted: #9CA0AC;
+      --accent: #FF5C35;
+      --border: #2C2E38;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 32px 24px 80px;
+      min-height: 100dvh;
+    }
+    h1 {
+      font-family: ui-serif, "New York", Georgia, serif;
+      font-weight: 900;
+      font-size: 1.6rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .lede {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+    section {
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    h2 {
+      font-family: ui-serif, "New York", Georgia, serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: flex-end;
+    }
+    .icon {
+      display: inline-block;
+      border-radius: 22%;     /* tvOS / iOS app icon corner mask */
+      overflow: hidden;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.5);
+    }
+    /* iOS/tvOS app icons get a "squircle" mask. CSS border-radius
+       at 22% approximates Apple's mask closely enough for preview. */
+    .icon img, .icon svg { display: block; width: 100%; height: 100%; }
+
+    .label {
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .icon-1024 { width: 320px; height: 320px; }
+    .icon-512  { width: 192px; height: 192px; }
+    .icon-256  { width: 128px; height: 128px; }
+    .icon-128  { width: 96px;  height: 96px;  }
+    .icon-64   { width: 64px;  height: 64px;  }
+
+    .stack { display: flex; flex-direction: column; align-items: center; }
+
+    /* Home screen mock — multiple icons together to test the brand
+       signal at "next to other apps" scale. */
+    .home-mock {
+      background:
+        linear-gradient(160deg, #1F2532 0%, #0A0F1A 100%);
+      padding: 40px;
+      border-radius: 24px;
+      display: grid;
+      grid-template-columns: repeat(5, 110px);
+      gap: 24px;
+      max-width: max-content;
+    }
+    .home-mock .neighbor {
+      width: 110px; height: 110px;
+      border-radius: 22%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      color: white;
+    }
+    .neighbor-tv  { background: #000; }
+    .neighbor-tv::before { content: "tv"; font-style: italic; font-family: ui-serif, serif; font-size: 1.6rem; }
+    .neighbor-nf  { background: #E50914; color: #FFF; }
+    .neighbor-nf::before { content: "N"; font-family: ui-serif, serif; font-size: 2rem; font-weight: 900; }
+    .neighbor-d   { background: #113CCF; color: #FFF; }
+    .neighbor-d::before { content: "D+"; font-family: ui-serif, serif; font-size: 1.4rem; font-weight: 900; font-style: italic; }
+    .neighbor-pl  { background: #E5A00D; color: #000; }
+    .neighbor-pl::before { content: "Plex"; font-size: 0.9rem; }
+
+    .footnote {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      max-width: 640px;
+      line-height: 1.5;
+    }
+    code {
+      font-family: ui-monospace, SF Mono, Menlo, monospace;
+      background: var(--surface);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Archive Watch — App Icon Preview</h1>
+  <p class="lede">
+    Vector master at <code>assets/app-icon/icon-1024.svg</code>. Below
+    is the same SVG rendered at the tvOS-relevant sizes, plus a Home
+    Screen mock showing it next to peer apps to gauge brand signal.
+  </p>
+
+  <section>
+    <h2>Master 1024 × 1024</h2>
+    <div class="row">
+      <div class="stack">
+        <div class="icon icon-1024">
+          <img src="icon-1024.svg" alt="Archive Watch app icon at 1024px">
+        </div>
+        <div class="label">App Store / master</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Scale-down test</h2>
+    <p class="lede" style="margin-bottom: 20px;">
+      The same master rendered at decreasing sizes. The Méliès moon
+      should remain recognisable — and the rocket silhouette should
+      survive — all the way down to 64px (the smallest tvOS Top Shelf
+      thumbnail).
+    </p>
+    <div class="row">
+      <div class="stack">
+        <div class="icon icon-512"><img src="icon-1024.svg" alt=""></div>
+        <div class="label">512</div>
+      </div>
+      <div class="stack">
+        <div class="icon icon-256"><img src="icon-1024.svg" alt=""></div>
+        <div class="label">256</div>
+      </div>
+      <div class="stack">
+        <div class="icon icon-128"><img src="icon-1024.svg" alt=""></div>
+        <div class="label">128</div>
+      </div>
+      <div class="stack">
+        <div class="icon icon-64"><img src="icon-1024.svg" alt=""></div>
+        <div class="label">64</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Home Screen mock</h2>
+    <p class="lede" style="margin-bottom: 20px;">
+      Archive Watch among streaming peers. The bold orange should
+      separate cleanly from Apple TV (black), Netflix (red), Disney+
+      (blue), and Plex (yellow).
+    </p>
+    <div class="home-mock">
+      <div class="neighbor neighbor-tv"></div>
+      <div class="neighbor neighbor-nf"></div>
+      <div class="icon icon-128" style="width:110px;height:110px;">
+        <img src="icon-1024.svg" alt="Archive Watch">
+      </div>
+      <div class="neighbor neighbor-d"></div>
+      <div class="neighbor neighbor-pl"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>The moon by itself</h2>
+    <p class="lede" style="margin-bottom: 20px;">
+      For verifying anatomy. This is what gets composited inside the
+      film frame. Source: <code>assets/app-icon/melies-moon.svg</code>.
+    </p>
+    <div class="row">
+      <div class="stack">
+        <div style="width:540px; height:400px; background:#0A0907; border-radius: 8px; padding: 20px;">
+          <img src="melies-moon.svg" alt="The Méliès moon" style="width:100%;height:100%;">
+        </div>
+        <div class="label">Moon only · on photo-area background</div>
+      </div>
+    </div>
+  </section>
+
+  <p class="footnote">
+    Production: this vector serves as the <strong>placeholder</strong>
+    icon. The shipping App Store icon may swap the illustration for a
+    high-resolution photographic still from the original 1902 film
+    (public domain, available via the Library of Congress National
+    Film Registry and Wikimedia Commons). The frame, sprockets, and
+    bold-color background remain unchanged. See
+    <code>docs/design/app-icon.md</code> for the full spec and tvOS
+    layered-icon variants.
+  </p>
+
+</body>
+</html>
