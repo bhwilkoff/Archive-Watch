@@ -1,71 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>App Name</title>
-  <!-- PWA / iOS Safari standalone support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archive Watch — Editorial Dashboard</title>
+
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="App Name">
-  <meta name="theme-color" content="#0047FF">
-  <!-- Smart App Banner — uncomment when iOS app is on the App Store -->
-  <!-- <meta name="apple-itunes-app" content="app-id=YOUR_APP_ID"> -->
+  <meta name="apple-mobile-web-app-title" content="Archive Watch">
+  <meta name="theme-color" content="#0A0A0A">
+
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- Skip link for keyboard navigation (WCAG AA) -->
-  <a href="#main-content" class="skip-link">Skip to content</a>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- AUTH SCREEN — shown when no session -->
-  <div id="auth-screen" class="screen" aria-label="Sign in">
-    <div class="auth-card">
-      <h1 class="auth-title">App Name</h1>
-      <p class="auth-subtitle">Your tagline here</p>
-      <form id="auth-form" novalidate>
-        <div class="field-group">
-          <label for="auth-handle" class="field-label">Handle</label>
-          <input type="text" id="auth-handle" class="field-input" placeholder="you@example.com" required>
-        </div>
-        <div class="field-group">
-          <label for="auth-password" class="field-label">Password</label>
-          <input type="password" id="auth-password" class="field-input" required>
-        </div>
-        <div id="auth-error" class="error-banner" hidden role="alert"></div>
-        <button type="submit" class="btn btn-primary btn-full" id="auth-submit">Sign in</button>
-      </form>
+  <header class="topbar">
+    <div class="topbar-brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <h1 class="brand-name">Archive Watch</h1>
+      <span class="brand-tag">Editorial Dashboard</span>
+    </div>
+    <div class="topbar-actions">
+      <a href="whats-new.html" class="btn btn-ghost" title="Browse recent uploads">What's New</a>
+      <button id="btn-load-remote" class="btn btn-ghost" title="Load featured.json from this site">Reload</button>
+      <button id="btn-import" class="btn btn-ghost" title="Import a featured.json file">Import</button>
+      <input type="file" id="file-import" accept="application/json" hidden>
+      <button id="btn-export" class="btn btn-primary" title="Download the current featured.json">Export</button>
+    </div>
+  </header>
+
+  <!-- Pending banner — surfaces items queued by the What's New ticker -->
+  <div id="pending-banner" class="pending-banner" hidden>
+    <div class="pending-banner-text">
+      <strong id="pending-count">0</strong>
+      <span> items waiting in your pending tray from <a href="whats-new.html">What's New</a>.</span>
+    </div>
+    <div class="pending-banner-actions">
+      <button id="btn-pending-merge" class="btn btn-primary">Add to Editor's Picks</button>
+      <button id="btn-pending-discard" class="btn btn-ghost">Discard</button>
     </div>
   </div>
 
-  <!-- MAIN APP — shown when authenticated -->
-  <div id="app-screen" class="screen" hidden>
+  <main id="main" class="main-grid">
 
-    <!-- SIDEBAR -->
-    <aside id="channels-sidebar" class="channels-sidebar" aria-label="Navigation">
-      <div class="sidebar-header">
-        <h2 class="sidebar-title">App Name</h2>
+    <!-- Side rail: shelves overview + add -->
+    <aside class="rail" aria-label="Shelves">
+      <div class="rail-section">
+        <h2 class="rail-heading">Shelves</h2>
+        <ol id="shelf-list" class="shelf-list" aria-label="Shelf list"></ol>
+        <button id="btn-add-shelf" class="btn btn-ghost btn-block">+ New Shelf</button>
       </div>
-      <nav class="sidebar-nav" aria-label="Main navigation">
-        <!-- Add nav items here. Pattern: -->
-        <!-- <button class="sidebar-nav-item active" id="nav-home-btn" data-view="home">
-          <svg>...</svg><span>Home</span>
-        </button> -->
-      </nav>
+
+      <div class="rail-section">
+        <h2 class="rail-heading">Categories</h2>
+        <ul id="category-list" class="category-list" aria-label="Category list"></ul>
+      </div>
+
+      <div class="rail-section rail-meta">
+        <p class="meta-line"><span class="meta-key">Schema</span> <span id="meta-schema">—</span></p>
+        <p class="meta-line"><span class="meta-key">Updated</span> <span id="meta-updated">—</span></p>
+        <p class="meta-line"><span class="meta-key">Items</span> <span id="meta-counts">—</span></p>
+      </div>
     </aside>
 
-    <!-- VIEWS — one section per view, toggled by showView() -->
-    <main id="main-content">
-      <section id="view-home" class="view" aria-label="Home">
-        <div class="view-inner">
-          <h2 class="view-heading">Home</h2>
-          <p>Your first view goes here.</p>
-        </div>
-      </section>
-    </main>
+    <!-- Workspace: shelf detail editor -->
+    <section class="workspace" aria-label="Shelf editor">
+      <div id="empty-state" class="empty-state">
+        <h2>Pick a shelf from the left to begin</h2>
+        <p>Or hit <strong>Reload</strong> to fetch the latest <code>featured.json</code>.</p>
+      </div>
 
-  </div>
+      <article id="shelf-editor" class="shelf-editor" hidden>
+        <header class="editor-head">
+          <div class="editor-titles">
+            <input id="shelf-title" class="input-title" placeholder="Shelf title" aria-label="Shelf title">
+            <input id="shelf-subtitle" class="input-subtitle" placeholder="Optional subtitle" aria-label="Shelf subtitle">
+          </div>
+          <div class="editor-controls">
+            <label class="control">
+              <span class="control-label">Category</span>
+              <select id="shelf-category" class="control-input"></select>
+            </label>
+            <label class="control">
+              <span class="control-label">Type</span>
+              <select id="shelf-type" class="control-input">
+                <option value="curated">Curated (manual list)</option>
+                <option value="dynamic">Dynamic (Archive query)</option>
+              </select>
+            </label>
+            <button id="btn-delete-shelf" class="btn btn-danger" title="Delete this shelf">Delete</button>
+          </div>
+        </header>
+
+        <!-- Curated mode -->
+        <section id="pane-curated" class="pane">
+          <div class="pane-add">
+            <label class="add-row">
+              <span class="control-label">Add Archive ID or URL</span>
+              <input id="add-archive-id" class="control-input" placeholder="e.g. night_of_the_living_dead or https://archive.org/details/...">
+            </label>
+            <button id="btn-add-id" class="btn btn-primary">Add &amp; preview</button>
+          </div>
+          <div id="add-feedback" class="feedback" hidden></div>
+
+          <ol id="curated-items" class="curated-items" aria-label="Items"></ol>
+        </section>
+
+        <!-- Dynamic mode -->
+        <section id="pane-dynamic" class="pane" hidden>
+          <label class="control">
+            <span class="control-label">Archive query (Lucene-style)</span>
+            <textarea id="shelf-query" class="control-input" rows="2" placeholder="mediatype:movies AND collection:feature_films"></textarea>
+          </label>
+          <div class="control-row">
+            <label class="control">
+              <span class="control-label">Sort</span>
+              <select id="shelf-sort" class="control-input">
+                <option value="-downloads">Most downloads (all-time)</option>
+                <option value="-week">Most downloads (this week)</option>
+                <option value="-month">Most downloads (this month)</option>
+                <option value="-publicdate">Recently added</option>
+                <option value="-year">Newest first</option>
+                <option value="year">Oldest first</option>
+              </select>
+            </label>
+            <label class="control">
+              <span class="control-label">Limit</span>
+              <input id="shelf-limit" class="control-input" type="number" min="6" max="100" value="24">
+            </label>
+          </div>
+          <div class="dynamic-actions">
+            <button id="btn-preview-dynamic" class="btn btn-primary">Preview results</button>
+            <span class="hint">Live-fetched from Archive.org. Shows what the tvOS app will display.</span>
+          </div>
+          <ol id="dynamic-preview" class="curated-items" aria-label="Preview"></ol>
+        </section>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>This product uses the TMDB API but is not endorsed or certified by TMDB. Item metadata © Internet Archive contributors. The dashboard runs entirely in your browser; nothing is sent to any server.</span>
+  </footer>
+
+  <!-- Templates -->
+  <template id="tpl-shelf-row">
+    <li class="shelf-row" tabindex="0" role="button">
+      <div class="shelf-row-main">
+        <span class="shelf-row-title"></span>
+        <span class="shelf-row-meta"></span>
+      </div>
+      <span class="shelf-row-cat-dot" aria-hidden="true"></span>
+    </li>
+  </template>
+
+  <template id="tpl-curated-item">
+    <li class="item-row" data-archive-id="">
+      <div class="item-poster">
+        <img alt="" loading="lazy">
+        <div class="item-poster-fallback" aria-hidden="true"></div>
+      </div>
+      <div class="item-body">
+        <div class="item-title">Loading…</div>
+        <div class="item-meta"></div>
+        <input class="item-note" placeholder="Curator note (optional)">
+      </div>
+      <div class="item-actions">
+        <button class="btn btn-icon item-up" title="Move up" aria-label="Move up">↑</button>
+        <button class="btn btn-icon item-down" title="Move down" aria-label="Move down">↓</button>
+        <a class="btn btn-icon item-open" target="_blank" rel="noopener" title="Open on Archive.org" aria-label="Open on Archive.org">↗</a>
+        <button class="btn btn-icon item-remove" title="Remove" aria-label="Remove">×</button>
+      </div>
+    </li>
+  </template>
 
   <script src="js/api.js"></script>
   <script src="js/app.js"></script>
