@@ -342,3 +342,58 @@ the metadata before navigating, (b) silently re-rolling up to 3 times
 on failure, (c) the `tools/validate-pipeline.sh` script and the
 dashboard preview both surface "not playable" so curators can spot
 broken items in advance.
+
+---
+
+## Decision 015 — tvOS home screen integration: Top Shelf + NSUserActivity + App Intents; skip Apple TV App partner program for v1
+*Date: 2026-04-18*
+
+**Decision**: Three integrations land in v1, one is deferred:
+
+1. **Top Shelf extension** with `.sectioned` style, surfacing
+   Continue Watching + Editor's Picks + What's New when our app icon
+   is focused on the tvOS Home Screen. **Ships in M4.** Reads from a
+   shared App Group container (`group.com.bhwilkoff.archivewatch`)
+   that the main app refreshes via `BGAppRefreshTask`.
+
+2. **NSUserActivity** declared on Detail screens to enable
+   *"Hey Siri, add this to my Up Next"* (which adds to the Apple TV
+   app's system-wide watchlist). **Ships in M2.** Tiny code surface,
+   real user value, no partnership required.
+
+3. **App Intents** (`AppIntent` + `AppShortcutsProvider`) for the
+   three random actions, enabling *"Hey Siri, surprise me on Archive
+   Watch"*. **Ships in M2** alongside Decision 014's random actions
+   and the deep-link routing they need.
+
+4. **Apple TV App partner program** (third-party content surfacing
+   directly inside Apple's TV app's Up Next, Universal Search,
+   Single-Sign-On, Subscription Registration) is **deferred to v2**.
+   It requires a formal partnership with Apple, ongoing engineering
+   to maintain Apple's prescribed metadata feed, and is fundamentally
+   designed for premium streaming services. Revisit once we have
+   meaningful install count.
+
+Deep-link routing (`archivewatch://item/{id}`, `/play/{id}`,
+`/random/...`) is a prerequisite for #1 and #3 and lands in M2.
+
+**Rationale**: These three integrations capture ~95% of what makes
+tvOS feel like a first-class home for the app, with very little
+incremental engineering on top of what M2 and M4 already require.
+Skipping the partner program keeps the project free of contractual
+obligations to Apple.
+
+**Alternatives considered**:
+- Ship only the Top Shelf and skip NSUserActivity / App Intents
+  (rejected — the Siri integrations are nearly free given the random
+  actions are already specified).
+- Pursue full Apple TV App integration in v1 (rejected — wrong
+  trade-off for a free, labor-of-love app; partner program is a
+  multi-month commitment).
+
+**Trade-offs**: Top Shelf adds a second target to maintain, an App
+Group entitlement to manage, and `BGAppRefreshTask` complexity. The
+research doc (`docs/research/tvos-home-screen-integration.md`)
+captures the full implementation plan including known gotchas
+(extension memory limits, image-size requirements, deep-link
+defensiveness).

@@ -53,6 +53,84 @@
   }
 
   /* ----------------------------------------------------------------
+     Pending tray (items queued by the What's New ticker)
+  ---------------------------------------------------------------- */
+
+  function loadPending() {
+    try {
+      const raw = localStorage.getItem('aw_pending');
+      return raw ? JSON.parse(raw) : [];
+    } catch { return []; }
+  }
+  function savePending(arr) {
+    if (arr.length === 0) localStorage.removeItem('aw_pending');
+    else localStorage.setItem('aw_pending', JSON.stringify(arr));
+  }
+
+  function renderPendingBanner() {
+    const pending = loadPending();
+    const banner = $('pending-banner');
+    if (pending.length === 0) {
+      banner.hidden = true;
+      return;
+    }
+    $('pending-count').textContent = String(pending.length);
+    banner.hidden = false;
+  }
+
+  function findEditorsPicksShelf() {
+    if (!data) return -1;
+    return (data.shelves || []).findIndex(s => s.id === 'editors-picks');
+  }
+
+  function mergePendingIntoPicks() {
+    const pending = loadPending();
+    if (pending.length === 0) return;
+    if (!data) return;
+
+    let idx = findEditorsPicksShelf();
+    if (idx < 0) {
+      // Pick the first curated shelf as a fallback, or create a new one.
+      idx = (data.shelves || []).findIndex(s => s.type === 'curated');
+      if (idx < 0) {
+        data.shelves = data.shelves || [];
+        data.shelves.unshift({
+          id: 'editors-picks',
+          title: "Editor's Picks",
+          subtitle: 'Hand-selected curiosities and favorites',
+          category: data.categories?.[0]?.id || 'feature-film',
+          type: 'curated',
+          items: []
+        });
+        idx = 0;
+      }
+    }
+
+    const shelf = data.shelves[idx];
+    shelf.items = shelf.items || [];
+    let added = 0;
+    for (const id of pending) {
+      if (!shelf.items.some(it => it.archiveID === id)) {
+        shelf.items.push({ archiveID: id, note: '' });
+        added++;
+      }
+    }
+
+    savePending([]);
+    setDirty(true);
+    activeShelfIndex = idx;
+    render();
+    renderPendingBanner();
+    flash(`Added ${added} item${added === 1 ? '' : 's'} to ${shelf.title}. Don't forget to Export.`, 'success');
+  }
+
+  function discardPending() {
+    if (!confirm('Discard the pending tray? The items will be removed from the queue.')) return;
+    savePending([]);
+    renderPendingBanner();
+  }
+
+  /* ----------------------------------------------------------------
      Load + Save
   ---------------------------------------------------------------- */
 
@@ -517,6 +595,14 @@
 
     $('btn-add-shelf').addEventListener('click', newShelf);
     $('btn-add-id').addEventListener('click', handleAddID);
+
+    $('btn-pending-merge').addEventListener('click', mergePendingIntoPicks);
+    $('btn-pending-discard').addEventListener('click', discardPending);
+    renderPendingBanner();
+    // Re-check when the user returns to this tab from What's New.
+    window.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') renderPendingBanner();
+    });
     $('add-archive-id').addEventListener('keydown', (e) => {
       if (e.key === 'Enter') { e.preventDefault(); handleAddID(); }
     });

@@ -24,12 +24,25 @@
       <span class="brand-tag">Editorial Dashboard</span>
     </div>
     <div class="topbar-actions">
+      <a href="whats-new.html" class="btn btn-ghost" title="Browse recent uploads">What's New</a>
       <button id="btn-load-remote" class="btn btn-ghost" title="Load featured.json from this site">Reload</button>
       <button id="btn-import" class="btn btn-ghost" title="Import a featured.json file">Import</button>
       <input type="file" id="file-import" accept="application/json" hidden>
       <button id="btn-export" class="btn btn-primary" title="Download the current featured.json">Export</button>
     </div>
   </header>
+
+  <!-- Pending banner — surfaces items queued by the What's New ticker -->
+  <div id="pending-banner" class="pending-banner" hidden>
+    <div class="pending-banner-text">
+      <strong id="pending-count">0</strong>
+      <span> items waiting in your pending tray from <a href="whats-new.html">What's New</a>.</span>
+    </div>
+    <div class="pending-banner-actions">
+      <button id="btn-pending-merge" class="btn btn-primary">Add to Editor's Picks</button>
+      <button id="btn-pending-discard" class="btn btn-ghost">Discard</button>
+    </div>
+  </div>
 
   <main id="main" class="main-grid">
 
