@@ -1,0 +1,15 @@
+{
+  "$schema": "Archive Watch seed catalog. Produced by build-catalog.html (browser) or tools/build-catalog.mjs (future CLI). Shipped inside the tvOS app bundle and loaded by ios/Services/SeedCatalog.swift on first launch so the app has immediate content without hitting the network. The live EnrichmentService replaces / enriches these entries in the background. Regenerate when featured.json shelves change or when you want fresh popularity data.",
+
+  "version": 1,
+  "generatedAt": null,
+  "generator": null,
+  "stats": {
+    "totalItems": 0,
+    "itemsWithIMDb": 0,
+    "itemsWithTMDb": 0,
+    "itemsWithPoster": 0,
+    "itemsPlayable": 0
+  },
+  "items": []
+}

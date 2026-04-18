@@ -2,16 +2,17 @@
 
 ## Current State
 
-- **Status**: M0 mostly done — Xcode project creation is the only blocker. Editorial pipeline + What's New ticker live; app icon master + tvOS integration plan complete.
+- **Status**: M0 mostly done — Xcode project creation is the only blocker. Editorial pipeline, What's New ticker, app icon master, tvOS integration plan, seed catalog pipeline all shipped.
 - **Active milestone**: M0 → M1
-- **Last session**: 2026-04-18 (cont.) — Méliès moon SVG, icon composite + preview, What's New ticker, tvOS home-screen integration research, Decision 015
+- **Last session**: 2026-04-19 — categorization schema (collection registry), seed catalog generator (browser), SeedCatalog Swift loader, first-launch prime wiring
 - **Next actions**:
-  1. **(Owner, at desk)** Create Xcode tvOS project at repo root (Product Name: `ArchiveWatch`, no spaces, tvOS 17+)
-  2. Move Swift files from `ios/` into the Xcode-created `ArchiveWatch/` group, then delete `ios/`
-  3. Create `Secrets.xcconfig` (gitignored) with `TMDB_BEARER_TOKEN` (free TMDb account → API → v4 read token)
-  4. Run `tools/validate-pipeline.sh` from desktop to confirm the 7 personal favorites are well-formed (IMDb, playable derivative)
-  5. Run `tools/validate-pipeline.sh --tmdb` (with token in env) to confirm TMDb match rate
-  6. Push to GitHub Pages (Settings → Pages → main branch root) so the dashboard is live
+  1. **(Owner, any device)** Push to GitHub Pages (Settings → Pages → main branch root) so the dashboard + build-catalog + what's-new ticker are live
+  2. **(Owner, any device)** Once live, open `build-catalog.html` on your phone or laptop, paste your TMDb v4 bearer token, hit Build. Download the resulting `catalog.json` and commit it to the repo root.
+  3. **(Owner, at desk)** Create Xcode tvOS project at repo root (Product Name: `ArchiveWatch`, no spaces, tvOS 17+)
+  4. Move Swift files from `ios/` into the Xcode-created `ArchiveWatch/` group, then delete `ios/`
+  5. Add `catalog.json` and `collections.json` to the app bundle as resources (copy to bundle root; SeedCatalog + CollectionRegistry read them via `Bundle.main`)
+  6. Create `Secrets.xcconfig` (gitignored) with `TMDB_BEARER_TOKEN`
+  7. Run `tools/validate-pipeline.sh --tmdb` to sanity-check TMDb match rate
 - **Open questions** (resolved):
   - Adult content filtered by default? **Yes** — Decision 012
   - Per-category accent colors? **Yes** — Decision 013
@@ -46,6 +47,9 @@ Model does not apply here.
 - [x] `tools/validate-pipeline.sh` (CLI smoke test for the cascade)
 - [x] App icon spec (`docs/design/app-icon.md`) + master SVG (`assets/app-icon/icon-1024.svg`) + Méliès moon (`assets/app-icon/melies-moon.svg`) + multi-size preview page (`assets/app-icon/preview.html`)
 - [x] tvOS home-screen integration plan (Top Shelf + NSUserActivity + App Intents)
+- [x] Categorization schema: `docs/taxonomy/collections.json` + Swift `CollectionRegistry` (expanded subject-to-genre map, collection weights, adult deny-list)
+- [x] Seed catalog pipeline: browser generator (`build-catalog.html`), `catalog.json` schema, Swift `SeedCatalog.prime(into:)` first-launch loader wired into the app shell via `RootView`
+- [ ] `catalog.json` generated from real Archive + TMDb data (owner runs build-catalog.html once Pages is live + TMDb token is in hand)
 - [ ] Xcode tvOS project created at repo root as `ArchiveWatch`
 - [ ] Swift files moved from `ios/` into Xcode group, `ios/` deleted
 - [ ] `AppVersion.xcconfig` wired to tvOS target (Debug + Release)
@@ -124,6 +128,9 @@ Model does not apply here.
 - [x] `ArtworkResolver` — cascading poster/backdrop resolution
 - [x] `EnrichmentService` — orchestrator that produces a `ContentItem`
 - [x] `ContentItem` SwiftData model + `Taxonomy` controlled vocabulary
+- [x] `CollectionRegistry` — Archive collection → category + weight + adult filter, shared by Swift and JS via `docs/taxonomy/collections.json`
+- [x] `SeedCatalog` — Swift loader that populates SwiftData from bundled `catalog.json` on first launch
+- [x] Browser catalog generator (`build-catalog.html`) — produces `catalog.json` from live Archive + TMDb data, runs on any device
 
 ### Next for Enrichment
 - [ ] `Secrets.xcconfig` with TMDb bearer token (M0)
@@ -156,7 +163,9 @@ Model does not apply here.
 ### Next for Web
 - Enable GitHub Pages on `main` (Owner action — Settings → Pages → branch: main, root)
 - Once live, link the dashboard URL in README
+- Open `build-catalog.html` once Pages is live to generate the real `catalog.json`
 - (Future) Drag-and-drop reorder for shelves and items (currently up/down buttons)
+- (Future) Node CLI equivalent of build-catalog for scheduled GitHub Actions refresh
 
 ---
 
@@ -185,6 +194,44 @@ Model does not apply here.
     TMDbClient, WikidataClient, DerivativePicker, ArtworkResolver,
     EnrichmentService, ContentItem, Taxonomy, response types
 - **State left**: Ready for Xcode tvOS project creation (M0 final gate before M1 UI work).
+
+### 2026-04-19 — Categorization schema + seed catalog pipeline
+- **State found**: Editorial + icon + tvOS integration plan complete; owner asked to start the categorization schema and the cache database of popular videos for launch.
+- **Work done**:
+  - Authored `docs/taxonomy/collections.json` as the authoritative
+    Archive-collection registry. 15 major collections with category
+    mapping, display names, weights (for disambiguating overlapping
+    collection membership), adult deny-list, and an extended
+    subject-keyword → Genre map shared between Swift and JS.
+  - Added `ios/Models/CollectionRegistry.swift` reading the bundled
+    JSON, exposing `info(for:)`, `isAdult(_:)`, `containsAdult(_:)`,
+    `genre(forSubject:)`, `dominantCollection(from:)`. Rewired
+    `ContentTypeClassifier.classify(...)` to consult the registry
+    first, fall back to the string-contains heuristics for
+    unregistered collections.
+  - Defined `catalog.json` (root) as the tvOS seed-catalog schema,
+    initialised as an empty placeholder so the repo always compiles.
+  - Built the browser catalog generator (`build-catalog.html` +
+    `js/build-catalog.js` + `css/build-catalog.css`). Reads
+    `featured.json`, resolves every dynamic shelf against Archive's
+    scrape API, fetches per-item metadata, and — if you paste a TMDb
+    v4 bearer token — enriches each result with poster/backdrop/
+    credits/runtime. Concurrency-limited, stop-able mid-run. Outputs
+    a downloadable `catalog.json`. Works from a phone.
+  - Added `ios/Services/SeedCatalog.swift` — `@MainActor enum`
+    `SeedCatalog.prime(into:)` that reads the bundled `catalog.json`
+    and inserts non-existing items into the app's SwiftData store
+    on first launch. Idempotent. Maps catalog fidelity to
+    `EnrichmentTier` (fullyEnriched / identifierResolved /
+    archiveOnly) so the live refresh knows which items to
+    prioritize.
+  - Wired the primer into `AppNameApp.body` via a tiny `RootView`
+    wrapper that pulls `@Environment(\\.modelContext)` from the same
+    `.modelContainer(for:)` the content views use.
+- **State left**: Seed catalog schema + loader + generator are
+  shipped, but `catalog.json` itself is still empty — needs a run
+  of the browser generator (blocked on GitHub Pages going live).
+  All other M0 boxes done.
 
 ### 2026-04-18 (later) — Méliès moon, What's New ticker, tvOS integration plan
 - **State found**: Editorial pipeline + decisions in place; owner approved going forward with Méliès moon icon + What's New ticker, asked for tvOS home-screen integration research.
