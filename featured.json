@@ -1,0 +1,218 @@
+{
+  "version": 1,
+  "schemaVersion": "1.0.0",
+  "updatedAt": "2026-04-17",
+  "notes": "Curated by hand. Edit via the editorial dashboard at /dashboard.html or by hand. Curated picks are explicit Archive identifiers; dynamic shelves are populated at runtime by the tvOS app calling the Archive scrape API with the given query + sort. The tvOS app filters out items in adultCollections by default (see Settings).",
+
+  "categories": [
+    {
+      "id": "feature-film",
+      "displayName": "Feature Films",
+      "shortName": "Films",
+      "accent": "#FF5C35",
+      "posterAspect": "2:3"
+    },
+    {
+      "id": "tv-series",
+      "displayName": "Classic TV",
+      "shortName": "TV",
+      "accent": "#2D5BFF",
+      "posterAspect": "16:9"
+    },
+    {
+      "id": "silent-film",
+      "displayName": "Silent Era",
+      "shortName": "Silent",
+      "accent": "#C9A66B",
+      "posterAspect": "2:3"
+    },
+    {
+      "id": "animation",
+      "displayName": "Animation",
+      "shortName": "Animation",
+      "accent": "#FF4D8D",
+      "posterAspect": "2:3"
+    },
+    {
+      "id": "newsreel",
+      "displayName": "Newsreels & Footage",
+      "shortName": "News",
+      "accent": "#8A8F98",
+      "posterAspect": "16:9"
+    },
+    {
+      "id": "documentary",
+      "displayName": "Documentary",
+      "shortName": "Docs",
+      "accent": "#3FA796",
+      "posterAspect": "16:9"
+    },
+    {
+      "id": "ephemeral",
+      "displayName": "Ephemeral & Educational",
+      "shortName": "Ephemera",
+      "accent": "#7C5BBA",
+      "posterAspect": "16:9"
+    },
+    {
+      "id": "short-film",
+      "displayName": "Short Films",
+      "shortName": "Shorts",
+      "accent": "#E8A317",
+      "posterAspect": "2:3"
+    }
+  ],
+
+  "shelves": [
+    {
+      "id": "editors-picks",
+      "title": "Editor's Picks",
+      "subtitle": "Hand-selected curiosities and favorites",
+      "category": "feature-film",
+      "type": "curated",
+      "items": [
+        { "archiveID": "Despotis1946", "note": "Personal favorite \u2014 1946" },
+        { "archiveID": "DontBeaS1947", "note": "Personal favorite \u2014 1947 educational" },
+        { "archiveID": "democracy_1945", "note": "Personal favorite \u2014 1945" },
+        { "archiveID": "george-formby-singing", "note": "Personal favorite \u2014 George Formby" },
+        { "archiveID": "silent-tetherball-or-do-do", "note": "Personal favorite \u2014 silent comedy" },
+        { "archiveID": "silent-his-brave-defender", "note": "Personal favorite \u2014 silent" },
+        { "archiveID": "casftm_000001", "note": "Personal favorite" }
+      ]
+    },
+    {
+      "id": "popular-features",
+      "title": "Popular Feature Films",
+      "subtitle": "Most downloaded this week",
+      "category": "feature-film",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:feature_films",
+      "sort": ["-week"],
+      "limit": 24
+    },
+    {
+      "id": "all-time-features",
+      "title": "All-Time Favorites",
+      "subtitle": "Most downloaded ever",
+      "category": "feature-film",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:feature_films",
+      "sort": ["-downloads"],
+      "limit": 24
+    },
+    {
+      "id": "popular-classic-tv",
+      "title": "Classic Television",
+      "subtitle": "Vintage broadcasts \u2014 most watched",
+      "category": "tv-series",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:classic_tv",
+      "sort": ["-downloads"],
+      "limit": 24
+    },
+    {
+      "id": "silent-era",
+      "title": "From the Silent Era",
+      "subtitle": "Cinema before sound",
+      "category": "silent-film",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:silent_films",
+      "sort": ["-downloads"],
+      "limit": 24
+    },
+    {
+      "id": "classic-cartoons",
+      "title": "Classic Cartoons",
+      "subtitle": "Pre-1970 animation",
+      "category": "animation",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:classic_cartoons",
+      "sort": ["-downloads"],
+      "limit": 24
+    },
+    {
+      "id": "prelinger",
+      "title": "The Prelinger Archive",
+      "subtitle": "Industrial, educational, and ephemeral film",
+      "category": "ephemeral",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:prelinger",
+      "sort": ["-downloads"],
+      "limit": 24
+    },
+    {
+      "id": "newsreels",
+      "title": "Newsreels",
+      "subtitle": "How they reported the 20th century",
+      "category": "newsreel",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:newsandpublicaffairs",
+      "sort": ["-downloads"],
+      "limit": 24
+    },
+    {
+      "id": "horror",
+      "title": "Public Domain Horror",
+      "subtitle": "Suspense, the supernatural, and the Universal originals",
+      "category": "feature-film",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:sci-fi_horror",
+      "sort": ["-downloads"],
+      "limit": 24
+    },
+    {
+      "id": "noir",
+      "title": "Film Noir",
+      "subtitle": "Shadows and second thoughts",
+      "category": "feature-film",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:film_noir",
+      "sort": ["-downloads"],
+      "limit": 24
+    }
+  ],
+
+  "browseFacets": {
+    "decades": [1890, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010, 2020],
+    "genres": ["action", "animation", "comedy", "crime", "documentary", "drama", "family", "fantasy", "horror", "musical", "mystery", "romance", "sci-fi", "thriller", "war", "western"],
+    "runtimeBuckets": ["under-10", "10-30", "30-60", "60-90", "90-120", "120+"]
+  },
+
+  "adultCollections": [
+    "adult",
+    "moviesandfilms_adult",
+    "stagvideos"
+  ],
+
+  "randomActions": {
+    "randomMovie": {
+      "label": "Surprise Me",
+      "query": "mediatype:movies AND collection:feature_films",
+      "minDownloads": 1000
+    },
+    "randomCategory": {
+      "label": "Random Category",
+      "categories": ["feature-film", "tv-series", "silent-film", "animation", "documentary"]
+    },
+    "randomCollection": {
+      "label": "Random Collection",
+      "collections": [
+        "feature_films",
+        "classic_tv",
+        "silent_films",
+        "classic_cartoons",
+        "prelinger",
+        "newsandpublicaffairs",
+        "sci-fi_horror",
+        "film_noir",
+        "classic_commercials",
+        "moviesandfilms"
+      ]
+    }
+  },
+
+  "donationLink": {
+    "label": "Support the Internet Archive",
+    "url": "https://archive.org/donate"
+  }
+}

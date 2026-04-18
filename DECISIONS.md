@@ -212,3 +212,133 @@ donation sub. All rejected for the reasons above.
 piece. Server-side costs are zero (no backend; curated picks ride on
 GitHub Pages). Operational cost is effectively the Apple Developer
 Program membership.
+
+---
+
+## Decision 011 — Hybrid curation: editor's picks + popularity-driven shelves
+*Date: 2026-04-18*
+
+**Decision**: Home is composed of two shelf types maintained in a
+single `featured.json` (versioned in this repo, served from GitHub
+Pages):
+
+1. **Curated shelves** — explicit hand-picked Archive identifiers, each
+   with an optional curator note. The seed for v1 is the owner's own
+   favorites. Edited via the dashboard at `/index.html`.
+2. **Dynamic shelves** — `(query, sort, limit)` triples that the tvOS
+   app resolves at runtime by calling Archive's scrape API
+   (`mediatype:movies AND collection:feature_films` sorted by
+   `-downloads` etc.). Popularity is the default ranking.
+
+The dashboard is a static page that reads `featured.json`, lets the
+curator add/remove/reorder Archive IDs (with live metadata preview from
+Archive.org), and exports a new `featured.json` for commit.
+
+**Rationale**: A purely curated catalog ages and feels light; a purely
+algorithmic feed loses voice. Hybrid lets a small editorial gesture
+("Editor's Picks") sit atop a self-refreshing popularity backbone
+without any backend, recommendation engine, or ML.
+
+**Alternatives considered**:
+- Fully manual curation — too much maintenance, content gets stale.
+- Fully algorithmic — abandons the editorial voice that's core to the
+  product positioning.
+- Server-side curation pipeline — adds infrastructure and cost.
+
+**Trade-offs**: Dynamic shelves depend on the live Archive scrape API;
+when Archive is down, those shelves go empty. Mitigated by caching the
+last-good response in SwiftData.
+
+---
+
+## Decision 012 — Adult content filter on by default
+*Date: 2026-04-18*
+
+**Decision**: The tvOS app filters out items belonging to adult-content
+collections by default. The list of excluded collections lives in
+`featured.json` under `adultCollections`. A Settings toggle ("Show
+mature collections") opts back in, off by default.
+
+**Rationale**: Archive.org's collection taxonomy is permissive; some
+adult-leaning collections drift into general searches. Default-on
+filtering protects unintended audiences (a TV in a living room is a
+shared device) without being paternalistic — the toggle remains
+available.
+
+**Alternatives considered**: No filter (rejected — wrong default for
+a 10-foot device). Hard removal (rejected — denies user agency).
+
+**Trade-offs**: The `adultCollections` list must be kept current. Worst
+case, an undeclared adult collection slips through; the curator updates
+the list and the next app launch picks it up.
+
+---
+
+## Decision 013 — Per-category accent colors
+*Date: 2026-04-18*
+
+**Decision**: Each major content category gets its own accent color,
+declared in `featured.json` and read by both the dashboard and the
+tvOS app. v1 palette:
+
+| Category    | Accent     | Notes                              |
+|-------------|------------|------------------------------------|
+| Feature Film| `#FF5C35`  | Marquee orange (the primary)       |
+| Classic TV  | `#2D5BFF`  | CRT phosphor blue                  |
+| Silent Era  | `#C9A66B`  | Sepia / nitrate                    |
+| Animation   | `#FF4D8D`  | Saturated playful pink             |
+| Newsreel    | `#8A8F98`  | Newsprint gray                     |
+| Documentary | `#3FA796`  | Muted teal                         |
+| Ephemeral   | `#7C5BBA`  | Faded violet                       |
+| Short Film  | `#E8A317`  | Warm amber                         |
+
+Accent appears as: shelf title underline, focused-card glow tint, the
+category dot in the dashboard, and the app icon background tint when
+generated dynamically (see Decision 015 once we log it).
+
+**Rationale**: Differentiates shelves at a glance, gives each category
+identity without resorting to skeuomorphism, leaves a single neutral
+background as the unifying canvas. Bounded palette (8 colors) prevents
+the rainbow look.
+
+**Alternatives considered**: Single accent only (rejected — flat,
+indistinguishable shelves). Per-collection accents (rejected — too many
+collections; would chase its own tail).
+
+**Trade-offs**: Color choices are subjective. Owner has final say;
+revisit if any feel discordant on a real 4K display.
+
+---
+
+## Decision 014 — Random actions are M1 features
+*Date: 2026-04-18*
+
+**Decision**: Three serendipity actions ship in M1 (not deferred to
+polish):
+
+- **Random Movie** — picks a random item from a popularity-floored
+  query (`-downloads > 1000`) and goes straight to playback.
+- **Random Category** — picks a random major category and lands on a
+  shelf-only Browse view for that category.
+- **Random Collection** — picks a random Archive collection and shows
+  it as a single-shelf Browse view.
+
+All three appear as primary actions on the Home screen (under the hero
+carousel) and accept Siri Remote dictation ("hey Siri, surprise me").
+
+**Rationale**: A cinematheque rewards wandering. Random actions are
+low-effort to build (one query + a navigation push), high-value for the
+"I don't know what to watch" mood, and align with the app's
+learning-orientation values (invite participation, support human
+agency).
+
+**Alternatives considered**: Single "Surprise me" button (too narrow);
+deferring to M3 polish (would miss the opportunity to seed habit on
+launch).
+
+**Trade-offs**: Random Movie that lands on a broken/un-playable item
+ruins the moment. Mitigated by: (a) requiring `videoFile` to exist in
+the metadata before navigating, (b) silently re-rolling up to 3 times
+on failure, (c) the `tools/validate-pipeline.sh` script and the
+dashboard preview both surface "not playable" so curators can spot
+broken items in advance.
