@@ -52,12 +52,12 @@ struct DetailView: View {
                 PlayerScreen(url: url, archiveID: item.archiveID)
             }
         }
-        // Declarative initial focus. RootView owns the onExitCommand for
-        // Back-button → router.pop(), so arrow keys are wholly the focus
-        // engine's to manage inside DetailView. Every element — sidebar,
-        // Play, Favorite, Related — lives in the same focus realm now
-        // that NavigationStack is out of the picture.
+        // Declarative initial focus target, plus an imperative assist so
+        // tvOS definitely lands focus inside DetailView when the view
+        // swap completes — otherwise the focus engine sometimes falls
+        // back to the sidebar (which then expands, stealing the stage).
         .defaultFocus($focusTarget, .play)
+        .onAppear { focusTarget = .play }
     }
 
     private var heroBackdrop: some View {
