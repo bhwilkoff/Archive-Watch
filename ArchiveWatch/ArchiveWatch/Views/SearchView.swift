@@ -66,12 +66,11 @@ struct SearchView: View {
 
     private var resultGrid: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            LazyVGrid(columns: cols, spacing: 36) {
+            LazyVGrid(columns: cols, alignment: .leading, spacing: 44) {
                 ForEach(results) { item in
-                    Button { router.push(.item(item)) } label: {
-                        CompactPoster(item: item)
+                    CompactTile(item: item) {
+                        router.push(.item(item))
                     }
-                    .buttonStyle(.card)
                 }
             }
             .padding(.horizontal, 80)

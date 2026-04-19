@@ -80,6 +80,11 @@ struct ChipButtonStyle: ButtonStyle {
 }
 
 // MARK: - Sidebar row
+//
+// Apple TV 17.2+ sidebar pattern: selection is a quiet 4pt accent bar
+// on the leading edge + bolder text — NOT a full accent-fill pill. The
+// focus state is the only "loud" affordance. This keeps the sidebar
+// from dominating the stage when the user is deep in content.
 
 struct SidebarRowStyle: ButtonStyle {
     let selected: Bool
@@ -98,49 +103,35 @@ struct SidebarRowStyle: ButtonStyle {
         let accent: Color
 
         var body: some View {
-            configuration.label
-                .foregroundStyle(rowForeground)
-                .padding(.horizontal, expanded ? 20 : 0)
-                .padding(.vertical, 16)
-                .frame(maxWidth: .infinity, alignment: expanded ? .leading : .center)
-                .background(
-                    RoundedRectangle(cornerRadius: 14)
-                        .fill(rowFill)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 14)
-                                .strokeBorder(rowStroke, lineWidth: isFocused ? 2 : 1)
-                        )
-                        .padding(.horizontal, expanded ? 12 : 14)
-                )
-                .scaleEffect(isFocused ? Motion.focusScalePoster :
-                             selected ? Motion.focusScaleRow : 1.0)
-                .shadow(color: shadowColor, radius: isFocused ? 18 : 10, y: 4)
-                .animation(Motion.focus, value: isFocused)
-                .animation(Motion.chrome, value: selected)
+            HStack(spacing: 0) {
+                // Leading accent bar: only present when selected.
+                // Persistent visual cue that doesn't shout.
+                Rectangle()
+                    .fill(selected ? accent : Color.clear)
+                    .frame(width: 4)
+                    .padding(.vertical, 4)
+
+                configuration.label
+                    .foregroundStyle(rowForeground)
+                    .padding(.leading, expanded ? 16 : 0)
+                    .padding(.trailing, expanded ? 16 : 0)
+                    .padding(.vertical, 14)
+                    .frame(maxWidth: .infinity, alignment: expanded ? .leading : .center)
+            }
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(isFocused ? Color.white.opacity(0.14) : Color.clear)
+                    .padding(.horizontal, expanded ? 12 : 14)
+            )
+            .scaleEffect(isFocused ? Motion.focusScaleButton : 1.0)
+            .animation(Motion.focus, value: isFocused)
+            .animation(Motion.chrome, value: selected)
         }
 
         private var rowForeground: Color {
             if isFocused { return .white }
             if selected { return .white }
             return .white.opacity(0.55)
-        }
-
-        private var rowFill: Color {
-            if isFocused { return .white.opacity(0.22) }
-            if selected { return accent.opacity(0.85) }
-            return .clear
-        }
-
-        private var rowStroke: Color {
-            if isFocused { return .white }
-            if selected { return accent }
-            return .white.opacity(0.06)
-        }
-
-        private var shadowColor: Color {
-            if isFocused { return .black.opacity(0.45) }
-            if selected  { return accent.opacity(0.5) }
-            return .clear
         }
     }
 }

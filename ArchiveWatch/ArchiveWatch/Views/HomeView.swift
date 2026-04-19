@@ -159,25 +159,31 @@ struct ContinueWatchingRow: View {
                 .padding(.horizontal, 80)
 
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 28) {
+                LazyHStack(alignment: .top, spacing: 28) {
                     ForEach(entries, id: \.item.archiveID) { entry in
-                        Button { router.push(.item(entry.item)) } label: {
-                            ContinueWatchingCard(item: entry.item, progress: entry.progress)
+                        ContinueWatchingTile(item: entry.item, progress: entry.progress) {
+                            router.push(.item(entry.item))
                         }
-                        .buttonStyle(.card)
                     }
                 }
                 .padding(.horizontal, 80)
                 .padding(.vertical, 20)
             }
+            .scrollClipDisabled()
         }
     }
 }
 
-struct ContinueWatchingCard: View {
+// Continue Watching tile — button only wraps the image + progress;
+// title sits below as a sibling so .card doesn't clip it.
+
+struct ContinueWatchingTile: View {
     let item: Catalog.Item
     let progress: WatchProgress
+    let action: () -> Void
+
     @Environment(AppStore.self) private var store
+    @FocusState private var isFocused: Bool
 
     private var isLandscape: Bool {
         item.contentType == "tv-series" || item.contentType == "tv-special" ||
@@ -185,43 +191,51 @@ struct ContinueWatchingCard: View {
         item.contentType == "home-movie"
     }
 
+    private var cardHeight: CGFloat { isLandscape ? 180 : 240 }
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            ZStack(alignment: .bottom) {
-                posterArea
-                VStack(spacing: 0) {
-                    Spacer()
-                    LinearGradient(
-                        colors: [.clear, .black.opacity(0.7)],
-                        startPoint: .top, endPoint: .bottom
-                    )
-                    .frame(height: 80)
-                }
-                VStack(spacing: 6) {
-                    Spacer()
-                    HStack(spacing: 8) {
-                        Image(systemName: "play.fill")
-                            .font(.system(size: 19, weight: .bold))
-                        Text(remainingLabel)
-                            .font(.system(size: 19, weight: .semibold))
-                        Spacer()
+        VStack(alignment: .leading, spacing: 14) {
+            Button(action: action) {
+                ZStack(alignment: .bottom) {
+                    posterArea
+                    VStack(spacing: 0) {
+                        Spacer(minLength: 0)
+                        LinearGradient(
+                            colors: [.clear, .black.opacity(0.75)],
+                            startPoint: .top, endPoint: .bottom
+                        )
+                        .frame(height: 88)
                     }
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 14)
-                    ProgressBar(fraction: progress.fraction)
+                    VStack(spacing: 6) {
+                        Spacer(minLength: 0)
+                        HStack(spacing: 8) {
+                            Image(systemName: "play.fill")
+                                .font(.system(size: 19, weight: .bold))
+                            Text(remainingLabel)
+                                .font(.system(size: 19, weight: .semibold))
+                            Spacer()
+                        }
+                        .foregroundStyle(.white)
                         .padding(.horizontal, 14)
-                        .padding(.bottom, 12)
+                        ProgressBar(fraction: progress.fraction)
+                            .padding(.horizontal, 14)
+                            .padding(.bottom, 12)
+                    }
                 }
+                .frame(width: 320, height: cardHeight)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
             }
-            .frame(width: 320, height: isLandscape ? 180 : 240)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .buttonStyle(.card)
+            .focused($isFocused)
 
             Text(item.title)
-                .font(.system(size: 18, weight: .semibold))
+                .font(.system(size: 19, weight: .semibold))
                 .foregroundStyle(.white)
                 .lineLimit(1)
                 .minimumScaleFactor(0.8)
                 .frame(width: 320, alignment: .leading)
+                .opacity(isFocused ? 1.0 : 0.85)
+                .animation(Motion.focus, value: isFocused)
         }
     }
 
@@ -231,32 +245,28 @@ struct ContinueWatchingCard: View {
         if item.hasDesignedArtwork, let url {
             RemoteImage(
                 url: url,
-                targetSize: CGSize(width: 320, height: isLandscape ? 180 : 240),
+                targetSize: CGSize(width: 320, height: cardHeight),
                 contentMode: .fill
             )
         } else {
-            procedural
+            ProceduralPoster(
+                item: item,
+                accent: store.accentColor(forCategory: categoryID),
+                aspectRatio: isLandscape ? 16.0/9.0 : 4.0/3.0
+            )
         }
-    }
-
-    private var procedural: some View {
-        ProceduralPoster(
-            item: item,
-            accent: store.accentColor(forCategory: categoryID),
-            aspectRatio: isLandscape ? 16.0/9.0 : 4.0/3.0
-        )
     }
 
     private var categoryID: String {
         switch item.contentType {
         case "tv-series", "tv-special": return "tv-series"
         case "silent-film": return "silent-film"
-        case "animation": return "animation"
-        case "newsreel": return "newsreel"
+        case "animation":   return "animation"
+        case "newsreel":    return "newsreel"
         case "documentary": return "documentary"
-        case "ephemeral": return "ephemeral"
-        case "short-film": return "short-film"
-        default: return "feature-film"
+        case "ephemeral":   return "ephemeral"
+        case "short-film":  return "short-film"
+        default:            return "feature-film"
         }
     }
 
@@ -548,73 +558,55 @@ struct ShelfRow: View {
             .padding(.horizontal, 80)
 
             ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(spacing: 28) {
+                LazyHStack(alignment: .top, spacing: 28) {
                     ForEach(items) { item in
-                        Button { router.push(.item(item)) } label: {
-                            PosterCard(item: item)
+                        PosterTile(item: item) {
+                            router.push(.item(item))
                         }
-                        .buttonStyle(.card)
                     }
                 }
                 .padding(.horizontal, 80)
                 .padding(.vertical, 20)
             }
+            .scrollClipDisabled()
         }
     }
 }
 
-// MARK: - PosterCard
+// MARK: - PosterTile (button + linked title block)
+//
+// Structural fix for the "title cut off below the tile" bug: the Button
+// contains ONLY the poster art. `.buttonStyle(.card)` clips its label,
+// so putting text inside the label chops any overflow below the card.
+// Instead, we keep the text as a sibling of the button — same visual
+// grouping via a VStack, shared focus state so the title reacts when
+// the art is focused, but never clipped by the card style.
 
-struct PosterCard: View {
+struct PosterTile: View {
     let item: Catalog.Item
-    @Environment(AppStore.self) private var store
-    @Environment(\.isFocused) private var isFocused
+    let action: () -> Void
 
-    // Uniform portrait 2:3 across all content types. Landscape-native
-    // posters (TV, newsreels) are center-cropped into the poster frame
-    // so shelves stay rhythmically aligned.
+    @Environment(AppStore.self) private var store
+    @FocusState private var isFocused: Bool
+
     private let cardWidth: CGFloat  = 240
     private let cardHeight: CGFloat = 360
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            ZStack(alignment: .topLeading) {
-                posterArea
-                // Category chip overlays the top-left of the poster ONLY.
-                // No synopsis peek — too noisy as focus moves shelf-to-shelf.
-                if let chip = categoryChipLabel {
-                    Text(chip.uppercased())
-                        .font(.system(size: 15, weight: .bold))
-                        .tracking(1.4)
-                        .padding(.horizontal, 12)
-                        .padding(.vertical, 6)
-                        .background(.black.opacity(0.6))
-                        .foregroundStyle(.white)
-                        .clipShape(Capsule())
-                        .padding(10)
-                }
+        VStack(alignment: .leading, spacing: 14) {
+            Button(action: action) {
+                PosterArt(item: item, width: cardWidth, height: cardHeight)
             }
-            .frame(width: cardWidth, height: cardHeight)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .strokeBorder(Color.white.opacity(0.08), lineWidth: 1)
-            )
-            // Focus animation handled by .buttonStyle(.card) on the
-            // parent; avoid a duplicate spring here.
+            .buttonStyle(.card)
+            .focused($isFocused)
 
-            // Title gets up to 2 lines at a compact size so the vast
-            // majority of real-world film/TV titles fit fully without
-            // truncation. `minimumScaleFactor` lets SwiftUI shrink a
-            // shade further before falling back to tail truncation —
-            // and tail truncation itself breaks on whole words.
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(.system(size: 19, weight: .semibold))
                     .foregroundStyle(.white)
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
-                    .minimumScaleFactor(0.8)
+                    .minimumScaleFactor(0.78)
                     .truncationMode(.tail)
                     .fixedSize(horizontal: false, vertical: true)
                 HStack(spacing: 8) {
@@ -624,11 +616,65 @@ struct PosterCard: View {
                         Text(formatRuntime(r))
                     }
                 }
-                .font(.system(size: 19, weight: .regular))
+                .font(.system(size: 17, weight: .regular))
                 .foregroundStyle(.white.opacity(0.55))
             }
             .frame(width: cardWidth, alignment: .leading)
+            // Brighten titles when the card is focused — a subtle link
+            // between the art treatment and the text, without extra motion.
+            .opacity(isFocused ? 1.0 : 0.85)
+            .animation(Motion.focus, value: isFocused)
         }
+    }
+
+    private func formatRuntime(_ seconds: Int) -> String {
+        let m = seconds / 60
+        return m >= 60 ? "\(m / 60)h \(m % 60)m" : "\(m)m"
+    }
+}
+
+// MARK: - PosterArt (pure visual, no button)
+
+struct PosterArt: View {
+    let item: Catalog.Item
+    let width: CGFloat
+    let height: CGFloat
+
+    @Environment(AppStore.self) private var store
+
+    var body: some View {
+        ZStack(alignment: .topLeading) {
+            if item.hasDesignedArtwork, let url = item.posterURLParsed {
+                RemoteImage(
+                    url: url,
+                    targetSize: CGSize(width: width, height: height),
+                    contentMode: .fill
+                )
+            } else {
+                ProceduralPoster(
+                    item: item,
+                    accent: store.accentColor(forCategory: categoryID),
+                    aspectRatio: width / height
+                )
+            }
+            if let chip = categoryChipLabel {
+                Text(chip.uppercased())
+                    .font(.system(size: 15, weight: .bold))
+                    .tracking(1.4)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 6)
+                    .background(.black.opacity(0.6))
+                    .foregroundStyle(.white)
+                    .clipShape(Capsule())
+                    .padding(10)
+            }
+        }
+        .frame(width: width, height: height)
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+        .overlay(
+            RoundedRectangle(cornerRadius: 8)
+                .strokeBorder(Color.white.opacity(0.08), lineWidth: 1)
+        )
     }
 
     private var categoryChipLabel: String? {
@@ -644,42 +690,16 @@ struct PosterCard: View {
         }
     }
 
-    @ViewBuilder
-    private var posterArea: some View {
-        if item.hasDesignedArtwork, let url = item.posterURLParsed {
-            RemoteImage(
-                url: url,
-                targetSize: CGSize(width: 240, height: 360),
-                contentMode: .fill
-            )
-        } else {
-            procedural
-        }
-    }
-
-    private var procedural: some View {
-        ProceduralPoster(
-            item: item,
-            accent: store.accentColor(forCategory: categoryID),
-            aspectRatio: 2.0/3.0
-        )
-    }
-
     private var categoryID: String {
         switch item.contentType {
         case "tv-series", "tv-special": return "tv-series"
         case "silent-film": return "silent-film"
-        case "animation": return "animation"
-        case "newsreel": return "newsreel"
+        case "animation":   return "animation"
+        case "newsreel":    return "newsreel"
         case "documentary": return "documentary"
-        case "ephemeral": return "ephemeral"
-        case "short-film": return "short-film"
-        default: return "feature-film"
+        case "ephemeral":   return "ephemeral"
+        case "short-film":  return "short-film"
+        default:            return "feature-film"
         }
-    }
-
-    private func formatRuntime(_ seconds: Int) -> String {
-        let m = seconds / 60
-        return m >= 60 ? "\(m / 60)h \(m % 60)m" : "\(m)m"
     }
 }
