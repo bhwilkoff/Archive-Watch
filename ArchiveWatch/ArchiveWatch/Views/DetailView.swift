@@ -243,19 +243,9 @@ struct DetailView: View {
                 )
                 .disabled(item.videoURLParsed == nil)
                 .focused($focusTarget, equals: .play)
-                // Up-arrow from Play pops Detail, returning the user to
-                // the parent view — which has the tab bar + the rest of
-                // the interface. This is the "arrow keys escape the
-                // movie view" behavior.
-                .onMoveCommand { direction in
-                    if direction == .up { dismiss() }
-                }
 
                 FavoriteButton(isFavorited: isFavorited, action: toggleFavorite)
                     .focused($focusTarget, equals: .favorite)
-                    .onMoveCommand { direction in
-                        if direction == .up { dismiss() }
-                    }
 
                 Spacer()
 
