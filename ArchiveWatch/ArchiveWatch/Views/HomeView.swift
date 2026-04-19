@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import Combine
 
 struct HomeView: View {
     @Environment(AppStore.self) private var store
