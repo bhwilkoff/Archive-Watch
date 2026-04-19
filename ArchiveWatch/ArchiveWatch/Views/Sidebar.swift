@@ -81,6 +81,12 @@ struct Sidebar: View {
             Spacer(minLength: 0)
         }
         .padding(.horizontal, 24)
+        // Long-press the brand mark to open the UI Audit validator.
+        // Hidden affordance for developer / design review.
+        .contentShape(Rectangle())
+        .onLongPressGesture(minimumDuration: 1.2) {
+            router.push(.audit)
+        }
     }
 
     @ViewBuilder

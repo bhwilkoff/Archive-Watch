@@ -45,6 +45,8 @@ struct ContentArea: View {
                     DetailView(item: item)
                 case .filter(let filter):
                     BrowseView(filter: filter)
+                case .audit:
+                    UIAuditView()
                 }
             } else {
                 switch router.tab {
