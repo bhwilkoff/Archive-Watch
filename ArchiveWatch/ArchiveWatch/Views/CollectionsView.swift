@@ -77,10 +77,14 @@ struct CollectionCard: View {
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             posterStack
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .clipped()
+
             LinearGradient(
                 colors: [.clear, .black.opacity(0.65), .black.opacity(0.95)],
                 startPoint: .center, endPoint: .bottom
             )
+
             VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 10) {
                     Capsule()
@@ -91,37 +95,40 @@ struct CollectionCard: View {
                         .foregroundStyle(.white.opacity(0.85))
                 }
                 Text(data.title)
-                    .font(.system(size: 32, weight: .heavy, design: .serif))
+                    .font(.system(size: 28, weight: .heavy, design: .serif))
                     .foregroundStyle(.white)
                     .lineLimit(1)
+                    .minimumScaleFactor(0.7)
                 Text(data.blurb)
                     .font(.callout)
                     .foregroundStyle(.white.opacity(0.7))
                     .lineLimit(2)
-                    .frame(maxWidth: 600, alignment: .leading)
             }
-            .padding(28)
+            .padding(24)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .frame(height: 320)
         .clipShape(RoundedRectangle(cornerRadius: 14))
     }
 
     private var posterStack: some View {
-        ZStack {
-            data.accent.opacity(0.3)
-            HStack(spacing: 0) {
-                ForEach(Array(data.posterURLs.prefix(3).enumerated()), id: \.offset) { idx, url in
-                    AsyncImage(url: url) { phase in
-                        switch phase {
-                        case .success(let img):
-                            img.resizable().scaledToFill()
-                        default:
-                            data.accent.opacity(0.4)
+        GeometryReader { geo in
+            ZStack {
+                data.accent.opacity(0.3)
+                HStack(spacing: 0) {
+                    ForEach(Array(data.posterURLs.prefix(3).enumerated()), id: \.offset) { idx, url in
+                        AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
+                            switch phase {
+                            case .success(let img):
+                                img.resizable().scaledToFill()
+                            default:
+                                data.accent.opacity(0.4)
+                            }
                         }
+                        .frame(width: geo.size.width / 3, height: geo.size.height)
+                        .clipped()
+                        .opacity(idx == 1 ? 1.0 : 0.75)
                     }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .clipped()
-                    .opacity(idx == 1 ? 1.0 : 0.75)
                 }
             }
         }
