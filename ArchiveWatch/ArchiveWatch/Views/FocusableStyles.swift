@@ -1,39 +1,41 @@
 import SwiftUI
 
-// Custom PrimitiveButtonStyles for tvOS. Per docs/tvos-playbook.md §2.1,
-// .buttonStyle(.plain) silently destroys focusability on tvOS — it's a
-// trap to avoid. These styles read @Environment(\.isFocused) to render
-// our own focus treatment and pair with .focusEffectDisabled() to
-// suppress the default halo.
+// Custom ButtonStyles for tvOS. Per docs/tvos-playbook.md §2.1,
+// .buttonStyle(.plain) silently destroys focusability on tvOS — these
+// styles cover every other case without tripping that landmine.
 //
-// Use .buttonStyle(.card) from Apple when you want stock poster
-// parallax. These styles cover every other case.
+// Key choice: ButtonStyle, not PrimitiveButtonStyle. SwiftUI's Button
+// handles clickpad-center activation natively with ButtonStyle; the
+// .onTapGesture trick that's standard on iOS/macOS PrimitiveButtonStyle
+// does NOT reliably fire on tvOS's remote (that's what was making the
+// sidebar feel "nonfunctional"). Each style reads
+// @Environment(\.isFocused) inside the makeBody view to drive the
+// custom focus treatment, and is paired with .focusEffectDisabled() at
+// the call site to suppress the default tvOS halo.
 
 // MARK: - Poster-like content (shelves, grids)
 
-struct PosterButtonStyle: PrimitiveButtonStyle {
+struct PosterButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         StyleBody(configuration: configuration)
     }
 
     struct StyleBody: View {
         @Environment(\.isFocused) private var isFocused
-        let configuration: PrimitiveButtonStyleConfiguration
+        let configuration: ButtonStyleConfiguration
 
         var body: some View {
             configuration.label
                 .scaleEffect(isFocused ? Motion.focusScalePoster : 1.0)
                 .shadow(color: .black.opacity(isFocused ? 0.45 : 0), radius: 24, y: 10)
                 .animation(Motion.focus, value: isFocused)
-                .contentShape(Rectangle())
-                .onTapGesture { configuration.trigger() }
         }
     }
 }
 
 // MARK: - Chip / filter bubble
 
-struct ChipButtonStyle: PrimitiveButtonStyle {
+struct ChipButtonStyle: ButtonStyle {
     let accent: Color
     let isOn: Bool
 
@@ -43,7 +45,7 @@ struct ChipButtonStyle: PrimitiveButtonStyle {
 
     struct StyleBody: View {
         @Environment(\.isFocused) private var isFocused
-        let configuration: PrimitiveButtonStyleConfiguration
+        let configuration: ButtonStyleConfiguration
         let accent: Color
         let isOn: Bool
 
@@ -73,15 +75,13 @@ struct ChipButtonStyle: PrimitiveButtonStyle {
                 .scaleEffect(isFocused ? Motion.focusScaleButton : 1.0)
                 .shadow(color: isFocused ? accent.opacity(0.6) : .clear, radius: 16, y: 4)
                 .animation(Motion.focus, value: isFocused)
-                .contentShape(Capsule())
-                .onTapGesture { configuration.trigger() }
         }
     }
 }
 
 // MARK: - Sidebar row
 
-struct SidebarRowStyle: PrimitiveButtonStyle {
+struct SidebarRowStyle: ButtonStyle {
     let selected: Bool
     let expanded: Bool
     let accent: Color
@@ -92,7 +92,7 @@ struct SidebarRowStyle: PrimitiveButtonStyle {
 
     struct StyleBody: View {
         @Environment(\.isFocused) private var isFocused
-        let configuration: PrimitiveButtonStyleConfiguration
+        let configuration: ButtonStyleConfiguration
         let selected: Bool
         let expanded: Bool
         let accent: Color
@@ -117,8 +117,6 @@ struct SidebarRowStyle: PrimitiveButtonStyle {
                 .shadow(color: shadowColor, radius: isFocused ? 18 : 10, y: 4)
                 .animation(Motion.focus, value: isFocused)
                 .animation(Motion.chrome, value: selected)
-                .contentShape(Rectangle())
-                .onTapGesture { configuration.trigger() }
         }
 
         private var rowForeground: Color {
@@ -128,7 +126,7 @@ struct SidebarRowStyle: PrimitiveButtonStyle {
         }
 
         private var rowFill: Color {
-            if isFocused { return .white.opacity(0.18) }
+            if isFocused { return .white.opacity(0.22) }
             if selected { return accent.opacity(0.85) }
             return .clear
         }
@@ -140,7 +138,7 @@ struct SidebarRowStyle: PrimitiveButtonStyle {
         }
 
         private var shadowColor: Color {
-            if isFocused { return .black.opacity(0.4) }
+            if isFocused { return .black.opacity(0.45) }
             if selected  { return accent.opacity(0.5) }
             return .clear
         }
@@ -149,7 +147,7 @@ struct SidebarRowStyle: PrimitiveButtonStyle {
 
 // MARK: - Primary CTA (Play button, Roll Again, etc.)
 
-struct PrimaryCTAStyle: PrimitiveButtonStyle {
+struct PrimaryCTAStyle: ButtonStyle {
     let accent: Color
 
     func makeBody(configuration: Configuration) -> some View {
@@ -158,7 +156,7 @@ struct PrimaryCTAStyle: PrimitiveButtonStyle {
 
     struct StyleBody: View {
         @Environment(\.isFocused) private var isFocused
-        let configuration: PrimitiveButtonStyleConfiguration
+        let configuration: ButtonStyleConfiguration
         let accent: Color
 
         var body: some View {
@@ -181,22 +179,20 @@ struct PrimaryCTAStyle: PrimitiveButtonStyle {
                 .shadow(color: accent.opacity(isFocused ? 0.7 : 0.35),
                         radius: isFocused ? 24 : 14, y: 6)
                 .animation(Motion.focus, value: isFocused)
-                .contentShape(Capsule())
-                .onTapGesture { configuration.trigger() }
         }
     }
 }
 
 // MARK: - Icon-only circular button (Favorite heart)
 
-struct CircleIconStyle: PrimitiveButtonStyle {
+struct CircleIconStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         StyleBody(configuration: configuration)
     }
 
     struct StyleBody: View {
         @Environment(\.isFocused) private var isFocused
-        let configuration: PrimitiveButtonStyleConfiguration
+        let configuration: ButtonStyleConfiguration
 
         var body: some View {
             configuration.label
@@ -213,8 +209,6 @@ struct CircleIconStyle: PrimitiveButtonStyle {
                 )
                 .scaleEffect(isFocused ? Motion.focusScaleButton : 1.0)
                 .animation(Motion.focus, value: isFocused)
-                .contentShape(Circle())
-                .onTapGesture { configuration.trigger() }
         }
     }
 }
