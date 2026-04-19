@@ -328,8 +328,17 @@ struct HeroBanner: View {
             if item.hasDesignedArtwork, let url = item.backdropURLParsed ?? item.posterURLParsed {
                 AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
                     switch phase {
-                    case .success(let img): img.resizable().scaledToFill()
-                    default: Color(white: 0.1)
+                    case .success(let img):
+                        img.resizable()
+                            .aspectRatio(contentMode: .fill)
+                            // Align to the upper third — faces and subjects
+                            // on movie backdrops are almost always in the
+                            // top half, so center-crop (the default) often
+                            // loses them. `.top` keeps heads in frame.
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                            .clipped()
+                    default:
+                        Color(white: 0.1)
                     }
                 }
             } else {
@@ -570,42 +579,20 @@ struct PosterCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            ZStack(alignment: .bottom) {
+            ZStack(alignment: .topLeading) {
                 posterArea
-                // Focus peek — metadata strip slides up from the bottom
-                // on focus. Channels pattern, scaled to card.
-                if isFocused, let preview = focusPreviewText {
-                    VStack(spacing: 0) {
-                        Spacer()
-                        LinearGradient(
-                            colors: [.clear, .black.opacity(0.85)],
-                            startPoint: .top, endPoint: .bottom
-                        )
-                        .frame(height: 120)
-                    }
-                    VStack(alignment: .leading, spacing: 6) {
-                        Spacer()
-                        if !focusChips.isEmpty {
-                            HStack(spacing: 6) {
-                                ForEach(focusChips, id: \.self) { chip in
-                                    Text(chip.uppercased())
-                                        .font(.system(size: 9, weight: .bold))
-                                        .tracking(1)
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 3)
-                                        .background(Color.white.opacity(0.18))
-                                        .clipShape(Capsule())
-                                        .foregroundStyle(.white)
-                                }
-                            }
-                        }
-                        Text(preview)
-                            .font(.caption)
-                            .foregroundStyle(.white.opacity(0.9))
-                            .lineLimit(3)
-                    }
-                    .padding(12)
-                    .transition(.opacity.combined(with: .move(edge: .bottom)))
+                // Category chip overlays the top-left of the poster ONLY.
+                // No synopsis peek — too noisy as focus moves shelf-to-shelf.
+                if let chip = categoryChipLabel {
+                    Text(chip.uppercased())
+                        .font(.system(size: 10, weight: .bold))
+                        .tracking(1.2)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .background(.black.opacity(0.55))
+                        .foregroundStyle(.white)
+                        .clipShape(Capsule())
+                        .padding(10)
                 }
             }
             .frame(width: cardWidth, height: cardHeight)
@@ -616,11 +603,16 @@ struct PosterCard: View {
             )
             .animation(.easeOut(duration: 0.18), value: isFocused)
 
+            // Title gets up to 2 lines and scales down a tad if still too
+            // long — no more truncation mid-word.
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
                     .font(.headline)
                     .foregroundStyle(.white)
-                    .lineLimit(1)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+                    .minimumScaleFactor(0.8)
+                    .fixedSize(horizontal: false, vertical: true)
                 HStack(spacing: 8) {
                     if let year = item.year { Text(String(year)) }
                     if let r = item.runtimeSeconds, r > 0 {
@@ -631,22 +623,21 @@ struct PosterCard: View {
                 .font(.caption)
                 .foregroundStyle(.white.opacity(0.55))
             }
-            .frame(width: cardWidth, alignment: .leading)
+            .frame(width: cardWidth, height: 62, alignment: .topLeading)
         }
     }
 
-    private var focusPreviewText: String? {
-        if let s = item.displaySynopsis { return s }
-        if let b = item.byline { return b }
-        return nil
-    }
-
-    private var focusChips: [String] {
-        var out: [String] = []
-        if !item.genres.isEmpty { out.append(item.genres[0]) }
-        if let s = item.seriesName, s != item.title { out.append("Series") }
-        if item.enrichmentTier == "fullyEnriched" { /* skip, default */ }
-        return Array(out.prefix(2))
+    private var categoryChipLabel: String? {
+        switch item.contentType {
+        case "tv-series", "tv-special": return "TV"
+        case "silent-film":             return "Silent"
+        case "animation":               return "Animation"
+        case "newsreel":                return "Newsreel"
+        case "documentary":             return "Doc"
+        case "ephemeral":               return "Ephemeral"
+        case "short-film":              return "Short"
+        default:                        return nil
+        }
     }
 
     @ViewBuilder
