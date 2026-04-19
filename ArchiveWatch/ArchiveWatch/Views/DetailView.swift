@@ -6,6 +6,7 @@ struct DetailView: View {
     let item: Catalog.Item
     @Environment(AppStore.self) private var store
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.dismiss) private var dismiss
     @Query private var favorites: [Favorite]
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var allProgress: [WatchProgress]
     @State private var isPlaying = false
@@ -25,14 +26,16 @@ struct DetailView: View {
     }
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 40) {
-                hero
-                    .frame(height: 860)
-                    .clipped()
-                relatedSection
+        GeometryReader { geo in
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 40) {
+                    hero
+                        .frame(height: max(geo.size.height - 60, 600))
+                        .clipped()
+                    relatedSection
+                }
+                .padding(.bottom, 80)
             }
-            .padding(.bottom, 80)
         }
         .background(Color.black)
         .fullScreenCover(isPresented: $isPlaying) {
@@ -40,6 +43,8 @@ struct DetailView: View {
                 PlayerScreen(url: url, archiveID: item.archiveID)
             }
         }
+        // Menu button on the Siri Remote (Esc in simulator) pops back.
+        .onExitCommand { dismiss() }
     }
 
     private var hero: some View {
@@ -214,35 +219,30 @@ struct DetailView: View {
                     .lineLimit(2)
             }
 
-            HStack(spacing: 20) {
-                Button { isPlaying = true } label: {
-                    Label(playLabel, systemImage: "play.fill")
-                        .font(.title2.bold())
-                        .padding(.horizontal, 40)
-                        .padding(.vertical, 16)
-                }
-                .buttonStyle(.card)
+            HStack(spacing: 16) {
+                PlayButton(
+                    item: item,
+                    progress: progress,
+                    accent: store.accentColor(forCategory: categoryID),
+                    action: { isPlaying = true }
+                )
                 .disabled(item.videoURLParsed == nil)
 
-                Button(action: toggleFavorite) {
-                    Image(systemName: isFavorited ? "heart.fill" : "heart")
-                        .font(.title2)
-                        .padding(.horizontal, 24)
-                        .padding(.vertical, 16)
-                        .foregroundStyle(isFavorited ? Color(hex: "#FF5C35") ?? .red : .white)
-                }
-                .buttonStyle(.card)
+                FavoriteButton(isFavorited: isFavorited, action: toggleFavorite)
+
+                Spacer()
 
                 Text(sourceBadge)
-                    .font(.caption)
-                    .foregroundStyle(.white.opacity(0.5))
+                    .font(.caption2)
+                    .tracking(1)
+                    .foregroundStyle(.white.opacity(0.4))
             }
-            .padding(.top, 16)
+            .padding(.top, 20)
 
             if let p = progress, !p.isComplete, p.positionSeconds > 10 {
                 ProgressBar(fraction: p.fraction)
                     .frame(maxWidth: 520)
-                    .padding(.top, 8)
+                    .padding(.top, 4)
             }
         }
     }
@@ -374,5 +374,114 @@ struct ProgressBar: View {
             }
         }
         .frame(height: 4)
+    }
+}
+
+// MARK: - Play button
+//
+// A capsule primary-action button sized to its content. Pulses subtly
+// while idle to invite action, brightens on focus. Copy includes the
+// runtime when known ("Play · 1h 32m"). Resumes show remaining time.
+
+struct PlayButton: View {
+    let item: Catalog.Item
+    let progress: WatchProgress?
+    let accent: Color
+    let action: () -> Void
+    @FocusState private var isFocused: Bool
+    @State private var pulse: Bool = false
+
+    private var label: String {
+        guard let p = progress, !p.isComplete, p.positionSeconds > 10 else {
+            return item.runtimeSeconds.map { "Play  ·  \(formatMin($0))" } ?? "Play"
+        }
+        let remaining = max(0, Int(p.durationSeconds - p.positionSeconds))
+        return "Resume  ·  \(formatMin(remaining))"
+    }
+
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 14) {
+                ZStack {
+                    Circle()
+                        .fill(.white)
+                        .frame(width: 36, height: 36)
+                    Image(systemName: "play.fill")
+                        .font(.system(size: 16, weight: .black))
+                        .foregroundStyle(accent)
+                        .offset(x: 1)                   // visual optical centering
+                }
+                Text(label)
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(.white)
+            }
+            .padding(.leading, 10)
+            .padding(.trailing, 28)
+            .padding(.vertical, 10)
+            .background(
+                Capsule().fill(
+                    LinearGradient(
+                        colors: [accent, accent.mix(with: .black, 0.15)],
+                        startPoint: .topLeading, endPoint: .bottomTrailing
+                    )
+                )
+            )
+            .overlay(
+                Capsule().strokeBorder(
+                    isFocused ? Color.white : Color.white.opacity(0.15),
+                    lineWidth: isFocused ? 3 : 1
+                )
+            )
+            .scaleEffect(isFocused ? 1.06 : (pulse ? 1.015 : 1.0))
+            .shadow(color: accent.opacity(isFocused ? 0.7 : 0.35),
+                    radius: isFocused ? 22 : 14, y: 6)
+            .contentShape(Capsule())
+        }
+        .buttonStyle(.plain)
+        .focused($isFocused)
+        .animation(.easeOut(duration: 0.12), value: isFocused)
+        .onAppear {
+            withAnimation(.easeInOut(duration: 1.8).repeatForever(autoreverses: true)) {
+                pulse = true
+            }
+        }
+    }
+
+    private func formatMin(_ seconds: Int) -> String {
+        let m = seconds / 60
+        return m >= 60 ? "\(m / 60)h \(m % 60)m" : "\(m)m"
+    }
+}
+
+// MARK: - Favorite toggle
+
+struct FavoriteButton: View {
+    let isFavorited: Bool
+    let action: () -> Void
+    @FocusState private var isFocused: Bool
+
+    var body: some View {
+        Button(action: action) {
+            Image(systemName: isFavorited ? "heart.fill" : "heart")
+                .font(.title2)
+                .foregroundStyle(isFavorited ? Color(hex: "#FF5C35") ?? .red : .white)
+                .padding(18)
+                .background(
+                    Circle().fill(
+                        isFocused ? Color.white.opacity(0.25) : Color.white.opacity(0.08)
+                    )
+                )
+                .overlay(
+                    Circle().strokeBorder(
+                        isFocused ? Color.white : Color.white.opacity(0.12),
+                        lineWidth: isFocused ? 3 : 1
+                    )
+                )
+                .contentShape(Circle())
+        }
+        .buttonStyle(.plain)
+        .focused($isFocused)
+        .scaleEffect(isFocused ? 1.08 : 1.0)
+        .animation(.easeOut(duration: 0.12), value: isFocused)
     }
 }

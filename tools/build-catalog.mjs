@@ -257,8 +257,19 @@ function summarize(meta, fallbackID) {
   const subjects    = oneOrMany(m.subject);
   const externalIDs = oneOrMany(m['external-identifier']);
 
-  const pick = (s) => { const n = parseInt(String(s || '').slice(0, 4), 10); return Number.isFinite(n) ? n : null; };
-  const year = pick(m.year) ?? pick(m.date);
+  // Year sources, in confidence order:
+  //   1. Archive `year` field (when uploaders bother to fill it)
+  //   2. Year in parentheses in the title: "Movie Name (1942)"
+  //   3. Archive's `date` field — often the upload date, NOT release year,
+  //      so we only accept it when it's clearly earlier than the upload
+  //      (filtering via addeddate check).
+  const pick = (s) => { const n = parseInt(String(s || '').slice(0, 4), 10); return Number.isFinite(n) && n >= 1880 && n <= new Date().getFullYear() ? n : null; };
+  const titleYear = String(m.title || '').match(/\((18|19|20)\d{2}\)/)?.[0]?.slice(1, 5);
+  const addedYear = pick(m.addeddate);
+  const dateYear  = pick(m.date);
+  // Reject `date` if it equals the upload year (≈ upload timestamp).
+  const safeDateYear = (dateYear && addedYear && Math.abs(dateYear - addedYear) <= 1) ? null : dateYear;
+  const year = pick(m.year) ?? pick(titleYear) ?? safeDateYear;
 
   let imdbID = null;
   let wikidataQID = null;
@@ -959,10 +970,14 @@ info(`Enriching with ${CONCURRENCY} worker(s)${tmdbToken ? ' + TMDb' : ''}${USE_
 const jobs = [...picks.entries()].map(([archiveID, { shelves, wdSeed }]) => ({ archiveID, shelves, wdSeed }));
 const items = await pool(jobs, CONCURRENCY, ({ archiveID, shelves, wdSeed }) => enrichOne(archiveID, shelves, wdSeed));
 
-// Dedupe: multiple Archive uploads of the same film. Group by
-// (normalized-title + year) and pick the best: prefer fully enriched,
-// then items in more shelves, then highest IMDb/TMDb signal, then
-// first seen. Merge shelves across duplicates so curation isn't lost.
+// Dedupe: multiple Archive uploads of the same film. Multi-pass in
+// priority order so strong signals collapse aggressively first:
+//   1. Same IMDb ID      — unambiguous (same film on IMDb)
+//   2. Same TMDb ID      — unambiguous
+//   3. Same Wikidata QID — unambiguous (same work)
+//   4. (normalized-title + year bucket of 2) — fuzzy for unenriched items
+//   5. normalized-title + year within ±2 — final catch-all
+// Merge shelves across duplicates so curation isn't lost.
 function normTitleKey(t) {
   return String(t || '')
     .toLowerCase()
@@ -971,32 +986,54 @@ function normTitleKey(t) {
     .trim();
 }
 const TIER_SCORE = { fullyEnriched: 4, archiveCurated: 3, identifierResolved: 2, archiveOnly: 1 };
-const dedupMap = new Map();
-for (const item of items) {
-  const key = `${normTitleKey(item.title)}|${item.year || ''}`;
-  const existing = dedupMap.get(key);
-  if (!existing) { dedupMap.set(key, item); continue; }
-  // Merge shelves — we don't want to lose curation.
-  existing.shelves = Array.from(new Set([...existing.shelves, ...item.shelves]));
-  // Pick winner by tier → has poster → more shelves → has IMDb → bigger video.
-  const score = (x) => {
-    let s = (TIER_SCORE[x.enrichmentTier] || 0) * 1000;
-    if (x.hasRealArtwork) s += 500;
-    s += x.shelves.length * 10;
-    if (x.imdbID) s += 50;
-    if (x.tmdbID) s += 50;
-    s += (x.videoFile?.sizeBytes || 0) / 1e9;
-    return s;
-  };
-  if (score(item) > score(existing)) {
-    item.shelves = existing.shelves;
-    dedupMap.set(key, item);
+const itemScore = (x) => {
+  let s = (TIER_SCORE[x.enrichmentTier] || 0) * 1000;
+  if (x.hasRealArtwork) s += 500;
+  s += x.shelves.length * 10;
+  if (x.imdbID) s += 50;
+  if (x.tmdbID) s += 50;
+  s += (x.videoFile?.sizeBytes || 0) / 1e9;
+  return s;
+};
+function dedupePass(source, keyFn) {
+  const map = new Map();
+  const leftover = [];
+  for (const item of source) {
+    const key = keyFn(item);
+    if (!key) { leftover.push(item); continue; }
+    const existing = map.get(key);
+    if (!existing) { map.set(key, item); continue; }
+    existing.shelves = Array.from(new Set([...existing.shelves, ...item.shelves]));
+    if (itemScore(item) > itemScore(existing)) {
+      item.shelves = existing.shelves;
+      map.set(key, item);
+    }
   }
+  return [...map.values(), ...leftover];
 }
-const dedupedCount = items.length - dedupMap.size;
-if (dedupedCount > 0) info(`Deduped ${dedupedCount} duplicate uploads (${items.length} → ${dedupMap.size})`);
+
+const before = items.length;
+let pool0 = items.slice();
+pool0 = dedupePass(pool0, (x) => x.imdbID);
+pool0 = dedupePass(pool0, (x) => x.tmdbID ? String(x.tmdbID) : null);
+pool0 = dedupePass(pool0, (x) => x.wikidataQID);
+pool0 = dedupePass(pool0, (x) => {
+  const t = normTitleKey(x.title);
+  if (!t || !x.year) return null;
+  // Year buckets of 2 fold adjacent years together (1954 + 1955 collide).
+  return `${t}|${Math.floor(x.year / 2) * 2}`;
+});
+pool0 = dedupePass(pool0, (x) => {
+  const t = normTitleKey(x.title);
+  if (!t) return null;
+  // Final fuzzy: title alone, widest net. Only applies to remaining items
+  // that weren't caught by any prior pass.
+  return t;
+});
 items.length = 0;
-items.push(...dedupMap.values());
+items.push(...pool0);
+const dedupedCount = before - items.length;
+if (dedupedCount > 0) info(`Deduped ${dedupedCount} duplicate uploads (${before} → ${items.length})`);
 
 // Stats
 const byType = {};

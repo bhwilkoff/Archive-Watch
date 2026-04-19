@@ -492,19 +492,18 @@ struct PosterCard: View {
     @Environment(AppStore.self) private var store
     @Environment(\.isFocused) private var isFocused
 
-    private var isLandscape: Bool {
-        item.contentType == "tv-series" || item.contentType == "tv-special" ||
-        item.contentType == "newsreel" || item.contentType == "documentary" ||
-        item.contentType == "home-movie"
-    }
+    // Uniform portrait 2:3 across all content types. Landscape-native
+    // posters (TV, newsreels) are center-cropped into the poster frame
+    // so shelves stay rhythmically aligned.
+    private let cardWidth: CGFloat  = 240
+    private let cardHeight: CGFloat = 360
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             ZStack(alignment: .bottom) {
                 posterArea
-                // Focus peek — a metadata strip slides up from the bottom
-                // when the card gains focus. Inspired by Channels' inline
-                // metadata reveal, scaled down to fit a card.
+                // Focus peek — metadata strip slides up from the bottom
+                // on focus. Channels pattern, scaled to card.
                 if isFocused, let preview = focusPreviewText {
                     VStack(spacing: 0) {
                         Spacer()
@@ -539,7 +538,7 @@ struct PosterCard: View {
                     .transition(.opacity.combined(with: .move(edge: .bottom)))
                 }
             }
-            .frame(width: 240, height: isLandscape ? 135 : 360)
+            .frame(width: cardWidth, height: cardHeight)
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
@@ -562,7 +561,7 @@ struct PosterCard: View {
                 .font(.caption)
                 .foregroundStyle(.white.opacity(0.55))
             }
-            .frame(width: 240, alignment: .leading)
+            .frame(width: cardWidth, alignment: .leading)
         }
     }
 
@@ -599,7 +598,7 @@ struct PosterCard: View {
         ProceduralPoster(
             item: item,
             accent: store.accentColor(forCategory: categoryID),
-            aspectRatio: isLandscape ? 16.0/9.0 : 2.0/3.0
+            aspectRatio: 2.0/3.0
         )
     }
 
