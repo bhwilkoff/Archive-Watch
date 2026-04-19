@@ -36,30 +36,42 @@ struct DetailView: View {
     }
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 0) {
-                heroWithPinnedActions
-                metadataBlock
-                    .padding(.horizontal, 80)
-                    .padding(.top, 40)
-                    .padding(.bottom, 48)
-                relatedSection
+        ScrollViewReader { proxy in
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 0) {
+                    heroWithPinnedActions
+                        .id("hero")
+                    metadataBlock
+                        .padding(.horizontal, 80)
+                        .padding(.top, 40)
+                        .padding(.bottom, 48)
+                    relatedSection
+                }
             }
-        }
-        .background(Color.black)
-        .fullScreenCover(isPresented: $isPlaying) {
-            if let url = item.videoURLParsed {
-                PlayerScreen(url: url, archiveID: item.archiveID)
+            .background(Color.black)
+            .fullScreenCover(isPresented: $isPlaying) {
+                if let url = item.videoURLParsed {
+                    PlayerScreen(url: url, archiveID: item.archiveID)
+                }
             }
-        }
-        // Declarative default + deferred imperative assist. `.task`
-        // fires after first layout, so Play exists and can actually
-        // receive focus — this defeats the race that otherwise lets
-        // the sidebar steal focus during the content swap.
-        .defaultFocus($focusTarget, .play, priority: .userInitiated)
-        .task {
-            try? await Task.sleep(for: .milliseconds(40))
-            focusTarget = .play
+            .defaultFocus($focusTarget, .play, priority: .userInitiated)
+            .task {
+                // Deferred focus claim (playbook §2.5). Beats the race
+                // where the sidebar captures focus during content swap.
+                try? await Task.sleep(for: .milliseconds(40))
+                focusTarget = .play
+            }
+            // When focus returns to Play (e.g. user pressed up-arrow
+            // from the Related shelf and we forwarded focus), scroll
+            // the hero back into view so Play is visible — otherwise
+            // the page could sit mid-scroll with focus offscreen.
+            .onChange(of: focusTarget) { _, new in
+                if new == .play {
+                    withAnimation(Motion.transition) {
+                        proxy.scrollTo("hero", anchor: .top)
+                    }
+                }
+            }
         }
     }
 
@@ -219,6 +231,15 @@ struct DetailView: View {
                         ForEach(related) { other in
                             PosterTile(item: other) {
                                 router.push(.item(other))
+                            }
+                            // Up-arrow from a related tile forwards
+                            // focus to Play. Without this, tvOS can't
+                            // reliably hop the ~700pt gap of non-
+                            // focusable metadata between the shelf
+                            // and the action row, so focus stays
+                            // stuck on the shelf.
+                            .onMoveCommand { direction in
+                                if direction == .up { focusTarget = .play }
                             }
                         }
                     }

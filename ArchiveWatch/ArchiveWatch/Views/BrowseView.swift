@@ -147,7 +147,7 @@ struct BrowseView: View {
             return store.featured?.category(id: c)?.displayName ?? c.capitalized
         }
         if let g = filter.genre { return g.capitalized }
-        if let k = filter.collection { return k }
+        if let k = filter.collection { return CollectionMetadata.title(for: k) }
         return "Browse"
     }
 }
