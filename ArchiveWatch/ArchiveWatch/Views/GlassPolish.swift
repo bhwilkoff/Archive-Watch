@@ -1,34 +1,46 @@
 import SwiftUI
 
-// Liquid Glass polish for tvOS 26+, with graceful fallback for tvOS 17.
-// Apply `.glassBackground(shape:isOn:accent:)` to any chip-like surface.
-// On tvOS 17 the modifier falls back to the existing opacity fill.
+// Liquid Glass helpers for tvOS 26. With the deployment target bumped
+// to 26, these are unconditional — no `if #available` fallbacks.
+//
+// Liquid Glass is the tvOS 26 design language (WWDC 2025 "Meet Liquid
+// Glass"). It replaces flat materials with refractive depth that
+// adapts to whatever's behind it — perfect for a cinematheque app
+// where hero posters and backdrops sit behind most chrome.
+//
+// Canonical API surface:
+//   .glassEffect()                              // default glass
+//   .glassEffect(.regular)                      // standard strength
+//   .glassEffect(.clear)                        // translucent variant
+//   .glassEffect(.regular, in: Capsule())       // shaped
+//   .glassEffect(.regular.tint(.orange), in:)   // tinted
+//   .glassEffect(.regular.interactive(), in:)   // focus/press-reactive
+//   GlassEffectContainer { ... }                // group glass views so
+//                                               // they morph together
 
 extension View {
-    /// Replaces the flat opacity background with a glass material on tvOS 26+.
-    func glassBackground<S: InsettableShape>(shape: S, isOn: Bool, accent: Color) -> some View {
-        modifier(GlassBackground(shape: shape, isOn: isOn, accent: accent))
+
+    /// Tinted Liquid Glass — glass + accent bleed. Use for selected
+    /// states where a color cue is wanted.
+    func liquidGlassTinted<S: Shape>(_ tint: Color, in shape: S) -> some View {
+        self.glassEffect(.regular.tint(tint), in: shape)
     }
-}
 
-private struct GlassBackground<S: InsettableShape>: ViewModifier {
-    let shape: S
-    let isOn: Bool
-    let accent: Color
+    /// Interactive Liquid Glass for buttons — animates on focus/press.
+    func liquidGlassInteractive<S: Shape>(in shape: S) -> some View {
+        self.glassEffect(.regular.interactive(), in: shape)
+    }
 
-    func body(content: Content) -> some View {
-        if #available(tvOS 26.0, *) {
-            content
-                .background {
-                    if isOn {
-                        shape.fill(accent)
-                    } else {
-                        shape.fill(.ultraThinMaterial)
-                    }
-                }
-        } else {
-            content
-                .background(isOn ? accent : Color.white.opacity(0.08), in: shape)
+    /// Legacy bridge used by SortPicker and chip call sites before the
+    /// refactor. Maps isOn → tinted glass, off → clear glass. Keep so
+    /// we can ship the upgrade without touching every call site at once.
+    func glassBackground<S: InsettableShape & Shape>(shape: S, isOn: Bool, accent: Color) -> some View {
+        Group {
+            if isOn {
+                self.glassEffect(.regular.tint(accent), in: shape)
+            } else {
+                self.glassEffect(.regular, in: shape)
+            }
         }
     }
 }
