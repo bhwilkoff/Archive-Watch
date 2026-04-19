@@ -3,7 +3,7 @@ import AVKit
 import SwiftData
 
 enum DetailFocusTarget: Hashable {
-    case back, play, favorite, related
+    case play, favorite, related
 }
 
 struct DetailView: View {
@@ -36,23 +36,15 @@ struct DetailView: View {
     // container, independent of the backdrop's height.
 
     var body: some View {
-        ZStack(alignment: .topLeading) {
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 0) {
-                    heroBackdrop
-                    infoCard
-                        .padding(.horizontal, 80)
-                        .padding(.top, 32)
-                        .padding(.bottom, 48)
-                    relatedSection
-                }
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 0) {
+                heroBackdrop
+                infoCard
+                    .padding(.horizontal, 80)
+                    .padding(.top, 32)
+                    .padding(.bottom, 48)
+                relatedSection
             }
-            // Back chip — always focusable, always in the top-left. Pressing
-            // Up arrow from Play lands here; pressing Select dismisses.
-            BackChip { dismiss() }
-                .focused($focusTarget, equals: .back)
-                .padding(.leading, 60)
-                .padding(.top, 40)
         }
         .background(Color.black)
         .fullScreenCover(isPresented: $isPlaying) {
@@ -62,9 +54,6 @@ struct DetailView: View {
         }
         .onExitCommand { dismiss() }
         .onAppear {
-            // Force initial focus on Play so every DetailView is immediately
-            // actionable. Without this, tvOS sometimes picks a related-row
-            // card (or nothing), making Play seem unreachable.
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                 focusTarget = .play
             }
@@ -254,9 +243,19 @@ struct DetailView: View {
                 )
                 .disabled(item.videoURLParsed == nil)
                 .focused($focusTarget, equals: .play)
+                // Up-arrow from Play pops Detail, returning the user to
+                // the parent view — which has the tab bar + the rest of
+                // the interface. This is the "arrow keys escape the
+                // movie view" behavior.
+                .onMoveCommand { direction in
+                    if direction == .up { dismiss() }
+                }
 
                 FavoriteButton(isFavorited: isFavorited, action: toggleFavorite)
                     .focused($focusTarget, equals: .favorite)
+                    .onMoveCommand { direction in
+                        if direction == .up { dismiss() }
+                    }
 
                 Spacer()
 
@@ -514,43 +513,3 @@ struct FavoriteButton: View {
     }
 }
 
-// MARK: - Back chip
-//
-// A small, always-present back affordance at the top-left of Detail.
-// Pressing up-arrow from the info row reliably lands focus here, so the
-// user can always navigate out without guessing at the Menu button.
-
-struct BackChip: View {
-    let action: () -> Void
-    @Environment(\.isFocused) private var isFocused
-
-    var body: some View {
-        Button(action: action) {
-            HStack(spacing: 10) {
-                Image(systemName: "chevron.left")
-                    .font(.callout.weight(.bold))
-                Text("Back")
-                    .font(.callout.weight(.semibold))
-            }
-            .foregroundStyle(.white)
-            .padding(.horizontal, 20)
-            .padding(.vertical, 10)
-            .background(
-                Capsule().fill(
-                    isFocused ? Color.white.opacity(0.25) : Color.black.opacity(0.45)
-                )
-            )
-            .overlay(
-                Capsule().strokeBorder(
-                    isFocused ? Color.white : Color.white.opacity(0.2),
-                    lineWidth: isFocused ? 3 : 1
-                )
-            )
-            .contentShape(Capsule())
-        }
-        .buttonStyle(.plain)
-        .focusEffectDisabled()
-        .scaleEffect(isFocused ? 1.08 : 1.0)
-        .animation(.easeOut(duration: 0.12), value: isFocused)
-    }
-}
