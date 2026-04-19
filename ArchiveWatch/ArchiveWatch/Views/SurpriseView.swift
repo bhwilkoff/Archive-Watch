@@ -43,12 +43,11 @@ struct SurpriseView: View {
 
 struct RollAgainButton: View {
     let action: () -> Void
-    @FocusState private var isFocused: Bool
     @State private var spin: Double = 0
 
     var body: some View {
         Button {
-            withAnimation(.easeInOut(duration: 0.4)) { spin += 360 }
+            withAnimation(Motion.transition) { spin += 360 }
             action()
         } label: {
             HStack(spacing: 12) {
@@ -61,30 +60,9 @@ struct RollAgainButton: View {
             .foregroundStyle(.white)
             .padding(.horizontal, 28)
             .padding(.vertical, 16)
-            .background(
-                Capsule().fill(
-                    LinearGradient(
-                        colors: [Color(hex: "#FF5C35") ?? .orange,
-                                 (Color(hex: "#FF5C35") ?? .orange).mix(with: .black, 0.2)],
-                        startPoint: .topLeading, endPoint: .bottomTrailing
-                    )
-                )
-            )
-            .overlay(
-                Capsule().strokeBorder(
-                    isFocused ? Color.white : Color.white.opacity(0.15),
-                    lineWidth: isFocused ? 3 : 1
-                )
-            )
-            .shadow(color: (Color(hex: "#FF5C35") ?? .orange).opacity(isFocused ? 0.7 : 0.35),
-                    radius: isFocused ? 20 : 12, y: 4)
-            .scaleEffect(isFocused ? 1.06 : 1.0)
-            .contentShape(Capsule())
         }
-        .buttonStyle(.plain)
+        .buttonStyle(PrimaryCTAStyle(accent: Color(hex: "#FF5C35") ?? .orange))
         .focusEffectDisabled()
-        .focused($isFocused)
-        .animation(.easeOut(duration: 0.12), value: isFocused)
     }
 }
 
@@ -237,17 +215,14 @@ struct ActionCard: View {
             ZStack(alignment: .topLeading) {
                 Group {
                     if let posterURL {
-                        AsyncImage(url: posterURL, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
-                            switch phase {
-                            case .success(let img):
-                                img.resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                                    .clipped()
-                            default:
-                                posterFallback
-                            }
-                        }
+                        RemoteImage(
+                            url: posterURL,
+                            targetSize: CGSize(width: cardW, height: cardH * 0.62),
+                            contentMode: .fill,
+                            placeholder: Color(white: 0.08)
+                        )
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                        .clipped()
                     } else {
                         posterFallback
                     }

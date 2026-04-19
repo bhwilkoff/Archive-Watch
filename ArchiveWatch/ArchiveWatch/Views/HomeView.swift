@@ -227,15 +227,13 @@ struct ContinueWatchingCard: View {
 
     @ViewBuilder
     private var posterArea: some View {
-        // Prefer backdrop for in-progress cards (scene-like).
         let url = item.backdropURLParsed ?? item.posterURLParsed
         if item.hasDesignedArtwork, let url {
-            AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
-                switch phase {
-                case .success(let img): img.resizable().scaledToFill()
-                default: procedural
-                }
-            }
+            RemoteImage(
+                url: url,
+                targetSize: CGSize(width: 320, height: isLandscape ? 180 : 240),
+                contentMode: .fill
+            )
         } else {
             procedural
         }
@@ -290,59 +288,57 @@ struct HeroBanner: View {
                     startPoint: .top, endPoint: .bottom
                 )
                 HStack(alignment: .bottom, spacing: 48) {
-                    VStack(alignment: .leading, spacing: 12) {
+                    VStack(alignment: .leading, spacing: 14) {
                         Text(categoryLabel.uppercased())
                             .font(.system(size: 14, weight: .bold))
                             .tracking(2)
                             .foregroundStyle(store.accentColor(forCategory: categoryID))
+                        // Large display type, but shrink instead of
+                        // truncate when titles are long. Serif display
+                        // per Archive Watch's editorial positioning.
                         Text(item.title)
                             .font(.system(size: 60, weight: .heavy, design: .serif))
                             .foregroundStyle(.white)
                             .lineLimit(2)
+                            .minimumScaleFactor(0.55)
+                            .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
                             .shadow(color: .black.opacity(0.4), radius: 8, y: 2)
                         HStack(spacing: 16) {
                             if let year = item.year { Text(String(year)) }
                             if let r = item.runtimeSeconds, r > 0 { Text(formatRuntime(r)) }
                             if let byline = item.byline { Text(byline) }
                         }
-                        .font(.title3)
+                        .font(.system(size: 29, weight: .regular))
                         .foregroundStyle(.white.opacity(0.8))
                     }
                     .padding(.leading, 80)
                     .padding(.bottom, 40)
                     .padding(.trailing, 40)
-                    Spacer()
+                    Spacer(minLength: 0)
                 }
             }
             .frame(height: 620)
         }
-        .buttonStyle(.plain)
+        .buttonStyle(.card)   // .plain would break focusability on tvOS
     }
 
+    @ViewBuilder
     private var backdrop: some View {
-        Group {
-            if item.hasDesignedArtwork, let url = item.backdropURLParsed ?? item.posterURLParsed {
-                AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
-                    switch phase {
-                    case .success(let img):
-                        img.resizable()
-                            .aspectRatio(contentMode: .fill)
-                            // Align to the upper third — faces and subjects
-                            // on movie backdrops are almost always in the
-                            // top half, so center-crop (the default) often
-                            // loses them. `.top` keeps heads in frame.
-                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                            .clipped()
-                    default:
-                        Color(white: 0.1)
-                    }
-                }
-            } else {
-                LinearGradient(
-                    colors: [store.accentColor(forCategory: categoryID).opacity(0.8), .black],
-                    startPoint: .topLeading, endPoint: .bottomTrailing
-                )
-            }
+        if item.hasDesignedArtwork, let url = item.backdropURLParsed ?? item.posterURLParsed {
+            RemoteImage(
+                url: url,
+                targetSize: CGSize(width: 1920, height: 620),
+                contentMode: .fill,
+                placeholder: Color(white: 0.08)
+            )
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .clipped()
+        } else {
+            LinearGradient(
+                colors: [store.accentColor(forCategory: categoryID).opacity(0.8), .black],
+                startPoint: .topLeading, endPoint: .bottomTrailing
+            )
         }
     }
 
@@ -600,7 +596,8 @@ struct PosterCard: View {
                 RoundedRectangle(cornerRadius: 8)
                     .strokeBorder(Color.white.opacity(0.08), lineWidth: 1)
             )
-            .animation(.easeOut(duration: 0.18), value: isFocused)
+            // Focus animation handled by .buttonStyle(.card) on the
+            // parent; avoid a duplicate spring here.
 
             // Title gets up to 2 lines at a compact size so the vast
             // majority of real-world film/TV titles fit fully without
@@ -646,13 +643,11 @@ struct PosterCard: View {
     @ViewBuilder
     private var posterArea: some View {
         if item.hasDesignedArtwork, let url = item.posterURLParsed {
-            AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
-                switch phase {
-                case .success(let image): image.resizable().scaledToFill()
-                case .empty, .failure: procedural
-                @unknown default: procedural
-                }
-            }
+            RemoteImage(
+                url: url,
+                targetSize: CGSize(width: 240, height: 360),
+                contentMode: .fill
+            )
         } else {
             procedural
         }
