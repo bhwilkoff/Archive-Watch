@@ -1,19 +1,17 @@
 import SwiftUI
 
-// Custom ButtonStyles for tvOS. Per docs/tvos-playbook.md §2.1,
-// .buttonStyle(.plain) silently destroys focusability on tvOS — these
-// styles cover every other case without tripping that landmine.
-//
-// Key choice: ButtonStyle, not PrimitiveButtonStyle. SwiftUI's Button
-// handles clickpad-center activation natively with ButtonStyle; the
-// .onTapGesture trick that's standard on iOS/macOS PrimitiveButtonStyle
-// does NOT reliably fire on tvOS's remote (that's what was making the
-// sidebar feel "nonfunctional"). Each style reads
-// @Environment(\.isFocused) inside the makeBody view to drive the
-// custom focus treatment, and is paired with .focusEffectDisabled() at
-// the call site to suppress the default tvOS halo.
+// ButtonStyles for tvOS 26. Each uses Liquid Glass where the tvOS 26
+// HIG prescribes it (chips, CTAs, icon buttons, sidebar rows), reads
+// @Environment(\.isFocused) for a custom focus treatment, and pairs
+// with .focusEffectDisabled() at call sites to suppress the default
+// halo. Per docs/tvos-playbook.md §2.1: never .buttonStyle(.plain) —
+// it silently breaks focusability on tvOS.
 
 // MARK: - Poster-like content (shelves, grids)
+//
+// Poster tiles use the system .buttonStyle(.card) at call sites, not
+// this style — .card gives us Apple's parallax + focus ring for free.
+// Kept here for non-image tappable tiles.
 
 struct PosterButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -52,39 +50,42 @@ struct ChipButtonStyle: ButtonStyle {
         var body: some View {
             configuration.label
                 .font(.callout.weight(.semibold))
-                .foregroundStyle(
-                    isFocused ? Color.white :
-                    isOn ? Color.white : Color.white.opacity(0.85)
-                )
-                .padding(.horizontal, 24)
-                .padding(.vertical, 12)
-                .background(
-                    Capsule().fill(
-                        isFocused ? accent :
-                        isOn ? accent.opacity(0.9) :
-                        Color.white.opacity(0.08)
-                    )
-                )
+                .foregroundStyle(chipForeground)
+                .padding(.horizontal, 26)
+                .padding(.vertical, 14)
+                .glassEffect(chipGlass, in: Capsule())
                 .overlay(
-                    Capsule().strokeBorder(
-                        isFocused ? Color.white :
-                        isOn ? accent : Color.white.opacity(0.12),
-                        lineWidth: isFocused ? 3 : 1
-                    )
+                    Capsule()
+                        .strokeBorder(
+                            isFocused ? Color.white : (isOn ? accent : Color.white.opacity(0.12)),
+                            lineWidth: isFocused ? 3 : (isOn ? 2 : 1)
+                        )
                 )
                 .scaleEffect(isFocused ? Motion.focusScaleButton : 1.0)
-                .shadow(color: isFocused ? accent.opacity(0.6) : .clear, radius: 16, y: 4)
                 .animation(Motion.focus, value: isFocused)
+        }
+
+        private var chipGlass: Glass {
+            if isFocused || isOn {
+                return .regular.tint(accent).interactive()
+            }
+            return .regular.interactive()
+        }
+
+        private var chipForeground: Color {
+            if isFocused { return .white }
+            if isOn { return .white }
+            return .white.opacity(0.85)
         }
     }
 }
 
 // MARK: - Sidebar row
 //
-// Apple TV 17.2+ sidebar pattern: selection is a quiet 4pt accent bar
-// on the leading edge + bolder text — NOT a full accent-fill pill. The
-// focus state is the only "loud" affordance. This keeps the sidebar
-// from dominating the stage when the user is deep in content.
+// Apple TV 17.2+ sidebar pattern, upgraded to Liquid Glass for tvOS 26:
+// selection is a quiet 4pt accent bar on the leading edge + bolder
+// text. Focus pours a tinted Liquid Glass panel behind the row with
+// a soft interactive sheen. No loud accent-fill pill.
 
 struct SidebarRowStyle: ButtonStyle {
     let selected: Bool
@@ -104,12 +105,13 @@ struct SidebarRowStyle: ButtonStyle {
 
         var body: some View {
             HStack(spacing: 0) {
-                // Leading accent bar: only present when selected.
-                // Persistent visual cue that doesn't shout.
+                // Leading accent bar — persistent selection cue that
+                // doesn't shout. Absent when not selected so the rail
+                // reads quiet at rest.
                 Rectangle()
                     .fill(selected ? accent : Color.clear)
                     .frame(width: 4)
-                    .padding(.vertical, 4)
+                    .padding(.vertical, 6)
 
                 configuration.label
                     .foregroundStyle(rowForeground)
@@ -118,14 +120,25 @@ struct SidebarRowStyle: ButtonStyle {
                     .padding(.vertical, 14)
                     .frame(maxWidth: .infinity, alignment: expanded ? .leading : .center)
             }
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(isFocused ? Color.white.opacity(0.14) : Color.clear)
-                    .padding(.horizontal, expanded ? 12 : 14)
-            )
+            .glassEffect(rowGlass, in: RoundedRectangle(cornerRadius: 14))
+            .padding(.horizontal, 10)
             .scaleEffect(isFocused ? Motion.focusScaleButton : 1.0)
             .animation(Motion.focus, value: isFocused)
             .animation(Motion.chrome, value: selected)
+        }
+
+        private var rowGlass: Glass {
+            // Focused: interactive glass that responds to Siri Remote.
+            // Unfocused + selected: a whisper of tint so the row has
+            //   presence without competing with content.
+            // Default: clear glass (which reads as near-nothing).
+            if isFocused {
+                return .regular.tint(accent.opacity(0.35)).interactive()
+            }
+            if selected {
+                return .regular.tint(accent.opacity(0.15))
+            }
+            return .clear
         }
 
         private var rowForeground: Color {
@@ -136,7 +149,7 @@ struct SidebarRowStyle: ButtonStyle {
     }
 }
 
-// MARK: - Primary CTA (Play button, Roll Again, etc.)
+// MARK: - Primary CTA (Play, Roll Again, etc.)
 
 struct PrimaryCTAStyle: ButtonStyle {
     let accent: Color
@@ -152,23 +165,16 @@ struct PrimaryCTAStyle: ButtonStyle {
 
         var body: some View {
             configuration.label
-                .background(
-                    Capsule().fill(
-                        LinearGradient(
-                            colors: [accent, accent.mix(with: .black, 0.15)],
-                            startPoint: .topLeading, endPoint: .bottomTrailing
-                        )
-                    )
-                )
+                .glassEffect(.regular.tint(accent).interactive(), in: Capsule())
                 .overlay(
                     Capsule().strokeBorder(
-                        isFocused ? Color.white : Color.white.opacity(0.15),
+                        isFocused ? Color.white : Color.white.opacity(0.2),
                         lineWidth: isFocused ? 3 : 1
                     )
                 )
                 .scaleEffect(isFocused ? Motion.focusScaleButton : 1.0)
-                .shadow(color: accent.opacity(isFocused ? 0.7 : 0.35),
-                        radius: isFocused ? 24 : 14, y: 6)
+                .shadow(color: accent.opacity(isFocused ? 0.55 : 0.25),
+                        radius: isFocused ? 28 : 16, y: 6)
                 .animation(Motion.focus, value: isFocused)
         }
     }
@@ -187,14 +193,10 @@ struct CircleIconStyle: ButtonStyle {
 
         var body: some View {
             configuration.label
-                .background(
-                    Circle().fill(
-                        isFocused ? Color.white.opacity(0.25) : Color.white.opacity(0.08)
-                    )
-                )
+                .glassEffect(.regular.interactive(), in: Circle())
                 .overlay(
                     Circle().strokeBorder(
-                        isFocused ? Color.white : Color.white.opacity(0.12),
+                        isFocused ? Color.white : Color.white.opacity(0.15),
                         lineWidth: isFocused ? 3 : 1
                     )
                 )

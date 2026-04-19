@@ -31,6 +31,7 @@ struct BrowseView: View {
     @State private var sort: BrowseSort = .popular
     @State private var shuffleSeed = 0
     @State private var filtersShown = false
+    @FocusState private var focusedArchiveID: String?
     // True when the view was pushed with a specific filter (from a
     // collection tile, category tile, or decade tile). In that context
     // the user has already narrowed the catalog deliberately — showing
@@ -114,11 +115,12 @@ struct BrowseView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.top, 80)
                 } else {
-                    LazyVGrid(columns: cols, alignment: .leading, spacing: 44) {
+                    LazyVGrid(columns: cols, alignment: .leading, spacing: 48) {
                         ForEach(items) { item in
                             CompactTile(item: item) {
                                 router.push(.item(item))
                             }
+                            .focused($focusedArchiveID, equals: item.archiveID)
                         }
                     }
                     .padding(.horizontal, 80)
@@ -127,6 +129,15 @@ struct BrowseView: View {
             }
         }
         .background(Color.black.ignoresSafeArea())
+        .task {
+            // Same pattern as DetailView (playbook §2.5): defer one
+            // run-loop tick for layout to settle, then claim focus on
+            // the first grid item. Without this, tvOS's focus engine
+            // falls back to the sidebar when BrowseView is pushed via
+            // a collection/category/decade tile.
+            try? await Task.sleep(for: .milliseconds(40))
+            focusedArchiveID = items.first?.archiveID
+        }
     }
 
     private var headline: String {
@@ -264,7 +275,7 @@ struct CompactTile: View {
     private let cardHeight: CGFloat = 300
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 24) {
             Button(action: action) {
                 PosterArt(item: item, width: cardWidth, height: cardHeight)
             }

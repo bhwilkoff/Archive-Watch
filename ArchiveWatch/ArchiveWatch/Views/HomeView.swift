@@ -236,6 +236,7 @@ struct ContinueWatchingTile: View {
                 .frame(width: 320, alignment: .leading)
                 .opacity(isFocused ? 1.0 : 0.85)
                 .animation(Motion.focus, value: isFocused)
+                .padding(.top, 14)
         }
     }
 
@@ -593,7 +594,7 @@ struct PosterTile: View {
     private let cardHeight: CGFloat = 360
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
+        VStack(alignment: .leading, spacing: 28) {
             Button(action: action) {
                 PosterArt(item: item, width: cardWidth, height: cardHeight)
             }
