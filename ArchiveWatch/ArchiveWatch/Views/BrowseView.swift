@@ -179,11 +179,10 @@ struct Chip: View {
                 .font(.callout.weight(.semibold))
                 .padding(.horizontal, 20)
                 .padding(.vertical, 10)
-                .background(isOn ? accent : Color.white.opacity(0.08))
                 .foregroundStyle(isOn ? .white : .white.opacity(0.85))
-                .clipShape(Capsule())
+                .glassBackground(shape: Capsule(), isOn: isOn, accent: accent)
                 .overlay(
-                    Capsule().strokeBorder(isOn ? accent : Color.white.opacity(0.15), lineWidth: 1)
+                    Capsule().strokeBorder(isOn ? accent : Color.white.opacity(0.12), lineWidth: 1)
                 )
         }
         .buttonStyle(.plain)
@@ -222,9 +221,8 @@ struct SortPicker: View {
             .font(.callout)
             .padding(.horizontal, 20)
             .padding(.vertical, 10)
-            .background(Color.white.opacity(0.08))
             .foregroundStyle(.white)
-            .clipShape(Capsule())
+            .glassBackground(shape: Capsule(), isOn: false, accent: .accentColor)
         }
     }
 }
