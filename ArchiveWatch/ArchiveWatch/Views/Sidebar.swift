@@ -88,15 +88,18 @@ private struct SidebarRow: View {
 
     @Environment(\.isFocused) private var isFocused
 
+    private var accent: Color { Color(hex: "#FF5C35") ?? .orange }
+
     var body: some View {
         Button(action: action) {
             HStack(spacing: 18) {
                 Image(systemName: tab.icon)
-                    .font(.system(size: 22, weight: .semibold))
+                    .font(.system(size: selected ? 24 : 22, weight: .semibold))
                     .frame(width: 32, height: 32)
                 if expanded {
                     Text(tab.title)
-                        .font(.system(size: 19, weight: .semibold))
+                        .font(.system(size: selected ? 20 : 19,
+                                      weight: selected ? .bold : .semibold))
                         .transition(.opacity)
                         .lineLimit(1)
                     Spacer(minLength: 0)
@@ -104,7 +107,7 @@ private struct SidebarRow: View {
             }
             .foregroundStyle(
                 isFocused ? .white :
-                selected ? .white : .white.opacity(0.55)
+                selected ? accent : .white.opacity(0.55)
             )
             .padding(.horizontal, expanded ? 24 : 0)
             .padding(.vertical, 14)
@@ -112,16 +115,23 @@ private struct SidebarRow: View {
             .background(
                 RoundedRectangle(cornerRadius: 12)
                     .fill(
-                        isFocused ? Color.white.opacity(0.18) :
-                        selected ? Color.white.opacity(0.06) : .clear
+                        isFocused ? Color.white.opacity(0.22) :
+                        selected ? accent.opacity(0.22) : .clear
+                    )
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .strokeBorder(
+                                selected && !isFocused ? accent.opacity(0.55) : .clear,
+                                lineWidth: 1.5
+                            )
                     )
                     .padding(.horizontal, expanded ? 12 : 14)
             )
             .overlay(alignment: .leading) {
                 if selected && expanded {
                     RoundedRectangle(cornerRadius: 2)
-                        .fill(Color(hex: "#FF5C35") ?? .orange)
-                        .frame(width: 4, height: 26)
+                        .fill(accent)
+                        .frame(width: 4, height: 28)
                         .padding(.leading, 4)
                 }
             }
@@ -129,7 +139,12 @@ private struct SidebarRow: View {
         }
         .buttonStyle(.plain)
         .focusEffectDisabled()
-        .scaleEffect(isFocused ? 1.04 : 1.0)
+        // Both focused and selected deserve visual weight. Focused is the
+        // strongest (user is acting on it); selected is persistent state.
+        .scaleEffect(isFocused ? 1.08 : selected ? 1.05 : 1.0)
+        .shadow(color: selected && !isFocused ? accent.opacity(0.35) : .clear,
+                radius: 10, y: 2)
         .animation(.easeOut(duration: 0.12), value: isFocused)
+        .animation(.easeOut(duration: 0.15), value: selected)
     }
 }

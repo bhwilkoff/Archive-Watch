@@ -7,6 +7,12 @@ struct HomeView: View {
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progressRecords: [WatchProgress]
     @Query private var favorites: [Favorite]
 
+    // Random seed set when HomeView first appears. Stable across the
+    // view's lifetime so the hero rotation doesn't reshuffle on every
+    // @Query-driven re-render, but re-rolls when the user leaves Home
+    // and comes back — an invitation to keep wandering.
+    @State private var heroSeed: Int = Int.random(in: 0..<1_000_000)
+
     private var continueWatching: [(item: Catalog.Item, progress: WatchProgress)] {
         guard let catalog = store.catalog else { return [] }
         let items = Dictionary(uniqueKeysWithValues: catalog.items.map { ($0.archiveID, $0) })
@@ -25,29 +31,23 @@ struct HomeView: View {
         return catalog.items.filter { ids.contains($0.archiveID) }
     }
 
-    // Hero carousel — up to 8 items that have real designed artwork
-    // (no procedural placeholders up top) and strong signal. Draws from
-    // the most editorial shelves in a rotation: popular features,
-    // silent hall of fame, film noir, classic cartoons, Méliès.
+    // Hero carousel — 7 titles freshly sampled on each Home appearance
+    // from the full pool of well-enriched items. Hero must have real
+    // designed artwork with a usable backdrop or poster; we weight the
+    // pool toward items that appear on multiple shelves (a decent
+    // popularity proxy) then randomize within the top strata so heroes
+    // never feel locked to the same handful on every launch.
     private var heroItems: [Catalog.Item] {
-        let candidates: [String] = [
-            "popular-features", "all-time-features", "film-noir",
-            "scifi-horror", "silent-hall-of-fame", "melies",
-            "video-cellar", "comedy"
-        ]
-        var seen = Set<String>()
-        var out: [Catalog.Item] = []
-        for shelfID in candidates {
-            for item in store.items(forShelf: shelfID) {
-                guard item.hasDesignedArtwork else { continue }
-                guard item.backdropURLParsed != nil || item.posterURLParsed != nil else { continue }
-                if seen.insert(item.archiveID).inserted {
-                    out.append(item)
-                    if out.count >= 8 { return out }
-                }
-            }
+        guard let all = store.catalog?.items else { return [] }
+        let pool = all.filter {
+            $0.hasDesignedArtwork &&
+            ($0.backdropURLParsed != nil || $0.posterURLParsed != nil)
         }
-        return out
+        // Top 150 by shelf count is still a wide enough net to feel
+        // serendipitous without surfacing no-art ephemera.
+        let stratum = pool.sorted { $0.shelves.count > $1.shelves.count }.prefix(150)
+        var rng = SplitMix(seed: UInt64(heroSeed))
+        return Array(stratum.shuffled(using: &rng).prefix(7))
     }
 
     private var homeShelves: [Featured.Shelf] {
@@ -217,9 +217,10 @@ struct ContinueWatchingCard: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
 
             Text(item.title)
-                .font(.headline)
+                .font(.system(size: 18, weight: .semibold))
                 .foregroundStyle(.white)
                 .lineLimit(1)
+                .minimumScaleFactor(0.8)
                 .frame(width: 320, alignment: .leading)
         }
     }
@@ -306,13 +307,6 @@ struct HeroBanner: View {
                         }
                         .font(.title3)
                         .foregroundStyle(.white.opacity(0.8))
-                        if let synopsis = item.displaySynopsis {
-                            Text(synopsis)
-                                .font(.callout)
-                                .foregroundStyle(.white.opacity(0.85))
-                                .lineLimit(3)
-                                .frame(maxWidth: 800, alignment: .leading)
-                        }
                     }
                     .padding(.leading, 80)
                     .padding(.bottom, 40)
