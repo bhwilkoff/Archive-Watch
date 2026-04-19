@@ -90,15 +90,15 @@ struct RollAgainButton: View {
 // MARK: - Shared helpers
 
 private func playablePool(_ items: [Catalog.Item]?) -> [Catalog.Item] {
-    (items ?? []).filter { $0.videoFile != nil }
+    // Strict: only items with playable video AND real designed artwork.
+    // Surprise is the "look at this thing" feature — procedural cards
+    // in this context look like the roll failed.
+    (items ?? []).filter { $0.videoFile != nil && $0.hasDesignedArtwork }
 }
 
 private func randomItem(from pool: [Catalog.Item], seed: UInt64) -> Catalog.Item? {
     guard !pool.isEmpty else { return nil }
-    // Prefer items with real artwork — they read better as "the pick".
-    let designed = pool.filter { $0.hasDesignedArtwork }
     var rng = SplitMix(seed: seed)
-    if !designed.isEmpty { return designed.randomElement(using: &rng) }
     return pool.randomElement(using: &rng)
 }
 
@@ -120,7 +120,8 @@ struct RandomMovieCard: View {
                     subtitle: p.title,
                     caption: p.year.map(String.init) ?? "Roll the dice.",
                     icon: "sparkles",
-                    accent: Color(hex: "#FF5C35") ?? .orange
+                    accent: Color(hex: "#FF5C35") ?? .orange,
+                    posterURL: p.backdropURLParsed ?? p.posterURLParsed
                 )
             }
             .buttonStyle(.card)
@@ -158,7 +159,8 @@ struct RandomCategoryCard: View {
                     subtitle: p.item.title,
                     caption: p.item.year.map { "\(p.category.displayName) · \($0)" } ?? p.category.displayName,
                     icon: "square.grid.2x2.fill",
-                    accent: Color(hex: p.category.accent) ?? .blue
+                    accent: Color(hex: p.category.accent) ?? .blue,
+                    posterURL: p.item.backdropURLParsed ?? p.item.posterURLParsed
                 )
             }
             .buttonStyle(.card)
@@ -196,7 +198,8 @@ struct RandomDecadeCard: View {
                     subtitle: p.item.title,
                     caption: "Time-travel to the \(p.decade)s.",
                     icon: "clock.arrow.circlepath",
-                    accent: Color(hex: "#C9A66B") ?? .brown
+                    accent: Color(hex: "#C9A66B") ?? .brown,
+                    posterURL: p.item.backdropURLParsed ?? p.item.posterURLParsed
                 )
             }
             .buttonStyle(.card)
@@ -215,34 +218,58 @@ struct ActionCard: View {
     let caption: String
     let icon: String
     let accent: Color
+    /// Optional poster URL — when set, replaces the accent gradient
+    /// backdrop with the actual movie art.
+    var posterURL: URL? = nil
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
-            LinearGradient(
-                colors: [accent.opacity(0.9), accent.mix(with: .black, 0.5)],
-                startPoint: .topLeading, endPoint: .bottomTrailing
-            )
-            VStack(alignment: .leading, spacing: 16) {
+            if let posterURL {
+                AsyncImage(url: posterURL, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
+                    switch phase {
+                    case .success(let img):
+                        img.resizable().scaledToFill()
+                    default:
+                        LinearGradient(
+                            colors: [accent.opacity(0.9), accent.mix(with: .black, 0.5)],
+                            startPoint: .topLeading, endPoint: .bottomTrailing
+                        )
+                    }
+                }
+                // Dark wash so title remains readable on bright art.
+                LinearGradient(
+                    colors: [.black.opacity(0.1), .black.opacity(0.4), .black.opacity(0.95)],
+                    startPoint: .top, endPoint: .bottom
+                )
+            } else {
+                LinearGradient(
+                    colors: [accent.opacity(0.9), accent.mix(with: .black, 0.5)],
+                    startPoint: .topLeading, endPoint: .bottomTrailing
+                )
+            }
+            VStack(alignment: .leading, spacing: 12) {
                 Image(systemName: icon)
-                    .font(.system(size: 40))
-                    .foregroundStyle(.white.opacity(0.9))
+                    .font(.system(size: 36))
+                    .foregroundStyle(.white.opacity(0.85))
+                    .shadow(color: .black.opacity(0.6), radius: 6, y: 2)
                 Spacer()
                 Text(title.uppercased())
-                    .font(.system(size: 13, weight: .bold))
+                    .font(.system(size: 12, weight: .bold))
                     .tracking(1.8)
                     .foregroundStyle(.white.opacity(0.85))
                 Text(subtitle)
-                    .font(.system(size: 32, weight: .heavy, design: .serif))
+                    .font(.system(size: 30, weight: .heavy, design: .serif))
                     .foregroundStyle(.white)
                     .lineLimit(2)
+                    .minimumScaleFactor(0.7)
                 Text(caption)
                     .font(.callout)
-                    .foregroundStyle(.white.opacity(0.7))
+                    .foregroundStyle(.white.opacity(0.75))
                     .lineLimit(1)
             }
-            .padding(32)
+            .padding(28)
         }
-        .frame(width: 440, height: 380)
+        .frame(width: 440, height: 580)
         .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 }

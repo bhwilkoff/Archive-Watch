@@ -24,16 +24,42 @@ struct HomeView: View {
         return catalog.items.filter { ids.contains($0.archiveID) }
     }
 
-    private var hero: Catalog.Item? {
-        store.items(forShelf: "editors-picks").first(where: { $0.hasDesignedArtwork })
-            ?? store.items(forShelf: "editors-picks").first
-            ?? store.catalog?.items.first(where: { $0.hasDesignedArtwork })
+    // Hero carousel — up to 8 items that have real designed artwork
+    // (no procedural placeholders up top) and strong signal. Draws from
+    // the most editorial shelves in a rotation: popular features,
+    // silent hall of fame, film noir, classic cartoons, Méliès.
+    private var heroItems: [Catalog.Item] {
+        let candidates: [String] = [
+            "popular-features", "all-time-features", "film-noir",
+            "scifi-horror", "silent-hall-of-fame", "melies",
+            "video-cellar", "comedy"
+        ]
+        var seen = Set<String>()
+        var out: [Catalog.Item] = []
+        for shelfID in candidates {
+            for item in store.items(forShelf: shelfID) {
+                guard item.hasDesignedArtwork else { continue }
+                guard item.backdropURLParsed != nil || item.posterURLParsed != nil else { continue }
+                if seen.insert(item.archiveID).inserted {
+                    out.append(item)
+                    if out.count >= 8 { return out }
+                }
+            }
+        }
+        return out
     }
 
     private var homeShelves: [Featured.Shelf] {
-        let priority: [String] = ["editors-picks", "wikidata-pd", "popular-features",
-                                  "silent-era", "government-films", "classic-cartoons",
-                                  "noir", "horror"]
+        // Editor's Picks omitted from Home — surfaced from Collections tab.
+        // Priority order favors populated, well-enriched shelves.
+        let priority: [String] = [
+            "popular-features", "wikidata-pd", "film-noir", "scifi-horror",
+            "silent-hall-of-fame", "melies", "video-cellar", "comedy",
+            "animation-all", "vintage-cartoons", "nasa", "classic-tv-1960s",
+            "classic-tv-1950s", "classic-tv-1970s", "ephemera", "educational",
+            "picfixer", "german-cinema", "silent-era", "popular-classic-tv",
+            "all-time-features"
+        ]
         let allShelves = store.featured?.shelves ?? []
         return priority.compactMap { id in allShelves.first(where: { $0.id == id }) }
     }
@@ -41,8 +67,8 @@ struct HomeView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(alignment: .leading, spacing: 48) {
-                if let hero {
-                    HeroBanner(item: hero)
+                if !heroItems.isEmpty {
+                    HeroCarousel(items: heroItems)
                 }
                 if !continueWatching.isEmpty {
                     ContinueWatchingRow(entries: continueWatching)
@@ -60,7 +86,10 @@ struct HomeView: View {
                     ShelfRow(shelf: favShelf, items: favoriteItems)
                 }
                 ForEach(homeShelves) { shelf in
-                    let items = store.items(forShelf: shelf.id)
+                    let rawItems = store.items(forShelf: shelf.id)
+                    // Prefer items with real artwork at the front of each shelf
+                    // so shelves don't open with a wall of procedural cards.
+                    let items = sortByArtwork(rawItems)
                     if !items.isEmpty {
                         ShelfRow(shelf: shelf, items: Array(items.prefix(20)))
                     }
@@ -68,10 +97,50 @@ struct HomeView: View {
                 DecadeTilesRow()
                     .padding(.bottom, 32)
             }
-            .padding(.top, 24)
             .padding(.bottom, 80)
         }
         .background(Color.black.ignoresSafeArea())
+    }
+
+    /// Stable sort that puts items with designed art before procedural items,
+    /// preserving the underlying order within each bucket.
+    private func sortByArtwork(_ items: [Catalog.Item]) -> [Catalog.Item] {
+        let withArt    = items.filter { $0.hasDesignedArtwork }
+        let withoutArt = items.filter { !$0.hasDesignedArtwork }
+        return withArt + withoutArt
+    }
+}
+
+// MARK: - Hero Carousel
+
+struct HeroCarousel: View {
+    let items: [Catalog.Item]
+    @State private var index: Int = 0
+    @State private var autoAdvanceTimer = Timer.publish(every: 7, on: .main, in: .common).autoconnect()
+
+    var body: some View {
+        ZStack(alignment: .bottom) {
+            // Banners stacked, only the current one visible
+            ForEach(Array(items.enumerated()), id: \.element.archiveID) { i, item in
+                HeroBanner(item: item)
+                    .opacity(i == index ? 1 : 0)
+                    .animation(.easeInOut(duration: 0.6), value: index)
+            }
+            // Page-dot indicators
+            HStack(spacing: 10) {
+                ForEach(0..<items.count, id: \.self) { i in
+                    Capsule()
+                        .fill(i == index ? Color.white : Color.white.opacity(0.3))
+                        .frame(width: i == index ? 28 : 8, height: 6)
+                        .animation(.easeOut(duration: 0.3), value: index)
+                }
+            }
+            .padding(.bottom, 40)
+        }
+        .frame(height: 620)
+        .onReceive(autoAdvanceTimer) { _ in
+            withAnimation { index = (index + 1) % items.count }
+        }
     }
 }
 
