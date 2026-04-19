@@ -282,10 +282,12 @@ struct CompactPoster: View {
                 )
 
             Text(item.title)
-                .font(.footnote.weight(.semibold))
+                .font(.system(size: 15, weight: .semibold))
                 .foregroundStyle(.white)
                 .lineLimit(2)
                 .multilineTextAlignment(.leading)
+                .minimumScaleFactor(0.8)
+                .truncationMode(.tail)
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(width: 200, alignment: .leading)
             if let year = item.year {

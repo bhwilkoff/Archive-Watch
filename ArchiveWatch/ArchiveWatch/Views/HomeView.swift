@@ -603,16 +603,19 @@ struct PosterCard: View {
             )
             .animation(.easeOut(duration: 0.18), value: isFocused)
 
-            // Title gets up to 2 lines. No fixed-height frame — let the
-            // label grow naturally so long titles are never clipped.
-            // Rows in a shelf can be a hair different height; that's
-            // preferable to truncation.
+            // Title gets up to 2 lines at a compact size so the vast
+            // majority of real-world film/TV titles fit fully without
+            // truncation. `minimumScaleFactor` lets SwiftUI shrink a
+            // shade further before falling back to tail truncation —
+            // and tail truncation itself breaks on whole words.
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
-                    .font(.headline)
+                    .font(.system(size: 18, weight: .semibold))
                     .foregroundStyle(.white)
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
+                    .minimumScaleFactor(0.8)
+                    .truncationMode(.tail)
                     .fixedSize(horizontal: false, vertical: true)
                 HStack(spacing: 8) {
                     if let year = item.year { Text(String(year)) }
