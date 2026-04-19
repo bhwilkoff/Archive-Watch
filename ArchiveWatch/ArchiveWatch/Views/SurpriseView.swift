@@ -5,14 +5,14 @@ import SwiftUI
 
 struct SurpriseView: View {
     @Environment(AppStore.self) private var store
-    @State private var rollSeed = 0
+    @State private var rollSeed: Int = Int.random(in: 0..<1_000_000)
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 32) {
                 header
                 HStack(spacing: 24) {
-                    RandomMovieCard(seed: rollSeed, shuffle: { rollSeed &+= 1 })
+                    RandomMovieCard(seed: rollSeed)
                     RandomCategoryCard(seed: rollSeed)
                     RandomDecadeCard(seed: rollSeed)
                 }
@@ -25,15 +25,65 @@ struct SurpriseView: View {
     }
 
     private var header: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Surprise Me")
-                .font(.system(size: 54, weight: .heavy, design: .serif))
-                .foregroundStyle(.white)
-            Text("Three ways to wander the archive.")
-                .font(.title3)
-                .foregroundStyle(.white.opacity(0.6))
+        HStack(alignment: .firstTextBaseline) {
+            VStack(alignment: .leading, spacing: 8) {
+                Text("Surprise Me")
+                    .font(.system(size: 54, weight: .heavy, design: .serif))
+                    .foregroundStyle(.white)
+                Text("Three ways to wander the archive. Roll again for fresh picks.")
+                    .font(.title3)
+                    .foregroundStyle(.white.opacity(0.6))
+            }
+            Spacer()
+            RollAgainButton { rollSeed = Int.random(in: 0..<1_000_000) }
         }
         .padding(.horizontal, 80)
+    }
+}
+
+struct RollAgainButton: View {
+    let action: () -> Void
+    @FocusState private var isFocused: Bool
+    @State private var spin: Double = 0
+
+    var body: some View {
+        Button {
+            withAnimation(.easeInOut(duration: 0.4)) { spin += 360 }
+            action()
+        } label: {
+            HStack(spacing: 12) {
+                Image(systemName: "dice.fill")
+                    .font(.title2)
+                    .rotationEffect(.degrees(spin))
+                Text("Roll Again")
+                    .font(.title3.weight(.semibold))
+            }
+            .foregroundStyle(.white)
+            .padding(.horizontal, 28)
+            .padding(.vertical, 16)
+            .background(
+                Capsule().fill(
+                    LinearGradient(
+                        colors: [Color(hex: "#FF5C35") ?? .orange,
+                                 (Color(hex: "#FF5C35") ?? .orange).mix(with: .black, 0.2)],
+                        startPoint: .topLeading, endPoint: .bottomTrailing
+                    )
+                )
+            )
+            .overlay(
+                Capsule().strokeBorder(
+                    isFocused ? Color.white : Color.white.opacity(0.15),
+                    lineWidth: isFocused ? 3 : 1
+                )
+            )
+            .shadow(color: (Color(hex: "#FF5C35") ?? .orange).opacity(isFocused ? 0.7 : 0.35),
+                    radius: isFocused ? 20 : 12, y: 4)
+            .scaleEffect(isFocused ? 1.06 : 1.0)
+            .contentShape(Capsule())
+        }
+        .buttonStyle(.plain)
+        .focused($isFocused)
+        .animation(.easeOut(duration: 0.12), value: isFocused)
     }
 }
 
@@ -57,7 +107,6 @@ private func randomItem(from pool: [Catalog.Item], seed: UInt64) -> Catalog.Item
 struct RandomMovieCard: View {
     @Environment(AppStore.self) private var store
     let seed: Int
-    let shuffle: () -> Void
 
     private var pick: Catalog.Item? {
         randomItem(from: playablePool(store.catalog?.items), seed: UInt64(seed))
@@ -75,7 +124,6 @@ struct RandomMovieCard: View {
                 )
             }
             .buttonStyle(.card)
-            .simultaneousGesture(TapGesture(count: 2).onEnded { shuffle() })
         } else {
             ActionCard(title: "Random Film", subtitle: "No catalog loaded",
                        caption: "", icon: "sparkles", accent: .orange)

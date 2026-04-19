@@ -269,16 +269,11 @@ struct CompactPoster: View {
     let item: Catalog.Item
     @Environment(AppStore.self) private var store
 
-    private var isLandscape: Bool {
-        item.contentType == "tv-series" || item.contentType == "tv-special" ||
-        item.contentType == "newsreel" || item.contentType == "documentary" ||
-        item.contentType == "home-movie"
-    }
-
+    // Uniform 2:3 portrait regardless of content type.
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             posterArea
-                .frame(width: 200, height: isLandscape ? 112 : 300)
+                .frame(width: 200, height: 300)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
@@ -317,7 +312,7 @@ struct CompactPoster: View {
         ProceduralPoster(
             item: item,
             accent: store.accentColor(forCategory: categoryID),
-            aspectRatio: isLandscape ? 16.0/9.0 : 2.0/3.0
+            aspectRatio: 2.0/3.0
         )
     }
 

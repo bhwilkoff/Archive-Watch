@@ -160,64 +160,164 @@
       "limit": 24
     },
     {
-      "id": "horror",
-      "title": "Public Domain Horror",
-      "subtitle": "Suspense, the supernatural, and the Universal originals",
-      "category": "feature-film",
-      "type": "dynamic",
-      "query": "mediatype:movies AND collection:feature_films AND subject:horror",
-      "sort": ["downloads desc"],
-      "limit": 48
-    },
-    {
-      "id": "noir",
+      "id": "film-noir",
       "title": "Film Noir",
-      "subtitle": "Shadows and second thoughts",
+      "subtitle": "Shadows and second thoughts — the Archive's curated noir collection",
       "category": "feature-film",
       "type": "dynamic",
-      "query": "mediatype:movies AND collection:feature_films AND subject:noir",
+      "query": "mediatype:movies AND collection:Film_Noir",
       "sort": ["downloads desc"],
       "limit": 48
     },
     {
-      "id": "government-films",
-      "title": "Films from the United States Government",
-      "subtitle": "FedFlix, NASA, PSAs, and wartime-information shorts",
-      "category": "ephemeral",
+      "id": "scifi-horror",
+      "title": "Sci-Fi & Horror",
+      "subtitle": "B-movies, creature features, dystopias",
+      "category": "feature-film",
       "type": "dynamic",
-      "query": "mediatype:movies AND (collection:fedflix OR collection:nasa_films OR collection:usgovfilms)",
+      "query": "mediatype:movies AND collection:SciFi_Horror",
       "sort": ["downloads desc"],
       "limit": 48
     },
     {
-      "id": "educational-shorts",
+      "id": "comedy",
+      "title": "Comedy",
+      "subtitle": "Pratfalls, quick wit, and surreal cinema",
+      "category": "feature-film",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:Comedy_Films",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "video-cellar",
+      "title": "The Video Cellar",
+      "subtitle": "A devoted curator's private library",
+      "category": "feature-film",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:TheVideoCellarCollection",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "silent-hall-of-fame",
+      "title": "Silent Hall of Fame",
+      "subtitle": "Curator's picks from cinema's first thirty years",
+      "category": "silent-film",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:silenthalloffame",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "melies",
+      "title": "Georges Méliès",
+      "subtitle": "The magician who invented cinema",
+      "category": "silent-film",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:georgesmelies",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "animation-all",
+      "title": "Animation",
+      "subtitle": "From Fleischer to Terrytoons and beyond",
+      "category": "animation",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:animationandcartoons",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "vintage-cartoons",
+      "title": "Vintage Cartoons",
+      "subtitle": "Pre-1970 animation on 16mm and 35mm",
+      "category": "animation",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:vintage_cartoons",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "nasa",
+      "title": "NASA Films",
+      "subtitle": "Earthrise, moonwalks, the long engineering story",
+      "category": "documentary",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:nasa",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "educational",
       "title": "Educational Shorts",
-      "subtitle": "Encyclopædia Britannica, Coronet, and the mid-century classroom",
+      "subtitle": "Encyclopædia Britannica, Coronet, mid-century classroom",
       "category": "ephemeral",
       "type": "dynamic",
-      "query": "mediatype:movies AND collection:prelinger AND subject:educational",
+      "query": "mediatype:movies AND collection:educationalfilms",
       "sort": ["downloads desc"],
       "limit": 48
     },
     {
-      "id": "cult-shorts",
-      "title": "Cult Shorts",
-      "subtitle": "Bizarre, beautiful, and under thirty minutes",
-      "category": "short-film",
+      "id": "ephemera",
+      "title": "Ephemera",
+      "subtitle": "Industrial, instructional, home, in-between",
+      "category": "ephemeral",
       "type": "dynamic",
-      "query": "mediatype:movies AND collection:short_films",
+      "query": "mediatype:movies AND collection:ephemera",
       "sort": ["downloads desc"],
       "limit": 48
     },
     {
-      "id": "home-movies",
-      "title": "Home Movies",
-      "subtitle": "20th-century private life, unscripted",
-      "category": "ephemeral",
+      "id": "classic-tv-1950s",
+      "title": "1950s Television",
+      "subtitle": "Live broadcasts, rabbit-ears era",
+      "category": "tv-series",
       "type": "dynamic",
-      "query": "mediatype:movies AND collection:home_movies",
+      "query": "mediatype:movies AND collection:classic_tv_1950s",
       "sort": ["downloads desc"],
-      "limit": 24
+      "limit": 48
+    },
+    {
+      "id": "classic-tv-1960s",
+      "title": "1960s Television",
+      "subtitle": "The golden age of network drama",
+      "category": "tv-series",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:classic_tv_1960s",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "classic-tv-1970s",
+      "title": "1970s Television",
+      "subtitle": "Color, variety, sitcom reinvention",
+      "category": "tv-series",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:classic_tv_1970s",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "picfixer",
+      "title": "Picfixer Feature Films",
+      "subtitle": "A collector's restoration project",
+      "category": "feature-film",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:feature_films_picfixer",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "german-cinema",
+      "title": "Mid-Century German Film",
+      "subtitle": "Postwar to New German Cinema",
+      "category": "feature-film",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:mid-century-german-film",
+      "sort": ["downloads desc"],
+      "limit": 48
     }
   ],
 
