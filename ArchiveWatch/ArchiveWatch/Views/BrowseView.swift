@@ -193,37 +193,13 @@ struct Chip: View {
     let isOn: Bool
     let accent: Color
     let action: () -> Void
-    @FocusState private var isFocused: Bool
 
     var body: some View {
         Button(action: action) {
             Text(label)
-                .font(.callout.weight(.semibold))
-                .foregroundStyle(isFocused || isOn ? .white : .white.opacity(0.85))
-                .padding(.horizontal, 24)
-                .padding(.vertical, 12)
-                .background(
-                    Capsule().fill(
-                        isFocused ? accent :
-                        isOn ? accent.opacity(0.9) :
-                        Color.white.opacity(0.08)
-                    )
-                )
-                .overlay(
-                    Capsule().strokeBorder(
-                        isFocused ? Color.white :
-                        isOn ? accent : Color.white.opacity(0.12),
-                        lineWidth: isFocused ? 3 : 1
-                    )
-                )
-                .contentShape(Capsule())
         }
-        .buttonStyle(.plain)
-        .focusEffectDisabled()           // kill tvOS default rectangular halo
-        .focused($isFocused)
-        .scaleEffect(isFocused ? 1.08 : 1.0)
-        .shadow(color: isFocused ? accent.opacity(0.6) : .clear, radius: 16, y: 4)
-        .animation(.easeOut(duration: 0.12), value: isFocused)
+        .buttonStyle(ChipButtonStyle(accent: accent, isOn: isOn))
+        .focusEffectDisabled()
     }
 }
 
@@ -302,13 +278,11 @@ struct CompactPoster: View {
     @ViewBuilder
     private var posterArea: some View {
         if item.hasDesignedArtwork, let url = item.posterURLParsed {
-            AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
-                switch phase {
-                case .success(let img): img.resizable().scaledToFill()
-                case .empty, .failure: procedural
-                @unknown default: procedural
-                }
-            }
+            RemoteImage(
+                url: url,
+                targetSize: CGSize(width: 200, height: 300),
+                contentMode: .fill
+            )
         } else {
             procedural
         }

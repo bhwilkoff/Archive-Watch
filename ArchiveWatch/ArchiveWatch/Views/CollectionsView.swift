@@ -148,14 +148,12 @@ struct CollectionCard: View {
                 data.accent.opacity(0.3)
                 HStack(spacing: 0) {
                     ForEach(Array(data.posterURLs.prefix(3).enumerated()), id: \.offset) { idx, url in
-                        AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
-                            switch phase {
-                            case .success(let img):
-                                img.resizable().scaledToFill()
-                            default:
-                                data.accent.opacity(0.4)
-                            }
-                        }
+                        RemoteImage(
+                            url: url,
+                            targetSize: CGSize(width: geo.size.width / 3, height: geo.size.height),
+                            contentMode: .fill,
+                            placeholder: data.accent.opacity(0.4)
+                        )
                         .frame(width: geo.size.width / 3, height: geo.size.height)
                         .clipped()
                         .opacity(idx == 1 ? 1.0 : 0.75)
