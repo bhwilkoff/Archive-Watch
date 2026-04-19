@@ -200,16 +200,10 @@ enum ContentTypeClassifier {
         runtimeSeconds: Int?,
         year: Int?
     ) -> ContentType {
-        // 1. Authoritative registry (docs/taxonomy/collections.json).
-        //    The highest-weight collection with a known category wins.
-        if let dominant = CollectionRegistry.dominantCollection(from: collections),
-           let typed = ContentType(rawValue: dominant.info.category) {
-            return typed
-        }
-
-        // 2. Fall back to string-contains heuristics for unregistered
-        //    collections (still want to do the right thing for obscure
-        //    tags that haven't been added to the registry yet).
+        // Authoritative categorisation lives in the builder — it reads
+        // docs/taxonomy/collections.json and writes a concrete
+        // `contentType` onto each Catalog.Item. These heuristics only
+        // run for live enrichment of items that bypass the builder.
         let cols = Set(collections.map { $0.lowercased() })
         let subs = subjects.map { $0.lowercased() }
 
