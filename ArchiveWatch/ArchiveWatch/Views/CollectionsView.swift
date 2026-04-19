@@ -57,7 +57,9 @@ struct CollectionsView: View {
                 posterURLs: matching.compactMap { $0.hasDesignedArtwork ? $0.posterURLParsed : nil }.prefix(3).map { $0 }
             )
         }
-        .filter { $0.itemCount > 0 }
+        // A "collection" needs enough items to feel browseable. Under ten
+        // and it's just a list, not a collection.
+        .filter { $0.itemCount >= 10 }
     }
 
     var body: some View {

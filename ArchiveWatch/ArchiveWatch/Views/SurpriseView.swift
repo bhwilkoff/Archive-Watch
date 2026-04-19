@@ -82,6 +82,7 @@ struct RollAgainButton: View {
             .contentShape(Capsule())
         }
         .buttonStyle(.plain)
+        .focusEffectDisabled()
         .focused($isFocused)
         .animation(.easeOut(duration: 0.12), value: isFocused)
     }
@@ -121,7 +122,7 @@ struct RandomMovieCard: View {
                     caption: p.year.map(String.init) ?? "Roll the dice.",
                     icon: "sparkles",
                     accent: Color(hex: "#FF5C35") ?? .orange,
-                    posterURL: p.backdropURLParsed ?? p.posterURLParsed
+                    posterURL: p.posterURLParsed ?? p.backdropURLParsed
                 )
             }
             .buttonStyle(.card)
@@ -160,7 +161,7 @@ struct RandomCategoryCard: View {
                     caption: p.item.year.map { "\(p.category.displayName) · \($0)" } ?? p.category.displayName,
                     icon: "square.grid.2x2.fill",
                     accent: Color(hex: p.category.accent) ?? .blue,
-                    posterURL: p.item.backdropURLParsed ?? p.item.posterURLParsed
+                    posterURL: p.item.posterURLParsed ?? p.item.backdropURLParsed
                 )
             }
             .buttonStyle(.card)
@@ -199,7 +200,7 @@ struct RandomDecadeCard: View {
                     caption: "Time-travel to the \(p.decade)s.",
                     icon: "clock.arrow.circlepath",
                     accent: Color(hex: "#C9A66B") ?? .brown,
-                    posterURL: p.item.backdropURLParsed ?? p.item.posterURLParsed
+                    posterURL: p.item.posterURLParsed ?? p.item.backdropURLParsed
                 )
             }
             .buttonStyle(.card)
