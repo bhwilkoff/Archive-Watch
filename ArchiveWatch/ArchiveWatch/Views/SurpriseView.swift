@@ -223,54 +223,76 @@ struct ActionCard: View {
     /// backdrop with the actual movie art.
     var posterURL: URL? = nil
 
+    // 2:3 portrait. Poster fills the top ~62%; the bottom 38% is a
+    // solid info strip so category / title / year can never overlap or
+    // clip the art.
+    private let cardW: CGFloat = 440
+    private let cardH: CGFloat = 660
+
     var body: some View {
-        ZStack(alignment: .bottomLeading) {
-            if let posterURL {
-                AsyncImage(url: posterURL, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
-                    switch phase {
-                    case .success(let img):
-                        img.resizable().scaledToFill()
-                    default:
-                        LinearGradient(
-                            colors: [accent.opacity(0.9), accent.mix(with: .black, 0.5)],
-                            startPoint: .topLeading, endPoint: .bottomTrailing
-                        )
+        VStack(spacing: 0) {
+            ZStack(alignment: .topLeading) {
+                Group {
+                    if let posterURL {
+                        AsyncImage(url: posterURL, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
+                            switch phase {
+                            case .success(let img):
+                                img.resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                                    .clipped()
+                            default:
+                                posterFallback
+                            }
+                        }
+                    } else {
+                        posterFallback
                     }
                 }
-                // Dark wash so title remains readable on bright art.
-                LinearGradient(
-                    colors: [.black.opacity(0.1), .black.opacity(0.4), .black.opacity(0.95)],
-                    startPoint: .top, endPoint: .bottom
-                )
-            } else {
-                LinearGradient(
-                    colors: [accent.opacity(0.9), accent.mix(with: .black, 0.5)],
-                    startPoint: .topLeading, endPoint: .bottomTrailing
-                )
+                HStack(spacing: 8) {
+                    Image(systemName: icon)
+                        .font(.system(size: 15, weight: .bold))
+                    Text(title.uppercased())
+                        .font(.system(size: 11, weight: .bold))
+                        .tracking(1.5)
+                }
+                .foregroundStyle(.white)
+                .padding(.horizontal, 12)
+                .padding(.vertical, 6)
+                .background(.black.opacity(0.55))
+                .clipShape(Capsule())
+                .padding(14)
             }
-            VStack(alignment: .leading, spacing: 12) {
-                Image(systemName: icon)
-                    .font(.system(size: 36))
-                    .foregroundStyle(.white.opacity(0.85))
-                    .shadow(color: .black.opacity(0.6), radius: 6, y: 2)
-                Spacer()
-                Text(title.uppercased())
-                    .font(.system(size: 12, weight: .bold))
-                    .tracking(1.8)
-                    .foregroundStyle(.white.opacity(0.85))
+            .frame(width: cardW, height: cardH * 0.62)
+            .clipped()
+
+            VStack(alignment: .leading, spacing: 8) {
                 Text(subtitle)
-                    .font(.system(size: 30, weight: .heavy, design: .serif))
+                    .font(.system(size: 26, weight: .heavy, design: .serif))
                     .foregroundStyle(.white)
                     .lineLimit(2)
-                    .minimumScaleFactor(0.7)
+                    .multilineTextAlignment(.leading)
+                    .minimumScaleFactor(0.75)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text(caption)
                     .font(.callout)
                     .foregroundStyle(.white.opacity(0.75))
                     .lineLimit(1)
             }
-            .padding(28)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 18)
+            .frame(height: cardH * 0.38)
+            .background(accent.mix(with: .black, 0.7))
         }
-        .frame(width: 440, height: 580)
+        .frame(width: cardW, height: cardH)
         .clipShape(RoundedRectangle(cornerRadius: 16))
+    }
+
+    private var posterFallback: some View {
+        LinearGradient(
+            colors: [accent.opacity(0.9), accent.mix(with: .black, 0.5)],
+            startPoint: .topLeading, endPoint: .bottomTrailing
+        )
     }
 }

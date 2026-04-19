@@ -3,7 +3,7 @@ import AVKit
 import SwiftData
 
 enum DetailFocusTarget: Hashable {
-    case play, favorite, related
+    case back, play, favorite, related
 }
 
 struct DetailView: View {
@@ -36,15 +36,23 @@ struct DetailView: View {
     // container, independent of the backdrop's height.
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 0) {
-                heroBackdrop
-                infoCard
-                    .padding(.horizontal, 80)
-                    .padding(.top, 32)
-                    .padding(.bottom, 48)
-                relatedSection
+        ZStack(alignment: .topLeading) {
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 0) {
+                    heroBackdrop
+                    infoCard
+                        .padding(.horizontal, 80)
+                        .padding(.top, 32)
+                        .padding(.bottom, 48)
+                    relatedSection
+                }
             }
+            // Back chip — always focusable, always in the top-left. Pressing
+            // Up arrow from Play lands here; pressing Select dismisses.
+            BackChip { dismiss() }
+                .focused($focusTarget, equals: .back)
+                .padding(.leading, 60)
+                .padding(.top, 40)
         }
         .background(Color.black)
         .fullScreenCover(isPresented: $isPlaying) {
@@ -498,6 +506,47 @@ struct FavoriteButton: View {
                     )
                 )
                 .contentShape(Circle())
+        }
+        .buttonStyle(.plain)
+        .focusEffectDisabled()
+        .scaleEffect(isFocused ? 1.08 : 1.0)
+        .animation(.easeOut(duration: 0.12), value: isFocused)
+    }
+}
+
+// MARK: - Back chip
+//
+// A small, always-present back affordance at the top-left of Detail.
+// Pressing up-arrow from the info row reliably lands focus here, so the
+// user can always navigate out without guessing at the Menu button.
+
+struct BackChip: View {
+    let action: () -> Void
+    @Environment(\.isFocused) private var isFocused
+
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 10) {
+                Image(systemName: "chevron.left")
+                    .font(.callout.weight(.bold))
+                Text("Back")
+                    .font(.callout.weight(.semibold))
+            }
+            .foregroundStyle(.white)
+            .padding(.horizontal, 20)
+            .padding(.vertical, 10)
+            .background(
+                Capsule().fill(
+                    isFocused ? Color.white.opacity(0.25) : Color.black.opacity(0.45)
+                )
+            )
+            .overlay(
+                Capsule().strokeBorder(
+                    isFocused ? Color.white : Color.white.opacity(0.2),
+                    lineWidth: isFocused ? 3 : 1
+                )
+            )
+            .contentShape(Capsule())
         }
         .buttonStyle(.plain)
         .focusEffectDisabled()
