@@ -9,8 +9,8 @@ enum DetailFocusTarget: Hashable {
 struct DetailView: View {
     let item: Catalog.Item
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
     @Environment(\.modelContext) private var modelContext
-    @Environment(\.dismiss) private var dismiss
     @Query private var favorites: [Favorite]
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var allProgress: [WatchProgress]
     @State private var isPlaying = false
@@ -52,16 +52,12 @@ struct DetailView: View {
                 PlayerScreen(url: url, archiveID: item.archiveID)
             }
         }
-        // Declarative preferred focus target — SwiftUI + tvOS honor this
-        // when the view appears without imperatively overriding the focus
-        // engine, so it doesn't force a scroll jump the way
-        // `focusTarget = .play` inside onAppear does.
+        // Declarative initial focus. RootView owns the onExitCommand for
+        // Back-button → router.pop(), so arrow keys are wholly the focus
+        // engine's to manage inside DetailView. Every element — sidebar,
+        // Play, Favorite, Related — lives in the same focus realm now
+        // that NavigationStack is out of the picture.
         .defaultFocus($focusTarget, .play)
-        // Only the physical Back / Menu button dismisses. Arrow keys are
-        // left entirely to the tvOS focus engine so all content — tab
-        // bar, Play, Favorite, related shelf — is reachable with nothing
-        // but arrow-key traversal.
-        .onExitCommand { dismiss() }
     }
 
     private var heroBackdrop: some View {
@@ -105,7 +101,7 @@ struct DetailView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(spacing: 28) {
                         ForEach(related) { other in
-                            NavigationLink(value: other) {
+                            Button { router.push(.item(other)) } label: {
                                 PosterCard(item: other)
                             }
                             .buttonStyle(.card)

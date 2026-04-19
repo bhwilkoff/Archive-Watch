@@ -4,7 +4,6 @@ import SwiftUI
 @Observable
 final class AppStore {
 
-    var navigationPath = NavigationPath()
     var catalog: Catalog?
     var featured: Featured?
     var loadError: String?
