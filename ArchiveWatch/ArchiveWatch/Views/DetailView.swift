@@ -53,11 +53,6 @@ struct DetailView: View {
             }
         }
         .onExitCommand { dismiss() }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                focusTarget = .play
-            }
-        }
     }
 
     private var heroBackdrop: some View {
@@ -243,9 +238,20 @@ struct DetailView: View {
                 )
                 .disabled(item.videoURLParsed == nil)
                 .focused($focusTarget, equals: .play)
+                // There is nothing focusable above Play within the
+                // DetailView, and tvOS hides the parent TabView's tab
+                // bar on pushed NavigationStack screens. Up-arrow pops
+                // back to the parent view; from there the tab bar is
+                // reachable with one more up-arrow.
+                .onMoveCommand { direction in
+                    if direction == .up { dismiss() }
+                }
 
                 FavoriteButton(isFavorited: isFavorited, action: toggleFavorite)
                     .focused($focusTarget, equals: .favorite)
+                    .onMoveCommand { direction in
+                        if direction == .up { dismiss() }
+                    }
 
                 Spacer()
 
