@@ -4,6 +4,7 @@ import SwiftData
 @main
 struct ArchiveWatchApp: App {
     @State private var store = AppStore()
+    @State private var router = Router()
 
     init() {
         URLCache.shared = URLCache(
@@ -16,6 +17,7 @@ struct ArchiveWatchApp: App {
         WindowGroup {
             ContentView()
                 .environment(store)
+                .environment(router)
         }
         .modelContainer(for: [ContentItem.self, WatchProgress.self, Favorite.self])
     }

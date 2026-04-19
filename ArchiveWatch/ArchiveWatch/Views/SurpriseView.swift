@@ -107,6 +107,7 @@ private func randomItem(from pool: [Catalog.Item], seed: UInt64) -> Catalog.Item
 
 struct RandomMovieCard: View {
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
     let seed: Int
 
     private var pick: Catalog.Item? {
@@ -115,7 +116,7 @@ struct RandomMovieCard: View {
 
     var body: some View {
         if let p = pick {
-            NavigationLink(value: p) {
+            Button { router.push(.item(p)) } label: {
                 ActionCard(
                     title: "Random Film",
                     subtitle: p.title,
@@ -137,6 +138,7 @@ struct RandomMovieCard: View {
 
 struct RandomCategoryCard: View {
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
     let seed: Int
 
     private var pick: (category: Featured.Category, item: Catalog.Item)? {
@@ -154,7 +156,7 @@ struct RandomCategoryCard: View {
 
     var body: some View {
         if let p = pick {
-            NavigationLink(value: p.item) {
+            Button { router.push(.item(p.item)) } label: {
                 ActionCard(
                     title: "Random \(p.category.shortName ?? p.category.displayName)",
                     subtitle: p.item.title,
@@ -176,6 +178,7 @@ struct RandomCategoryCard: View {
 
 struct RandomDecadeCard: View {
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
     let seed: Int
 
     private var pick: (decade: Int, item: Catalog.Item)? {
@@ -193,7 +196,7 @@ struct RandomDecadeCard: View {
 
     var body: some View {
         if let p = pick {
-            NavigationLink(value: p.item) {
+            Button { router.push(.item(p.item)) } label: {
                 ActionCard(
                     title: "Random \(p.decade)s",
                     subtitle: p.item.title,

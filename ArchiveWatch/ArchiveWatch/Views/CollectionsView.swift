@@ -6,6 +6,7 @@ import SwiftUI
 
 struct CollectionsView: View {
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
 
     private var collectionCards: [CollectionCardData] {
         // (Archive collection id, display title, blurb, accent hex)
@@ -78,7 +79,7 @@ struct CollectionsView: View {
 
                 LazyVGrid(columns: [GridItem(.flexible(), spacing: 32), GridItem(.flexible(), spacing: 32)], spacing: 32) {
                     ForEach(collectionCards) { data in
-                        NavigationLink(value: BrowseFilter(collection: data.id)) {
+                        Button { router.push(.filter(BrowseFilter(collection: data.id))) } label: {
                             CollectionCard(data: data)
                         }
                         .buttonStyle(.card)

@@ -26,6 +26,7 @@ enum BrowseSort: String, CaseIterable, Identifiable {
 
 struct BrowseView: View {
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
     @State private var filter = BrowseFilter()
     @State private var sort: BrowseSort = .popular
     @State private var shuffleSeed = 0
@@ -108,7 +109,7 @@ struct BrowseView: View {
                 } else {
                     LazyVGrid(columns: cols, spacing: 36) {
                         ForEach(items) { item in
-                            NavigationLink(value: item) {
+                            Button { router.push(.item(item)) } label: {
                                 CompactPoster(item: item)
                             }
                             .buttonStyle(.card)

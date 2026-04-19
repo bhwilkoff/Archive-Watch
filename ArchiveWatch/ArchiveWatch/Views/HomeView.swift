@@ -148,6 +148,7 @@ struct HeroCarousel: View {
 // MARK: - Continue Watching row
 
 struct ContinueWatchingRow: View {
+    @Environment(Router.self) private var router
     let entries: [(item: Catalog.Item, progress: WatchProgress)]
 
     var body: some View {
@@ -160,7 +161,7 @@ struct ContinueWatchingRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 28) {
                     ForEach(entries, id: \.item.archiveID) { entry in
-                        NavigationLink(value: entry.item) {
+                        Button { router.push(.item(entry.item)) } label: {
                             ContinueWatchingCard(item: entry.item, progress: entry.progress)
                         }
                         .buttonStyle(.card)
@@ -277,9 +278,10 @@ struct ContinueWatchingCard: View {
 struct HeroBanner: View {
     let item: Catalog.Item
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
 
     var body: some View {
-        NavigationLink(value: item) {
+        Button { router.push(.item(item)) } label: {
             ZStack(alignment: .bottomLeading) {
                 backdrop
                 LinearGradient(
@@ -375,6 +377,7 @@ struct HeroBanner: View {
 
 struct CategoryTilesRow: View {
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -386,7 +389,7 @@ struct CategoryTilesRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 20) {
                     ForEach(store.featured?.categories ?? []) { cat in
-                        NavigationLink(value: BrowseFilter(category: cat.id)) {
+                        Button { router.push(.filter(BrowseFilter(category: cat.id))) } label: {
                             CategoryTile(category: cat)
                         }
                         .buttonStyle(.card)
@@ -445,6 +448,7 @@ struct CategoryTile: View {
 
 struct DecadeTilesRow: View {
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
 
     private var decades: [Int] {
         guard let items = store.catalog?.items else { return [] }
@@ -461,7 +465,7 @@ struct DecadeTilesRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 20) {
                     ForEach(decades, id: \.self) { decade in
-                        NavigationLink(value: BrowseFilter(decade: decade)) {
+                        Button { router.push(.filter(BrowseFilter(decade: decade))) } label: {
                             DecadeTile(decade: decade, count: countFor(decade))
                         }
                         .buttonStyle(.card)
@@ -528,6 +532,7 @@ struct ShelfRow: View {
     let shelf: Featured.Shelf
     let items: [Catalog.Item]
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
 
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -551,7 +556,7 @@ struct ShelfRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 28) {
                     ForEach(items) { item in
-                        NavigationLink(value: item) {
+                        Button { router.push(.item(item)) } label: {
                             PosterCard(item: item)
                         }
                         .buttonStyle(.card)

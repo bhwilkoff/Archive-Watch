@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SearchView: View {
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
     @State private var query: String = ""
 
     private var results: [Catalog.Item] {
@@ -67,7 +68,7 @@ struct SearchView: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(columns: cols, spacing: 36) {
                 ForEach(results) { item in
-                    NavigationLink(value: item) {
+                    Button { router.push(.item(item)) } label: {
                         CompactPoster(item: item)
                     }
                     .buttonStyle(.card)
