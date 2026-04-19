@@ -31,12 +31,17 @@ struct BrowseView: View {
     @State private var sort: BrowseSort = .popular
     @State private var shuffleSeed = 0
     @State private var filtersShown = false
+    // True when the view was pushed with a specific filter (from a
+    // collection tile, category tile, or decade tile). In that context
+    // the user has already narrowed the catalog deliberately — showing
+    // the Filters button + chip bar is redundant UI noise, so we hide
+    // both entirely. They can still sort.
+    private let isPreFiltered: Bool
 
     init(filter: BrowseFilter = BrowseFilter()) {
         _filter = State(initialValue: filter)
-        // If a filter was passed in, show it expanded so the user sees
-        // the context; empty browse starts collapsed for a clean grid.
-        _filtersShown = State(initialValue: !filter.isEmpty)
+        _filtersShown = State(initialValue: false)
+        self.isPreFiltered = !filter.isEmpty
     }
 
     private var items: [Catalog.Item] {
@@ -78,25 +83,27 @@ struct BrowseView: View {
                         .font(.title3)
                         .foregroundStyle(.white.opacity(0.5))
                     Spacer()
-                    Button {
-                        withAnimation(.easeOut(duration: 0.2)) { filtersShown.toggle() }
-                    } label: {
-                        Label(filtersShown ? "Hide Filters" : "Filters",
-                              systemImage: filtersShown ? "chevron.up" : "line.3.horizontal.decrease")
-                            .font(.callout)
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 10)
-                            .background(Color.white.opacity(filter.isEmpty ? 0.08 : 0.18))
-                            .foregroundStyle(.white)
-                            .clipShape(Capsule())
+                    if !isPreFiltered {
+                        Button {
+                            withAnimation(Motion.chrome) { filtersShown.toggle() }
+                        } label: {
+                            Label(filtersShown ? "Hide Filters" : "Filters",
+                                  systemImage: filtersShown ? "chevron.up" : "line.3.horizontal.decrease")
+                                .font(.callout)
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 10)
+                                .background(Color.white.opacity(0.08))
+                                .foregroundStyle(.white)
+                                .clipShape(Capsule())
+                        }
+                        .buttonStyle(.card)
                     }
-                    .buttonStyle(.plain)
                     SortPicker(sort: $sort, shuffle: { shuffleSeed &+= 1 })
                 }
                 .padding(.horizontal, 80)
                 .padding(.top, 24)
 
-                if filtersShown {
+                if filtersShown && !isPreFiltered {
                     FilterChipBar(filter: $filter)
                         .padding(.horizontal, 80)
                         .transition(.opacity.combined(with: .move(edge: .top)))
@@ -107,12 +114,11 @@ struct BrowseView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.top, 80)
                 } else {
-                    LazyVGrid(columns: cols, spacing: 36) {
+                    LazyVGrid(columns: cols, alignment: .leading, spacing: 44) {
                         ForEach(items) { item in
-                            Button { router.push(.item(item)) } label: {
-                                CompactPoster(item: item)
+                            CompactTile(item: item) {
+                                router.push(.item(item))
                             }
-                            .buttonStyle(.card)
                         }
                     }
                     .padding(.horizontal, 80)
@@ -241,71 +247,48 @@ struct SortPicker: View {
     }
 }
 
-// MARK: - Compact poster (denser grid version)
+// MARK: - Compact tile (Browse / Search grid)
+//
+// Button wraps only the poster art. The title + year sit below as
+// siblings so .buttonStyle(.card) never clips them — the same
+// structural fix we apply to PosterTile.
 
-struct CompactPoster: View {
+struct CompactTile: View {
     let item: Catalog.Item
+    let action: () -> Void
+
     @Environment(AppStore.self) private var store
+    @FocusState private var isFocused: Bool
 
-    // Uniform 2:3 portrait regardless of content type.
+    private let cardWidth: CGFloat  = 200
+    private let cardHeight: CGFloat = 300
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            posterArea
-                .frame(width: 200, height: 300)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .strokeBorder(Color.white.opacity(0.08), lineWidth: 1)
-                )
-
-            Text(item.title)
-                .font(.system(size: 20, weight: .semibold))
-                .foregroundStyle(.white)
-                .lineLimit(2)
-                .multilineTextAlignment(.leading)
-                .minimumScaleFactor(0.75)
-                .truncationMode(.tail)
-                .fixedSize(horizontal: false, vertical: true)
-                .frame(width: 200, alignment: .leading)
-            if let year = item.year {
-                Text(String(year))
-                    .font(.system(size: 19, weight: .regular))
-                    .foregroundStyle(.white.opacity(0.55))
+        VStack(alignment: .leading, spacing: 10) {
+            Button(action: action) {
+                PosterArt(item: item, width: cardWidth, height: cardHeight)
             }
-        }
-    }
+            .buttonStyle(.card)
+            .focused($isFocused)
 
-    @ViewBuilder
-    private var posterArea: some View {
-        if item.hasDesignedArtwork, let url = item.posterURLParsed {
-            RemoteImage(
-                url: url,
-                targetSize: CGSize(width: 200, height: 300),
-                contentMode: .fill
-            )
-        } else {
-            procedural
-        }
-    }
-
-    private var procedural: some View {
-        ProceduralPoster(
-            item: item,
-            accent: store.accentColor(forCategory: categoryID),
-            aspectRatio: 2.0/3.0
-        )
-    }
-
-    private var categoryID: String {
-        switch item.contentType {
-        case "tv-series", "tv-special": return "tv-series"
-        case "silent-film": return "silent-film"
-        case "animation": return "animation"
-        case "newsreel": return "newsreel"
-        case "documentary": return "documentary"
-        case "ephemeral": return "ephemeral"
-        case "short-film": return "short-film"
-        default: return "feature-film"
+            VStack(alignment: .leading, spacing: 2) {
+                Text(item.title)
+                    .font(.system(size: 19, weight: .semibold))
+                    .foregroundStyle(.white)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.leading)
+                    .minimumScaleFactor(0.78)
+                    .truncationMode(.tail)
+                    .fixedSize(horizontal: false, vertical: true)
+                if let year = item.year {
+                    Text(String(year))
+                        .font(.system(size: 17, weight: .regular))
+                        .foregroundStyle(.white.opacity(0.55))
+                }
+            }
+            .frame(width: cardWidth, alignment: .leading)
+            .opacity(isFocused ? 1.0 : 0.85)
+            .animation(Motion.focus, value: isFocused)
         }
     }
 }

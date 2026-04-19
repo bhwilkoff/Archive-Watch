@@ -52,7 +52,15 @@ struct DetailView: View {
                 PlayerScreen(url: url, archiveID: item.archiveID)
             }
         }
+        // Declarative default + deferred imperative assist. `.task`
+        // fires after first layout, so Play exists and can actually
+        // receive focus — this defeats the race that otherwise lets
+        // the sidebar steal focus during the content swap.
         .defaultFocus($focusTarget, .play, priority: .userInitiated)
+        .task {
+            try? await Task.sleep(for: .milliseconds(40))
+            focusTarget = .play
+        }
     }
 
     // MARK: - Hero with pinned actions
@@ -110,6 +118,10 @@ struct DetailView: View {
                 favoriteButton
             }
             .padding(.top, 8)
+            // Dedicated focus section for the action row so up-arrow
+            // from the Related shelf below lands cleanly on Play/Fav
+            // rather than bouncing through scroll-body whitespace.
+            .focusSection()
         }
         .frame(maxWidth: 1100, alignment: .leading)
     }
@@ -203,12 +215,11 @@ struct DetailView: View {
                     .foregroundStyle(.white)
                     .padding(.horizontal, 80)
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(spacing: 32) {
+                    LazyHStack(alignment: .top, spacing: 32) {
                         ForEach(related) { other in
-                            Button { router.push(.item(other)) } label: {
-                                PosterCard(item: other)
+                            PosterTile(item: other) {
+                                router.push(.item(other))
                             }
-                            .buttonStyle(.card)
                         }
                     }
                     .padding(.horizontal, 80)
