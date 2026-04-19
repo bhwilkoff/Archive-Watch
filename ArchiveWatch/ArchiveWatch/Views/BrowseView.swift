@@ -218,6 +218,7 @@ struct Chip: View {
                 .contentShape(Capsule())
         }
         .buttonStyle(.plain)
+        .focusEffectDisabled()           // kill tvOS default rectangular halo
         .focused($isFocused)
         .scaleEffect(isFocused ? 1.08 : 1.0)
         .shadow(color: isFocused ? accent.opacity(0.6) : .clear, radius: 16, y: 4)

@@ -2,6 +2,10 @@ import SwiftUI
 import AVKit
 import SwiftData
 
+enum DetailFocusTarget: Hashable {
+    case play, favorite, related
+}
+
 struct DetailView: View {
     let item: Catalog.Item
     @Environment(AppStore.self) private var store
@@ -10,6 +14,7 @@ struct DetailView: View {
     @Query private var favorites: [Favorite]
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var allProgress: [WatchProgress]
     @State private var isPlaying = false
+    @FocusState private var focusTarget: DetailFocusTarget?
 
     private var isFavorited: Bool {
         favorites.contains { $0.archiveID == item.archiveID }
@@ -36,8 +41,8 @@ struct DetailView: View {
                 heroBackdrop
                 infoCard
                     .padding(.horizontal, 80)
-                    .padding(.top, 40)
-                    .padding(.bottom, 60)
+                    .padding(.top, 32)
+                    .padding(.bottom, 48)
                 relatedSection
             }
         }
@@ -48,21 +53,29 @@ struct DetailView: View {
             }
         }
         .onExitCommand { dismiss() }
+        .onAppear {
+            // Force initial focus on Play so every DetailView is immediately
+            // actionable. Without this, tvOS sometimes picks a related-row
+            // card (or nothing), making Play seem unreachable.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                focusTarget = .play
+            }
+        }
     }
 
     private var heroBackdrop: some View {
         ZStack(alignment: .bottom) {
             backdrop
-                .frame(height: 520)
+                .frame(height: 420)
                 .clipped()
             LinearGradient(
                 colors: [.clear, .black.opacity(0.4), .black],
                 startPoint: .top, endPoint: .bottom
             )
-            .frame(height: 520)
+            .frame(height: 420)
             .allowsHitTesting(false)
         }
-        .frame(height: 520)
+        .frame(height: 420)
     }
 
     private var infoCard: some View {
@@ -232,8 +245,10 @@ struct DetailView: View {
                     action: { isPlaying = true }
                 )
                 .disabled(item.videoURLParsed == nil)
+                .focused($focusTarget, equals: .play)
 
                 FavoriteButton(isFavorited: isFavorited, action: toggleFavorite)
+                    .focused($focusTarget, equals: .favorite)
 
                 Spacer()
 
@@ -393,7 +408,7 @@ struct PlayButton: View {
     let progress: WatchProgress?
     let accent: Color
     let action: () -> Void
-    @FocusState private var isFocused: Bool
+    @Environment(\.isFocused) private var isFocused
     @State private var pulse: Bool = false
 
     private var label: String {
@@ -443,7 +458,7 @@ struct PlayButton: View {
             .contentShape(Capsule())
         }
         .buttonStyle(.plain)
-        .focused($isFocused)
+        .focusEffectDisabled()
         .animation(.easeOut(duration: 0.12), value: isFocused)
         .onAppear {
             withAnimation(.easeInOut(duration: 1.8).repeatForever(autoreverses: true)) {
@@ -463,7 +478,7 @@ struct PlayButton: View {
 struct FavoriteButton: View {
     let isFavorited: Bool
     let action: () -> Void
-    @FocusState private var isFocused: Bool
+    @Environment(\.isFocused) private var isFocused
 
     var body: some View {
         Button(action: action) {
@@ -485,7 +500,7 @@ struct FavoriteButton: View {
                 .contentShape(Circle())
         }
         .buttonStyle(.plain)
-        .focused($isFocused)
+        .focusEffectDisabled()
         .scaleEffect(isFocused ? 1.08 : 1.0)
         .animation(.easeOut(duration: 0.12), value: isFocused)
     }
