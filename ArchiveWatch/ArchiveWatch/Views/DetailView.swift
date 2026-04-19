@@ -25,16 +25,20 @@ struct DetailView: View {
         item.contentType == "home-movie"
     }
 
+    // Two-zone layout: backdrop-ONLY header at top (no content overlap),
+    // then a structured info card below in normal flow. Zero chance of
+    // overlap-induced clipping because poster + info sit in their own
+    // container, independent of the backdrop's height.
+
     var body: some View {
-        GeometryReader { geo in
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 40) {
-                    hero
-                        .frame(height: max(geo.size.height - 60, 600))
-                        .clipped()
-                    relatedSection
-                }
-                .padding(.bottom, 80)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 0) {
+                heroBackdrop
+                infoCard
+                    .padding(.horizontal, 80)
+                    .padding(.top, 40)
+                    .padding(.bottom, 60)
+                relatedSection
             }
         }
         .background(Color.black)
@@ -43,18 +47,35 @@ struct DetailView: View {
                 PlayerScreen(url: url, archiveID: item.archiveID)
             }
         }
-        // Menu button on the Siri Remote (Esc in simulator) pops back.
         .onExitCommand { dismiss() }
     }
 
-    private var hero: some View {
-        ZStack(alignment: .bottomLeading) {
+    private var heroBackdrop: some View {
+        ZStack(alignment: .bottom) {
             backdrop
+                .frame(height: 520)
+                .clipped()
             LinearGradient(
-                colors: [.clear, .black.opacity(0.3), .black.opacity(0.95)],
+                colors: [.clear, .black.opacity(0.4), .black],
                 startPoint: .top, endPoint: .bottom
             )
-            content
+            .frame(height: 520)
+            .allowsHitTesting(false)
+        }
+        .frame(height: 520)
+    }
+
+    private var infoCard: some View {
+        HStack(alignment: .top, spacing: 48) {
+            poster
+                .frame(width: 260, height: 390)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(Color.white.opacity(0.1), lineWidth: 1))
+                .offset(y: -120)   // pull poster up to overlap the backdrop
+                .padding(.bottom, -120)
+
+            info
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
     }
 
@@ -130,38 +151,22 @@ struct DetailView: View {
         .overlay(Color.black.opacity(0.35))
     }
 
-    private var content: some View {
-        HStack(alignment: .bottom, spacing: 48) {
-            poster
-            info
-            Spacer(minLength: 0)
-        }
-        .padding(.horizontal, 80)
-        .padding(.bottom, 60)
-        .padding(.top, 60)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
-    }
-
     @ViewBuilder
     private var poster: some View {
-        Group {
-            if item.hasDesignedArtwork, let url = item.posterURLParsed {
-                AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
-                    switch phase {
-                    case .success(let image):
-                        image.resizable().scaledToFill()
-                    default:
-                        ProceduralPoster(item: item, accent: store.accentColor(forCategory: categoryID),
-                                         aspectRatio: isLandscape ? 16.0/9.0 : 2.0/3.0)
-                    }
+        if item.hasDesignedArtwork, let url = item.posterURLParsed {
+            AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
+                switch phase {
+                case .success(let image):
+                    image.resizable().scaledToFill()
+                default:
+                    ProceduralPoster(item: item, accent: store.accentColor(forCategory: categoryID),
+                                     aspectRatio: 2.0/3.0)
                 }
-            } else {
-                ProceduralPoster(item: item, accent: store.accentColor(forCategory: categoryID),
-                                 aspectRatio: isLandscape ? 16.0/9.0 : 2.0/3.0)
             }
+        } else {
+            ProceduralPoster(item: item, accent: store.accentColor(forCategory: categoryID),
+                             aspectRatio: 2.0/3.0)
         }
-        .frame(width: 340, height: isLandscape ? 191 : 510)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 
     private var categoryID: String {

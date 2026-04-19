@@ -8,15 +8,43 @@ struct CollectionsView: View {
     @Environment(AppStore.self) private var store
 
     private var collectionCards: [CollectionCardData] {
+        // (Archive collection id, display title, blurb, accent hex)
+        // Ordered roughly by editorial priority within each category band.
         let featuredCollections: [(id: String, title: String, blurb: String, accent: String)] = [
-            ("feature_films",  "Feature Films",             "The main library — thousands of public-domain features.",     "#FF5C35"),
-            ("silent_films",   "Silent Cinema",             "Before sound: 1894–1929. Melies, Griffith, Keaton.",          "#C9A66B"),
-            ("prelinger",      "The Prelinger Archive",     "Industrial, educational, and ephemeral 20th-century film.",   "#7C5BBA"),
-            ("classic_tv",     "Classic Television",        "Vintage broadcasts, episodic serials, public-domain TV.",     "#2D5BFF"),
-            ("classic_cartoons","Classic Cartoons",         "Pre-1970 animation — Fleischer, Terrytoons, early Disney.",   "#FF4D8D"),
-            ("fedflix",        "US Government Films",       "FedFlix, NASA, wartime information, PSAs.",                   "#3FA796"),
-            ("newsandpublicaffairs", "Newsreels",           "How the 20th century reported itself to itself.",             "#8A8F98"),
-            ("short_films",    "Short Films",               "Bizarre, beautiful, and under thirty minutes.",               "#E8A317")
+            // Marquee features
+            ("Film_Noir",               "Film Noir",                 "Shadows, second thoughts, venetian-blind lighting.",         "#FF5C35"),
+            ("SciFi_Horror",            "Sci-Fi & Horror",           "B-movies, creature features, postwar paranoia.",             "#7C5BBA"),
+            ("Comedy_Films",            "Comedy",                    "Pratfalls, quick wit, surreal cinema.",                      "#FF4D8D"),
+            ("TheVideoCellarCollection","The Video Cellar",          "A curator's devoted private library.",                       "#E8A317"),
+            ("feature_films",           "Feature Films",             "The main library — thousands of public-domain features.",    "#FF5C35"),
+            ("feature_films_picfixer",  "Picfixer Restorations",     "A collector's multi-year film restoration project.",         "#FF5C35"),
+            ("mid-century-german-film", "Mid-Century German Film",   "Postwar to New German Cinema.",                              "#8A8F98"),
+
+            // Silent cinema
+            ("silenthalloffame",        "Silent Hall of Fame",       "Curator-picked silents: Griffith, Chaplin, Keaton, Lang.",   "#C9A66B"),
+            ("georgesmelies",           "Georges Méliès",            "The magician who invented cinema.",                          "#C9A66B"),
+            ("silent_films",            "Silent Cinema",             "The first thirty years of moving pictures.",                 "#C9A66B"),
+            ("segundodechomon",         "Segundo de Chomón",         "Spanish Méliès-era trick cinema pioneer.",                   "#C9A66B"),
+
+            // Animation
+            ("animationandcartoons",    "Animation",                 "From Fleischer to Terrytoons to beyond.",                    "#FF4D8D"),
+            ("vintage_cartoons",        "Vintage Cartoons",          "Pre-1970 animation on 16mm and 35mm.",                       "#FF4D8D"),
+            ("classic_cartoons",        "Classic Cartoons",          "Early Disney, Fleischer, Terrytoons.",                       "#FF4D8D"),
+
+            // Classic TV (by decade)
+            ("classic_tv_1950s",        "1950s Television",          "Live broadcasts, rabbit-ears era.",                          "#2D5BFF"),
+            ("classic_tv_1960s",        "1960s Television",          "The golden age of network drama.",                           "#2D5BFF"),
+            ("classic_tv_1970s",        "1970s Television",          "Color, variety, sitcom reinvention.",                        "#2D5BFF"),
+            ("classic_tv_1980s",        "1980s Television",          "Cable arrives; the networks respond.",                       "#2D5BFF"),
+            ("classic_tv_1940s",        "1940s Television",          "The earliest surviving broadcasts.",                         "#2D5BFF"),
+            ("classic_tv",              "Classic Television",        "Vintage broadcasts across the 20th century.",                "#2D5BFF"),
+
+            // Government + ephemeral + educational
+            ("prelinger",               "The Prelinger Archive",     "Industrial, educational, and ephemeral 20th-century film.",  "#7C5BBA"),
+            ("nasa",                    "NASA Films",                "Earthrise, moonwalks, the long engineering story.",          "#3FA796"),
+            ("educationalfilms",        "Educational Shorts",        "Encyclopædia Britannica, Coronet, classroom filmstrips.",    "#7C5BBA"),
+            ("ephemera",                "Ephemera",                  "Industrial, instructional, home, in-between.",               "#7C5BBA"),
+            ("newsandpublicaffairs",    "Newsreels",                 "How the 20th century reported itself to itself.",            "#8A8F98")
         ]
         return featuredCollections.map { c in
             let matching = store.catalog?.items.filter { $0.collections.contains(c.id) } ?? []
