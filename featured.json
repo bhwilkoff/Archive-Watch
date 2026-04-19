@@ -81,6 +81,15 @@
       ]
     },
     {
+      "id": "wikidata-pd",
+      "title": "Public-Domain Canon",
+      "subtitle": "Films catalogued on Wikidata as public domain",
+      "category": "feature-film",
+      "type": "seeded",
+      "source": "wikidata-p724",
+      "limit": 120
+    },
+    {
       "id": "popular-features",
       "title": "Popular Feature Films",
       "subtitle": "Most downloaded this week",
@@ -156,9 +165,9 @@
       "subtitle": "Suspense, the supernatural, and the Universal originals",
       "category": "feature-film",
       "type": "dynamic",
-      "query": "mediatype:movies AND collection:sci-fi_horror",
-      "sort": ["-downloads"],
-      "limit": 24
+      "query": "mediatype:movies AND collection:feature_films AND subject:horror",
+      "sort": ["downloads desc"],
+      "limit": 48
     },
     {
       "id": "noir",
@@ -166,8 +175,48 @@
       "subtitle": "Shadows and second thoughts",
       "category": "feature-film",
       "type": "dynamic",
-      "query": "mediatype:movies AND collection:film_noir",
-      "sort": ["-downloads"],
+      "query": "mediatype:movies AND collection:feature_films AND subject:noir",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "government-films",
+      "title": "Films from the United States Government",
+      "subtitle": "FedFlix, NASA, PSAs, and wartime-information shorts",
+      "category": "ephemeral",
+      "type": "dynamic",
+      "query": "mediatype:movies AND (collection:fedflix OR collection:nasa_films OR collection:usgovfilms)",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "educational-shorts",
+      "title": "Educational Shorts",
+      "subtitle": "Encyclopædia Britannica, Coronet, and the mid-century classroom",
+      "category": "ephemeral",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:prelinger AND subject:educational",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "cult-shorts",
+      "title": "Cult Shorts",
+      "subtitle": "Bizarre, beautiful, and under thirty minutes",
+      "category": "short-film",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:short_films",
+      "sort": ["downloads desc"],
+      "limit": 48
+    },
+    {
+      "id": "home-movies",
+      "title": "Home Movies",
+      "subtitle": "20th-century private life, unscripted",
+      "category": "ephemeral",
+      "type": "dynamic",
+      "query": "mediatype:movies AND collection:home_movies",
+      "sort": ["downloads desc"],
       "limit": 24
     }
   ],

@@ -150,13 +150,24 @@ const API = (() => {
      Scrape API (paginated browse)
   ---------------------------------------------------------------- */
 
+  // Archive's scrape API takes sorts as "field asc" / "field desc".
+  // We accept the older "-field" / "+field" / "field" shorthand too and
+  // normalize here so every call site stays readable.
+  function normalizeSort(s) {
+    const t = String(s).trim();
+    if (/\s+(asc|desc)$/i.test(t)) return t;
+    if (t.startsWith('-')) return `${t.slice(1)} desc`;
+    if (t.startsWith('+')) return `${t.slice(1)} asc`;
+    return `${t} asc`;
+  }
+
   async function scrape({ q, sorts = [], count = 24, cursor = null, fields = null }) {
     const defaultFields = ['identifier', 'title', 'creator', 'year', 'date', 'mediatype', 'collection', 'downloads'];
     const params = new URLSearchParams();
     params.set('q', q);
     params.set('fields', (fields || defaultFields).join(','));
     params.set('count', String(Math.max(count, 100))); // API minimum is 100
-    if (sorts.length) params.set('sorts', sorts.join(','));
+    if (sorts.length) params.set('sorts', sorts.map(normalizeSort).join(','));
     if (cursor) params.set('cursor', cursor);
 
     const resp = await fetch(SCRAPE_URL + '?' + params.toString(), {

@@ -5,3 +5,7 @@
 
 MARKETING_VERSION = 1.0
 CURRENT_PROJECT_VERSION = 1
+
+// Optional per-developer secrets (gitignored). The `?` makes it optional so
+// the project still builds on machines where Secrets.xcconfig is absent.
+#include? "Secrets.xcconfig"
