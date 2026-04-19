@@ -64,6 +64,13 @@ struct Catalog: Decodable, Sendable {
             hasRealArtwork ?? (artworkSource != "archive")
         }
 
+        /// Display-safe synopsis: HTML stripped, entities decoded, normalised whitespace.
+        /// The builder strips most of this; this is belt-and-braces for old catalogs.
+        var displaySynopsis: String? {
+            guard let raw = synopsis, !raw.isEmpty else { return nil }
+            return HTMLStripper.strip(raw)
+        }
+
         /// Human byline for the Detail screen. For features: director. For TV: network.
         /// For ephemeral/PSA: producer/publisher/sponsor. Falls back to null.
         var byline: String? {

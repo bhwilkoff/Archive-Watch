@@ -29,9 +29,13 @@ struct BrowseView: View {
     @State private var filter = BrowseFilter()
     @State private var sort: BrowseSort = .popular
     @State private var shuffleSeed = 0
+    @State private var filtersShown = false
 
     init(filter: BrowseFilter = BrowseFilter()) {
         _filter = State(initialValue: filter)
+        // If a filter was passed in, show it expanded so the user sees
+        // the context; empty browse starts collapsed for a clean grid.
+        _filtersShown = State(initialValue: !filter.isEmpty)
     }
 
     private var items: [Catalog.Item] {
@@ -65,11 +69,7 @@ struct BrowseView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 24) {
-                FilterChipBar(filter: $filter)
-                    .padding(.horizontal, 80)
-                    .padding(.top, 16)
-
-                HStack(spacing: 24) {
+                HStack(spacing: 20) {
                     Text(headline)
                         .font(.title.bold())
                         .foregroundStyle(.white)
@@ -77,9 +77,29 @@ struct BrowseView: View {
                         .font(.title3)
                         .foregroundStyle(.white.opacity(0.5))
                     Spacer()
+                    Button {
+                        withAnimation(.easeOut(duration: 0.2)) { filtersShown.toggle() }
+                    } label: {
+                        Label(filtersShown ? "Hide Filters" : "Filters",
+                              systemImage: filtersShown ? "chevron.up" : "line.3.horizontal.decrease")
+                            .font(.callout)
+                            .padding(.horizontal, 20)
+                            .padding(.vertical, 10)
+                            .background(Color.white.opacity(filter.isEmpty ? 0.08 : 0.18))
+                            .foregroundStyle(.white)
+                            .clipShape(Capsule())
+                    }
+                    .buttonStyle(.plain)
                     SortPicker(sort: $sort, shuffle: { shuffleSeed &+= 1 })
                 }
                 .padding(.horizontal, 80)
+                .padding(.top, 24)
+
+                if filtersShown {
+                    FilterChipBar(filter: $filter)
+                        .padding(.horizontal, 80)
+                        .transition(.opacity.combined(with: .move(edge: .top)))
+                }
 
                 if items.isEmpty {
                     EmptyState()
@@ -172,20 +192,36 @@ struct Chip: View {
     let isOn: Bool
     let accent: Color
     let action: () -> Void
+    @FocusState private var isFocused: Bool
 
     var body: some View {
         Button(action: action) {
             Text(label)
                 .font(.callout.weight(.semibold))
-                .padding(.horizontal, 20)
-                .padding(.vertical, 10)
-                .foregroundStyle(isOn ? .white : .white.opacity(0.85))
-                .glassBackground(shape: Capsule(), isOn: isOn, accent: accent)
-                .overlay(
-                    Capsule().strokeBorder(isOn ? accent : Color.white.opacity(0.12), lineWidth: 1)
+                .foregroundStyle(isFocused || isOn ? .white : .white.opacity(0.85))
+                .padding(.horizontal, 24)
+                .padding(.vertical, 12)
+                .background(
+                    Capsule().fill(
+                        isFocused ? accent :
+                        isOn ? accent.opacity(0.9) :
+                        Color.white.opacity(0.08)
+                    )
                 )
+                .overlay(
+                    Capsule().strokeBorder(
+                        isFocused ? Color.white :
+                        isOn ? accent : Color.white.opacity(0.12),
+                        lineWidth: isFocused ? 3 : 1
+                    )
+                )
+                .contentShape(Capsule())
         }
         .buttonStyle(.plain)
+        .focused($isFocused)
+        .scaleEffect(isFocused ? 1.08 : 1.0)
+        .shadow(color: isFocused ? accent.opacity(0.6) : .clear, radius: 16, y: 4)
+        .animation(.easeOut(duration: 0.12), value: isFocused)
     }
 }
 
@@ -265,7 +301,7 @@ struct CompactPoster: View {
     @ViewBuilder
     private var posterArea: some View {
         if item.hasDesignedArtwork, let url = item.posterURLParsed {
-            AsyncImage(url: url) { phase in
+            AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
                 switch phase {
                 case .success(let img): img.resizable().scaledToFill()
                 case .empty, .failure: procedural

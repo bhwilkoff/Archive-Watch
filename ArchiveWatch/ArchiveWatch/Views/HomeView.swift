@@ -158,7 +158,7 @@ struct ContinueWatchingCard: View {
         // Prefer backdrop for in-progress cards (scene-like).
         let url = item.backdropURLParsed ?? item.posterURLParsed
         if item.hasDesignedArtwork, let url {
-            AsyncImage(url: url) { phase in
+            AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
                 switch phase {
                 case .success(let img): img.resizable().scaledToFill()
                 default: procedural
@@ -234,7 +234,7 @@ struct HeroBanner: View {
                         }
                         .font(.title3)
                         .foregroundStyle(.white.opacity(0.8))
-                        if let synopsis = item.synopsis, !synopsis.isEmpty {
+                        if let synopsis = item.displaySynopsis {
                             Text(synopsis)
                                 .font(.callout)
                                 .foregroundStyle(.white.opacity(0.85))
@@ -256,7 +256,7 @@ struct HeroBanner: View {
     private var backdrop: some View {
         Group {
             if item.hasDesignedArtwork, let url = item.backdropURLParsed ?? item.posterURLParsed {
-                AsyncImage(url: url) { phase in
+                AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
                     switch phase {
                     case .success(let img): img.resizable().scaledToFill()
                     default: Color(white: 0.1)
@@ -567,9 +567,7 @@ struct PosterCard: View {
     }
 
     private var focusPreviewText: String? {
-        if let s = item.synopsis?.trimmingCharacters(in: .whitespacesAndNewlines), !s.isEmpty {
-            return s
-        }
+        if let s = item.displaySynopsis { return s }
         if let b = item.byline { return b }
         return nil
     }
@@ -585,7 +583,7 @@ struct PosterCard: View {
     @ViewBuilder
     private var posterArea: some View {
         if item.hasDesignedArtwork, let url = item.posterURLParsed {
-            AsyncImage(url: url) { phase in
+            AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
                 switch phase {
                 case .success(let image): image.resizable().scaledToFill()
                 case .empty, .failure: procedural

@@ -26,13 +26,15 @@ struct DetailView: View {
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack(spacing: 0) {
+            VStack(alignment: .leading, spacing: 40) {
                 hero
+                    .frame(height: 860)
+                    .clipped()
                 relatedSection
             }
+            .padding(.bottom, 80)
         }
-        .background(Color.black.ignoresSafeArea())
-        .ignoresSafeArea(edges: .top)
+        .background(Color.black)
         .fullScreenCover(isPresented: $isPlaying) {
             if let url = item.videoURLParsed {
                 PlayerScreen(url: url, archiveID: item.archiveID)
@@ -44,12 +46,11 @@ struct DetailView: View {
         ZStack(alignment: .bottomLeading) {
             backdrop
             LinearGradient(
-                colors: [.clear, .black.opacity(0.95)],
+                colors: [.clear, .black.opacity(0.3), .black.opacity(0.95)],
                 startPoint: .top, endPoint: .bottom
             )
             content
         }
-        .frame(minHeight: 900)
     }
 
     @ViewBuilder
@@ -102,7 +103,7 @@ struct DetailView: View {
     private var backdrop: some View {
         Group {
             if item.hasDesignedArtwork, let url = item.backdropURLParsed ?? item.posterURLParsed {
-                AsyncImage(url: url) { phase in
+                AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
                     switch phase {
                     case .success(let image):
                         image.resizable().scaledToFill()
@@ -128,16 +129,19 @@ struct DetailView: View {
         HStack(alignment: .bottom, spacing: 48) {
             poster
             info
-            Spacer()
+            Spacer(minLength: 0)
         }
-        .padding(80)
+        .padding(.horizontal, 80)
+        .padding(.bottom, 60)
+        .padding(.top, 60)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
     }
 
     @ViewBuilder
     private var poster: some View {
         Group {
             if item.hasDesignedArtwork, let url = item.posterURLParsed {
-                AsyncImage(url: url) { phase in
+                AsyncImage(url: url, transaction: Transaction(animation: .easeIn(duration: 0.2))) { phase in
                     switch phase {
                     case .success(let image):
                         image.resizable().scaledToFill()
@@ -183,7 +187,7 @@ struct DetailView: View {
             .font(.title3)
             .foregroundStyle(.white.opacity(0.7))
 
-            if let synopsis = item.synopsis, !synopsis.isEmpty {
+            if let synopsis = item.displaySynopsis {
                 Text(synopsis)
                     .font(.body)
                     .foregroundStyle(.white.opacity(0.85))

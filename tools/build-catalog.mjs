@@ -213,6 +213,43 @@ function pickVideo(files) {
 function oneOrMany(v) { return v == null ? [] : (Array.isArray(v) ? v : [v]); }
 function firstString(v) { const arr = oneOrMany(v); return arr.length ? String(arr[0]) : null; }
 
+function stripHTML(s) {
+  if (!s) return s;
+  // Strip tags, decode common entities, collapse whitespace.
+  return String(s)
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>/gi, '\n\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&mdash;/g, '—')
+    .replace(/&ndash;/g, '–')
+    .replace(/&hellip;/g, '…')
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(parseInt(n, 10)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
+    .replace(/[ \t]+/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+// Heuristic — is this item a trailer, not a film?
+function looksLikeTrailer(title, subjects, runtimeSec) {
+  const t = (title || '').toLowerCase();
+  if (/\b(trailer|preview|teaser)\b/.test(t)) return true;
+  for (const s of subjects || []) {
+    if (/^trailer$|\btrailer\b/i.test(s)) return true;
+  }
+  // Sub-5-minute titles in feature_films are almost always trailers or
+  // stray clips, not real films. We keep genuine shorts via collection
+  // membership below.
+  if (runtimeSec && runtimeSec > 0 && runtimeSec < 180) return true;
+  return false;
+}
+
 function summarize(meta, fallbackID) {
   const m = meta.metadata || {};
   const files = meta.files || [];
@@ -234,18 +271,18 @@ function summarize(meta, fallbackID) {
   const vf = pickVideo(files);
   return {
     identifier: m.identifier || fallbackID,
-    title: m.title || m.identifier || fallbackID,
+    title: stripHTML(m.title) || m.identifier || fallbackID,
     year,
     runtime: m.runtime || null,
     mediatype: m.mediatype || null,
     collections,
     subjects,
-    description: firstString(m.description),
-    creator: firstString(m.creator),
-    publisher: firstString(m.publisher),
-    sponsor: firstString(m.sponsor),
-    producer: firstString(m.producer),
-    contributor: firstString(m.contributor),
+    description: stripHTML(firstString(m.description)),
+    creator: stripHTML(firstString(m.creator)),
+    publisher: stripHTML(firstString(m.publisher)),
+    sponsor: stripHTML(firstString(m.sponsor)),
+    producer: stripHTML(firstString(m.producer)),
+    contributor: stripHTML(firstString(m.contributor)),
     language: firstString(m.language),
     imdbID,
     wikidataQID,
@@ -323,6 +360,32 @@ async function tmdbSearch(title, year) {
   const r = await tmdb('/search/movie', p);
   return r.results?.[0] || null;
 }
+// Dice coefficient on bigram sets — 0..1, 1.0 = identical.
+function titleSimilarity(a, b) {
+  const norm = (s) => String(s || '')
+    .toLowerCase()
+    .replace(/^(the|a|an)\s+/, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+  const A = norm(a), B = norm(b);
+  if (!A || !B) return 0;
+  if (A === B) return 1;
+  const bigrams = (s) => {
+    const g = new Map();
+    for (let i = 0; i < s.length - 1; i++) {
+      const k = s.slice(i, i + 2);
+      g.set(k, (g.get(k) || 0) + 1);
+    }
+    return g;
+  };
+  const gA = bigrams(A), gB = bigrams(B);
+  let overlap = 0;
+  for (const [k, n] of gA) if (gB.has(k)) overlap += Math.min(n, gB.get(k));
+  const total = [...gA.values()].reduce((a, b) => a + b, 0) +
+                [...gB.values()].reduce((a, b) => a + b, 0);
+  return total === 0 ? 0 : (2 * overlap) / total;
+}
+
 function pickBestImage(pool, prefLangs) {
   if (!pool?.length) return null;
   for (const lang of prefLangs) {
@@ -485,10 +548,6 @@ async function tvmazeSearch(name) {
   } catch { return null; }
 }
 
-function stripHTML(s) {
-  return String(s).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-}
-
 // ─── Classification ────────────────────────────────────────────────
 
 function parseRuntimeSeconds(r) {
@@ -613,14 +672,17 @@ async function enrichFeature(item, s) {
         if (match?.id) detail = await tmdbDetail(match.id);
       } catch (e) { /* continue */ }
     }
-    if (!detail && item.title && item.year) {
+    // Title+year fallback — STRICT: year ±1 AND fuzzy title match.
+    // Titles <4 chars skipped to avoid matching "It"/"Go" style noise.
+    if (!detail && item.title && item.year && item.title.length >= 4) {
       try {
         const match = await tmdbSearch(item.title, item.year);
         if (match?.id) {
           const tmdbYear = parseInt((match.release_date || '').slice(0, 4), 10);
-          if (!Number.isFinite(tmdbYear) || Math.abs(tmdbYear - item.year) <= 2) {
-            detail = await tmdbDetail(match.id);
-          }
+          const yearOK = Number.isFinite(tmdbYear) && Math.abs(tmdbYear - item.year) <= 1;
+          const titleOK = titleSimilarity(item.title, match.title) >= 0.75;
+          if (yearOK && titleOK) detail = await tmdbDetail(match.id);
+          else if (VERBOSE) warn(`${archiveID}: TMDb search rejected (${match.title} ${tmdbYear}; yearOK=${yearOK} titleOK=${titleOK})`);
         }
       } catch (e) { /* continue */ }
     }
@@ -775,6 +837,10 @@ async function enrichOne(archiveID, shelves, wdSeed) {
     return null;
   }
   const runtimeSec = parseRuntimeSeconds(meta.metadata?.runtime);
+  if (looksLikeTrailer(s.title, s.subjects, runtimeSec)) {
+    if (VERBOSE) warn(`${archiveID}: looks like a trailer/preview, skipping`);
+    return null;
+  }
   const item = baseItem(archiveID, s, runtimeSec, shelves, wdSeed);
 
   const type = item.contentType;
@@ -892,6 +958,45 @@ if (DRY_RUN) {
 info(`Enriching with ${CONCURRENCY} worker(s)${tmdbToken ? ' + TMDb' : ''}${USE_COMMONS ? ' + Commons' : ''}...`);
 const jobs = [...picks.entries()].map(([archiveID, { shelves, wdSeed }]) => ({ archiveID, shelves, wdSeed }));
 const items = await pool(jobs, CONCURRENCY, ({ archiveID, shelves, wdSeed }) => enrichOne(archiveID, shelves, wdSeed));
+
+// Dedupe: multiple Archive uploads of the same film. Group by
+// (normalized-title + year) and pick the best: prefer fully enriched,
+// then items in more shelves, then highest IMDb/TMDb signal, then
+// first seen. Merge shelves across duplicates so curation isn't lost.
+function normTitleKey(t) {
+  return String(t || '')
+    .toLowerCase()
+    .replace(/^(the|a|an)\s+/, '')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+const TIER_SCORE = { fullyEnriched: 4, archiveCurated: 3, identifierResolved: 2, archiveOnly: 1 };
+const dedupMap = new Map();
+for (const item of items) {
+  const key = `${normTitleKey(item.title)}|${item.year || ''}`;
+  const existing = dedupMap.get(key);
+  if (!existing) { dedupMap.set(key, item); continue; }
+  // Merge shelves — we don't want to lose curation.
+  existing.shelves = Array.from(new Set([...existing.shelves, ...item.shelves]));
+  // Pick winner by tier → has poster → more shelves → has IMDb → bigger video.
+  const score = (x) => {
+    let s = (TIER_SCORE[x.enrichmentTier] || 0) * 1000;
+    if (x.hasRealArtwork) s += 500;
+    s += x.shelves.length * 10;
+    if (x.imdbID) s += 50;
+    if (x.tmdbID) s += 50;
+    s += (x.videoFile?.sizeBytes || 0) / 1e9;
+    return s;
+  };
+  if (score(item) > score(existing)) {
+    item.shelves = existing.shelves;
+    dedupMap.set(key, item);
+  }
+}
+const dedupedCount = items.length - dedupMap.size;
+if (dedupedCount > 0) info(`Deduped ${dedupedCount} duplicate uploads (${items.length} → ${dedupMap.size})`);
+items.length = 0;
+items.push(...dedupMap.values());
 
 // Stats
 const byType = {};
