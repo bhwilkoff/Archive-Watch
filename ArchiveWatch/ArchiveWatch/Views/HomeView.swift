@@ -603,15 +603,16 @@ struct PosterCard: View {
             )
             .animation(.easeOut(duration: 0.18), value: isFocused)
 
-            // Title gets up to 2 lines and scales down a tad if still too
-            // long — no more truncation mid-word.
+            // Title gets up to 2 lines. No fixed-height frame — let the
+            // label grow naturally so long titles are never clipped.
+            // Rows in a shelf can be a hair different height; that's
+            // preferable to truncation.
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
                     .font(.headline)
                     .foregroundStyle(.white)
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)
-                    .minimumScaleFactor(0.8)
                     .fixedSize(horizontal: false, vertical: true)
                 HStack(spacing: 8) {
                     if let year = item.year { Text(String(year)) }
@@ -623,7 +624,7 @@ struct PosterCard: View {
                 .font(.caption)
                 .foregroundStyle(.white.opacity(0.55))
             }
-            .frame(width: cardWidth, height: 62, alignment: .topLeading)
+            .frame(width: cardWidth, alignment: .leading)
         }
     }
 
