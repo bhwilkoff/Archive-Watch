@@ -53,6 +53,14 @@ struct DetailView: View {
             }
         }
         .onExitCommand { dismiss() }
+        .onAppear {
+            // Anchor initial focus on Play. Without this, tvOS lands focus
+            // on the tab bar (topmost focusable in the window), leaving
+            // Play unreachable without manual down-arrow pressing.
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+                focusTarget = .play
+            }
+        }
     }
 
     private var heroBackdrop: some View {
