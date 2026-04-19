@@ -17,6 +17,6 @@ struct ArchiveWatchApp: App {
             ContentView()
                 .environment(store)
         }
-        .modelContainer(for: [ContentItem.self])
+        .modelContainer(for: [ContentItem.self, WatchProgress.self, Favorite.self])
     }
 }

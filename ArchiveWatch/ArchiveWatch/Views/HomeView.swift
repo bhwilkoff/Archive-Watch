@@ -1,7 +1,28 @@
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
     @Environment(AppStore.self) private var store
+    @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progressRecords: [WatchProgress]
+    @Query private var favorites: [Favorite]
+
+    private var continueWatching: [(item: Catalog.Item, progress: WatchProgress)] {
+        guard let catalog = store.catalog else { return [] }
+        let items = Dictionary(uniqueKeysWithValues: catalog.items.map { ($0.archiveID, $0) })
+        return progressRecords
+            .filter { !$0.isComplete && $0.positionSeconds > 10 }
+            .prefix(12)
+            .compactMap { record -> (Catalog.Item, WatchProgress)? in
+                guard let item = items[record.archiveID] else { return nil }
+                return (item, record)
+            }
+    }
+
+    private var favoriteItems: [Catalog.Item] {
+        guard let catalog = store.catalog else { return [] }
+        let ids = Set(favorites.map(\.archiveID))
+        return catalog.items.filter { ids.contains($0.archiveID) }
+    }
 
     private var hero: Catalog.Item? {
         store.items(forShelf: "editors-picks").first(where: { $0.hasDesignedArtwork })
@@ -23,7 +44,21 @@ struct HomeView: View {
                 if let hero {
                     HeroBanner(item: hero)
                 }
+                if !continueWatching.isEmpty {
+                    ContinueWatchingRow(entries: continueWatching)
+                }
                 CategoryTilesRow()
+                if !favoriteItems.isEmpty {
+                    let favShelf = Featured.Shelf(
+                        id: "favorites",
+                        title: "Your Favorites",
+                        subtitle: "Saved for later",
+                        category: "feature-film",
+                        type: "curated",
+                        items: nil, query: nil, sort: nil, limit: nil
+                    )
+                    ShelfRow(shelf: favShelf, items: favoriteItems)
+                }
                 ForEach(homeShelves) { shelf in
                     let items = store.items(forShelf: shelf.id)
                     if !items.isEmpty {
@@ -37,8 +72,133 @@ struct HomeView: View {
             .padding(.bottom, 80)
         }
         .background(Color.black.ignoresSafeArea())
-        .navigationTitle("")
-        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+// MARK: - Continue Watching row
+
+struct ContinueWatchingRow: View {
+    let entries: [(item: Catalog.Item, progress: WatchProgress)]
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Continue Watching")
+                .font(.title2.bold())
+                .foregroundStyle(.white)
+                .padding(.horizontal, 80)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(spacing: 28) {
+                    ForEach(entries, id: \.item.archiveID) { entry in
+                        NavigationLink(value: entry.item) {
+                            ContinueWatchingCard(item: entry.item, progress: entry.progress)
+                        }
+                        .buttonStyle(.card)
+                    }
+                }
+                .padding(.horizontal, 80)
+                .padding(.vertical, 20)
+            }
+        }
+    }
+}
+
+struct ContinueWatchingCard: View {
+    let item: Catalog.Item
+    let progress: WatchProgress
+    @Environment(AppStore.self) private var store
+
+    private var isLandscape: Bool {
+        item.contentType == "tv-series" || item.contentType == "tv-special" ||
+        item.contentType == "newsreel" || item.contentType == "documentary" ||
+        item.contentType == "home-movie"
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            ZStack(alignment: .bottom) {
+                posterArea
+                VStack(spacing: 0) {
+                    Spacer()
+                    LinearGradient(
+                        colors: [.clear, .black.opacity(0.7)],
+                        startPoint: .top, endPoint: .bottom
+                    )
+                    .frame(height: 80)
+                }
+                VStack(spacing: 6) {
+                    Spacer()
+                    HStack {
+                        Image(systemName: "play.fill")
+                            .font(.caption)
+                        Text(remainingLabel)
+                            .font(.caption.weight(.semibold))
+                        Spacer()
+                    }
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 12)
+                    ProgressBar(fraction: progress.fraction)
+                        .padding(.horizontal, 12)
+                        .padding(.bottom, 10)
+                }
+            }
+            .frame(width: 320, height: isLandscape ? 180 : 240)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+
+            Text(item.title)
+                .font(.headline)
+                .foregroundStyle(.white)
+                .lineLimit(1)
+                .frame(width: 320, alignment: .leading)
+        }
+    }
+
+    @ViewBuilder
+    private var posterArea: some View {
+        // Prefer backdrop for in-progress cards (scene-like).
+        let url = item.backdropURLParsed ?? item.posterURLParsed
+        if item.hasDesignedArtwork, let url {
+            AsyncImage(url: url) { phase in
+                switch phase {
+                case .success(let img): img.resizable().scaledToFill()
+                default: procedural
+                }
+            }
+        } else {
+            procedural
+        }
+    }
+
+    private var procedural: some View {
+        ProceduralPoster(
+            item: item,
+            accent: store.accentColor(forCategory: categoryID),
+            aspectRatio: isLandscape ? 16.0/9.0 : 4.0/3.0
+        )
+    }
+
+    private var categoryID: String {
+        switch item.contentType {
+        case "tv-series", "tv-special": return "tv-series"
+        case "silent-film": return "silent-film"
+        case "animation": return "animation"
+        case "newsreel": return "newsreel"
+        case "documentary": return "documentary"
+        case "ephemeral": return "ephemeral"
+        case "short-film": return "short-film"
+        default: return "feature-film"
+        }
+    }
+
+    private var remainingLabel: String {
+        if progress.durationSeconds > 0 {
+            let remaining = max(0, Int(progress.durationSeconds - progress.positionSeconds))
+            let m = remaining / 60
+            if m >= 60 { return "\(m / 60)h \(m % 60)m left" }
+            return "\(m)m left"
+        }
+        let watched = Int(progress.positionSeconds) / 60
+        return "\(watched)m watched"
     }
 }
 
@@ -330,6 +490,7 @@ struct ShelfRow: View {
 struct PosterCard: View {
     let item: Catalog.Item
     @Environment(AppStore.self) private var store
+    @Environment(\.isFocused) private var isFocused
 
     private var isLandscape: Bool {
         item.contentType == "tv-series" || item.contentType == "tv-special" ||
@@ -339,13 +500,52 @@ struct PosterCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            posterArea
-                .frame(width: 240, height: isLandscape ? 135 : 360)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .strokeBorder(Color.white.opacity(0.08), lineWidth: 1)
-                )
+            ZStack(alignment: .bottom) {
+                posterArea
+                // Focus peek — a metadata strip slides up from the bottom
+                // when the card gains focus. Inspired by Channels' inline
+                // metadata reveal, scaled down to fit a card.
+                if isFocused, let preview = focusPreviewText {
+                    VStack(spacing: 0) {
+                        Spacer()
+                        LinearGradient(
+                            colors: [.clear, .black.opacity(0.85)],
+                            startPoint: .top, endPoint: .bottom
+                        )
+                        .frame(height: 120)
+                    }
+                    VStack(alignment: .leading, spacing: 6) {
+                        Spacer()
+                        if !focusChips.isEmpty {
+                            HStack(spacing: 6) {
+                                ForEach(focusChips, id: \.self) { chip in
+                                    Text(chip.uppercased())
+                                        .font(.system(size: 9, weight: .bold))
+                                        .tracking(1)
+                                        .padding(.horizontal, 8)
+                                        .padding(.vertical, 3)
+                                        .background(Color.white.opacity(0.18))
+                                        .clipShape(Capsule())
+                                        .foregroundStyle(.white)
+                                }
+                            }
+                        }
+                        Text(preview)
+                            .font(.caption)
+                            .foregroundStyle(.white.opacity(0.9))
+                            .lineLimit(3)
+                    }
+                    .padding(12)
+                    .transition(.opacity.combined(with: .move(edge: .bottom)))
+                }
+            }
+            .frame(width: 240, height: isLandscape ? 135 : 360)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .overlay(
+                RoundedRectangle(cornerRadius: 8)
+                    .strokeBorder(Color.white.opacity(0.08), lineWidth: 1)
+            )
+            .animation(.easeOut(duration: 0.18), value: isFocused)
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(item.title)
@@ -364,6 +564,22 @@ struct PosterCard: View {
             }
             .frame(width: 240, alignment: .leading)
         }
+    }
+
+    private var focusPreviewText: String? {
+        if let s = item.synopsis?.trimmingCharacters(in: .whitespacesAndNewlines), !s.isEmpty {
+            return s
+        }
+        if let b = item.byline { return b }
+        return nil
+    }
+
+    private var focusChips: [String] {
+        var out: [String] = []
+        if !item.genres.isEmpty { out.append(item.genres[0]) }
+        if let s = item.seriesName, s != item.title { out.append("Series") }
+        if item.enrichmentTier == "fullyEnriched" { /* skip, default */ }
+        return Array(out.prefix(2))
     }
 
     @ViewBuilder
