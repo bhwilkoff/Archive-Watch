@@ -52,15 +52,16 @@ struct DetailView: View {
                 PlayerScreen(url: url, archiveID: item.archiveID)
             }
         }
+        // Declarative preferred focus target — SwiftUI + tvOS honor this
+        // when the view appears without imperatively overriding the focus
+        // engine, so it doesn't force a scroll jump the way
+        // `focusTarget = .play` inside onAppear does.
+        .defaultFocus($focusTarget, .play)
+        // Only the physical Back / Menu button dismisses. Arrow keys are
+        // left entirely to the tvOS focus engine so all content — tab
+        // bar, Play, Favorite, related shelf — is reachable with nothing
+        // but arrow-key traversal.
         .onExitCommand { dismiss() }
-        .onAppear {
-            // Anchor initial focus on Play. Without this, tvOS lands focus
-            // on the tab bar (topmost focusable in the window), leaving
-            // Play unreachable without manual down-arrow pressing.
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                focusTarget = .play
-            }
-        }
     }
 
     private var heroBackdrop: some View {
@@ -246,20 +247,9 @@ struct DetailView: View {
                 )
                 .disabled(item.videoURLParsed == nil)
                 .focused($focusTarget, equals: .play)
-                // There is nothing focusable above Play within the
-                // DetailView, and tvOS hides the parent TabView's tab
-                // bar on pushed NavigationStack screens. Up-arrow pops
-                // back to the parent view; from there the tab bar is
-                // reachable with one more up-arrow.
-                .onMoveCommand { direction in
-                    if direction == .up { dismiss() }
-                }
 
                 FavoriteButton(isFavorited: isFavorited, action: toggleFavorite)
                     .focused($focusTarget, equals: .favorite)
-                    .onMoveCommand { direction in
-                        if direction == .up { dismiss() }
-                    }
 
                 Spacer()
 
