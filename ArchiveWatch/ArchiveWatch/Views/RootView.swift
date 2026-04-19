@@ -28,6 +28,11 @@ struct RootView: View {
         .onExitCommand {
             if !router.isAtRoot { router.pop() }
         }
+        .onAppear {
+            #if DEBUG
+            LayoutCheck.runAll(store: store)
+            #endif
+        }
     }
 }
 
@@ -45,8 +50,6 @@ struct ContentArea: View {
                     DetailView(item: item)
                 case .filter(let filter):
                     BrowseView(filter: filter)
-                case .audit:
-                    UIAuditView()
                 }
             } else {
                 switch router.tab {

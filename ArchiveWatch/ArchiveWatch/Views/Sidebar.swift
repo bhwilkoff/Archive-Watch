@@ -32,8 +32,9 @@ struct Sidebar: View {
                             .frame(width: 32, height: 32)
                         if isExpanded {
                             Text(tab.title)
-                                .font(.system(size: 20, weight: .semibold))
+                                .font(.system(size: 23, weight: .semibold))
                                 .lineLimit(1)
+                                .minimumScaleFactor(0.85)
                                 .transition(.opacity)
                             Spacer(minLength: 0)
                         }
@@ -69,11 +70,11 @@ struct Sidebar: View {
             if isExpanded {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("ARCHIVE")
-                        .font(.system(size: 11, weight: .black))
-                        .tracking(2.5)
+                        .font(.system(size: 14, weight: .black))
+                        .tracking(2.8)
                         .foregroundStyle(.white.opacity(0.55))
                     Text("Watch")
-                        .font(.system(size: 20, weight: .heavy, design: .serif))
+                        .font(.system(size: 25, weight: .heavy, design: .serif))
                         .foregroundStyle(.white)
                 }
                 .transition(.opacity)
@@ -81,12 +82,6 @@ struct Sidebar: View {
             Spacer(minLength: 0)
         }
         .padding(.horizontal, 24)
-        // Long-press the brand mark to open the UI Audit validator.
-        // Hidden affordance for developer / design review.
-        .contentShape(Rectangle())
-        .onLongPressGesture(minimumDuration: 1.2) {
-            router.push(.audit)
-        }
     }
 
     @ViewBuilder

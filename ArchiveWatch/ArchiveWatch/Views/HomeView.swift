@@ -125,18 +125,18 @@ struct HeroCarousel: View {
             ForEach(Array(items.enumerated()), id: \.element.archiveID) { i, item in
                 HeroBanner(item: item)
                     .opacity(i == index ? 1 : 0)
-                    .animation(.easeInOut(duration: 0.6), value: index)
+                    .animation(Motion.heroCrossfade, value: index)
             }
-            // Page-dot indicators
-            HStack(spacing: 10) {
+            // Page-dot indicators — 10pt height so they read at 10ft.
+            HStack(spacing: 12) {
                 ForEach(0..<items.count, id: \.self) { i in
                     Capsule()
-                        .fill(i == index ? Color.white : Color.white.opacity(0.3))
-                        .frame(width: i == index ? 28 : 8, height: 6)
-                        .animation(.easeOut(duration: 0.3), value: index)
+                        .fill(i == index ? Color.white : Color.white.opacity(0.35))
+                        .frame(width: i == index ? 36 : 10, height: 10)
+                        .animation(Motion.chrome, value: index)
                 }
             }
-            .padding(.bottom, 40)
+            .padding(.bottom, 44)
         }
         .frame(height: 620)
         .onReceive(autoAdvanceTimer) { _ in
@@ -199,18 +199,18 @@ struct ContinueWatchingCard: View {
                 }
                 VStack(spacing: 6) {
                     Spacer()
-                    HStack {
+                    HStack(spacing: 8) {
                         Image(systemName: "play.fill")
-                            .font(.caption)
+                            .font(.system(size: 19, weight: .bold))
                         Text(remainingLabel)
-                            .font(.caption.weight(.semibold))
+                            .font(.system(size: 19, weight: .semibold))
                         Spacer()
                     }
                     .foregroundStyle(.white)
-                    .padding(.horizontal, 12)
+                    .padding(.horizontal, 14)
                     ProgressBar(fraction: progress.fraction)
-                        .padding(.horizontal, 12)
-                        .padding(.bottom, 10)
+                        .padding(.horizontal, 14)
+                        .padding(.bottom, 12)
                 }
             }
             .frame(width: 320, height: isLandscape ? 180 : 240)
@@ -402,20 +402,22 @@ struct CategoryTile: View {
                 colors: [accent.opacity(0.85), accent.mix(with: .black, 0.4)],
                 startPoint: .topLeading, endPoint: .bottomTrailing
             )
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 8) {
                 Image(systemName: iconName)
-                    .font(.system(size: 28))
+                    .font(.system(size: 30))
                     .foregroundStyle(.white.opacity(0.9))
-                Spacer()
+                Spacer(minLength: 0)
                 Text(category.displayName)
-                    .font(.headline)
+                    .font(.system(size: 23, weight: .semibold))
                     .foregroundStyle(.white)
                     .lineLimit(2)
+                    .minimumScaleFactor(0.85)
                     .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
             }
-            .padding(20)
+            .padding(22)
         }
-        .frame(width: 260, height: 150)
+        .frame(width: 280, height: 180)
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 
@@ -496,22 +498,24 @@ struct DecadeTile: View {
                 colors: [era.accent.opacity(0.9), era.accent.mix(with: .black, 0.5)],
                 startPoint: .topLeading, endPoint: .bottomTrailing
             )
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 6) {
                 Text("\(decade)s")
-                    .font(.system(size: 44, weight: .black, design: .serif))
+                    .font(.system(size: 48, weight: .black, design: .serif))
                     .foregroundStyle(.white)
                 Text(era.label.uppercased())
-                    .font(.system(size: 11, weight: .bold))
-                    .tracking(1.5)
-                    .foregroundStyle(.white.opacity(0.85))
-                Spacer()
+                    .font(.system(size: 15, weight: .bold))
+                    .tracking(1.8)
+                    .foregroundStyle(.white.opacity(0.9))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.8)
+                Spacer(minLength: 0)
                 Text("\(count) titles")
-                    .font(.caption)
-                    .foregroundStyle(.white.opacity(0.7))
+                    .font(.system(size: 19, weight: .regular))
+                    .foregroundStyle(.white.opacity(0.75))
             }
-            .padding(20)
+            .padding(22)
         }
-        .frame(width: 220, height: 150)
+        .frame(width: 260, height: 180)
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 }
@@ -580,11 +584,11 @@ struct PosterCard: View {
                 // No synopsis peek — too noisy as focus moves shelf-to-shelf.
                 if let chip = categoryChipLabel {
                     Text(chip.uppercased())
-                        .font(.system(size: 10, weight: .bold))
-                        .tracking(1.2)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 5)
-                        .background(.black.opacity(0.55))
+                        .font(.system(size: 15, weight: .bold))
+                        .tracking(1.4)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 6)
+                        .background(.black.opacity(0.6))
                         .foregroundStyle(.white)
                         .clipShape(Capsule())
                         .padding(10)
@@ -620,7 +624,7 @@ struct PosterCard: View {
                         Text(formatRuntime(r))
                     }
                 }
-                .font(.caption)
+                .font(.system(size: 19, weight: .regular))
                 .foregroundStyle(.white.opacity(0.55))
             }
             .frame(width: cardWidth, alignment: .leading)

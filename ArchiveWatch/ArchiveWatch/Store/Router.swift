@@ -42,7 +42,6 @@ final class Router {
     enum Destination: Hashable {
         case item(Catalog.Item)
         case filter(BrowseFilter)
-        case audit   // UI Audit validator (long-press sidebar brand to open)
     }
 
     var tab: Tab = .home
