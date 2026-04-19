@@ -259,18 +259,18 @@ struct CompactPoster: View {
                 )
 
             Text(item.title)
-                .font(.system(size: 15, weight: .semibold))
+                .font(.system(size: 20, weight: .semibold))
                 .foregroundStyle(.white)
                 .lineLimit(2)
                 .multilineTextAlignment(.leading)
-                .minimumScaleFactor(0.8)
+                .minimumScaleFactor(0.75)
                 .truncationMode(.tail)
                 .fixedSize(horizontal: false, vertical: true)
                 .frame(width: 200, alignment: .leading)
             if let year = item.year {
                 Text(String(year))
-                    .font(.caption2)
-                    .foregroundStyle(.white.opacity(0.5))
+                    .font(.system(size: 19, weight: .regular))
+                    .foregroundStyle(.white.opacity(0.55))
             }
         }
     }

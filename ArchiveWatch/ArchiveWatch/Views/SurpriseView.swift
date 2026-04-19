@@ -227,19 +227,19 @@ struct ActionCard: View {
                         posterFallback
                     }
                 }
-                HStack(spacing: 8) {
+                HStack(spacing: 10) {
                     Image(systemName: icon)
-                        .font(.system(size: 15, weight: .bold))
+                        .font(.system(size: 17, weight: .bold))
                     Text(title.uppercased())
-                        .font(.system(size: 11, weight: .bold))
-                        .tracking(1.5)
+                        .font(.system(size: 15, weight: .bold))
+                        .tracking(1.8)
                 }
                 .foregroundStyle(.white)
-                .padding(.horizontal, 12)
-                .padding(.vertical, 6)
-                .background(.black.opacity(0.55))
+                .padding(.horizontal, 14)
+                .padding(.vertical, 8)
+                .background(.black.opacity(0.6))
                 .clipShape(Capsule())
-                .padding(14)
+                .padding(16)
             }
             .frame(width: cardW, height: cardH * 0.62)
             .clipped()

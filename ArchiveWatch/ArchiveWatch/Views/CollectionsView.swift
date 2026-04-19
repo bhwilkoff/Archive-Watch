@@ -116,24 +116,25 @@ struct CollectionCard: View {
                 startPoint: .center, endPoint: .bottom
             )
 
-            VStack(alignment: .leading, spacing: 8) {
-                HStack(spacing: 10) {
+            VStack(alignment: .leading, spacing: 10) {
+                HStack(spacing: 12) {
                     Capsule()
                         .fill(data.accent)
-                        .frame(width: 28, height: 3)
+                        .frame(width: 32, height: 4)
                     Text("\(data.itemCount) titles")
-                        .font(.caption.weight(.semibold))
+                        .font(.system(size: 19, weight: .semibold))
                         .foregroundStyle(.white.opacity(0.85))
                 }
                 Text(data.title)
-                    .font(.system(size: 28, weight: .heavy, design: .serif))
+                    .font(.system(size: 38, weight: .heavy, design: .serif))
                     .foregroundStyle(.white)
                     .lineLimit(1)
                     .minimumScaleFactor(0.7)
                 Text(data.blurb)
-                    .font(.callout)
-                    .foregroundStyle(.white.opacity(0.7))
+                    .font(.system(size: 23, weight: .regular))
+                    .foregroundStyle(.white.opacity(0.75))
                     .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             .padding(24)
             .frame(maxWidth: .infinity, alignment: .leading)
