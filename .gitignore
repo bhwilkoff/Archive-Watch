@@ -47,3 +47,5 @@ node_modules/
 .env.local
 *.key
 credentials.json
+Secrets.xcconfig
+.claude/scheduled_tasks.lock
