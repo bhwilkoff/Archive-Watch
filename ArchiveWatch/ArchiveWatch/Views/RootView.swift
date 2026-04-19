@@ -17,6 +17,11 @@ struct RootView: View {
             Sidebar()
             ContentArea()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
+                // Mark content as its own focus section. Paired with the
+                // Sidebar's .focusSection(), this tells tvOS to treat the
+                // two panes as neighbors the focus engine can step
+                // between with left/right arrow keys.
+                .focusSection()
         }
         .background(Color.black.ignoresSafeArea())
         .preferredColorScheme(.dark)

@@ -1,9 +1,9 @@
 import SwiftUI
 
 // Collapsible primary navigation. Expands when any sidebar row holds
-// focus (so it reveals labels + gets out of the user's way for content
-// when focus is elsewhere). UHF / Channels-style: subtle, quiet, pins
-// the visual identity of the app without stealing the stage.
+// focus and collapses back to an icon rail when focus moves to the
+// content area. UHF / Channels-style: quiet at rest, reveals structure
+// on attention.
 
 struct Sidebar: View {
     @Environment(Router.self) private var router
@@ -11,14 +11,16 @@ struct Sidebar: View {
 
     private var isExpanded: Bool { focusedTab != nil }
 
-    var body: some View {
-        @Bindable var router = router
+    // Collapsed is narrow enough to feel like a rail but wide enough to
+    // comfortably center the glyph. Expanded gives room for full labels.
+    private let collapsedWidth: CGFloat = 120
+    private let expandedWidth:  CGFloat = 320
 
-        VStack(alignment: .leading, spacing: 8) {
+    var body: some View {
+        VStack(spacing: 4) {
             brandMark
-                .padding(.top, 48)
-                .padding(.bottom, 32)
-                .padding(.horizontal, isExpanded ? 28 : 24)
+                .padding(.top, 56)
+                .padding(.bottom, 40)
 
             ForEach(Router.Tab.allCases) { tab in
                 SidebarRow(
@@ -33,43 +35,48 @@ struct Sidebar: View {
 
             Spacer()
         }
-        .frame(width: isExpanded ? 320 : 104, alignment: .leading)
-        .frame(maxHeight: .infinity)
+        .frame(width: isExpanded ? expandedWidth : collapsedWidth)
+        .frame(maxHeight: .infinity, alignment: .top)
         .background(
-            LinearGradient(
-                colors: [Color.black, Color(white: 0.04)],
-                startPoint: .top, endPoint: .bottom
-            )
-            .overlay(
+            ZStack(alignment: .trailing) {
+                LinearGradient(
+                    colors: [Color.black, Color(white: 0.04)],
+                    startPoint: .top, endPoint: .bottom
+                )
                 Rectangle()
                     .fill(Color.white.opacity(0.06))
                     .frame(width: 1)
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-            )
+            }
+            .ignoresSafeArea()
         )
         .animation(.easeOut(duration: 0.22), value: isExpanded)
+        // Declare the whole sidebar as one focus section so tvOS treats
+        // the content area as a distinct neighbor. Right-arrow out of any
+        // row travels to the content section cleanly.
+        .focusSection()
     }
 
     private var brandMark: some View {
-        HStack(spacing: 14) {
+        HStack(spacing: 12) {
             Image(systemName: "moon.stars.fill")
-                .font(.system(size: 34, weight: .bold))
+                .font(.system(size: 30, weight: .bold))
                 .foregroundStyle(Color(hex: "#FF5C35") ?? .orange)
-                .frame(width: 48, height: 48)
+                .frame(width: 44, height: 44)
             if isExpanded {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("ARCHIVE")
-                        .font(.system(size: 12, weight: .black))
+                        .font(.system(size: 11, weight: .black))
                         .tracking(2.5)
                         .foregroundStyle(.white.opacity(0.55))
                     Text("Watch")
-                        .font(.system(size: 22, weight: .heavy, design: .serif))
+                        .font(.system(size: 20, weight: .heavy, design: .serif))
                         .foregroundStyle(.white)
                 }
                 .transition(.opacity)
             }
             Spacer(minLength: 0)
         }
+        .padding(.horizontal, 24)
     }
 }
 
@@ -84,46 +91,45 @@ private struct SidebarRow: View {
     var body: some View {
         Button(action: action) {
             HStack(spacing: 18) {
-                ZStack {
-                    if selected {
-                        RoundedRectangle(cornerRadius: 3)
-                            .fill(Color(hex: "#FF5C35") ?? .orange)
-                            .frame(width: 4, height: 28)
-                    } else {
-                        Color.clear.frame(width: 4, height: 28)
-                    }
-                }
                 Image(systemName: tab.icon)
                     .font(.system(size: 22, weight: .semibold))
-                    .frame(width: 32)
+                    .frame(width: 32, height: 32)
                 if expanded {
                     Text(tab.title)
-                        .font(.system(size: 20, weight: .semibold))
+                        .font(.system(size: 19, weight: .semibold))
                         .transition(.opacity)
                         .lineLimit(1)
+                    Spacer(minLength: 0)
                 }
-                Spacer(minLength: 0)
             }
             .foregroundStyle(
                 isFocused ? .white :
                 selected ? .white : .white.opacity(0.55)
             )
-            .padding(.horizontal, 16)
+            .padding(.horizontal, expanded ? 24 : 0)
             .padding(.vertical, 14)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: expanded ? .leading : .center)
             .background(
                 RoundedRectangle(cornerRadius: 12)
                     .fill(
                         isFocused ? Color.white.opacity(0.18) :
                         selected ? Color.white.opacity(0.06) : .clear
                     )
+                    .padding(.horizontal, expanded ? 12 : 14)
             )
-            .padding(.horizontal, 10)
+            .overlay(alignment: .leading) {
+                if selected && expanded {
+                    RoundedRectangle(cornerRadius: 2)
+                        .fill(Color(hex: "#FF5C35") ?? .orange)
+                        .frame(width: 4, height: 26)
+                        .padding(.leading, 4)
+                }
+            }
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
         .focusEffectDisabled()
-        .scaleEffect(isFocused ? 1.03 : 1.0)
+        .scaleEffect(isFocused ? 1.04 : 1.0)
         .animation(.easeOut(duration: 0.12), value: isFocused)
     }
 }
