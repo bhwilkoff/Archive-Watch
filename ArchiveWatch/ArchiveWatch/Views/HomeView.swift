@@ -1,39 +1,22 @@
 import SwiftUI
-import SwiftData
 
-// Home screen composition. Individual component views live in their
-// own files (HeroCarousel, ContinueWatching, ShelfRow, PosterTile,
-// CategoryRow, DecadeRow) so SourceKit has less cross-file surface
-// to re-resolve on each edit here.
+// Home screen composition. Deliberately free of SwiftData @Query —
+// those live in ContinueWatchingRow and FavoritesShelf, which own
+// their own queries. Keeping HomeView pure SwiftUI (no macros other
+// than @Environment/@Observable) means Xcode's editor index can parse
+// it without waiting on the SwiftData macro plugin, which was the
+// actual cause of "Cannot find ShelfRow / DecadeTilesRow in scope"
+// cascading through this file whenever the indexer's macro plugin
+// was in a flaky state.
 
 struct HomeView: View {
     @Environment(AppStore.self) private var store
-    @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progressRecords: [WatchProgress]
-    @Query private var favorites: [Favorite]
 
     // Random seed set when HomeView first appears. Stable across the
     // view's lifetime so the hero rotation doesn't reshuffle on every
-    // @Query-driven re-render, but re-rolls when the user leaves Home
-    // and comes back — an invitation to keep wandering.
+    // subview update, but re-rolls when the user leaves Home and
+    // comes back — an invitation to keep wandering.
     @State private var heroSeed: Int = Int.random(in: 0..<1_000_000)
-
-    private var continueWatching: [(item: Catalog.Item, progress: WatchProgress)] {
-        guard let catalog = store.catalog else { return [] }
-        let items = Dictionary(uniqueKeysWithValues: catalog.items.map { ($0.archiveID, $0) })
-        return progressRecords
-            .filter { !$0.isComplete && $0.positionSeconds > 10 }
-            .prefix(12)
-            .compactMap { record -> (Catalog.Item, WatchProgress)? in
-                guard let item = items[record.archiveID] else { return nil }
-                return (item, record)
-            }
-    }
-
-    private var favoriteItems: [Catalog.Item] {
-        guard let catalog = store.catalog else { return [] }
-        let ids = Set(favorites.map(\.archiveID))
-        return catalog.items.filter { ids.contains($0.archiveID) }
-    }
 
     // Hero carousel — 7 titles freshly sampled on each Home appearance
     // from the top-150 pool by shelf count. Stable within a session,
@@ -68,21 +51,9 @@ struct HomeView: View {
                 if !heroItems.isEmpty {
                     HeroCarousel(items: heroItems)
                 }
-                if !continueWatching.isEmpty {
-                    ContinueWatchingRow(entries: continueWatching)
-                }
+                ContinueWatchingRow()       // owns its own @Query
                 CategoryTilesRow()
-                if !favoriteItems.isEmpty {
-                    let favShelf = Featured.Shelf(
-                        id: "favorites",
-                        title: "Your Favorites",
-                        subtitle: "Saved for later",
-                        category: "feature-film",
-                        type: "curated",
-                        items: nil, query: nil, sort: nil, limit: nil
-                    )
-                    ShelfRow(shelf: favShelf, items: favoriteItems)
-                }
+                FavoritesShelf()            // owns its own @Query
                 ForEach(homeShelves) { shelf in
                     let rawItems = store.items(forShelf: shelf.id)
                     let items = sortByArtwork(rawItems)

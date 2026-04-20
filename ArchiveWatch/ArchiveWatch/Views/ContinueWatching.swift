@@ -1,33 +1,50 @@
 import SwiftUI
 import SwiftData
 
-// Continue Watching row + tile. Split out of HomeView so the SwiftData
-// @Query machinery stays in its own file, reducing SourceKit's
-// cross-file work when editing nearby views.
+// Continue Watching row. Owns its own @Query so HomeView stays free
+// of SwiftData macro expansion — that was the root cause of the
+// cross-file resolution cascades in the editor's index.
 
 struct ContinueWatchingRow: View {
+    @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
-    let entries: [(item: Catalog.Item, progress: WatchProgress)]
+    @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progressRecords: [WatchProgress]
+
+    private var entries: [(item: Catalog.Item, progress: WatchProgress)] {
+        guard let catalog = store.catalog else { return [] }
+        let items = Dictionary(uniqueKeysWithValues: catalog.items.map { ($0.archiveID, $0) })
+        return progressRecords
+            .filter { !$0.isComplete && $0.positionSeconds > 10 }
+            .prefix(12)
+            .compactMap { record -> (Catalog.Item, WatchProgress)? in
+                guard let item = items[record.archiveID] else { return nil }
+                return (item, record)
+            }
+    }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Continue Watching")
-                .font(.title2.bold())
-                .foregroundStyle(.white)
-                .padding(.horizontal, 80)
+        if entries.isEmpty {
+            EmptyView()
+        } else {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("Continue Watching")
+                    .font(.title2.bold())
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 80)
 
-            ScrollView(.horizontal, showsIndicators: false) {
-                LazyHStack(alignment: .top, spacing: 28) {
-                    ForEach(entries, id: \.item.archiveID) { entry in
-                        ContinueWatchingTile(item: entry.item, progress: entry.progress) {
-                            router.push(entry.item)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(alignment: .top, spacing: 28) {
+                        ForEach(entries, id: \.item.archiveID) { entry in
+                            ContinueWatchingTile(item: entry.item, progress: entry.progress) {
+                                router.push(entry.item)
+                            }
                         }
                     }
+                    .padding(.horizontal, 80)
+                    .padding(.vertical, 20)
                 }
-                .padding(.horizontal, 80)
-                .padding(.vertical, 20)
+                .scrollClipDisabled()
             }
-            .scrollClipDisabled()
         }
     }
 }
