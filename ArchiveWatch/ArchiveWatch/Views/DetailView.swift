@@ -292,14 +292,17 @@ struct DetailView: View {
     @ViewBuilder
     private var backdrop: some View {
         if item.hasDesignedArtwork, let url = item.backdropURLParsed ?? item.posterURLParsed {
+            // Fit, not fill — preserves the backdrop's natural 16:9
+            // aspect without the 1.5× upscale that .fill produces on
+            // smaller TMDb sources. Pillarbox bars on the sides blend
+            // into black backdrop and fade with the bottom gradient.
             RemoteImage(
                 url: url,
                 targetSize: CGSize(width: 1920, height: 1080),
-                contentMode: .fill,
+                contentMode: .fit,
                 placeholder: Color(white: 0.1)
             )
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            .clipped()
         } else {
             LinearGradient(
                 colors: [accent.opacity(0.7), .black],

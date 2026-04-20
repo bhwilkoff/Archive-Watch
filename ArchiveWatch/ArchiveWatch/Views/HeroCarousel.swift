@@ -143,14 +143,19 @@ struct HeroBanner: View {
     @ViewBuilder
     private var backdrop: some View {
         if item.hasDesignedArtwork, let url = item.backdropURLParsed ?? item.posterURLParsed {
+            // Backdrop displays at its natural 16:9 aspect. No .fill
+            // upscale (that was the "super zoomed in" bug on smaller
+            // TMDb sources — a 1280x720 image stretched 1.5× into a
+            // 1920-wide .fill frame). The image sits at the top of the
+            // hero area; the bottom of the frame is pure black that
+            // the gradient below fades into seamlessly.
             RemoteImage(
                 url: url,
                 targetSize: CGSize(width: 1920, height: 1080),
-                contentMode: .fill,
+                contentMode: .fit,
                 placeholder: Color(white: 0.08)
             )
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            .clipped()
         } else {
             LinearGradient(
                 colors: [store.accentColor(forCategory: categoryID).opacity(0.85), .black],
