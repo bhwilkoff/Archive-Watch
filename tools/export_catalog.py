@@ -60,8 +60,14 @@ PROFILES = {
     "seed": {
         "min_quality":       45,
         "min_popularity":    50,
-        "require_artwork":   True,   # must have real designed poster
-        "require_playable":  True,   # must have a verified MP4 url
+        # NOTE: require_artwork used to be True, but the Wikidata SPARQL
+        # enrichment can time out (the q.w.o endpoint is flaky), and
+        # without that pass almost no items have poster_url. The app has
+        # a procedural poster fallback for un-arted items, so we'd
+        # rather ship a populated seed with some procedural cards than
+        # a nearly-empty one. Re-enable when enrichment is reliable.
+        "require_artwork":   False,
+        "require_playable":  True,   # must have a resolved MP4 url
         "max_items":         3000,
         "per_type_min":      150,    # diversity floor per work_type
     },
