@@ -113,6 +113,13 @@ struct HeroCarousel: View {
             guard !isFocused else { return }
             step(+1)
         }
+        // Imperatively claim focus once layout settles. Without this,
+        // tvOS's TabView defaults to the sidebar on launch and the
+        // user has to manually arrow-right into the content.
+        .task {
+            try? await Task.sleep(for: .milliseconds(60))
+            isFocused = true
+        }
     }
 
     private func step(_ delta: Int) {
