@@ -22,7 +22,7 @@ struct DecadeTilesRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 20) {
                     ForEach(decades, id: \.self) { decade in
-                        Button { router.push(.filter(BrowseFilter(decade: decade))) } label: {
+                        Button { router.push(BrowseFilter(decade: decade)) } label: {
                             DecadeTile(decade: decade, count: countFor(decade))
                         }
                         .buttonStyle(.card)

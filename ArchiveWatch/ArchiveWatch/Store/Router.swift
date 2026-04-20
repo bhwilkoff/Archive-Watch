@@ -1,14 +1,13 @@
 import Foundation
 import Observation
+import SwiftUI
 
-// Central navigation state for the app.
+// Navigation state for Archive Watch.
 //
-// Replaces the old TabView + NavigationStack approach. The reason: on
-// tvOS, NavigationStack's pushed content is a sealed focus realm — you
-// cannot arrow-navigate back out of it to the tab bar. With a sidebar
-// architecture and state-driven view swapping, every focusable element
-// sits in one continuous focus realm, so arrow keys traverse the whole
-// app and the Back button is the only thing that actually goes back.
+// Rebuilt on the tvOS 26 native pattern: TabView + .sidebarAdaptable +
+// one NavigationStack per tab. This gives us Apple's own sidebar, free
+// back-button restoration, and state preservation when popping — the
+// things a custom HStack + conditional ContentArea kept getting wrong.
 
 @MainActor
 @Observable
@@ -39,29 +38,39 @@ final class Router {
         }
     }
 
-    enum Destination: Hashable {
-        case item(Catalog.Item)
-        case filter(BrowseFilter)
-    }
-
     var tab: Tab = .home
-    var stack: [Destination] = []
 
-    var isAtRoot: Bool { stack.isEmpty }
+    // One NavigationPath per tab. Each tab remembers its own push
+    // stack, so switching tabs and coming back restores position;
+    // NavigationStack + navigationDestination handle the actual push
+    // + back semantics for us.
+    var homePath = NavigationPath()
+    var browsePath = NavigationPath()
+    var collectionsPath = NavigationPath()
+    var searchPath = NavigationPath()
+    var surprisePath = NavigationPath()
 
-    func select(_ tab: Tab) {
-        // Re-selecting the current tab pops to its root. Selecting a
-        // different tab also clears the stack — switching tabs should
-        // always land at that tab's root, never inside a deep detail.
-        self.tab = tab
-        stack.removeAll()
+    /// Push any Hashable destination onto the active tab's stack.
+    /// Callers pass the concrete value (Catalog.Item, BrowseFilter)
+    /// and the NavigationStack routes it via .navigationDestination(for:).
+    func push<T: Hashable>(_ destination: T) {
+        switch tab {
+        case .home:        homePath.append(destination)
+        case .browse:      browsePath.append(destination)
+        case .collections: collectionsPath.append(destination)
+        case .search:      searchPath.append(destination)
+        case .surprise:    surprisePath.append(destination)
+        }
     }
 
-    func push(_ destination: Destination) {
-        stack.append(destination)
-    }
-
+    /// Pop the active tab's stack by one level.
     func pop() {
-        if !stack.isEmpty { stack.removeLast() }
+        switch tab {
+        case .home:        if !homePath.isEmpty        { homePath.removeLast() }
+        case .browse:      if !browsePath.isEmpty      { browsePath.removeLast() }
+        case .collections: if !collectionsPath.isEmpty { collectionsPath.removeLast() }
+        case .search:      if !searchPath.isEmpty      { searchPath.removeLast() }
+        case .surprise:    if !surprisePath.isEmpty    { surprisePath.removeLast() }
+        }
     }
 }

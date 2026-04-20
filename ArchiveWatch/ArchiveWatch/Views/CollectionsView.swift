@@ -47,7 +47,7 @@ struct CollectionsView: View {
 
                 LazyVGrid(columns: [GridItem(.flexible(), spacing: 32), GridItem(.flexible(), spacing: 32)], spacing: 32) {
                     ForEach(collectionCards) { data in
-                        Button { router.push(.filter(BrowseFilter(collection: data.id))) } label: {
+                        Button { router.push(BrowseFilter(collection: data.id)) } label: {
                             CollectionCard(data: data)
                         }
                         .buttonStyle(.card)
