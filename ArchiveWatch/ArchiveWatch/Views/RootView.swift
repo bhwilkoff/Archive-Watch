@@ -21,7 +21,7 @@ struct RootView: View {
     var body: some View {
         @Bindable var router = router
 
-        TabView(selection: $router.tab) {
+        TabView(selection: tabSelection) {
             Tab("Home", systemImage: "house.fill", value: Router.Tab.home) {
                 NavigationStack(path: $router.homePath) {
                     HomeView().attachDestinations()
@@ -50,6 +50,35 @@ struct RootView: View {
         }
         .tabViewStyle(.sidebarAdaptable)
         .preferredColorScheme(.dark)
+    }
+
+    /// Intercept sidebar tab selection so switching tabs also clears
+    /// the departing tab's navigation stack. That way returning to a
+    /// tab via the sidebar always lands on its root view — never
+    /// stranded on a previously-opened DetailView. The user expects
+    /// the sidebar to feel like top-level navigation; keeping push
+    /// state across sidebar hops violates that.
+    private var tabSelection: Binding<Router.Tab> {
+        Binding(
+            get: { router.tab },
+            set: { newTab in
+                let oldTab = router.tab
+                if newTab != oldTab {
+                    resetPath(for: oldTab)
+                }
+                router.tab = newTab
+            }
+        )
+    }
+
+    private func resetPath(for tab: Router.Tab) {
+        switch tab {
+        case .home:        router.homePath = NavigationPath()
+        case .browse:      router.browsePath = NavigationPath()
+        case .collections: router.collectionsPath = NavigationPath()
+        case .search:      router.searchPath = NavigationPath()
+        case .surprise:    router.surprisePath = NavigationPath()
+        }
     }
 }
 
