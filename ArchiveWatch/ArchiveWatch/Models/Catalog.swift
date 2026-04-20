@@ -53,6 +53,18 @@ struct Catalog: Decodable, Sendable {
         let enrichmentTier: String?
         let shelves: [String]
 
+        // Additive fields from the federated pipeline (tools/export_catalog.py).
+        // All optional so old catalog.json files still decode without a migration.
+        let rightsStatus: String?
+        let qualityScore: Int?
+        let popularityScore: Int?
+        let bestSourceType: String?
+        // Authoritative silent-film flag. When present and true, overrides the
+        // contentType-based check — the pipeline's multi-signal classifier
+        // (collection membership + director whitelist + audio absence + year)
+        // is far more accurate than a year threshold on the app side.
+        let isSilentFilm: Bool?
+
         var id: String { archiveID }
         var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
         var backdropURLParsed: URL? { backdropURL.flatMap(URL.init(string:)) }
@@ -62,6 +74,13 @@ struct Catalog: Decodable, Sendable {
         /// false when it's just the Archive first-frame thumbnail.
         var hasDesignedArtwork: Bool {
             hasRealArtwork ?? (artworkSource != "archive")
+        }
+
+        /// Authoritative silent-film predicate. Prefers the pipeline's
+        /// multi-signal flag; falls back to the legacy contentType check
+        /// for catalogs generated before the pipeline switchover.
+        var isSilent: Bool {
+            isSilentFilm ?? (contentType == "silent-film")
         }
 
         /// Display-safe synopsis: HTML stripped, entities decoded, normalised whitespace.

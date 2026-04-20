@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "notes": "Directors whose names anywhere in a work's creator/director/title/description field are strong signals that the work belongs in the silent-film category — regardless of the collection it was ingested from. Matching is substring, case-insensitive, on normalized strings. `validThrough` is the last year of their silent-era output; sound films made afterward should NOT match.",
+  "directors": [
+    { "name": "Georges Méliès",        "aliases": ["georges melies", "méliès", "melies"], "validThrough": 1913 },
+    { "name": "D.W. Griffith",         "aliases": ["griffith"],                           "validThrough": 1931 },
+    { "name": "Charlie Chaplin",       "aliases": ["chaplin"],                            "validThrough": 1931 },
+    { "name": "Buster Keaton",         "aliases": ["keaton"],                             "validThrough": 1928 },
+    { "name": "Fritz Lang",            "aliases": ["fritz lang"],                         "validThrough": 1931 },
+    { "name": "F.W. Murnau",           "aliases": ["murnau"],                             "validThrough": 1931 },
+    { "name": "Sergei Eisenstein",     "aliases": ["eisenstein"],                         "validThrough": 1929 },
+    { "name": "Dziga Vertov",          "aliases": ["dziga vertov", "vertov"],             "validThrough": 1930 },
+    { "name": "Carl Theodor Dreyer",   "aliases": ["dreyer"],                             "validThrough": 1928 },
+    { "name": "Edwin S. Porter",       "aliases": ["edwin s. porter", "edwin porter"],    "validThrough": 1915 },
+    { "name": "Alice Guy-Blaché",      "aliases": ["guy-blaché", "alice guy", "guy blache"],"validThrough": 1920 },
+    { "name": "Segundo de Chomón",     "aliases": ["segundo de chomón", "de chomon", "segundo de chomon"],"validThrough": 1929 },
+    { "name": "Lotte Reiniger",        "aliases": ["lotte reiniger", "reiniger"],         "validThrough": 1932 },
+    { "name": "Harold Lloyd",          "aliases": ["harold lloyd"],                       "validThrough": 1929 },
+    { "name": "Lon Chaney",            "aliases": ["lon chaney"],                         "validThrough": 1930 },
+    { "name": "Ernst Lubitsch",        "aliases": ["lubitsch"],                           "validThrough": 1929 },
+    { "name": "King Vidor",            "aliases": ["king vidor"],                         "validThrough": 1929 },
+    { "name": "Cecil B. DeMille",      "aliases": ["demille", "cecil b. demille"],        "validThrough": 1928 }
+  ]
+}
