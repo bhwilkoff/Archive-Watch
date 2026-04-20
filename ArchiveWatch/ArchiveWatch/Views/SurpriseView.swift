@@ -94,7 +94,7 @@ struct RandomMovieCard: View {
 
     var body: some View {
         if let p = pick {
-            Button { router.push(.item(p)) } label: {
+            Button { router.push(p) } label: {
                 ActionCard(
                     title: "Random Film",
                     subtitle: p.title,
@@ -134,7 +134,7 @@ struct RandomCategoryCard: View {
 
     var body: some View {
         if let p = pick {
-            Button { router.push(.item(p.item)) } label: {
+            Button { router.push(p.item) } label: {
                 ActionCard(
                     title: "Random \(p.category.shortName ?? p.category.displayName)",
                     subtitle: p.item.title,
@@ -174,7 +174,7 @@ struct RandomDecadeCard: View {
 
     var body: some View {
         if let p = pick {
-            Button { router.push(.item(p.item)) } label: {
+            Button { router.push(p.item) } label: {
                 ActionCard(
                     title: "Random \(p.decade)s",
                     subtitle: p.item.title,

@@ -14,6 +14,11 @@ struct HeroCarousel: View {
             ForEach(Array(items.enumerated()), id: \.element.archiveID) { i, item in
                 HeroBanner(item: item)
                     .opacity(i == index ? 1 : 0)
+                    // Non-visible banners would still be focusable
+                    // without this — tvOS happily focuses zero-opacity
+                    // views, which stole focus from the visible hero
+                    // and made the carousel feel unresponsive.
+                    .allowsHitTesting(i == index)
                     .animation(Motion.heroCrossfade, value: index)
             }
             HStack(spacing: 12) {
@@ -39,13 +44,17 @@ struct HeroBanner: View {
     @Environment(Router.self) private var router
 
     var body: some View {
-        Button { router.push(.item(item)) } label: {
+        Button { router.push(item) } label: {
             ZStack(alignment: .bottomLeading) {
                 backdrop
+                // Heavier bottom scrim so title/year/byline are always
+                // legible regardless of what the backdrop shows behind
+                // them. Playbook §5: target 7:1 contrast on art.
                 LinearGradient(
-                    colors: [.clear, .clear, .black.opacity(0.6), .black],
+                    colors: [.clear, .black.opacity(0.25), .black.opacity(0.75), .black.opacity(0.98)],
                     startPoint: .top, endPoint: .bottom
                 )
+                .allowsHitTesting(false)
                 HStack(alignment: .bottom, spacing: 48) {
                     VStack(alignment: .leading, spacing: 14) {
                         Text(categoryLabel.uppercased())

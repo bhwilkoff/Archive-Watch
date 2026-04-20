@@ -118,7 +118,7 @@ struct BrowseView: View {
                     LazyVGrid(columns: cols, alignment: .leading, spacing: 48) {
                         ForEach(items) { item in
                             CompactTile(item: item) {
-                                router.push(.item(item))
+                                router.push(item)
                             }
                             .focused($focusedArchiveID, equals: item.archiveID)
                         }

@@ -55,9 +55,12 @@ struct DetailView: View {
                 }
             }
             .defaultFocus($focusTarget, .play, priority: .userInitiated)
-            .task {
-                // Deferred focus claim (playbook §2.5). Beats the race
-                // where the sidebar captures focus during content swap.
+            .task(id: item.archiveID) {
+                // id: item.archiveID so this re-fires when the user
+                // pushes a new DetailView (e.g. from "More Like This")
+                // without us needing SwiftUI to tear down and rebuild
+                // the view. Deferred by one run-loop tick for layout
+                // to settle before we claim focus.
                 try? await Task.sleep(for: .milliseconds(40))
                 focusTarget = .play
             }
@@ -230,7 +233,7 @@ struct DetailView: View {
                     LazyHStack(alignment: .top, spacing: 32) {
                         ForEach(related) { other in
                             PosterTile(item: other) {
-                                router.push(.item(other))
+                                router.push(other)
                             }
                             // Up-arrow from a related tile forwards
                             // focus to Play. Without this, tvOS can't

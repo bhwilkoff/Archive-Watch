@@ -34,7 +34,7 @@ struct ShelfRow: View {
                 LazyHStack(alignment: .top, spacing: 28) {
                     ForEach(items) { item in
                         PosterTile(item: item) {
-                            router.push(.item(item))
+                            router.push(item)
                         }
                     }
                 }

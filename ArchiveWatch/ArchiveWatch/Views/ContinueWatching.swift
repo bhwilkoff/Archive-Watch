@@ -20,7 +20,7 @@ struct ContinueWatchingRow: View {
                 LazyHStack(alignment: .top, spacing: 28) {
                     ForEach(entries, id: \.item.archiveID) { entry in
                         ContinueWatchingTile(item: entry.item, progress: entry.progress) {
-                            router.push(.item(entry.item))
+                            router.push(entry.item)
                         }
                     }
                 }

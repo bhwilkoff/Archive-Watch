@@ -17,7 +17,7 @@ struct CategoryTilesRow: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 20) {
                     ForEach(store.featured?.categories ?? []) { cat in
-                        Button { router.push(.filter(BrowseFilter(category: cat.id))) } label: {
+                        Button { router.push(BrowseFilter(category: cat.id)) } label: {
                             CategoryTile(category: cat)
                         }
                         .buttonStyle(.card)

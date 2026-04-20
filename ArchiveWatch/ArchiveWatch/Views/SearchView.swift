@@ -69,7 +69,7 @@ struct SearchView: View {
             LazyVGrid(columns: cols, alignment: .leading, spacing: 44) {
                 ForEach(results) { item in
                     CompactTile(item: item) {
-                        router.push(.item(item))
+                        router.push(item)
                     }
                 }
             }
