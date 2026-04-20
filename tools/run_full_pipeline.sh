@@ -59,11 +59,11 @@ log "=========================================="
 
 if $SMOKE; then
     log "[1/5] INGEST (smoke: 50 per collection, IA only, no SPARQL)"
-    run python3 SchemaWork/registry_pipeline.py \
+    run python3 -u SchemaWork/registry_pipeline.py \
         --limit 50 --sources ia --skip-enrichment
 else
     log "[1/5] INGEST (full: all sources, full Wikidata SPARQL enrichment)"
-    run python3 SchemaWork/registry_pipeline.py
+    run python3 -u SchemaWork/registry_pipeline.py
 fi
 
 # ---- 2. Resolve archive.org derivatives ----------------------------------

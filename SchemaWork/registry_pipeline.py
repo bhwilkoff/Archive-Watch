@@ -2426,51 +2426,51 @@ def main():
     # --- Archive.org ---
     if "ia" in want:
         targets = args.collections or list(IA_COLLECTIONS.keys())
-        for coll in targets:
-            print(f"[ia] scraping collection={coll}")
+        for ti, coll in enumerate(targets, start=1):
+            print(f"[ia] ({ti}/{len(targets)}) scraping collection={coll}", flush=True)
             n = 0
             try:
                 for item in scrape_ia_collection(coll, limit=args.limit):
                     ingest_ia_item(conn, item, exclude_adult=not args.include_adult)
                     n += 1
-                    if n % 500 == 0:
+                    if n % 50 == 0:
                         conn.commit()
-                        print(f"  … {n}")
+                        print(f"  [ia:{coll}] ingested {n}", flush=True)
             except requests.HTTPError as e:
                 print(f"  [warn] HTTP on {coll}: {e}", file=sys.stderr)
             conn.commit()
-            print(f"  [ia] done {coll}: {n}")
+            print(f"  [ia] done {coll}: {n}", flush=True)
 
     # --- Library of Congress ---
     if "loc" in want:
-        for slug in LOC_COLLECTIONS:
-            print(f"[loc] scraping collection={slug}")
+        for ti, slug in enumerate(LOC_COLLECTIONS, start=1):
+            print(f"[loc] ({ti}/{len(LOC_COLLECTIONS)}) scraping collection={slug}", flush=True)
             n = 0
             try:
                 for item in scrape_loc_collection(slug, limit=args.limit):
                     ingest_loc_item(conn, item)
                     n += 1
-                    if n % 100 == 0:
+                    if n % 25 == 0:
                         conn.commit()
-                        print(f"  … {n}")
+                        print(f"  [loc:{slug}] ingested {n}", flush=True)
             except requests.HTTPError as e:
                 print(f"  [warn] HTTP on {slug}: {e}", file=sys.stderr)
             except requests.RequestException as e:
                 print(f"  [warn] {slug}: {e}", file=sys.stderr)
             conn.commit()
-            print(f"  [loc] done {slug}: {n}")
+            print(f"  [loc] done {slug}: {n}", flush=True)
 
     # --- AAPB ---
     if "aapb" in want:
-        print("[aapb] scraping Online Reading Room (video)")
+        print("[aapb] scraping Online Reading Room (video)", flush=True)
         n = 0
         try:
             for item in scrape_aapb(limit=args.limit):
                 ingest_aapb_item(conn, item)
                 n += 1
-                if n % 500 == 0:
+                if n % 50 == 0:
                     conn.commit()
-                    print(f"  … {n}")
+                    print(f"  [aapb] ingested {n}", flush=True)
         except requests.HTTPError as e:
             print(f"  [warn] HTTP on aapb: {e}", file=sys.stderr)
         except requests.RequestException as e:
@@ -2480,15 +2480,15 @@ def main():
 
     # --- Wikimedia Commons ---
     if "commons" in want:
-        print("[commons] scraping video files")
+        print("[commons] scraping video files", flush=True)
         n = 0
         try:
             for item in scrape_commons(limit=args.limit):
                 ingest_commons_item(conn, item)
                 n += 1
-                if n % 500 == 0:
+                if n % 50 == 0:
                     conn.commit()
-                    print(f"  … {n}")
+                    print(f"  [commons] ingested {n}", flush=True)
         except requests.HTTPError as e:
             print(f"  [warn] HTTP on commons: {e}", file=sys.stderr)
         except requests.RequestException as e:
