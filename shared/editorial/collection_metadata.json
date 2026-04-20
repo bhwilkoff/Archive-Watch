@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "notes": "Single source of truth for Archive.org collection display metadata. Read by the Swift app (CollectionMetadata.swift) and the Python pipeline (registry_pipeline.py / export_catalog.py). IDs are Archive.org's internal collection slugs — use these verbatim in Archive scrape queries. Never show the raw slug to users; always look up the display title here.",
+  "collections": [
+    { "id": "Film_Noir",                "title": "Film Noir",              "blurb": "Shadows, second thoughts, venetian-blind lighting.",       "accent": "#FF5C35", "category": "feature-film" },
+    { "id": "SciFi_Horror",             "title": "Sci-Fi & Horror",        "blurb": "B-movies, creature features, postwar paranoia.",           "accent": "#7C5BBA", "category": "feature-film" },
+    { "id": "Comedy_Films",             "title": "Comedy",                 "blurb": "Pratfalls, quick wit, surreal cinema.",                    "accent": "#FF4D8D", "category": "feature-film" },
+    { "id": "TheVideoCellarCollection", "title": "The Video Cellar",       "blurb": "A curator's devoted private library.",                     "accent": "#E8A317", "category": "feature-film" },
+    { "id": "feature_films",            "title": "Feature Films",          "blurb": "The main library — thousands of public-domain features.",  "accent": "#FF5C35", "category": "feature-film" },
+    { "id": "feature_films_picfixer",   "title": "Picfixer Restorations",  "blurb": "A collector's multi-year film restoration project.",       "accent": "#FF5C35", "category": "feature-film" },
+    { "id": "mid-century-german-film",  "title": "Mid-Century German Film","blurb": "Postwar to New German Cinema.",                            "accent": "#8A8F98", "category": "feature-film" },
+
+    { "id": "silenthalloffame",         "title": "Silent Hall of Fame",    "blurb": "Curator-picked silents: Griffith, Chaplin, Keaton, Lang.", "accent": "#C9A66B", "category": "silent-film" },
+    { "id": "georgesmelies",            "title": "Georges Méliès",         "blurb": "The magician who invented cinema.",                        "accent": "#C9A66B", "category": "silent-film" },
+    { "id": "silent_films",             "title": "Silent Cinema",          "blurb": "The first thirty years of moving pictures.",               "accent": "#C9A66B", "category": "silent-film" },
+    { "id": "segundodechomon",          "title": "Segundo de Chomón",      "blurb": "Spanish Méliès-era trick cinema pioneer.",                 "accent": "#C9A66B", "category": "silent-film" },
+
+    { "id": "animationandcartoons",     "title": "Animation",              "blurb": "From Fleischer to Terrytoons to beyond.",                  "accent": "#FF4D8D", "category": "animation" },
+    { "id": "vintage_cartoons",         "title": "Vintage Cartoons",       "blurb": "Pre-1970 animation on 16mm and 35mm.",                     "accent": "#FF4D8D", "category": "animation" },
+    { "id": "classic_cartoons",         "title": "Classic Cartoons",       "blurb": "Early Disney, Fleischer, Terrytoons.",                     "accent": "#FF4D8D", "category": "animation" },
+
+    { "id": "classic_tv_1950s",         "title": "1950s Television",       "blurb": "Live broadcasts, rabbit-ears era.",                        "accent": "#2D5BFF", "category": "tv-series" },
+    { "id": "classic_tv_1960s",         "title": "1960s Television",       "blurb": "The golden age of network drama.",                         "accent": "#2D5BFF", "category": "tv-series" },
+    { "id": "classic_tv_1970s",         "title": "1970s Television",       "blurb": "Color, variety, sitcom reinvention.",                      "accent": "#2D5BFF", "category": "tv-series" },
+    { "id": "classic_tv_1980s",         "title": "1980s Television",       "blurb": "Cable arrives; the networks respond.",                     "accent": "#2D5BFF", "category": "tv-series" },
+    { "id": "classic_tv_1940s",         "title": "1940s Television",       "blurb": "The earliest surviving broadcasts.",                       "accent": "#2D5BFF", "category": "tv-series" },
+    { "id": "classic_tv",               "title": "Classic Television",     "blurb": "Vintage broadcasts across the 20th century.",              "accent": "#2D5BFF", "category": "tv-series" },
+
+    { "id": "prelinger",                "title": "The Prelinger Archive",  "blurb": "Industrial, educational, and ephemeral 20th-century film.","accent": "#7C5BBA", "category": "ephemeral" },
+    { "id": "nasa",                     "title": "NASA Films",             "blurb": "Earthrise, moonwalks, the long engineering story.",        "accent": "#3FA796", "category": "documentary" },
+    { "id": "educationalfilms",         "title": "Educational Shorts",     "blurb": "Encyclopædia Britannica, Coronet, classroom filmstrips.",  "accent": "#7C5BBA", "category": "ephemeral" },
+    { "id": "ephemera",                 "title": "Ephemera",               "blurb": "Industrial, instructional, home, in-between.",             "accent": "#7C5BBA", "category": "ephemeral" },
+    { "id": "newsandpublicaffairs",     "title": "Newsreels",              "blurb": "How the 20th century reported itself to itself.",          "accent": "#8A8F98", "category": "newsreel" }
+  ]
+}

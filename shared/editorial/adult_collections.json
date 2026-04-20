@@ -1,0 +1,9 @@
+{
+  "schemaVersion": "1.0",
+  "notes": "Archive.org collection IDs whose content is adult/NSFW. Works belonging to any of these collections are excluded from the default feeds (app Decision 012: adult filter on by default). A toggle in Settings turns filtering off. The Python pipeline can also skip ingesting these entirely if run with --exclude-adult.",
+  "collections": [
+    "adult",
+    "moviesandfilms_adult",
+    "stagvideos"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "notes": "Maps the Python pipeline's work_type vocabulary (snake_case) to the Swift app's contentType vocabulary (kebab-case). The exporter applies this after pipeline runs. Silent-film is intentionally NOT in this table — it comes from the separate `is_silent` column because year alone is an unreliable predictor. When is_silent is true, the exporter overrides contentType to 'silent-film' regardless of what this mapping would produce.",
+  "mapping": {
+    "feature_film":     "feature-film",
+    "short_film":       "short-film",
+    "documentary":      "documentary",
+    "animated_short":   "animation",
+    "tv_episode":       "tv-series",
+    "tv_movie":         "tv-special",
+    "newsreel":         "newsreel",
+    "home_movie":       "home-movie",
+    "industrial_film":  "ephemeral",
+    "educational_film": "ephemeral",
+    "music_video":      "short-film",
+    "concert":          "short-film",
+    "lecture":          "ephemeral",
+    "sports_footage":   "newsreel",
+    "trailer":          "short-film",
+    "unknown":          "short-film"
+  }
+}
