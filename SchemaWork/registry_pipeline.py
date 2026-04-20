@@ -2076,6 +2076,104 @@ def score_all_works(conn):
 
 
 # ---------------------------------------------------------------------------
+# Editor's-Picks direct fetch
+# ---------------------------------------------------------------------------
+# Some curator-selected items live in niche Archive collections that the
+# main ingest doesn't scrape. Rather than scraping every possible
+# collection, we fetch those specific IDs by /metadata/{id} and ingest
+# them one by one. Expect a small list (10s of items).
+
+def ingest_ia_by_id(conn, ia_id, *, exclude_adult=False):
+    """Fetch /metadata/{id}, construct a pseudo-scrape record, ingest it.
+    Returns canonical_id on success, None on failure."""
+    meta = fetch_ia_metadata(ia_id)
+    if not meta:
+        return None
+    m = meta.get("metadata") or {}
+    files = meta.get("files") or []
+    if not m.get("identifier"):
+        return None
+
+    # Shape the metadata into the flat dict that ingest_ia_item expects
+    # from the scrape API. Fields the scrape API normally provides:
+    item = {
+        "identifier":  m.get("identifier"),
+        "title":       m.get("title") or m.get("identifier"),
+        "date":        m.get("date"),
+        "year":        m.get("year"),
+        "creator":     m.get("creator"),
+        "description": m.get("description"),
+        "subject":     m.get("subject"),
+        "runtime":     m.get("runtime"),
+        "language":    m.get("language"),
+        "licenseurl":  m.get("licenseurl"),
+        "mediatype":   m.get("mediatype") or "movies",
+        "collection":  m.get("collection") or [],
+        "downloads":   m.get("downloads"),
+        "item_size":   m.get("item_size"),
+        "publicdate":  m.get("publicdate"),
+        "addeddate":   m.get("addeddate"),
+        "format":      m.get("format"),
+        "external-identifier": m.get("external-identifier"),
+        "num_favorites": m.get("num_favorites"),
+        "avg_rating":  m.get("avg_rating"),
+        "num_reviews": m.get("num_reviews"),
+        "week":        m.get("week"),
+    }
+    cid = ingest_ia_item(conn, item, exclude_adult=exclude_adult)
+    if not cid:
+        return None
+
+    # Immediately resolve the derivative too, since we already have files.
+    picked = pick_ia_derivative(files)
+    audio  = detect_audio_presence(files)
+    if picked:
+        real_url = f"https://archive.org/download/{ia_id}/{picked['name']}"
+        conn.execute(
+            """UPDATE sources
+               SET stream_url = ?, derivative_name = ?, format_hint = ?,
+                   file_size = ?, has_audio_track = ?
+               WHERE source_type = 'archive_org' AND source_id = ?""",
+            (real_url, picked["name"], picked["format"],
+             picked["size"] or None, audio, ia_id),
+        )
+    return cid
+
+
+def ingest_editors_picks(conn, featured_json_path, *, exclude_adult=False):
+    """Read featured.json's Editor's Picks shelf, ensure every archiveID is
+    in the DB by direct fetch. Returns (requested, already_in_db, fetched)."""
+    with open(featured_json_path, "r", encoding="utf-8") as f:
+        featured = json.load(f)
+    ids = []
+    for shelf in featured.get("shelves", []) or []:
+        if shelf.get("id") == "editors-picks":
+            for e in shelf.get("items", []) or []:
+                if isinstance(e, dict) and e.get("archiveID"):
+                    ids.append(e["archiveID"])
+            break
+    requested = len(ids)
+    already = fetched = 0
+    for ia_id in ids:
+        row = conn.execute(
+            "SELECT 1 FROM sources WHERE source_type='archive_org' AND source_id=?",
+            (ia_id,),
+        ).fetchone()
+        if row:
+            already += 1
+            continue
+        cid = ingest_ia_by_id(conn, ia_id, exclude_adult=exclude_adult)
+        if cid:
+            fetched += 1
+            print(f"  [picks] fetched {ia_id} → {cid}", flush=True)
+        else:
+            print(f"  [picks] failed  {ia_id}", flush=True)
+        time.sleep(0.15)
+    conn.commit()
+    return requested, already, fetched
+
+
+# ---------------------------------------------------------------------------
 # Archive.org derivative resolution pass
 # ---------------------------------------------------------------------------
 # For every archive_org source in the DB, hit /metadata/{id}, pick the best
@@ -2373,6 +2471,13 @@ def main():
     ap.add_argument("--include-adult", action="store_true",
                     help="Don't filter out adult-tagged collections during "
                          "ingest (app filters them at read time by default).")
+    ap.add_argument("--fetch-editors-picks", action="store_true",
+                    help="Read featured.json and fetch every Editor's Pick "
+                         "Archive ID directly via /metadata/{id}. Cheap; "
+                         "ensures curated picks survive even if they're in "
+                         "a collection we don't scrape.")
+    ap.add_argument("--featured", default="featured.json",
+                    help="Path to featured.json for --fetch-editors-picks.")
     args = ap.parse_args()
 
     conn = sqlite3.connect(args.db)
@@ -2395,6 +2500,14 @@ def main():
         print("[verify] HEAD-verifying source stream URLs…")
         ok, fail = verify_playable_sources(conn)
         print(f"[verify] ok={ok} fail={fail}")
+        conn.close()
+        return
+
+    if args.fetch_editors_picks:
+        print("[picks] fetching Editor's Picks by Archive ID…", flush=True)
+        req, already, got = ingest_editors_picks(conn, args.featured,
+                                                 exclude_adult=not args.include_adult)
+        print(f"[picks] requested={req}  already_in_db={already}  fetched={got}", flush=True)
         conn.close()
         return
 
