@@ -37,8 +37,52 @@ import json
 import re
 import sqlite3
 import sys
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
+
+
+# ---------------------------------------------------------------------------
+# Tier profiles — the two shapes catalog.json gets shipped in.
+# ---------------------------------------------------------------------------
+# Apple TV is Wi-Fi only, so we don't worry about cellular size caps. But we
+# still want the bundled seed to be small enough for instant first-launch:
+# ~3k items is the sweet spot (5–10 MB JSON, parses in well under a second).
+# The full hosted catalog is fetched by the app's CatalogRefreshService and
+# can be an order of magnitude bigger without hurting UX.
+#
+# Diversity-aware selection: instead of "top 3000 by popularity" (which would
+# be 90% feature films and 0 silent-era), we take top-N per work_type so each
+# category has room to breathe. Editor's Picks are always included, never
+# filtered by score — they're the product's editorial voice.
+
+PROFILES = {
+    "seed": {
+        "min_quality":       45,
+        "min_popularity":    50,
+        "require_artwork":   True,   # must have real designed poster
+        "require_playable":  True,   # must have a verified MP4 url
+        "max_items":         3000,
+        "per_type_min":      150,    # diversity floor per work_type
+    },
+    "full": {
+        "min_quality":       40,
+        "min_popularity":    30,
+        "require_artwork":   False,
+        "require_playable":  True,   # always require playable — unplayable is noise
+        "max_items":         25000,
+        "per_type_min":      1000,
+    },
+    # Researcher / debugging profile — everything that passes quality, no caps.
+    "raw": {
+        "min_quality":       25,
+        "min_popularity":    0,
+        "require_artwork":   False,
+        "require_playable":  False,
+        "max_items":         None,
+        "per_type_min":      None,
+    },
+}
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
@@ -349,6 +393,68 @@ def build_item(row, shelf_membership):
 
 
 # ---------------------------------------------------------------------------
+# Tiered selection — diversity + Editor's Picks override
+# ---------------------------------------------------------------------------
+
+def select_tiered(items, *, profile, editors_picks_ids, shelf_required_ids):
+    """Pick up to profile.max_items with diversity across contentType.
+
+    Order of inclusion:
+      1. Editor's Picks — mandatory, score-independent.
+      2. Items referenced by any shelf — mandatory (curator intent).
+      3. Round-robin fill from each contentType bucket by popularity, up to
+         per_type_min per bucket.
+      4. If cap isn't reached, top up with the highest-popularity residue
+         regardless of type.
+    """
+    max_items = profile.get("max_items")
+    per_type  = profile.get("per_type_min") or 0
+
+    must_have = {i["archiveID"]: i for i in items
+                 if i.get("archiveID") in editors_picks_ids
+                 or i.get("archiveID") in shelf_required_ids
+                 or any(sid for sid in (i.get("shelves") or []))}
+    picked = list(must_have.values())
+
+    if max_items is None:
+        return items  # raw profile: no cap
+
+    remaining = max_items - len(picked)
+    if remaining <= 0:
+        return picked[:max_items]
+
+    # Bucket remainders by contentType
+    used_ids = set(must_have.keys())
+    pool = [i for i in items if i["archiveID"] not in used_ids]
+    by_type = defaultdict(list)
+    for i in pool:
+        by_type[i.get("contentType") or "short-film"].append(i)
+    for t in by_type:
+        by_type[t].sort(key=lambda x: (x.get("popularityScore") or 0), reverse=True)
+
+    # Diversity pass: up to per_type from each bucket
+    for t, bucket in by_type.items():
+        take = min(per_type, len(bucket), remaining)
+        picked.extend(bucket[:take])
+        for x in bucket[:take]: used_ids.add(x["archiveID"])
+        remaining -= take
+        if remaining <= 0:
+            break
+
+    # Top-up pass: pop from the strongest-remaining regardless of type
+    if remaining > 0:
+        leftover = sorted(
+            (i for i in pool if i["archiveID"] not in used_ids),
+            key=lambda x: (x.get("popularityScore") or 0), reverse=True,
+        )
+        picked.extend(leftover[:remaining])
+
+    # Return in popularity order so the app's first shelf reads are snappy.
+    picked.sort(key=lambda x: (x.get("popularityScore") or 0), reverse=True)
+    return picked[:max_items]
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -357,11 +463,26 @@ def main():
     ap.add_argument("--db",       default="SchemaWork/video_registry.db")
     ap.add_argument("--featured", default="featured.json")
     ap.add_argument("--out",      default="ArchiveWatch/ArchiveWatch/catalog.json")
-    ap.add_argument("--min-quality",    type=int, default=40)
-    ap.add_argument("--min-popularity", type=int, default=25)
+    ap.add_argument("--mode", choices=list(PROFILES.keys()), default="seed",
+                    help="Export profile. seed=bundled (~3k), full=hosted "
+                         "(~25k), raw=no caps (for debugging).")
+    # Advanced overrides — only use if you know what you're doing.
+    ap.add_argument("--min-quality",    type=int)
+    ap.add_argument("--min-popularity", type=int)
+    ap.add_argument("--max-items",      type=int)
     ap.add_argument("--require-playable", action="store_true",
-                    help="Exclude items with no verified playable stream (strict).")
+                    help="Force require verified_playable even in raw mode.")
+    ap.add_argument("--require-artwork",  action="store_true",
+                    help="Force require hasRealArtwork.")
     args = ap.parse_args()
+
+    # Apply profile with CLI overrides on top.
+    profile = dict(PROFILES[args.mode])
+    if args.min_quality    is not None: profile["min_quality"]    = args.min_quality
+    if args.min_popularity is not None: profile["min_popularity"] = args.min_popularity
+    if args.max_items      is not None: profile["max_items"]      = args.max_items
+    if args.require_playable:           profile["require_playable"] = True
+    if args.require_artwork:            profile["require_artwork"]  = True
 
     db_path = Path(args.db)
     if not db_path.exists():
@@ -383,14 +504,15 @@ def main():
         for cid in members:
             shelf_ids.setdefault(cid, []).append(shelf["id"])
 
-    # Collect the union of "works we want to emit": everything in
-    # works_default + everything pulled in by any shelf (so curated picks
-    # survive even if they'd be below the quality/popularity threshold).
+    # Collect the union of "works we want to emit": everything passing the
+    # profile's score thresholds + everything pulled in by any shelf (so
+    # curated picks survive score filtering). Editor's Picks survive cap
+    # selection too (handled in select_tiered).
     defaulted = {
         r[0] for r in conn.execute(
             f"""SELECT canonical_id FROM works
-                WHERE quality_score    >= {int(args.min_quality)}
-                  AND popularity_score >= {int(args.min_popularity)}"""
+                WHERE quality_score    >= {int(profile['min_quality'])}
+                  AND popularity_score >= {int(profile['min_popularity'])}"""
         )
     }
     emit_set = defaulted | set(shelf_ids.keys())
@@ -412,15 +534,37 @@ def main():
         tuple(emit_set),
     ).fetchall()
 
-    # 3. Build items.
+    # 3. Build items + apply hard filters from the profile.
     items = []
-    dropped_unplayable = 0
+    dropped_unplayable = dropped_no_artwork = 0
     for row in rows:
         item = build_item(row, shelf_ids)
-        if args.require_playable and not item["downloadURL"]:
+        if profile.get("require_playable") and not item["downloadURL"]:
             dropped_unplayable += 1
             continue
+        if profile.get("require_artwork") and not item.get("hasRealArtwork"):
+            # Editor's Picks always survive, even without artwork — the app
+            # has a procedural fallback poster renderer for these.
+            if not any(sid == "editors-picks" for sid in (item.get("shelves") or [])):
+                dropped_no_artwork += 1
+                continue
         items.append(item)
+
+    # 4. Apply tiered selection (diversity + cap).
+    editors_picks_ids = set()
+    for shelf in featured.get("shelves", []):
+        if shelf.get("id") == "editors-picks":
+            for e in shelf.get("items", []) or []:
+                if isinstance(e, dict) and e.get("archiveID"):
+                    editors_picks_ids.add(e["archiveID"])
+            break
+    shelf_required_ids = set()  # reserved for future "always-include" shelves
+    items = select_tiered(
+        items,
+        profile=profile,
+        editors_picks_ids=editors_picks_ids,
+        shelf_required_ids=shelf_required_ids,
+    )
 
     # 4. Compute stats for the bundle header.
     n = len(items)
@@ -436,7 +580,8 @@ def main():
     catalog = {
         "version":     1,
         "generatedAt": datetime.now(timezone.utc).isoformat(),
-        "generator":   "export_catalog.py (video_registry.db)",
+        "generator":   f"export_catalog.py mode={args.mode}",
+        "mode":        args.mode,
         "stats":       stats,
         "items":       items,
     }
@@ -446,11 +591,14 @@ def main():
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(catalog, f, ensure_ascii=False, indent=2)
 
-    print(f"[export] wrote {n} items to {out_path}")
+    size_mb = out_path.stat().st_size / (1024 * 1024)
+    print(f"[export] mode={args.mode}  wrote {n} items to {out_path}  ({size_mb:.1f} MB)")
     print(f"         playable={stats['itemsPlayable']}  IMDb={stats['itemsWithIMDb']}  "
           f"TMDb={stats['itemsWithTMDb']}  WD={stats['itemsWithWikidata']}")
     if dropped_unplayable:
         print(f"         dropped {dropped_unplayable} items with no verified stream")
+    if dropped_no_artwork:
+        print(f"         dropped {dropped_no_artwork} items with no real artwork (seed requires it)")
     conn.close()
 
 
