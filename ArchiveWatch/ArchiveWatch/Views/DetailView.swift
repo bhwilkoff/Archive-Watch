@@ -79,28 +79,38 @@ struct DetailView: View {
     }
 
     // MARK: - Hero with pinned actions
+    //
+    // Full-width backdrop at native 16:9 scale, fading to black at the
+    // bottom so the image dissolves continuously into the page's dark
+    // metadata block. No arbitrary crop tuning needed — the fade hides
+    // whatever lives at the bottom of the image, and the top of the
+    // image (where faces usually live) reads in full.
 
     private var heroWithPinnedActions: some View {
         ZStack(alignment: .bottomLeading) {
             backdrop
-                .frame(height: 720)
+                .frame(height: 820)
                 .clipped()
 
-            // Darken the bottom half so action buttons remain legible on
-            // any artwork — per playbook §5 rule: 7:1 contrast on art.
             LinearGradient(
-                colors: [.clear, .clear, .black.opacity(0.55), .black.opacity(0.95)],
+                colors: [
+                    .clear,
+                    .clear,
+                    .black.opacity(0.45),
+                    .black.opacity(0.9),
+                    .black
+                ],
                 startPoint: .top, endPoint: .bottom
             )
-            .frame(height: 720)
+            .frame(height: 820)
             .allowsHitTesting(false)
 
             heroInfoOverlay
                 .padding(.leading, 80)
                 .padding(.trailing, 80)
-                .padding(.bottom, 48)
+                .padding(.bottom, 84)
         }
-        .frame(height: 720)
+        .frame(height: 820)
     }
 
     private var heroInfoOverlay: some View {
@@ -284,10 +294,12 @@ struct DetailView: View {
         if item.hasDesignedArtwork, let url = item.backdropURLParsed ?? item.posterURLParsed {
             RemoteImage(
                 url: url,
-                targetSize: CGSize(width: 1920, height: 720),
+                targetSize: CGSize(width: 1920, height: 1080),
                 contentMode: .fill,
                 placeholder: Color(white: 0.1)
             )
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .clipped()
         } else {
             LinearGradient(
                 colors: [accent.opacity(0.7), .black],
