@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "smothers-brothers-comedy-hour-69-03-16-3-21-glen-campbell-ri-1969",
+  "title": "Smothers Brothers Comedy Hour 69 03 16 3 21 Glen Campbell, Righteous Brothers, David Frye",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/69-03-16-3-21-glen-campbell-righteous-brothers-david-frye",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "69-03-16-3-21-glen-campbell-righteous-brothers-david-frye",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Smothers Brothers Comedy Hour 69 03 16 3 21 Glen Campbell, Righteous Brothers, David Frye",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/69-03-16-3-21-glen-campbell-righteous-brothers-david-frye",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "69-03-16 3-21 Glen Campbell, Righteous Brothers, David Frye.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 168235173,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/69-03-16-3-21-glen-campbell-righteous-brothers-david-frye/69-03-16 3-21 Glen Campbell, Righteous Brothers, David Frye.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

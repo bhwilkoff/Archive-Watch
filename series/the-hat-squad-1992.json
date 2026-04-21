@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-hat-squad-1992",
+  "title": "The Hat Squad",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "The Hat Squad is a crime drama television series that ran for only one season on CBS, during the 1992–1993 season. 13 episodes were made, but only 11 of them aired.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/yubNtXDR3METDunnmKYXLLLN1eg.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4bfG1it7mLMtbHdVbMEH4bigVh2.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Stephen J. Cannell",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-hat-squad-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Hat Squad - Don Michael Paul, Nestor Serrano, Phil Hayes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yubNtXDR3METDunnmKYXLLLN1eg.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Hat Squad - 1992.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2161199090,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-hat-squad-1992/The Hat Squad - 1992.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

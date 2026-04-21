@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "seriesID": "follow-me-1977-1960",
+  "title": "Follow Me 1977",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/s-01-e-01-the-missing-girl",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-01-the-missing-girl",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Follow Me 1977 S01E01 The Missing Girl",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-01-the-missing-girl",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E01 The Missing Girl.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400238115,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-the-missing-girl/S01E01 The Missing Girl.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-02-mysterious-message",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Follow Me 1977 S01E02 Mysterious Message",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-02-mysterious-message",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E02 Mysterious Message.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 412405495,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-02-mysterious-message/S01E02 Mysterious Message.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-03-aboard-the-patriot",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Follow Me 1977 S01E03 Aboard The Patriot",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-03-aboard-the-patriot",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E03 Aboard the Patriot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 423706688,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-03-aboard-the-patriot/S01E03 Aboard the Patriot.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-04-a-clue-received",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Follow Me 1977 S01E04 A Clue Received",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-04-a-clue-received",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E04 A Clue Received.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 420614308,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-04-a-clue-received/S01E04 A Clue Received.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-05-toms-on-the-trail",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Follow Me 1977 S01E05 Tom's On The Trail",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-05-toms-on-the-trail",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E05 Tom's on the Trail.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 417198029,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-05-toms-on-the-trail/S01E05 Tom's on the Trail.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-06-lynns-disappearance",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Follow Me 1977 S01E06 Lynn's Disappearance",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-06-lynns-disappearance",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E06 Lynn's Disappearance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 411142057,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-06-lynns-disappearance/S01E06 Lynn's Disappearance.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-07-evil-colonel-gaines",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Follow Me 1977 S01E07 Evil Colonel Gaines",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-07-evil-colonel-gaines",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E07 Evil Colonel Gaines.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 420411194,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-07-evil-colonel-gaines/S01E07 Evil Colonel Gaines.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

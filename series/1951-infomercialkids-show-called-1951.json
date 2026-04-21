@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1951-infomercialkids-show-called-1951",
+  "title": "1951 Infomercial/Kids show called",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Magic_Clown_1951",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Magic_Clown_1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1951 Infomercial/Kids show called 'The Magic Clown' (Classic TV)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Magic_Clown_1951",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TheMagicClown1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 90166961,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Magic_Clown_1951/TheMagicClown1951.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

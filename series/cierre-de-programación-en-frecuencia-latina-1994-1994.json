@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cierre-de-programación-en-frecuencia-latina-1994-1994",
+  "title": "Cierre de Programación en Frecuencia Latina 1994",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Cierre_de_Programacion_Frecuencia_Latina_1994",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cierre_de_Programacion_Frecuencia_Latina_1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cierre de Programación en Frecuencia Latina 1994",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Cierre_de_Programacion_Frecuencia_Latina_1994",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cierre de Programación en Frecuencia Latina 1994.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 29711685,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cierre_de_Programacion_Frecuencia_Latina_1994/Cierre de Programación en Frecuencia Latina 1994.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

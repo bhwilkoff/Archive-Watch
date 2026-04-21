@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-groovie-goolies-archive-1970",
+  "title": "The Groovie Goolies Archive",
+  "yearStart": 1970,
+  "yearEnd": 1970,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Groovie-Goolies-Collection",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Groovie-Goolies-Collection",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Groovie Goolies Archive",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Groovie-Goolies-Collection",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "UK - Daffy Duck and Porky Pig Meet the Groovie Goolies (VHS Version).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 664988494,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Groovie-Goolies-Collection/UK - Daffy Duck and Porky Pig Meet the Groovie Goolies (VHS Version).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wheel-of-fortune-s-2470-march-8-1996-part-of-long-credits-on-1996",
+  "title": "Wheel of Fortune #S-2470 (March 8, 1996; part of long credits only",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/19960308wheeloffortunepartoflongcreditsonlygameshownetworkbetween1999and2000",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "19960308wheeloffortunepartoflongcreditsonlygameshownetworkbetween1999and2000",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wheel of Fortune #S-2470 (March 8, 1996; part of long credits only)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/19960308wheeloffortunepartoflongcreditsonlygameshownetworkbetween1999and2000",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1996-03-08 Wheel of Fortune (part of long credits only) [Game Show Network between 1999 and 2000].mp4",
+            "format": "h.264",
+            "sizeBytes": 4480564,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/19960308wheeloffortunepartoflongcreditsonlygameshownetworkbetween1999and2000/1996-03-08 Wheel of Fortune (part of long credits only) [Game Show Network between 1999 and 2000].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

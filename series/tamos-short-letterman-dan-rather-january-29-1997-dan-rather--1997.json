@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tamos-short-letterman-dan-rather-january-29-1997-dan-rather--1997",
+  "title": "TAmos Short Letterman Dan Rather ( January 29, 1997) Dan Rather Jan Leeves",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tamos-shrt-letterman-dan-rather-1997-woc",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tamos-shrt-letterman-dan-rather-1997-woc",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TAmos Short Letterman Dan Rather ( January 29, 1997) Dan Rather Jan Leeves",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tamos-shrt-letterman-dan-rather-1997-woc",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TAmos shrt Letterman Dan Rather (1997) woc.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1116369349,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tamos-shrt-letterman-dan-rather-1997-woc/TAmos shrt Letterman Dan Rather (1997) woc.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

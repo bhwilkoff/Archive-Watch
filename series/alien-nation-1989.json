@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "alien-nation-1989",
+  "title": "Alien Nation",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "Detective Matthew Sikes, a Los Angeles police officer reluctantly works with \"Newcomer\" alien George Francisco. Sikes also has an 'on again off again' flirtation with a female Newcomer, Cathy Frankel.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/mSnZFa4Yv3dFCMdcyJXjlq0lj4c.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/npNbRiUGU29nz464ERJiAkxH997.jpg",
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": "Kenneth Johnson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "alien-nation-1989-s-01-e-01-alien-nation-the-tv-movie-ai-upscale-1440p-mister-cooper",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alien Nation (1989) Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mSnZFa4Yv3dFCMdcyJXjlq0lj4c.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alien Nation (1989) - S01E01 - Alien Nation The TV Movie (Ai Upscale 1440p) [MisterCooper].mp4",
+            "format": "h.264",
+            "sizeBytes": 561393192,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alien-nation-1989-s-01-e-01-alien-nation-the-tv-movie-ai-upscale-1440p-mister-cooper/Alien Nation (1989) - S01E01 - Alien Nation The TV Movie (Ai Upscale 1440p) [MisterCooper].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

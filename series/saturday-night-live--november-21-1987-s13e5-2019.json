@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "saturday-night-live--november-21-1987-s13e5-2019",
+  "title": "Saturday Night Live- November 21, 1987 (S13E5",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/saturdaynightlivenovember211987s13e5convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 13,
+      "episodes": [
+        {
+          "archiveID": "saturdaynightlivenovember211987s13e5convertvideoonline.com",
+          "seasonNumber": 13,
+          "episodeNumber": 5,
+          "title": "Saturday Night Live- November 21, 1987 (S13E5)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/saturdaynightlivenovember211987s13e5convertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live- November 21, 1987 (S13E5) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 288014010,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturdaynightlivenovember211987s13e5convertvideoonline.com/Saturday Night Live- November 21, 1987 (S13E5) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

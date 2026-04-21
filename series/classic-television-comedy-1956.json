@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "classic-television-comedy-1956",
+  "title": "Classic Television Comedy",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OzziePajamas",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OzziePajamas",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Television Comedy: ''The Pajama Game'' - Ozzie and Harriet",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OzziePajamas",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1764,
+          "videoFile": {
+            "name": "OzzieHarriet_Pajama.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 171751745,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzziePajamas/OzzieHarriet_Pajama.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

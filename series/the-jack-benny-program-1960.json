@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "seriesID": "the-jack-benny-program-1960",
+  "title": "The Jack Benny Program",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Laugh along with funnyman Jack Benny as he brings his underplayed humor to TV along with regular performers from his radio show days.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS",
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Sunday_With_Jack_Benny_-_Western_Town",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Jack Benny Program : Western Town",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sunday_With_Jack_Benny_-_Western_Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 145928197,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Sunday_With_Jack_Benny_-_Western_Town/Sunday_With_Jack_Benny_-_Western_Town.mp4"
+        },
+        {
+          "archiveID": "TheJackBennyProgram-01171954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Jack Benny program - 01/17/1954",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jack_Benny_Liberace_1_17_1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 173559871,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheJackBennyProgram-01171954/Jack_Benny_Liberace_1_17_1954.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheJackBennyProgramSeason2Episode1Aired11041951",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Premiere Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
+          "airDate": "1950-10-28",
+          "year": null,
+          "runtimeSeconds": 1412,
+          "videoFile": {
+            "name": "Jack_Benny_Program-2x01-Dorothy_Shay.mp4",
+            "format": "h.264",
+            "sizeBytes": 136783936,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheJackBennyProgramSeason2Episode1Aired11041951/Jack_Benny_Program-2x01-Dorothy_Shay.mp4"
+        },
+        {
+          "archiveID": "TheJackBennyProgramSeason4Episode3HumphreyBogartGuest-Aired",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Claudette Colbert and Basil Rathbone Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
+          "airDate": "1951-04-01",
+          "year": null,
+          "runtimeSeconds": 1768,
+          "videoFile": {
+            "name": "JackBennyProgram-4x03-Humphrey_Bogart_Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 171803608,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheJackBennyProgramSeason4Episode3HumphreyBogartGuest-Aired/JackBennyProgram-4x03-Humphrey_Bogart_Show.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

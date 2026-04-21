@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "wish-you-were-here-1990",
+  "title": "Wish You Were Here",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "Wish You Were Here is an American sitcom that premiered on July 20, 1990 as a summer replacement on CBS in the 9:30pm slot which lasted for only six episodes. Its premise was that stockbroker Donny Cogswell, portrayed by Lew Schneider, quits his job and sends video cassette postcards of his European adventures to family and friends back in the United States.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Steven Bawol",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "wish-you-were-here-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wish You Were Here - Leah Lail, Lew Schneider",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wish You Were Here - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1042828696,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wish-you-were-here-1.1/Wish You Were Here - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "04-the-basement-tue-8th-sept-1998-1960",
+  "title": "04. The Basement: Tue 8th Sept 1998",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/4-the-basement-tues-8th-sept-1998-episode-thurs-3rd-sept-1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "4-the-basement-tues-8th-sept-1998-episode-thurs-3rd-sept-1998",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "04. The Basement: Tue 8th Sept 1998 Episode (Thurs 3rd Sept 1998) - short TV Clip",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/4-the-basement-tues-8th-sept-1998-episode-thurs-3rd-sept-1998",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "4_The Basement Tues 8th Sept 1998 Episode (Thurs 3rd Sept 1998).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 22690463,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/4-the-basement-tues-8th-sept-1998-episode-thurs-3rd-sept-1998/4_The Basement Tues 8th Sept 1998 Episode (Thurs 3rd Sept 1998).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "quick-on-the-draw-1962",
+  "title": "Quick on the Draw",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": "Quick on the Draw was an American game show that aired on the now-defunct DuMont Television Network.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "DuMont Television Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "quickonthedraw",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Quick on the Draw'' - ???",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "quickonthedraw.mp4",
+            "format": "h.264",
+            "sizeBytes": 137001857,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/quickonthedraw/quickonthedraw.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

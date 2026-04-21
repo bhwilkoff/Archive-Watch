@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jed-buys-the-freeway-1960",
+  "title": "Jed Buys The Freeway",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep23_Jed_Buys_The_Freeway",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep23_Jed_Buys_The_Freeway",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jed Buys The Freeway",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep23_Jed_Buys_The_Freeway",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH23_Jed_Buys_The_Freeway.mp4",
+            "format": "h.264",
+            "sizeBytes": 146399906,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep23_Jed_Buys_The_Freeway/BH23_Jed_Buys_The_Freeway.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

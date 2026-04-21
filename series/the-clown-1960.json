@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-clown-1960",
+  "title": "The Clown",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/sUAjpxzrZoOkV16Q2EAR22IaeA7.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/8gKi49Te4UAF1DPNw2iCwyIhCaU.jpg",
+  "genres": [],
+  "networks": [
+    "Tentime"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OSB-49_The_Clown",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Clown",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUAjpxzrZoOkV16Q2EAR22IaeA7.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OSB-49_The_Clown.mp4",
+            "format": "h.264",
+            "sizeBytes": 152462534,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-49_The_Clown/OSB-49_The_Clown.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

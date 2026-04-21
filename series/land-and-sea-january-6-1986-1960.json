@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "land-and-sea-january-6-1986-1960",
+  "title": "Land and Sea January 6, 1986",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/land-and-sea-1986-01-06",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "land-and-sea-1986-01-06",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Land and Sea January 6, 1986: Any Mummers Allowed In?",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/land-and-sea-1986-01-06",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Land and Sea 1986-01-06.mp4",
+            "format": "h.264",
+            "sizeBytes": 174014048,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/land-and-sea-1986-01-06/Land and Sea 1986-01-06.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

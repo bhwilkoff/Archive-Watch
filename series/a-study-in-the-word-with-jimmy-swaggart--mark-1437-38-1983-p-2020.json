@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-study-in-the-word-with-jimmy-swaggart--mark-1437-38-1983-p-2020",
+  "title": "A Study In The Word With Jimmy Swaggart- Mark 14:37-38 (1983, partial",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/astudyinthewordwithjimmyswaggartmark1437381983partialconvertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "astudyinthewordwithjimmyswaggartmark1437381983partialconvertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Study In The Word With Jimmy Swaggart- Mark 14:37-38 (1983, partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/astudyinthewordwithjimmyswaggartmark1437381983partialconvertvideoonline.com",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A Study In The Word with Jimmy Swaggart- Mark 14 37, 38 (1983, partial) (convert-video-online.com).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 279178669,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/astudyinthewordwithjimmyswaggartmark1437381983partialconvertvideoonline.com/A Study In The Word with Jimmy Swaggart- Mark 14 37, 38 (1983, partial) (convert-video-online.com).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

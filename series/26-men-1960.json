@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "seriesID": "26-men-1960",
+  "title": "26 Men",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "26 Men is a syndicated American western television series about the Arizona Rangers, an elite group commissioned in 1901 by the legislature of the Arizona Territory and limited, for financial reasons, to twenty-six active members. Russell Hayden was the producer of the series and the co-composer of the theme song. The series aired between October 15, 1957 and June 30, 1959, for a total of 78 episodes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kQDvw5BhIfqk3l7aWqHqRLbTc9f.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/6BYspBS8LpvaFm7tPSCUdSExnQS.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "26Men-BorderIncident",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Border Incident",
+          "overview": "Clint Travis goes undercover as a gun smuggler to stop Mexican revolutionary Juan Morales' plans to topple the Mexican government.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kQDvw5BhIfqk3l7aWqHqRLbTc9f.jpg",
+          "airDate": "1957-11-05",
+          "year": null,
+          "runtimeSeconds": 1570,
+          "videoFile": {
+            "name": "26Men-BorderIncident1x04.mp4",
+            "format": "h.264",
+            "sizeBytes": 154693658,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/26Men-BorderIncident/26Men-BorderIncident1x04.mp4"
+        },
+        {
+          "archiveID": "26Men-DeadManInTucson",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Dead Man In Tucson",
+          "overview": "Travis goes after escaped con Cain Devers, a bank robber and counterfeiter who is using his counterfeit plates as part of a plot to destroy his father and younger brother.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kQDvw5BhIfqk3l7aWqHqRLbTc9f.jpg",
+          "airDate": "1957-12-03",
+          "year": null,
+          "runtimeSeconds": 1581,
+          "videoFile": {
+            "name": "26Men-DeadManInTucson.mp4",
+            "format": "h.264",
+            "sizeBytes": 158625362,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/26Men-DeadManInTucson/26Men-DeadManInTucson.mp4"
+        },
+        {
+          "archiveID": "26Men-ManOnTheRun",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Man on the Run",
+          "overview": "A Ranger suddenly resigns without explanation. Rynning tries to discover what's behind it and finds that the man is hiding a secret that he won't take a chance on anyone finding out about.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kQDvw5BhIfqk3l7aWqHqRLbTc9f.jpg",
+          "airDate": "1957-12-10",
+          "year": null,
+          "runtimeSeconds": 1577,
+          "videoFile": {
+            "name": "26Men-ManOnTheRun.mp4",
+            "format": "h.264",
+            "sizeBytes": 155699749,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/26Men-ManOnTheRun/26Men-ManOnTheRun.mp4"
+        },
+        {
+          "archiveID": "26Men-TheBigRope",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Big Rope",
+          "overview": "The wife of a preacher who recently established a mission for Apaches living near Galeyville receives a suspicious telegram and fears her husband has been murdered. Travis learns that a lynch mob hung two Indians accused of being horse thieves and the minister who tried to prevent the hanging. He also discovers that, in a moment of cowardice, the town sheriff failed to prevent the hangings.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kQDvw5BhIfqk3l7aWqHqRLbTc9f.jpg",
+          "airDate": "1957-12-17",
+          "year": null,
+          "runtimeSeconds": 1577,
+          "videoFile": {
+            "name": "26Men-TheBigRope.mp4",
+            "format": "h.264",
+            "sizeBytes": 157379060,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/26Men-TheBigRope/26Men-TheBigRope.mp4"
+        },
+        {
+          "archiveID": "26Men-TheRecruit",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Recruit",
+          "overview": "The newspaper editor of Wilcox asks the Rangers for help, and two of them are dispatched to the town. However, when they get there they find the editor has been lynched and is hanging from a tree.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kQDvw5BhIfqk3l7aWqHqRLbTc9f.jpg",
+          "airDate": "1957-10-15",
+          "year": null,
+          "runtimeSeconds": 1567,
+          "videoFile": {
+            "name": "26Men-TheRecruits01-e01.mp4",
+            "format": "h.264",
+            "sizeBytes": 153979460,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/26Men-TheRecruit/26Men-TheRecruits01-e01.mp4"
+        },
+        {
+          "archiveID": "26Men-TheSlaterBrothers",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Slater Brothers",
+          "overview": "When Clint Travis is falsely accused of Murder. Rynning sends him into Galioro Mountains to prove his innocence by finding the cattle rustlers who actually committed the crime.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kQDvw5BhIfqk3l7aWqHqRLbTc9f.jpg",
+          "airDate": "1957-11-26",
+          "year": null,
+          "runtimeSeconds": 1588,
+          "videoFile": {
+            "name": "26Men-TheSlaterBrothers.mp4",
+            "format": "h.264",
+            "sizeBytes": 158523863,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/26Men-TheSlaterBrothers/26Men-TheSlaterBrothers.mp4"
+        },
+        {
+          "archiveID": "26Men-TradeMeDeadly",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Trade Me Deadly",
+          "overview": "In order to prevent the hanging of their gang members a family of outlaws kidnaps the daughter of the commander of an army post instructing him to release his prisoner or the young woman will meet the same fate. When the army carries out the execution anyway, Rynning, Travis and two undercover Army officers must free the girl before word of the gang members death leaks out.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kQDvw5BhIfqk3l7aWqHqRLbTc9f.jpg",
+          "airDate": "1958-01-14",
+          "year": null,
+          "runtimeSeconds": 1573,
+          "videoFile": {
+            "name": "26Men-TradeMeDeadly.mp4",
+            "format": "h.264",
+            "sizeBytes": 155144131,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/26Men-TradeMeDeadly/26Men-TradeMeDeadly.mp4"
+        },
+        {
+          "archiveID": "26Men-TrailOfDarkness",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Trail of Darkness",
+          "overview": "Rynning and Travis investigate when a number of women are murdered in a small Arizona town. Since the circumstances surrounding each murder are identical, the rangers fear that they are trying to capture a psychopathic misogynist. When Travis finds a footprint with a distinctive heel mark near the body, the lawmen search the surrounding area for the owner of such a boot.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kQDvw5BhIfqk3l7aWqHqRLbTc9f.jpg",
+          "airDate": "1958-01-07",
+          "year": null,
+          "runtimeSeconds": 1578,
+          "videoFile": {
+            "name": "26Men-TrailOfDarkness.mp4",
+            "format": "h.264",
+            "sizeBytes": 158275249,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/26Men-TrailOfDarkness/26Men-TrailOfDarkness.mp4"
+        },
+        {
+          "archiveID": "26Men-TroubleAtPinnaclePeak",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Trouble At Pinnacle Peak",
+          "overview": "A gang of desperadoes cuts a swath of murder and robbery across the whole Arizona Territory, laughing at the Rangers attempts to bring them to heel. Since the gang uses every trick in the book to cover their tracks, Rynning hires an Apache tracker to find the outlaws.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kQDvw5BhIfqk3l7aWqHqRLbTc9f.jpg",
+          "airDate": "1957-10-22",
+          "year": null,
+          "runtimeSeconds": 1585,
+          "videoFile": {
+            "name": "26Men-TroubleAtPinnaclePeak.mp4",
+            "format": "h.264",
+            "sizeBytes": 158815386,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/26Men-TroubleAtPinnaclePeak/26Men-TroubleAtPinnaclePeak.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9
+}

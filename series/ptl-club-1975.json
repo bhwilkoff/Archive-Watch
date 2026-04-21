@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "ptl-club-1975",
+  "title": "PTL Club",
+  "yearStart": 1975,
+  "yearEnd": 1979,
+  "overview": "The PTL Club, later called The Jim and Tammy Show, and in its last days PTL Today and Heritage Today, was a Christian television program first hosted by evangelists Jim and Tammy Faye Bakker, which ran from 1974 to 1989. The PTL Club, which adopted a talk-show format, was the flagship television program of the Bakkers' PTL Satellite Network. It was one of the first Christian broadcasts in the U.S. to deal with the subject of homosexuality.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": "Jim Bakker",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ptl-club-1977",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "PTL Club Episode (1977)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PTL Club (1977).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 149733108,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ptl-club-1977/PTL Club (1977).mp4"
+        },
+        {
+          "archiveID": "ptl-club-episode-1975",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "PTL Club Episode 1975",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PTL Club Episode 1975.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 171245437,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ptl-club-episode-1975/PTL Club Episode 1975.mp4"
+        },
+        {
+          "archiveID": "ptl-club-with-colonel-sanders-1979",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "PTL Club Episode from 1979",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PTL Club with Colonel Sanders 1979.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 72184377,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ptl-club-with-colonel-sanders-1979/PTL Club with Colonel Sanders 1979.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

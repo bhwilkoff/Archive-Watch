@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "spike-jones-colgate-comedy-hour-1960",
+  "title": "Spike Jones Colgate Comedy Hour",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SpikeJonesColgateComedyHour",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SpikeJonesColgateComedyHour",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Spike Jones Colgate Comedy Hour",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SpikeJonesColgateComedyHour",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3549,
+          "videoFile": {
+            "name": "SpikeJones-ColgateComedyHour-February111951.mp4",
+            "format": "h.264",
+            "sizeBytes": 350571026,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SpikeJonesColgateComedyHour/SpikeJones-ColgateComedyHour-February111951.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

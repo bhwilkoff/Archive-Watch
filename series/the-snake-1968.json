@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-snake-1968",
+  "title": "The Snake",
+  "yearStart": 1968,
+  "yearEnd": 1968,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-snake-by-al-wilson-1968",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-snake-by-al-wilson-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'The Snake' By Al Wilson + interview + Top Ten • AB Dancers October 5 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-snake-by-al-wilson-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "'The Snake' by Al Wilson + Top Ten •  AB Dancers October 5 1968 720p.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 345301251,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-snake-by-al-wilson-1968/'The Snake' by Al Wilson + Top Ten •  AB Dancers October 5 1968 720p.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

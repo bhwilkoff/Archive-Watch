@@ -1,0 +1,455 @@
+{
+  "version": 1,
+  "seriesID": "invisible-man-1975",
+  "title": "Invisible Man",
+  "yearStart": 1975,
+  "yearEnd": 1975,
+  "overview": "The Invisible Man is a Sci-Fi American television series starring Vincent Ventresca, Paul Ben-Victor, Eddie Jones, Shannon Kenny and Michael McCafferty. Somewhat more successful than previous television series involving invisible secret agents, it aired from June 9, 2000 to February 1, 2002, lasting two seasons.\n\nThe plot revolves around Darien Fawkes, a thief facing life imprisonment who was recruited by a low-rent spy organization and given the power of invisibility via implantation of a special \"Quicksilver gland\" in his head. The gland allows Fawkes to secrete a light-bending substance called \"Quicksilver\" from his pores and follicles. The substance quickly coats his skin, hair, nails and clothes and renders him invisible. He can consciously release the Quicksilver, which then flakes off and disintegrates. However, the Quicksilver gland was sabotaged at its creation by scientist Arnaud DeFehrn to release a neurotoxin that accumulates in the bloodstream and causes intense pain, followed by antisocial behavior and psychosis. The host requires regular doses of \"counteragent\" to keep him sane and healthy, which is controlled by said government agency. This series lasted for two seasons, before being cancelled due to cost issues and internal bickering between the Sci Fi Channel and its then-parent company, USA Networks. The show's first season ran concurrently in first-run syndication as well as on Sci Fi.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/cdGS9KyuJcT141SHgXRSMTVyZYN.jpg",
+  "genres": [],
+  "networks": [
+    "Syfy"
+  ],
+  "creator": "Matt Greenberg",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "InvisibleMan-BankRaid",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - Bank Raid 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bank_Raid.mp4",
+            "format": "h.264",
+            "sizeBytes": 159318933,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-BankRaid/Bank_Raid.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-BehindTheMask1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - Behind the Mask 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Behind_the_mask.mp4",
+            "format": "h.264",
+            "sizeBytes": 153275450,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-BehindTheMask1958/Behind_the_mask.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-BlindJustice1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - Blind Justice 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Blind_Justice.mp4",
+            "format": "h.264",
+            "sizeBytes": 154570747,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-BlindJustice1958/Blind_Justice.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-CrisisInTheDesert1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - Crisis in the Desert 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Crisis_in_the_desert.mp4",
+            "format": "h.264",
+            "sizeBytes": 154510857,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-CrisisInTheDesert1958/Crisis_in_the_desert.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-TheVanishingEvidence1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - Death Cell 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1573,
+          "videoFile": {
+            "name": "THE_INVISIBLE_MAN_s2e2_DeathCell.mp4",
+            "format": "h.264",
+            "sizeBytes": 160172351,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-TheVanishingEvidence1958/THE_INVISIBLE_MAN_s2e2_DeathCell.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-Jailbreak1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - Jailbreak 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jailbreak.mp4",
+            "format": "h.264",
+            "sizeBytes": 154996472,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-Jailbreak1958/Jailbreak.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-ManInDisguise1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - Man in Disguise 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1567,
+          "videoFile": {
+            "name": "INVISIBLE_MAN_s2e9_ManInDisguise.mp4",
+            "format": "h.264",
+            "sizeBytes": 151992902,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-ManInDisguise1959/INVISIBLE_MAN_s2e9_ManInDisguise.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-ManInPower1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - Man in Power 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "THE_INVISIBLE_MAN_s2e10_ManInPower.mp4",
+            "format": "h.264",
+            "sizeBytes": 150947526,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-ManInPower1959/THE_INVISIBLE_MAN_s2e10_ManInPower.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-OddsAgainstDeath",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - Odds Against Death 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Odds_Against_Death.mp4",
+            "format": "h.264",
+            "sizeBytes": 161013764,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-OddsAgainstDeath/Odds_Against_Death.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-PicnicWithDeath",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - Picnic with Death 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Invisible_Man-Picnic_with_Death.mp4",
+            "format": "h.264",
+            "sizeBytes": 163755567,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-PicnicWithDeath/Invisible_Man-Picnic_with_Death.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-PlaytoKill",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - Play to Kill 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Play_to_Kill.mp4",
+            "format": "h.264",
+            "sizeBytes": 163475033,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-PlaytoKill/Play_to_Kill.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-PointOfDestruction1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - Point of Destruction 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1573,
+          "videoFile": {
+            "name": "THE_INVISIBLE_MAN_s2e1_PointofDestruction.mp4",
+            "format": "h.264",
+            "sizeBytes": 160723034,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-PointOfDestruction1959/THE_INVISIBLE_MAN_s2e1_PointofDestruction.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-StrangePartners1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - Strange Partners 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Invisible_Man-Strange_Partners.mp4",
+            "format": "h.264",
+            "sizeBytes": 163766951,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-StrangePartners1958/Invisible_Man-Strange_Partners.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-TheBigPlot1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - The Big Plot 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1547,
+          "videoFile": {
+            "name": "THE_INVISIBLE_MAN_s2e13_TheBigPlot.mp4",
+            "format": "h.264",
+            "sizeBytes": 149137647,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-TheBigPlot1959/THE_INVISIBLE_MAN_s2e13_TheBigPlot.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-TheDecoy1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - The Decoy 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1571,
+          "videoFile": {
+            "name": "INVISIBLE_MAN_s2e6_TheDecoy.mp4",
+            "format": "h.264",
+            "sizeBytes": 151971223,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-TheDecoy1959/INVISIBLE_MAN_s2e6_TheDecoy.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-TheGunRunners1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - The Gun Runners 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1564,
+          "videoFile": {
+            "name": "INVISIBLE_MAN_s2e7_TheGunRunners.mp4",
+            "format": "h.264",
+            "sizeBytes": 151323199,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-TheGunRunners1959/INVISIBLE_MAN_s2e7_TheGunRunners.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-TheLockedRoom1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - The Locked Room",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The_Locked_Room_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 114327985,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-TheLockedRoom1958/The_Locked_Room_512kb.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-TheMinkCoat",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - The Mink Coat 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The_Mink_Coat.mp4",
+            "format": "h.264",
+            "sizeBytes": 162568811,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-TheMinkCoat/The_Mink_Coat.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-ThePrize1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - The Prize and Flight into Darkness 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_INVISIBLE_MAN_s2e4_ThePrize.mp4",
+            "format": "h.264",
+            "sizeBytes": 161114521,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-ThePrize1959/THE_INVISIBLE_MAN_s2e4_ThePrize.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-TheRocket1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - The Rocket 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1567,
+          "videoFile": {
+            "name": "THE_INVISIBLE_MAN_s2e11_TheRocket.mp4",
+            "format": "h.264",
+            "sizeBytes": 151691401,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-TheRocket1959/THE_INVISIBLE_MAN_s2e11_TheRocket.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-TheVanishingEvidence1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - The Vanishing Evidence 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1556,
+          "videoFile": {
+            "name": "THE_INVISIBLE_MAN_s2e3_TheVanishingEvidence.mp4",
+            "format": "h.264",
+            "sizeBytes": 159750679,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-TheVanishingEvidence1959/THE_INVISIBLE_MAN_s2e3_TheVanishingEvidence.mp4"
+        },
+        {
+          "archiveID": "InvisibleMan-TheWhiteRabbit1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Invisible Man - The White Rabbit 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1568,
+          "videoFile": {
+            "name": "INVISIBLE_MAN_s2e8_TheWhiteRabbit.mp4",
+            "format": "h.264",
+            "sizeBytes": 151943830,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-TheWhiteRabbit1959/INVISIBLE_MAN_s2e8_TheWhiteRabbit.mp4"
+        },
+        {
+          "archiveID": "TheInvisibleMan-ShadowBomb1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Invisible Man - Shadow Bomb 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r2xvhDRpsQ8Oq3FlihPGDsND6vg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1569,
+          "videoFile": {
+            "name": "THE_INVISIBLE_MAN_s2e12_ShadowBomb.mp4",
+            "format": "h.264",
+            "sizeBytes": 151878874,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheInvisibleMan-ShadowBomb1959/THE_INVISIBLE_MAN_s2e12_ShadowBomb.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Invisible Man - The Complete Series 1975",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/czlCDmB5k5pTKs0z0Z3GWZo6QYh.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Invisible Man S01E00 - Pilot.mp4",
+            "format": "h.264",
+            "sizeBytes": 415663474,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The Invisible Man S01E00 - Pilot.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 24
+}

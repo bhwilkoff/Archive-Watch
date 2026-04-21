@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "killer-cat-1960",
+  "title": "Killer Cat",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Follow_That_Man_EP4x11_Killer_Cat",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Follow_That_Man_EP4x11_Killer_Cat",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Killer Cat",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Follow_That_Man_EP4x11_Killer_Cat",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FollowThatMan-RalphBellamy-ep4-11-Killer_Cat.mp4",
+            "format": "h.264",
+            "sizeBytes": 153981534,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Follow_That_Man_EP4x11_Killer_Cat/FollowThatMan-RalphBellamy-ep4-11-Killer_Cat.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

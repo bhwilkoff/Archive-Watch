@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tell-it-to-groucho-1962",
+  "title": "Tell it to Groucho",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tellittogroucho",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tellittogroucho",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Tell it to Groucho'' - Pilot",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tellittogroucho",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "tellittogroucho.mp4",
+            "format": "h.264",
+            "sizeBytes": 167646977,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tellittogroucho/tellittogroucho.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

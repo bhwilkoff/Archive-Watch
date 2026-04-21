@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "his-brother-1960",
+  "title": "His Brother",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/His_Brothers_Girl--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "His_Brothers_Girl--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "His Brother's Girl (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/His_Brothers_Girl--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1343,
+          "videoFile": {
+            "name": "His_Brothers_Girl--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 139459829,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/His_Brothers_Girl--Ozzie-Harriet/His_Brothers_Girl--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

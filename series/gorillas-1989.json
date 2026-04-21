@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "gorillas-1989",
+  "title": "Gorillas",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "70s cops in team with sonny chiba",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "NatureGorillas",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Gorillas",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Nature.S08E07.Gorillas.1989.VHSRip.AAC2.0.x264-rattera.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 273459103,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/NatureGorillas/Nature.S08E07.Gorillas.1989.VHSRip.AAC2.0.x264-rattera.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "peacock-1988",
+  "title": "Peacock",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/PeacocksWar",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PeacocksWar",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Peacock's War",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/PeacocksWar",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Nature.S07E03.Peacocks.War.1988.VHSRip.AAC2.0.x264-rattera.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 285706701,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PeacocksWar/Nature.S07E03.Peacocks.War.1988.VHSRip.AAC2.0.x264-rattera.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

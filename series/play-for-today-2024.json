@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "play-for-today-2024",
+  "title": "Play For Today",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": "Revival of the 1970s and 80s series of individual plays, originally shown on the BBC, now freshly-commissioned for Channel 5 and a whole new era of life in Britain.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/tDlFADSlbAiIshWZfdkb1g7QNUk.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/aA7Tlwoi41TUiMiOLyNKgyuJi7H.jpg",
+  "genres": [],
+  "networks": [
+    "5"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "play-for-today-home-sweet-home-1982",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Play For Today - Home Sweet Home (1982)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/tDlFADSlbAiIshWZfdkb1g7QNUk.jpg",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Play for Today - Home Sweet Home (1982).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 272472937,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/play-for-today-home-sweet-home-1982/Play for Today - Home Sweet Home (1982).mp4"
+        },
+        {
+          "archiveID": "play-for-today-the-piano",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Play For Today - The Piano (1971)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/tDlFADSlbAiIshWZfdkb1g7QNUk.jpg",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Play for Today - The Piano.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 103775981,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/play-for-today-the-piano/Play for Today - The Piano.ia.mp4"
+        },
+        {
+          "archiveID": "play-for-today-the-reporters",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Play For Today - The Reporters (1972)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/tDlFADSlbAiIshWZfdkb1g7QNUk.jpg",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Play for Today - The Reporters .ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 216124857,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/play-for-today-the-reporters/Play for Today - The Reporters .ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

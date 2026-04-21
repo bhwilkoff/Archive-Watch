@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "man-on-a-raft-1958",
+  "title": "Man on a Raft",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ThreeMenOnARaft",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ThreeMenOnARaft",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man on a Raft",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ThreeMenOnARaft",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Three Men on a Raft.mp4",
+            "format": "h.264",
+            "sizeBytes": 178047953,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThreeMenOnARaft/Three Men on a Raft.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "gideon-oliver-1989",
+  "title": "Gideon Oliver",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/378/945596.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/kYqGkJKCpRivQpZ00qWabuGItKg.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Dick Wolf",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "gideon-oliver-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Gideon Oliver - Louis Gossett Jr., Shari Headley",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/378/945596.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Gideon Oliver - 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2890004739,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gideon-oliver-1989/Gideon Oliver - 1989.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

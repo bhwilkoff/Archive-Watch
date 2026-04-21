@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "gremlins-1998",
+  "title": "Gremlins",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/GremlinsFacesintheForest",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GremlinsFacesintheForest",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Gremlins : Faces in the Forest",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/GremlinsFacesintheForest",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Nature.S16E07.Gremlins.Faces.in.the.Forest.1998.UNK.VHSRip.DD2.0.x264-astro.mp4",
+            "format": "h.264",
+            "sizeBytes": 355821976,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GremlinsFacesintheForest/Nature.S16E07.Gremlins.Faces.in.the.Forest.1998.UNK.VHSRip.DD2.0.x264-astro.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

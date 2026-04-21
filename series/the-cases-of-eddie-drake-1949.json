@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-cases-of-eddie-drake-1949",
+  "title": "The Cases of Eddie Drake",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": "The Cases of Eddie Drake is an American crime drama series which aired on the DuMont Television Network. The series ran during 1952, and was a crime drama originally filmed by CBS Television in 1949. The TV series was adapted from the radio series The Cases of Mr. Ace starring George Raft, with both series written by Jason James.\n\nHowever, the nine TV episodes were never broadcast on CBS. In 1952, these episodes were purchased by DuMont and aired on that network instead. DuMont also filmed four additional episodes to round out the series to the standard 13-episode season.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "DuMont Television Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheCasesOfEddieDrake-ShootTheWorks1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Cases of Eddie Drake - Shoot the works (1949)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1572,
+          "videoFile": {
+            "name": "Eddie_Drake_Shoot_the_works_1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 151978238,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheCasesOfEddieDrake-ShootTheWorks1949/Eddie_Drake_Shoot_the_works_1949.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

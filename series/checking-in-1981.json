@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "checking-in-1981",
+  "title": "Checking In",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": "Checking In is an American sitcom that aired on CBS in April 1981. The series is a spin-off of The Jeffersons, which itself had spun off from All in the Family.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/m9nYKSCTQqfXga6oQYOyNrlZUjI.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tWPCgO7Qruvk4xmViXAuojphvOB.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Mike Milligan",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "checkingin_202404",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Checking In (Season 1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/m9nYKSCTQqfXga6oQYOyNrlZUjI.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E04- Florence and the Salesman.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157017214,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/checkingin_202404/S01E04- Florence and the Salesman.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

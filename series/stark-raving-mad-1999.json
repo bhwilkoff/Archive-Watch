@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "seriesID": "stark-raving-mad-1999",
+  "title": "Stark Raving Mad",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": "A neurotic book editor is paired with an eccentric writer.  The series stars Tony Shalhoub and Neil Patrick Harris.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/6VhRrggGd1VbtBzk5d2nbdhHcJB.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3TrBAVriSOfWoVa6vcOFBk5989W.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Steven Levitan",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "stark-raving-mad-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Stark Raving Mad - Heather Paige Kent, Tony Shalhoub",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/6VhRrggGd1VbtBzk5d2nbdhHcJB.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Stark Raving Mad - 1.01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 655615596,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/stark-raving-mad-1.01/Stark Raving Mad - 1.01.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "stark-raving-mad-s1-e1-pilot",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Pilot",
+          "overview": "Henry McNeely's boss, Audrey, gives him a promotion he doesn't want: that of editor for flavor-of-the-month horror novelist Ian Stark -- who keeps editors like Henry keeps his backbone. Ian's eccentricities and penchant for practical jokes and spontaneous daredevil stunts -- at the expense of not actually writing a follow-up book -- threaten Henry's anal-retentive, obsessive-compulsive and fraidy-cat ways. Can two single men share a job without driving each other crazy?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/mFZPxsdcT8fu8tILJQKc2fx4LeT.jpg",
+          "airDate": "1999-09-23",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Stark.Raving.Mad - S1E1 - Pilot.mp4",
+            "format": "h.264",
+            "sizeBytes": 119894206,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/stark-raving-mad-s1-e1-pilot/Stark.Raving.Mad - S1E1 - Pilot.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

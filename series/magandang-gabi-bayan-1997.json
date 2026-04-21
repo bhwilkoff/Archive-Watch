@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "magandang-gabi-bayan-1997",
+  "title": "Magandang Gabi Bayan",
+  "yearStart": 1997,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MagandangGabiBayanLeoEchegaray",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MagandangGabiBayanLeoEchegaray",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Magandang Gabi Bayan - Ang Bitay: Leo Echegaray",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MagandangGabiBayanLeoEchegaray",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MagandangGabiBayanEchegary.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 372780390,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MagandangGabiBayanLeoEchegaray/MagandangGabiBayanEchegary.ia.mp4"
+        },
+        {
+          "archiveID": "MGBGreenTurtle",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Magandang Gabi Bayan - Lahi ng Pawikan",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MGBGreenTurtle",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MGB.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 341419481,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MGBGreenTurtle/MGB.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

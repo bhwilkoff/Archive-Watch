@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "the-bob-crosby-show-1953",
+  "title": "The Bob Crosby Show",
+  "yearStart": 1953,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theBobCrosbyShow-2june1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Bob Crosby Show'' - 2/June/1955",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 865,
+          "videoFile": {
+            "name": "TheBobCrosbyShow2June1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 89874650,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theBobCrosbyShow-2june1955/TheBobCrosbyShow2June1955.mp4"
+        },
+        {
+          "archiveID": "TheBobCrosbyShow1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Bob Crosby Show (1953)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1769,
+          "videoFile": {
+            "name": "Bob_Crosby_show_11_30_53.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198644928,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBobCrosbyShow1953/Bob_Crosby_show_11_30_53.ia.mp4"
+        },
+        {
+          "archiveID": "TheBobCrosbyShow1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Bob Crosby Show (1955)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1734,
+          "videoFile": {
+            "name": "Bob_Crosby_show_05_02_55.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 236092181,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBobCrosbyShow1955/Bob_Crosby_show_05_02_55.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "viz-the-fat-slags-the-1992",
+  "title": "VIZ The Fat Slags The",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/viz-the-fat-slags-the-complete-animated-series",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "viz-the-fat-slags-the-complete-animated-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "VIZ The Fat Slags The Complete Animated Series",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/viz-the-fat-slags-the-complete-animated-series",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "VIZ The Fat Slags-S02E01 In Blue Honeymoon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149767676,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/viz-the-fat-slags-the-complete-animated-series/VIZ The Fat Slags-S02E01 In Blue Honeymoon.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

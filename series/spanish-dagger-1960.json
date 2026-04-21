@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "spanish-dagger-1960",
+  "title": "Spanish Dagger",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SpanishDagger",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SpanishDagger",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Spanish Dagger",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SpanishDagger",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1575,
+          "videoFile": {
+            "name": "CiscoKid-SpanishDagger.mp4",
+            "format": "h.264",
+            "sizeBytes": 155732818,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SpanishDagger/CiscoKid-SpanishDagger.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

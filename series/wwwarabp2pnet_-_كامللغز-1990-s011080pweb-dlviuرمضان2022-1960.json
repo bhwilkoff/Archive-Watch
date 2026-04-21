@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wwwarabp2pnet_-_كامللغز-1990-s011080pweb-dlviuرمضان2022-1960",
+  "title": "www.arabp2p.net]_-_[كامل]لغز 1990 [S01][1080p][WEB DL][VIU]#رمضان2022",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/aboalistar_20220508",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "aboalistar_20220508",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "[www.arabp2p.net]_-_[كامل]لغز 1990 [S01][1080p][WEB DL][VIU]#رمضان2022",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/aboalistar_20220508",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Loghz.1990.S01E30.1080p.VIU.WEB-DL.AAC2.0.H.264.[Abo.Ali.Star].mp4",
+            "format": "h.264",
+            "sizeBytes": 225695675,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/aboalistar_20220508/Loghz.1990.S01E30.1080p.VIU.WEB-DL.AAC2.0.H.264.[Abo.Ali.Star].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

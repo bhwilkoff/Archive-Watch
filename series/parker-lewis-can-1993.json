@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "parker-lewis-can-1993",
+  "title": "Parker Lewis Can",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "Parker Lewis is a teenager who apparently can't lose. He's cool, cute, popular, hip – and seems to get away with anything. That's not to say he's got no problems. His two primary nemeses are school principal Grace Musso, whose goal is getting Parker expelled; and his little sister Shelly, whose sole purpose seems to be tattling on Parker. However, with best friends Mikey and Jerry, Parker takes on the world and makes the best of high school.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3kVzjNtBDPy0rY5gXOx7nELDGKO.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/t0HV1EDBlZ5qmDZriR4zuZlTYHn.jpg",
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": "Lon Diamond",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "parker-lewis-cant-lose-3x-22-the-last-supper",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Parker Lewis Can't Lose 3x 22 The Last Supper",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3kVzjNtBDPy0rY5gXOx7nELDGKO.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Parker Lewis Can't Lose - 3x22 - The Last Supper.mp4",
+            "format": "h.264",
+            "sizeBytes": 134395903,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/parker-lewis-cant-lose-3x-22-the-last-supper/Parker Lewis Can't Lose - 3x22 - The Last Supper.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

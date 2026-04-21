@@ -1,0 +1,323 @@
+{
+  "version": 1,
+  "seriesID": "dragnet-1960",
+  "title": "Dragnet",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Follows the cases of a dedicated Los Angeles police detective, Sergeant Joe Friday, and his partners. The show takes its name from the police term \"dragnet\", meaning a system of coordinated measures for apprehending criminals or suspects.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/66Qqh7rJTCOSZgJkVAJa3wfUMMI.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Jack Webb",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "DragnetTheHumanBomb",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Human Bomb",
+          "overview": "A man walks into City hall carrying a live bomb. He threatens to blow up the building if his brother isn't released from jail.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1951-12-16",
+          "year": null,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "Dragnet-theHumanBomb.mp4",
+            "format": "h.264",
+            "sizeBytes": 158554348,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetTheHumanBomb/Dragnet-theHumanBomb.mp4"
+        },
+        {
+          "archiveID": "DragnetTheBigActor",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Big Actor",
+          "overview": "Friday and Jacobs track down a drug ring through a small-time television actor who is hooked on heroin.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1952-01-03",
+          "year": null,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "Dragnet-bigActor.mp4",
+            "format": "h.264",
+            "sizeBytes": 156027677,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetTheBigActor/Dragnet-bigActor.mp4"
+        },
+        {
+          "archiveID": "DragnetTheBigMother",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Big Mother",
+          "overview": "A new-born baby is stolen from a hospital nursery and the trail leads the police to a deranged mother.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1952-01-31",
+          "year": null,
+          "runtimeSeconds": 1532,
+          "videoFile": {
+            "name": "Dragnet-theBigMother.mp4",
+            "format": "h.264",
+            "sizeBytes": 146005961,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetTheBigMother/Dragnet-theBigMother.mp4"
+        },
+        {
+          "archiveID": "DragnetTheBigLamp",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Big Lamp",
+          "overview": "Friday and Jacobs are out to catch a safe burglar who has been on the loose for seven months.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1952-06-19",
+          "year": null,
+          "runtimeSeconds": 1540,
+          "videoFile": {
+            "name": "Dragnet-theBigLamp.mp4",
+            "format": "h.264",
+            "sizeBytes": 154493633,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetTheBigLamp/Dragnet-theBigLamp.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "DragnetTheBigHate",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "The Big Hate",
+          "overview": "Gordon Miller, a young pianist, is found near an abandoned freight car holding the dead body of a woman in his arms. He claims he has killed her.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1953-02-12",
+          "year": null,
+          "runtimeSeconds": 1564,
+          "videoFile": {
+            "name": "Dragnet-theBigHate.mp4",
+            "format": "h.264",
+            "sizeBytes": 156061981,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetTheBigHate/Dragnet-theBigHate.mp4"
+        },
+        {
+          "archiveID": "DragnetTheBigLease",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "The Big Lease",
+          "overview": "An elderly widower is missing, so Friday and Smith retrace his actions before his disappearance. Things point to a long vacation until the story of Mrs. Banner, who rented the man's house, doesn't add up.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1953-05-14",
+          "year": null,
+          "runtimeSeconds": 1564,
+          "videoFile": {
+            "name": "Dragnet-theBigLease.mp4",
+            "format": "h.264",
+            "sizeBytes": 156834319,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetTheBigLease/Dragnet-theBigLease.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "DragnetTheBigWill",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "The Big Will",
+          "overview": "Friday and Smith investigate the murder of a rich man.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1953-11-12",
+          "year": null,
+          "runtimeSeconds": 1562,
+          "videoFile": {
+            "name": "Dragnet-theBigWill.mp4",
+            "format": "h.264",
+            "sizeBytes": 156830495,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetTheBigWill/Dragnet-theBigWill.mp4"
+        },
+        {
+          "archiveID": "DragnetTheBigChildren",
+          "seasonNumber": 3,
+          "episodeNumber": 24,
+          "title": "The Big Children",
+          "overview": "Three children are found abandoned, filthy and starving. Friday and Smith charge the mother with neglect.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1954-02-11",
+          "year": null,
+          "runtimeSeconds": 1571,
+          "videoFile": {
+            "name": "Dragnet-theBigChildren.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147599019,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetTheBigChildren/Dragnet-theBigChildren.ia.mp4"
+        },
+        {
+          "archiveID": "DragnetTheBigWinchester",
+          "seasonNumber": 3,
+          "episodeNumber": 27,
+          "title": "The Big Winchester",
+          "overview": "An elderly man appears to have killed himself with a rifle, but the cops soon learn that it was no accident.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1954-03-04",
+          "year": null,
+          "runtimeSeconds": 1566,
+          "videoFile": {
+            "name": "Dragnet-theBigWinchester.mp4",
+            "format": "h.264",
+            "sizeBytes": 162293463,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetTheBigWinchester/Dragnet-theBigWinchester.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "DragnetTheBigFraud",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "The Big Fraud",
+          "overview": "A group of con artists are posing as cops and victimizing out-of-town businessmen in fashionable hotels.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1954-09-02",
+          "year": null,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "Dragnet-theBigFraud.mp4",
+            "format": "h.264",
+            "sizeBytes": 162360640,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetTheBigFraud/Dragnet-theBigFraud.mp4"
+        },
+        {
+          "archiveID": "DragnetTheBigPresent",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "The Big Present",
+          "overview": "Friday and Smith are looking for a burglar who leaves a milk bottle at the scene of the crime. They suspect a juvenile might be involved.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1954-10-21",
+          "year": null,
+          "runtimeSeconds": 1551,
+          "videoFile": {
+            "name": "dragnet-the-big-present.mp4",
+            "format": "h.264",
+            "sizeBytes": 161677183,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetTheBigPresent/dragnet-the-big-present.mp4"
+        },
+        {
+          "archiveID": "DragnetTheBigNewYear",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "The Big New Years",
+          "overview": "On New Year's Eve, Friday and Smith are working out of Central Receiving Hospital.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1954-11-11",
+          "year": null,
+          "runtimeSeconds": 1543,
+          "videoFile": {
+            "name": "Dragnet-theBigNewYear.mp4",
+            "format": "h.264",
+            "sizeBytes": 159654617,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetTheBigNewYear/Dragnet-theBigNewYear.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "Dragnet-TheBigDeal",
+          "seasonNumber": 5,
+          "episodeNumber": 34,
+          "title": "The Big Deal",
+          "overview": "Friday and Smith are investigating a rash of car thefts. The stolen cars are being sold with forged pink slips.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1956-04-27",
+          "year": null,
+          "runtimeSeconds": 1578,
+          "videoFile": {
+            "name": "Dragnet-TheBigDeal.mp4",
+            "format": "h.264",
+            "sizeBytes": 153991637,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dragnet-TheBigDeal/Dragnet-TheBigDeal.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "DragnetTheBigWar",
+          "seasonNumber": 7,
+          "episodeNumber": 28,
+          "title": "The Big War",
+          "overview": "Friday and Smith investigate a report of a teen gang war in the middle of Los Angeles.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1958-04-10",
+          "year": null,
+          "runtimeSeconds": 1554,
+          "videoFile": {
+            "name": "Dragnet-theBigWar.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154902415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetTheBigWar/Dragnet-theBigWar.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 8,
+      "episodes": [
+        {
+          "archiveID": "Dragnet_The_Big_Oskar",
+          "seasonNumber": 8,
+          "episodeNumber": 4,
+          "title": "The Big Oskar",
+          "overview": "The detectives take a report of valuables stolen from the home of a somewhat eccentric old lady. They begin to suspect something is amiss when she starts talking about how she gets the \"scoop\" on crimes by being the first to report them to the local newspaper.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1958-10-14",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S08E04_The_Big_Oskar.mp4",
+            "format": "h.264",
+            "sizeBytes": 156376153,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dragnet_The_Big_Oskar/S08E04_The_Big_Oskar.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15
+}

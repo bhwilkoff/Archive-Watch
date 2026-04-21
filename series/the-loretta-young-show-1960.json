@@ -1,0 +1,185 @@
+{
+  "version": 1,
+  "seriesID": "the-loretta-young-show-1960",
+  "title": "The Loretta Young Show",
+  "yearStart": 1960,
+  "yearEnd": 1961,
+  "overview": "The New Loretta Young Show, is an American television series, which aired for twenty-six weekly episodes on CBS television from September 24, 1962 to March 18, 1963, features Loretta Young in a combination drama and situation comedy about a free-lance writer in suburban Connecticut named Christine Massey, the widowed mother of seven children. The program is the only one in which Young starred as a recurring character. Her previous anthology series on NBC placed her in the role of hostess and occasional star. Young is the first star to garner both Academy and Emmy awards, one of a relatively few to make the transition from motion picture to television.\n\nThough it followed the popular The Andy Griffith Show on CBS, The New Loretta Young Show, sponsored by Lever Brothers, proved unable to sustain the needed audience in competition at 10 p.m. Eastern time on Mondays with the ABC medical drama Ben Casey starring Vince Edwards and Sam Jaffe, which entered its second season. NBC fielded David Brinkley's Journal at the same time, reflections of the news correspondent David Brinkley. The New Loretta Young Show was hence quietly dropped at the end of winter in 1963. Young had formed LYL Production Company for the series, an indication that she did not expect a premature end to the program. Norman Foster directed most of the episodes; John London and Ruth Roberts were the producers.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Loretta_Young--Emergency_in_114",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Loretta Young Show: Emergency in 114",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LorettaYoung826_Emergency_in_114.mp4",
+            "format": "h.264",
+            "sizeBytes": 145065255,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Loretta_Young--Emergency_in_114/LorettaYoung826_Emergency_in_114.mp4"
+        },
+        {
+          "archiveID": "LorettaYoung--Love_Between_the_Acts",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Loretta Young Show: Love Between the Acts",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1408,
+          "videoFile": {
+            "name": "LorettaYoung806_Love_between_the_Acts.mp4",
+            "format": "h.264",
+            "sizeBytes": 131741651,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LorettaYoung--Love_Between_the_Acts/LorettaYoung806_Love_between_the_Acts.mp4"
+        },
+        {
+          "archiveID": "LorettaYoung--Not_in_Our_Stars",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Loretta Young Show: Not in Our Stars",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LorettaYoung831_Not_in_Our_Stars.mp4",
+            "format": "h.264",
+            "sizeBytes": 130567393,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LorettaYoung--Not_in_Our_Stars/LorettaYoung831_Not_in_Our_Stars.mp4"
+        },
+        {
+          "archiveID": "LorettaYoung--Forbidden_Guests",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Loretta Young Show: The Forbidden Guests",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LorettaYoung830_Forbidden_Guests.mp4",
+            "format": "h.264",
+            "sizeBytes": 147529272,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LorettaYoung--Forbidden_Guests/LorettaYoung830_Forbidden_Guests.mp4"
+        },
+        {
+          "archiveID": "Loretta_Young--Long_Night",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Loretta Young Show: The Long Night",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1409,
+          "videoFile": {
+            "name": "LorettaYoung_801--Long_Night.mp4",
+            "format": "h.264",
+            "sizeBytes": 146407135,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Loretta_Young--Long_Night/LorettaYoung_801--Long_Night.mp4"
+        },
+        {
+          "archiveID": "LorettaYoung--The_Seducer",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Loretta Young Show: The Seducer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LorettaYoung808_The_Seducer.mp4",
+            "format": "h.264",
+            "sizeBytes": 131058910,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LorettaYoung--The_Seducer/LorettaYoung808_The_Seducer.mp4"
+        },
+        {
+          "archiveID": "Loretta_Young--These_Few_Years",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Loretta Young Show: These Few Years",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1489,
+          "videoFile": {
+            "name": "LorettaYoung_812--These_Few_Years.mp4",
+            "format": "h.264",
+            "sizeBytes": 145816579,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Loretta_Young--These_Few_Years/LorettaYoung_812--These_Few_Years.mp4"
+        },
+        {
+          "archiveID": "LorettaYoung--This_Subtle_Danger",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Loretta Young Show: This Subtle Danger",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1401,
+          "videoFile": {
+            "name": "LorettaYoung815--This_Subtle_Danger.mp4",
+            "format": "h.264",
+            "sizeBytes": 130949768,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LorettaYoung--This_Subtle_Danger/LorettaYoung815--This_Subtle_Danger.mp4"
+        },
+        {
+          "archiveID": "LorettaYoung--Unconditional_Surrender",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Loretta Young Show: Unconditional Surrender",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1402,
+          "videoFile": {
+            "name": "LorettaYoung810_Unconditional_Surrender.mp4",
+            "format": "h.264",
+            "sizeBytes": 130610090,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LorettaYoung--Unconditional_Surrender/LorettaYoung810_Unconditional_Surrender.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9
+}

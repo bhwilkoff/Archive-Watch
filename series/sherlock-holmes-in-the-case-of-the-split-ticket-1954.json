@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sherlock-holmes-in-the-case-of-the-split-ticket-1954",
+  "title": "Sherlock Holmes in The Case of the Split Ticket",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Sherlock_Holmes_TCOT_Split_Ticket",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Sherlock_Holmes_TCOT_Split_Ticket",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sherlock Holmes in The Case of the Split Ticket",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Sherlock_Holmes_TCOT_Split_Ticket",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1597,
+          "videoFile": {
+            "name": "TheCaseOfTheSplitTicket.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158694438,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_TCOT_Split_Ticket/TheCaseOfTheSplitTicket.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

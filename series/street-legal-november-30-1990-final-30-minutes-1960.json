@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "street-legal-november-30-1990-final-30-minutes-1960",
+  "title": "Street Legal November 30, 1990 Final 30 Minutes",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/street-legal-1990-11-30-final-30-minutes",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "street-legal-1990-11-30-final-30-minutes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Street Legal November 30, 1990 Final 30 Minutes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/street-legal-1990-11-30-final-30-minutes",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Street Legal 1990-11-30 Final 30 Minutes.mp4",
+            "format": "h.264",
+            "sizeBytes": 180641893,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/street-legal-1990-11-30-final-30-minutes/Street Legal 1990-11-30 Final 30 Minutes.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

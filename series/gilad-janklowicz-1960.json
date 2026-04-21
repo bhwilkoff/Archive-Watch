@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "gilad-janklowicz-1960",
+  "title": "Gilad Janklowicz",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/GiladBodiesInMotion1989Ep.2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GiladBodiesInMotionNovember111992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Gilad Janklowicz's Bodies In Motion (November 11, 1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/GiladBodiesInMotionNovember111992",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Gilad-Bodies-In-Motion-_November-11_-1992_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 104779187,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GiladBodiesInMotionNovember111992/Gilad-Bodies-In-Motion-_November-11_-1992_.ogv"
+        },
+        {
+          "archiveID": "GiladBodiesInMotion1989Ep.2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Gilad Janklowicz's Bodies In Motion (November 2, 1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/GiladBodiesInMotion1989Ep.2",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Gilad-Bodies-In-Motion-_November-2_-1992_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 104552322,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GiladBodiesInMotion1989Ep.2/Gilad-Bodies-In-Motion-_November-2_-1992_.ogv"
+        },
+        {
+          "archiveID": "GiladBodiesInMotionNovember31992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Gilad Janklowicz's Bodies In Motion (November 3, 1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/GiladBodiesInMotionNovember31992",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Gilad-Bodies-In-Motion-_November-3_-1992_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 106153058,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GiladBodiesInMotionNovember31992/Gilad-Bodies-In-Motion-_November-3_-1992_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

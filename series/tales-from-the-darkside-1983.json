@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "tales-from-the-darkside-1983",
+  "title": "Tales From The Darkside",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": "Tales from the Darkside is an anthology horror TV series created by George A. Romero, each episode was an individual short story that ended with a plot twist. The series' episodes spanned the genres of horror, science fiction, and fantasy, and some episodes featured elements of black comedy or more lighthearted themes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dlpqUF9io9Sl00jb7vhlqaTyFvq.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/fU8wiNXv4k26KhOhnCZPq0I2TY4.jpg",
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": "George A. Romero",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "title-02-x-264-001",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales From The Darkside \"Trick or Treat\" (1983)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dlpqUF9io9Sl00jb7vhlqaTyFvq.jpg",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TITLE_02_x264_001.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 144457693,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/title-02-x-264-001/TITLE_02_x264_001.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

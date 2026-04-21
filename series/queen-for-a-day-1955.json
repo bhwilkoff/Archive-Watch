@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "seriesID": "queen-for-a-day-1955",
+  "title": "Queen for a Day",
+  "yearStart": 1955,
+  "yearEnd": 1959,
+  "overview": "Queen for a Day was an American radio and television game show that helped to usher in American listeners' and viewers' fascination with big-prize giveaway shows. Queen for a Day originated on the Mutual Radio Network on April 30, 1945 in New York City before moving to Los Angeles a few months later, and running until 1957. The show then ran on NBC Television from 1956 to 1964.\n\nThe series is considered a forerunner of modern-day \"reality television\". The show became popular enough that NBC increased its running time from 30 to 45 minutes to sell more commercials, at a then-premium rate of $4,000 per minute.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC",
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "queen-for-a-day-27-march-1956-first-half-only",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Queen for a Day - 27 March 1956 (first half only)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 925,
+          "videoFile": {
+            "name": "Queen for a Day - 27 March 1956 (first half only).mp4",
+            "format": "h.264",
+            "sizeBytes": 91765690,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/queen-for-a-day-27-march-1956-first-half-only/Queen for a Day - 27 March 1956 (first half only).mp4"
+        },
+        {
+          "archiveID": "queen-for-a-day-2-december-1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Queen for a Day - December 1955",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1737,
+          "videoFile": {
+            "name": "Queen for a Day - 2 December 1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 180802559,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/queen-for-a-day-2-december-1955/Queen for a Day - 2 December 1955.mp4"
+        },
+        {
+          "archiveID": "queen-for-a-day-newspaper-boys",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Queen for a Day - Newspaper boys",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1465,
+          "videoFile": {
+            "name": "Queen for a Day - Newspaper boys.mp4",
+            "format": "h.264",
+            "sizeBytes": 154930891,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/queen-for-a-day-newspaper-boys/Queen for a Day - Newspaper boys.mp4"
+        },
+        {
+          "archiveID": "queen-for-a-day-partial-1956-episode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Queen for a Day - Partial 1956 episode",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 879,
+          "videoFile": {
+            "name": "Queen for a Day - Partial 1956 episode.mp4",
+            "format": "h.264",
+            "sizeBytes": 87210191,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/queen-for-a-day-partial-1956-episode/Queen for a Day - Partial 1956 episode.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

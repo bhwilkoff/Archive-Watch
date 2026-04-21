@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-smothers-brothers-comedy-hour-1988",
+  "title": "The Smothers Brothers Comedy Hour",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": "The Smothers Brothers Comedy Hour is an American comedy and variety show hosted by the Smothers Brothers and initially airing on CBS from 1967 to 1969.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/zs8TAOF0hqVDrKB1CVkh41Jg3GA.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "smothers-brothers-comedy-hour-1.00",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Smothers Brothers Comedy Hour - The Smothers Brothers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zs8TAOF0hqVDrKB1CVkh41Jg3GA.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Smothers Brothers Comedy Hour 20th Reunion - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1472751811,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-1.00/Smothers Brothers Comedy Hour 20th Reunion - 1988.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

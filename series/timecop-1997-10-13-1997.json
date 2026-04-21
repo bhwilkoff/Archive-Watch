@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "timecop-1997-10-13-1997",
+  "title": "Timecop (1997-10-13",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/timecop-97-10-13-s-01-e-04-public-enemy",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "timecop-97-10-13-s-01-e-04-public-enemy",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Timecop (1997-10-13 S01E04) Public Enemy",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/timecop-97-10-13-s-01-e-04-public-enemy",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": 2588,
+          "videoFile": {
+            "name": "Timecop (97-10-13_S01E04) Public Enemy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 122812628,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/timecop-97-10-13-s-01-e-04-public-enemy/Timecop (97-10-13_S01E04) Public Enemy.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

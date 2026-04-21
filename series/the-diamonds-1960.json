@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-diamonds-1960",
+  "title": "The Diamonds",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Steve_Allen_The_Diamonds",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Steve_Allen_The_Diamonds",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Diamonds",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Steve_Allen_The_Diamonds",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Steve_Allen_The_Diamonds.mp4",
+            "format": "h.264",
+            "sizeBytes": 234455706,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Steve_Allen_The_Diamonds/Steve_Allen_The_Diamonds.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

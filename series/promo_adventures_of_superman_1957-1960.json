@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "promo_adventures_of_superman_1957-1960",
+  "title": "Promo_Adventures_of_Superman_1957",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Promo_Adventures_of_Superman_1957",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Promo_Adventures_of_Superman_1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Promo_Adventures_of_Superman_1957",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Promo_Adventures_of_Superman_1957",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Promo_Adventures_of_Superman_1957.mp4",
+            "format": "h.264",
+            "sizeBytes": 5887315,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Promo_Adventures_of_Superman_1957/Promo_Adventures_of_Superman_1957.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

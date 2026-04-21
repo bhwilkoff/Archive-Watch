@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-celebrity-game-1965",
+  "title": "THE CELEBRITY GAME",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheCelebrityGame1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "THE CELEBRITY GAME (1965)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1592,
+          "videoFile": {
+            "name": "GAME_SHO.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158255724,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheCelebrityGame1965/GAME_SHO.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "funny-you-should-ask-1960",
+  "title": "Funny You Should Ask",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Hosted by Jon Kelley (Extra, The Mole), Funny You Should Ask is a comedy game show featuring a panel of comedians who interact with contestants. In each episode, the laughs and the cash stakes increase as the comedians answer questions, while the two players decide if they're right or wrong.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dxUvT5k1wBb0K9RxX18mnSDa7Bq.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/9dkW2QNC0FSZ8b3GHxmTGTtVOE1.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "funnyyoushouldask",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Funny You Should Ask",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dxUvT5k1wBb0K9RxX18mnSDa7Bq.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1724,
+          "videoFile": {
+            "name": "funnyyoushouldask.mp4",
+            "format": "h.264",
+            "sizeBytes": 179613830,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/funnyyoushouldask/funnyyoushouldask.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

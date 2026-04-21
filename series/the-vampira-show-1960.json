@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-vampira-show-1960",
+  "title": "The Vampira Show",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Vampira Show was an American variety show hosted by Vampira. The series aired on the Los Angeles ABC television affiliate KABC-TV from April 30, 1954, through April 2, 1955. The series was produced and created by Hunt Stromberg, Jr., and featured the Vampira character created by Maila Nurmi.\n\nThough the show was unseen outside of the Los Angeles area, The Vampira Show has become a cult classic, spawning fan clubs the world over.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/m5JaHMOzXU9WE1WFswbFKGSH9Lo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/mTORn2OEhPmUJeDO3XS4gRJSx4N.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheVampiraShow-Rare1954TelevisionClips",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Vampira Show - rare 1954 television clips",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/m5JaHMOzXU9WE1WFswbFKGSH9Lo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 63,
+          "videoFile": {
+            "name": "Vampira.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 13113723,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheVampiraShow-Rare1954TelevisionClips/Vampira.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

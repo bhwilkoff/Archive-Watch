@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "hee-haw-1971-guest-stars-roy-rogers-and-dale-evans-1960",
+  "title": "Hee Haw 1971 Guest Stars Roy Rogers And Dale Evans",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hee-haw-1971-roy-rogers-and-dale-evans",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hee-haw-1971-roy-rogers-and-dale-evans",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hee Haw 1971 Guest Stars Roy Rogers And Dale Evans",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hee-haw-1971-roy-rogers-and-dale-evans",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hee Haw 1971 no34.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 615179455,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hee-haw-1971-roy-rogers-and-dale-evans/Hee Haw 1971 no34.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

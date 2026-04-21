@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "tvs-bloopers-practical-jokes-1984",
+  "title": "TVs Bloopers & Practical Jokes",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "TV's Bloopers & Practical Jokes is an American television series. Debuting as a weekly series, new episodes have been broadcast as infrequent specials during most of its run. It premiered on NBC in 1984, moved to ABC in 1998, and was revived in syndication in 2012. The NBC run of the series was co-produced by Carson Productions and Dick Clark Productions, and the ABC and syndication runs have been produced solely by Dick Clark Productions.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC",
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tvs-bloopers-practical-jokes-betty-white-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TVs Bloopers & Practical Jokes - Dick Clark, Ed McMahon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TVs Bloopers & Practical Jokes - Betty White - 1986.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 410111960,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tvs-bloopers-practical-jokes-betty-white-1986/TVs Bloopers & Practical Jokes - Betty White - 1986.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

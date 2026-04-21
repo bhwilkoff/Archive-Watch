@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "mr-and-mrs-north-trained-for-murder-1960",
+  "title": "Mr. and Mrs. North-Trained for Murder",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Mr.AndMrs.North-trainedForMurder",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Mr.AndMrs.North-trainedForMurder",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North-Trained for Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.North-trainedForMurder",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1574,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-trainedForMurder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157319127,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.North-trainedForMurder/Mr.AndMrs.North-trainedForMurder.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

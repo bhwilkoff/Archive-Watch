@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-third-rail-1960",
+  "title": "The Third Rail",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Follow_That_Man_EP4x19_The_Third_Rail",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Follow_That_Man_EP4x19_The_Third_Rail",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Third Rail",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Follow_That_Man_EP4x19_The_Third_Rail",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FollowThatMan-RalphBellamy-4-19-ThirdRail.mp4",
+            "format": "h.264",
+            "sizeBytes": 147129951,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Follow_That_Man_EP4x19_The_Third_Rail/FollowThatMan-RalphBellamy-4-19-ThirdRail.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

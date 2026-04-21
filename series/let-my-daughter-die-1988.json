@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "let-my-daughter-die-1988",
+  "title": "Let My Daughter Die",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/LetMyDaughterDie",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LetMyDaughterDie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Let My Daughter Die",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LetMyDaughterDie",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Frontline.S06E06.Let.My.Daughter.Die.1988.VHSRip.DD2.0.x264-astro.mp4",
+            "format": "h.264",
+            "sizeBytes": 348280967,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LetMyDaughterDie/Frontline.S06E06.Let.My.Daughter.Die.1988.VHSRip.DD2.0.x264-astro.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

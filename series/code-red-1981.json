@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "code-red-1981",
+  "title": "Code Red",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": "Code Red is an American drama series that ran from 1981 to 1982 on ABC and was produced by Irwin Allen. The series revolves around the family and crew of L.A. Battalion Fire Chief Joe Rorchek.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rOFXAg6lPrjLAw2NhtQYRrSpFXd.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/iNdAbBlcmCYBAMVZ2lp9Hqopv3W.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Laurence Heath",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "movie-of-the-week-code-red-1981-lorne-greene-julie-adams-andrew-stevens-kzd-j-3-ha-hnpo",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Code Red (1981) - Feature-Length Pilot episode - Full",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rOFXAg6lPrjLAw2NhtQYRrSpFXd.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "♦MOVIE OF THE WEEK♦ 'Code Red' (1981) Lorne GREENE, Julie ADAMS, Andrew STEVENS-KzdJ3HaHNPo.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 422099630,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/movie-of-the-week-code-red-1981-lorne-greene-julie-adams-andrew-stevens-kzd-j-3-ha-hnpo/♦MOVIE OF THE WEEK♦ 'Code Red' (1981) Lorne GREENE, Julie ADAMS, Andrew STEVENS-KzdJ3HaHNPo.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

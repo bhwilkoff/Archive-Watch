@@ -1,0 +1,291 @@
+{
+  "version": 1,
+  "seriesID": "madame-chao-1995",
+  "title": "Madame Chao",
+  "yearStart": 1995,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MadameChao-s-Episode089",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "MadameChao-sEpisode038-Clean-the-Babys-Mouth-And-Nose-Out",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Madame Chao's Episode 038 Clean the Baby's Mouth And Nose Out",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-sEpisode038-Clean-the-Babys-Mouth-And-Nose-Out",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChaosEpisode038_CleanThebabysMouthAndNoseOut.mp4",
+            "format": "h.264",
+            "sizeBytes": 190016245,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-sEpisode038-Clean-the-Babys-Mouth-And-Nose-Out/MadameChaosEpisode038_CleanThebabysMouthAndNoseOut.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode-043-Fagabeefe",
+          "seasonNumber": 1,
+          "episodeNumber": 43,
+          "title": "Madame Chao's Episode 043 Fagabeefe",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode-043-Fagabeefe",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChao-s_Episode-043_fagabeefe.mp4",
+            "format": "h.264",
+            "sizeBytes": 188787969,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode-043-Fagabeefe/MadameChao-s_Episode-043_fagabeefe.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode062",
+          "seasonNumber": 1,
+          "episodeNumber": 62,
+          "title": "Madame Chao's Episode 062 Everyone's Vulnerable",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode062",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChao-Episode062_EveryonesVulnerable.mp4",
+            "format": "h.264",
+            "sizeBytes": 182406086,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode062/MadameChao-Episode062_EveryonesVulnerable.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode069",
+          "seasonNumber": 1,
+          "episodeNumber": 69,
+          "title": "Madame Chao's Episode 069 In One Ear Out The Other",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode069",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChao-Episode069_InOneEarOutTheOther.mp4",
+            "format": "h.264",
+            "sizeBytes": 191763174,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode069/MadameChao-Episode069_InOneEarOutTheOther.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode089",
+          "seasonNumber": 1,
+          "episodeNumber": 89,
+          "title": "Madame Chao's Episode 089 Come Inside My Mind",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode089",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChao-Episode089_ComeInsideMyMind.mp4",
+            "format": "h.264",
+            "sizeBytes": 197683836,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode089/MadameChao-Episode089_ComeInsideMyMind.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode-091-Bong-Ku-Gang-Vs-Bobo-Brazil",
+          "seasonNumber": 1,
+          "episodeNumber": 91,
+          "title": "Madame Chao's Episode 091 Bong Ku Gang Vs Bobo Brazil",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode-091-Bong-Ku-Gang-Vs-Bobo-Brazil",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChao-s_Episode091_bong-ku-gang-vs-bobo-brazil.mp4",
+            "format": "h.264",
+            "sizeBytes": 190298266,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode-091-Bong-Ku-Gang-Vs-Bobo-Brazil/MadameChao-s_Episode091_bong-ku-gang-vs-bobo-brazil.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode097",
+          "seasonNumber": 1,
+          "episodeNumber": 97,
+          "title": "Madame Chao's Episode 097 Tard Fei Chao's Crippled Breakout",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode097",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChaoEpisode097_TardFeiChaosCrippledBreakout.mp4",
+            "format": "h.264",
+            "sizeBytes": 173483332,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode097/MadameChaoEpisode097_TardFeiChaosCrippledBreakout.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode114",
+          "seasonNumber": 1,
+          "episodeNumber": 114,
+          "title": "Madame Chao's Episode 114 Battle To Be Here",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode114",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChaosEpisode114BattleToBeHere.mp4",
+            "format": "h.264",
+            "sizeBytes": 188078477,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode114/MadameChaosEpisode114BattleToBeHere.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode154",
+          "seasonNumber": 1,
+          "episodeNumber": 154,
+          "title": "Madame Chao's Episode 154: 8 Directions Chao",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode154",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChaoEpisode154_8DirectionsChao.mp4",
+            "format": "h.264",
+            "sizeBytes": 185544558,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode154/MadameChaoEpisode154_8DirectionsChao.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode160",
+          "seasonNumber": 1,
+          "episodeNumber": 160,
+          "title": "Madame Chao's Episode 160 Escape From Pranet Chaoshwitz",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode160",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChao-s-Episode160_EscapeFromPranetChaoshwitz.mp4",
+            "format": "h.264",
+            "sizeBytes": 183557154,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode160/MadameChao-s-Episode160_EscapeFromPranetChaoshwitz.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode161",
+          "seasonNumber": 1,
+          "episodeNumber": 161,
+          "title": "Madame Chao's Episode 161 Begin Again",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode161",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChaoEpisode161_BeginAgain.mp4",
+            "format": "h.264",
+            "sizeBytes": 189260712,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode161/MadameChaoEpisode161_BeginAgain.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode165",
+          "seasonNumber": 1,
+          "episodeNumber": 165,
+          "title": "Madame Chao's Episode 165 FU Infinity",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode165",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChaoEpisode165_FUInfinity.mp4",
+            "format": "h.264",
+            "sizeBytes": 184093860,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode165/MadameChaoEpisode165_FUInfinity.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode166",
+          "seasonNumber": 1,
+          "episodeNumber": 166,
+          "title": "Madame Chao's Episode 166 Selrf Invisibre",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode166",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChaoEpisode166SelrfInvisibre.mp4",
+            "format": "h.264",
+            "sizeBytes": 183344082,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode166/MadameChaoEpisode166SelrfInvisibre.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode168",
+          "seasonNumber": 1,
+          "episodeNumber": 168,
+          "title": "Madame Chao's Episode 168 Pepper Spray",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode168",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChaoEpisode168_PepperSpray.mp4",
+            "format": "h.264",
+            "sizeBytes": 186637956,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode168/MadameChaoEpisode168_PepperSpray.mp4"
+        },
+        {
+          "archiveID": "MadameChao-s-Episode253",
+          "seasonNumber": 1,
+          "episodeNumber": 253,
+          "title": "Madame Chao's Episode 253 The Chair Is Chao",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MadameChao-s-Episode253",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadameChaoEpisode253_TheChairIsChao.mp4",
+            "format": "h.264",
+            "sizeBytes": 179350066,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MadameChao-s-Episode253/MadameChaoEpisode253_TheChairIsChao.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15
+}

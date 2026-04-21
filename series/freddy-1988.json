@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "seriesID": "freddy-1988",
+  "title": "Freddy",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/freddys-nightmares-complete-tv-series",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Freddy.s.Nightmares.1x01.No.More.Mr.Nice.Guy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Freddy's Nightmares 1x01 No More Mr. Nice Guy [ITA]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x01.No.More.Mr.Nice.Guy",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Freddy.s.Nightmares.01x01.No.More.Mr.Nice.Guy.mp4",
+            "format": "h.264",
+            "sizeBytes": 283459609,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Freddy.s.Nightmares.1x01.No.More.Mr.Nice.Guy/Freddy.s.Nightmares.01x01.No.More.Mr.Nice.Guy.mp4"
+        },
+        {
+          "archiveID": "Freddy.s.Nightmares.1x02.It.s.a.Miserable.Life",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Freddy's Nightmares 1x02 It's a Miserable Life [ITA]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x02.It.s.a.Miserable.Life",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Freddy.s.Nightmares.01x02.It.s.A.Miserable.Life.mp4",
+            "format": "h.264",
+            "sizeBytes": 290244080,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Freddy.s.Nightmares.1x02.It.s.a.Miserable.Life/Freddy.s.Nightmares.01x02.It.s.A.Miserable.Life.mp4"
+        },
+        {
+          "archiveID": "Freddy.s.Nightmares.1x03.Killer.Instinct",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Freddy's Nightmares 1x03 Killer Instinct [ITA]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x03.Killer.Instinct",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Freddy.s.Nightmares.01x03.Killer.Instinct.mp4",
+            "format": "h.264",
+            "sizeBytes": 289585925,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Freddy.s.Nightmares.1x03.Killer.Instinct/Freddy.s.Nightmares.01x03.Killer.Instinct.mp4"
+        },
+        {
+          "archiveID": "Freddy.s.Nightmares.1x04.Freddy.s.Tricks.and.Treats",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Freddy's Nightmares 1x04 Freddy's Tricks and Treats [ITA]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x04.Freddy.s.Tricks.and.Treats",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Freddy.s.Nightmares.01x04.Freddy.s.Tricks.And.Treats.mp4",
+            "format": "h.264",
+            "sizeBytes": 283651798,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Freddy.s.Nightmares.1x04.Freddy.s.Tricks.and.Treats/Freddy.s.Nightmares.01x04.Freddy.s.Tricks.And.Treats.mp4"
+        },
+        {
+          "archiveID": "Freddy.s.Nightmares.1x05.Judy.Miller.Come.On.Down",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Freddy's Nightmares 1x05 Judy Miller Come On Down [ITA]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x05.Judy.Miller.Come.On.Down",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Freddy.s.Nightmares.01x05.Judy.Miller.Come.On.Down.mp4",
+            "format": "h.264",
+            "sizeBytes": 280710701,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Freddy.s.Nightmares.1x05.Judy.Miller.Come.On.Down/Freddy.s.Nightmares.01x05.Judy.Miller.Come.On.Down.mp4"
+        },
+        {
+          "archiveID": "Freddy.s.Nightmares.1x06.Saturday.Night.Special",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Freddy's Nightmares 1x06 Saturday Night Special [ITA]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x06.Saturday.Night.Special",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Freddy.s.Nightmares.01x06.Saturday.Night.Special.mp4",
+            "format": "h.264",
+            "sizeBytes": 284880794,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Freddy.s.Nightmares.1x06.Saturday.Night.Special/Freddy.s.Nightmares.01x06.Saturday.Night.Special.mp4"
+        },
+        {
+          "archiveID": "Freddy.s.Nightmares.01x07.Sister.s.Keeper",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Freddy's Nightmares 1x07 Sister's Keeper [ITA]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.01x07.Sister.s.Keeper",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Freddy.s.Nightmares.01x07.Sister.s.Keeper.mp4",
+            "format": "h.264",
+            "sizeBytes": 283821068,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Freddy.s.Nightmares.01x07.Sister.s.Keeper/Freddy.s.Nightmares.01x07.Sister.s.Keeper.mp4"
+        },
+        {
+          "archiveID": "Freddy.s.Nightmares.1x08.Mother.s.Day",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Freddy's Nightmares 1x08 Mother's Day [ITA]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x08.Mother.s.Day",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Freddy.s.Nightmares.01x08.Mother.s.Day.mp4",
+            "format": "h.264",
+            "sizeBytes": 285129328,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Freddy.s.Nightmares.1x08.Mother.s.Day/Freddy.s.Nightmares.01x08.Mother.s.Day.mp4"
+        },
+        {
+          "archiveID": "Freddy.s.Nightmares.1x09.Rebel.Without.a.Car",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Freddy's Nightmares 1x09 Rebel Without a Car [ITA]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x09.Rebel.Without.a.Car",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Freddy.s.Nightmares.01x09.Rebel.Without.a.Car.mp4",
+            "format": "h.264",
+            "sizeBytes": 284308515,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Freddy.s.Nightmares.1x09.Rebel.Without.a.Car/Freddy.s.Nightmares.01x09.Rebel.Without.a.Car.mp4"
+        },
+        {
+          "archiveID": "Freddy.s.Nightmares.1x10.The.Bride.Wore.Red",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Freddy's Nightmares 1x10 The Bride Wore Red [ITA]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x10.The.Bride.Wore.Red",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Freddy.s.Nightmares.01x10.The.Bride.Wore.Red.mp4",
+            "format": "h.264",
+            "sizeBytes": 278433790,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Freddy.s.Nightmares.1x10.The.Bride.Wore.Red/Freddy.s.Nightmares.01x10.The.Bride.Wore.Red.mp4"
+        },
+        {
+          "archiveID": "freddys-nightmares-complete-tv-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Freddy's Nightmares Complete TV Series",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/freddys-nightmares-complete-tv-series",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Freddy's Nightmares S01E15 School Daze.mp4",
+            "format": "h.264",
+            "sizeBytes": 280975671,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/freddys-nightmares-complete-tv-series/Freddy's Nightmares S01E15 School Daze.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 11
+}

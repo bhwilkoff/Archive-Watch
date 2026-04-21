@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "seriesID": "sergeant-preston-of-the-yukon-1960",
+  "title": "Sergeant Preston of the Yukon",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Sergeant Preston of the Yukon is an American action adventure northwestern television series based on the radio drama Challenge of the Yukon. It was initially broadcast in color on CBS across three seasons from September 29, 1955 to September 25, 1958.\n\nRichard Simmons stars as Sergeant William Preston, who patrols the Yukon Territory in search of renegades and outlaws, during the time of the Klondike Gold Rush of the 1890s.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9kZZat1xuy19mRGITZrI57w0aC5.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/eOvomZmZjAh4pdWE2WZ9SsLaWil.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "George W. Trendle",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "SergeantPrestonOfTheYukon-ReliefTrain",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Relief Train",
+          "overview": "Two greedy renegades bargain with a band of Yukon newcomers who struck it rich, but are out of food. The renegades offer them one pound of food for one pound of gold.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9kZZat1xuy19mRGITZrI57w0aC5.jpg",
+          "airDate": "1956-02-23",
+          "year": null,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "ReliefTrain.mp4",
+            "format": "h.264",
+            "sizeBytes": 146592152,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SergeantPrestonOfTheYukon-ReliefTrain/ReliefTrain.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "SergeantPrestonOfTheYukon-KingOfHershelIsland",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "King of Herschel Island",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9kZZat1xuy19mRGITZrI57w0aC5.jpg",
+          "airDate": "1956-10-25",
+          "year": null,
+          "runtimeSeconds": 1532,
+          "videoFile": {
+            "name": "KingOfHerschelIsland.mp4",
+            "format": "h.264",
+            "sizeBytes": 151430570,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SergeantPrestonOfTheYukon-KingOfHershelIsland/KingOfHerschelIsland.mp4"
+        },
+        {
+          "archiveID": "SergeantPrestonOfTheYukon-BlindJustice",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Blind Justice",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9kZZat1xuy19mRGITZrI57w0aC5.jpg",
+          "airDate": "1957-01-17",
+          "year": null,
+          "runtimeSeconds": 1540,
+          "videoFile": {
+            "name": "BlindJustice.mp4",
+            "format": "h.264",
+            "sizeBytes": 153403409,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SergeantPrestonOfTheYukon-BlindJustice/BlindJustice.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-loaded-goat-1960",
+  "title": "The Loaded Goat",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Andy_Griffith_The_Loaded_Goat",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Andy_Griffith_The_Loaded_Goat",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Loaded Goat",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Andy_Griffith_The_Loaded_Goat",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Andy_Griffith_The_Loaded_Goat.mp4",
+            "format": "h.264",
+            "sizeBytes": 152237257,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Andy_Griffith_The_Loaded_Goat/Andy_Griffith_The_Loaded_Goat.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

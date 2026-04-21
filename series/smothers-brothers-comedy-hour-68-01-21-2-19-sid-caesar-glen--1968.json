@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "smothers-brothers-comedy-hour-68-01-21-2-19-sid-caesar-glen--1968",
+  "title": "Smothers Brothers Comedy Hour 68 01 21 2 19 Sid Caesar, Glen Campbell, Blackstone Rangers Repeat Version",
+  "yearStart": 1968,
+  "yearEnd": 1968,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/68-01-21-2-19-sid-caesar-glen-campbell-blackstone-rangers-repeat-version",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "68-01-21-2-19-sid-caesar-glen-campbell-blackstone-rangers-repeat-version",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Smothers Brothers Comedy Hour 68 01 21 2 19 Sid Caesar, Glen Campbell, Blackstone Rangers Repeat Version",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/68-01-21-2-19-sid-caesar-glen-campbell-blackstone-rangers-repeat-version",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "68-01-21 2-19 Sid Caesar, Glen Campbell, Blackstone Rangers Repeat Version.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 241463782,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/68-01-21-2-19-sid-caesar-glen-campbell-blackstone-rangers-repeat-version/68-01-21 2-19 Sid Caesar, Glen Campbell, Blackstone Rangers Repeat Version.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

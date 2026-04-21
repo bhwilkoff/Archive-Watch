@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "last-of-the-summer-wine-1984",
+  "title": "Last of the Summer Wine",
+  "yearStart": 1984,
+  "yearEnd": 1997,
+  "overview": "Unencumbered by wives, jobs or any other responsibilities, three senior citizens who've never really grown up explore their world in the Yorkshire Dales. They spend their days speculating about their fellow townsfolk and thinking up adventures not usually favored by the elderly.  Last of the Summer Wine premiered as an episode of Comedy Playhouse in 1973. The show ran for 295 episodes until 2010. It is the longest running comedy Britain has produced and the longest running sitcom in the world.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/88jpREzaBTjadaJ71JbihhL9A1k.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Roy Clarke",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "last-of-the-summer-wine-series-12",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Last of the Summer Wine (Series 12)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Last of the Summer Wine S12E07 - The Empire that Foggy Nearly Built.mp4",
+            "format": "h.264",
+            "sizeBytes": 184420014,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/last-of-the-summer-wine-series-12/Last of the Summer Wine S12E07 - The Empire that Foggy Nearly Built.mp4"
+        },
+        {
+          "archiveID": "last-of-the-summer-wine-series-19",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Last of the Summer Wine (Series 19)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Last of the Summer Wine S19E04 - Oh Howard, We Should Get One of Those.mp4",
+            "format": "h.264",
+            "sizeBytes": 177322084,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/last-of-the-summer-wine-series-19/Last of the Summer Wine S19E04 - Oh Howard, We Should Get One of Those.mp4"
+        },
+        {
+          "archiveID": "last-of-the-summer-wine-s-8-e-08-uncle-of-the-bride",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Last of the Summer Wine (Series 8 )",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Last of the Summer Wine S8E08 - Uncle of the Bride.mp4",
+            "format": "h.264",
+            "sizeBytes": 495770619,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/last-of-the-summer-wine-s-8-e-08-uncle-of-the-bride/Last of the Summer Wine S8E08 - Uncle of the Bride.mp4"
+        },
+        {
+          "archiveID": "last-of-the-summer-wine-s-9-e-14-big-day-at-dream-acres",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Last of the Summer Wine (Series 9)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Last of the Summer Wine S9E14 - Big Day at Dream Acres.mp4",
+            "format": "h.264",
+            "sizeBytes": 460285537,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/last-of-the-summer-wine-s-9-e-14-big-day-at-dream-acres/Last of the Summer Wine S9E14 - Big Day at Dream Acres.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

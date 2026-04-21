@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-night-at-the-fillmore-with-bill-graham-july-7-1986-1960",
+  "title": "A Night At The Fillmore with Bill Graham (July 7, 1986",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ANightAtTheFillMoreWithBillGrahamJuly71986_201906",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ANightAtTheFillMoreWithBillGrahamJuly71986_201906",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Night At The Fillmore with Bill Graham (July 7, 1986)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ANightAtTheFillMoreWithBillGrahamJuly71986_201906",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A-Night-At-The-Fill-More-with-Bill-Graham-_July-7_-1986_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 252600184,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ANightAtTheFillMoreWithBillGrahamJuly71986_201906/A-Night-At-The-Fill-More-with-Bill-Graham-_July-7_-1986_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

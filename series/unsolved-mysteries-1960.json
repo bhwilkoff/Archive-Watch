@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "unsolved-mysteries-1960",
+  "title": "Unsolved Mysteries",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Real cases of perplexing disappearances, shocking murders and paranormal encounters fuel this gripping revival of the iconic documentary series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/5Gn9hoJZUiJX5yb4datIcoq3Day.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/xvTMD2R3sVesWPvQN8gVYEeFWDV.jpg",
+  "genres": [],
+  "networks": [
+    "Netflix"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-03-unsolved-mysteries-halloween",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "House of Terror",
+          "overview": "When an aristocrat and his entire family disappear, the authorities unearth something horrifying.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/sM7ECaxAkI37ZXcgfoZDqf0ouFP.jpg",
+          "airDate": "2020-07-01",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E03 - Unsolved Mysteries (Halloween).mp4",
+            "format": "h.264",
+            "sizeBytes": 276280626,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-03-unsolved-mysteries-halloween/S01E03 - Unsolved Mysteries (Halloween).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

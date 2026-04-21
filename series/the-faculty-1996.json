@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-faculty-1996",
+  "title": "The Faculty",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": "Flynn Sullivan is a junior high vice-principal balancing the demands of her career with single motherhood.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/79/199744.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Gary Murphy",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-faculty-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Faculty - Meredith Baxter, Nancy Lenehan",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/79/199744.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Faculty - 1.01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 672185374,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-faculty-1.01/The Faculty - 1.01.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

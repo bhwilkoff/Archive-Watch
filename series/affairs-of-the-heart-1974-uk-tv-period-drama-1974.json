@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "affairs-of-the-heart-1974-uk-tv-period-drama-1974",
+  "title": "Affairs Of The Heart (1974 UK TV Period Drama",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/affairs-of-the-heart-1974-uk-tv-period-drama",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "affairs-of-the-heart-1974-uk-tv-period-drama",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Affairs Of The Heart (1974 UK TV Period Drama)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/affairs-of-the-heart-1974-uk-tv-period-drama",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2852,
+          "videoFile": {
+            "name": "Affairs Of The Heart (1974 UK-TV Period Drama).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 140507435,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/affairs-of-the-heart-1974-uk-tv-period-drama/Affairs Of The Heart (1974 UK-TV Period Drama).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "valentina-1988",
+  "title": "Valentina",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": "The stories revolve around the investigations of Valentina Rosselli, and the intrigues in which she gets involved because of her curiosity and her wonderful physical appearance. In the Shareholders She is often assisted by the antiquarian Philip Rembrandt, with whom she shares an ambiguous relationship.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/cEUeE6ig2mHXNoCUIBhkHgHOzZt.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/sIR1ad4ARieg7oo71XNsmW0ENub.jpg",
+  "genres": [],
+  "networks": [
+    "Italia 1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "valentina-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Valentina - Mary Sellers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/cEUeE6ig2mHXNoCUIBhkHgHOzZt.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Valentina - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2658592867,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/valentina-1988/Valentina - 1988.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

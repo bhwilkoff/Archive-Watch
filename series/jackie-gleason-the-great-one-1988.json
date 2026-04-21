@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jackie-gleason-the-great-one-1988",
+  "title": "Jackie Gleason: The Great One",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/jackie-gleason-the-great-one-1988",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "jackie-gleason-the-great-one-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jackie Gleason: The Great One - John Candy",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jackie-gleason-the-great-one-1988",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jackie Gleason The Great One - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2988151337,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-the-great-one-1988/Jackie Gleason The Great One - 1988.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

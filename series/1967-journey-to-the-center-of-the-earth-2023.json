@@ -1,0 +1,327 @@
+{
+  "version": 1,
+  "seriesID": "1967-journey-to-the-center-of-the-earth-2023",
+  "title": "1967. Journey to the Center of the Earth",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-1-arena-of-fear",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-1-arena-of-fear",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "1967. Journey to the Center of the Earth - Episode 1 - Arena of Fear",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-1-arena-of-fear",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 1 - Arena of Fear.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 84043553,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-1-arena-of-fear/1967. Journey to the Center of the Earth - Episode 1 - Arena of Fear.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-2-caveman-captives",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "1967. Journey to the Center of the Earth - Episode 2 - Caveman Captives",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-2-caveman-captives",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 2 - Caveman Captives.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 112743997,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-2-caveman-captives/1967. Journey to the Center of the Earth - Episode 2 - Caveman Captives.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-3-the-creative-world",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "1967. Journey to the Center of the Earth - Episode 3 - The Creative World",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-3-the-creative-world",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 3 - The Creative World.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 56341985,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-3-the-creative-world/1967. Journey to the Center of the Earth - Episode 3 - The Creative World.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-4-creatures-of-the-swamp",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "1967. Journey to the Center of the Earth - Episode 4 - Creatures of the Swamp",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-4-creatures-of-the-swamp",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 4 - Creatures of the Swamp.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 109545717,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-4-creatures-of-the-swamp/1967. Journey to the Center of the Earth - Episode 4 - Creatures of the Swamp.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-5-the-doomed-island",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "1967. Journey to the Center of the Earth - Episode 5 - The Doomed Island",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-5-the-doomed-island",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 5 - The Doomed Island.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 118047393,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-5-the-doomed-island/1967. Journey to the Center of the Earth - Episode 5 - The Doomed Island.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-6-furies-of-ice",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "1967. Journey to the Center of the Earth - Episode 6 - Furies of Ice",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-6-furies-of-ice",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 6 - Furies of Ice.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 118056729,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-6-furies-of-ice/1967. Journey to the Center of the Earth - Episode 6 - Furies of Ice.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-7-the-labyrinth-builders",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "1967. Journey to the Center of the Earth - Episode 7 - The Labyrinth Builders",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-7-the-labyrinth-builders",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 7 - The Labyrinth Builders.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 134529169,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-7-the-labyrinth-builders/1967. Journey to the Center of the Earth - Episode 7 - The Labyrinth Builders.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-8-land-of-the-dead",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "1967. Journey to the Center of the Earth - Episode 8 - Land of the Dead",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-8-land-of-the-dead",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 8 - Land of the Dead.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 92417213,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-8-land-of-the-dead/1967. Journey to the Center of the Earth - Episode 8 - Land of the Dead.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-9-the-living-city",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "1967. Journey to the Center of the Earth - Episode 9 - The Living City",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-9-the-living-city",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 9 - The Living City.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 97726603,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-9-the-living-city/1967. Journey to the Center of the Earth - Episode 9 - The Living City.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-10-the-living-totems",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "1967. Journey to the Center of the Earth - Episode 10 - The Living Totems",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-10-the-living-totems",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 10 - The Living Totems.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 74901457,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-10-the-living-totems/1967. Journey to the Center of the Earth - Episode 10 - The Living Totems.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-11-moths-of-doom",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "1967. Journey to the Center of the Earth - Episode 11 - Moths of Doom",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-11-moths-of-doom",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 11 - Moths of Doom.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 112542952,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-11-moths-of-doom/1967. Journey to the Center of the Earth - Episode 11 - Moths of Doom.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-12-ocean-of-destruction",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "1967. Journey to the Center of the Earth - Episode 12 - Ocean of Destruction",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-12-ocean-of-destruction",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 12 - Ocean of Destruction.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 88598599,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-12-ocean-of-destruction/1967. Journey to the Center of the Earth - Episode 12 - Ocean of Destruction.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-13-perils-of-volcano-island",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "1967. Journey to the Center of the Earth - Episode 13 - Perils of Volcano Island",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-13-perils-of-volcano-island",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 13 - Perils of Volcano Island.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 88021656,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-13-perils-of-volcano-island/1967. Journey to the Center of the Earth - Episode 13 - Perils of Volcano Island.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-14-return-of-gulliver",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "1967. Journey to the Center of the Earth - Episode 14 - Return of Gulliver",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-14-return-of-gulliver",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 14 - Return of Gulliver.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 106463868,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-14-return-of-gulliver/1967. Journey to the Center of the Earth - Episode 14 - Return of Gulliver.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-15-revenge-of-the-fossils",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "1967. Journey to the Center of the Earth - Episode 15 - Revenge of the Fossils",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-15-revenge-of-the-fossils",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 15 - Revenge of the Fossils.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 124786377,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-15-revenge-of-the-fossils/1967. Journey to the Center of the Earth - Episode 15 - Revenge of the Fossils.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-16-sleeping-slaves-of-zeerah",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "1967. Journey to the Center of the Earth - Episode 16 - Sleeping Slaves of Zeerah",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-16-sleeping-slaves-of-zeerah",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 16 - Sleeping Slaves of Zeerah.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 70981028,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-16-sleeping-slaves-of-zeerah/1967. Journey to the Center of the Earth - Episode 16 - Sleeping Slaves of Zeerah.ia.mp4"
+        },
+        {
+          "archiveID": "1967.-journey-to-the-center-of-the-earth-episode-17-trail-of-gold_202310",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "1967. Journey to the Center of the Earth - Episode 17 - Trail of Gold",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967.-journey-to-the-center-of-the-earth-episode-17-trail-of-gold_202310",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1967. Journey to the Center of the Earth - Episode 17 - Trail of Gold.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 119685558,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967.-journey-to-the-center-of-the-earth-episode-17-trail-of-gold_202310/1967. Journey to the Center of the Earth - Episode 17 - Trail of Gold.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 17
+}

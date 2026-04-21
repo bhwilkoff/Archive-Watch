@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "seriesID": "far-out-space-nuts-1975",
+  "title": "FAR OUT SPACE NUTS",
+  "yearStart": 1975,
+  "yearEnd": 1975,
+  "overview": "Far Out Space Nuts is a Sid and Marty Krofft children's television series that aired in 1975 for one season, and produced 15 episodes. It was one of only two Krofft series produced exclusively for CBS. Like most children's television shows of the era, Far Out Space Nuts contained a laugh track.\n\nLike most of the Kroffts' productions, the show's opening sequence provides the setup of its fanciful premise: While loading food into various compartments to prepare a rocket for an upcoming mission, Barney instructs Junior to hit the \"lunch\" button, but Junior mistakenly hits the \"launch\" button. The rocket blasts off and takes them on various misadventures on alien planets.\n\nThe show starred Bob Denver as Junior, a seemingly dim-witted but uniquely clever maintenance worker employed by NASA, and Chuck McCann as Barney, his grumpy, short-tempered co-worker. Patty Maloney played Honk, their furry friend who made horn sounds instead of speaking.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/iwVFvG50c30ouRoyfbWGrKqHvdH.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Marty Krofft",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "far-out-space-nuts_202107",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Fantastic Journey",
+          "overview": "A mad scientist makes the mistake of his life by appointing Junior and Barney as his assistants.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwVFvG50c30ouRoyfbWGrKqHvdH.jpg",
+          "airDate": "1975-09-27",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "fantastic journey.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158952054,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/far-out-space-nuts_202107/fantastic journey.ia.mp4"
+        },
+        {
+          "archiveID": "far-out-space-nuts_20210710",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Tower of Tagot",
+          "overview": "Barney and Junior are branded bad guys by a power-hungry tyrant, who has seen their arrival in his future machine and made them pawns in his bid to become ruler. While Junior and Barney are on another planet, he imprisons the beautiful Queen of the Serrians high in the Tower of Tagot. Naturally, the Space Nuts must come to her rescue.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/63pEDz4bcOi3RvpWXkRPJBewVm.jpg",
+          "airDate": "1975-10-04",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TOWER OF TAGOT.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 171262922,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/far-out-space-nuts_20210710/TOWER OF TAGOT.ia.mp4"
+        },
+        {
+          "archiveID": "faroutspacenuts",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Three Spaceketeers",
+          "overview": "Mistaken for underground hero Junio, Junior is compelled to rescue Queen Helona of the planet Sporia from Troyak's crystal ball prison.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwVFvG50c30ouRoyfbWGrKqHvdH.jpg",
+          "airDate": "1975-10-11",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "6.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 211087653,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/faroutspacenuts/6.ia.mp4"
+        },
+        {
+          "archiveID": "faroutspacenuts_202107",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Flight of the Pippets",
+          "overview": "Junior and Barney become museum displays when they are shrunken by the Pippets.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwVFvG50c30ouRoyfbWGrKqHvdH.jpg",
+          "airDate": "1975-10-18",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FLIGHT OF TH PIPPETS.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 216152161,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/faroutspacenuts_202107/FLIGHT OF TH PIPPETS.ia.mp4"
+        },
+        {
+          "archiveID": "far-out-space-nuts_202108",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Birds of a Feather",
+          "overview": "Junior and Barney arrive on the planet Vultron, inhabited by a race of bird people. The bird people capture the Space Nuts and force them to sit on an enormous egg until it hatches.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/pl3hbSlJ5jc1DNVP9JoQ6bMbZja.jpg",
+          "airDate": "1975-10-25",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "far.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 162686947,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/far-out-space-nuts_202108/far.ia.mp4"
+        },
+        {
+          "archiveID": "far-out-9",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Dangerous Game",
+          "overview": "The Space Nuts are hunted for sport by Salana and her henchmen.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwVFvG50c30ouRoyfbWGrKqHvdH.jpg",
+          "airDate": "1975-11-01",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 09 - Dangerous Game {McFly}_x264.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 78561630,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/far-out-9/Episode 09 - Dangerous Game {McFly}_x264.ia.mp4"
+        },
+        {
+          "archiveID": "far-out-space-nuts-online",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Secrets of the Hexagon",
+          "overview": "Junior and Barney get tricked into trading their ship for a mysterious hexagon key that supposedly operates a duplicating machine, which can make the Space Nuts a new spaceship to get home.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/pWBlcgaacnQeK5WyjN9f1ChbG3S.jpg",
+          "airDate": "1975-11-08",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TITLE_01_Segment_0_x264_001.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 193639639,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/far-out-space-nuts-online/TITLE_01_Segment_0_x264_001.ia.mp4"
+        },
+        {
+          "archiveID": "far-out-space-nuts-online-streaming",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Captain Torque, Space Pirate",
+          "overview": "Junior and Barney are enlisted by the infamous space pirate to acquire a treasure map.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwVFvG50c30ouRoyfbWGrKqHvdH.jpg",
+          "airDate": "1975-11-15",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "far out_mpeg4 - Copy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 128626872,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/far-out-space-nuts-online-streaming/far out_mpeg4 - Copy.ia.mp4"
+        },
+        {
+          "archiveID": "faroutspacenuts12",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Vanishing Aliens Mystery",
+          "overview": "The Space Nuts are embroiled in a missing persons mystery surrounding an alien fortune.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/33HrCIcusbb38Kg4oIaWjdSqlqX.jpg",
+          "airDate": "1975-11-22",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TITLE_01_Segment_0_x264_001.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198509424,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/faroutspacenuts12/TITLE_01_Segment_0_x264_001.ia.mp4"
+        },
+        {
+          "archiveID": "far-out-space-nuts-free",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Barney Begonia",
+          "overview": "An alien botanist tests his latest experiment on Barney, which turns him into a man-plant hybrid. Will he find the cure?",
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwVFvG50c30ouRoyfbWGrKqHvdH.jpg",
+          "airDate": "1975-11-29",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TITLE_01_Segment_0_mpeg4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 127754361,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/far-out-space-nuts-free/TITLE_01_Segment_0_mpeg4.ia.mp4"
+        },
+        {
+          "archiveID": "far-out-space-nuts-free-online",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Destination: Earth",
+          "overview": "Junior and Barney return to Earth, but perhaps they've become more accustomed to their time in space.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/Ad0CYpRbcrVyVAApf9uk7lIvNDO.jpg",
+          "airDate": "1975-12-06",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TITLE_02_Segment_0_mpeg4_002.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 126586084,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/far-out-space-nuts-free-online/TITLE_02_Segment_0_mpeg4_002.ia.mp4"
+        },
+        {
+          "archiveID": "far-out-space-nuts-download",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Galaxy's Greatest Athlete",
+          "overview": "Barney and Junior are tricked into joining the Intergalactic Games by a couple of aliens in disguise.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/z7pulRVmAn7XzZ3BlYTuoRT5rUC.jpg",
+          "airDate": "1975-12-13",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 15 - Galaxy's Greatest Athlete {McFly}.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 131499403,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/far-out-space-nuts-download/Episode 15 - Galaxy's Greatest Athlete {McFly}.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12
+}

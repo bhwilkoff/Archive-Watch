@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-little-night-of-music---full-1995",
+  "title": "A Little Night of Music - Full",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ALittleNightofMusicGMA7",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ALittleNightofMusicGMA7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Little Night of Music - Full Episode - January 1995",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ALittleNightofMusicGMA7",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "lv_0_20221106204335.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 336332163,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ALittleNightofMusicGMA7/lv_0_20221106204335.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

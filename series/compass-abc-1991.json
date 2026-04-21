@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "compass-abc-1991",
+  "title": "Compass (ABC",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/compass-missionaries-stony-ground",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "compass-missionaries-stony-ground",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Compass (ABC) - Missionaries: Stony Ground (incomplete - 17/11/1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/compass-missionaries-stony-ground",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "06 - Compass - Missionaries - Stony Ground (incomplete).mp4",
+            "format": "h.264",
+            "sizeBytes": 73000464,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/compass-missionaries-stony-ground/06 - Compass - Missionaries - Stony Ground (incomplete).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sally-jessy-raphael-january-15-1991-2020",
+  "title": "Sally Jessy Raphael (January 15, 1991",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sallyjessyraphaeljanuary151991convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sallyjessyraphaeljanuary151991convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sally Jessy Raphael (January 15, 1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sallyjessyraphaeljanuary151991convertvideoonline.com",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sally Jessy Raphael (January 15, 1991) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 200815950,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sallyjessyraphaeljanuary151991convertvideoonline.com/Sally Jessy Raphael (January 15, 1991) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

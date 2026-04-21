@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-byzantine-treasure-1960",
+  "title": "The Byzantine Treasure",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Robin_Hood_31_The_Byzantine_Treasure",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_31_The_Byzantine_Treasure",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Byzantine Treasure",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Robin_Hood_31_The_Byzantine_Treasure",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_31_The_Byzantine_Treasure.mp4",
+            "format": "h.264",
+            "sizeBytes": 146239518,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_31_The_Byzantine_Treasure/Robin_Hood_31_The_Byzantine_Treasure.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

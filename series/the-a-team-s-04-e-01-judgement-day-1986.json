@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-a-team-s-04-e-01-judgement-day-1986",
+  "title": "The A Team S 04 E 01 Judgement Day",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-a-team-s-04-e-01-judgement-day-part-1-2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-a-team-s-04-e-01-judgement-day-part-1-2",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The A Team S 04 E 01 Judgement Day Part 1 & 2",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-a-team-s-04-e-01-judgement-day-part-1-2",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The A-Team S04E01 Judgement Day Part 1 & 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 549135202,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-a-team-s-04-e-01-judgement-day-part-1-2/The A-Team S04E01 Judgement Day Part 1 & 2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

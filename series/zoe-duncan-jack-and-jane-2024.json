@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "zoe-duncan-jack-and-jane-2024",
+  "title": "Zoe, Duncan, Jack And Jane",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": "Zoe, Duncan, Jack and Jane is an American teen sitcom starring Selma Blair, David Moscow, Michael Rosenbaum, and Azura Skye that premiered in 1999 on The WB network. During development, the show was initially known as Zoe Bean and was later retitled Zoe... during its second season.\n\nThe series ran for a total of 26 episodes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pY8t21OpwAQbF6xsWXr7bPlA1vH.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/n4T2xd89l3hAPe4k75BV3N0MAbP.jpg",
+  "genres": [],
+  "networks": [
+    "The WB"
+  ],
+  "creator": "Sue Paige",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "zoe-duncan-jack-and-jane-complete-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Zoe, Duncan, Jack And Jane - The Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pY8t21OpwAQbF6xsWXr7bPlA1vH.jpg",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Zoe, Duncan, Jack and Jane - 1x13 - Run, Man Ray, Run.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 462211283,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/zoe-duncan-jack-and-jane-complete-series/Zoe, Duncan, Jack and Jane - 1x13 - Run, Man Ray, Run.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

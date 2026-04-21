@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "seriesID": "cavalcade-of-stars-1950",
+  "title": "Cavalcade of Stars",
+  "yearStart": 1950,
+  "yearEnd": 1951,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Arthur_Clodfrey",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Cavalcade of Stars\": Arthur Clodfrey",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 120,
+          "videoFile": {
+            "name": "Arthur_Clodfrey.mp4",
+            "format": "h.264",
+            "sizeBytes": 14442710,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Arthur_Clodfrey/Arthur_Clodfrey.mp4"
+        },
+        {
+          "archiveID": "The_Schaller_Brothers",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Cavalcade of Stars\": The Schaller Brothers (Trampolining act)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The_Schaller_Brothers.mp4",
+            "format": "h.264",
+            "sizeBytes": 25911397,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The_Schaller_Brothers/The_Schaller_Brothers.mp4"
+        },
+        {
+          "archiveID": "cavalcadeOfStars-10October1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Cavalcade of Stars'' - 10 October 1951",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 2988,
+          "videoFile": {
+            "name": "CavalcadeOfStars-10-October-1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 312106356,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cavalcadeOfStars-10October1951/CavalcadeOfStars-10-October-1951.mp4"
+        },
+        {
+          "archiveID": "cavalcadeOfStars-2September195019August1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Cavalcade of Stars'' - 2 September 1950, 19 August 1950",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 3198,
+          "videoFile": {
+            "name": "CavalcadeofStars-2September-19August1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 332493233,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cavalcadeOfStars-2September195019August1950/CavalcadeofStars-2September-19August1950.mp4"
+        },
+        {
+          "archiveID": "cavalcadeOfStars-26August1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Cavalcade of Stars'' - 26 August 1950",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 3402,
+          "videoFile": {
+            "name": "CavalcadeOfStars-26August1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 352944104,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cavalcadeOfStars-26August1950/CavalcadeOfStars-26August1950.mp4"
+        },
+        {
+          "archiveID": "cavalcadeOfStars-3June1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Cavalcade of Stars'' - 3 June 1950",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 3342,
+          "videoFile": {
+            "name": "CavalcadeOfStars-3-June-1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 346370296,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cavalcadeOfStars-3June1950/CavalcadeOfStars-3-June-1950.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

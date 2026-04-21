@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "ferris-bueller-1990",
+  "title": "Ferris Bueller",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "Ferris Bueller is an American sitcom based on the 1986 John Hughes film Ferris Bueller's Day Off. The show stars Charlie Schlatter in the title role. The series debuted on August 23, 1990, on NBC and was cancelled within its first season, a few months after its debut. The show was produced by Maysh Ltd Productions in association with Paramount Television.\n\nHughes was not involved in the show's production, and asked that his name not be used by Paramount Television to promote it.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/y8JNAuJsYgqY6qkcHZyL53KZAIZ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/gnd8LyfyfnhBX0BIL5rwXioJ8Mq.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "John Masius",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ferris-bueller-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ferris Bueller - Ami Dolenz, Charlie Schlatter",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/y8JNAuJsYgqY6qkcHZyL53KZAIZ.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ferris Bueller - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 736213895,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ferris-bueller-1.1/Ferris Bueller - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

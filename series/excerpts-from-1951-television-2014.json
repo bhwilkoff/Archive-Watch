@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "excerpts-from-1951-television-2014",
+  "title": "Excerpts from 1951 Television",
+  "yearStart": 2014,
+  "yearEnd": 2014,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1951TVclips-VideoByMatthewPaulArgall",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1951TVclips-VideoByMatthewPaulArgall",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Excerpts from 1951 Television",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1951TVclips-VideoByMatthewPaulArgall",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 1747,
+          "videoFile": {
+            "name": "1951TVclips.mp4",
+            "format": "h.264",
+            "sizeBytes": 181966329,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1951TVclips-VideoByMatthewPaulArgall/1951TVclips.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

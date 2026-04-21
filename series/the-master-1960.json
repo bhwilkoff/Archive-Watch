@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "the-master-1960",
+  "title": "The Master",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "An aging ninja master and his young pupil travel in a custom van helping people in need along the way.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/8MGIjGfjwl22HL9G0eYOwbMqSTT.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/w1IH6UbFJaulpOuJNBNpbmHg2oi.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Michael Sloan",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheMaster-Max",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Max",
+          "overview": "Max Keller meets up with John Peter McAllister, an American who having remained in Japan after World War II, became the only occidental American ever to achieve the status of the Ninja. Having returned to America to locate his newly discovered daughter, he agrees to tutor Max in the ninjutsu arts, while helping a father and daughter fend off an unscrupulous land developer who is trying to get a hold of their airport.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/5YAXR2YPDEP4SsM8byS6kn9BnJd.jpg",
+          "airDate": "1984-01-20",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Master_max_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 183018657,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheMaster-Max/Master_max_512kb.mp4"
+        },
+        {
+          "archiveID": "TheMaster-OutofTimeStep",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Out-of-Time Step",
+          "overview": "On the trail of his daughter in San Francisco, McCallister and Max aid a nightclub owner against a ruthless Chinese syndicate.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/wnWWCOcv7NdCJDLdjI2gpW6qB64.jpg",
+          "airDate": "1984-01-27",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Master_OoTS_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 26458592,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheMaster-OutofTimeStep/Master_OoTS_512kb.mp4"
+        },
+        {
+          "archiveID": "TheMaster-StateOfTheUnion",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "State of the Union",
+          "overview": "After arriving in a coastal down, Max and the Master help a young girl, Kerry, set up a union in the local cannery despite the wishes of the owner.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/de656lK41utwU1MaZFARLOBqPCj.jpg",
+          "airDate": "1984-02-03",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Master_StateoftheUnion_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 197369148,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheMaster-StateOfTheUnion/Master_StateoftheUnion_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

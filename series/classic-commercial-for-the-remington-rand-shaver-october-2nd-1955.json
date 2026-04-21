@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "classic-commercial-for-the-remington-rand-shaver-october-2nd-1955",
+  "title": "Classic Commercial for the Remington Rand Shaver (October 2nd 1955) (Ad 3",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Remington1955",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Remington1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Commercial for the Remington Rand Shaver (October 2nd 1955) (Ad 3)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Remington1955",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 108,
+          "videoFile": {
+            "name": "RemingtonRandOctober2nd1955_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 7871749,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Remington1955/RemingtonRandOctober2nd1955_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

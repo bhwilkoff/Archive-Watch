@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "conan-the-adventurer-1960",
+  "title": "Conan the Adventurer",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Conan was created by Robert E. Howard, who wrote novels based on the legendary barbarian. This animated series follows the legendary barbarian as he struggles against Wrath-Amon and his legions of evil.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/bmaAXXZ4rvRw3LSuGQwtgtBVaM6.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/dF8BadDm9hMQaym4F4Usjs8u67o.jpg",
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": "Christian Choquet",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "conan-the-adventurer-s-01-e-01-the-heart-of-the-elephant-part-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Conan the Adventurer S01 1997",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/bmaAXXZ4rvRw3LSuGQwtgtBVaM6.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Conan the Adventurer S01E02 - The Heart of the Elephant Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 274149806,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/conan-the-adventurer-s-01-e-01-the-heart-of-the-elephant-part-2/Conan the Adventurer S01E02 - The Heart of the Elephant Part 2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

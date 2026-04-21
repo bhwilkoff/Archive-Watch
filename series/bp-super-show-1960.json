@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "seriesID": "bp-super-show-1960",
+  "title": "BP Super Show",
+  "yearStart": 1960,
+  "yearEnd": 1966,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bp-super-show-ella-fitzgerald",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bp-super-show-artur-rubinstein",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BP Super Show - Artur Rubinstein",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bp-super-show-artur-rubinstein",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1640,
+          "videoFile": {
+            "name": "BP Super Show - Artur Rubinstein.mp4",
+            "format": "h.264",
+            "sizeBytes": 168711622,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bp-super-show-artur-rubinstein/BP Super Show - Artur Rubinstein.mp4"
+        },
+        {
+          "archiveID": "bp-super-show-australian-ballet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BP Super Show - Australian Ballet",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bp-super-show-australian-ballet",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1605,
+          "videoFile": {
+            "name": "BP Super Show - Australian Ballet.mp4",
+            "format": "h.264",
+            "sizeBytes": 161688850,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bp-super-show-australian-ballet/BP Super Show - Australian Ballet.mp4"
+        },
+        {
+          "archiveID": "bp-super-show-ella-fitzgerald",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BP Super Show - Ella Fitzgerald",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bp-super-show-ella-fitzgerald",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 3064,
+          "videoFile": {
+            "name": "BP Super Show - Ella Fitzgerald.mp4",
+            "format": "h.264",
+            "sizeBytes": 293177928,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bp-super-show-ella-fitzgerald/BP Super Show - Ella Fitzgerald.mp4"
+        },
+        {
+          "archiveID": "bp-super-show-jill-perryman",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BP Super Show - Jill Perryman",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bp-super-show-jill-perryman",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2133,
+          "videoFile": {
+            "name": "BP Super Show - Jill Perryman.mp4",
+            "format": "h.264",
+            "sizeBytes": 217418190,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bp-super-show-jill-perryman/BP Super Show - Jill Perryman.mp4"
+        },
+        {
+          "archiveID": "bp-super-show-june-bronhill",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BP Super Show - June Bronhill",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bp-super-show-june-bronhill",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "BP Super Show - June Bronhill.mp4",
+            "format": "h.264",
+            "sizeBytes": 154092815,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bp-super-show-june-bronhill/BP Super Show - June Bronhill.mp4"
+        },
+        {
+          "archiveID": "bp-super-show-louis-armstrong",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BP Super Show - Louis Armstrong",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bp-super-show-louis-armstrong",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3348,
+          "videoFile": {
+            "name": "BP Super Show - Louis Armstrong.mp4",
+            "format": "h.264",
+            "sizeBytes": 347649134,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bp-super-show-louis-armstrong/BP Super Show - Louis Armstrong.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

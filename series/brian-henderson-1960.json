@@ -1,0 +1,2109 @@
+{
+  "version": 1,
+  "seriesID": "brian-henderson-1960",
+  "title": "Brian Henderson",
+  "yearStart": 1960,
+  "yearEnd": 1970,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/brian-hendersons-bandstand-1-february-1969",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "brian-hendersons-bandstand-1-february-1964",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 1 February 1964",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-1-february-1964",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 2443,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 1 February 1964.mp4",
+            "format": "h.264",
+            "sizeBytes": 244406051,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-1-february-1964/Brian Henderson's Bandstand - 1 February 1964.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-1-february-1969",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 1 February 1969",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-1-february-1969",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 3021,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 1 February 1969.mp4",
+            "format": "h.264",
+            "sizeBytes": 304349821,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-1-february-1969/Brian Henderson's Bandstand - 1 February 1969.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-1-january-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 1 January 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-1-january-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2971,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 1 January 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 299399431,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-1-january-1966/Brian Henderson's Bandstand - 1 January 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-10-april-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 10 April 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-10-april-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 2376,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 10 April 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 240174019,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-10-april-1963/Brian Henderson's Bandstand - 10 April 1963.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-10-february-1962",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 10 February 1962",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-10-february-1962",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2897,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 10 February 1962.mp4",
+            "format": "h.264",
+            "sizeBytes": 293698854,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-10-february-1962/Brian Henderson's Bandstand - 10 February 1962.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-11-february-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 11 February 1967",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-11-february-1967",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 3036,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 11 February 1967.mp4",
+            "format": "h.264",
+            "sizeBytes": 307271767,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-11-february-1967/Brian Henderson's Bandstand - 11 February 1967.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-11-march-1961",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 11 March 1961",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-11-march-1961",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 3389,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 11 March 1961.mp4",
+            "format": "h.264",
+            "sizeBytes": 346642842,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-11-march-1961/Brian Henderson's Bandstand - 11 March 1961.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-12-february-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 12 February 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-12-february-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2716,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 12 February 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 274042826,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-12-february-1966/Brian Henderson's Bandstand - 12 February 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-12-june-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 12 June 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-12-june-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2958,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 12 June 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 302289390,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-12-june-1965/Brian Henderson's Bandstand - 12 June 1965.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-12-march-1966_202405",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 12 March 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-12-march-1966_202405",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3149,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 12 March 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 315932570,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-12-march-1966_202405/Brian Henderson's Bandstand - 12 March 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-12-october-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 12 October 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-12-october-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 2278,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 12 October 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 230146051,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-12-october-1963/Brian Henderson's Bandstand - 12 October 1963.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-12-october-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 12 October 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-12-october-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 3203,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 12 October 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 321458253,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-12-october-1968/Brian Henderson's Bandstand - 12 October 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-13-august-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 13 August 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-13-august-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3038,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 13 August 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 305443685,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-13-august-1966/Brian Henderson's Bandstand - 13 August 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-13-february-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 13 February 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-13-february-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 2881,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 13 February 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 291002781,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-13-february-1963/Brian Henderson's Bandstand - 13 February 1963.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-13-february-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 13 February 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-13-february-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 3020,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 13 February 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 300373528,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-13-february-1965/Brian Henderson's Bandstand - 13 February 1965.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-13-january-1962",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 13 January 1962",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-13-january-1962",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2470,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 13 January 1962.mp4",
+            "format": "h.264",
+            "sizeBytes": 245773360,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-13-january-1962/Brian Henderson's Bandstand - 13 January 1962.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-13-january-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 13 January 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-13-january-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 3189,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 13 January 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 322041424,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-13-january-1968/Brian Henderson's Bandstand - 13 January 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-13-june-1964",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 13 June 1964",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-13-june-1964",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 2574,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 13 June 1964.mp4",
+            "format": "h.264",
+            "sizeBytes": 259190154,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-13-june-1964/Brian Henderson's Bandstand - 13 June 1964.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-13-june-1970",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 13 June 1970",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-13-june-1970",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2986,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 13 June 1970.mp4",
+            "format": "h.264",
+            "sizeBytes": 299902263,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-13-june-1970/Brian Henderson's Bandstand - 13 June 1970.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-14-august-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 14 August 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-14-august-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 3030,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 14 August 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 302076545,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-14-august-1965/Brian Henderson's Bandstand - 14 August 1965.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-14-december-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 14 December 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-14-december-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 2446,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 14 December 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 246317326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-14-december-1963/Brian Henderson's Bandstand - 14 December 1963.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-14-december-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 14 December 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-14-december-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 2747,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 14 December 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 278374300,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-14-december-1968/Brian Henderson's Bandstand - 14 December 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-14-july-1962",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 14 July 1962",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-14-july-1962",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 3460,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 14 July 1962.mp4",
+            "format": "h.264",
+            "sizeBytes": 354857896,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-14-july-1962/Brian Henderson's Bandstand - 14 July 1962.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-14-may-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 14 May 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-14-may-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3032,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 14 May 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 306771203,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-14-may-1966/Brian Henderson's Bandstand - 14 May 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-15-may-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 15 May 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-15-may-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2948,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 15 May 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 300111062,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-15-may-1965/Brian Henderson's Bandstand - 15 May 1965.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-16-april-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 16 April 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-16-april-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3065,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 16 April 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 309958946,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-16-april-1966/Brian Henderson's Bandstand - 16 April 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-16-july-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 16 July 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-16-july-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3339,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 16 July 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 335359731,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-16-july-1966/Brian Henderson's Bandstand - 16 July 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-16-march-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 16 March 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-16-march-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 2971,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 16 March 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 301002215,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-16-march-1968/Brian Henderson's Bandstand - 16 March 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-16-october-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 16 October 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-16-october-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 3060,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 16 October 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 308427269,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-16-october-1965/Brian Henderson's Bandstand - 16 October 1965.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-17-august-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 17 August 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-17-august-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 2948,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 17 August 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 297332969,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-17-august-1968/Brian Henderson's Bandstand - 17 August 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-17-june-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 17 June 1967",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-17-june-1967",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 3040,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 17 June 1967.mp4",
+            "format": "h.264",
+            "sizeBytes": 307278812,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-17-june-1967/Brian Henderson's Bandstand - 17 June 1967.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-17-november-1962",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 17 November 1962",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-17-november-1962",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2528,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 17 November 1962.mp4",
+            "format": "h.264",
+            "sizeBytes": 255066909,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-17-november-1962/Brian Henderson's Bandstand - 17 November 1962.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-18-december-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 18 December 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-18-december-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2980,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 18 December 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 300617123,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-18-december-1965/Brian Henderson's Bandstand - 18 December 1965.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-18-january-1969",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 18 January 1969",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-18-january-1969",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2769,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 18 January 1969.mp4",
+            "format": "h.264",
+            "sizeBytes": 277539930,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-18-january-1969/Brian Henderson's Bandstand - 18 January 1969.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-18-july-1970",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 18 July 1970",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-18-july-1970",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2675,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 18 July 1970.mp4",
+            "format": "h.264",
+            "sizeBytes": 269624710,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-18-july-1970/Brian Henderson's Bandstand - 18 July 1970.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-18-june-1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 18 June 1960",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-18-june-1960",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2605,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 18 June 1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 263957315,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-18-june-1960/Brian Henderson's Bandstand - 18 June 1960.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-18-june-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 18 June 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-18-june-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2926,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 18 June 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 292903261,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-18-june-1966/Brian Henderson's Bandstand - 18 June 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-18-may-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 18 May 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-18-may-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 3031,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 18 May 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 304358462,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-18-may-1968/Brian Henderson's Bandstand - 18 May 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-18-september-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 18 September 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-18-september-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 3032,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 18 September 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 302414548,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-18-september-1965/Brian Henderson's Bandstand - 18 September 1965.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-19-august-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 19 August 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-19-august-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 2744,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 19 August 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 279955128,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-19-august-1963/Brian Henderson's Bandstand - 19 August 1963.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-19-august-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 19 August 1967",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-19-august-1967",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 3216,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 19 August 1967.mp4",
+            "format": "h.264",
+            "sizeBytes": 329561544,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-19-august-1967/Brian Henderson's Bandstand - 19 August 1967.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-19-november-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 19 November 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-19-november-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2990,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 19 November 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 299651117,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-19-november-1966/Brian Henderson's Bandstand - 19 November 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-19-october-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 19 October 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-19-october-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3020,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 19 October 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 302089339,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-19-october-1963/Brian Henderson's Bandstand - 19 October 1963.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-19-october-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 19 October 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-19-october-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 2930,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 19 October 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 299944822,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-19-october-1968/Brian Henderson's Bandstand - 19 October 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-2-april-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 2 April 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-2-april-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3119,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 2 April 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 318723819,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-2-april-1966/Brian Henderson's Bandstand - 2 April 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-2-december-1961",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 2 December 1961",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-2-december-1961",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 2828,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 2 December 1961.mp4",
+            "format": "h.264",
+            "sizeBytes": 286703007,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-2-december-1961/Brian Henderson's Bandstand - 2 December 1961.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-2-july-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 2 July 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-2-july-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3075,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 2 July 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 307339130,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-2-july-1966/Brian Henderson's Bandstand - 2 July 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-2-november-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 2 November 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-2-november-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 3094,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 2 November 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 307446857,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-2-november-1968/Brian Henderson's Bandstand - 2 November 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-2-september-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 2 September 1967",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-2-september-1967",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2855,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 2 September 1967.mp4",
+            "format": "h.264",
+            "sizeBytes": 293214750,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-2-september-1967/Brian Henderson's Bandstand - 2 September 1967.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-20-august-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 20 August 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-20-august-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3089,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 20 August 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 314085845,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-20-august-1966/Brian Henderson's Bandstand - 20 August 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-20-january-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 20 January 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-20-january-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 3364,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 20 January 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 341653972,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-20-january-1968/Brian Henderson's Bandstand - 20 January 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-20-november-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 20 November 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-20-november-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 3257,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 20 November 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 332539930,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-20-november-1965/Brian Henderson's Bandstand - 20 November 1965.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-21-december-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 21 December 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-21-december-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 2724,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 21 December 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 274888560,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-21-december-1963/Brian Henderson's Bandstand - 21 December 1963.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-21-november-1964",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 21 November 1964",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-21-november-1964",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 2808,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 21 November 1964.mp4",
+            "format": "h.264",
+            "sizeBytes": 284347321,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-21-november-1964/Brian Henderson's Bandstand - 21 November 1964.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-21-october-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 21 October 1967",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-21-october-1967",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 3130,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 21 October 1967.mp4",
+            "format": "h.264",
+            "sizeBytes": 314500644,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-21-october-1967/Brian Henderson's Bandstand - 21 October 1967.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-22-july-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 22 July 1967",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-22-july-1967",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2986,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 22 July 1967.mp4",
+            "format": "h.264",
+            "sizeBytes": 303460305,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-22-july-1967/Brian Henderson's Bandstand - 22 July 1967.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-22-june-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 22 June 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-22-june-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 2802,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 22 June 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 284626676,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-22-june-1968/Brian Henderson's Bandstand - 22 June 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-22-may-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 22 May 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-22-may-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2845,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 22 May 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 292316899,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-22-may-1965/Brian Henderson's Bandstand - 22 May 1965.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-22-october-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 22 October 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-22-october-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2991,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 22 October 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 302776864,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-22-october-1966/Brian Henderson's Bandstand - 22 October 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-23-april-1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 23 April 1960",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-23-april-1960",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3385,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 23 April 1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 344234488,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-23-april-1960/Brian Henderson's Bandstand - 23 April 1960.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-23-july-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 23 July 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-23-july-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3005,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 23 July 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 304479386,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-23-july-1966/Brian Henderson's Bandstand - 23 July 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-23-may-1970_202304",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 23 May 1970",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-23-may-1970_202304",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2890,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 23 May 1970.mp4",
+            "format": "h.264",
+            "sizeBytes": 292005216,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-23-may-1970_202304/Brian Henderson's Bandstand - 23 May 1970.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-23-november-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 23 November 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-23-november-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 2989,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 23 November 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 300016454,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-23-november-1963/Brian Henderson's Bandstand - 23 November 1963.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-23-november-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 23 November 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-23-november-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 2571,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 23 November 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 260434599,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-23-november-1968/Brian Henderson's Bandstand - 23 November 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-24-april-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 24 April 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-24-april-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 2304,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 24 April 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 231735244,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-24-april-1963/Brian Henderson's Bandstand - 24 April 1963.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-24-december-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 24 December 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-24-december-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3079,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 24 December 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 308258429,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-24-december-1966/Brian Henderson's Bandstand - 24 December 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-24-september-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 24 September 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-24-september-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2912,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 24 September 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 293008395,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-24-september-1966/Brian Henderson's Bandstand - 24 September 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-25-may-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 25 May 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-25-may-1968",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2931,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 25 May 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 295685085,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-25-may-1968/Brian Henderson's Bandstand - 25 May 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-26-june-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 26 June 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-26-june-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2748,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 26 June 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 273545843,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-26-june-1965/Brian Henderson's Bandstand - 26 June 1965.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-26-may-1962",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 26 May 1962",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-26-may-1962",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2987,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 26 May 1962.mp4",
+            "format": "h.264",
+            "sizeBytes": 306977440,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-26-may-1962/Brian Henderson's Bandstand - 26 May 1962.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-27-november-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 27 November 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-27-november-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 3050,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 27 November 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 302222276,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-27-november-1965/Brian Henderson's Bandstand - 27 November 1965.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-27-october-1962",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 27 October 1962",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-27-october-1962",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2992,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 27 October 1962.mp4",
+            "format": "h.264",
+            "sizeBytes": 303758982,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-27-october-1962/Brian Henderson's Bandstand - 27 October 1962.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-28-january-1961",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 28 January 1961",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-28-january-1961",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 2432,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 28 January 1961.mp4",
+            "format": "h.264",
+            "sizeBytes": 246478163,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-28-january-1961/Brian Henderson's Bandstand - 28 January 1961.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-29-january-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 29 January 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-29-january-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3187,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 29 January 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 319321813,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-29-january-1966/Brian Henderson's Bandstand - 29 January 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-29-july-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 29 July 1967",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-29-july-1967",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2989,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 29 July 1967.mp4",
+            "format": "h.264",
+            "sizeBytes": 298320297,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-29-july-1967/Brian Henderson's Bandstand - 29 July 1967.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-29-october-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 29 October 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-29-october-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3065,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 29 October 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 312414208,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-29-october-1966/Brian Henderson's Bandstand - 29 October 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-3-august-1968_202406",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 3 August 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-3-august-1968_202406",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 3013,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 3 August 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 304296820,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-3-august-1968_202406/Brian Henderson's Bandstand - 3 August 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-3-february-1962",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 3 February 1962",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-3-february-1962",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2467,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 3 February 1962.mp4",
+            "format": "h.264",
+            "sizeBytes": 247873290,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-3-february-1962/Brian Henderson's Bandstand - 3 February 1962.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-3-july-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 3 July 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-3-july-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2934,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 3 July 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 296601724,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-3-july-1965/Brian Henderson's Bandstand - 3 July 1965.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-3-september-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 3 September 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-3-september-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2969,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 3 September 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 306015239,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-3-september-1966/Brian Henderson's Bandstand - 3 September 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-30-july-1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 30 July 1960",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-30-july-1960",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2468,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 30 July 1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 249998922,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-30-july-1960/Brian Henderson's Bandstand - 30 July 1960.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-30-march-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 30 March 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-30-march-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 3098,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 30 March 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 314954529,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-30-march-1968/Brian Henderson's Bandstand - 30 March 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-30-may-1964",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 30 May 1964",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-30-may-1964",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 2841,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 30 May 1964.mp4",
+            "format": "h.264",
+            "sizeBytes": 289108343,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-30-may-1964/Brian Henderson's Bandstand - 30 May 1964.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-31-august-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 31 August 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-31-august-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3207,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 31 August 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 322997449,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-31-august-1963/Brian Henderson's Bandstand - 31 August 1963.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-31-december-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 31 December 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-31-december-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3131,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 31 December 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 316259600,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-31-december-1966/Brian Henderson's Bandstand - 31 December 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-5-february-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 5 February 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-5-february-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3149,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 5 February 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 314456408,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-5-february-1966/Brian Henderson's Bandstand - 5 February 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-the-hollies",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 5 February 1970(?)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-the-hollies",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2723,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - The Hollies.mp4",
+            "format": "h.264",
+            "sizeBytes": 275704814,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-the-hollies/Brian Henderson's Bandstand - The Hollies.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-5-july-1969",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 5 July 1969",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-5-july-1969",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2911,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 5 July 1969.mp4",
+            "format": "h.264",
+            "sizeBytes": 298617784,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-5-july-1969/Brian Henderson's Bandstand - 5 July 1969.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-5-october-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 5 October 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-5-october-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 2949,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 5 October 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 301710242,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-5-october-1968/Brian Henderson's Bandstand - 5 October 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-6-february-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 6 February 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-6-february-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 2706,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 6 February 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 273272927,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-6-february-1963/Brian Henderson's Bandstand - 6 February 1963.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-6-january-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 6 January 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-6-january-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 3165,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 6 January 1968.mp4",
+            "format": "h.264",
+            "sizeBytes": 318791827,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-6-january-1968/Brian Henderson's Bandstand - 6 January 1968.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-6-june-1964",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 6 June 1964",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-6-june-1964",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 2744,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 6 June 1964.mp4",
+            "format": "h.264",
+            "sizeBytes": 276398573,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-6-june-1964/Brian Henderson's Bandstand - 6 June 1964.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-6-march-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 6 March 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-6-march-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 3103,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 6 March 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 308604248,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-6-march-1965/Brian Henderson's Bandstand - 6 March 1965.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-7-may-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 7 May 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-7-may-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3081,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 7 May 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 310524084,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-7-may-1966/Brian Henderson's Bandstand - 7 May 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-7-october-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 7 October 1967",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-7-october-1967",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 3112,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 7 October 1967.mp4",
+            "format": "h.264",
+            "sizeBytes": 314961923,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-7-october-1967/Brian Henderson's Bandstand - 7 October 1967.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-7-september-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 7 September 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-7-september-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 2672,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 7 September 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 269836969,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-7-september-1963/Brian Henderson's Bandstand - 7 September 1963.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-8-january-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 8 January 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-8-january-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3068,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 8 January 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 303481527,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-8-january-1966/Brian Henderson's Bandstand - 8 January 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-8-june-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 8 June 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-8-june-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 2875,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 8 June 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 292247592,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-8-june-1963/Brian Henderson's Bandstand - 8 June 1963.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-8-october-1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 8 October 1960",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-8-october-1960",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3227,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 8 October 1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 326950867,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-8-october-1960/Brian Henderson's Bandstand - 8 October 1960.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-8-october-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 8 October 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-8-october-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3070,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 8 October 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 305884699,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-8-october-1966/Brian Henderson's Bandstand - 8 October 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-9-july-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - 9 July 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-9-july-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3121,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 9 July 1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 316331736,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-9-july-1966/Brian Henderson's Bandstand - 9 July 1966.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-best-of-for-teanbeat",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - Best of for Teanbeat",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-best-of-for-teanbeat",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1416,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - Best of for Teanbeat.mp4",
+            "format": "h.264",
+            "sizeBytes": 143860502,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-best-of-for-teanbeat/Brian Henderson's Bandstand - Best of for Teanbeat.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-country-and-western-special-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - Country and Western Special",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-country-and-western-special-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3068,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - Country and Western Special [1963].mp4",
+            "format": "h.264",
+            "sizeBytes": 312057484,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-country-and-western-special-1963/Brian Henderson's Bandstand - Country and Western Special [1963].mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-helen-shapiro-as-guest-1969",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - Helen Shapiro as guest",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-helen-shapiro-as-guest-1969",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2952,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - Helen Shapiro as guest [1969].mp4",
+            "format": "h.264",
+            "sizeBytes": 298699340,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-helen-shapiro-as-guest-1969/Brian Henderson's Bandstand - Helen Shapiro as guest [1969].mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-moomba-festival-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - Moomba Festival",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-moomba-festival-1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3040,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - Moomba Festival [1963].mp4",
+            "format": "h.264",
+            "sizeBytes": 305197486,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-moomba-festival-1963/Brian Henderson's Bandstand - Moomba Festival [1963].mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-patsy-ann-nobles-final-show",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - Patsy Ann Noble's final show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-patsy-ann-nobles-final-show",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2423,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - Patsy Ann Noble's Final Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 246037312,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-patsy-ann-nobles-final-show/Brian Henderson's Bandstand - Patsy Ann Noble's Final Show.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-the-shadows-as-guest-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - The Shadows as guest",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-the-shadows-as-guest-1967",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2953,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - The Shadows as guest [1967].mp4",
+            "format": "h.264",
+            "sizeBytes": 295247216,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-the-shadows-as-guest-1967/Brian Henderson's Bandstand - The Shadows as guest [1967].mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-the-shadows-as-guest-2-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - The Shadows as guest (2)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-the-shadows-as-guest-2-1968",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 2967,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - The Shadows as guest (2) [1968].mp4",
+            "format": "h.264",
+            "sizeBytes": 300784961,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-the-shadows-as-guest-2-1968/Brian Henderson's Bandstand - The Shadows as guest (2) [1968].mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-unknown-airdate-no.-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - Unknown airdate No. 1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-unknown-airdate-no.-1",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2684,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - Unknown airdate No. 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 272342715,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-unknown-airdate-no.-1/Brian Henderson's Bandstand - Unknown airdate No. 1.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-unknown-airdate-no.-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - Unknown airdate No. 2",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-unknown-airdate-no.-2",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 2948,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - Unknown airdate No. 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 284176014,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-unknown-airdate-no.-2/Brian Henderson's Bandstand - Unknown airdate No. 2.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-unknown-airdate-no.-3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - Unknown airdate No. 3",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-unknown-airdate-no.-3",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2837,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - Unknown airdate No. 3.mp4",
+            "format": "h.264",
+            "sizeBytes": 288396645,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-unknown-airdate-no.-3/Brian Henderson's Bandstand - Unknown airdate No. 3.mp4"
+        },
+        {
+          "archiveID": "brians-hendersons-bandstand-unknown-airdate-no.-4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - Unknown airdate No. 4",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brians-hendersons-bandstand-unknown-airdate-no.-4",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2878,
+          "videoFile": {
+            "name": "Brian's Henderson's Bandstand - Unknown airdate No. 4.mp4",
+            "format": "h.264",
+            "sizeBytes": 288156795,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brians-hendersons-bandstand-unknown-airdate-no.-4/Brian's Henderson's Bandstand - Unknown airdate No. 4.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-unknown-airdate-no.-4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - Unknown airdate No. 5",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-unknown-airdate-no.-4",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2779,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - Unknown airdate No. 4.mp4",
+            "format": "h.264",
+            "sizeBytes": 282814163,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-unknown-airdate-no.-4/Brian Henderson's Bandstand - Unknown airdate No. 4.mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-unknown-airdate-no.-6-1962",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - Unknown airdate No. 6",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-unknown-airdate-no.-6-1962",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2875,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - Unknown airdate No. 6 [1962].mp4",
+            "format": "h.264",
+            "sizeBytes": 294453120,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-unknown-airdate-no.-6-1962/Brian Henderson's Bandstand - Unknown airdate No. 6 [1962].mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-viewers-choice-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand - Viewer's Choice",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-viewers-choice-2",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 3135,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - Viewer's Choice (2).mp4",
+            "format": "h.264",
+            "sizeBytes": 174365463,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-viewers-choice-2/Brian Henderson's Bandstand - Viewer's Choice (2).mp4"
+        },
+        {
+          "archiveID": "brian-hendersons-bandstand-24-july-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brian Henderson's Bandstand 24 July 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/brian-hendersons-bandstand-24-july-1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2855,
+          "videoFile": {
+            "name": "Brian Henderson's Bandstand - 24 July 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 290107706,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brian-hendersons-bandstand-24-july-1965/Brian Henderson's Bandstand - 24 July 1965.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 116
+}

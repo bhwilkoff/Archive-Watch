@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "geraldo-february-2-1989-2023",
+  "title": "Geraldo (February 2, 1989",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/geraldo-february-2-1989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "geraldo-february-2-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Geraldo (February 2, 1989)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/geraldo-february-2-1989",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Geraldo (February 2, 1989).mp4",
+            "format": "h.264",
+            "sizeBytes": 257369310,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/geraldo-february-2-1989/Geraldo (February 2, 1989).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

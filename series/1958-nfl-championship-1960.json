@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1958-nfl-championship-1960",
+  "title": "1958 NFL Championship",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1958NflChampionship",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1958NflChampionship",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1958 NFL Championship",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1958NflChampionship",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 9316,
+          "videoFile": {
+            "name": "1958NflChampionship.mp4",
+            "format": "h.264",
+            "sizeBytes": 962672588,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1958NflChampionship/1958NflChampionship.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

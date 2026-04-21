@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cupid-1998-99-all-15-eps-1998",
+  "title": "Cupid (1998-99) All 15 eps",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/cupid-tv-series",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cupid-tv-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cupid (1998-99) All 15 eps",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/cupid-tv-series",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cupid (1998) 1x00 - Pilot (Alternate & Extended Cut) (Unaired)- youtuber David Addison.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 275880767,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cupid-tv-series/Cupid (1998) 1x00 - Pilot (Alternate & Extended Cut) (Unaired)- youtuber David Addison.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

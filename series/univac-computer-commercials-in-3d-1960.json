@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "univac-computer-commercials-in-3d-1960",
+  "title": "UNIVAC Computer Commercials in 3D",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/UNIVAC-Computer-Commercials_3D",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "UNIVAC-Computer-Commercials_3D",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "UNIVAC Computer Commercials in 3D",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/UNIVAC-Computer-Commercials_3D",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "univac-commercial_3d_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 12938395,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/UNIVAC-Computer-Commercials_3D/univac-commercial_3d_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-jane-powell-show-1961",
+  "title": "The Jane Powell Show",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/theJanePowellShow-UnsoldPilot",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theJanePowellShow-UnsoldPilot",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Jane Powell Show'' - Unsold Pilot",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theJanePowellShow-UnsoldPilot",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1895,
+          "videoFile": {
+            "name": "thejanepowellshow.mp4",
+            "format": "h.264",
+            "sizeBytes": 196526019,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theJanePowellShow-UnsoldPilot/thejanepowellshow.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

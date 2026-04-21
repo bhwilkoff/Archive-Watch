@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "seriesID": "this-is-your-life-1953",
+  "title": "This is your Life",
+  "yearStart": 1953,
+  "yearEnd": 1958,
+  "overview": "This Is Your Life is an American television documentary series broadcast on NBC, originally hosted by its producer, Ralph Edwards from 1952 to 1961. In the show, the host surprises a guest, and proceeds to take them through their life in front of an audience, including special guest appearances by colleagues, friends and family.\n\nEdwards revived the show in 1971-72, while Joseph Campanella hosted a version in 1983. Edwards returned for some specials in the late 1980s, before his death in 2005. The show originated as a radio show on NBC Radio airing from 1948 to 1952.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/nLjkLp9D5udtgMd2UAweRrHRP9.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "this_is_your_life_duke_kahanamoku",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "This is Your Life: Duke Kahanamoku (Father of Surfing)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1489,
+          "videoFile": {
+            "name": "this_is_your_life_duke_kahanamoku.mp4",
+            "format": "h.264",
+            "sizeBytes": 144674671,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/this_is_your_life_duke_kahanamoku/this_is_your_life_duke_kahanamoku.mp4"
+        },
+        {
+          "archiveID": "this_is_your_life_samuel_g_fuqua",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "This is your Life: Rear Admiral Samuel G. Fuqua",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "this_is_your_life_samuel_g_fuqua.mp4",
+            "format": "h.264",
+            "sizeBytes": 156592236,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/this_is_your_life_samuel_g_fuqua/this_is_your_life_samuel_g_fuqua.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "this_is_your_life_hanna_bloch_kohner",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Hanna Bloch Kohner",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
+          "airDate": "1953-05-27",
+          "year": 1953,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "this_is_your_life_hanna_bloch_kohner.mp4",
+            "format": "h.264",
+            "sizeBytes": 148677223,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/this_is_your_life_hanna_bloch_kohner/this_is_your_life_hanna_bloch_kohner.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

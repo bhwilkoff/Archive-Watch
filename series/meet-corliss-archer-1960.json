@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "seriesID": "meet-corliss-archer-1960",
+  "title": "Meet Corliss Archer",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Meet Corliss Archer is an American sitcom that aired in syndication from April to December 1954. The series stars Ann Baker in the title role. The program was an adaptation of the radio series of the same name, which was based on a series of short stories by F. Hugh Herbert.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "meetCorlissArcher-HarryTheDictator",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - Harry the Dictator",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1556,
+          "videoFile": {
+            "name": "HarryTheDictator.mp4",
+            "format": "h.264",
+            "sizeBytes": 160646219,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-HarryTheDictator/HarryTheDictator.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-PresidentOfTheGardenClub",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - President of the Garden Club",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "PresidentoftheGardenClub1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 152063559,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-PresidentOfTheGardenClub/PresidentoftheGardenClub1954.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-ThePainInTheNeck",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - The Pain in the Neck",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1562,
+          "videoFile": {
+            "name": "PainInTheNeck1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 152520053,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-ThePainInTheNeck/PainInTheNeck1954.mp4"
+        },
+        {
+          "archiveID": "MeetCorlissArcher-DextersJob1954Sitcom",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Meet Corliss Archer - Dexter's Job (1954, Sitcom)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1568,
+          "videoFile": {
+            "name": "CorlissArcher1954Job.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150551978,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MeetCorlissArcher-DextersJob1954Sitcom/CorlissArcher1954Job.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "MeetCorlissArcher-miffysOvernightPainting",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Miffy's Overnight Painting",
+          "overview": "The Franklyns are having their house painted and the Archers invite them to stay at their house. But sometimes even best friends shouldn't be together for very long.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1555,
+          "videoFile": {
+            "name": "CorlissArcherOvernightPainting.mp4",
+            "format": "h.264",
+            "sizeBytes": 151306519,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MeetCorlissArcher-miffysOvernightPainting/CorlissArcherOvernightPainting.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

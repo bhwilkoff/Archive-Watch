@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-girl-with-something-extra-1973",
+  "title": "The Girl With Something Extra",
+  "yearStart": 1973,
+  "yearEnd": 1973,
+  "overview": "A woman's ability to read minds disrupts her marriage.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/8PqyB8qrEbuijiKxQtqnYIqvPlm.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/rgHaJ6a6eZC5eTo0KtVQw5onOLZ.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Bernard Slade",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "The-Girl-With-Something-Extra-1973",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Girl With Something Extra (1973) - Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8PqyB8qrEbuijiKxQtqnYIqvPlm.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E03 - A Gift for the Gifted.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 377838914,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The-Girl-With-Something-Extra-1973/S01E03 - A Gift for the Gifted.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

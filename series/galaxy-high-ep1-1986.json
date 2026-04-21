@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "galaxy-high-ep1-1986",
+  "title": "Galaxy High Ep1",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/galaxy-high-ep-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "galaxy-high-ep-1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Galaxy High Ep1 \"Welcome To Galaxy High\" (1986)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/galaxy-high-ep-1",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Galaxy High Ep 1 Welcome to Galaxy High.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 107833338,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/galaxy-high-ep-1/Galaxy High Ep 1 Welcome to Galaxy High.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

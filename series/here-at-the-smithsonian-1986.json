@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "here-at-the-smithsonian-1986",
+  "title": "Here at the Smithsonian",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/here-at-the-smithsonian-reaching-rural-america",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "here-at-the-smithsonian-reaching-rural-america",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Here at the Smithsonian - Reaching Rural America",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/here-at-the-smithsonian-reaching-rural-america",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Here at the Smithsonian - Reaching Rural America.mp4",
+            "format": "h.264",
+            "sizeBytes": 18214851,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/here-at-the-smithsonian-reaching-rural-america/Here at the Smithsonian - Reaching Rural America.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

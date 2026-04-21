@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sophia-loren-her-own-story-1980-pt-3-of-3-1960",
+  "title": "Sophia Loren Her Own Story (1980, pt. 3 Of 3",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SophiaLorenHerOwnStoryPt.3Of31980",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SophiaLorenHerOwnStoryPt.3Of31980",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sophia Loren Her Own Story (1980, pt. 3 Of 3)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SophiaLorenHerOwnStoryPt.3Of31980",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sophia Loren- Her Own Story (Pt. 3 of 3) (1980).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 176236009,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SophiaLorenHerOwnStoryPt.3Of31980/Sophia Loren- Her Own Story (Pt. 3 of 3) (1980).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

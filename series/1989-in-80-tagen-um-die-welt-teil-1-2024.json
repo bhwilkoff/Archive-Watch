@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1989-in-80-tagen-um-die-welt-teil-1-2024",
+  "title": "1989. In 80 Tagen um die Welt (Teil 1",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1989.-in-80-tagen-um-die-welt-teil-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1989.-in-80-tagen-um-die-welt-teil-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1989. In 80 Tagen um die Welt (Teil 1)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1989.-in-80-tagen-um-die-welt-teil-1",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1989. In 80 Tagen um die Welt (Teil 1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 774402438,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1989.-in-80-tagen-um-die-welt-teil-1/1989. In 80 Tagen um die Welt (Teil 1).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

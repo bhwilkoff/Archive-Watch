@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "quark-pilot-ep-1-1977",
+  "title": "QUARK (PILOT) EP 1",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/quark-tv-show",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "quark-tv-show",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "QUARK (PILOT) EP 1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/quark-tv-show",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "s01e01 Quark DVDRip XviD TVV - YouTube - Copy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76036688,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/quark-tv-show/s01e01 Quark DVDRip XviD TVV - YouTube - Copy.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

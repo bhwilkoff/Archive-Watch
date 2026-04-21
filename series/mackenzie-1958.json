@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "seriesID": "mackenzie-1958",
+  "title": "Mackenzie",
+  "yearStart": 1958,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/mackenzies-raiders-tv-1958-colorized-s01e01",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "mackenzies-raiders-tv-1958-colorized-s01e01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Mackenzie's Raiders TV 1958 colorized s01e01",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/mackenzies-raiders-tv-1958-colorized-s01e01",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mackenzies Raiders TV 1958 colorized s01e01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 166367303,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mackenzies-raiders-tv-1958-colorized-s01e01/Mackenzies Raiders TV 1958 colorized s01e01.mp4"
+        },
+        {
+          "archiveID": "mackenzies-raiders-tv-1958-colorized-s01e02-the-long-day",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Mackenzie's Raiders TV 1958 colorized s01e02 The Long Day",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/mackenzies-raiders-tv-1958-colorized-s01e02-the-long-day",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mackenzies Raiders TV 1958 colorized s01e02 The Long Day.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 256648534,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mackenzies-raiders-tv-1958-colorized-s01e02-the-long-day/Mackenzies Raiders TV 1958 colorized s01e02 The Long Day.mp4"
+        },
+        {
+          "archiveID": "mackenzies-raiders-tv-1958-s01e03-death-by-the-numbers",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Mackenzie's Raiders TV 1958 colorized s01e03 Death by the Numbers",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/mackenzies-raiders-tv-1958-s01e03-death-by-the-numbers",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mackenzies Raiders TV 1958 colorized s01e03 Death by the Numbers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 274767177,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mackenzies-raiders-tv-1958-s01e03-death-by-the-numbers/Mackenzies Raiders TV 1958 colorized s01e03 Death by the Numbers.mp4"
+        },
+        {
+          "archiveID": "mackenzies-raiders-tv-1958-colorized-s01e04-indian-agent",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Mackenzie's Raiders TV 1958 colorized s01e04 Indian Agent",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/mackenzies-raiders-tv-1958-colorized-s01e04-indian-agent",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mackenzies Raiders TV 1958 colorized s01e04 Indian Agent.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 188356597,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mackenzies-raiders-tv-1958-colorized-s01e04-indian-agent/Mackenzies Raiders TV 1958 colorized s01e04 Indian Agent.mp4"
+        },
+        {
+          "archiveID": "mackenzies-raiders-tv-1958-colorized-s01e05-deadly-mirror",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Mackenzie's Raiders TV 1958 colorized s01e05 Deadly Mirror",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/mackenzies-raiders-tv-1958-colorized-s01e05-deadly-mirror",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mackenzies Raiders TV 1958 colorized s01e05 Deadly Mirror.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 193563346,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mackenzies-raiders-tv-1958-colorized-s01e05-deadly-mirror/Mackenzies Raiders TV 1958 colorized s01e05 Deadly Mirror.mp4"
+        },
+        {
+          "archiveID": "mackenzies-raiders-tv-1958-colorized-s01e07-hostage",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Mackenzie's Raiders TV 1958 colorized s01e07 Hostage",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/mackenzies-raiders-tv-1958-colorized-s01e07-hostage",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mackenzies Raiders TV 1958 colorized s01e07 Hostage.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 309164913,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mackenzies-raiders-tv-1958-colorized-s01e07-hostage/Mackenzies Raiders TV 1958 colorized s01e07 Hostage.mp4"
+        },
+        {
+          "archiveID": "mackenzies-raiders-tv-1958-colorized-s01e13-the-impostor",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Mackenzie's Raiders TV 1958 colorized s01e13 The Impostor",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/mackenzies-raiders-tv-1958-colorized-s01e13-the-impostor",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mackenzies Raiders TV 1958 colorized s01e13 The Impostor.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 236377905,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mackenzies-raiders-tv-1958-colorized-s01e13-the-impostor/Mackenzies Raiders TV 1958 colorized s01e13 The Impostor.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

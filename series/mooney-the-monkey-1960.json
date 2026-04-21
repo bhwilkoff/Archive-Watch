@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "mooney-the-monkey-1960",
+  "title": "Mooney The Monkey",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TLS_Mooney_The_Monkey",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TLS_Mooney_The_Monkey",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mooney The Monkey",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TLS_Mooney_The_Monkey",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TLS_Mooney_The_Monkey.mp4",
+            "format": "h.264",
+            "sizeBytes": 147855913,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TLS_Mooney_The_Monkey/TLS_Mooney_The_Monkey.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

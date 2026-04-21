@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "have-gun-will-travel-tv-1961-colorized-1961",
+  "title": "Have Gun Will Travel TV 1961 colorized",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/have-gun-will-travel-tv-1961-s04e35-the-cure",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "have-gun-will-travel-tv-1961-s04e35-the-cure",
+          "seasonNumber": 4,
+          "episodeNumber": 35,
+          "title": "Have Gun Will Travel TV 1961 colorized s04e35 The Cure",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/have-gun-will-travel-tv-1961-s04e35-the-cure",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Have Gun Will Travel TV 1961 colorized s04e35 The Cure.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 236113159,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/have-gun-will-travel-tv-1961-s04e35-the-cure/Have Gun Will Travel TV 1961 colorized s04e35 The Cure.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

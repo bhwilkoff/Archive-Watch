@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "rising_damp_-1975",
+  "title": "Rising_Damp_",
+  "yearStart": 1975,
+  "yearEnd": 1977,
+  "overview": "Set in a seedy bedsit, the cowardly landlord Rigsby has his conceits debunked by his long suffering tenants.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1f0Jyqy4sVNn5rf36n4ldcltLN7.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/rWVnBISxGmwgK8JBY9YW8c4RuC4.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Eric Chappell",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Rising_Damp_Series_02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Rising_Damp_Series-02",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1f0Jyqy4sVNn5rf36n4ldcltLN7.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 1 The Permissive Society.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 117096601,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Rising_Damp_Series_02/Episode 1 The Permissive Society.ogv"
+        },
+        {
+          "archiveID": "Rising_Damp_Series_03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Rising_Damp_Series-03",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1f0Jyqy4sVNn5rf36n4ldcltLN7.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 5 Stage Struck.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 114186997,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Rising_Damp_Series_03/Episode 5 Stage Struck.ogv"
+        },
+        {
+          "archiveID": "Rising_Damp_Series-04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Rising_Damp_Series-04",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1f0Jyqy4sVNn5rf36n4ldcltLN7.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 5 Under the influence.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 113949909,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Rising_Damp_Series-04/Episode 5 Under the influence.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

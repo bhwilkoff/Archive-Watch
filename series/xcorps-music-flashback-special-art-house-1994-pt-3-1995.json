@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "xcorps-music-flashback-special-art-house-1994-pt-3-1995",
+  "title": "Xcorps MUSIC Flashback SPECIAL Art House 1994 – pt. 3",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/XcorpsArtHousePart3",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "XcorpsArtHousePart3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Xcorps MUSIC Flashback SPECIAL Art House 1994 – pt. 3 - The Joel Rafael Band",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/XcorpsArtHousePart3",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "XcorpsArtHousePart3.mp4",
+            "format": "h.264",
+            "sizeBytes": 42388202,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/XcorpsArtHousePart3/XcorpsArtHousePart3.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

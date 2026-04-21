@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "on-the-buses-1969-73-full-1960",
+  "title": "ON THE BUSES (1969-73) (Full",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/on-the-buses-1969-73",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "on-the-buses-1969-73",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ON THE BUSES (1969-73) (Full Series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/on-the-buses-1969-73",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ON THE BUSES (69-73)/101.On The Buses...The early shifts.mp4",
+            "format": "h.264",
+            "sizeBytes": 150147537,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/on-the-buses-1969-73/ON THE BUSES (69-73)/101.On The Buses...The early shifts.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

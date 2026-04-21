@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-day-in-the-life-of-the-editor-window-on-main-street-1962",
+  "title": "A Day in the Life of the Editor (Window on Main Street",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Day_in_Life_of_Editor--Window_on_Main",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Day_in_Life_of_Editor--Window_on_Main",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Day in the Life of the Editor (Window on Main Street)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Day_in_Life_of_Editor--Window_on_Main",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "Day_in_Life_of_Editor.mp4",
+            "format": "h.264",
+            "sizeBytes": 156447507,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Day_in_Life_of_Editor--Window_on_Main/Day_in_Life_of_Editor.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

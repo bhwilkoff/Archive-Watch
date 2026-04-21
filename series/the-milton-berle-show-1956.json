@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "the-milton-berle-show-1956",
+  "title": "The Milton Berle Show",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/theMiltonBerleShow-3April1956",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "berle24April1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Milton Berle Show - 24 April 1956",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/berle24April1956",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 3434,
+          "videoFile": {
+            "name": "berle24April1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 357471666,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/berle24April1956/berle24April1956.mp4"
+        },
+        {
+          "archiveID": "theMiltonBerleShow-13March1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Milton Berle Show'' - 13 March 1956",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theMiltonBerleShow-13March1956",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 3568,
+          "videoFile": {
+            "name": "TheMiltonBerleShow13March1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 370534587,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theMiltonBerleShow-13March1956/TheMiltonBerleShow13March1956.mp4"
+        },
+        {
+          "archiveID": "theMiltonBerleShow-3April1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Milton Berle Show'' - 3 April 1956",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theMiltonBerleShow-3April1956",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 3547,
+          "videoFile": {
+            "name": "TheMiltonBerleShow3April1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 368361171,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theMiltonBerleShow-3April1956/TheMiltonBerleShow3April1956.mp4"
+        },
+        {
+          "archiveID": "MiltonBerleMickeyRooneyPeggyKing",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Milton Berle Show'' - 8 May 1956",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MiltonBerleMickeyRooneyPeggyKing",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 3537,
+          "videoFile": {
+            "name": "MiltonBerle8May1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 367424471,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MiltonBerleMickeyRooneyPeggyKing/MiltonBerle8May1956.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

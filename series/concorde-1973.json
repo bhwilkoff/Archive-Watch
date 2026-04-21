@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "concorde-1973",
+  "title": "Concorde",
+  "yearStart": 1973,
+  "yearEnd": 1973,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/concorde-the-24-hour-world",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "concorde-the-24-hour-world",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Concorde - The 24 Hour World",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/concorde-the-24-hour-world",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Concorde - The 24 Hour World.mp4",
+            "format": "h.264",
+            "sizeBytes": 154066464,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/concorde-the-24-hour-world/Concorde - The 24 Hour World.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

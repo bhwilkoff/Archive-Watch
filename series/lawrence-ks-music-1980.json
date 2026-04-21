@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lawrence-ks-music-1980",
+  "title": "Lawrence, KS Music",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/biabh-thumbs-method-roger-bain",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "biabh-thumbs-method-roger-bain",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lawrence, KS Music - The Thumbs, The Method, and Roger Bain 1980",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/biabh-thumbs-method-roger-bain",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BIABH-ThumbsMethodRogerBain.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 382755338,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/biabh-thumbs-method-roger-bain/BIABH-ThumbsMethodRogerBain.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

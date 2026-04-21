@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "the-nativity-westinghouse-studio-one-1952",
+  "title": "The Nativity (Westinghouse Studio One",
+  "yearStart": 1952,
+  "yearEnd": 1952,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/2k2AAnURYfIKLsmxo4nIj0Qm9Dp.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "TV Movie"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Nativity",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Nativity (Westinghouse Studio One)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2k2AAnURYfIKLsmxo4nIj0Qm9Dp.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 3566,
+          "videoFile": {
+            "name": "Nativity_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 258838522,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Nativity/Nativity_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

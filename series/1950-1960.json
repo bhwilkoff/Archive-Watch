@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "seriesID": "1950-1960",
+  "title": "1950",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/siIXf8E4IcmmmhLFtUP0UYCJ2jo.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1950sPopularCulturecavalcadeOfAmericaEpisodechicago2-1-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950's Popular Culture: ''Cavalcade of America'' Episode ''Chicago 2-1-2''",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/siIXf8E4IcmmmhLFtUP0UYCJ2jo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "Chicago212.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149171316,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1950sPopularCulturecavalcadeOfAmericaEpisodechicago2-1-2/Chicago212.ia.mp4"
+        },
+        {
+          "archiveID": "WinkyDinkAndYou1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950's Popular Culture: ''Winky Dink and You'' (Unknown date)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/siIXf8E4IcmmmhLFtUP0UYCJ2jo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1713,
+          "videoFile": {
+            "name": "WinkyDinkandYou.mp4",
+            "format": "h.264",
+            "sizeBytes": 165429117,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/WinkyDinkAndYou1/WinkyDinkandYou.mp4"
+        },
+        {
+          "archiveID": "1950sTelevisionCommercialBlueMagicCheerad1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950's Television Commercial: Blue Magic Cheer (Ad 1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/siIXf8E4IcmmmhLFtUP0UYCJ2jo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 62,
+          "videoFile": {
+            "name": "BlueCheer_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4421651,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1950sTelevisionCommercialBlueMagicCheerad1/BlueCheer_512kb.mp4"
+        },
+        {
+          "archiveID": "VOICE_YBYL",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950's Television: ''You Bet Your Life'' - Secret Word: Voice",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/siIXf8E4IcmmmhLFtUP0UYCJ2jo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1769,
+          "videoFile": {
+            "name": "YouBetYourLifeVoice.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 171774736,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/VOICE_YBYL/YouBetYourLifeVoice.ia.mp4"
+        },
+        {
+          "archiveID": "1950sVarietySeriescolgateComedyHouraired231952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950's Variety Series ''Colgate Comedy Hour'' (Aired 2/3/1952)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/siIXf8E4IcmmmhLFtUP0UYCJ2jo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3573,
+          "videoFile": {
+            "name": "ColgateComedyHour-23-1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 344322375,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1950sVarietySeriescolgateComedyHouraired231952/ColgateComedyHour-23-1952.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

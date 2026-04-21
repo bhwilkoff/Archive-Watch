@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "short-film-winners-1962-oscars-1962",
+  "title": "Short Film Winners： 1962 Oscars",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/short-film-winners-1962-oscars",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "short-film-winners-1962-oscars",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Short Film Winners： 1962 Oscars",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/short-film-winners-1962-oscars",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Short Film Winners： 1962 Oscars.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 17822226,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/short-film-winners-1962-oscars/Short Film Winners： 1962 Oscars.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

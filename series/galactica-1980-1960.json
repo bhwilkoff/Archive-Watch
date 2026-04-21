@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "galactica-1980-1960",
+  "title": "Galactica 1980",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "30 years after the original Battlestar Galactica series. Upon reaching Earth, the inhabitants of the renegade starfleet take action when they realize earthlings aren't advanced enough to help battle the Cylons.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/spBhYAvmJnP6wSxT1omQn7TZwoY.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/wkDfLFxtPMvLEPoGGyHwNaJS5Ur.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Glen A. Larson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "s-02-e-07-e-08-tha-night-the-cylons-landed",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Galactica 1980",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/spBhYAvmJnP6wSxT1omQn7TZwoY.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S02E07 E08 Tha Night The Cylons Landed.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 151064633,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-07-e-08-tha-night-the-cylons-landed/S02E07 E08 Tha Night The Cylons Landed.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

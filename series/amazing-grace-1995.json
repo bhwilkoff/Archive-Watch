@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "amazing-grace-1995",
+  "title": "Amazing Grace",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/415/1039617.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "amazing-grace-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Amazing Grace - Patty Duke, Marguerite Moreau",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/415/1039617.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amazing Grace - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 386067059,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amazing-grace-1.1/Amazing Grace - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

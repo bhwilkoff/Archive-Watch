@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "buck-rogers-movie-intro-1979",
+  "title": "Buck Rogers Movie Intro",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/buck-rogers-in-the-25th-century-1979",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "buck-rogers-in-the-25th-century-1979",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Buck Rogers Movie Intro (1979)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/buck-rogers-in-the-25th-century-1979",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Buck Rogers In The 25th Century (1979)-NA_Segment_0_x264_004.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 13767907,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/buck-rogers-in-the-25th-century-1979/Buck Rogers In The 25th Century (1979)-NA_Segment_0_x264_004.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

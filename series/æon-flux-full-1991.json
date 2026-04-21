@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "æon-flux-full-1991",
+  "title": "Æon Flux Full",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/aeonfluxfullseries",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "aeonfluxfullseries",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Æon Flux Full Series",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/aeonfluxfullseries",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S 1 EP 1.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 72324356,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/aeonfluxfullseries/S 1 EP 1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

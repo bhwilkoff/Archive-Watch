@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-traitor-1960",
+  "title": "The Traitor",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The entertainment industry’s most competitive reality stars and famous faces play the ultimate murder mystery game. Hosted by award-winning actor Alan Cumming at an ancient castle set deep in the Scottish Highlands, contestants work together on a series of exhilarating missions to build a prize fund worth up to $250,000. Hidden amongst the Faithful are the Traitors, whose goal is to eliminate the Faithful and claim the prize for themselves.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/xWK9tLH2UGgzuAI6P3cHeTKopfj.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/akY5bMj3g76EOaliNLdOJI9kBPb.jpg",
+  "genres": [],
+  "networks": [
+    "Peacock"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_35_The_Traitor",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Traitor",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xWK9tLH2UGgzuAI6P3cHeTKopfj.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_35_The_Traitor.mp4",
+            "format": "h.264",
+            "sizeBytes": 149921269,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_35_The_Traitor/Robin_Hood_35_The_Traitor.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

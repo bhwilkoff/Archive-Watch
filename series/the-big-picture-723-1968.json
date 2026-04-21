@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-big-picture-723-1968",
+  "title": "The Big Picture 723",
+  "yearStart": 1968,
+  "yearEnd": 1968,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheBigPicture723",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheBigPicture723",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture 723: When The Chips Are Down",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheBigPicture723",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Big Picture 723 When the Chips Are Down Bob Hope.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 123810248,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBigPicture723/The Big Picture 723 When the Chips Are Down Bob Hope.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

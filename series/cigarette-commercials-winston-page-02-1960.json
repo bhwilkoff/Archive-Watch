@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cigarette-commercials-winston-page-02-1960",
+  "title": "Cigarette Commercials Winston page 02",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Cigarette_Commercials_Winston_02",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cigarette_Commercials_Winston_02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cigarette Commercials Winston page 02",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Cigarette_Commercials_Winston_02",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Commercial_Winston_Cigarettes_Antique_Car_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4435744,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cigarette_Commercials_Winston_02/Commercial_Winston_Cigarettes_Antique_Car_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

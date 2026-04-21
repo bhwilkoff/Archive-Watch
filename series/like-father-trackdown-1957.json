@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "like-father-trackdown-1957",
+  "title": "Like Father (Trackdown",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Trackdown_1-05_Like_Father",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Trackdown_1-05_Like_Father",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Like Father (Trackdown)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Trackdown_1-05_Like_Father",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1372,
+          "videoFile": {
+            "name": "Trackdown_1-05_Like_Father.mp4",
+            "format": "h.264",
+            "sizeBytes": 142129697,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Trackdown_1-05_Like_Father/Trackdown_1-05_Like_Father.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "pows-pawns-of-war-1971",
+  "title": "POWs Pawns Of War",
+  "yearStart": 1971,
+  "yearEnd": 1971,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/POWSPawnsOfWar1971",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "POWSPawnsOfWar1971",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "POWs Pawns Of War",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/POWSPawnsOfWar1971",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CBS Reports Part I POWs Pawns Of War 1971-06-22.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 120677711,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/POWSPawnsOfWar1971/CBS Reports Part I POWs Pawns Of War 1971-06-22.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

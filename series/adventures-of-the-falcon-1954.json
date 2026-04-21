@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "adventures-of-the-falcon-1954",
+  "title": "Adventures Of The Falcon",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/2L9JkrFwqMTvZQ25Hz83qv6CN6u.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/hIa11Q0hQc8Jncm3VLsoDCaVFwA.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "adventures-of-the-falcon-s-01-e-20-the-guilty-stamps-11-xx-54",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Guilty Stamps",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2L9JkrFwqMTvZQ25Hz83qv6CN6u.jpg",
+          "airDate": "1954-11-04",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Adventures Of The Falcon-S01E20-The Guilty Stamps 11-xx-54.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150517027,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/adventures-of-the-falcon-s-01-e-20-the-guilty-stamps-11-xx-54/Adventures Of The Falcon-S01E20-The Guilty Stamps 11-xx-54.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

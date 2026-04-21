@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-ryan-white-story-1988",
+  "title": "The Ryan White Story",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ryan-white-story-1988",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ryan-white-story-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Ryan White Story - Judith Light, Lukas Haas",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ryan-white-story-1988",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ryan White Story - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2895135101,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ryan-white-story-1988/Ryan White Story - 1988.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

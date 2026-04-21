@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "candid-camera-1953",
+  "title": "Candid Camera",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": "Candid Camera is an American hidden camera/practical joke reality television series created and produced by Allen Funt, which initially began on radio as Candid Microphone June 28, 1947. After a series of theatrical film shorts, also titled Candid Microphone, Funt's concept came to television on August 10, 1948. The show last aired  for 10 episodes in 2014 on the TV Land network. A documentary about Allen Funt is currently in the works by the Candid Camera crew.\n\nThe format has appeared on U.S. TV networks and in syndication in each succeeding decade, as either a regular show or a series of specials. Allen Funt himself hosted or co-hosted almost all of the TV versions until a 1993 stroke from which he never recovered. His son Peter Funt, who had co-hosted the specials with his father since 1987, became the producer and host.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC",
+    "NBC"
+  ],
+  "creator": "Allen Funt",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CandidCamera1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Candid Camera'' - Misc 1953 episode",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1541,
+          "videoFile": {
+            "name": "CandidCamera1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 159429812,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CandidCamera1953/CandidCamera1953.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-garry-moore-show-1961",
+  "title": "The Garry Moore Show",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": "The Garry Moore Show is the name for several separate American variety series on the CBS television network in the 1950s and 1960s. Hosted by experienced radio performer, Garry Moore, the series helped launch the careers of many comedic talents, such as Dorothy Loudon, Don Adams, George Gobel, Carol Burnett, Don Knotts, Lee Goodman, James Kirkwood, Jr. and Jonathan Winters. The Garry Moore Show garnered a number of Emmy nominations and wins.",
+  "posterURL": null,
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tLwvRtVVAtSsR3cYcJeEn6l0SPJ.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Garry Moore",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "garrymoore3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Garry Moore Show\" - Misc episode of unknown date",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 866,
+          "videoFile": {
+            "name": "garrymoore3.mp4",
+            "format": "h.264",
+            "sizeBytes": 90152057,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/garrymoore3/garrymoore3.mp4"
+        },
+        {
+          "archiveID": "Garry_Moore_Show_19610418",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Garry Moore Show: 1961-04-18",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Garry_Moore_Show_1961-04-18.mp4",
+            "format": "h.264",
+            "sizeBytes": 301907357,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Garry_Moore_Show_19610418/Garry_Moore_Show_1961-04-18.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

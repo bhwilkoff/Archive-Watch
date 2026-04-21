@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "playboy-inside-out-4-1992",
+  "title": "Playboy Inside Out 4",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/playboy-inside-out-4",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "playboy-inside-out-4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Playboy Inside Out 4",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/playboy-inside-out-4",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PlayboyInsideOut4.mp4",
+            "format": "h.264",
+            "sizeBytes": 557423247,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-inside-out-4/PlayboyInsideOut4.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

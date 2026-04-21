@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "milton-berle-as-guest-1960",
+  "title": "Milton Berle as Guest",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MiltonBerleAsGuest",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MiltonBerleAsGuest",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Milton Berle as Guest",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MiltonBerleAsGuest",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1504,
+          "videoFile": {
+            "name": "JackBenny-MiltonBerleAsGuest.mp4",
+            "format": "h.264",
+            "sizeBytes": 151435157,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MiltonBerleAsGuest/JackBenny-MiltonBerleAsGuest.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

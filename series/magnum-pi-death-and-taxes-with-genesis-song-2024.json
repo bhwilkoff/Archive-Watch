@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "magnum-pi-death-and-taxes-with-genesis-song-2024",
+  "title": "Magnum P.I. Death And Taxes with Genesis Song",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/magnum-pi-death-and-taxes-genesis-song-mama-1986-s-7-e-5-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "magnum-pi-death-and-taxes-genesis-song-mama-1986-s-7-e-5-1",
+          "seasonNumber": 7,
+          "episodeNumber": 5,
+          "title": "Magnum P.I. Death And Taxes with Genesis Song \"Mama\" in Episode 1986 S7E5",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/magnum-pi-death-and-taxes-genesis-song-mama-1986-s-7-e-5-1",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Magnum PI Death and Taxes Genesis Song Mama 1986 S7E5 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 29427693,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/magnum-pi-death-and-taxes-genesis-song-mama-1986-s-7-e-5-1/Magnum PI Death and Taxes Genesis Song Mama 1986 S7E5 1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

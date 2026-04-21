@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-morning-program-at-disneyland-1987",
+  "title": "The Morning Program at Disneyland",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-morning-program-disney-world-1987",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-morning-program-disney-world-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Morning Program at Disneyland - Bob Saget",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-morning-program-disney-world-1987",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Morning Program - Disney World - 1987.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 455870109,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-morning-program-disney-world-1987/The Morning Program - Disney World - 1987.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

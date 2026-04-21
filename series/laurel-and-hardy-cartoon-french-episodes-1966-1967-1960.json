@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "laurel-and-hardy-cartoon-french-episodes-1966-1967-1960",
+  "title": "Laurel and Hardy Cartoon French Episodes (1966-1967",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/laurelandhardycartoonfrench",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "laurelandhardycartoonfrench",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Laurel and Hardy Cartoon French Episodes (1966-1967)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/laurelandhardycartoonfrench",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "005. Missile Hassle (French).mp4",
+            "format": "h.264",
+            "sizeBytes": 28753950,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/laurelandhardycartoonfrench/005. Missile Hassle (French).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

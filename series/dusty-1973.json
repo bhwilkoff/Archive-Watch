@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "seriesID": "dusty-1973",
+  "title": "Dusty",
+  "yearStart": 1973,
+  "yearEnd": 1973,
+  "overview": "Dusty Springfield hosts her 1960s variety show series with special guests.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/jK9HQPqgMUYFOvY9deWhdbCkhUh.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dusty_5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Dusty's Trail' - Cavalry's Coming",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dustys_Trail_5.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 138066474,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dusty_5/Dustys_Trail_5.ia.mp4"
+        },
+        {
+          "archiveID": "Dustys_Trail_3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Dusty's Trail' - Here Come the Grooms (Classic TV) (70's Sitcom)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dustys_Trail_3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136184611,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dustys_Trail_3/Dustys_Trail_3.ia.mp4"
+        },
+        {
+          "archiveID": "Dustys_Trail_4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Dusty's Trail' - Horse of Another Color (Classic TV) (70's Sitcom)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dustys_Trail_4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136108321,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dustys_Trail_4/Dustys_Trail_4.ia.mp4"
+        },
+        {
+          "archiveID": "DustysTrailPhoneyExpress",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dusty's Trail Phoney Express",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dusty's Trail - Phoney Express.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 95496907,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DustysTrailPhoneyExpress/Dusty's Trail - Phoney Express.ogv"
+        },
+        {
+          "archiveID": "DustysTrailTheresNothingLikeADame",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dusty's Trail There's Nothing Like A Dame",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dusty's Trail There's Nothing Like A Dame.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 107142582,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DustysTrailTheresNothingLikeADame/Dusty's Trail There's Nothing Like A Dame.ogv"
+        },
+        {
+          "archiveID": "DustysTrailTomahawkTerritory",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dusty's Trail Tomahawk Territory",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dusty's Trail Tomahawk Territory.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 104737536,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DustysTrailTomahawkTerritory/Dusty's Trail Tomahawk Territory.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

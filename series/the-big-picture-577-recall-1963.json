@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-big-picture-577-recall-1963",
+  "title": "The Big Picture #577 Recall",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheBigPicture577Recall1963",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheBigPicture577Recall1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture #577 Recall",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheBigPicture577Recall1963",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Big Picture 577 - Recall 1963.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 126933687,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBigPicture577Recall1963/The Big Picture 577 - Recall 1963.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

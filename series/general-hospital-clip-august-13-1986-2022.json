@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "general-hospital-clip-august-13-1986-2022",
+  "title": "General Hospital clip (August 13, 1986",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/general-hospital-clip-august-13-1986",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "general-hospital-clip-august-13-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "General Hospital clip (August 13, 1986)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/general-hospital-clip-august-13-1986",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "General Hospital clip (August 13, 1986).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 280211595,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/general-hospital-clip-august-13-1986/General Hospital clip (August 13, 1986).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

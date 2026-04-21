@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "martin-kane-private-eye-1960",
+  "title": "MARTIN KANE, PRIVATE EYE",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Martin Kane, Private Eye was an early radio series and television crime series sponsored by United States Tobacco Company.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/zVcXekcf6LefEAtHlRsc1HpC1NL.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "martinKanePrivateEyeBlackPearls",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Martin Kane, Private Eye\" - Black Pearls",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zVcXekcf6LefEAtHlRsc1HpC1NL.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Martin_Kane_Black_Pearls_3_27_52.mp4",
+            "format": "h.264",
+            "sizeBytes": 157788589,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/martinKanePrivateEyeBlackPearls/Martin_Kane_Black_Pearls_3_27_52.mp4"
+        },
+        {
+          "archiveID": "MartinKanePrivateEye-TheDistrictAttorneyKiller",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "MARTIN KANE, PRIVATE EYE - The District Attorney Killer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zVcXekcf6LefEAtHlRsc1HpC1NL.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1772,
+          "videoFile": {
+            "name": "MartinKaneMPEG2.mp4",
+            "format": "h.264",
+            "sizeBytes": 184332511,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MartinKanePrivateEye-TheDistrictAttorneyKiller/MartinKaneMPEG2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

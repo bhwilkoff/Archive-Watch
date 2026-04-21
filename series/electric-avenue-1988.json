@@ -1,0 +1,201 @@
+{
+  "version": 1,
+  "seriesID": "electric-avenue-1988",
+  "title": "Electric Avenue",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Electric.Avenue.S01E01",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Electric.Avenue.S01E01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Electric Avenue S01E01",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Electric.Avenue.S01E01",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Electric.Avenue.S01E01.mp4",
+            "format": "h.264",
+            "sizeBytes": 151103018,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Electric.Avenue.S01E01/Electric.Avenue.S01E01.mp4"
+        },
+        {
+          "archiveID": "Electric.Avenue.S01E02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Electric Avenue S01E02",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Electric.Avenue.S01E02",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Electric.Avenue.S01E02.mp4",
+            "format": "h.264",
+            "sizeBytes": 150880041,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Electric.Avenue.S01E02/Electric.Avenue.S01E02.mp4"
+        },
+        {
+          "archiveID": "Electric.Avenue.S01E03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Electric Avenue S01E03",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Electric.Avenue.S01E03",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Electric.Avenue.S01E03.mp4",
+            "format": "h.264",
+            "sizeBytes": 151901077,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Electric.Avenue.S01E03/Electric.Avenue.S01E03.mp4"
+        },
+        {
+          "archiveID": "Electric.Avenue.S01E04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Electric Avenue S01E04",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Electric.Avenue.S01E04",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Electric.Avenue.S01E04.mp4",
+            "format": "h.264",
+            "sizeBytes": 150744513,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Electric.Avenue.S01E04/Electric.Avenue.S01E04.mp4"
+        },
+        {
+          "archiveID": "Electric.Avenue.S01E05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Electric Avenue S01E05",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Electric.Avenue.S01E05",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Electric.Avenue.S01E05.mp4",
+            "format": "h.264",
+            "sizeBytes": 150742128,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Electric.Avenue.S01E05/Electric.Avenue.S01E05.mp4"
+        },
+        {
+          "archiveID": "Electric.Avenue.S01E06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Electric Avenue S01E06",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Electric.Avenue.S01E06",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Electric.Avenue.S01E06.mp4",
+            "format": "h.264",
+            "sizeBytes": 148065868,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Electric.Avenue.S01E06/Electric.Avenue.S01E06.mp4"
+        },
+        {
+          "archiveID": "Electric.Avenue.S01E07",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Electric Avenue S01E07",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Electric.Avenue.S01E07",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Electric.Avenue.S01E07.mp4",
+            "format": "h.264",
+            "sizeBytes": 150312175,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Electric.Avenue.S01E07/Electric.Avenue.S01E07.mp4"
+        },
+        {
+          "archiveID": "Electric.Avenue.S01E08",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Electric Avenue S01E08",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Electric.Avenue.S01E08",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Electric.Avenue.S01E08.mp4",
+            "format": "h.264",
+            "sizeBytes": 151192744,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Electric.Avenue.S01E08/Electric.Avenue.S01E08.mp4"
+        },
+        {
+          "archiveID": "Electric.Avenue.S01E09",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Electric Avenue S01E09",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Electric.Avenue.S01E09",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Electric.Avenue.S01E09.mp4",
+            "format": "h.264",
+            "sizeBytes": 150166653,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Electric.Avenue.S01E09/Electric.Avenue.S01E09.mp4"
+        },
+        {
+          "archiveID": "Electric.Avenue.S01E10",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Electric Avenue S01E10",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Electric.Avenue.S01E10",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Electric.Avenue.S01E10.mp4",
+            "format": "h.264",
+            "sizeBytes": 145728383,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Electric.Avenue.S01E10/Electric.Avenue.S01E10.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 10
+}

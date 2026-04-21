@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "divorce-wars-1986",
+  "title": "Divorce Wars",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DivorceWars",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DivorceWars",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Divorce Wars",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DivorceWars",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Frontline.S04E06.Divorce.Wars.1986.VHSRip.AAC2.0.x264-krokkers.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 262891173,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DivorceWars/Frontline.S04E06.Divorce.Wars.1986.VHSRip.AAC2.0.x264-krokkers.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

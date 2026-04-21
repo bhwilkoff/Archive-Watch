@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jennifer-slept-here--rebel-with-a-cause-ep-8-2019",
+  "title": "Jennifer Slept Here- Rebel With A Cause (Ep. 8",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/jenniferslepthererebelwithacauseep.8convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "jenniferslepthererebelwithacauseep.8convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jennifer Slept Here- Rebel With A Cause (Ep. 8)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jenniferslepthererebelwithacauseep.8convertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jennifer Slept Here- Rebel With A Cause (Ep. 8) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 106011032,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jenniferslepthererebelwithacauseep.8convertvideoonline.com/Jennifer Slept Here- Rebel With A Cause (Ep. 8) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

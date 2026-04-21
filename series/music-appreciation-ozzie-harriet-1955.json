@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "music-appreciation-ozzie-harriet-1955",
+  "title": "Music Appreciation (Ozzie & Harriet",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Music_Appreciation--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Music_Appreciation--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Music Appreciation (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Music_Appreciation--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1331,
+          "videoFile": {
+            "name": "Music_Appreciation--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 137954525,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Music_Appreciation--Ozzie-Harriet/Music_Appreciation--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

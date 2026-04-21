@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "flash-gordon-tv-1954-steve-holland-episodes-15-29-1955",
+  "title": "Flash Gordon TV 1954 (Steve Holland) episodes 15 & 29",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/flash-gordon-115-and-129",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "flash-gordon-115-and-129",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flash Gordon TV 1954 (Steve Holland) episodes 15 & 29",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/flash-gordon-115-and-129",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "s01e15 The Weapon That Walked.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 171919902,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-115-and-129/s01e15 The Weapon That Walked.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

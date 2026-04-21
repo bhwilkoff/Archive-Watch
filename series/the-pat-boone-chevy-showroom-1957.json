@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-pat-boone-chevy-showroom-1957",
+  "title": "The Pat Boone-Chevy Showroom",
+  "yearStart": 1957,
+  "yearEnd": 1958,
+  "overview": "The Pat Boone Chevy Showroom is a half-hour variety show that aired on ABC-TV from October 3, 1957 to June 23, 1960, starring the young singer Pat Boone and a host of top-name guest stars sponsored by Chevrolet. Boone, a descendant of Kentucky frontiersman Daniel Boone, was, at 23, still attending Columbia University in New York City when the program began production. Though born in Jacksonville, Florida, Boone was reared primarily in Nashville, Tennessee. Upon his graduation from Columbia in 1958, TV Guide pictured him in his cap and gown on the magazine cover. Boone, the No. 10 all-time vocalist in sales, was at the time the youngest person to host his own network variety program until ABC's The Donny & Marie Show, with two hosts, broke the record in 1976.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "thePatBoone-chevyShowroom-13February1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Pat Boone-Chevy Showroom'' - 13 February 1958",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1546,
+          "videoFile": {
+            "name": "ThePatBoone-ChevyShowroom13February1958.mp4",
+            "format": "h.264",
+            "sizeBytes": 160329175,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thePatBoone-chevyShowroom-13February1958/ThePatBoone-ChevyShowroom13February1958.mp4"
+        },
+        {
+          "archiveID": "ThePatBooneChevyShowroom",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Pat Boone-Chevy Showroom'' - 5 December 1957",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "The Pat Boone Chevy Showroom.mp4",
+            "format": "h.264",
+            "sizeBytes": 184232024,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThePatBooneChevyShowroom/The Pat Boone Chevy Showroom.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sunday-showcase-1959",
+  "title": "Sunday Showcase",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": "NBC Sunday Showcase was a series of hour-long specials telecast in color on NBC during the 1959-60 season. The flexible anthology format varied weekly from comedies and science fiction to musicals and historical dramas. The recent introduction of videotape made repeats possible, and two 1959 dramas had repeats in 1960.\n\nOn the heels of his Broadway hits The Pajama Game and Damn Yankees, Richard Adler composed the opening Sunday Showcase theme music, titled \"Sunday Drive\".",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1959TVSpecial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Sunday Showcase'' - Jimmy Durante Special (NBC, 1959)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3553,
+          "videoFile": {
+            "name": "SundayShowcase1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 345531470,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1959TVSpecial/SundayShowcase1959.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

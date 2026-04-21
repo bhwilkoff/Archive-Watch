@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "breakout-1960",
+  "title": "Breakout",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Over barbed wire, through tunnels, by boat, by plane... Relive the world's greatest and most daring prison escapes in this three-part series narrated by Rod Steiger.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/33/82511.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Discovery"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Mr_and_Mrs_North_1-29_Breakout",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Breakout",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/33/82511.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "Mr_and_Mrs_North_1-29_Breakout.mp4",
+            "format": "h.264",
+            "sizeBytes": 151409394,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr_and_Mrs_North_1-29_Breakout/Mr_and_Mrs_North_1-29_Breakout.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

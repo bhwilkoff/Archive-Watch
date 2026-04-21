@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-for-andromeda-colorized-1960",
+  "title": "A for Andromeda (colorized",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/a-for-andromeda-ep-1to-5-colorized-576p-sd",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "a-for-andromeda-ep-1to-5-colorized-576p-sd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A for Andromeda (colorized, season 1 compilation - 7 episodes) (1961, BBC sci-fi)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/a-for-andromeda-ep-1to-5-colorized-576p-sd",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "a for andromeda-ep1to5-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 493051624,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/a-for-andromeda-ep-1to-5-colorized-576p-sd/a for andromeda-ep1to5-colorized-576p-sd.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

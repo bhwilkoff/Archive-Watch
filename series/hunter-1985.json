@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "hunter-1985",
+  "title": "Hunter",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": "Hunter is an American police drama television series created by Frank Lupo, and starring Fred Dryer as Sgt. Rick Hunter and Stepfanie Kramer as Sgt. Dee Dee McCall, which ran on NBC from 1984 to 1991. However, Kramer left after the sixth season to pursue other acting and musical opportunities. In the seventh season, Hunter partnered with two different women officers. The titular character, Sgt. Rick Hunter, was a wily, physically imposing, and often rule-breaking homicide detective with the Los Angeles Police Department. The show's main characters, Hunter and McCall, resolve many of their cases by shooting dead the perpetrators.\n\nThe show's executive producer during the first season was Stephen J. Cannell, whose company produced the series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7SAlXj32uSJjKqZc3bzRzikJ0W5.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/331oYm2437GK7nEjrGhYjKb7Kfd.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Frank Lupo",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "hunter-s-01-e-17-the-last-kill",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Last Kill",
+          "overview": "Hunter and McCall go after a contract killer who is making hits throughout the city in order to ingratiate himself with a criminal kingpin in order to kill him.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/y9y3ho719X0ibrnatDK7ebVWUcU.jpg",
+          "airDate": "1985-04-20",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hunter S01E17 The Last Kill.mp4",
+            "format": "h.264",
+            "sizeBytes": 267406144,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hunter-s-01-e-17-the-last-kill/Hunter S01E17 The Last Kill.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

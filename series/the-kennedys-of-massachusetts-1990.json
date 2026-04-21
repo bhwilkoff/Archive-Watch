@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-kennedys-of-massachusetts-1990",
+  "title": "The Kennedys Of Massachusetts",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "The Kennedys of Massachusetts is a 1990 TV miniseries that aired on ABC. Focusing mainly on the fifty-four year marriage of Joseph P. Kennedy, Sr. and Rose Kennedy. The events depicted in the series are based upon the book by Doris Kearns Goodwin titled The Fitzgeralds and the Kennedys : An American Saga. The series aired across three nights, an earned an Emmy and Golden Globe.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/tlq0zbIyCZsYh6irlW60sGohjCy.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-kennedys-of-massachusetts-1990-1-3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Kennedys Of Massachusetts - Annette O'Toole, William Petersen",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/tlq0zbIyCZsYh6irlW60sGohjCy.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Kennedys of Massachusetts - 1990 - 3-3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3042977821,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-kennedys-of-massachusetts-1990-1-3/The Kennedys of Massachusetts - 1990 - 3-3.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

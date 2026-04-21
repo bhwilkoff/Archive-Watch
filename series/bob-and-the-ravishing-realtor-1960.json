@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bob-and-the-ravishing-realtor-1960",
+  "title": "Bob and the Ravishing Realtor",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Love_That_Bob-5x04_Bob_and_the_Ravishing_Realtor",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Love_That_Bob-5x04_Bob_and_the_Ravishing_Realtor",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob and the Ravishing Realtor",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Love_That_Bob-5x04_Bob_and_the_Ravishing_Realtor",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LoveThatBob-5x04-1958-10-14-BobandtheRavishingRealitor.mp4",
+            "format": "h.264",
+            "sizeBytes": 151253855,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Love_That_Bob-5x04_Bob_and_the_Ravishing_Realtor/LoveThatBob-5x04-1958-10-14-BobandtheRavishingRealitor.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

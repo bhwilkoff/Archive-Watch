@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "disneyland-goes-to-the-world-1964",
+  "title": "Disneyland Goes To The World",
+  "yearStart": 1964,
+  "yearEnd": 1964,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/disneyland-goes-to-the-worlds-fair",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "disneyland-goes-to-the-worlds-fair",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Disneyland Goes To The World's Fair",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/disneyland-goes-to-the-worlds-fair",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Disneyland Goes to the World's Fair.mp4",
+            "format": "h.264",
+            "sizeBytes": 315826380,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/disneyland-goes-to-the-worlds-fair/Disneyland Goes to the World's Fair.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

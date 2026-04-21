@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "video-picture-book-1989",
+  "title": "Video Picture Book",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/video-picture-book-walkers-company-1989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "video-picture-book-walkers-company-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Video Picture Book: The Complete Series (1989, INCOMPLETE)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/video-picture-book-walkers-company-1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Video Picture Book 17. Alice in Wonderland (1989).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 69063827,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/video-picture-book-walkers-company-1989/Video Picture Book 17. Alice in Wonderland (1989).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

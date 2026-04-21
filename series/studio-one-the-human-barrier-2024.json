@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "studio-one-the-human-barrier-2024",
+  "title": "Studio One The Human Barrier",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/studio-one-the-human-barrier-1957",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "studio-one-the-human-barrier-1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One The Human Barrier (1957)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/studio-one-the-human-barrier-1957",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio One The Human Barrier (1957).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 294705492,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-the-human-barrier-1957/Studio One The Human Barrier (1957).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

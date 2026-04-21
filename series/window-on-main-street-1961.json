@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "seriesID": "window-on-main-street-1961",
+  "title": "Window on Main Street",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": "Window on Main Street is an American half-hour comedy-drama television series starring Robert Young, which aired on CBS during the 1961-1962 season. Created by Roswell Rogers, Window on Main Street was produced by its star, Robert Young.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Roswell Rogers",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Window_on_Main--Doctor_to_Town",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Window on Main Street: A Doctor Comes to Town",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1538,
+          "videoFile": {
+            "name": "Window_on_Main--Doctor_to_Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 159538876,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Window_on_Main--Doctor_to_Town/Window_on_Main--Doctor_to_Town.mp4"
+        },
+        {
+          "archiveID": "Window_on_Main--Chambermaid",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Window on Main Street: The Chambermaid",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1544,
+          "videoFile": {
+            "name": "Window_on_Main--The_Chambermaid.mp4",
+            "format": "h.264",
+            "sizeBytes": 160084640,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Window_on_Main--Chambermaid/Window_on_Main--The_Chambermaid.mp4"
+        },
+        {
+          "archiveID": "Window_on_Main_St--The_Return",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Window on Main Street: The Return",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1501,
+          "videoFile": {
+            "name": "Window_on_Main_St--The_Return.mp4",
+            "format": "h.264",
+            "sizeBytes": 154682434,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Window_on_Main_St--The_Return/Window_on_Main_St--The_Return.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Window_on_Main_St--Christmas_Memory",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Christmas Memory",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1961-12-18",
+          "year": 1961,
+          "runtimeSeconds": 1524,
+          "videoFile": {
+            "name": "Window_on_Main_St--Christmas_Memory.mp4",
+            "format": "h.264",
+            "sizeBytes": 158091460,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Window_on_Main_St--Christmas_Memory/Window_on_Main_St--Christmas_Memory.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

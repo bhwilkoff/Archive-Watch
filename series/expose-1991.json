@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "expose-1991",
+  "title": "Expose",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/expose-gang-wars-1991",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "expose-gang-wars-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Expose - Tom Brokaw, Brian Ross",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/expose-gang-wars-1991",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Expose - Gang Wars - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 696131954,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/expose-gang-wars-1991/Expose - Gang Wars - 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

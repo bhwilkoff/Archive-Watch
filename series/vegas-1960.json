@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "vegas-1960",
+  "title": "Vegas$",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Ralph Lamb wants to be left in peace to run his ranch, but Las Vegas is now swelling with outsiders and corruption which are intruding on his simple life. Recalling Lamb's command as a military police officer during World War II, the Mayor appeals to his sense of duty to look into a murder of a casino worker – and so begins Lamb’s clash with Vincent Savino, a ruthless Chicago gangster who plans to make Vegas his own.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/tx4Tt1E892DhpbITwMtsDAafgDM.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/xJjXWceELVtqAc06QjNF3XbP4T8.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Nicholas Pileggi",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "vegas-season-2-tv-series-mp4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Vegas$ - Season 2 - TV Series - MP4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/tx4Tt1E892DhpbITwMtsDAafgDM.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Vega$ - S02E20 - The Golden Gate Cop Killer.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1753091172,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/vegas-season-2-tv-series-mp4/Vega$ - S02E20 - The Golden Gate Cop Killer.mp4"
+        },
+        {
+          "archiveID": "vegas-season-3-tv-series-mp4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Vegas$ - Season 3 - TV Series - MP4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/tx4Tt1E892DhpbITwMtsDAafgDM.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Vega$ - S03E01 - Aloha, You're Dead.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1516003316,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/vegas-season-3-tv-series-mp4/Vega$ - S03E01 - Aloha, You're Dead.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

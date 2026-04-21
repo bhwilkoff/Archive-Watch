@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "gideon-1964",
+  "title": "Gideon",
+  "yearStart": 1964,
+  "yearEnd": 1965,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "gideons-way-tv-1964-s01e07-to-catch-a-tiger",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Gideon's Way TV 1964 colorized s1e07 To Catch a Tiger",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Gideon's Way TV 1964 colorized s01e07 To Catch a Tiger.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 309523795,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gideons-way-tv-1964-s01e07-to-catch-a-tiger/Gideon's Way TV 1964 colorized s01e07 To Catch a Tiger.mp4"
+        },
+        {
+          "archiveID": "gideons-way-tv-1965-s01e17-the-wall",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Gideon's Way TV 1965 colorized s01e17 The Wall",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Gideon's Way TV 1965 colorized s01e17 The Wall.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 429403925,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gideons-way-tv-1965-s01e17-the-wall/Gideon's Way TV 1965 colorized s01e17 The Wall.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

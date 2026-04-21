@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-best-of-disney-50-years-of-magic-1991",
+  "title": "The Best Of Disney 50 Years Of Magic",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/best-of-disney-50-years-of-magic-1991",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "best-of-disney-50-years-of-magic-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Best Of Disney 50 Years Of Magic - Mickey Mouse",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/best-of-disney-50-years-of-magic-1991",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Best of Disney - 50 Years of Magic - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1897128515,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/best-of-disney-50-years-of-magic-1991/Best of Disney - 50 Years of Magic - 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

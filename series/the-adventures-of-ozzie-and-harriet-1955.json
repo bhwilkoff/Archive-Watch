@@ -1,0 +1,326 @@
+{
+  "version": 1,
+  "seriesID": "the-adventures-of-ozzie-and-harriet-1955",
+  "title": "The Adventures of Ozzie and Harriet",
+  "yearStart": 1955,
+  "yearEnd": 1959,
+  "overview": "The Adventures of Ozzie and Harriet is an American sitcom, airing on ABC from October 3, 1952 through March 26, 1966, starring the real life Nelson family. After a long run on radio, the show was brought to television where it continued its success, running on both radio and television for a few years. The series stars Ozzie Nelson and his wife, singer Harriet Nelson, and their young sons, David and Eric \"Ricky\" Nelson. Don DeFore had a recurring role as the Nelsons' friendly neighbor \"Thorny\".",
+  "posterURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/z9ipjaUaoRWMl6vvQnLhpuFfkBu.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Ozzie_and_Harriet_Riding_Lesson",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Adventures of Ozzie and Harriet\" - Rick's Riding Lesson",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ozzie_and_Harriet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 170779682,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie_and_Harriet_Riding_Lesson/Ozzie_and_Harriet.ia.mp4"
+        },
+        {
+          "archiveID": "DavidClerk",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Adventures of Ozzie and Harriet\" - (Title: ''David, the Law Clerk'', aired 21 October 1959)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1756,
+          "videoFile": {
+            "name": "DavidtheLawClerk.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 170969068,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DavidClerk/DavidtheLawClerk.ia.mp4"
+        },
+        {
+          "archiveID": "OzzieBox",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Adventures of Ozzie and Harriet'' (Episode Title: ''Little Black Box'', aired 13 May 1959)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1760,
+          "videoFile": {
+            "name": "OzzieBlackBox.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 167967752,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieBox/OzzieBlackBox.ia.mp4"
+        },
+        {
+          "archiveID": "tinfoil87876745",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Adventures of Ozzie and Harriet'' - A Ball of Tinfoil (1955)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1763,
+          "videoFile": {
+            "name": "OzzieNelson_TinFoil.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 172160671,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tinfoil87876745/OzzieNelson_TinFoil.ia.mp4"
+        },
+        {
+          "archiveID": "RickGetsEven",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Adventures of Ozzie and Harriet'' - Rick Gets Even",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1644,
+          "videoFile": {
+            "name": "rickgetseven.mp4",
+            "format": "h.264",
+            "sizeBytes": 171318461,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RickGetsEven/rickgetseven.mp4"
+        },
+        {
+          "archiveID": "RickysBigNight",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Adventures of Ozzie and Harriet'' - Ricky's Big Night",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1539,
+          "videoFile": {
+            "name": "rickysbignight.mp4",
+            "format": "h.264",
+            "sizeBytes": 160071757,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RickysBigNight/rickysbignight.mp4"
+        },
+        {
+          "archiveID": "OzzieandHarriet-Bachelor",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Adventures of Ozzie and Harriet'' - The Bachelor",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1760,
+          "videoFile": {
+            "name": "ozziebachelor.mp4",
+            "format": "h.264",
+            "sizeBytes": 184440794,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieandHarriet-Bachelor/ozziebachelor.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "OzzieHarriet--The_Witness",
+          "seasonNumber": 3,
+          "episodeNumber": 24,
+          "title": "The Witness",
+          "overview": "After a fender-bender, Thorny gets his day in court.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1955-04-15",
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OzzieHarriet0324_The_Witness.mp4",
+            "format": "h.264",
+            "sizeBytes": 158428419,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieHarriet--The_Witness/OzzieHarriet0324_The_Witness.mp4"
+        },
+        {
+          "archiveID": "OzzieHarriet--The_Testimonial",
+          "seasonNumber": 3,
+          "episodeNumber": 26,
+          "title": "The Testimonial",
+          "overview": "Ozzie wants to throw a surprise testimonial dinner in appreciation of Doc Williams.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1955-04-29",
+          "year": 1955,
+          "runtimeSeconds": 1738,
+          "videoFile": {
+            "name": "OzzieHarriet0326_Testimonial.mp4",
+            "format": "h.264",
+            "sizeBytes": 163472460,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieHarriet--The_Testimonial/OzzieHarriet0326_Testimonial.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "OzzieHarriet--Carnation_Perfume",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "Carnation Perfume",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1955-10-21",
+          "year": 1955,
+          "runtimeSeconds": 1457,
+          "videoFile": {
+            "name": "OzzieHarriet0405_Carnation_Perfume.mp4",
+            "format": "h.264",
+            "sizeBytes": 136261577,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieHarriet--Carnation_Perfume/OzzieHarriet0405_Carnation_Perfume.mp4"
+        },
+        {
+          "archiveID": "OzzieHarriet--The_Campers",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "The Campers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1955-10-28",
+          "year": 1955,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "OzzieHarriet0406_The_Campers.mp4",
+            "format": "h.264",
+            "sizeBytes": 140885151,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieHarriet--The_Campers/OzzieHarriet0406_The_Campers.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet--The_Gadget",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "The Gadget",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1956-01-06",
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OzzieHarriet0413_The_Gadget.mp4",
+            "format": "h.264",
+            "sizeBytes": 135952213,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet--The_Gadget/OzzieHarriet0413_The_Gadget.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet--Ricky_the_Organizer",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "Ricky, the Organizer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1956-02-03",
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OzzieHarriet0417_Ricky_the_Organizer.mp4",
+            "format": "h.264",
+            "sizeBytes": 138317948,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet--Ricky_the_Organizer/OzzieHarriet0417_Ricky_the_Organizer.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet--Personal_Column",
+          "seasonNumber": 4,
+          "episodeNumber": 20,
+          "title": "Personal Column",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1956-03-09",
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OzzieHarriet0420_Personal_Column.mp4",
+            "format": "h.264",
+            "sizeBytes": 136194937,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet--Personal_Column/OzzieHarriet0420_Personal_Column.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet--Re-dressing_Ricky",
+          "seasonNumber": 4,
+          "episodeNumber": 26,
+          "title": "Re-Dressing Ricky",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1956-06-08",
+          "year": 1956,
+          "runtimeSeconds": 1412,
+          "videoFile": {
+            "name": "OzzieHarriet0426_Re-dressing_Ricky.mp4",
+            "format": "h.264",
+            "sizeBytes": 131468479,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet--Re-dressing_Ricky/OzzieHarriet0426_Re-dressing_Ricky.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "TheAdventuresOfOzzieAndHarriet-TheExplodingBook1959",
+          "seasonNumber": 7,
+          "episodeNumber": 21,
+          "title": "The Exploding Book",
+          "overview": "When David and pal Wally fall for the same damsel, Wally tricks David into giving her a gag gift.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1959-03-04",
+          "year": 1959,
+          "runtimeSeconds": 1620,
+          "videoFile": {
+            "name": "ExplodingBook1959.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159645519,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieAndHarriet-TheExplodingBook1959/ExplodingBook1959.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 16
+}

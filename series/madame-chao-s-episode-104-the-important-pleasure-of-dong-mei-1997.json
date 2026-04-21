@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "madame-chao-s-episode-104-the-important-pleasure-of-dong-mei-1997",
+  "title": "Madame-Chao-s-Episode-104-The-Important-Pleasure-of-Dong-Mei-Tao-1997-02-07",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Madame-Chao-Ep-104",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Madame-Chao-Ep-104",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Madame-Chao-s-Episode-104-The-Important-Pleasure-of-Dong-Mei-Tao-1997-02-07",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Madame-Chao-Ep-104",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "104_iportantpleasureofdongmeitao.mp4",
+            "format": "h.264",
+            "sizeBytes": 184272428,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Madame-Chao-Ep-104/104_iportantpleasureofdongmeitao.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-blame-game-1994",
+  "title": "The Blame Game",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": "The Blame Game, a 30 minute nontraditional court/game show first airing in January 1996 on American channel MTV, pitted two ex's against each other in a fictional courtroom setting to decide who was to blame for their break-up. Representing each \"ex\" was a \"counselor\" who presented one of the ex's sides of the \"case.\" Jason Winer generally served as the counselor for men while Kara Jane McNamara represented the women. Chris Reed was the judge during the proceedings. Richard \"Humpty\" Vission was the in-house DJ for the show. The show was marked by the appearance of \"surprise witnesses\" who would corroborate or refute accusations made by the exes and/or counselors. The show ran for 130+ episodes.\n\nThe show included a first round titled \"Tick Tock Testimony\" where each ex was given 90 seconds to tell his or her side of the story. Whenever a point was made, the counselor for the ex currently testifying would press a large button which would stop the clock and allow the other ex to testify. Each side alternated until both were out of time.\n\nThe next round was \"You Did It, Now Admit It!\" where each ex had to give three secrets. If the secret was admitted truthfully, the ex was given a point. If they answered incorrectly or chose not to answer, no points were scored. After three questions, the player with the higher score had a friend come out and explain why the opponent was to blame for the break-up.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-blame-game-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Blame Game - John Stossel",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Blame Game - 1994.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1373916222,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-blame-game-1994/The Blame Game - 1994.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

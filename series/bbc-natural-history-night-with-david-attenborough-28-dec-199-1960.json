@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bbc-natural-history-night-with-david-attenborough-28-dec-199-1960",
+  "title": "BBC Natural History Night (with David Attenborough) (28 Dec 1996",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bbcnaturalhistorynight02namibstrangecreaturesoftheskeletoncoast",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bbcnaturalhistorynight02namibstrangecreaturesoftheskeletoncoast",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Natural History Night (with David Attenborough) (28 Dec 1996)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bbcnaturalhistorynight02namibstrangecreaturesoftheskeletoncoast",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC Natural History Night 12 Attenborough in Paradise.mp4",
+            "format": "h.264",
+            "sizeBytes": 345240117,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bbcnaturalhistorynight02namibstrangecreaturesoftheskeletoncoast/BBC Natural History Night 12 Attenborough in Paradise.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

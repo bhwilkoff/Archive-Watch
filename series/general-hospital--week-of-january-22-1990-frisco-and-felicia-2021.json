@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "general-hospital--week-of-january-22-1990-frisco-and-felicia-2021",
+  "title": "General Hospital- Week Of January 22, 1990 (Frisco And Felicia",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/general-hospital-week-of-january-22-1990-frisco-and-felicias-wedding-partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "general-hospital-week-of-january-22-1990-frisco-and-felicias-wedding-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "General Hospital- Week Of January 22, 1990 (Frisco And Felicia's Wedding, partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/general-hospital-week-of-january-22-1990-frisco-and-felicias-wedding-partial",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "General Hospital- Week of January 22, 1990 (Frisco and Felicia's wedding, partial).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 702662511,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/general-hospital-week-of-january-22-1990-frisco-and-felicias-wedding-partial/General Hospital- Week of January 22, 1990 (Frisco and Felicia's wedding, partial).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

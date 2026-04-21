@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "minder-1979",
+  "title": "Minder",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": "Roguish comedy drama following the misadventures of small-time crook Arthur Daley.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4s9hiyQvTaMe1bK91HRCTgDTAoF.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qBc0ST7YNvZVfCawuoxAm9QXTWB.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Leon Griffiths",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "minder-1979-se-1-ep-1-gunfight-at-the-ok-laundrette",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Gunfight at the OK Launderette",
+          "overview": "Terry is caught inside a launderette, while it is being robbed. As the police gather outside, Arthur tries to make some money by selling Terry's life story to the press.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/y44yjIjL8uE8jNdFLllRuOFG7vq.jpg",
+          "airDate": "1979-10-29",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Minder (1979) SE1 - EP1 Gunfight at the OK Laundrette.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 406518701,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/minder-1979-se-1-ep-1-gunfight-at-the-ok-laundrette/Minder (1979) SE1 - EP1 Gunfight at the OK Laundrette.mp4"
+        },
+        {
+          "archiveID": "minder-1979-se-1-ep-2-bury-my-half-at-waltham-green",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Bury My Half at Waltham Green",
+          "overview": "After ex bank robber George is released from prison, Arthur gets Terry to mind him, until the whereabouts of a large amount of hidden cash is found. The only problem is that Arthur forgot to tell Terry that George is a decoy laying a false trail, while the real bank robber is released, and then he and Arthur will be free to find the money - but they all have a surprise in store...",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ngNSU1KdPySPkdPHFcINZql74fN.jpg",
+          "airDate": "1979-11-05",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Minder (1979) SE1 - EP2 Bury My Half at Waltham Green.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 434140580,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/minder-1979-se-1-ep-2-bury-my-half-at-waltham-green/Minder (1979) SE1 - EP2 Bury My Half at Waltham Green.mp4"
+        },
+        {
+          "archiveID": "minder-1979-se-1-ep-3-the-smaller-they-are",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Smaller They Are...",
+          "overview": "Scotch Harry arrives from the airport where he has been looking for easy pickings. He has struck lucky by stealing a suitcase full of banknotes, but unknown to him they are forged. Arthur hides him, until he can come to some agreement with the rightful owner.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/A05WAktKKjBYDRdxqENNLukuWj4.jpg",
+          "airDate": "1979-11-12",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Minder (1979) SE1 - EP3 The Smaller They Are.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 391409888,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/minder-1979-se-1-ep-3-the-smaller-they-are/Minder (1979) SE1 - EP3 The Smaller They Are.mp4"
+        },
+        {
+          "archiveID": "minder-1979-se-1-ep-6-aces-high-and-sometimes-very-low",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Aces High and Sometimes Very Low",
+          "overview": "Maurice, a professional gambler, is barred from a casino after a large win. Later, he is beaten up and the winnings are stolen. When he hears of a big poker game, he has to sell his car to Arthur to raise the stake money, and gets Terry to guard him.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ZxfpVy4aPZmD17m3tZHukuOQp4.jpg",
+          "airDate": "1979-12-03",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Minder (1979) SE1 - EP6 Aces High and Sometimes Very Low.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 402615500,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/minder-1979-se-1-ep-6-aces-high-and-sometimes-very-low/Minder (1979) SE1 - EP6 Aces High and Sometimes Very Low.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

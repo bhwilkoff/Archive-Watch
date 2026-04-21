@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "seriesID": "riley-1960",
+  "title": "Riley",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/life_of_riley_-_1x13_-_rileys_family_reunion",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "life_of_riley_-_2x37_-_rileys_anniversary",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riley's Anniversary",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_2x37_-_rileys_anniversary",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_2x37_-_rileys_anniversary_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 133322912,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_2x37_-_rileys_anniversary/life_of_riley_-_2x37_-_rileys_anniversary_agk.mp4"
+        },
+        {
+          "archiveID": "life_of_riley_-_2x10_-_rileys_burning_ambition",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riley's Burning Ambition",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_2x10_-_rileys_burning_ambition",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_2x10_-_rileys_burning_ambition_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 129792286,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_2x10_-_rileys_burning_ambition/life_of_riley_-_2x10_-_rileys_burning_ambition_agk.mp4"
+        },
+        {
+          "archiveID": "life_of_riley_-_1x14_-_rileys_business_venture_agk",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riley's Business Venture",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_1x14_-_rileys_business_venture_agk",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_1x14_-_rileys_business_venture_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 151439873,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_1x14_-_rileys_business_venture_agk/life_of_riley_-_1x14_-_rileys_business_venture_agk.mp4"
+        },
+        {
+          "archiveID": "life_of_riley_-_1x13_-_rileys_family_reunion",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riley's Family Reunion",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_1x13_-_rileys_family_reunion",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_1x13_-_rileys_family_reunion_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 139776332,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_1x13_-_rileys_family_reunion/life_of_riley_-_1x13_-_rileys_family_reunion_agk.mp4"
+        },
+        {
+          "archiveID": "life_of_riley_-_2x12_-_rileys_separation",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riley's Seperation",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_2x12_-_rileys_separation",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_2x12_-_rileys_separation_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 126461860,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_2x12_-_rileys_separation/life_of_riley_-_2x12_-_rileys_separation_agk.mp4"
+        },
+        {
+          "archiveID": "life_of_riley_-_2x01_-_rileys_stomach_ache",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riley's Stomach Ache",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_2x01_-_rileys_stomach_ache",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_2x01_-_rileys_stomach_ache_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 151298972,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_2x01_-_rileys_stomach_ache/life_of_riley_-_2x01_-_rileys_stomach_ache_agk.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

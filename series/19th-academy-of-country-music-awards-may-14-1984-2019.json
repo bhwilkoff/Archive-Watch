@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "19th-academy-of-country-music-awards-may-14-1984-2019",
+  "title": "19th Academy Of Country Music Awards (May 14, 1984",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/19thacademyofcountrymusicawardsmay141984pt.2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "19thacademyofcountrymusicawardsmay141984pt.2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "19th Academy Of Country Music Awards (May 14, 1984)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/19thacademyofcountrymusicawardsmay141984pt.2",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "19th-Academy-of-Country-Music-Awards-_May-14_-1984_-pt.-2_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 228708477,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/19thacademyofcountrymusicawardsmay141984pt.2/19th-Academy-of-Country-Music-Awards-_May-14_-1984_-pt.-2_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

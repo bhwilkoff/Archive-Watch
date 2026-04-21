@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "all-my-children-1986-jan-dec-1986",
+  "title": "ALL MY CHILDREN 1986 Jan-Dec",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AllMyChildren1986Jan-dec",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AllMyChildren1986Jan-dec",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ALL MY CHILDREN 1986 Jan-Dec",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AllMyChildren1986Jan-dec",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AMc86-12-10Ep4392bluerose850811Ep4393wedAndThuBothFullEpsbladeRunnerLoveThemeByTheNewAmericanOrchestra.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 379555450,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AllMyChildren1986Jan-dec/AMc86-12-10Ep4392bluerose850811Ep4393wedAndThuBothFullEpsbladeRunnerLoveThemeByTheNewAmericanOrchestra.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

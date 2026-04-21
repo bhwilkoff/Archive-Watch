@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "star-games-1986",
+  "title": "Star Games",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "Star Games was a television series which ran in weekly syndication from September 7, 1985 to March 1, 1986. It featured teams of actors representing various American TV shows competing in sports events. The events the teams competed in included swim sprints and relays, kayaking, track sprints and relays, a bicycle relay, and an \"Apache Relay\" obstacle course.\n\nThe show ran for two sets of 13 episodes, or \"seasons\". The host throughout was former Olympic decathlon champion and actor Bruce Jenner. Pamela Sue Martin co-hosted for Season One, while Season Two had Morgan Brittany. Former American football player and actor Dick Butkus served as the show's \"Special Referee\".\n\nThe series was similar in presentation to Battle of the Network Stars, and debuted only four months after the 18th Special aired. The program was distributed by Viacom.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "star-games-bruce-jenner-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Star Games - Bruce Jenner, Morgan Brittany",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Star Games - Bruce Jenner - 1986.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1985769081,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/star-games-bruce-jenner-1986/Star Games - Bruce Jenner - 1986.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

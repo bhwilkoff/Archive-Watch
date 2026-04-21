@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "seriesID": "classic-car-commercial-1960",
+  "title": "Classic Car Commercial",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DeSoto5",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DeSoto7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Car Commercial: ''Movie Star'' DeSoto Commercial",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DeSoto7",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 69,
+          "videoFile": {
+            "name": "DeSoto7_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 5026801,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DeSoto7/DeSoto7_512kb.mp4"
+        },
+        {
+          "archiveID": "DeSoto2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Car Commercial: 1954 DeSoto",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DeSoto2",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 91,
+          "videoFile": {
+            "name": "DeSoto2_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 6619858,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DeSoto2/DeSoto2_512kb.mp4"
+        },
+        {
+          "archiveID": "DeSoto3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Car Commercial: 1954 DeSoto (No2)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DeSoto3",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 92,
+          "videoFile": {
+            "name": "DeSoto3_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 6689322,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DeSoto3/DeSoto3_512kb.mp4"
+        },
+        {
+          "archiveID": "DeSoto5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Car Commercial: 1955 DeSoto",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DeSoto5",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 82,
+          "videoFile": {
+            "name": "DeSoto5_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 5967313,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DeSoto5/DeSoto5_512kb.mp4"
+        },
+        {
+          "archiveID": "DeSoto4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Car Commercial: DeSoto",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DeSoto4",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 88,
+          "videoFile": {
+            "name": "DeSoto4_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 6407073,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DeSoto4/DeSoto4_512kb.mp4"
+        },
+        {
+          "archiveID": "DeSoto6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Car Commercial: DeSoto (Ad Number 6)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DeSoto6",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 79,
+          "videoFile": {
+            "name": "DeSoto6_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 5768818,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DeSoto6/DeSoto6_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

@@ -1,0 +1,258 @@
+{
+  "version": 1,
+  "seriesID": "ozzie-and-harriet-1960",
+  "title": "Ozzie and Harriet",
+  "yearStart": 1960,
+  "yearEnd": 1966,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OzzieNelsonInLaws",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OzzieAndHarrietLittleHouseGuest",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Ozzie And Harriet'' - Little House Guest",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OzzieAndHarrietLittleHouseGuest",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1466,
+          "videoFile": {
+            "name": "Ozzie and Harriet - Little House Guest.mp4",
+            "format": "h.264",
+            "sizeBytes": 152969779,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieAndHarrietLittleHouseGuest/Ozzie and Harriet - Little House Guest.mp4"
+        },
+        {
+          "archiveID": "OzzieAndHarrietTheFraternityRentsOutARoom",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Ozzie And Harriet'' - The Fraternity Rents Out A Room",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OzzieAndHarrietTheFraternityRentsOutARoom",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1527,
+          "videoFile": {
+            "name": "Ozzie and Harriet - The Fraternity Rents Out a Room.mp4",
+            "format": "h.264",
+            "sizeBytes": 159249793,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieAndHarrietTheFraternityRentsOutARoom/Ozzie and Harriet - The Fraternity Rents Out a Room.mp4"
+        },
+        {
+          "archiveID": "OzzieAndHarrietTripTrap",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Ozzie And Harriet'' - Trip Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OzzieAndHarrietTripTrap",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1515,
+          "videoFile": {
+            "name": "Ozzie and Harriet-Trip Trap.mp4",
+            "format": "h.264",
+            "sizeBytes": 157789993,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieAndHarrietTripTrap/Ozzie and Harriet-Trip Trap.mp4"
+        },
+        {
+          "archiveID": "OzzieAndHarrietTheGirlWhoLosesThings",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Ozzie And Harriet'' The Girl Who Loses Things",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OzzieAndHarrietTheGirlWhoLosesThings",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1479,
+          "videoFile": {
+            "name": "Ozzie and Harriet - The Girl Who Loses Things.mp4",
+            "format": "h.264",
+            "sizeBytes": 154243773,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieAndHarrietTheGirlWhoLosesThings/Ozzie and Harriet - The Girl Who Loses Things.mp4"
+        },
+        {
+          "archiveID": "awifeintheoffice",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Ozzie and Harriet'' - A Wife in the Office",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/awifeintheoffice",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1740,
+          "videoFile": {
+            "name": "awifeintheoffice.mp4",
+            "format": "h.264",
+            "sizeBytes": 181112924,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/awifeintheoffice/awifeintheoffice.mp4"
+        },
+        {
+          "archiveID": "OzzieNelsonInLaws",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Ozzie and Harriet'' - David's Almost In-Laws (Aired 23 November 1960)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OzzieNelsonInLaws",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1689,
+          "videoFile": {
+            "name": "AlmostInLawsDavidNelson.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 161305505,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieNelsonInLaws/AlmostInLawsDavidNelson.ia.mp4"
+        },
+        {
+          "archiveID": "OZZIE_AND_HARRIET_An_Evening_With_Hamlet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie and Harriet : An Evening With Hamlet",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OZZIE_AND_HARRIET_An_Evening_With_Hamlet",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OZZIE_AND_HARRIET_An_Evening_With_Hamlet.mp4",
+            "format": "h.264",
+            "sizeBytes": 152658307,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OZZIE_AND_HARRIET_An_Evening_With_Hamlet/OZZIE_AND_HARRIET_An_Evening_With_Hamlet.mp4"
+        },
+        {
+          "archiveID": "lic:406f98c71ecc",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie and Harriet: Disk 1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie_DVD_01",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        },
+        {
+          "archiveID": "lic:6bd811b0770b",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie and Harriet: Disk 2",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie_DVD_02_820",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        },
+        {
+          "archiveID": "lic:5f60307bcbf2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie and Harriet: Disk 3",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie_DVD_03",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        },
+        {
+          "archiveID": "lic:308e67968f0c",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie and Harriet: Disk 4",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie_DVD_04",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        },
+        {
+          "archiveID": "Ozzie_and_Harriet--Painting_the_Sorority_House",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie and Harriet: Painting the Sorority House",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie_and_Harriet--Painting_the_Sorority_House",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1759,
+          "videoFile": {
+            "name": "OzzieHarriet0830_Painting_the_Sorority_House.mp4",
+            "format": "h.264",
+            "sizeBytes": 164008520,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie_and_Harriet--Painting_the_Sorority_House/OzzieHarriet0830_Painting_the_Sorority_House.mp4"
+        },
+        {
+          "archiveID": "Ozzie_and_Harriet--The_Goat",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie and Harriet: The Goat",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie_and_Harriet--The_Goat",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1639,
+          "videoFile": {
+            "name": "OzzieHarriet1119_The_Goat.mp4",
+            "format": "h.264",
+            "sizeBytes": 152626644,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie_and_Harriet--The_Goat/OzzieHarriet1119_The_Goat.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "NoNewsforHarriet",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "''Ozzie and Harriet'' - (Episode Title: ''No News for Harriet'', Season 8 Episode 31, Aired 8 June 1960)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/NoNewsforHarriet",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1761,
+          "videoFile": {
+            "name": "NoNewsforHarriet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 170329975,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/NoNewsforHarriet/NoNewsforHarriet.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 14
+}

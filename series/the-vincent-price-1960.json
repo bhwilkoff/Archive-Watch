@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-vincent-price-1960",
+  "title": "The Vincent Price",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the_vincent_price_collection_of_fine_art",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the_vincent_price_collection_of_fine_art",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Vincent Price Collection of Fine Art (Informational)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the_vincent_price_collection_of_fine_art",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1051,
+          "videoFile": {
+            "name": "the_vincent_price_collection_of_fine_art_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 75755029,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the_vincent_price_collection_of_fine_art/the_vincent_price_collection_of_fine_art_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

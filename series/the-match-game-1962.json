@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-match-game-1962",
+  "title": "The Match Game",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": "In this panel game show, contestants try to match answers given by six celebrities to humorous and often risque fill-in-the-blank questions.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4myfwmfGf6qwKPnIfNM72jU8HDw.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Frank Wayne",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "The_Match_Game_Pilot",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'The Match Game' 1962 Pilot",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4myfwmfGf6qwKPnIfNM72jU8HDw.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The_Match_Game_Pilot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 123058361,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The_Match_Game_Pilot/The_Match_Game_Pilot.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

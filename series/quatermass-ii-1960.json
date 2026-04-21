@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "seriesID": "quatermass-ii-1960",
+  "title": "Quatermass II",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Professor Bernard Quatermass of the British Experimental Rocket Group is sought to examine strange meteorite showers. His investigations lead to his uncovering a conspiracy involving alien infiltration at the highest levels of the British Government. As even some of Quatermass's closest colleagues fall victim to the alien influence, he is forced to use his own unsafe rocket prototype, which recently caused a nuclear disaster at an Australian testing range, to prevent the aliens from taking over mankind.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9dV59VWbfbkTPrkkrnRg5bnAO9c.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bmfc3EEKIVCq6JZKvJFC7RbHGhU.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Nigel Kneale",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "quatermass-ii-1955-episode-2-colorized-576p-sd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Quatermass II - Complete Season 1 (colorized) (BBC Sci-fi Series, 1955, sci-fi, imdb score: 7.1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9dV59VWbfbkTPrkkrnRg5bnAO9c.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "quatermass II-1955-episode6-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 198067201,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/quatermass-ii-1955-episode-2-colorized-576p-sd/quatermass II-1955-episode6-colorized-576p-sd.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Quatermass_II_Episode_1of6_1955",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Bolts",
+          "overview": "Army Captain John Dillon defies an official clamp-down and takes the remains of an object from space which crashes on Earth to the British Rocket Group. When Quatermass returns with him to investigate the area of Winnerden Flats, he finds a huge synthetic food plant there, identical to his proposed moonbase.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/n8NN7Wgpjx8cdIhIyfFlDYjS8H9.jpg",
+          "airDate": "1955-10-22",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Quatermass_II_Episode_1.mp4",
+            "format": "h.264",
+            "sizeBytes": 183304765,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Quatermass_II_Episode_1of6_1955/Quatermass_II_Episode_1.mp4"
+        },
+        {
+          "archiveID": "Quatermass_II_Episode_2of6_1955",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Mark",
+          "overview": "Dillon is infected by gas from one of the objects from space and bears a scar. He is taken away to the Plant by similarly scarred zombie- like guards. When Quatermass tries to get news of him, he finds local officials very unhelpful.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/aI9TMm3raZcyFWNxKsSzXXnSKm9.jpg",
+          "airDate": "1955-10-29",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Quatermass_II_Episode_2.mp4",
+            "format": "h.264",
+            "sizeBytes": 172335512,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Quatermass_II_Episode_2of6_1955/Quatermass_II_Episode_2.mp4"
+        },
+        {
+          "archiveID": "Quatermass_II_Episode_3of6_1955",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Food",
+          "overview": "Quatermass joins Vincent Broadhead MP at an enquiry into the Plant, to find all the commission members bear scars. Left alone there, Broadhead is affected by the gas. Quatermass, Ward and Fowler get into the Plant where Ward is killed by a foul burning su bstance in a 'food dome'.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9AtghYFC3ATisM672KIpO0AyhVh.jpg",
+          "airDate": "1955-11-05",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Quatermass_II_Episode_3.mp4",
+            "format": "h.264",
+            "sizeBytes": 191603003,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Quatermass_II_Episode_3of6_1955/Quatermass_II_Episode_3.mp4"
+        },
+        {
+          "archiveID": "Quatermass_II_Episode_4of6_1955",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Coming",
+          "overview": "Pugh finds that the objects are coming from an asteroid and Quatermass goes with journalist Hugh Conrad to talk to the workforce from the Plant. That night, many objects fall in the area to be collected by the guards.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/px6qaNiPSUnwm4gP0pMpNIUYktD.jpg",
+          "airDate": "1955-11-12",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Quatermass_II_Episode_4.mp4",
+            "format": "h.264",
+            "sizeBytes": 170639214,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Quatermass_II_Episode_4of6_1955/Quatermass_II_Episode_4.mp4"
+        },
+        {
+          "archiveID": "Quatermass_II_Episode_5of6_1955",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Frenzy",
+          "overview": "Quatermass enters the Plant and sees an alien creature in the slime stored in the food domes. The workers, led by Paddy, revolt and occupy the pumping room to stop the gas flow to the domes, pumping in oxygen. The guards retaliate by using human bodies to block the pipeline.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/6h4Dbk508OQysrs6lpLf2i4bVts.jpg",
+          "airDate": "1955-11-19",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Quatermass_II_Episode_5.mp4",
+            "format": "h.264",
+            "sizeBytes": 177025753,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Quatermass_II_Episode_5of6_1955/Quatermass_II_Episode_5.mp4"
+        },
+        {
+          "archiveID": "Quatermass_II_Episode_6of6_1955",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Destroyers",
+          "overview": "Quatermass escapes from the Plant as it explodes and returns with Pugh to the Rocket Group where Dillon and the zombies have taken over. Pugh and Quatermass plan to go to the asteroid in the Quatermass II rocket and destroy the alien force.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/zDXxq9TyAPxmPFiTLcBQ6QUK2vD.jpg",
+          "airDate": "1955-11-26",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Quatermass_II_Episode_6.mp4",
+            "format": "h.264",
+            "sizeBytes": 194797800,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Quatermass_II_Episode_6of6_1955/Quatermass_II_Episode_6.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

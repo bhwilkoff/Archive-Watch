@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-bing-crosby-show-1964",
+  "title": "The Bing Crosby Show",
+  "yearStart": 1964,
+  "yearEnd": 1964,
+  "overview": "The Bing Crosby Show is a 28-episode situation comedy television program starring crooner, film star, iconic phenomenon, and businessman Bing Crosby and actress Beverly Garland as a middle-aged couple, Bing and Ellie Collins, rearing two teenaged daughters during the early 1960s. In the format, Crosby portrayed a former entertainer turned architectural designer with a penchant for singing, and each episode usually contained at least one song. Produced by Crosby's own company, affiliated with Desilu Studios and subsequently CBS Paramount Television, the series aired on ABC from September 14, 1964, to April 19, 1965. Rebroadcasts continued until June 14.\n\nThe roles of the daughters Janice and Joyce Collins were played by Carol Faylen and Diane Sherry, respectively. Top Warner Bros. character actor Frank McHugh appeared as Willie Walters, the Collins's live-in handyman. Christopher Riordan and Pamela Austin appeared twice on the program, Riordan as an unnamed \"Neighbor\" and Austin as Clarissa Roberts.\n\nGuest stars included Herbert Anderson, Frankie Avalon, Jack Benny, Jimmy Boyd, Macdonald Carey, Vikki Carr, Dennis Day, Roger Ewing, Glenda Farrell, Joan Fontaine, Kathy Garver, George Gobel, Kathryn Grant, Pat Harrington, Jr., Phil Harris, Charles Lane, Nobu McCarthy, Gary Morton, Ken Murray, Lloyd Nolan, Ruth Roman, and James Shigeta.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3m08q8mEmvH05gow0onoPWCnuVc.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheBingCrosbyShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Bing Crosby Show''",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3m08q8mEmvH05gow0onoPWCnuVc.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 3541,
+          "videoFile": {
+            "name": "The Bing Crosby Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 368202473,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBingCrosbyShow/The Bing Crosby Show.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

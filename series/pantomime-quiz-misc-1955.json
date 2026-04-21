@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "pantomime-quiz-misc-1955",
+  "title": "Pantomime Quiz (misc",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/PantomimeQuizmisc1955Episode",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PantomimeQuizmisc1955Episode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Pantomime Quiz (misc 1955 episode)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/PantomimeQuizmisc1955Episode",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1761,
+          "videoFile": {
+            "name": "PantomimeQuiz1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 181964145,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PantomimeQuizmisc1955Episode/PantomimeQuiz1955.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-great-american-strip-off-1983",
+  "title": "The Great American Strip Off",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-great-american-strip-off-1983-monique-gabrielle",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-great-american-strip-off-1983-monique-gabrielle",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Great American Strip Off (1983) Monique Gabrielle",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-great-american-strip-off-1983-monique-gabrielle",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Great american strip off (1983) Monique Gabrielle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 27223013,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-great-american-strip-off-1983-monique-gabrielle/The Great american strip off (1983) Monique Gabrielle.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

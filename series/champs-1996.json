@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "champs-1996",
+  "title": "Champs",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": "Champs is an American sitcom that aired from January 9 until August 7, 1996.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Gary David Goldberg",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "champs-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Champs - Kevin Nealon, Ashley Crow",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Champs - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 715711417,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/champs-1.1/Champs - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

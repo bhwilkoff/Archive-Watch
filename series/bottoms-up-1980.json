@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bottoms-up-1980",
+  "title": "Bottoms Up",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BottomsUp81ComedyRevueFromHarrahSLakeTahoe1980",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BottomsUp81ComedyRevueFromHarrahSLakeTahoe1980",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bottoms Up '81 Comedy Revue from Harrah's Lake Tahoe (1980)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BottomsUp81ComedyRevueFromHarrahSLakeTahoe1980",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bottoms-Up-_81-Comedy-Revue-from-Harrah_s-Lake-Tahoe-_1980_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 240892595,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BottomsUp81ComedyRevueFromHarrahSLakeTahoe1980/Bottoms-Up-_81-Comedy-Revue-from-Harrah_s-Lake-Tahoe-_1980_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

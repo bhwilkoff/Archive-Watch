@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "seriesID": "hollywood-palace-ads-1960",
+  "title": "Hollywood Palace Ads",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/HollywoodPalaceAdsPart1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "HollywoodPalaceAdsPart1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace Ads part 1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/HollywoodPalaceAdsPart1",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DialSoap1966_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4588753,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalaceAdsPart1/DialSoap1966_512kb.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalaceAdsPart2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace Ads part 2",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/HollywoodPalaceAdsPart2",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HeadAndShoulders1966_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4340749,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalaceAdsPart2/HeadAndShoulders1966_512kb.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalaceAdsPart3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace Ads part 3",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/HollywoodPalaceAdsPart3",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MurielCigar1965_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4411087,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalaceAdsPart3/MurielCigar1965_512kb.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalaceAdsPart4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace Ads part 4",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/HollywoodPalaceAdsPart4",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BonusDetergent1967_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4350379,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalaceAdsPart4/BonusDetergent1967_512kb.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalaceAdsPart5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace Ads part 5",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/HollywoodPalaceAdsPart5",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Rolaids1967_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4250748,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalaceAdsPart5/Rolaids1967_512kb.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalaceAdsPart6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace Ads part 6",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/HollywoodPalaceAdsPart6",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "SunsweetPittedPrunes1967_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4292775,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalaceAdsPart6/SunsweetPittedPrunes1967_512kb.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalaceAdsPart7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace Ads part 7",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/HollywoodPalaceAdsPart7",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "RaleighAndBelairCigarettes1968_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4266959,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalaceAdsPart7/RaleighAndBelairCigarettes1968_512kb.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalaceAdsPart8",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace Ads part 8",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/HollywoodPalaceAdsPart8",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Polident1969_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 2175808,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalaceAdsPart8/Polident1969_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

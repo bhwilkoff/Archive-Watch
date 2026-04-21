@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-dagmar-story-1951",
+  "title": "The Dagmar Story",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/dagmarstory",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dagmarstory",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dagmar Story''",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/dagmarstory",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 2012,
+          "videoFile": {
+            "name": "dagmarstory.mp4",
+            "format": "h.264",
+            "sizeBytes": 209655435,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dagmarstory/dagmarstory.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

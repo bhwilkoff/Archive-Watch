@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-dark-room-1960",
+  "title": "The Dark Room",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "In hospital, photographer Jinx Kingsley wakes from a coma after a car crash - a failed suicide attempt, prompted by her fiance Leo jilting her to elope with Jinx's lifelong best friend, Meg. The discovery of Leo and Meg's bodies - brutally murdered in the same manner as Jinx's first husband - makes Jinx the prime suspect. Then, with the help of eminent neuroscientist Dr.Alan Protheroe, some memories begin to surface. Memories of desperation and paralysing terror.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/bQf2N2fflj9gES2MQMng9jEHJha.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Minette Walters",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OSB-04_The_Dark_Room",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Dark Room",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/bQf2N2fflj9gES2MQMng9jEHJha.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OSB-04_The_Dark_Room.mp4",
+            "format": "h.264",
+            "sizeBytes": 154818505,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-04_The_Dark_Room/OSB-04_The_Dark_Room.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

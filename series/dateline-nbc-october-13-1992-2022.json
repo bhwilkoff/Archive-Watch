@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dateline-nbc-october-13-1992-2022",
+  "title": "Dateline NBC (October 13, 1992",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/dateline-nbc-october-13-1992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dateline-nbc-october-13-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dateline NBC (October 13, 1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/dateline-nbc-october-13-1992",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dateline NBC (October 13, 1992).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3001847503,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dateline-nbc-october-13-1992/Dateline NBC (October 13, 1992).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

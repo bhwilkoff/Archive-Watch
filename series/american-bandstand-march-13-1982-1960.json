@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "american-bandstand-march-13-1982-1960",
+  "title": "American Bandstand (March 13, 1982",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AmericanBandstandMarch131982",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AmericanBandstandMarch131982",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "American Bandstand (March 13, 1982)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AmericanBandstandMarch131982",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "American-Bandstand-_March-13_-1982_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 198481966,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AmericanBandstandMarch131982/American-Bandstand-_March-13_-1982_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

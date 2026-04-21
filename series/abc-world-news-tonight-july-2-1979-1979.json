@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-world-news-tonight-july-2-1979-1979",
+  "title": "ABC World News Tonight July 2, 1979",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/abc-19790702",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "abc-19790702",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC World News Tonight July 2, 1979",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/abc-19790702",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC世界新闻 19790702.mp4",
+            "format": "h.264",
+            "sizeBytes": 130093240,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/abc-19790702/ABC世界新闻 19790702.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

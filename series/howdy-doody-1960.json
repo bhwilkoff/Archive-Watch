@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "howdy-doody-1960",
+  "title": "Howdy Doody",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "Howdy Doody is an American children's television program that was created and produced by E. Roger Muir and telecast on the NBC network in the United States from December 27, 1947 until September 24, 1960. It was a pioneer in children's television programming and set the pattern for many similar shows. One of the first television series produced at NBC in Rockefeller Center, in Studio 3A, it was also a pioneer in early color production as NBC used the show in part to sell color television sets in the 1950s.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "E. Roger Muir",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "HowdyDoody24September1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 24 September 1960",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3539,
+          "videoFile": {
+            "name": "Howdy Doody - 24 September 1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 368116855,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody24September1960/Howdy Doody - 24 September 1960.mp4"
+        },
+        {
+          "archiveID": "HowdyDoodysChristmas",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody's Christmas",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 517,
+          "videoFile": {
+            "name": "HowdyDoodysChristmas-BuffaloBob1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 51808331,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoodysChristmas/HowdyDoodysChristmas-BuffaloBob1951.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

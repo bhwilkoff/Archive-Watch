@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "general-hospital--november-3-1989-most-2021",
+  "title": "General Hospital- November 3, 1989 (most",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/general-hospital-november-3-1989-most",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "general-hospital-november-3-1989-most",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "General Hospital- November 3, 1989 (most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/general-hospital-november-3-1989-most",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "General Hospital- November 3, 1989 (most).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 865941119,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/general-hospital-november-3-1989-most/General Hospital- November 3, 1989 (most).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

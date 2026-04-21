@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "candid-camera-clip-march-13-1992-2025",
+  "title": "Candid Camera clip (March 13, 1992",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/candid-camera-clip-march-13-1992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "candid-camera-clip-march-13-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Candid Camera clip (March 13, 1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/candid-camera-clip-march-13-1992",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Candid Camera clip (March 13, 1992).mp4",
+            "format": "h.264",
+            "sizeBytes": 39596209,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/candid-camera-clip-march-13-1992/Candid Camera clip (March 13, 1992).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

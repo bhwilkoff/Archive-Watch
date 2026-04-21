@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "love-that-bob-1958",
+  "title": "Love That Bob!",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Love_That_Bob--At_Sea",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Love_That_Bob--At_Sea",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Love That Bob!: Bob and Schultzy at Sea",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Love_That_Bob--At_Sea",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1539,
+          "videoFile": {
+            "name": "LoveThatBob_430--At_Sea.mp4",
+            "format": "h.264",
+            "sizeBytes": 160165829,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Love_That_Bob--At_Sea/LoveThatBob_430--At_Sea.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

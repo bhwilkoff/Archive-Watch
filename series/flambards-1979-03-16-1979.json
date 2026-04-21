@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "flambards-1979-03-16-1979",
+  "title": "Flambards (1979-03-16",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/flambards-1979-03-16-s-1-e-08-by-alex-glasgow-flying-high",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "flambards-1979-03-16-s-1-e-08-by-alex-glasgow-flying-high",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Flambards (1979-03-16 S01E08 By Alex Glasgow) FLYING HIGH",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/flambards-1979-03-16-s-1-e-08-by-alex-glasgow-flying-high",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": 3150,
+          "videoFile": {
+            "name": "Flambards (1979-03-16 S1E08 by Alex Glasgow) FLYING HIGH.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 199252428,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flambards-1979-03-16-s-1-e-08-by-alex-glasgow-flying-high/Flambards (1979-03-16 S1E08 by Alex Glasgow) FLYING HIGH.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

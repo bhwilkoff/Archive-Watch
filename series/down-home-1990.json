@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "down-home-1990",
+  "title": "Down Home",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "A New York City executive returns to her hometown of Hadley Cove, Texas, a coastal fishing village, to help save her father's bait and tackle shop from her ex-boyfriend, a condominium developer.  Down Home is an American sitcom that aired on NBC from April 12, 1990 to August 10, 1991. Emmy Award winning actor Ted Danson served as series co-producer.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/wrDT6t9aeA6TXcySnCCtxRTNaG6.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/uoKuhYCXvF63m8pBoqkGGmnoS5M.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Barton Dean",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "down-home-1.6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Down Home - Judith Ivey, Gedde Watanabe, Eric Allan Kramer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wrDT6t9aeA6TXcySnCCtxRTNaG6.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Down Home - 1.6.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1106928988,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/down-home-1.6/Down Home - 1.6.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

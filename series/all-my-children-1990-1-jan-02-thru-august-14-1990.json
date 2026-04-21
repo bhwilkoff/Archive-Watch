@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "all-my-children-1990-1-jan-02-thru-august-14-1990",
+  "title": "ALL MY CHILDREN 1990 #1 Jan 02 thru August 14",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AllMyChildren19901Jan02ThruAugust14-16.9Gb",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AllMyChildren19901Jan02ThruAugust14-16.9Gb",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ALL MY CHILDREN 1990 #1 Jan 02 thru August 14 - 16.9 GB",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AllMyChildren19901Jan02ThruAugust14-16.9Gb",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AMc90-01-02promoTue02munecojimWHeartgal54AbcDayTv.mp4",
+            "format": "h.264",
+            "sizeBytes": 2612273,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AllMyChildren19901Jan02ThruAugust14-16.9Gb/AMc90-01-02promoTue02munecojimWHeartgal54AbcDayTv.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "seriesID": "the-outer-limits-1963",
+  "title": "The Outer Limits",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": "Anthology series of composed of distinct story episodes, sometimes with a plot twist at the end, with occasional recurring story elements that were often tied together during season-finale clip shows.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1mf3GKgYeEIBhsp61uTGmI58NIB.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/yeuPvfPYK7Y3J3ZWqLF2IcWEi36.jpg",
+  "genres": [],
+  "networks": [
+    "Showtime",
+    "Syfy"
+  ],
+  "creator": "Leslie Stevens",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Outer Limits - Complete Season 1 (32 Episodes) (restored. colorized) (1963, TV Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1mf3GKgYeEIBhsp61uTGmI58NIB.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "the outer limits-s1e1-1963-colorized.mp4",
+            "format": "h.264",
+            "sizeBytes": 304879507,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the outer limits-s1e1-1963-colorized.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Outer Limits – Complete Season 2 (17 Episodes) (restored, colorized) (1964, TV Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1mf3GKgYeEIBhsp61uTGmI58NIB.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "the outer limits-s2e10-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 305354850,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the outer limits-s2e10-1964-colorized-576p-sd.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-outer-limits-1963-s01e01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Sandkings",
+          "overview": "Scientist Simon Kress finds himself the master of a colony of Sandkings -- creatures from Mars that look like insects, but have the intelligence of much higher beings.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iWSUTEucDsM6DnE5DBMVExT6owb.jpg",
+          "airDate": "1995-03-26",
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Outer.Limits.1963.S01E01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1060627156,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-1963-s01e01/The.Outer.Limits.1963.S01E01.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

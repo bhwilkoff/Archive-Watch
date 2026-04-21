@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tv-patrol-1987-kudeta-coup-detat-attempt-philippines-classic-1987",
+  "title": "TV Patrol 1987 Kudeta Coup Detat Attempt Philippines Classic",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tv-patrol-1986-kudeta-coup-detat-attempt-philippines-classic-480-x-720-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tv-patrol-1986-kudeta-coup-detat-attempt-philippines-classic-480-x-720-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TV Patrol 1987 Kudeta Coup Detat Attempt Philippines Classic",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tv-patrol-1986-kudeta-coup-detat-attempt-philippines-classic-480-x-720-1",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TV_Patrol_1986_Kudeta_Coup_detat_Attempt_Philippines_Classic_(480_X_720)[1].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 111752052,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tv-patrol-1986-kudeta-coup-detat-attempt-philippines-classic-480-x-720-1/TV_Patrol_1986_Kudeta_Coup_detat_Attempt_Philippines_Classic_(480_X_720)[1].ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

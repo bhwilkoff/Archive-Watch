@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "making-mash-1986",
+  "title": "Making M*A*S*H*",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "making-mash-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Making M*A*S*H* - Jamie Farr",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Making MASH - 1986.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2134688033,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/making-mash-1986/Making MASH - 1986.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "stories-of-the-century-billy-the-kid-1960",
+  "title": "Stories Of The Century Billy The Kid",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/StoriesOfTheCenturyBillyTheKid",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "StoriesOfTheCenturyBillyTheKid",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Stories Of The Century Billy The Kid",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/StoriesOfTheCenturyBillyTheKid",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Stories Of The Century - Billy The Kid.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 116556178,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCenturyBillyTheKid/Stories Of The Century - Billy The Kid.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

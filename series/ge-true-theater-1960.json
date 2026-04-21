@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ge-true-theater-1960",
+  "title": "GE True Theater",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/GeTrueTheaterTooGoodWithAGun",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GeTrueTheaterTooGoodWithAGun",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "GE True Theater: Too Good With A Gun",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/GeTrueTheaterTooGoodWithAGun",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1568,
+          "videoFile": {
+            "name": "GeneralElectricTheater-tooGoodWithAGun.mp4",
+            "format": "h.264",
+            "sizeBytes": 155468388,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeTrueTheaterTooGoodWithAGun/GeneralElectricTheater-tooGoodWithAGun.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

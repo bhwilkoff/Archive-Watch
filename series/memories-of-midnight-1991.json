@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "memories-of-midnight-1991",
+  "title": "Memories Of Midnight",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Catherine lost her memory and wound up in a convent in the care of nuns. She tries to discover the terrible events which led to her condition, not realizing that she's being watched by a wealthy and powerful man who will do anything to protect his secret - a secret that only Catherine can reveal to the world.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1cKkQHaoFqnwBWxUUP46B57he24.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tSGjc9mK1Duc1S1r4304MQ6W5kv.jpg",
+  "genres": [],
+  "networks": [
+    "WPIX"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "memories-of-midnight-pt-1-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Memories Of Midnight - Jane Seymour",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1cKkQHaoFqnwBWxUUP46B57he24.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Memories of Midnight - Pt 1 - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2746931081,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/memories-of-midnight-pt-1-1991/Memories of Midnight - Pt 1 - 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

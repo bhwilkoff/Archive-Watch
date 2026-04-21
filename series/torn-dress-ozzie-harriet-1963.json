@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "torn-dress-ozzie-harriet-1963",
+  "title": "Torn Dress (Ozzie & Harriet",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Torn_Dress--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Torn_Dress--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Torn Dress (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Torn_Dress--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1494,
+          "videoFile": {
+            "name": "Torn_Dress--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 155255294,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Torn_Dress--Ozzie-Harriet/Torn_Dress--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "murder-of-lee-harvey-oswald-1963",
+  "title": "Murder Of Lee Harvey Oswald",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/LeeHarveyOswaldFootage",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LeeHarveyOswaldFootage",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Murder Of Lee Harvey Oswald",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LeeHarveyOswaldFootage",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lee Harvey Oswald Footage.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 13992773,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LeeHarveyOswaldFootage/Lee Harvey Oswald Footage.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

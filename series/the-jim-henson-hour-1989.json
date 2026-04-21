@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-jim-henson-hour-1989",
+  "title": "The Jim Henson Hour",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "The Jim Henson Hour was developed as a showcase for the Jim Henson Company's various puppet creations, including the popular Muppet characters. This hour-long anthology series was hosted by Jim Henson and generally included two segments. The first segment,\"Muppetelevision,\" included comedy skits starring the Muppets, as well as frequent guest appearances by popular entertainers. The second segment often featured rebroadcasts of original, Henson-created productions, such as episodes from Jim Henson's \"The StoryTeller\" anthology series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/w3ETHcUlUexcmYNN4FuLyLH6UmX.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Jim Henson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-jim-henson-hour-s-1-e-11-living-with-dinosuars",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Jim Henson Hour",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/w3ETHcUlUexcmYNN4FuLyLH6UmX.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Jim Henson Hour S1 E11 Living With Dinosuars.mp4",
+            "format": "h.264",
+            "sizeBytes": 309720323,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-jim-henson-hour-s-1-e-11-living-with-dinosuars/The Jim Henson Hour S1 E11 Living With Dinosuars.mp4"
+        },
+        {
+          "archiveID": "04TheJimHensonHourDogCity",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Jim Henson Hour - The Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/w3ETHcUlUexcmYNN4FuLyLH6UmX.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "03 - The Jim Henson Hour (Power:The Soldier and Death).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 226696909,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/04TheJimHensonHourDogCity/03 - The Jim Henson Hour (Power:The Soldier and Death).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

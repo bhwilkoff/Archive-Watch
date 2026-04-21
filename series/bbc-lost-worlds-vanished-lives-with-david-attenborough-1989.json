@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bbc-lost-worlds-vanished-lives-with-david-attenborough-1989",
+  "title": "BBC Lost Worlds, Vanished Lives (with David Attenborough",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BBCLostWorldsVanishedLivesEp4Of4TheRareGlimpsesDavidAttenborough1989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BBCLostWorldsVanishedLivesEp4Of4TheRareGlimpsesDavidAttenborough1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Lost Worlds, Vanished Lives (with David Attenborough) (1989)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BBCLostWorldsVanishedLivesEp4Of4TheRareGlimpsesDavidAttenborough1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC Lost Worlds, Vanished Lives Ep 4 of 4 The Rare Glimpses (David Attenborough) (1989).mp4",
+            "format": "h.264",
+            "sizeBytes": 246890531,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BBCLostWorldsVanishedLivesEp4Of4TheRareGlimpsesDavidAttenborough1989/BBC Lost Worlds, Vanished Lives Ep 4 of 4 The Rare Glimpses (David Attenborough) (1989).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

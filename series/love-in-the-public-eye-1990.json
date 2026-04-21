@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "love-in-the-public-eye-1990",
+  "title": "Love In The Public Eye",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/love-in-the-public-eye-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "love-in-the-public-eye-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Love In The Public Eye - Mary Hart",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/love-in-the-public-eye-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Love In The Public Eye - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1431015199,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/love-in-the-public-eye-1990/Love In The Public Eye - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "nightline-missing-start-1992",
+  "title": "Nightline (missing start",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/nightline19921221",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "nightline19921221",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Nightline (missing start - 21/12/1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/nightline19921221",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "08 - Nightline (2nd segment).mp4",
+            "format": "h.264",
+            "sizeBytes": 33579382,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nightline19921221/08 - Nightline (2nd segment).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

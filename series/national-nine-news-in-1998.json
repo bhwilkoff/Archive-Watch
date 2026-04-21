@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "national-nine-news-in-1998",
+  "title": "National Nine News (in",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/nationalninenews-incomplete-1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "nationalninenews-incomplete-1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "National Nine News (incomplete - 1998)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/nationalninenews-incomplete-1998",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "10 - National Nine News (incomplete- 1998).mp4",
+            "format": "h.264",
+            "sizeBytes": 25689186,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nationalninenews-incomplete-1998/10 - National Nine News (incomplete- 1998).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

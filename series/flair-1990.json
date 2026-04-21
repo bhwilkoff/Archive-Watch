@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "flair-1990",
+  "title": "Flair",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "Tessa returns home to Melbourne to establish her own label while battling her devious younger sister, the mob, and a slew of other enemies including an alcoholic competitor, a stalker, drug dealers, jealous wives, corrupt police, and militant unions. Tessa also juggles love affairs with a married Australian businessman who may be a gangster, an American photographer, and a hot-tempered Irish thug, in between surviving various attempts on her life and investigating the “accidental” death of her father.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/2YaAe2YgBVwlgYtiZ2eakVDp8rP.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/wBwstzJEeSkC8PX4bGiavnIn8WB.jpg",
+  "genres": [],
+  "networks": [
+    "Seven Network"
+  ],
+  "creator": "Henri Safran",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "flair-e2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Part 2",
+          "overview": "Tessa reels from her father’s death, while Phillip Harman is intent on showing her his love and showers her with lavish gifts. Mindful of warnings issued by her increasingly disturbed ex-boyfriend Chris, and her American photographer friend Matt (Joseph Bottoms), Tessa is seduced by Harmon’s charms and begins an affair with him. His glamorous socialite wife, Samantha (Behets), advises Tessa not to probe too closely into Phillip’s business affairs, hinting that he too may have underworld connections. Meanwhile, Tessa’s wayward sister Sally goes missing and Tessa’s worst fears are confirmed when she finds her. As Tessa's relationship with Harmon cracks under the pressure and she grows closer to her friend Matt, Tessa must fight several attempts on her life, union black bans against her business, and continue the search for her father’s killer.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3xCxCAQexSnZfZ22eY4n3uDKBvW.jpg",
+          "airDate": "1990-08-02",
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "14 - Flair - Episode 2 (7th segment).mp4",
+            "format": "h.264",
+            "sizeBytes": 75548227,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flair-e2/14 - Flair - Episode 2 (7th segment).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

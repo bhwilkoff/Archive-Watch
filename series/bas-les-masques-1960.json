@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "bas-les-masques-1960",
+  "title": "Bas les masques",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1994-xx-xx-m-dumas-mon-corps-en-vacances",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1993-mireille-dumas-heliomonde",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bas les masques - Heliomonde - 1993",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1993-mireille-dumas-heliomonde",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1993_mireille_dumas_heliomonde.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 204084774,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1993-mireille-dumas-heliomonde/1993_mireille_dumas_heliomonde.ia.mp4"
+        },
+        {
+          "archiveID": "1994-xx-xx-m-dumas-mon-corps-en-vacances",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bas les masques - Mon Corps En Vacances - 1994",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1994-xx-xx-m-dumas-mon-corps-en-vacances",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1994_xx_xx_m_dumas_mon_corps_en_vacances.mp4",
+            "format": "h.264",
+            "sizeBytes": 170424597,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1994-xx-xx-m-dumas-mon-corps-en-vacances/1994_xx_xx_m_dumas_mon_corps_en_vacances.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

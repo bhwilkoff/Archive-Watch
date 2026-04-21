@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "steve-canyon-tv-1959-colorized-1959",
+  "title": "Steve Canyon TV 1959 colorized",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/steve-canyon-tv-1959-colorized-s01e17-the-search",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "steve-canyon-tv-1959-colorized-s01e17-the-search",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Steve Canyon TV 1959 colorized s01e17 The Search",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/steve-canyon-tv-1959-colorized-s01e17-the-search",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Steve Canyon TV 1959 colorized s01e17 The Search.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 233502178,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/steve-canyon-tv-1959-colorized-s01e17-the-search/Steve Canyon TV 1959 colorized s01e17 The Search.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

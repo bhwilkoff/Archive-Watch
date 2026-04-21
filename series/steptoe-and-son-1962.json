@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "seriesID": "steptoe-and-son-1962",
+  "title": "Steptoe and Son",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": "Steptoe and Son is a British sitcom written by Ray Galton and Alan Simpson about a father and son played by Wilfred Brambell and Harry H. Corbett who deal in selling used items. They live on Oil Drum Lane, a fictional street in Shepherd's Bush, London. Four series were broadcast by the BBC from 1962 to 1965, followed by a second run from 1970 to 1974. Its theme tune, \"Old Ned\", was composed by Ron Grainer. The series was voted 15th in a 2004 BBC poll to find Britain's Best Sitcom. It was remade in the US as Sanford and Son, in Sweden as Albert & Herbert and in the Netherlands as Stiefbeen en zoon. In 1972 a movie adaptation of the series, Steptoe and Son, was released in cinemas, with a second Steptoe and Son Ride Again in 1973.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/wCI7tLrSpA6bOSwIPt19DGN21ap.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Ray Galton",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SteptoeAndSonS1xE1TheBird",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Steptoe and Son - 1x01 - The Bird",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Steptoe And Son_ S1E1 - The Bird.mp4",
+            "format": "h.264",
+            "sizeBytes": 183610592,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteptoeAndSonS1xE1TheBird/Steptoe And Son_ S1E1 - The Bird.mp4"
+        },
+        {
+          "archiveID": "SteptoeAndSon1x03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Steptoe and Son - 1x03 - The Economist",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Steptoe And Son_ S1E3 - The Economist.mp4",
+            "format": "h.264",
+            "sizeBytes": 177631149,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteptoeAndSon1x03/Steptoe And Son_ S1E3 - The Economist.mp4"
+        },
+        {
+          "archiveID": "SteptoeAndSon1x04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Steptoe and Son - 1x04 - The Diploma",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Steptoe And Son_ S1E4 - The Diploma.mp4",
+            "format": "h.264",
+            "sizeBytes": 177461835,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteptoeAndSon1x04/Steptoe And Son_ S1E4 - The Diploma.mp4"
+        },
+        {
+          "archiveID": "SteptoeAndSon1x05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Steptoe and Son - 1x05 - The Holiday",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Steptoe And Son_ S1E5 - The Holiday.mp4",
+            "format": "h.264",
+            "sizeBytes": 183867396,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteptoeAndSon1x05/Steptoe And Son_ S1E5 - The Holiday.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "SteptoeAndSonS1xE2ThePiano",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Bird",
+          "overview": "Harold is going out every night, so Albert suspects that he must being seeing a girl. Determined to put a stop to the romance, he gets Harold to invite the girl back to the house for dinner. Meanwhile, Albert puts the clocks forward so when she fails to show up at the right time, Harold thinks she has stood him up.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2hQ70FgmWE7eTOhrHxLMWVEbTjj.jpg",
+          "airDate": "1962-06-14",
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Steptoe And Son_ S1E2 - The Piano.mp4",
+            "format": "h.264",
+            "sizeBytes": 183998355,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteptoeAndSonS1xE2ThePiano/Steptoe And Son_ S1E2 - The Piano.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

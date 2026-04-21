@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-hitch-heisters-1960",
+  "title": "The Hitch Heisters",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FollowThatMan-RalphBellamy-4-27-TheHitchHeisters",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FollowThatMan-RalphBellamy-4-27-TheHitchHeisters",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Hitch Heisters",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FollowThatMan-RalphBellamy-4-27-TheHitchHeisters",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FollowThatMan-RalphBellamy-4-27-TheHitchHeisters.mp4",
+            "format": "h.264",
+            "sizeBytes": 151225375,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FollowThatMan-RalphBellamy-4-27-TheHitchHeisters/FollowThatMan-RalphBellamy-4-27-TheHitchHeisters.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ma-lov-1998",
+  "title": "MA LOV",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MALOV",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MALOV",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "MA LOV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MALOV",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MA_LOV.mp4",
+            "format": "h.264",
+            "sizeBytes": 481806888,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MALOV/MA_LOV.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

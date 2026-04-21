@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "alf-takes-over-the-network-1989",
+  "title": "Alf Takes Over The Network",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/alf-takes-over-the-network-1989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "alf-takes-over-the-network-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alf Takes Over The Network - Alf",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/alf-takes-over-the-network-1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alf Takes Over the Network - 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1086549231,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alf-takes-over-the-network-1989/Alf Takes Over the Network - 1989.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

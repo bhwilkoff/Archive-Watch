@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-whoopi-goldberg-show-1992",
+  "title": "The Whoopi Goldberg Show",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "The Whoopi Goldberg Show is an American late-night talk show hosted by comedian Whoopi Goldberg that aired in syndication from 1992 to 1993 for a total of 200 episodes.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "whoopi-goldberg-show-robin-williams-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Whoopi Goldberg Show - Whoopi Goldberg",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Whoopi Goldberg Show - Robin Williams - 1992.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 704545151,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/whoopi-goldberg-show-robin-williams-1992/Whoopi Goldberg Show - Robin Williams - 1992.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

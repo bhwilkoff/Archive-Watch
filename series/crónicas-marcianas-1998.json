@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "crónicas-marcianas-1998",
+  "title": "Crónicas marcianas",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/cronicas-marcianas-1998-11-17",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cronicas-marcianas-1998-11-17",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Crónicas marcianas - 17 noviembre, 1998",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/cronicas-marcianas-1998-11-17",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Late Show - Fragmento (17-11-1998).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 43011459,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cronicas-marcianas-1998-11-17/Late Show - Fragmento (17-11-1998).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "enos-1980",
+  "title": "Enos",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": "Enos is an American television series from the 1980–1981 season that aired on the CBS network. A spinoff of The Dukes of Hazzard, Enos focused on the adventures of Enos Strate, a former small-town deputy in Hazzard County, after having moved to Los Angeles to join the L.A.P.D. Each episode featured Enos, alongside his partner Turk, and usually began and ended with Enos writing a letter to Daisy Duke in which he told her of his adventures in Los Angeles. Enos Strate was portrayed by actor Sonny Shroyer in both series.\n\nIn an attempt to boost ratings, a number of characters from The Dukes of Hazzard were brought in as guest stars but the show still failed to catch on. It was canceled after one eighteen episode season and the character consequently returned to The Dukes of Hazzard in the fall of 1982. In the CBS movie specials The Dukes of Hazzard: Reunion! and The Dukes of Hazzard: Hazzard in Hollywood!, it was explained that Enos had returned to the L.A.P.D. where he was now a detective after having served on the force for fifteen years.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fMR0qYDxaXoLQZbzMEeLp4dqlku.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/yfCjA5SNTkXUV1eSxHIVryLXhVz.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "enostvshow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Enos (Season 1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fMR0qYDxaXoLQZbzMEeLp4dqlku.jpg",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E13.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 315618241,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/enostvshow/S01E13.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

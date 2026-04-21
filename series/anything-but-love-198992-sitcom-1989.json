@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "anything-but-love-198992-sitcom-1989",
+  "title": "Anything but Love (1989–92) sitcom",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Anything-but-Love-sitcom",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Anything-but-Love-sitcom",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Anything but Love (1989–92) sitcom - Jamie Lee Curtis",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Anything-but-Love-sitcom",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Anything But Love s02 e18 - The Icewoman Cometh - my DVD rip MonReuman -vlc-record-22-09-08.mp4",
+            "format": "h.264",
+            "sizeBytes": 146263169,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Anything-but-Love-sitcom/Anything But Love s02 e18 - The Icewoman Cometh - my DVD rip MonReuman -vlc-record-22-09-08.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

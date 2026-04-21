@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-1994-world-music-awards-partial-2019",
+  "title": "The 1994 World Music Awards (partial",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1994WorldMusicAwardsPartial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1994WorldMusicAwardsPartial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The 1994 World Music Awards (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1994WorldMusicAwardsPartial",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1994-World-Music-Awards-_partial_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 227624300,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1994WorldMusicAwardsPartial/1994-World-Music-Awards-_partial_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

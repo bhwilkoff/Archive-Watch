@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "us-marshal-1960",
+  "title": "U.S. Marshal",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "While this sounds like a western, THE SHERIFF OF COCHISE was a contemporary police drama set in Cochise County, AZ. Sheriff Frank Morgan was eventually promoted to U.S. Marshall and given the entire state of Arizona to keep under control (the series title would subsequently change to U.S. MARSHAL and remain in syndication until 1960)",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9IXIuN6PAnpvgVoAhMiBFeCiHEJ.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": "Stan Jones",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "UnitedStatesMarshalR.i.p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "U.S. Marshal: R.I.P.",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9IXIuN6PAnpvgVoAhMiBFeCiHEJ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1546,
+          "videoFile": {
+            "name": "UnitedStatesMarshal-r.i.p..ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155702146,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/UnitedStatesMarshalR.i.p/UnitedStatesMarshal-r.i.p..ia.mp4"
+        },
+        {
+          "archiveID": "U.s.MarshalTheDiner",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "U.S. Marshal: The Diner",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9IXIuN6PAnpvgVoAhMiBFeCiHEJ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1533,
+          "videoFile": {
+            "name": "U.s.Marshal-theDiner.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153636010,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/U.s.MarshalTheDiner/U.s.Marshal-theDiner.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

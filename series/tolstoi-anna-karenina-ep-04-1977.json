@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tolstoi-anna-karenina-ep-04-1977",
+  "title": "Tolstoi Anna Karenina Ep 04",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bbcminiseriesannakareninaep04ww",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "bbcminiseriesannakareninaep04ww",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Tolstoi Anna Karenina Ep 04",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bbcminiseriesannakareninaep04ww",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC Miniseries - Anna Karenina - Ep 04 [WW].mp4",
+            "format": "h.264",
+            "sizeBytes": 345934881,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bbcminiseriesannakareninaep04ww/BBC Miniseries - Anna Karenina - Ep 04 [WW].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

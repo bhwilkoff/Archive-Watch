@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-marshal-1995",
+  "title": "The Marshal",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": "The Marshal is an American action-drama television series that aired on ABC for two brief seasons in 1995. The show starred Jeff Fahey as the title character, a United States Marshal charged with pursuing fugitives across the nation. In 1995, the episode \"Hitwoman\" was nominated for an Emmy Award for Outstanding Individual Achievement in Sound Editing for a Series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/puI6ETr3lavXtJBmXW9IKVSxlgg.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/rMn7b4azRDVqg8zhRlUOVjbzaIl.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "John Mankiewicz",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-marshal",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Marshal: The Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/puI6ETr3lavXtJBmXW9IKVSxlgg.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Marshal - S02E03 - The Heartbreak Kid.mkv",
+            "format": "Matroska",
+            "sizeBytes": 1867748123,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-marshal/The Marshal - S02E03 - The Heartbreak Kid.mkv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

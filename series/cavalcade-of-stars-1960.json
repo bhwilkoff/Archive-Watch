@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cavalcade-of-stars-1960",
+  "title": "Cavalcade of Stars",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cavalcadeOfStars-Fragments",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Cavalcade of Stars'' - Fragments",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2992,
+          "videoFile": {
+            "name": "CavalcadeOfStars-Fragments.mp4",
+            "format": "h.264",
+            "sizeBytes": 309896350,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cavalcadeOfStars-Fragments/CavalcadeOfStars-Fragments.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

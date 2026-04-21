@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "fireball-fun-for-all-1949",
+  "title": "Fireball Fun-for-all",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FireballFun-for-all1949",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FireballFun-for-all1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Fireball Fun-for-all'' - 27 October 1949",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FireballFun-for-all1949",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 3166,
+          "videoFile": {
+            "name": "FireballFun-for-all1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 328033862,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FireballFun-for-all1949/FireballFun-for-all1949.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

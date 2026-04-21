@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "s02-e02s-to-hell-with-babe-ruth-1969",
+  "title": "S02 E02s “ To Hell With Babe Ruth”",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/s-02-e-02s-to-hell-with-babe-ruth",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "s-02-e-02s-to-hell-with-babe-ruth",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "S02 E02s “ To Hell With Babe Ruth”",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-02-e-02s-to-hell-with-babe-ruth",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S02E02s “To Hell With Babe Ruth”.mp4",
+            "format": "h.264",
+            "sizeBytes": 282744311,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-02s-to-hell-with-babe-ruth/S02E02s “To Hell With Babe Ruth”.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

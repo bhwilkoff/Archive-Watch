@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "great-performances-1989",
+  "title": "Great Performances",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "The best in the performing arts from across America and around the world including a diverse programming portfolio of classical music, opera, popular song, musical theater, dance, drama, and performance documentaries.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1RD6s6KEbX36Cb99pAoWmU8gkwh.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/v3WopDdgHCoNvoBS0V8eVJdurJP.jpg",
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "great-performances-norbert-smith-a-life-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Great Performances - Norbert Smith A Life",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1RD6s6KEbX36Cb99pAoWmU8gkwh.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Great Performances - Norbert Smith A Life - 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1447044789,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/great-performances-norbert-smith-a-life-1989/Great Performances - Norbert Smith A Life - 1989.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

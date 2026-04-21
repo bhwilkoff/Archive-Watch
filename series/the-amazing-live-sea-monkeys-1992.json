@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "seriesID": "the-amazing-live-sea-monkeys-1992",
+  "title": "The Amazing Live Sea-Monkeys",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "The Amazing Live Sea Monkeys was a live-action television series that aired in 1992. The series aired 11 episodes before it was canceled. The show focuses on three Sea Monkeys—Dave, Bill and Aquarius —and their creator, The Professor. Others appearing in the short-lived series included Stephen Furst, Gilbert Gottfried, Larry Melman and Vernon Wells.\n\nThe concept of the show derived from the popular Sea Monkeys product, successfully marketed in the 1970s with a series of comic book ads designed and illustrated by Joe Orlando, later Vice President of DC Comics and Associate Publisher of Mad. Produced by CBS, the series aired in the United States and Australia. The unusual character designs derive from the fantasy characters in the ads that Orlando drew for Harold von Braunhut, creator of the product.\n\nThe plot revolved around the notion that the Professor had accidentally enlarged three sea monkeys to human-size, and plotlines followed their ensuing comical ineptness in the world. Each Sea Monkey displayed a certain odd character trait: Aquarius could not keep a secret, Bill was afraid of an Imperial, Pennsylvania man named Derek Allen and Dave would grow excited at the sound of polka music.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1XeUaK65T4LLKkPZxZy8XFKxrf.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Howie Mandel",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "amazing-live-sea-monkeys-01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Octapotomus R' Usamus",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1XeUaK65T4LLKkPZxZy8XFKxrf.jpg",
+          "airDate": "1992-09-19",
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amazing Live Sea Monkeys - 01.mp4",
+            "format": "h.264",
+            "sizeBytes": 134166998,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amazing-live-sea-monkeys-01/Amazing Live Sea Monkeys - 01.mp4"
+        },
+        {
+          "archiveID": "amazing-live-sea-monkeys-02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Lighthouse Alone",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1XeUaK65T4LLKkPZxZy8XFKxrf.jpg",
+          "airDate": "1992-09-26",
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amazing Live Sea Monkeys - 02.mp4",
+            "format": "h.264",
+            "sizeBytes": 134218077,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amazing-live-sea-monkeys-02/Amazing Live Sea Monkeys - 02.mp4"
+        },
+        {
+          "archiveID": "amazing-live-sea-monkeys-04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Look, Don't Touch",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1XeUaK65T4LLKkPZxZy8XFKxrf.jpg",
+          "airDate": "1992-10-10",
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amazing Live Sea Monkeys - 04.mp4",
+            "format": "h.264",
+            "sizeBytes": 134880572,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amazing-live-sea-monkeys-04/Amazing Live Sea Monkeys - 04.mp4"
+        },
+        {
+          "archiveID": "amazing-live-sea-monkeys-05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Sea Monkey of Love",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1XeUaK65T4LLKkPZxZy8XFKxrf.jpg",
+          "airDate": "1992-10-17",
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amazing Live Sea Monkeys - 05.mp4",
+            "format": "h.264",
+            "sizeBytes": 134215692,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amazing-live-sea-monkeys-05/Amazing Live Sea Monkeys - 05.mp4"
+        },
+        {
+          "archiveID": "amazing-live-sea-monkeys-06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "WrestleMania",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1XeUaK65T4LLKkPZxZy8XFKxrf.jpg",
+          "airDate": "1992-10-24",
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amazing Live Sea Monkeys - 06.mp4",
+            "format": "h.264",
+            "sizeBytes": 134436610,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amazing-live-sea-monkeys-06/Amazing Live Sea Monkeys - 06.mp4"
+        },
+        {
+          "archiveID": "amazing-live-sea-monkeys-07",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Haunted Lighthouse",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1XeUaK65T4LLKkPZxZy8XFKxrf.jpg",
+          "airDate": "1992-10-31",
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amazing Live Sea Monkeys - 07.mp4",
+            "format": "h.264",
+            "sizeBytes": 133740590,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amazing-live-sea-monkeys-07/Amazing Live Sea Monkeys - 07.mp4"
+        },
+        {
+          "archiveID": "amazing-live-sea-monkeys-08",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Scout's Honor",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1XeUaK65T4LLKkPZxZy8XFKxrf.jpg",
+          "airDate": "1992-11-07",
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amazing Live Sea Monkeys - 08.mp4",
+            "format": "h.264",
+            "sizeBytes": 134676892,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amazing-live-sea-monkeys-08/Amazing Live Sea Monkeys - 08.mp4"
+        },
+        {
+          "archiveID": "amazing-live-sea-monkeys-09",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Top Secret",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1XeUaK65T4LLKkPZxZy8XFKxrf.jpg",
+          "airDate": "1992-11-14",
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amazing Live Sea Monkeys - 09.mp4",
+            "format": "h.264",
+            "sizeBytes": 134414020,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amazing-live-sea-monkeys-09/Amazing Live Sea Monkeys - 09.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "santa-barbara--august-8-1985-most-2023",
+  "title": "Santa Barbara- August 8, 1985 (most",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/santa-barbara-august-8-1985-most",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "santa-barbara-august-8-1985-most",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Santa Barbara- August 8, 1985 (most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/santa-barbara-august-8-1985-most",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Santa Barbara- August 8, 1985 (most).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 536166238,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/santa-barbara-august-8-1985-most/Santa Barbara- August 8, 1985 (most).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-lucy-show-the-1962",
+  "title": "The Lucy Show (The",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": "The Lucy Show is an American sitcom that aired on CBS from 1962–68. It was Lucille Ball's follow-up to I Love Lucy. A significant change in cast and premise for the 1965–66 season divides the program into two distinct eras; aside from Ball, only Gale Gordon, who joined the program for its second season, remained. For the first three seasons, Vivian Vance was the co-star.\n\nThe earliest scripts were entitled The Lucille Ball Show, but when this title was declined, producers thought of calling the show This Is Lucy or The New Adventures of Lucy, before deciding on the title The Lucy Show. Ball won consecutive Emmy Awards as Outstanding Lead Actress in a Comedy Series for the series' final two seasons, 1966–67 and 1967–68.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/sdmFoI7pKzE4XoIVrVNt4ouXlbH.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/wi0teAZxA29lG0w6bMFHWi9Xshb.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Bob Weiskopf",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Lucy Show (The Complete Series) [1962 - 1968]",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sdmFoI7pKzE4XoIVrVNt4ouXlbH.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E28 - Lucy and the Little League.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 750135401,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E28 - Lucy and the Little League.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

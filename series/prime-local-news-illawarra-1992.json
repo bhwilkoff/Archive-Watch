@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "prime-local-news-illawarra-1992",
+  "title": "Prime Local News Illawarra",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/PrimeLocalNewsIllawarraUpdates21.12.1992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PrimeLocalNewsIllawarraUpdates21.12.1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Prime Local News Illawarra - Updates (21.12.1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/PrimeLocalNewsIllawarraUpdates21.12.1992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Prime Local News Illawarra - Updates (21.12.1992).mp4",
+            "format": "h.264",
+            "sizeBytes": 7352489,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PrimeLocalNewsIllawarraUpdates21.12.1992/Prime Local News Illawarra - Updates (21.12.1992).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

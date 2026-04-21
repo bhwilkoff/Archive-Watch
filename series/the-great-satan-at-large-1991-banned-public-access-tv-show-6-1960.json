@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-great-satan-at-large-1991-banned-public-access-tv-show-6-1960",
+  "title": "The Great Satan At Large (1991 Banned Public Access TV Show + 666Israel + Interviews & news clips",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/GreatSatanAtLargeDVD",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GreatSatanAtLargeDVD",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Great Satan At Large (1991 Banned Public Access TV Show + 666Israel + Interviews & news clips)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/GreatSatanAtLargeDVD",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Great Satan At Large (666Israel).mp4",
+            "format": "h.264",
+            "sizeBytes": 309103641,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GreatSatanAtLargeDVD/The Great Satan At Large (666Israel).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

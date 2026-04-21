@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "american-buffalo-1998",
+  "title": "American Buffalo",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AmericanBuffaloBattlingBackISO",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AmericanBuffaloBattlingBackISO",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "American Buffalo : Battling Back DVD ISO",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AmericanBuffaloBattlingBackISO",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "American.Buffalo.Battling.Back.1997.NTSC.DVD53.mp4",
+            "format": "h.264",
+            "sizeBytes": 341193328,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AmericanBuffaloBattlingBackISO/American.Buffalo.Battling.Back.1997.NTSC.DVD53.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

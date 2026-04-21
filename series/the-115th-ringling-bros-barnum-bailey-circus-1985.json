@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-115th-ringling-bros-barnum-bailey-circus-1985",
+  "title": "The 115th Ringling Bros. Barnum & Bailey Circus",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/The115thRinglingBros.BarnumBaileyCircus1985",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "The115thRinglingBros.BarnumBaileyCircus1985",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The 115th Ringling Bros. Barnum & Bailey Circus (1985)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/The115thRinglingBros.BarnumBaileyCircus1985",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The-115th-Ringling-Bros.-Barnum-_-Bailey-Circus-_1985_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 212662933,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The115thRinglingBros.BarnumBaileyCircus1985/The-115th-Ringling-Bros.-Barnum-_-Bailey-Circus-_1985_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

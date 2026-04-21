@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "baretta-1976",
+  "title": "Baretta",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": "Baretta is an American detective television series which ran on ABC from 1975 to 1978. The show was a milder version of a successful 1973–74 ABC series, Toma, starring Tony Musante as chameleon-like, real-life New Jersey police officer David Toma. While popular, Toma received intense criticism at the time for its realistic and frequent depiction of police and criminal violence. When Musante left the series after a single season, the concept was retooled as Baretta, with Robert Blake in the title role.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/xayGSRT2GbcFTwNIqt6l355v29F.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/wixjwQv8aPfIwbc7euj0fPPsMjT.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Stephen J. Cannell",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BarettaS3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Baretta Season 3; Episodes 5-8",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xayGSRT2GbcFTwNIqt6l355v29F.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E8.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 189209844,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BarettaS3/S3E8.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

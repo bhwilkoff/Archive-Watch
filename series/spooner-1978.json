@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "spooner-1978",
+  "title": "Spooner",
+  "yearStart": 1978,
+  "yearEnd": 1978,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/spooners-patch-pilot-outtake-section-5-take-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "spooners-patch-pilot-outtake-section-4-cut-in-shot-250-a-take-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Spooner's Patch pilot outtake - Section 4, Cut in Shot 250A, Take 1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/spooners-patch-pilot-outtake-section-4-cut-in-shot-250-a-take-1",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": 72,
+          "videoFile": {
+            "name": "Spooner's Patch pilot outtake - Section 4, Cut In Shot 250A, Take 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 7765025,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/spooners-patch-pilot-outtake-section-4-cut-in-shot-250-a-take-1/Spooner's Patch pilot outtake - Section 4, Cut In Shot 250A, Take 1.mp4"
+        },
+        {
+          "archiveID": "spooners-patch-pilot-outtake-section-5-take-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Spooner's Patch pilot outtake - Section 5, Take 1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/spooners-patch-pilot-outtake-section-5-take-1",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": 64,
+          "videoFile": {
+            "name": "Spooner's Patch pilot outtake - Section 5, Take 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 6880930,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/spooners-patch-pilot-outtake-section-5-take-1/Spooner's Patch pilot outtake - Section 5, Take 1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

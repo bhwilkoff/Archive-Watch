@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dead-ernest-suspense-1949",
+  "title": "Dead Ernest (Suspense",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Dead_Ernest--Suspense",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dead_Ernest--Suspense",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dead Ernest (Suspense)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Dead_Ernest--Suspense",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1782,
+          "videoFile": {
+            "name": "Dead_Ernest--Suspense.mp4",
+            "format": "h.264",
+            "sizeBytes": 184788103,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dead_Ernest--Suspense/Dead_Ernest--Suspense.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

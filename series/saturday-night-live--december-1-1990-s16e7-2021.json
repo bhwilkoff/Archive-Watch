@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "saturday-night-live--december-1-1990-s16e7-2021",
+  "title": "Saturday Night Live- December 1, 1990 (S16E7",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/saturday-night-live-december-1-1990-s-16e-7-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 16,
+      "episodes": [
+        {
+          "archiveID": "saturday-night-live-december-1-1990-s-16e-7-1",
+          "seasonNumber": 16,
+          "episodeNumber": 7,
+          "title": "Saturday Night Live- December 1, 1990 (S16E7)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/saturday-night-live-december-1-1990-s-16e-7-1",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live- December 1, 1990 (S16e7)-1.mp4",
+            "format": "h.264",
+            "sizeBytes": 386748475,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-december-1-1990-s-16e-7-1/Saturday Night Live- December 1, 1990 (S16e7)-1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

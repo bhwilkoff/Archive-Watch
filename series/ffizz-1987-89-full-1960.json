@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ffizz-1987-89-full-1960",
+  "title": "FFIZZ (1987-89) (Full",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/106.-ffizz...-with-friends-like-these",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "106.-ffizz...-with-friends-like-these",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "FFIZZ (1987-89) (Full Series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/106.-ffizz...-with-friends-like-these",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FFIZZ (1987-89)/106.Ffizz...With Friends Like These.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 88454453,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/106.-ffizz...-with-friends-like-these/FFIZZ (1987-89)/106.Ffizz...With Friends Like These.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

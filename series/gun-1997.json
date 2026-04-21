@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "gun-1997",
+  "title": "Gun",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": "Gun is an American television anthology series which aired on ABC on Saturday night from April 12, to May 31, 1997 at 10:00 p.m Eastern time. The series lasted six episodes, each directed by a well-known director, before being cancelled. Each episode involves the same semi-automatic pistol as an important part of the plot. The characters each episode are completely different and appeared unrelated to those who appeared in other episodes. The series was produced by Robert Altman and attracted numerous recognizable stars including Fred Ward, Kathy Baker, Carrie Fisher, Daryl Hannah, Randy Quaid, and Martin Sheen, as well as James Gandolfini in his first television appearance. The theme song was a cover of The Beatles' \"Happiness Is a Warm Gun\", performed by U2.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/23GwQTBBDkhstEvmzI3dbwpCic1.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/uJFO7TTyqIIZABysrUCDrZTjikW.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "James Steven Sadwith",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "gun-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Gun - Kathy Baker, Ed Begley Jr.",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/23GwQTBBDkhstEvmzI3dbwpCic1.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Gun - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1285705523,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gun-1.1/Gun - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

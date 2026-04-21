@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "my-favorite-mash-behind-the-scenes-clip-2023",
+  "title": "My Favorite M*A*S*H Behind The Scenes Clip",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/my-favorite-mash-behind-the-scenes-clip-1983",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "my-favorite-mash-behind-the-scenes-clip-1983",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "My Favorite M*A*S*H Behind The Scenes Clip ( 1983)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/my-favorite-mash-behind-the-scenes-clip-1983",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "My Favorite MASH behind the scenes clip (1983).mp4",
+            "format": "h.264",
+            "sizeBytes": 50767378,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/my-favorite-mash-behind-the-scenes-clip-1983/My Favorite MASH behind the scenes clip (1983).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

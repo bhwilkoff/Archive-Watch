@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "johnny-carson-1964-04-21-henry-morgan-arlene-dahl-attorney-j-1964",
+  "title": "Johnny Carson 1964 04 21 Henry Morgan, Arlene Dahl, Attorney J. W. Ehrlich, And Pete Fountain ( B& W Kinescope",
+  "yearStart": 1964,
+  "yearEnd": 1964,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1964-04-21-henry-morgan-arlene-dahl-attorney-j.-w.-ehrlich-and-pete-fountain-b-w-kinescope",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1964-04-21-henry-morgan-arlene-dahl-attorney-j.-w.-ehrlich-and-pete-fountain-b-w-kinescope",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Johnny Carson 1964 04 21 Henry Morgan, Arlene Dahl, Attorney J. W. Ehrlich, And Pete Fountain ( B& W Kinescope)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1964-04-21-henry-morgan-arlene-dahl-attorney-j.-w.-ehrlich-and-pete-fountain-b-w-kinescope",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1964-04-21 Henry Morgan, Arlene Dahl, Attorney J.W. Ehrlich, and Pete Fountain (B&W kinescope).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2439613692,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1964-04-21-henry-morgan-arlene-dahl-attorney-j.-w.-ehrlich-and-pete-fountain-b-w-kinescope/1964-04-21 Henry Morgan, Arlene Dahl, Attorney J.W. Ehrlich, and Pete Fountain (B&W kinescope).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

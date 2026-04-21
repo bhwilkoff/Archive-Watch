@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bbc-the-velvet-claw-with-derek-jacobi-1992",
+  "title": "BBC The Velvet Claw (with Derek Jacobi",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheVelvetClawEp3Of7StrengthInNumbers_201901",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheVelvetClawEp3Of7StrengthInNumbers_201901",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC The Velvet Claw (with Derek Jacobi) (1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheVelvetClawEp3Of7StrengthInNumbers_201901",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Velvet Claw Ep 3 of 7 Strength in Numbers.mp4",
+            "format": "h.264",
+            "sizeBytes": 184447200,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheVelvetClawEp3Of7StrengthInNumbers_201901/The Velvet Claw Ep 3 of 7 Strength in Numbers.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

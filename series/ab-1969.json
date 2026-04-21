@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "ab-1969",
+  "title": "AB",
+  "yearStart": 1969,
+  "yearEnd": 1978,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ab-78-elo-electric-light-orchestra-turn-to-stone",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "i-think-its-gonna-rain-today-by-danny-boyd-1969",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "' AB '69 — 'I Think It's Going to Rain Today' By Danny Boyd + Part of 'Polk Salad Annie' Aug 2 1969",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/i-think-its-gonna-rain-today-by-danny-boyd-1969",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "'AB '69 — I Think It's Gonna Rain Today by Danny Boyd + part of Poke Salad Annie Aug 2 1969.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 247734905,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/i-think-its-gonna-rain-today-by-danny-boyd-1969/'AB '69 — I Think It's Gonna Rain Today by Danny Boyd + part of Poke Salad Annie Aug 2 1969.ia.mp4"
+        },
+        {
+          "archiveID": "ab-69-walking-in-different-circles-by-the-elves-1969",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'AB '69 — Walking In Different Circles by The Elves, Obscure Cut • Aug 2 1969 720p & 480 versions",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ab-69-walking-in-different-circles-by-the-elves-1969",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "American Bandstand '69 — 'Walking in Different Circles' by The Elves, Obscure Cut • Aug 2 1969 720p.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 223259755,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ab-69-walking-in-different-circles-by-the-elves-1969/American Bandstand '69 — 'Walking in Different Circles' by The Elves, Obscure Cut • Aug 2 1969 720p.ia.mp4"
+        },
+        {
+          "archiveID": "ab-78-elo-electric-light-orchestra-turn-to-stone",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "AB ' 78 ELO Electric Light Orchestra — Turn To Stone 🥌 Feb 11 1978 Special Mix",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ab-78-elo-electric-light-orchestra-turn-to-stone",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AB '78 ELO Electric Light Orchestra — Turn To Stone 🥌 Feb 11 1978 Special Mix.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 283359961,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ab-78-elo-electric-light-orchestra-turn-to-stone/AB '78 ELO Electric Light Orchestra — Turn To Stone 🥌 Feb 11 1978 Special Mix.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

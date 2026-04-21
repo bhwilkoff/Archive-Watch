@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "la-linea-1986",
+  "title": "La Linea",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "Features a man known as \"Mr. Linea\" drawn as a single outline of an infinite line, which encounters various obstacles during his walking, and often turns to the cartoonist, represented as a live-action hand holding a pencil, to draw him a solution. All episodes are short subjects, ranging from 2:30 to 6:40 in runtime.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dzIBm3qZvWY9jomjR7Qt8pPewOH.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/hBVXHoweDSOLhCzbBXSgKr3ld8V.jpg",
+  "genres": [],
+  "networks": [
+    "Rai 1"
+  ],
+  "creator": "Osvaldo Cavandoli",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "la-linea-the-complete-series-3-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Linea: The Complete Series 3 (1986)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dzIBm3qZvWY9jomjR7Qt8pPewOH.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Linea - S03E01 (1986).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 14897600,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-linea-the-complete-series-3-1986/La Linea - S03E01 (1986).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

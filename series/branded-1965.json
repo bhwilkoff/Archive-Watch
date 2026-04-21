@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "branded-1965",
+  "title": "Branded",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": "Branded is an American Western series which aired on NBC from 1965 through 1966, sponsored by Procter & Gamble in its Sunday night 8:30 p.m. Eastern Time period, and starred Chuck Connors as Jason McCord, a United States Army Cavalry captain who had been drummed out of the service following an unjust accusation of cowardice.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/8ACpRBnhTwZzmJ7K53nCspALyw3.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/163R83j1fpmQ2N7aVZfIpHjmP3K.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Larry Cohen",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Branded",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8ACpRBnhTwZzmJ7K53nCspALyw3.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Branded S02E22 Barbed Wire.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 290528675,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded S02E22 Barbed Wire.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

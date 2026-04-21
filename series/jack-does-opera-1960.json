@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jack-does-opera-1960",
+  "title": "Jack Does Opera",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/JackDoesOpera",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JackDoesOpera",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Does Opera",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackDoesOpera",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1436,
+          "videoFile": {
+            "name": "JackBenny-JackDoesOpera.mp4",
+            "format": "h.264",
+            "sizeBytes": 144141491,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackDoesOpera/JackBenny-JackDoesOpera.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

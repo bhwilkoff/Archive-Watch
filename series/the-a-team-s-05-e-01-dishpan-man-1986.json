@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-a-team-s-05-e-01-dishpan-man-1986",
+  "title": "The A Team S 05 E 01 Dishpan Man",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-a-team-s-05-e-01-dishpan-man",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-a-team-s-05-e-01-dishpan-man",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The A Team S 05 E 01 Dishpan Man",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-a-team-s-05-e-01-dishpan-man",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The A-Team S05E01 Dishpan Man.mp4",
+            "format": "h.264",
+            "sizeBytes": 291117744,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-a-team-s-05-e-01-dishpan-man/The A-Team S05E01 Dishpan Man.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

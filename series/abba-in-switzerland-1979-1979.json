@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abba-in-switzerland-1979-1979",
+  "title": "ABBA In Switzerland 1979",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/abba-in-switzerland-1979",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "abba-in-switzerland-1979",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABBA In Switzerland 1979",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/abba-in-switzerland-1979",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABBA in Switzerland - 1979.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1595104552,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/abba-in-switzerland-1979/ABBA in Switzerland - 1979.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

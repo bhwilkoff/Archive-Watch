@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "now-explosion-promo-1970",
+  "title": "Now Explosion Promo",
+  "yearStart": 1970,
+  "yearEnd": 1970,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/NowExplosionPromo",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "NowExplosionPromo",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Now Explosion Promo",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/NowExplosionPromo",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NowExplosionPromo.mp4",
+            "format": "h.264",
+            "sizeBytes": 234746304,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/NowExplosionPromo/NowExplosionPromo.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

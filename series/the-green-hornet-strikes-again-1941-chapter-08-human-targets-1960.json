@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-green-hornet-strikes-again-1941-chapter-08-human-targets-1960",
+  "title": "The Green Hornet Strikes Again 1941 Chapter 08 Human Targets 01202011",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheGreenHornetStrikesAgain1941Chapter08HumanTargets01202011",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheGreenHornetStrikesAgain1941Chapter08HumanTargets01202011",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Green Hornet Strikes Again 1941 Chapter 08 Human Targets 01202011",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheGreenHornetStrikesAgain1941Chapter08HumanTargets01202011",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1221,
+          "videoFile": {
+            "name": "TheGreenHornetStrikesAgain1941Chapter08HumanTargets01202011.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 92846181,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheGreenHornetStrikesAgain1941Chapter08HumanTargets01202011/TheGreenHornetStrikesAgain1941Chapter08HumanTargets01202011.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

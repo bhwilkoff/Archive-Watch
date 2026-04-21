@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "roy-acuff-1960",
+  "title": "Roy Acuff",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OpenHouseMisc1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OpenHouseMisc1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Roy Acuff's Open House'' - Misc 1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OpenHouseMisc1",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1637,
+          "videoFile": {
+            "name": "Open House - Misc 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 170558967,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OpenHouseMisc1/Open House - Misc 1.mp4"
+        },
+        {
+          "archiveID": "RoyAcuffsOpenHouseMisc2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Roy Acuff's Open House'' - Misc 2",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/RoyAcuffsOpenHouseMisc2",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1633,
+          "videoFile": {
+            "name": "Roy Acuff's Open House, Misc 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 169946815,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RoyAcuffsOpenHouseMisc2/Roy Acuff's Open House, Misc 2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

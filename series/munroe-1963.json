@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "munroe-1963",
+  "title": "Munroe",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/munroe-UnsoldPilot",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "munroe-UnsoldPilot",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Munroe'' - Unsold Pilot",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/munroe-UnsoldPilot",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1485,
+          "videoFile": {
+            "name": "monroe1963-shakyprint.mp4",
+            "format": "h.264",
+            "sizeBytes": 153914545,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/munroe-UnsoldPilot/monroe1963-shakyprint.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

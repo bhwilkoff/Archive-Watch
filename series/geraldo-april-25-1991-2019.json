@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "geraldo-april-25-1991-2019",
+  "title": "Geraldo (April 25, 1991",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/geraldoapril251991convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "geraldoapril251991convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Geraldo (April 25, 1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/geraldoapril251991convertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Geraldo (April 25, 1991) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 194163783,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/geraldoapril251991convertvideoonline.com/Geraldo (April 25, 1991) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

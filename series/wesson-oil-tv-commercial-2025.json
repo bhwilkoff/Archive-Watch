@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wesson-oil-tv-commercial-2025",
+  "title": "Wesson Oil TV Commercial",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/WessonOil_DoYouReadTheLabels",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "WessonOil_DoYouReadTheLabels",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wesson Oil TV Commercial: Do You Read The Labels",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/WessonOil_DoYouReadTheLabels",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": 60,
+          "videoFile": {
+            "name": "WessonOil_DoYouReadTheLabels_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4385230,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/WessonOil_DoYouReadTheLabels/WessonOil_DoYouReadTheLabels_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "your-hit-parade-1960",
+  "title": "Your Hit Parade",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Your Hit Parade is an American radio and television music program that was broadcast from 1935 to 1955 on radio, and seen from 1950 to 1959 on television. It was sponsored by American Tobacco's Lucky Strike cigarettes. During this 24-year run, the show had 19 orchestra leaders and 52 singers or groups. Many listeners and viewers casually referred to the show with the incorrect title The Hit Parade.\n\nWhen the show debuted, there was no agreement as to what it should be called. The press referred to it in a variety of ways, with the most common being \"Hit Parade,\" \"The Hit Parade,\" and even \"The Lucky Strike Hit Parade\". The program's title was not officially changed to \"Your Hit Parade\" until November 9, 1935\n\nEach Saturday evening, the program offered the most popular and bestselling songs of the week. The earliest format involved a presentation of the top 15 songs. Later, a countdown with fanfares led to the top three finalists, with the number one song for the finale. Occasional performances of standards and other favorite songs from the past were known as \"Lucky Strike Extras.\"",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "YourHitParade-May21951musicvariety",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade - May 2, 1951 (Music/Variety)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1584,
+          "videoFile": {
+            "name": "YourHitParadeMay2-1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 152544820,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParade-May21951musicvariety/YourHitParadeMay2-1951.mp4"
+        },
+        {
+          "archiveID": "YourHitParade_BlueSkies",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade: \"Blue Skies\" performed by The Lucky Strike Orchestra (Classic TV)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 120,
+          "videoFile": {
+            "name": "Blue_Skies.mp4",
+            "format": "h.264",
+            "sizeBytes": 11405514,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParade_BlueSkies/Blue_Skies.mp4"
+        },
+        {
+          "archiveID": "Your_Hit_Parade_Cry",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade: \"Cry\" - Snooky Lanson",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "cry-SnookyLanson_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 10850537,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Your_Hit_Parade_Cry/cry-SnookyLanson_512kb.mp4"
+        },
+        {
+          "archiveID": "Dorothy_Collins_Your_Hit_Parade",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade: \"Please Mr Sun\" by Dorothy Collins (Classic TV)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PleaseMrSun.mp4",
+            "format": "h.264",
+            "sizeBytes": 13249280,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dorothy_Collins_Your_Hit_Parade/PleaseMrSun.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

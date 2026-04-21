@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "seriesID": "classic-commercial-1954",
+  "title": "Classic Commercial",
+  "yearStart": 1954,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Dove_Soap_2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dove_Soap_2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Commercial: Dove Soap #2 (1957)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Dove_Soap_2",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dove_Soap_2_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4156822,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dove_Soap_2/Dove_Soap_2_512kb.mp4"
+        },
+        {
+          "archiveID": "Dove_Soap",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Commercial: Dove Soap (1957)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Dove_Soap",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dove_Commercial_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 3536080,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dove_Soap/Dove_Commercial_512kb.mp4"
+        },
+        {
+          "archiveID": "ClassicCommercialKen-lRationDogFood1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Commercial: Ken-L Ration Dog Food (1959)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ClassicCommercialKen-lRationDogFood1959",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 67,
+          "videoFile": {
+            "name": "Ken-L-2_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4858943,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClassicCommercialKen-lRationDogFood1959/Ken-L-2_512kb.mp4"
+        },
+        {
+          "archiveID": "RemingtonRandWMLStopette",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Commercial: Remington Rand & Stopette (21 Feb 1954)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/RemingtonRandWMLStopette",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 82,
+          "videoFile": {
+            "name": "RemingtonRandWMLStopette_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 6009156,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RemingtonRandWMLStopette/RemingtonRandWMLStopette_512kb.mp4"
+        },
+        {
+          "archiveID": "RemingtonRand2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Commercial: Remington Rand Shaver (21 Feb 1954)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/RemingtonRand2",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 124,
+          "videoFile": {
+            "name": "RemingtonShaver21Feb1954_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 9049155,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RemingtonRand2/RemingtonShaver21Feb1954_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

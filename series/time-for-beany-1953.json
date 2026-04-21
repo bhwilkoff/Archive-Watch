@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "time-for-beany-1953",
+  "title": "Time for Beany",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": "Time for Beany was an American television series, with puppets for characters, which aired locally in Los Angeles starting in 1949 and nationally on the improvised Paramount Television Network from 1950 to 1955. It was created by animator Bob Clampett, who later reused its core characters in the animated Beany and Cecil series. The show won three Primetime Emmy Awards for best children's show.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "PTN"
+  ],
+  "creator": "Robert Clampett",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TimeForBeany1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Time for Beany (1953)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1779,
+          "videoFile": {
+            "name": "TimeForBeany_09_12_53.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 252233932,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TimeForBeany1953/TimeForBeany_09_12_53.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

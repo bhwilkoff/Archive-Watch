@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "studio-one-the-scarlet-letter-2024",
+  "title": "Studio One The Scarlet Letter",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/studio-one-the-scarlet-letter-1950",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "studio-one-the-scarlet-letter-1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One The Scarlet Letter (1950)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/studio-one-the-scarlet-letter-1950",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio One The Scarlet Letter (1950).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 566874141,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-the-scarlet-letter-1950/Studio One The Scarlet Letter (1950).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

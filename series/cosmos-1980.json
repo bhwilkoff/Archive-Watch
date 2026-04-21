@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cosmos-1980",
+  "title": "Cosmos",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006408.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cosmos_202209",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cosmos: A Personal Voyage [1980]",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006408.jpg",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E10 - The Edge of Forever.mp4",
+            "format": "h.264",
+            "sizeBytes": 387329761,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cosmos_202209/S01E10 - The Edge of Forever.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

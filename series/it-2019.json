@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "seriesID": "it-2019",
+  "title": "It",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": "In 1960, seven outcast kids known as \"The Losers' Club\" fight against an ancient shape-shifting alien who poses as a child-killing clown, while also dealing with bullies and abusive parents. Thirty years later, they reunite to stop the creature once and for all when it returns to their hometown.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/2lFfjPdVXleGHukp0Phr5pNJ4ab.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Stephen King",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lic:b9a28f14f8bf",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Showtime At The Apollo (January 27, 1990)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

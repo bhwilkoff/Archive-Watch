@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-in-concert-march-6-1992-1960",
+  "title": "ABC In Concert (March 6, 1992",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ABCInConcertMarch61992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ABCInConcertMarch61992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC In Concert (March 6, 1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ABCInConcertMarch61992",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC-In-Concert-_March-6_-1992_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 185056307,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ABCInConcertMarch61992/ABC-In-Concert-_March-6_-1992_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "powers-of-ten-1968-1977",
+  "title": "Powers Of Ten™ (1968",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/powers-of-tentm-1977_202202",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "powers-of-tentm-1977_202202",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Powers Of Ten™ (1968 - 1977)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/powers-of-tentm-1977_202202",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Powers of Ten™ (1977).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 190743784,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/powers-of-tentm-1977_202202/Powers of Ten™ (1977).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

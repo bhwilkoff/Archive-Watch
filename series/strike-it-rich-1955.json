@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "strike-it-rich-1955",
+  "title": "Strike It Rich",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": "Strike It Rich was a controversial game show that aired on American radio and television from 1947 to 1958 on CBS and NBC. People in need of money appeared and told their tale of woe, then tried to win money by answering four relatively easy questions. Each player would be given $30 and bet any of their bankroll on answering each question after being given the category. If the contestant didn't win any money, the emcee opened the \"Heart Line\", which was a phone line to viewers who wished to donate to the contestant's family.\n\nSponsored by Luden's Cough Drops, the radio series aired on CBS from June 29, 1947 to April 30, 1950. Todd Russell was the host from 1947-1948, followed by Warren Hull. On May 1, 1950 the show moved to NBC where it aired on weekdays, sponsored by Colgate, until December 27, 1957.\n\nThe television series premiered May 7, 1951 on CBS' daytime lineup and ran until January 3, 1958. Its popularity caused CBS to air a prime time version from July 4, 1951 to January 12, 1955.\n\nTwo attempts to revive the series were made in 1973 and 1978, although neither was successful. Another quiz show in 1986 used the same name but was otherwise unrelated.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "strikeItRich-26August1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Strike It Rich'' - 26 August 1955",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1760,
+          "videoFile": {
+            "name": "StrikeItRich26August1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 182220779,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/strikeItRich-26August1955/StrikeItRich26August1955.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

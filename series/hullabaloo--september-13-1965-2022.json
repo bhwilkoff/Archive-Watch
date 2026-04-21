@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "hullabaloo--september-13-1965-2022",
+  "title": "Hullabaloo- September 13, 1965",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hullabaloo-september-13-1965-season-2-premiere",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hullabaloo-september-13-1965-season-2-premiere",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hullabaloo- September 13, 1965 (Season 2 premiere)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hullabaloo-september-13-1965-season-2-premiere",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hullabaloo- September 13, 1965 (Season 2 premiere).mp4",
+            "format": "h.264",
+            "sizeBytes": 148993717,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hullabaloo-september-13-1965-season-2-premiere/Hullabaloo- September 13, 1965 (Season 2 premiere).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

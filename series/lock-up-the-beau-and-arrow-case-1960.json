@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lock-up-the-beau-and-arrow-case-1960",
+  "title": "Lock Up-The Beau and Arrow Case",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/LockUp-theBeauAndArrowCase",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LockUp-theBeauAndArrowCase",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up-The Beau and Arrow Case",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LockUp-theBeauAndArrowCase",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1570,
+          "videoFile": {
+            "name": "LockUp-theBeauAndArrowCase.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156216925,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUp-theBeauAndArrowCase/LockUp-theBeauAndArrowCase.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

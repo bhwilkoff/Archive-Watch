@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-50-2019",
+  "title": "The 50",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": "In an unprecedented spectacle we present to you the hottest 50 reality stars in Germany, including Jenny Elvers, Cosimo, Yasin, Cora Schumacher, Georgina Fleur and Matthias Mangiapane - all in one show! In a mysterious castle, ruled by a mischievous lion they fight not for themselves, but for their fans, one of whom will be awarded the prize money. Who will be the ultimate reality champion?",
+  "posterURL": "https://image.tmdb.org/t/p/w500/AwbcDhblTbQIuNDCdNLhZiPyC2t.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bWSGmsKwyvdmbmSNxaH9xMO4lI1.jpg",
+  "genres": [],
+  "networks": [
+    "Prime Video"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the50smomentstoremember1981pt.1convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The 50's Moments To Remember (1981)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/AwbcDhblTbQIuNDCdNLhZiPyC2t.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The 50's Moments To Remember (1981, pt. 1) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 303023539,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the50smomentstoremember1981pt.1convertvideoonline.com/The 50's Moments To Remember (1981, pt. 1) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

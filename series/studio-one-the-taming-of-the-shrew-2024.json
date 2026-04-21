@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "studio-one-the-taming-of-the-shrew-2024",
+  "title": "Studio One The Taming Of The Shrew",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/studio-one-the-taming-of-the-shrew-1950_202401",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "studio-one-the-taming-of-the-shrew-1950_202401",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One The Taming Of The Shrew (1950)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/studio-one-the-taming-of-the-shrew-1950_202401",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio One The Taming of the Shrew (1950).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1071322684,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-the-taming-of-the-shrew-1950_202401/Studio One The Taming of the Shrew (1950).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

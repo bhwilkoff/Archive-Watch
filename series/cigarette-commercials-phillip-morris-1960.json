@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cigarette-commercials-phillip-morris-1960",
+  "title": "Cigarette Commercials Phillip Morris",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Cigarette_Commercials_Phillip_Morris",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cigarette_Commercials_Phillip_Morris",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cigarette Commercials Phillip Morris",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Cigarette_Commercials_Phillip_Morris",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Commercial_Philip_Morris_Cigarettes_Youll_Feel_Better_Full_length_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 6586104,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cigarette_Commercials_Phillip_Morris/Commercial_Philip_Morris_Cigarettes_Youll_Feel_Better_Full_length_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

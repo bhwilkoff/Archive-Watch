@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "more-real-people-october-2-1988-all-segments-originally-aire-1960",
+  "title": "More Real People October 2, 1988 (All Segments Originally Aired October 29, 1980",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/more-real-people-1980s-all-segments-originally-aired-1980-10-29",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "more-real-people-1980s-all-segments-originally-aired-1980-10-29",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "More Real People October 2, 1988 (All Segments Originally Aired October 29, 1980)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/more-real-people-1980s-all-segments-originally-aired-1980-10-29",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "More Real People 1980s (all segments originally aired 1980-10-29).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 203174996,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/more-real-people-1980s-all-segments-originally-aired-1980-10-29/More Real People 1980s (all segments originally aired 1980-10-29).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

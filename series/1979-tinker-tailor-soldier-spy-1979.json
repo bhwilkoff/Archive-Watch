@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1979-tinker-tailor-soldier-spy-1979",
+  "title": "1979 Tinker, Tailor, Soldier, Spy",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ttss_20240201",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ttss_20240201",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1979 Tinker, Tailor, Soldier, Spy",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ttss_20240201",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TTSS Episode 7 Flushing Out the Mole.mp4",
+            "format": "h.264",
+            "sizeBytes": 252403958,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ttss_20240201/TTSS Episode 7 Flushing Out the Mole.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

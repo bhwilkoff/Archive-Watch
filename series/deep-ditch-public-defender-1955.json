@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "deep-ditch-public-defender-1955",
+  "title": "Deep Ditch (Public Defender",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Deep_Ditch--Public_Defender",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Deep_Ditch--Public_Defender",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Deep Ditch (Public Defender)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Deep_Ditch--Public_Defender",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1498,
+          "videoFile": {
+            "name": "Deep_Ditch--Public_Defender.mp4",
+            "format": "h.264",
+            "sizeBytes": 155521015,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Deep_Ditch--Public_Defender/Deep_Ditch--Public_Defender.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "seriesID": "playhouse-90-1957",
+  "title": "Playhouse 90",
+  "yearStart": 1957,
+  "yearEnd": 1958,
+  "overview": "Playhouse 90 is an American television anthology series that was telecast on CBS from 1956 to 1960 for a total of 133 episodes. It originated from CBS Television City in Los Angeles, California. Since live anthology drama series of the mid-1950s were usually hour-long shows, the title highlighted the network's intention to present something unusual, a weekly series of hour-and-a-half dramas rather than 60-minute plays. Playhouse 90 began as a pitch by Frank Stanton—the formidable, forward-thinking right-hand man to CBS chairman William S. Paley—during a brainstorming session for program ideas. The project was ultimately developed by Hubbell Robinson, a CBS vice president who received no screen credit on Playhouse 90 but is often described as its creator.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qdnbXlILnzKfLi3FDzwSQ8y8Aqe.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Hubbell Robinson",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Playhouse_90--The_Comedian",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Comedian",
+          "overview": "Sammy Hogarth, a vaudeville comedian who now has his own TV show, is a ruthless egomaniac who demands instant obedience from his staff and heaps abuse on those in lesser positions than his. His most vituperative behavior, however, is reserved for his weak-willed brother, Lester, whom Sammy has hired as his assistant but whom he really uses as his whipping boy.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+          "airDate": "1957-02-14",
+          "year": 1957,
+          "runtimeSeconds": 4241,
+          "videoFile": {
+            "name": "Playhouse90--The_Comedian.mp4",
+            "format": "h.264",
+            "sizeBytes": 389947963,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Playhouse_90--The_Comedian/Playhouse90--The_Comedian.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "Playhouse90--Days_of_Wine_and_Roses",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Days of Wine and Roses",
+          "overview": "An alcoholic falls in love with and gets married to a young woman, whom he systematically addicts to booze so they can share his \"passion\" together.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+          "airDate": "1958-10-02",
+          "year": 1958,
+          "runtimeSeconds": 4731,
+          "videoFile": {
+            "name": "Playhouse90--Days_of_Wine_and_Roses.mp4",
+            "format": "h.264",
+            "sizeBytes": 491600140,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Playhouse90--Days_of_Wine_and_Roses/Playhouse90--Days_of_Wine_and_Roses.mp4"
+        },
+        {
+          "archiveID": "heart-of-darkness-roddy-mc-dowall-and-boris-karloff",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Heart of Darkness",
+          "overview": "A trading company manager travels up an African river to find a missing outpost head and discovers the depth of evil in humanity's soul.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+          "airDate": "1958-11-06",
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Heart of Darkness (Roddy McDowall and Boris Karloff).mp4",
+            "format": "h.264",
+            "sizeBytes": 528275286,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/heart-of-darkness-roddy-mc-dowall-and-boris-karloff/Heart of Darkness (Roddy McDowall and Boris Karloff).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

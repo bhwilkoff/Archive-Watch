@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "classic-commercials-ii-m-y-1960",
+  "title": "Classic Commercials II M-Y",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ClassicCommercialsIiM-y",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ClassicCommercialsIiM-y",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Commercials II M-Y",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ClassicCommercialsIiM-y",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1-02Pg_CamayBeautySoap1950s_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 5604100,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClassicCommercialsIiM-y/1-02Pg_CamayBeautySoap1950s_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

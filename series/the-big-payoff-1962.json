@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "the-big-payoff-1962",
+  "title": "The Big Payoff",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": "The Big Payoff was a daytime and primetime game show that premiered on NBC in 1951, and ended its network run on CBS in 1959. It had a brief syndication revival in 1962. NBC used The Big Payoff to replace the 15-minute show Miss Susan starring Susan Peters, which had gone off the air in December 1951.\n\nContestants were selected from men who mailed in letters explaining why the women in their lives deserved prizes. The men were asked four questions in order to win prizes like a mink coat or a vacation. Late in the network run, the format changed to three competing couples. For the 1962 revival, there were only two couples.\n\nOn Tuesdays, the format changed to the \"Little Big Payoff\" in which children sent in a letter in which they voiced the reason that they should appear. Four questions were asked, and prizes awarded for each correct answer.\n\nIt was called the \"Big Payoff\" because when a contestant won they had the opportunity to answer one final question. Getting this question correct, the individual was awarded a \"Mink Coat\" and/or a trip to Europe. Bess Meyerson modeled the mink coat and escorted the contestants on stage. After all - this was live TV The theme song was \"A Pretty Girl Is Like a Melody\" by Irving Berlin, and the sponsor was Revlon.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC",
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bigpayoff",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Big Payoff\" - Unknown episode (slightly incomplete)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1399,
+          "videoFile": {
+            "name": "bigpayoff.mp4",
+            "format": "h.264",
+            "sizeBytes": 145865985,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bigpayoff/bigpayoff.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "classic-fifties-commercial-for-1955",
+  "title": "Classic Fifties Commercial for",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Blue_Cheer",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Blue_Cheer",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Fifties Commercial for \"Blue Cheer\" (Ad 2)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Blue_Cheer",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 64,
+          "videoFile": {
+            "name": "Cheer_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4703575,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Blue_Cheer/Cheer_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

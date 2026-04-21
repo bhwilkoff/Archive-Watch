@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "seventh-day-adventism-1999",
+  "title": "Seventh Day Adventism",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/seventh-day-adventism-1999",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "seventh-day-adventism-1999",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Seventh Day Adventism (1999)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/seventh-day-adventism-1999",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Seventh Day Adventism(1999).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 402631066,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/seventh-day-adventism-1999/Seventh Day Adventism(1999).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "seriesID": "the-adventures-of-william-tell-1958",
+  "title": "The Adventures of William Tell",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": "The Adventures of William Tell is a British swashbuckler adventure series, first broadcast on the ITV network in 1958, and produced by ITC Entertainment.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/waiT1XnYIcfy9w2HkTzEddLtnHz.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lpfJ415KwAiYMdz3DmKjSGVHAKh.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Leslie Arliss",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "WilliamTell1x01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures of William Tell - 1x01",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/waiT1XnYIcfy9w2HkTzEddLtnHz.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "William Tell 1x01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 172552509,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/WilliamTell1x01/William Tell 1x01.ia.mp4"
+        },
+        {
+          "archiveID": "WilliamTell1x02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures of William Tell - 1x02",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/waiT1XnYIcfy9w2HkTzEddLtnHz.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "William Tell 1x02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 178676508,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/WilliamTell1x02/William Tell 1x02.ia.mp4"
+        },
+        {
+          "archiveID": "WilliamTell1x03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures of William Tell - 1x03",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/waiT1XnYIcfy9w2HkTzEddLtnHz.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "William Tell 1x03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157844512,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/WilliamTell1x03/William Tell 1x03.ia.mp4"
+        },
+        {
+          "archiveID": "WilliamTell1x04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures of William Tell - 1x04",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/waiT1XnYIcfy9w2HkTzEddLtnHz.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "William Tell 1x04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 199297472,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/WilliamTell1x04/William Tell 1x04.ia.mp4"
+        },
+        {
+          "archiveID": "WilliamTell1x05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures of William Tell - 1x05",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/waiT1XnYIcfy9w2HkTzEddLtnHz.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "William Tell 1x05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 177907392,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/WilliamTell1x05/William Tell 1x05.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-single-guy--mother-love-s2e16-1960",
+  "title": "The Single Guy- Mother Love (S2E16",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheSingleGuyMotherLoveS2E16",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "TheSingleGuyMotherLoveS2E16",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "The Single Guy- Mother Love (S2E16)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheSingleGuyMotherLoveS2E16",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The-Single-Guy-Mother-Love-_S2E16_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 96948642,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheSingleGuyMotherLoveS2E16/The-Single-Guy-Mother-Love-_S2E16_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

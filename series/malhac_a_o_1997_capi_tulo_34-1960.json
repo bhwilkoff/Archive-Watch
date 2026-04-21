@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "malhac_a_o_1997_capi_tulo_34-1960",
+  "title": "Malhac_a_o_1997_Capi_tulo_34",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Malhac_a_o_1997_Capi_tulo_34",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Malhac_a_o_1997_Capi_tulo_34",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Malhac_a_o_1997_Capi_tulo_34",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Malhac_a_o_1997_Capi_tulo_34",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Malhac_a_o_1997_Capi_tulo_34.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 229815457,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Malhac_a_o_1997_Capi_tulo_34/Malhac_a_o_1997_Capi_tulo_34.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

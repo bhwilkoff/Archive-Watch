@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "anastasia-1995",
+  "title": "Anastasia",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": "A young beautiful girl who has a relationship with both a young man and his father. When she learns the truth about the two men she is connected to, she does nothing to straighten things out and things start to get complicated.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/5j0rYZxzeEAkGr50zeuJH4LmpMY.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tW9ZHBgfBMTcUITxgiNPuCiuHrE.jpg",
+  "genres": [],
+  "networks": [
+    "Mega TV"
+  ],
+  "creator": "Mirella Papaeconomou",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AnastasiaDeadorAlive",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Anastasia: Dead or Alive?",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/5j0rYZxzeEAkGr50zeuJH4LmpMY.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S22E09.Anastasia.Dead.or.Alive.1995.VHSRip.AAC2.0.x264-rattera.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 276634643,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AnastasiaDeadorAlive/NOVA.S22E09.Anastasia.Dead.or.Alive.1995.VHSRip.AAC2.0.x264-rattera.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

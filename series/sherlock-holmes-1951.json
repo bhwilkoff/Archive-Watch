@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "seriesID": "sherlock-holmes-1951",
+  "title": "Sherlock Holmes",
+  "yearStart": 1951,
+  "yearEnd": 1955,
+  "overview": "The first American television series of Sherlock Holmes adventures aired in syndication in the fall of 1954. The 39 half-hour mostly original stories were produced by Sheldon Reynolds and filmed in France by Guild Films, starring Ronald Howard as Holmes and Howard Marion Crawford as Watson. Archie Duncan appeared in many episodes as Inspector Lestrade. Richard Larke, billed as Kenneth Richards, played Sgt. Wilkins in about fifteen episodes. The series' associate producer, Nicole Milinaire, was one of the first women to attain a senior production role in a television series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/eroaHmsBZXTsL64oo72Yi3eJaiz.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/AhlihKYnLZmNZiIItB4RBZoJHP8.jpg",
+  "genres": [
+    "Sherlock Holmes television program",
+    "comedy film",
+    "comedy horror",
+    "crossover fiction",
+    "detective television series",
+    "parody film",
+    "science fiction film"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SherlockHolmes-TheManWhoDisappearedfailedPilot",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sherlock Holmes - The Man Who Disappeared (Failed Pilot)",
+          "overview": null,
+          "stillURL": "http://commons.wikimedia.org/wiki/Special:FilePath/Abbott%20and%20Costello%20Meet%20the%20Invisible%20Man.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "SherlockHolmes-TheManWhoDisappeared_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 112158765,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SherlockHolmes-TheManWhoDisappearedfailedPilot/SherlockHolmes-TheManWhoDisappeared_512kb.mp4"
+        },
+        {
+          "archiveID": "SherlockHolmesTheChristmasPudding",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sherlock Holmes: The Christmas Pudding",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eroaHmsBZXTsL64oo72Yi3eJaiz.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sh-23TheChristmasPudding-1955.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159820943,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SherlockHolmesTheChristmasPudding/Sh-23TheChristmasPudding-1955.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "SherlockHolmes-TheCaseoftheCunninghamHeritage",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Case of the Cunningham Heritage",
+          "overview": "Dr. John Watson meets private detective Sherlock Holmes, and assists him in solving a case that has confused Inspector Lestrade.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/pu3JEMWexvx9ydansJFZRBkbb3s.jpg",
+          "airDate": "1954-10-18",
+          "year": 1954,
+          "runtimeSeconds": 1620,
+          "videoFile": {
+            "name": "TheCaseoftheCunninghamHeritage.mp4",
+            "format": "h.264",
+            "sizeBytes": 161421930,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheCunninghamHeritage/TheCaseoftheCunninghamHeritage.mp4"
+        },
+        {
+          "archiveID": "SherlockHolmes-TheCaseofLadyBeryl",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Case of Lady Beryl",
+          "overview": "Lady Beryl confesses to a murder that was committed at her home, but Sherlock Holmes is convinced that she is innocent.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/e5ap4XgSwmKAG7rpaneHuQ47sDt.jpg",
+          "airDate": "1954-10-25",
+          "year": 1954,
+          "runtimeSeconds": 1620,
+          "videoFile": {
+            "name": "TheCaseofLadyBeryl.mp4",
+            "format": "h.264",
+            "sizeBytes": 160648031,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseofLadyBeryl/TheCaseofLadyBeryl.mp4"
+        },
+        {
+          "archiveID": "SherlockHolmes-TheCaseofthePennsylvaniaGun",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Case of the Pennsylvania Gun",
+          "overview": "Holmes and Watson travel to Sussex to investigate the murder of Squire Douglas, who was shot to death in a sealed-up castle, with only two apparent suspects.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/uCcQiwQWrK4yTOS99EfStPDpYVP.jpg",
+          "airDate": "1954-11-01",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TheCaseofthePennsylvaniaGun.mp4",
+            "format": "h.264",
+            "sizeBytes": 159946275,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseofthePennsylvaniaGun/TheCaseofthePennsylvaniaGun.mp4"
+        },
+        {
+          "archiveID": "SherlockHolmes-TheCaseoftheTexasCowgirl",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Case of the Texas Cowgirl",
+          "overview": "A cowgirl from a visiting rodeo show asks Sherlock Holmes to help her when she discovers a dead man in her hotel room.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iBfQIKVIdtoF5fvCT8e858Mxh0G.jpg",
+          "airDate": "1954-11-08",
+          "year": 1954,
+          "runtimeSeconds": 1620,
+          "videoFile": {
+            "name": "TheCaseoftheTexasCowgirl.mp4",
+            "format": "h.264",
+            "sizeBytes": 160376045,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheTexasCowgirl/TheCaseoftheTexasCowgirl.mp4"
+        },
+        {
+          "archiveID": "SherlockHolmes-TheCaseoftheBelligerentGhost",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Case of the Belligerent Ghost",
+          "overview": "When Dr. Watson thinks that he has seen a ghost, it puts Sherlock Holmes on a trail that leads to a crime at an art museum.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7jil3nzG7Q3hvvITsFTmmI4glL8.jpg",
+          "airDate": "1954-11-15",
+          "year": 1954,
+          "runtimeSeconds": 1620,
+          "videoFile": {
+            "name": "TheCaseoftheBelligerentGhost.mp4",
+            "format": "h.264",
+            "sizeBytes": 159037400,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheBelligerentGhost/TheCaseoftheBelligerentGhost.mp4"
+        },
+        {
+          "archiveID": "SherlockHolmes-TheCaseoftheShyBallerina",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Case of the Shy Ballerina",
+          "overview": "Dr. Watson accidentally comes home from his club with another man's coat, providing an important clue when the other man is murdered late that same night.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/mJSTnzzI7aQSX7l1d8cBfJ5Good.jpg",
+          "airDate": "1954-11-22",
+          "year": 1954,
+          "runtimeSeconds": 1620,
+          "videoFile": {
+            "name": "TheCaseoftheShyBallerina.mp4",
+            "format": "h.264",
+            "sizeBytes": 153503727,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheShyBallerina/TheCaseoftheShyBallerina.mp4"
+        },
+        {
+          "archiveID": "SherlockHolmes-TheCaseOfTheDeadlyProphecy1955",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Case of the Deadly Prophecy",
+          "overview": "Holmes and Watson are called to a boy's school in Belgium. It seems that a young student has gotten into the habit of writing the names of faculty members on the steps of a nearby church, and shortly afterwards person whose name has been written down is found dead.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/kUxlyp9KAXfoKxaaxmT8ylS07GT.jpg",
+          "airDate": "1955-03-14",
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "SherlockHolmes-TheCaseOfTheDeadlyProphecy1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 166363807,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseOfTheDeadlyProphecy1955/SherlockHolmes-TheCaseOfTheDeadlyProphecy1955.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9
+}

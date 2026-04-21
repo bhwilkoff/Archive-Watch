@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-royal-family-1991",
+  "title": "The Royal Family",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "A soon-to-be divorced woman moves back home with her three kids.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/8A6pMG0MuRqYdPV3AzzhqBGPVti.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Eddie Murphy",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-royal-family-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Royal Family - Redd Foxx, Della Reese",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8A6pMG0MuRqYdPV3AzzhqBGPVti.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Royal Family - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 712716102,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-royal-family-1.1/The Royal Family - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1991-tv-from-the-philippines-1991",
+  "title": "1991 TV From The Philippines",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1991-tv-from-the-philippines-480-x-640",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1991-tv-from-the-philippines-480-x-640",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1991 TV From The Philippines - Islands TV 13 aircheck/airing of TVJ: Television Jesters",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1991-tv-from-the-philippines-480-x-640",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1991 TV from the Philippines ( 480 X 640 ).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 266399147,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1991-tv-from-the-philippines-480-x-640/1991 TV from the Philippines ( 480 X 640 ).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

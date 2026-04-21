@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "gamepro-tv-1991",
+  "title": "GamePro TV",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "GamePro TV was a syndicated weekly video game television show that ran from 1990 through 1991. The show was a low-budget partner to GamePro magazine.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "game-pro-tv-season-1-episode-7-1992-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "GamePro TV Season 1 Episode 7 (1991) FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 7 (1992) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 132058417,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-7-1992-full-episode/GamePro TV Season 1 Episode 7 (1992) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-season-1-episode-8-1992-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "GamePro TV Season 1 Episode 8 (1991) FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 8 (1992) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 131514460,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-8-1992-full-episode/GamePro TV Season 1 Episode 8 (1992) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-season-1-episode-9-1992-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "GamePro TV Season 1 Episode 9 (1991) FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 9 (1992) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 129054987,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-9-1992-full-episode/GamePro TV Season 1 Episode 9 (1992) FULL EPISODE.mp4"
+        },
+        {
+          "archiveID": "game-pro-tv-season-1-episode-12-1991-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "GamePro TV Season 1 Episode 12 (1991) FULL EPISODE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GamePro TV Season 1 Episode 12 (1991) FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 131326990,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/game-pro-tv-season-1-episode-12-1991-full-episode/GamePro TV Season 1 Episode 12 (1991) FULL EPISODE.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

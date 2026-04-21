@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "the-roots-of-goofy-1984",
+  "title": "The Roots Of Goofy",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-roots-of-goofy-1984-disney-channel-special-0",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-roots-of-goofy-1984-disney-channel-special-0",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Roots Of Goofy ( 1984)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-roots-of-goofy-1984-disney-channel-special-0",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Roots of Goofy (PAL VHS).mp4",
+            "format": "h.264",
+            "sizeBytes": 552144774,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-roots-of-goofy-1984-disney-channel-special-0/The Roots of Goofy (PAL VHS).mp4"
+        },
+        {
+          "archiveID": "the-roots-of-goofy-1984-hosted-by-gary-owens",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Roots of Goofy (1984) (hosted by Gary Owens)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-roots-of-goofy-1984-hosted-by-gary-owens",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Roots of Goofy (TV Special, 1984; hosted by Gary Owens).mp4",
+            "format": "h.264",
+            "sizeBytes": 511424717,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-roots-of-goofy-1984-hosted-by-gary-owens/The Roots of Goofy (TV Special, 1984; hosted by Gary Owens).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

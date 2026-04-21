@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "zoboomafoo-1999",
+  "title": "Zoboomafoo",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": "Zoboomafoo is an American children's television series that aired from January 25, 1999, to April 28, 2001, and is still shown today in syndication depending on the area, and it is regularly shown on PBS Kids Sprout. A total of 65 episodes were aired. A creation of the Kratt Brothers, it features a talking Coquerel's Sifaka, a type of lemur, named Zoboomafoo, or Zoboo for short, and a collection of repeat animal guests. Every episode begins with the Kratt brothers in \"Animal Junction\", a peculiar place in which the rules of nature change and wild animals come to visit and play. After January 16, 2004, the show was pulled from its weekday airing on most PBS stations, though some continue to air the show.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/5JMgrHBaspcU9KIfC7nTfPFNL9x.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/OMZrF60GxJa1iUA78SwwRDjd0k.jpg",
+  "genres": [],
+  "networks": [
+    "TVOntario",
+    "PBS Kids"
+  ],
+  "creator": "Chris Kratt",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "in-shot-20221119-173709914",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Nose Knows",
+          "overview": "Toothbrush, the baby elephant finds Martin and Chris Kratt, roaming about in a cave where bats live. Since Toothbrush has been separated from her family, the Kratt brothers aide her in searching for them. This way, she will be reunited with them again. A garder snake is spotted, when Jackie was cutting the grass. The snake likes being in dark areas, so she doesn't mow down, part of the grass.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/5JMgrHBaspcU9KIfC7nTfPFNL9x.jpg",
+          "airDate": "1999-01-25",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "InShot_20221119_173709914.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 318990970,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/in-shot-20221119-173709914/InShot_20221119_173709914.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

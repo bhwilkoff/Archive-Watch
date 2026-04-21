@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "mr-food-potato-salad-plus-1990",
+  "title": "Mr. Food Potato Salad Plus",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/mr-food-potato-salad-plus",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mr-food-potato-salad-plus",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. Food Potato Salad Plus",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/mr-food-potato-salad-plus",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mr Food Potato Salad Plus.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 12447150,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mr-food-potato-salad-plus/Mr Food Potato Salad Plus.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

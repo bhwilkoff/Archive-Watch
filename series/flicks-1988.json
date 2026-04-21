@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "seriesID": "flicks-1988",
+  "title": "Flicks",
+  "yearStart": 1988,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "flicks-a-fish-called-wanda",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flicks - A Fish Called Wanda interview",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flicks - A Fish Called Wanda.mp4",
+            "format": "h.264",
+            "sizeBytes": 24628262,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flicks-a-fish-called-wanda/Flicks - A Fish Called Wanda.mp4"
+        },
+        {
+          "archiveID": "flicks-dead-heat",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flicks - Dead Heat interview",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flicks - Dead Heat.mp4",
+            "format": "h.264",
+            "sizeBytes": 24800448,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flicks-dead-heat/Flicks - Dead Heat.mp4"
+        },
+        {
+          "archiveID": "flicks-good-morning-vietnam",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flicks - Good Morning Vietnam interview",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flicks - Good Morning Vietnam.mp4",
+            "format": "h.264",
+            "sizeBytes": 23677986,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flicks-good-morning-vietnam/Flicks - Good Morning Vietnam.mp4"
+        },
+        {
+          "archiveID": "flicks-gorillas-in-the-mist",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flicks - Gorillas in the Mist interview",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flicks - Gorillas in the Mist.mp4",
+            "format": "h.264",
+            "sizeBytes": 23636745,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flicks-gorillas-in-the-mist/Flicks - Gorillas in the Mist.mp4"
+        },
+        {
+          "archiveID": "flicks-joe-vs.-the-volcano",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flicks - Joe vs. the Volcano interview",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flicks - Joe vs. the Volcano.mp4",
+            "format": "h.264",
+            "sizeBytes": 24626450,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flicks-joe-vs.-the-volcano/Flicks - Joe vs. the Volcano.mp4"
+        },
+        {
+          "archiveID": "flicks-married-to-the-mob",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flicks - Married to the Mob interview",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flicks - Married to the Mob.mp4",
+            "format": "h.264",
+            "sizeBytes": 23724576,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flicks-married-to-the-mob/Flicks - Married to the Mob.mp4"
+        },
+        {
+          "archiveID": "flicks-red-heat",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flicks - Red Heat interview",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flicks - Red Heat.mp4",
+            "format": "h.264",
+            "sizeBytes": 23565516,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flicks-red-heat/Flicks - Red Heat.mp4"
+        },
+        {
+          "archiveID": "flicks-running-on-empty",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flicks - Running on Empty interview",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flicks - Running on Empty.mp4",
+            "format": "h.264",
+            "sizeBytes": 23681958,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flicks-running-on-empty/Flicks - Running on Empty.mp4"
+        },
+        {
+          "archiveID": "flicks-tucker",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flicks - Tucker interview",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flicks - Tucker.mp4",
+            "format": "h.264",
+            "sizeBytes": 23893993,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flicks-tucker/Flicks - Tucker.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9
+}

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "kttv-1998",
+  "title": "KTTV",
+  "yearStart": 1998,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1999.12.13-kttv-time-of-your-life-s01e07-heidi-mokrycki-u",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "1998.03.29-kttv-damon-s01e02-raymond-oconnor-u",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "KTTV - Damon S01E02 - Raymond O'Connor - March 29th, 1998",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1998.03.29-kttv-damon-s01e02-raymond-oconnor-u",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1998.03.29 - KTTV - Damon S01E02 - Raymond O'Connor [U].mp4",
+            "format": "h.264",
+            "sizeBytes": 193815776,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1998.03.29-kttv-damon-s01e02-raymond-oconnor-u/1998.03.29 - KTTV - Damon S01E02 - Raymond O'Connor [U].mp4"
+        },
+        {
+          "archiveID": "1999.12.13-kttv-time-of-your-life-s01e07-heidi-mokrycki-u",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "KTTV - Time of Your Life S01E07 - Heidi Mokrycki - December 13th, 1999",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1999.12.13-kttv-time-of-your-life-s01e07-heidi-mokrycki-u",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1999.12.13 - KTTV - Time of Your Life S01E07 - Heidi Mokrycki [U].mp4",
+            "format": "h.264",
+            "sizeBytes": 383930443,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1999.12.13-kttv-time-of-your-life-s01e07-heidi-mokrycki-u/1999.12.13 - KTTV - Time of Your Life S01E07 - Heidi Mokrycki [U].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

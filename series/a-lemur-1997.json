@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-lemur-1997",
+  "title": "A Lemur",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ALemursTale",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ALemursTale",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Lemur's Tale",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ALemursTale",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Nature.S15E08.A.Lemurs.Tale.1997.VHSRip.AAC2.0.x264-rattera.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 293060518,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ALemursTale/Nature.S15E08.A.Lemurs.Tale.1997.VHSRip.AAC2.0.x264-rattera.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

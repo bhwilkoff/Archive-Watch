@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "you-1955",
+  "title": "You",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Youll_Never_Get_Rich_Promo",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Youll_Never_Get_Rich_Promo",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'You'll Never Get Rich' Promo (1955 CBS-TV Promo)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Youll_Never_Get_Rich_Promo",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bilko.mp4",
+            "format": "h.264",
+            "sizeBytes": 1060524,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Youll_Never_Get_Rich_Promo/Bilko.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

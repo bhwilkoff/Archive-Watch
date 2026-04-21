@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "57-10-20-the-jack-benny-program-s-08e-03-hal-march-show-1957",
+  "title": "57 10 20 The Jack Benny Program S 08e 03 Hal March Show",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/571020TheJackBennyProgramS08e03HalMarchShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "571020TheJackBennyProgramS08e03HalMarchShow",
+          "seasonNumber": 1,
+          "episodeNumber": 57,
+          "title": "57 10 20 The Jack Benny Program S 08e 03 Hal March Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/571020TheJackBennyProgramS08e03HalMarchShow",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "57-10-20  The Jack Benny Program  s08e03  Hal March Show.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 113142292,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/571020TheJackBennyProgramS08e03HalMarchShow/57-10-20  The Jack Benny Program  s08e03  Hal March Show.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

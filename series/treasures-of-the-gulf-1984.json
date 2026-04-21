@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "treasures-of-the-gulf-1984",
+  "title": "Treasures of the Gulf",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Naturetreasuresofthegulf_201810",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Naturetreasuresofthegulf_201810",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Treasures of the Gulf (1984)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Naturetreasuresofthegulf_201810",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Nature.S03E02.Treasures.of.the.Gulf.VHSrip.x264.AAC-ASTRO.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 262208918,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Naturetreasuresofthegulf_201810/Nature.S03E02.Treasures.of.the.Gulf.VHSrip.x264.AAC-ASTRO.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "gma-7-special-report-1990",
+  "title": "GMA 7 Special Report",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/GMA7specialreportimeldamarcosnytrial1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GMA7specialreportimeldamarcosnytrial1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "GMA 7 Special Report - Imelda Marcos New York Trial - July 1990",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/GMA7specialreportimeldamarcosnytrial1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GMA7 Special Report - Imelda Marcos New York Trial - July 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 35760855,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GMA7specialreportimeldamarcosnytrial1990/GMA7 Special Report - Imelda Marcos New York Trial - July 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

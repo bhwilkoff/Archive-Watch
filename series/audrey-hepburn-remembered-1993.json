@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "audrey-hepburn-remembered-1993",
+  "title": "Audrey Hepburn Remembered",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "audrey-hepburn-remembered-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Audrey Hepburn Remembered - Roger Moore",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Audrey Hepburn Remembered - 1993.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1911975460,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/audrey-hepburn-remembered-1993/Audrey Hepburn Remembered - 1993.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

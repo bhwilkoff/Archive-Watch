@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "seriesID": "top-of-the-pops-us--december-25-1987-1960",
+  "title": "Top Of The Pops (US)- December 25, 1987",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TopOfThePopsUSDecember251987",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lic:d4985a090bea",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Top Of The Pops (US)- December 25, 1987",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TopOfThePopsUSDecember251987",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

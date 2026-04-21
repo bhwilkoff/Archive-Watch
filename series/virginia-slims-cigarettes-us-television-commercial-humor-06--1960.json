@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "virginia-slims-cigarettes-us-television-commercial-humor-06--1960",
+  "title": "Virginia Slims Cigarettes U.S. Television Commercial / Humor 06 / Pies / 1968-1971",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/VirginiaSlimsCigarettesU.s.TelevisionCommercialHumor06Pies",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "VirginiaSlimsCigarettesU.s.TelevisionCommercialHumor06Pies",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Virginia Slims Cigarettes U.S. Television Commercial / Humor 06 / Pies / 1968-1971",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/VirginiaSlimsCigarettesU.s.TelevisionCommercialHumor06Pies",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "VirginiaSlims_Humor_06_Pies.mp4",
+            "format": "h.264",
+            "sizeBytes": 5866369,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/VirginiaSlimsCigarettesU.s.TelevisionCommercialHumor06Pies/VirginiaSlims_Humor_06_Pies.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

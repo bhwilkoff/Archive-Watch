@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "killer-1953",
+  "title": "Killer",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/KillersWife",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "KillersWife",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Killer's Wife",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/KillersWife",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "KillersWife.mp4",
+            "format": "h.264",
+            "sizeBytes": 148255911,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/KillersWife/KillersWife.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

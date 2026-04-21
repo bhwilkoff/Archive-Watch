@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1980s-psa-1960",
+  "title": "1980's PSA",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MikeTysonsJustSayNoPSA",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MikeTysonsJustSayNoPSA",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1980's PSA: Mike Tyson \"Just Say No\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MikeTysonsJustSayNoPSA",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "170-48 Mike Tysons Just Say No PSAs.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 825393,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MikeTysonsJustSayNoPSA/170-48 Mike Tysons Just Say No PSAs.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

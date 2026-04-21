@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "james-at-15-1960",
+  "title": "James at 15",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "James at 15 (later James at 16) is an American drama series that aired on NBC during the 1977–1978 season. Protagonist James Hunter is the son of a college professor who has moved his family across the country to take a teaching job, transplanting James from Oregon to Boston, Massachusetts. James has a hard time fitting into his new surroundings.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/w58QId6WdywHpZLdTyIV48Qmkaz.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/7TMH5YjfX5hvNaHD6vXrOcgoi70.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Dan Wakefield",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "james-at-15-s-01-e-01-pilot",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "James at 15 S01 1977",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/w58QId6WdywHpZLdTyIV48Qmkaz.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "James at 15 S01E01 - (Pilot).mp4",
+            "format": "h.264",
+            "sizeBytes": 585128806,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/james-at-15-s-01-e-01-pilot/James at 15 S01E01 - (Pilot).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

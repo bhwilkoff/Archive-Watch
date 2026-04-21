@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sound-stage-1953",
+  "title": "Sound Stage",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Soundstage-SomethingForAnEmptyBriefcase1953",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Soundstage-SomethingForAnEmptyBriefcase1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sound Stage - Something For An Empty Briefcase (1953)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Soundstage-SomethingForAnEmptyBriefcase1953",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1701,
+          "videoFile": {
+            "name": "Soundstage_Empty_Briefcase_07_17_1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 175130675,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Soundstage-SomethingForAnEmptyBriefcase1953/Soundstage_Empty_Briefcase_07_17_1953.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

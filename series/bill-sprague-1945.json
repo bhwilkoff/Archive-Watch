@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bill-sprague-1945",
+  "title": "Bill Sprague",
+  "yearStart": 1945,
+  "yearEnd": 1945,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BillSpragueCollectionPopeyeCartoonsTapedOffOfTelevision",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BillSpragueCollectionPopeyeCartoonsTapedOffOfTelevision",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bill Sprague Collection Popeye Cartoons taped off of television",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BillSpragueCollectionPopeyeCartoonsTapedOffOfTelevision",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "18 Episodes of Popeye in English (Mixed with Various CN & Boomerang Bumpers).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 526884879,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BillSpragueCollectionPopeyeCartoonsTapedOffOfTelevision/18 Episodes of Popeye in English (Mixed with Various CN & Boomerang Bumpers).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

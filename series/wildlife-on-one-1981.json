@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "seriesID": "wildlife-on-one-1981",
+  "title": "Wildlife On One",
+  "yearStart": 1981,
+  "yearEnd": 1996,
+  "overview": "Wildlife on One was, for nearly thirty years, the BBC's flagship natural history programme.\n\nFirst broadcast in 1977, each edition ran for half an hour. The narrator was David Attenborough. When repeated on BBC2, the programmes were retitled Wildlife on Two. The series came to an end in 2005.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 8,
+      "episodes": [
+        {
+          "archiveID": "wildlife-on-one-s08e02-the-mouses-tale-x264-dvd",
+          "seasonNumber": 8,
+          "episodeNumber": 2,
+          "title": "The Mouse's Tale",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
+          "airDate": "1981-09-15",
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wildlife.On.One.S08E02.The.Mouses.Tale.x264.DVD.SkinnyV.mp4",
+            "format": "h.264",
+            "sizeBytes": 142646576,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wildlife-on-one-s08e02-the-mouses-tale-x264-dvd/Wildlife.On.One.S08E02.The.Mouses.Tale.x264.DVD.SkinnyV.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 9,
+      "episodes": [
+        {
+          "archiveID": "wildlife-on-one-s09e02-the-great-hedgehog.mystery-x264",
+          "seasonNumber": 9,
+          "episodeNumber": 2,
+          "title": "The Great Hedgehog Mystery",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
+          "airDate": "1982-01-14",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wildlife.On.One.S09E02The.Great.Hedgehog.Mystery.x264.DVD.SkinnyV.mp4",
+            "format": "h.264",
+            "sizeBytes": 152402498,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wildlife-on-one-s09e02-the-great-hedgehog.mystery-x264/Wildlife.On.One.S09E02The.Great.Hedgehog.Mystery.x264.DVD.SkinnyV.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 12,
+      "episodes": [
+        {
+          "archiveID": "wildlife-on-one-s12e01-run-rabbit-run-x264",
+          "seasonNumber": 12,
+          "episodeNumber": 1,
+          "title": "Run Rabbit Run",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
+          "airDate": "1983-11-10",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wildlife.on.One.S12E01.Run.Rabbit.Run.x264.DVD.SkinnyV.mp4",
+            "format": "h.264",
+            "sizeBytes": 141544537,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wildlife-on-one-s12e01-run-rabbit-run-x264/Wildlife.on.One.S12E01.Run.Rabbit.Run.x264.DVD.SkinnyV.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 15,
+      "episodes": [
+        {
+          "archiveID": "wildlife-on-one-s15e04-the-case-of-the-vanishing-squirrel-x264-dvd-skinnyv",
+          "seasonNumber": 15,
+          "episodeNumber": 4,
+          "title": "Case of the Vanishing Squirrel",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
+          "airDate": "1987-02-23",
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wildlife.On.One.S15E04.The.Case.of.the.Vanishing.Squirrel.x264.DVD.SkinnyV.mp4",
+            "format": "h.264",
+            "sizeBytes": 174589079,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wildlife-on-one-s15e04-the-case-of-the-vanishing-squirrel-x264-dvd-skinnyv/Wildlife.On.One.S15E04.The.Case.of.the.Vanishing.Squirrel.x264.DVD.SkinnyV.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 23,
+      "episodes": [
+        {
+          "archiveID": "wildlife-on-one-s23e08-possums-tales-of-the-unexpected-1996-x264-DVD",
+          "seasonNumber": 23,
+          "episodeNumber": 8,
+          "title": "Possums: Tales of the Unexpected",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
+          "airDate": "1996-05-16",
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wildlife Wildlife.on.One.S23E08.Possums.Tales.of.The.Unexpected.1996.x264.AC3.DVD.SkinnyV.mp4",
+            "format": "h.264",
+            "sizeBytes": 175294939,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wildlife-on-one-s23e08-possums-tales-of-the-unexpected-1996-x264-DVD/Wildlife Wildlife.on.One.S23E08.Possums.Tales.of.The.Unexpected.1996.x264.AC3.DVD.SkinnyV.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

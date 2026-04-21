@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "seriesID": "missing-corpse-1960",
+  "title": "Missing Corpse",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Milkshake! Monkey investigates the world of food with Kemi.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/jnHYJqPrpNvzH5Nbvv0JQ7xT5KC.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/6MTVnEUIwtqDiV5z8tyNVM4n95l.jpg",
+  "genres": [
+    "Comedy",
+    "Mystery"
+  ],
+  "networks": [
+    "5",
+    "Milkshake!"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MissingCorpse-WeirdnessBadMovie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Missing Corpse - Weirdness Bad Movie",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sgDcePaHNzSVQ1O1rND55udIONV.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 7040,
+          "videoFile": {
+            "name": "WRBM_Missinng Corpse_WS_AF_fixed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3634291300,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MissingCorpse-WeirdnessBadMovie/WRBM_Missinng Corpse_WS_AF_fixed.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

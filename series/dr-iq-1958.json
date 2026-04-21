@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "dr-iq-1958",
+  "title": "Dr I.Q",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": "Dr. I.Q. is a radio and television quiz program. Remembered as radio's first major quiz show, it popularized the catch phrase \"I have a lady in the balcony, Doctor.\"",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DoctorIQ1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Dr I.Q.'' - 15 December 1958",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1758,
+          "videoFile": {
+            "name": "iq50s.mp4",
+            "format": "h.264",
+            "sizeBytes": 182863671,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DoctorIQ1958/iq50s.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

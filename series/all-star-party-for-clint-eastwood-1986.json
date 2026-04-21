@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "all-star-party-for-clint-eastwood-1986",
+  "title": "All Star Party For Clint Eastwood",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/all-star-party-for-clint-eastwood-1986",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "all-star-party-for-clint-eastwood-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "All Star Party For Clint Eastwood - Monty Hall",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/all-star-party-for-clint-eastwood-1986",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "All Star Party for Clint Eastwood - 1986.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2186992307,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/all-star-party-for-clint-eastwood-1986/All Star Party for Clint Eastwood - 1986.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

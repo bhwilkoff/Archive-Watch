@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "point-of-entry-stoney-burke-1963",
+  "title": "Point of Entry (Stoney Burke",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Stoney_Burke--Point_of_Entry",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Stoney_Burke--Point_of_Entry",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Point of Entry (Stoney Burke)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Stoney_Burke--Point_of_Entry",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3105,
+          "videoFile": {
+            "name": "Stoney_Burke--Point_of_Entry_2.mp4",
+            "format": "h.264",
+            "sizeBytes": 169698038,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Stoney_Burke--Point_of_Entry/Stoney_Burke--Point_of_Entry_2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

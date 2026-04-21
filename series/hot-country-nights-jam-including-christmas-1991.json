@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "hot-country-nights-jam-including-christmas-1991",
+  "title": "Hot Country Nights Jam (Including Christmas",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/01-jam_20240307",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "01-jam_20240307",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hot Country Nights Jam (Including Christmas)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/01-jam_20240307",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "09 Jam.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 706682663,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-jam_20240307/09 Jam.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

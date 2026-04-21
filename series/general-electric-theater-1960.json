@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "seriesID": "general-electric-theater-1960",
+  "title": "General Electric Theater",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "General Electric Theater is an American anthology series hosted by Ronald Reagan that was broadcast on CBS radio and television. The series was sponsored by General Electric's Department of Public Relations.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/sNhevbrsNi11PUwz0tXsB0wh84a.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/hSgE8vCSicHyRl7xx0XzbLsvaSa.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "GeneralElectricTheaterCommitted",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Committed",
+          "overview": "Newspaper reporter turned novelist Dan Holiday is kidnapped, framed for murder, and held in an asylum before he escapes and proves his innocence",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sNhevbrsNi11PUwz0tXsB0wh84a.jpg",
+          "airDate": "1954-12-05",
+          "year": null,
+          "runtimeSeconds": 1775,
+          "videoFile": {
+            "name": "GeneralElecticTheater-committed.mp4",
+            "format": "h.264",
+            "sizeBytes": 176368490,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeneralElectricTheaterCommitted/GeneralElecticTheater-committed.mp4"
+        },
+        {
+          "archiveID": "GeneralElectricTheaterTheBigShot",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "The Big Shot",
+          "overview": "Singer Johnnie Pulaski goes on an important audition and impresses. There is one condition that makes him want to refuse their offer--they ask him to change his last name. His girlfriend convinces him that the name is unimportant if he can sing. Ray, as Pulaski, introduces a new single, \"Path to Paradise.\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sNhevbrsNi11PUwz0tXsB0wh84a.jpg",
+          "airDate": "1955-01-30",
+          "year": null,
+          "runtimeSeconds": 1745,
+          "videoFile": {
+            "name": "GeneralElectricTheater-theBigShot.mp4",
+            "format": "h.264",
+            "sizeBytes": 180711875,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeneralElectricTheaterTheBigShot/GeneralElectricTheater-theBigShot.mp4"
+        },
+        {
+          "archiveID": "GeneralElectricTheaterItGivesMeGreatPleasure",
+          "seasonNumber": 3,
+          "episodeNumber": 28,
+          "title": "It Gives Me Great Pleasure",
+          "overview": "A traveling lecturer wants to retire and spend more time with her son.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sNhevbrsNi11PUwz0tXsB0wh84a.jpg",
+          "airDate": "1955-04-03",
+          "year": null,
+          "runtimeSeconds": 1471,
+          "videoFile": {
+            "name": "GeneralElecticTheater-itGivesMeGreatPleasure.mp4",
+            "format": "h.264",
+            "sizeBytes": 152493767,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeneralElectricTheaterItGivesMeGreatPleasure/GeneralElecticTheater-itGivesMeGreatPleasure.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "GeneralElectricTheaterNobodysChild",
+          "seasonNumber": 7,
+          "episodeNumber": 31,
+          "title": "Nobody's Child",
+          "overview": "Todays theme is Nobody's Child.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sNhevbrsNi11PUwz0tXsB0wh84a.jpg",
+          "airDate": "1959-05-10",
+          "year": null,
+          "runtimeSeconds": 1647,
+          "videoFile": {
+            "name": "GeneralElectricTheater-nobodysChild.mp4",
+            "format": "h.264",
+            "sizeBytes": 171386028,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeneralElectricTheaterNobodysChild/GeneralElectricTheater-nobodysChild.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

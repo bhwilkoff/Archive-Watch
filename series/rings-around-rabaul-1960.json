@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "rings-around-rabaul-1960",
+  "title": "Rings Around Rabaul",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/VAS_07_Rings_Around_Rabaul",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "VAS_07_Rings_Around_Rabaul",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Rings Around Rabaul",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/VAS_07_Rings_Around_Rabaul",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "VAS_07_Rings_Around_Rabaul.mp4",
+            "format": "h.264",
+            "sizeBytes": 154431639,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/VAS_07_Rings_Around_Rabaul/VAS_07_Rings_Around_Rabaul.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

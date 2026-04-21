@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-army-show--paymaster-ep-13-unannounced-finale-1960",
+  "title": "The Army Show- Paymaster (Ep, 13, unannounced finale",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheArmyShowPaymasterEp13UnannouncedFinale",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheArmyShowPaymasterEp13UnannouncedFinale",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Army Show- Paymaster (Ep, 13, unannounced finale)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheArmyShowPaymasterEp13UnannouncedFinale",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The-Army-Show-Paymaster-_Ep-13_-unannounced-finale_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 96952700,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheArmyShowPaymasterEp13UnannouncedFinale/The-Army-Show-Paymaster-_Ep-13_-unannounced-finale_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "johnny-carson-1962-09-18-jerry-lewis-hosts-with-guests-jack--1962",
+  "title": "Johnny Carson 1962 09 18 Jerry Lewis Hosts With Guests Jack Carter, Nancy Dussault, And Henry Gibson With Hugh Downs And Skitch Henderson",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1962-09-18-jerry-lewis-hosts-with-guests-jack-carter-nancy-dussault-and-henry-gi",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1962-09-18-jerry-lewis-hosts-with-guests-jack-carter-nancy-dussault-and-henry-gi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Johnny Carson 1962 09 18 Jerry Lewis Hosts With Guests Jack Carter, Nancy Dussault, And Henry Gibson With Hugh Downs And Skitch Henderson",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1962-09-18-jerry-lewis-hosts-with-guests-jack-carter-nancy-dussault-and-henry-gi",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1962-09-18 Jerry Lewis hosts with guests Jack Carter, Nancy Dussault, and Henry Gibson with Hugh Downs and Skitch Henderson.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 880703754,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1962-09-18-jerry-lewis-hosts-with-guests-jack-carter-nancy-dussault-and-henry-gi/1962-09-18 Jerry Lewis hosts with guests Jack Carter, Nancy Dussault, and Henry Gibson with Hugh Downs and Skitch Henderson.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

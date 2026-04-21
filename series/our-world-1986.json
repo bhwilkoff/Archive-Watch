@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "our-world-1986",
+  "title": "Our World",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "Our World is an American television news series that ran for 26 episodes, from September 25, 1986 to May 28, 1987. The show was anchored by Linda Ellerbee and Ray Gandolf. Each episode of the series examined, through the use of archival film and television footage, one short period in American history. Our World aired on ABC.\n\nOur World grew out of an earlier ABC News special called 45/85, whose producer, Avram Westin, would go on to produce Our World. Each episode was produced on a budget of $350,000, less than half of the budget of a typical hour of prime time programming at the time.\n\nOur World premiered to indifferent critical response but as the series progressed critics became effusive with their praise. Despite being critically well received and profitable for the network, Our World performed poorly in the Nielsen ratings, as its first half-hour was programmed against the extremely popular The Cosby Show. ABC canceled the show after one season. Ellerbee tried to move the series to PBS but was unsuccessful.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Roone Arledge",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "our-world-1956-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Our World - Linda Ellerbee, Ray Gandalf",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Our World - 1957 - 1986.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 410946404,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/our-world-1956-1986/Our World - 1957 - 1986.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

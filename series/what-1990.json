@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "what-1990",
+  "title": "What",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/WhatsKillingtheChildren",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "WhatsKillingtheChildren",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "What's killing the children?",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/WhatsKillingtheChildren",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S17E20.Whats.Killing.the.Children.1990.VHSRip.AAC2.0.x264-astro.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 607607911,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/WhatsKillingtheChildren/NOVA.S17E20.Whats.Killing.the.Children.1990.VHSRip.AAC2.0.x264-astro.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

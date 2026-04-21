@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "i-1956",
+  "title": "I",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ive-got-a-secret-28-march-1956-upgrade",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ive-got-a-secret-28-march-1956-upgrade",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "I've Got A Secret - 28 March 1956 [Upgrade]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ive-got-a-secret-28-march-1956-upgrade",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1708,
+          "videoFile": {
+            "name": "I've Got a Secret - 28 March 1956 [Upgrade].mp4",
+            "format": "h.264",
+            "sizeBytes": 169949812,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ive-got-a-secret-28-march-1956-upgrade/I've Got a Secret - 28 March 1956 [Upgrade].mp4"
+        },
+        {
+          "archiveID": "ive-got-a-secret-8-february-1956-upgrade",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "I've Got A Secret - 8 February 1956 [Upgrade]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ive-got-a-secret-8-february-1956-upgrade",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1758,
+          "videoFile": {
+            "name": "I've Got a Secret - 8 February 1956 [Upgrade].mp4",
+            "format": "h.264",
+            "sizeBytes": 173654051,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ive-got-a-secret-8-february-1956-upgrade/I've Got a Secret - 8 February 1956 [Upgrade].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

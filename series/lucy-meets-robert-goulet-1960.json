@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lucy-meets-robert-goulet-1960",
+  "title": "Lucy Meets Robert Goulet",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TLS_Lucy_Meets_Robert_Goulet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TLS_Lucy_Meets_Robert_Goulet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lucy Meets Robert Goulet",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TLS_Lucy_Meets_Robert_Goulet",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TLS_Lucy_Meets_Robert_Goulet.mp4",
+            "format": "h.264",
+            "sizeBytes": 147593924,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TLS_Lucy_Meets_Robert_Goulet/TLS_Lucy_Meets_Robert_Goulet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

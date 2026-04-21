@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lucky-number-1990",
+  "title": "Lucky Number",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "Lucky Numbers was a Bingo-based game show and revival of the earlier series Bob's Full House that aired on the ITV network from 9 January 1995 until 27 June 1997. Hosted by Shane Richie, the series was produced by Granada Television.\n\nThe show was one of the first UK game shows which allowed viewers to take part at home and win. The show was sponsored by The Sun newspaper, and each week the viewer was supplied with a game-card. They had to cross off numbers that appeared on that week's show and those that crossed off all their numbers by the time the 'big hooter' sounded on the show would win a prize of £20,000.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lucky-number-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lucky Number - Charles Gibson",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lucky Number - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1770037583,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lucky-number-1990/Lucky Number - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "thetube1982s01e07uncut-1960",
+  "title": "The.Tube.1982.S01E07.uncut",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the.-tube.-1982.-s-01-e-07.uncut",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the.-tube.-1982.-s-01-e-07.uncut",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The.Tube.1982.S01E07.uncut",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the.-tube.-1982.-s-01-e-07.uncut",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Tube.1982.S01E07.uncut.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 348294040,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-tube.-1982.-s-01-e-07.uncut/The.Tube.1982.S01E07.uncut.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

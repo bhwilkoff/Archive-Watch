@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "son-de-diez-1992",
+  "title": "Son de diez",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "The television comedy focuses on the daily life of an Argentine family living in the Federal Capital in the early 90s.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1yX2iKlHagkjkTdUOh9wjo4MI5.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "eltrece"
+  ],
+  "creator": "Daniel Di Conza",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "son-de-diez-1992-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Son de diez (1992) [1080p]",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1yX2iKlHagkjkTdUOh9wjo4MI5.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "T1-01. Capítulo 1 [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1637313982,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/son-de-diez-1992-1080p/T1-01. Capítulo 1 [1080p].ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

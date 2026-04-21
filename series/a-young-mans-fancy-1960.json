@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-young-mans-fancy-1960",
+  "title": "A Young Mans Fancy",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/life_of_riley_-_5x26_-_a_young_mans_fancy",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "life_of_riley_-_5x26_-_a_young_mans_fancy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Young Mans Fancy",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_5x26_-_a_young_mans_fancy",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_5x26_-_a_young_mans_fancy_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 147459698,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_5x26_-_a_young_mans_fancy/life_of_riley_-_5x26_-_a_young_mans_fancy_agk.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "roy-rogers-show-tv-1956-colorized-1956",
+  "title": "Roy Rogers Show TV 1956 colorized",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/roy-rogers-show-tv-1956-s05e15-the-horse-mixup",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "roy-rogers-show-tv-1956-s05e15-the-horse-mixup",
+          "seasonNumber": 5,
+          "episodeNumber": 15,
+          "title": "Roy Rogers Show TV 1956 colorized s05e15 The Horse Mixup",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1956-s05e15-the-horse-mixup",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Roy Rogers Show TV 1956 colorized s05e15 The Horse Mixup.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 208595771,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1956-s05e15-the-horse-mixup/Roy Rogers Show TV 1956 colorized s05e15 The Horse Mixup.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

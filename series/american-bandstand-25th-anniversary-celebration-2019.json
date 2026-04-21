@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "american-bandstand-25th-anniversary-celebration-2019",
+  "title": "American Bandstand 25th Anniversary Celebration",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/americanbandstand25thanniversaryspecial1977pt.1convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "americanbandstand25thanniversaryspecial1977pt.1convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "American Bandstand 25th Anniversary Celebration (1977)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/americanbandstand25thanniversaryspecial1977pt.1convertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "American Bandstand 25th Anniversary Special (1977, pt. 1) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 255791661,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/americanbandstand25thanniversaryspecial1977pt.1convertvideoonline.com/American Bandstand 25th Anniversary Special (1977, pt. 1) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "seriesID": "the-persuaders-1971-1971",
+  "title": "The Persuaders! (1971",
+  "yearStart": 1971,
+  "yearEnd": 1971,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-persuaders-1971-72",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-persuaders-1971-72",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Persuaders! (1971 - 72) Complete Series",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-persuaders-1971-72",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Persuaders!, The (1971 - 72)/03. Take Seven.mp4",
+            "format": "h.264",
+            "sizeBytes": 307232842,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-1971-72/Persuaders!, The (1971 - 72)/03. Take Seven.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-persuaders-1971-episode-1-of-24-overture-roger-moore-tony-curtis-full-episode-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Persuaders 1971 Episode 1 Of 24 Overture Roger Moore Tony Curtis Full Episode HD",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-persuaders-1971-episode-1-of-24-overture-roger-moore-tony-curtis-full-episode-hd",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Persuaders 1971 Episode 1 of 24 Overture Roger Moore Tony Curtis Full Episode HD.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 183227778,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-1971-episode-1-of-24-overture-roger-moore-tony-curtis-full-episode-hd/The Persuaders 1971 Episode 1 of 24 Overture Roger Moore Tony Curtis Full Episode HD.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

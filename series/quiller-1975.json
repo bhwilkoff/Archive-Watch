@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "quiller-1975",
+  "title": "Quiller",
+  "yearStart": 1975,
+  "yearEnd": 1975,
+  "overview": "Quiller is a British drama television . Quiller is the alias of a fictional spy created by English novelist Elleston Trevor who featured in a series of Cold War thrillers written under the pseudonym \"Adam Hall\".",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "quiller-1975",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Quiller (1975) Complete Series",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E13 Night of the Father.mp4",
+            "format": "h.264",
+            "sizeBytes": 378384227,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller (1975)/S01E13 Night of the Father.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

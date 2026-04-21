@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "people-are-funny-1957",
+  "title": "People are Funny",
+  "yearStart": 1957,
+  "yearEnd": 1959,
+  "overview": "People Are Funny is an American radio and television game show, created by John Guedel that remained popular throughout the 1940s. The program ran from 1942 to 1960. The program's stunts and audience participation were calculated to reveal the humorous side of human nature. After contestants were sent from the studio to perform a task in public, the audience was told how the contestant was being double-crossed.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1959PeopleAreFunny",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''People are Funny'' - Misc 1959 episode",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1485,
+          "videoFile": {
+            "name": "peoplearefunny1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 154509361,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1959PeopleAreFunny/peoplearefunny1959.mp4"
+        },
+        {
+          "archiveID": "peopleAreFunny-RollsRoyce",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''People are Funny'' - Rolls Royce",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1483,
+          "videoFile": {
+            "name": "PeopleAreFunny1958.mp4",
+            "format": "h.264",
+            "sizeBytes": 154061413,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/peopleAreFunny-RollsRoyce/PeopleAreFunny1958.mp4"
+        },
+        {
+          "archiveID": "PeopleAreFunny-TripAroundWorldphoneCall",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "People Are Funny - Trip around World/Phone call",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1761,
+          "videoFile": {
+            "name": "PeopleAreFunny.mp4",
+            "format": "h.264",
+            "sizeBytes": 182563308,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PeopleAreFunny-TripAroundWorldphoneCall/PeopleAreFunny.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

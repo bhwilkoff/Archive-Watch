@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tales-of-the-vikings-1959-1960",
+  "title": "Tales Of The Vikings 1959",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tales-of-the-vikings-1959",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tales-of-the-vikings-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Vikings 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tales-of-the-vikings-1959",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales Of The Vikings - The black stone.mp4",
+            "format": "h.264",
+            "sizeBytes": 153995627,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tales-of-the-vikings-1959/Tales Of The Vikings - The black stone.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

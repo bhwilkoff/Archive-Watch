@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "armchair-theatre-compensation-alice-2024",
+  "title": "Armchair Theatre Compensation Alice",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/armchair-theatre-compensation-alice-1967",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "armchair-theatre-compensation-alice-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Armchair Theatre Compensation Alice (1967)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/armchair-theatre-compensation-alice-1967",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Armchair Theatre  Compensation Alice (1967).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 250488681,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/armchair-theatre-compensation-alice-1967/Armchair Theatre  Compensation Alice (1967).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "madman-of-the-people-1994",
+  "title": "Madman Of The People",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": "Madman of the People is an American sitcom that aired on NBC from 1994 to 1995. It was scheduled in the Thursday 9:30 timeslot, part of Must See TV.\n\nMadman of the People was produced by Kreiscluesco Industries/Spelling Television.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4CDUPDbG0nduwqkff8S2qgpntBl.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Chris Cluess",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "madman-of-the-people-1.04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Madman Of The People - Dabney Coleman, Cynthia Gibb",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4CDUPDbG0nduwqkff8S2qgpntBl.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Madman of the People - 1.04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 701715136,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/madman-of-the-people-1.04/Madman of the People - 1.04.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

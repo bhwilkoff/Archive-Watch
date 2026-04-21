@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "deep-space-nine-rejoined-1995",
+  "title": "Deep Space Nine: Rejoined",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ds-9-s-04-e-06-rejoined-1080p-x-265-10bit-joy",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ds-9-s-04-e-06-rejoined-1080p-x-265-10bit-joy",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Deep Space Nine: Rejoined (Season 4, Episode 6)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ds-9-s-04-e-06-rejoined-1080p-x-265-10bit-joy",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DS9 S04E06 Rejoined [1080p x265 10bit Joy].mp4",
+            "format": "h.264",
+            "sizeBytes": 276674807,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ds-9-s-04-e-06-rejoined-1080p-x-265-10bit-joy/DS9 S04E06 Rejoined [1080p x265 10bit Joy].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

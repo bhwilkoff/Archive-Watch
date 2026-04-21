@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "buck-james-1987",
+  "title": "Buck James",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/ekm7cfWYhLXnBMolAAnM45DCZdl.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/kXYjGQhgiiQuO2ITxkUE9vzJRDM.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "buck-james-1.03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Buck James - Dennis Weaver",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ekm7cfWYhLXnBMolAAnM45DCZdl.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Buck James - 1.12.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1449195634,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/buck-james-1.03/Buck James - 1.12.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

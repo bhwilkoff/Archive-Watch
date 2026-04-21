@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-dukes-of-hazzard-march-14-1980-final-7-minutes-1960",
+  "title": "The Dukes of Hazzard March 14, 1980 Final 7 Minutes",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-dukes-of-hazzard-1980-03-14-final-7-minutes",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-dukes-of-hazzard-1980-03-14-final-7-minutes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Dukes of Hazzard March 14, 1980 Final 7 Minutes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-dukes-of-hazzard-1980-03-14-final-7-minutes",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard 1980-03-14 Final 7 Minutes.mp4",
+            "format": "h.264",
+            "sizeBytes": 41521342,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-1980-03-14-final-7-minutes/The Dukes of Hazzard 1980-03-14 Final 7 Minutes.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

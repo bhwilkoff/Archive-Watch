@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "the-red-buttons-show-1953",
+  "title": "The Red Buttons Show",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": "The Red Buttons Show premiered on the CBS television network in 1952, and ran for two years on that network, then moved to NBC for the final 1954-55 season.\n\nRed's catch phrase from the show, \"Strange things are happening!\" entered the national vocabulary briefly in the mid-1950s.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS",
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RedButtons1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Red Buttons Show'' - 1 June 1953",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1764,
+          "videoFile": {
+            "name": "TheRedButtonsShow-1June1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 183247541,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RedButtons1953/TheRedButtonsShow-1June1953.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

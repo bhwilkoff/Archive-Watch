@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-arthur-godfrey-show-1960",
+  "title": "The Arthur Godfrey Show",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/arthur1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "arthur1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Arthur Godfrey Show'' - Christmas episode",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/arthur1",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1610,
+          "videoFile": {
+            "name": "arthur1.mp4",
+            "format": "h.264",
+            "sizeBytes": 167528183,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/arthur1/arthur1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

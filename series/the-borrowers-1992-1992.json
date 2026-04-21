@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-borrowers-1992-1992",
+  "title": "The Borrowers (1992",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-borrowers-1992-93",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-borrowers-1992-93",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Borrowers (1992 - 93) Complete Series HD Upscaled",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-borrowers-1992-93",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Borrowers, The (1992 - 93)/Series 1 (1992)/The Borrowers (1992) - S01E05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 716849319,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-borrowers-1992-93/Borrowers, The (1992 - 93)/Series 1 (1992)/The Borrowers (1992) - S01E05.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "boda-real-entre-el-principe-eduardo-y-sophie-rhys-jones-tele-1999",
+  "title": "Boda real entre el Principe Eduardo y Sophie Rhys-Jones (Telecinco",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/boda-real-telecinco-1999-06-19",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "boda-real-telecinco-1999-06-19",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Boda real entre el Principe Eduardo y Sophie Rhys-Jones (Telecinco) - 19 de junio, 1999",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/boda-real-telecinco-1999-06-19",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Boda entre el Príncipie Eduardo de Inglaterra y Sophie Rhys-Jones - Fragmento (19-6-1999) (resubido).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 291913274,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/boda-real-telecinco-1999-06-19/Boda entre el Príncipie Eduardo de Inglaterra y Sophie Rhys-Jones - Fragmento (19-6-1999) (resubido).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "eddie-albert-and-eva-gabor-on-entertainment-tonight-1993",
+  "title": "Eddie Albert and Eva Gabor on Entertainment Tonight",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/segment_202511",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "segment_202511",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eddie Albert and Eva Gabor on Entertainment Tonight (1993)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/segment_202511",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Segment.mp4",
+            "format": "h.264",
+            "sizeBytes": 2624487,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/segment_202511/Segment.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

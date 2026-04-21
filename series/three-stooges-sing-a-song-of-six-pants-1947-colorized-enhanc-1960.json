@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "three-stooges-sing-a-song-of-six-pants-1947-colorized-enhanc-1960",
+  "title": "Three Stooges Sing A Song Of Six Pants 1947 (Colorized Enhanced",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/three-stooges-sing-a-song-of-six-pants-1947-colorized-enhanced",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "three-stooges-sing-a-song-of-six-pants-1947-colorized-enhanced",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Three Stooges Sing A Song Of Six Pants 1947 (Colorized Enhanced)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/three-stooges-sing-a-song-of-six-pants-1947-colorized-enhanced",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Three Stooges - Sing a Song of Six Pants 1947 (Colorized Enhanced).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 97640480,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/three-stooges-sing-a-song-of-six-pants-1947-colorized-enhanced/Three Stooges - Sing a Song of Six Pants 1947 (Colorized Enhanced).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

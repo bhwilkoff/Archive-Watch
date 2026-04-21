@@ -1,0 +1,1347 @@
+{
+  "version": 1,
+  "seriesID": "the-dukes-of-hazzard-1980",
+  "title": "The Dukes of Hazzard",
+  "yearStart": 1980,
+  "yearEnd": 1983,
+  "overview": "Cousins Bo and Luke Duke and their car \"General Lee\", assisted by Cousin Daisy and Uncle Jesse, have a running battle with the authorities of Hazzard County (Boss Hogg and Sheriff Coltrane), plus a string of ne'er-do-wells often backed by the scheming Hogg.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/r9eXJUxP6zgrpCMEOJzaEXzXLsp.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/usnCQeoAWw4MDCn7q6luOWqSwQO.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Rod Amateau",
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-01-days-of-shine-and-roses",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Days of Shine and Roses",
+          "overview": "On your mark, get set, cheat! To prove who was the fastest moonshine runner back in the day, Bos Hogg challenges Uncle Jesse to a fair-and-square car race. But to Boss Hogg, \"fair\" is a four-letter word.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/hTMdPICymGh8PS9THFwfxXtqsQ6.jpg",
+          "airDate": "1979-09-21",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E01_Days Of Shine And Roses.mp4",
+            "format": "h.264",
+            "sizeBytes": 274301494,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-01-days-of-shine-and-roses/The.Dukes.Of.Hazzard_S02E01_Days Of Shine And Roses.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-02-gold-fever",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Gold Fever",
+          "overview": "The boys are in 24-karat trouble when con artists stash bogus bullion in the Boss Hogg's bank, The flimflammery  leads to a bank heist that might end with Bo and Luke in the iron-bar motel.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/qhv8pfT3x6Xvx75zaZ3mSjKmD1W.jpg",
+          "airDate": "1979-09-28",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E02_Gold Fever.mp4",
+            "format": "h.264",
+            "sizeBytes": 275188722,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-02-gold-fever/The.Dukes.Of.Hazzard_S02E02_Gold Fever.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-03-the-rustlers",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "The Rustlers",
+          "overview": "Boss Hogg doesn't horse around. especially when it comes to Lulu Hogg's Stakes Race. He aims to steal a sure winner...nut so does a gang of rustlers. Can Bo and Luke ride to the rescue?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9ChesvfGg2q0fKVtE1hcDJ5u9cM.jpg",
+          "airDate": "1979-10-05",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E03_The Rustlers.mp4",
+            "format": "h.264",
+            "sizeBytes": 274717628,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-03-the-rustlers/The.Dukes.Of.Hazzard_S02E03_The Rustlers.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-04-the-meeting",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The Meeting",
+          "overview": "It's good ol' boys versus goodfellas when Bo and Luke tangle with the mobsters who paid Boss Hogg $10,000 to rent out of jail for a wise guy confab.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/mkkbvPLqSF5ZiiCrikd0Z1AK910.jpg",
+          "airDate": "1979-10-12",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E04_The Meeting.mp4",
+            "format": "h.264",
+            "sizeBytes": 274416750,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-04-the-meeting/The.Dukes.Of.Hazzard_S02E04_The Meeting.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-05-road-pirates",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Road Pirates",
+          "overview": "A Luke, Bo and Cletus charm bracelet? That's what it looks like when the three, handcuffed together, escape the sheriff's office after they're mistaken for the hijackers of a truckload of hot TVs.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rr82aEk8k8acONbMiwDtihNZYd4.jpg",
+          "airDate": "1979-10-19",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E05_Road Pirates.mp4",
+            "format": "h.264",
+            "sizeBytes": 275553941,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-05-road-pirates/The.Dukes.Of.Hazzard_S02E05_Road Pirates.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-06-the-ghost-of-general-lee",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Ghost of General Lee",
+          "overview": "Car thieves drive the General Lee into a pond. Thinking Bo and Luke were drowned, Boss Hogg claims they stole his watch. So the boys scheme to haunt Boss.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/al6sva7NFnTnxhA2iVTpcFOTPbx.jpg",
+          "airDate": "1979-10-26",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E06_The Ghost Of General Lee.mp4",
+            "format": "h.264",
+            "sizeBytes": 273173913,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-06-the-ghost-of-general-lee/The.Dukes.Of.Hazzard_S02E06_The Ghost Of General Lee.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-07-dukes-meet-cale-yarborough",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Dukes Meet Cale Yarborough",
+          "overview": "Racing legend Cale Yarborough is working on a secret turbocharger. When the grimy Jethro brothers and slimy Boss Hogg start snooping around, it's up to the Dukes to save Cale's tail.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iuM2jaXHHo0Xha1hRcJRhnfHONl.jpg",
+          "airDate": "1979-11-02",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E07_Dukes Meet Cale Yarborough.mp4",
+            "format": "h.264",
+            "sizeBytes": 274912218,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-07-dukes-meet-cale-yarborough/The.Dukes.Of.Hazzard_S02E07_Dukes Meet Cale Yarborough.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-08-hazzard-connection",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Hazzard Connection",
+          "overview": "Master spies Luke and Bo? The dukes infiltrate a demolition derby to clear themselves of a smuggling charge...and teach those demolition dudes all about driving.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7V7Be7AP1UVH30gAcLAm5WeYGZI.jpg",
+          "airDate": "1979-11-09",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E08_Hazzard Connection.mp4",
+            "format": "h.264",
+            "sizeBytes": 275262616,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-08-hazzard-connection/The.Dukes.Of.Hazzard_S02E08_Hazzard Connection.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-09-witness-for-the-persecution",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Witness for the Persecution",
+          "overview": "Boss Hogg, a key witness in an upcoming federal trial for a criminal racketeer, enters the Witness Protection Program after his life is threatened, and chooses the Duke farm for his hiding place. While Boss constantly must dodge assassination attempts, Rosco takes over his \"little fat buddy's\" administrative duties, wearing Boss' white continental suits and relishing the job's absolute authority.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/fFiwatMvHPuQuEGtA2ZAES72KwL.jpg",
+          "airDate": "1979-11-16",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E09_Witness For The Persecution.mp4",
+            "format": "h.264",
+            "sizeBytes": 269371110,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-09-witness-for-the-persecution/The.Dukes.Of.Hazzard_S02E09_Witness For The Persecution.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-10-granny-annie",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Granny Annie",
+          "overview": "Bo and Luke learn that a family friend, seemingly innocent little old lady Granny Annie, is operating a small-time counterfeiting ring. Boss Hogg has Granny Annie arrested and confiscates her engraving plates, and sells them to a no-nonsense mobster for $25,000. Bo and Luke set out to clear Granny Annie's name by stealing the plates back and throwing them into a lake--unaware that the mobster has found out about the theft, assumes Boss is responsible, and plans to kill him. An emotional Rosco pleads to the Bo and Luke to track down the counterfeiter before Boss suffers a brutal fate.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/f2P6ugJAQWLGNrFrL4aminH17nN.jpg",
+          "airDate": "1979-11-23",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E10_Granny Annie.mp4",
+            "format": "h.264",
+            "sizeBytes": 275377675,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-10-granny-annie/The.Dukes.Of.Hazzard_S02E10_Granny Annie.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-11-peoples-choice",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "People's Choice",
+          "overview": "Boss Hogg is up for re-election as county administrator against an unlikely opponent--a young woman in her twenties named T.C. Rogers, who is determined to avenge her father's loss to Boss in a rigged election, which occurred fifteen years earlier. Bo and Luke help T.C. (the honest candidate) counter Boss' dirty tricks in an effort to unseat the incumbent Hogg.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iW8dDCivaIlSgYdo84N98dAtQVs.jpg",
+          "airDate": "1979-11-30",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E11_People's Choice.mp4",
+            "format": "h.264",
+            "sizeBytes": 274406778,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-11-peoples-choice/The.Dukes.Of.Hazzard_S02E11_People's Choice.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-12-arrest-jessie-duke",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Arrest Jesse Duke",
+          "overview": "After Uncle Jesse is wrongly accused of being behind a car-stripping ring operated by Boss Hogg and his nephew, temporary Sheriff Hughie Hogg; Bo and Luke are determined to clear Jesse's name by putting the racket out of business",
+          "stillURL": "https://image.tmdb.org/t/p/w300/pWXsB2WiA2O03aAWYenPM8FxhyT.jpg",
+          "airDate": "1979-12-14",
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E12_Arrest Jessie Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274424296,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-12-arrest-jessie-duke/The.Dukes.Of.Hazzard_S02E12_Arrest Jessie Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-13-duke-of-duke",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Duke of Duke",
+          "overview": "Gaylord Duke, a (supposed) British third cousin of the Hazzard County-based Duke family, comes to visit. He asks Uncle Jesse for help in paying off a $30,000 tax bill for a parcel of land he claims he inherited. But is Gaylord really a Duke or a con man?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/wpMNuqYICEdd1zwPGM0VdoqQPti.jpg",
+          "airDate": "1980-01-04",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E13_Duke Of Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274113291,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-13-duke-of-duke/The.Dukes.Of.Hazzard_S02E13_Duke Of Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-14-the-runaway",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "The Runaway",
+          "overview": "Millionaire C.J. Holmes is determined to retrieve his runaway daughter, who plans to marry a Hazzard County farmer. The girl later takes her appeal to the Dukes, explaining that her father wants her to marry within her social class and not someone involved in an unglamorous profession. Uncle Jesse ultimately meets with Mr. Holmes, and gives him a stern lecture about the dedication and self-sacrifice of farmers.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7lP1XqFaTM6XpSiyHiVga4WAX2c.jpg",
+          "airDate": "1980-01-11",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E14_The Runaway.mp4",
+            "format": "h.264",
+            "sizeBytes": 273795677,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-14-the-runaway/The.Dukes.Of.Hazzard_S02E14_The Runaway.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-15-follow-that-still",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Follow That Still",
+          "overview": "The Dukes try to reform an old-time moonshiner named Hard Luck Jones, who can't seem to shake off his love for stilling illegal whiskey. Things come to a boil when Hard Luck hijacks an armored personnel carrier to use as a mobile brewery. Bo and Luke are accused, and it's all they can do to convince their friend to give up his activities and avoid all of them being nabbed by federal agents.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/eDJOyOVfpE9XvdTPEkQnOjaTHOP.jpg",
+          "airDate": "1980-01-18",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E15_Follow That Still.mp4",
+            "format": "h.264",
+            "sizeBytes": 274417937,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-15-follow-that-still/The.Dukes.Of.Hazzard_S02E15_Follow That Still.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-16-treasure-of-hazzard",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Treasure of Hazzard",
+          "overview": "The hunt is on for buried treasure in Hazzard County: a Civil War payroll that was buried before the Battle of Hazzard. A history professor promises to give Boss Hogg the money contained in the strongbox, so long as she keeps the historical documents and other items of interest inside. The Dukes become involved, and later help the history professor recover the treasure when she is robbed by a pair of fortune hunters.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iq3AjJCQCidYfjF3gmsAEPklTAO.jpg",
+          "airDate": "1980-01-25",
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E16_Treasure Of Hazzard.mp4",
+            "format": "h.264",
+            "sizeBytes": 271831467,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-16-treasure-of-hazzard/The.Dukes.Of.Hazzard_S02E16_Treasure Of Hazzard.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-17-officer-daisy-duke",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Officer Daisy Duke",
+          "overview": "When she asks for a raise, Daisy loses her job at the Boar's Nest. Enos suggests to Daisy that she apply for a position as a Hazzard County deputy. Boss and acting Sheriff Grady Byrd try to rig the training program, but Daisy more than proves her worth--and is determined to demonstrate it when she takes a call to stop a pair of hardened bank robbers with nothing to lose.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ihHCqc9aUGVAyZL4yELURqUgfBd.jpg",
+          "airDate": "1980-02-01",
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E17_Officer Daisy Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274586781,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-17-officer-daisy-duke/The.Dukes.Of.Hazzard_S02E17_Officer Daisy Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-18-find-loretta-lynn",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Find Loretta Lynn",
+          "overview": "A trio of bumbling criminals, wanting to break into the music business, kidnap country music superstar Loretta Lynn.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/p1APVz3PyAR6lkiEkBHDHO8L7KI.jpg",
+          "airDate": "1980-02-08",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E18_Find Loretta Lynn.mp4",
+            "format": "h.264",
+            "sizeBytes": 274735022,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-18-find-loretta-lynn/The.Dukes.Of.Hazzard_S02E18_Find Loretta Lynn.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-19-jude-emery",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Jude Emery",
+          "overview": "Bo and Luke help Texas ranger Jude Emery track down the notorious \"Snake\" Harmon; who is wanted on murder, robbery, and smuggling charges. However, all three are captured by Snake's gang, leading Daisy, Uncle Jesse, Cooter and Sheriff Byrd to rescue them and capture the criminals.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/eNUtJfcAAhzYJtWa070Ya8mqTyG.jpg",
+          "airDate": "1980-02-15",
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E19_Jude Emery.mp4",
+            "format": "h.264",
+            "sizeBytes": 274933478,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-19-jude-emery/The.Dukes.Of.Hazzard_S02E19_Jude Emery.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-20-return-of-the-ridge-raiders",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Return of the Ridge Raiders",
+          "overview": "Uncle Jesse and surviving members of the Ridge Raiders declare war on Boss Hogg's old moonshine stills after learning that Boss misappropriated funds earmarked for seniors into his new nightclub.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/oxqZUrEqTFA5XphtaTGJLZU94XV.jpg",
+          "airDate": "1980-02-22",
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E20_Return Of The Ridge Raiders.mp4",
+            "format": "h.264",
+            "sizeBytes": 274860552,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-20-return-of-the-ridge-raiders/The.Dukes.Of.Hazzard_S02E20_Return Of The Ridge Raiders.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-21-mason-dixons-girls",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Mason Dixon's Girls",
+          "overview": "Bo and Luke are arrested for drug smuggling after they mistakenly pick up a crate of marijuana instead of the intended hot-water heater for the house. Private investigator Mason Dixon and his sexy female associates join the Dukes in search for a big-time drug kingpin, who learns that Bo and Luke have accidentally taken his drug shipment.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rF1RbIiArVOdEWAufXv5HNGVHkm.jpg",
+          "airDate": "1980-02-29",
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E21_Mason Dixon's Girls.mp4",
+            "format": "h.264",
+            "sizeBytes": 274794532,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-21-mason-dixons-girls/The.Dukes.Of.Hazzard_S02E21_Mason Dixon's Girls.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-22-r.-i.-p.-henry-flatt",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "R.I.P. Henry Flatt",
+          "overview": "Bo and Luke happen upon Henry Flatt, a supposedly dead con man, who had swindled Boss out of $20,000 several years earlier. When they learn of Boss' plans to build a public road and housing development, they must do everything they can to save the cemetery, not only for the sake of war veterans but to keep Flatt's secret from being exposed.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/1DXyySMdYJmIbOHPvF5GJnpqVxi.jpg",
+          "airDate": "1980-03-14",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E22_R.I.P. Henry Flatt.mp4",
+            "format": "h.264",
+            "sizeBytes": 274721607,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-22-r.-i.-p.-henry-flatt/The.Dukes.Of.Hazzard_S02E22_R.I.P. Henry Flatt.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-23-southern-comfurts",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Southern Comfurts",
+          "overview": "Uncle Jesse's cousins, the Comfurt family, sell their farm for $250,000. The Comfurts rent a Rolls-Royce that breaks down and Cooter lends them a car while he fixes it. The loaner car is stolen from outside Cooter's garage with proceeds from the farm's sale locked in the trunk. The Dukes track down the car as it changes hands--from the car thieves to a used car dealer to a bank robber.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/fKjnTqHwNbenP1CLMXgnVCUWUsm.jpg",
+          "airDate": "1980-03-21",
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E23_Southern Comfurts.mp4",
+            "format": "h.264",
+            "sizeBytes": 274425780,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-23-southern-comfurts/The.Dukes.Of.Hazzard_S02E23_Southern Comfurts.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-01-carnival-of-thrills-part-1",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Carnival Of Thrills (1)",
+          "overview": "When the Dukes attend a stunt show called \"Carnival of Thrills,\" the star of the show is injured while trying to jump a car over 32 parked cars. Looking for a new star, carnival owner Diane Benson offers Bo the job. While Diane seduces a lovestruck Bo with her charms; Luke, Daisy and Uncle Jesse suspect something is amiss. Their fears are confirmed when an insurance investigator reveals that the earlier stunt show mishap—-along with several others—-was no accident. Luke tries to convince Bo of his findings, but Bo does not listen. This leads to a huge fight that results in Bo leaving the Duke farm, threatening further repercussions on the Duke family. Meanwhile, Boss Hogg can foreclose on the \"Carnival of Thrills\" if Diane can't pay back a loan she makes for use of the Hazzard County fairgrounds. Furthermore, Rosco manages to impound the General Lee for a taillight he busted; and, in an attempt to keep Bo from taking the stunt job, Luke allows the impounding to happen.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/1Ot6dXlwAKLCBx69rajkAx5GTU8.jpg",
+          "airDate": "1980-09-16",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E01_Carnival Of Thrills Part 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 274041234,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-01-carnival-of-thrills-part-1/The.Dukes.Of.Hazzard_S03E01_Carnival Of Thrills Part 1.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-02-carnival-of-thrills-part-2",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Carnival Of Thrills (2)",
+          "overview": "When the Dukes attend a stunt show called \"Carnival of Thrills,\" the star of the show is injured while trying to jump a car over 32 parked cars. Looking for a new star, carnival owner Diane Benson offers Bo the job. While Diane seduces a lovestruck Bo with her charms; Luke, Daisy and Uncle Jesse suspect something is amiss. Their fears are confirmed when an insurance investigator reveals that the earlier stunt show mishap—-along with several others—-was no accident. Luke tries to convince Bo of his findings, but Bo does not listen. This leads to a huge fight that results in Bo leaving the Duke farm, threatening further repercussions on the Duke family. Meanwhile, Boss Hogg can foreclose on the \"Carnival of Thrills\" if Diane can't pay back a loan she makes for use of the Hazzard County fairgrounds. Furthermore, Rosco manages to impound the General Lee for a taillight he busted; and, in an attempt to keep Bo from taking the stunt job, Luke allows the impounding to happen.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ay6Gkf3WxbHNRTut9Wfdadw7jDC.jpg",
+          "airDate": "1980-09-16",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E02_Carnival Of Thrills Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 274757917,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-02-carnival-of-thrills-part-2/The.Dukes.Of.Hazzard_S03E02_Carnival Of Thrills Part 2.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-03-enos-strate-to-the-top",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Enos Strate to the Top",
+          "overview": "When taking pictures of Uncle Jesse in front of a bank in Atlanta, Daisy inadvertently gets two bank robbers in the shot who kidnap her in exchange for the photographs. Meanwhile, Enos defies Rosco's orders, helping Bo and Luke rescue Daisy and captures the bank robbers in the process. Enos is then offered a job with the Los Angeles Police Department.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3vYUF7d14R4N3HrqqVvO2FlgSN5.jpg",
+          "airDate": "1980-11-05",
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E03_Enos Strate To The Top.mp4",
+            "format": "h.264",
+            "sizeBytes": 275472043,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-03-enos-strate-to-the-top/The.Dukes.Of.Hazzard_S03E03_Enos Strate To The Top.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-04-the-hazzardville-horror",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "The Hazzardville Horror",
+          "overview": "A father and son criminal duo steal Boss' silver from the Boar's Nest and hide out in a house owned by Hezechiah Pringle, which he left to his niece, Mary Lou Pringle. When Mary Lou returns to Hazzard to sell the house, the crooks try to scare her off by staging a series of paranormal events. She turns to Bo and Luke for help, who are on the run from Rosco because Boss is convinced they are the silver thieves and therefore ordered Rosco to arrest them for the theft.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/48QwEABkgqRBRRpzTdhAUfQNs3f.jpg",
+          "airDate": "1980-11-07",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E04_The Hazzardville Horror.mp4",
+            "format": "h.264",
+            "sizeBytes": 275312368,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-04-the-hazzardville-horror/The.Dukes.Of.Hazzard_S03E04_The Hazzardville Horror.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-05-and-in-this-corner-luke-duke",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "And In This Corner, Luke Duke",
+          "overview": "After Luke broke an expensive mirror of Boss Hogg's, Jesse may be forced to sell the farm to pay for it unless Luke fights Catfish Lee, managed by a crooked promoter, in a boxing match.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/wbyuVgQbET65Ym21jBneWU4xc8x.jpg",
+          "airDate": "1980-11-14",
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E05_And In This Corner, Luke Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274771408,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-05-and-in-this-corner-luke-duke/The.Dukes.Of.Hazzard_S03E05_And In This Corner, Luke Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-06-the-late-j.-d.-hogg",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "The Late J.D. Hogg",
+          "overview": "Boss manages to foreclose on the Duke farm unfair and square, no thanks to his idiot cousin, Deputy Cletus Hogg. Also, he has them arrested unfair and square on a federal charge. But Boss gets news from his physician that he supposedly has some type of terminal illness that gives him only two weeks to live. The only way to save him from the devil is to revert all of his bad deeds and perform good ones until his time comes. However, Boss Hogg's doctor receives a report that his diagnosis of Boss' condition was done in error, and Boss is healthy after all. Boss is then pleased at the correct results, but becomes devastated when he realizes that the good deeds he has already done cannot be reversed again.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2lUh8Io8mGTdZg8o4u1NHO3RS3H.jpg",
+          "airDate": "1980-11-21",
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E06_The Late J.D. Hogg.mp4",
+            "format": "h.264",
+            "sizeBytes": 274852104,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-06-the-late-j.-d.-hogg/The.Dukes.Of.Hazzard_S03E06_The Late J.D. Hogg.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-07-uncle-boss",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Uncle Boss",
+          "overview": "Boss Hogg unleashes his \"secret weapon\" against the Dukes: his college-educated nephew Hughie Hogg (Jeff Altman), who comes to Hazzard with some dirty tricks and schemes to frame Bo and Luke into prison.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/sCQXC1LXj4Px3WC7PRsyXg0Jn6t.jpg",
+          "airDate": "1980-11-28",
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E07_Uncle Boss.mp4",
+            "format": "h.264",
+            "sizeBytes": 274541278,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-07-uncle-boss/The.Dukes.Of.Hazzard_S03E07_Uncle Boss.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-08-baa-baa-white-sheep",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Baa, Baa White Sheep",
+          "overview": "Boss Hogg's honest, rich twin brother Abraham Lincoln Hogg (Sorrell Booke in a dual role) has come to Hazzard for the reading of their great aunt's will, which entitles a piece of land to both him and Boss. But Boss had Abe declared legally dead years ago and sold the land.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3CW3dG8PzVx4h7sGvT8gRJXnuBa.jpg",
+          "airDate": "1980-12-05",
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E08_Baa, Baa White Sheep.mp4",
+            "format": "h.264",
+            "sizeBytes": 275181276,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-08-baa-baa-white-sheep/The.Dukes.Of.Hazzard_S03E08_Baa, Baa White Sheep.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-09-mrs.-rosco-p.-coltrane",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Mrs. Rosco P. Coltrane",
+          "overview": "After meeting a woman through a computer dating service, Rosco plans to get married. Boss plans for him to invite everyone in town to his wedding--except the Dukes. This makes them the only possible suspects for the bank robbery he's arranging to take place during the ceremony. But Boss is unaware that Rosco's supposed fiancé and her gang are planning a robbery of their own.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lhufrsXuiW7ReQfp9riaGVq9hN6.jpg",
+          "airDate": "1980-12-12",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E09_Mrs.Rosco P. Coltrane.mp4",
+            "format": "h.264",
+            "sizeBytes": 274052241,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-09-mrs.-rosco-p.-coltrane/The.Dukes.Of.Hazzard_S03E09_Mrs.Rosco P. Coltrane.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-10-the-great-santa-claus-chase",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "The Great Santa Claus Chase",
+          "overview": "In the series' only Christmas-themed episode; Boss, who is in an Ebenezer Scrooge-like mood throughout this episode, hires a trio of criminals to hijack the Dukes' Christmas tree shipment, then pin the blame on the Dukes. The scheme involves two of the bad guys stealing the trees from Bo and Luke at gunpoint, then the third associate disguised as a clergyman giving the Duke boys a lift into town, and then telling them they forgot \"their\" $500 down payment on the trees. While Uncle Jesse and Daisy set out to clear their family's name, the criminals plot to double-cross Boss by taking more than their payment due on the trees, breaking into the safe while each one is dressed as Santa Claus. Meanwhile, Bo and Luke, with some help from Cooter, decide to take back the trees and have a little fun confusing Rosco and Cletus while delivering the trees dressed as Santa Clauses. In the end, the episode takes a turn toward forgiveness and fellowship as the Dukes and Cooter invite Rosco and Cletus to their Christmas Eve gathering. Boss comes in later, reformed after having read Charles Dickens' \"A Christmas Carol.\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/liIM8FfmBIBhVgWsnWMs0lOi9Jp.jpg",
+          "airDate": "1980-12-19",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E10_The Great Santa Claus Chase.mp4",
+            "format": "h.264",
+            "sizeBytes": 274962276,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-10-the-great-santa-claus-chase/The.Dukes.Of.Hazzard_S03E10_The Great Santa Claus Chase.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-11-good-neighbors-duke",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Good Neighbors, Duke",
+          "overview": "While being chased by Rosco, Bo and Luke crash into a piece of land believed not owned by anyone. They soon find out they are wrong, and make friends with the new citizens of Hazzard, the Bensons. But Luke soon finds out that they're being followed by bounty hunters out to get some kind of document which holds a secret to the Bensons' past.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/cYZcsPIsLMMQhBut25G9pove0R4.jpg",
+          "airDate": "1981-01-02",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E11_Good Neighbors Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274531988,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-11-good-neighbors-duke/The.Dukes.Of.Hazzard_S03E11_Good Neighbors Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-12-state-of-the-country",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "State of the County",
+          "overview": "Boss Hogg's rival uses a good-looking stranger to come into Hazzard and bomb the Boar's Nest. Daisy falls for the stranger, and is soon kidnapped by him.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/1VFNUPeAWVg6eOOFSVztFWDvWxx.jpg",
+          "airDate": "1981-01-09",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E12_State Of The Country.mp4",
+            "format": "h.264",
+            "sizeBytes": 274375714,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-12-state-of-the-country/The.Dukes.Of.Hazzard_S03E12_State Of The Country.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-13-the-legacy",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "The Legacy",
+          "overview": "A recently widowed old flame of Jesse's returns to Hazzard to claim an old debt owing to her late husband by Boss Hogg, but he refuses it. So she finds a legacy that the Dukes find in a mine under their property containing nine full barrels of shine.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/dK26PtVBhkN1AflAggqiZTwMNTH.jpg",
+          "airDate": "1981-01-16",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E13_The Legacy.mp4",
+            "format": "h.264",
+            "sizeBytes": 275081466,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-13-the-legacy/The.Dukes.Of.Hazzard_S03E13_The Legacy.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-14-duke-vs.-duke",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Duke vs. Duke",
+          "overview": "Hazzard's annual Hazzard Derby is on. While Cooter is injured trying to help the Dukes, Luke must race in Cooter's car while Bo is in the General Lee. However, all the entrants who signed the contracts didn't see the fine print that every loser will have to give up their cars to Boss Hogg. Rosco's car can't lose with a tank of nitrous oxide in the engine. With a sure win, Boss bets with a big time Chickasaw bookie, Ma Harper.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/d1Oxq69k8qvzPiYGsaV2kllvNWF.jpg",
+          "airDate": "1981-01-23",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E14_Duke VS. Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274691249,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-14-duke-vs.-duke/The.Dukes.Of.Hazzard_S03E14_Duke VS. Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-15-my-son-bo-hogg",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "My Son, Bo Hogg",
+          "overview": "When Bo suffers a bump on the head in an auto accident, he begins to suffer from temporary amnesia. Boss Hogg uses this to his advantage, telling Bo that he is his long-lost son, \"Bo Hogg.\" After turning Bo against his family by this brainwashing, Boss asks him to drive a shipment to Chickasaw County. Boss fails to tell him that it is moonshine he is to deliver to C.V. Gumble in Chickasaw County for ten times the going rate. However, when an armored truck driver alerts Chickasaw County Sheriff \"Big\" Ed Little (Don Pedro Colley), Luke and Daisy try to rescue Bo before he is captured and his probation is revoked; but when Daisy and Luke pull Bo over, the proverbial gloves come off.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/erk0xHlWdHNLv8RRTiA2vVsPkcJ.jpg",
+          "airDate": "1981-01-30",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E15_My Son, Bo Hogg.mp4",
+            "format": "h.264",
+            "sizeBytes": 274651421,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-15-my-son-bo-hogg/The.Dukes.Of.Hazzard_S03E15_My Son, Bo Hogg.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-16-to-catch-a-duke",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "To Catch a Duke",
+          "overview": "A pair of jewel thieves comes through Hazzard County and while confronted by Boss and Rosco, they make a getaway in the General Lee. This makes Boss think Bo and Luke are a part of the gang. Also, when the loot is found in Rosco's patrol car by his dog Flash, Rosco is fired when Boss thinks he's in on it, too.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/jpBSu4A9my353b7htm6d6uJAaSo.jpg",
+          "airDate": "1981-02-06",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E16_To Catch A Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 275171683,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-16-to-catch-a-duke/The.Dukes.Of.Hazzard_S03E16_To Catch A Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-17-along-came-a-duke",
+          "seasonNumber": 3,
+          "episodeNumber": 17,
+          "title": "Along Came a Duke",
+          "overview": "The Dukes' cousin, Jeb Stuart Duke, comes to Hazzard on a motorcycle from Chickasaw County and helps Bo and Luke catch the bad guys.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2fb2Gi1YbN0ltz0Ukn7Z2FAJniY.jpg",
+          "airDate": "1981-02-13",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E17_Along Came A Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274655503,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-17-along-came-a-duke/The.Dukes.Of.Hazzard_S03E17_Along Came A Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-18-by-line-daisy-duke",
+          "seasonNumber": 3,
+          "episodeNumber": 18,
+          "title": "By-Line Daisy Duke",
+          "overview": "Daisy wants to become a newspaper reporter, and to do that she decides to write a story about how Boss Hogg bought stolen tractors.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/6kWCHz4R1bg55COpIThmJGO6WwT.jpg",
+          "airDate": "1981-02-20",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E18_By-Line, Daisy Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274071942,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-18-by-line-daisy-duke/The.Dukes.Of.Hazzard_S03E18_By-Line, Daisy Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-19-the-return-of-hughie-hogg",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "The Return of Hughie Hogg",
+          "overview": "Hughie Hogg is back in town! He coaxes Bo and Luke into joining the Hazzard County Fire Department (so he can sneak shine in to the Duke farm). Rosco catches the Dukes with shine, and they get away. It's one big scheme to get the Duke boys in jail, but in the end Hughie's plan is ruined, and Boss Hogg is really mad!",
+          "stillURL": "https://image.tmdb.org/t/p/w300/c7PSef73Lv1nnJ32bj7yiFvNkBA.jpg",
+          "airDate": "1981-03-06",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E19_The Return Of Hughie Hogg.mp4",
+            "format": "h.264",
+            "sizeBytes": 274493605,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-19-the-return-of-hughie-hogg/The.Dukes.Of.Hazzard_S03E19_The Return Of Hughie Hogg.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-20-bye-bye-boss",
+          "seasonNumber": 3,
+          "episodeNumber": 20,
+          "title": "Bye, Bye Boss",
+          "overview": "While on the way to the Boar's Nest, Bo and Luke are ambushed by an escaped prisoner, who steals the General Lee and plans to hunt down Boss Hogg. Later, Boss finds out that the prisoner is an old foe who is set out to get revenge on Boss",
+          "stillURL": "https://image.tmdb.org/t/p/w300/vZruGnAH4rHQghkzXuuDP3L0lom.jpg",
+          "airDate": "1981-03-13",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E20_Bye, Bye Boss.mp4",
+            "format": "h.264",
+            "sizeBytes": 274579662,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-20-bye-bye-boss/The.Dukes.Of.Hazzard_S03E20_Bye, Bye Boss.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-21-the-great-hazzard-hijack",
+          "seasonNumber": 3,
+          "episodeNumber": 21,
+          "title": "The Great Hazzard Hijack",
+          "overview": "Three good friends of the Dukes come to Hazzard after Bo and Luke find a bag of $1 million in a river.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/gDIBpAadVONEZT7izRx5EkLhvay.jpg",
+          "airDate": "1981-03-27",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E21_The Great Hazzard Hijack.mp4",
+            "format": "h.264",
+            "sizeBytes": 274610932,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-21-the-great-hazzard-hijack/The.Dukes.Of.Hazzard_S03E21_The Great Hazzard Hijack.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-22-the-hack-of-hazzard",
+          "seasonNumber": 3,
+          "episodeNumber": 22,
+          "title": "The Hack of Hazzard",
+          "overview": "While she's away, Bo and Luke run a taxicab service owned by Miz Tisdale, and their first customers are two men with a special briefcase. After arriving at their destination, the two men leave a stolen gold certificate in the back seat of the cab and try to retrieve it without getting caught. Boss Hogg, meanwhile, wants to make sure the briefcase is still in the cab when federal authorities arrive--the main goal (of course) being to implicate Bo and Luke.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2M3ODzfIbD3crVFlbTsFmhXtdYS.jpg",
+          "airDate": "1981-04-03",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E22_The Hack Of Hazzard.mp4",
+            "format": "h.264",
+            "sizeBytes": 274326497,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-22-the-hack-of-hazzard/The.Dukes.Of.Hazzard_S03E22_The Hack Of Hazzard.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-23-the-canterbury-crock",
+          "seasonNumber": 3,
+          "episodeNumber": 23,
+          "title": "The Canterbury Crock",
+          "overview": "An old widow sells the Dukes a \"worthless\" vase for $25. A man comes to the widow after the Dukes leave, looking for the vase which turns out to be of some very good value!",
+          "stillURL": "https://image.tmdb.org/t/p/w300/n1sgVxvfSiyYRtjn0oXNjZT0zQF.jpg",
+          "airDate": "1981-04-10",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E23_The Canterbury Crock.mp4",
+            "format": "h.264",
+            "sizeBytes": 274679902,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-23-the-canterbury-crock/The.Dukes.Of.Hazzard_S03E23_The Canterbury Crock.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-01-mrs.-daisy-hogg",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "Mrs. Daisy Hogg",
+          "overview": "Daisy is smitten by Boss Hogg's handsome, rich nephew, Jamie Lee Hogg, who has come to town to purchase his uncle's grits mill. While romance quickly blossoms and a wedding appears to be on the horizon, it isn't long before Bo and Luke confirm their initial suspicions about Jamie's criminal side as a counterfeiter.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9Fxr80BotXFHPh9I4xqmhoNZKfn.jpg",
+          "airDate": "1981-10-09",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E01_Mrs. Daisy Hogg.mp4",
+            "format": "h.264",
+            "sizeBytes": 269563670,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-01-mrs.-daisy-hogg/The.Dukes.Of.Hazzard_S04E01_Mrs. Daisy Hogg.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-02-double-dukes",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "Double Dukes",
+          "overview": "Double Dukes means double fun for Boss Hogg, and double trouble for Bo and Luke after two men resembling the good-natured Duke boys -- cronies that Boss had dress in wigs and the Dukes' clothing — rob Hazzard Bank. Bo and Luke spend the rest of the episode clearing their names as they try to apprehend the crooks.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lN1mz5SeVmZ9Mbq1t6BoYx7hx1r.jpg",
+          "airDate": "1981-10-16",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E02_Double Dukes.mp4",
+            "format": "h.264",
+            "sizeBytes": 269398234,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-02-double-dukes/The.Dukes.Of.Hazzard_S04E02_Double Dukes.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-03-diamons-in-the-rough",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "Diamonds in the Rough",
+          "overview": "Everyone's after a sack of diamonds that had accidentally been dropped from an armed robber's vehicle driving through Hazzard, and all roads lead to the Duke farm after Bo and Luke get to them first. While the Duke boys are trying to report their find to the state police, they are bugged by the original thief (who poses as a reporter to get at the loot) and later, by a phony FBI agent hired by a greedy Boss Hogg who wants the reward money for himself.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3o7z3usrv2ocb9vUbbPdt46fnXD.jpg",
+          "airDate": "1981-10-23",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E03_Diamons In The Rough.mp4",
+            "format": "h.264",
+            "sizeBytes": 269351800,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-03-diamons-in-the-rough/The.Dukes.Of.Hazzard_S04E03_Diamons In The Rough.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-04-coltrane-vs.-duke",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "Coltrane vs. Duke",
+          "overview": "As usual, Bo and Luke outfox Rosco and cause him to crash his car. Rosco, as always, escapes without a scratch ... but this time, the frustrated sheriff decides to turn things up a notch by claiming he was seriously injured. With Boss Hogg's support and seeing an opportunity to foreclose on the Duke farm, Rosco files a $50,000 lawsuit against the Duke family. Boss -- now turned into Rosco's butler -- hires an actor to play a doctor to support Rosco's claims, leaving Bo and Luke to try to expose Rosco's injuries as fake. Will a judge buy Rosco's story, or will he see...",
+          "stillURL": "https://image.tmdb.org/t/p/w300/qImp30VD5cakoHUJSEzZfAQ62p0.jpg",
+          "airDate": "1981-10-30",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E04_Coltrane vs. Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 269765060,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-04-coltrane-vs.-duke/The.Dukes.Of.Hazzard_S04E04_Coltrane vs. Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-05-the-fugitive",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "The Fugitive",
+          "overview": "The Duke boys' beautiful girlfriend, Mindy Lou, learns that Boss Hogg is planning a heist of motorcycles, so as to gain an unfair upper hand in the upcoming Tri-County Motocross. Bo and Luke come up with a scheme of their own to beat Boss to the finish line.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/eTnErGm3pgnhHObmr3i9hHk5CKG.jpg",
+          "airDate": "1981-11-03",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E05_The Fugitive.mp4",
+            "format": "h.264",
+            "sizeBytes": 273043747,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-05-the-fugitive/The.Dukes.Of.Hazzard_S04E05_The Fugitive.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-06-the-great-bank-robbery",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "The Great Bank Robbery",
+          "overview": "Boss Hogg, unwilling to pay longtime Hazzard County clerk Clarence Stovall a $30,000 pension, fires him one day short of retirement. Stovall gets his revenge by stealing the money from Hazzard Bank (of which Boss is president, natch). Uncle Jesse learns about this and lectures Clarence about the consequences of his actions, while Bo and Luke try to pull off a reverse-bank heist to save their friend from criminal charges.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/1FVi4KhsjaO1CUZi51Z36aMx3ru.jpg",
+          "airDate": "1981-11-06",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E06_The Great Bank Robbery.mp4",
+            "format": "h.264",
+            "sizeBytes": 269759645,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-06-the-great-bank-robbery/The.Dukes.Of.Hazzard_S04E06_The Great Bank Robbery.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-07-sadie-hogg-day",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Sadie Hogg Day",
+          "overview": "Daisy's one-day stint as Hazzard County treasurer on Sadie Hogg Day may earn her a trip to jail, after Boss Hogg — hoping to avoid being arrested for embezzling county funds — alters the county ledger to shift responsibility... just in time for the annual audit by the state treasurer's office.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9XVnW8rVUOevi0hIaq5zuoGM0sy.jpg",
+          "airDate": "1981-11-13",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E07_Sadie Hogg Day.mp4",
+            "format": "h.264",
+            "sizeBytes": 269759531,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-07-sadie-hogg-day/The.Dukes.Of.Hazzard_S04E07_Sadie Hogg Day.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-08-10-million-dollar-sheriff-part-1",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "10 Million Dollar Sheriff (1)",
+          "overview": "Rosco's Uncle Hosiah dies, and at the reading of his will, learns that he has inherited $10 million. Rosco, frustrated after years of being outfoxed by the Dukes, hires hard-nosed hit man Jason Steele to track down and arrest Bo and Luke. Meanwhile, Rosco goes on a power trip and schemes to win Boss' fortune in a rigged poker game.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9wIPfOXAif63bZA0tydlSpM9x3A.jpg",
+          "airDate": "1981-11-20",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E08_10 Million Dollar Sheriff Part 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 286709298,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-08-10-million-dollar-sheriff-part-1/The.Dukes.Of.Hazzard_S04E08_10 Million Dollar Sheriff Part 1.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-09-10-million-dollar-sheriff-part-2",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "10 Million Dollar Sheriff (2)",
+          "overview": "Uncle Jesse seriously injures himself as the shaken Duke patriarch learns that bounty hunter Jason Steele is a wanted criminal. Steele eventually manages to frame Bo and Luke on grand-theft auto (by having them drive away in a stolen Dodge Charger painted exactly like the General Lee). Hosiah Coltrane's attorney then informs Rosco that a mistake had been made and that the sheriff had only inherited $10 - leaving Rosco way short of the $100,000 needed to pay Steele for services rendered. Steele eventually blows his top when he learns Rosco doesn't have the money, and...",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9iGlW4AQctfsX4tLf2tXScdpLtg.jpg",
+          "airDate": "1981-11-20",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E09_10 Million Dollar Sheriff Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 266279395,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-09-10-million-dollar-sheriff-part-2/The.Dukes.Of.Hazzard_S04E09_10 Million Dollar Sheriff Part 2.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-10-trouble-at-cooters",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "Trouble at Cooter's",
+          "overview": "A beautiful fur thief named Bonnie Lane, along with her two accomplices, try to exact revenge on Boss (for his shortchanging them), and Cooter winds up in the middle of things when Bonnie tries to distract him with her charms while her two friends break into Boss' storeroom to get their payback.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ri3j3b5ZbRmh6YlCGUWTwM42d23.jpg",
+          "airDate": "1981-11-27",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E10_Trouble At Cooter's.mp4",
+            "format": "h.264",
+            "sizeBytes": 269976598,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-10-trouble-at-cooters/The.Dukes.Of.Hazzard_S04E10_Trouble At Cooter's.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-11-goodbye-general-lee",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "Goodbye, General Lee",
+          "overview": "When the Duke boys lose a cross country race to a better car, a discouraged Luke makes an offhanded remark about the General Lee possibly wearing out its usefulness. Boss Hogg picks up on this and hires his hypnotist friend to ensure that Luke really means what he says ... and to make sure the next road the General Lee drives is to the junkyard.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/zjxYskcJyHxiyL2o80QUr4D348w.jpg",
+          "airDate": "1981-12-04",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E11_Goodbye, General Lee.mp4",
+            "format": "h.264",
+            "sizeBytes": 269730093,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-11-goodbye-general-lee/The.Dukes.Of.Hazzard_S04E11_Goodbye, General Lee.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-12-cletus-falls-in-love",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "Cletus Falls in Love",
+          "overview": "Cletus becomes lovestruck when Daisy uses her charms to get her cousins out of a phony traffic charge. As Cletus does everything to smother Daisy with affection, he also loses his job for bungling an arrest. However, Cletus plays the hero when Bo and Luke are jailed for passing a bad check, as part of Boss Hogg's scheme to frame the Dukes, impress a probation officer and win favor from no-nonsense Chickasaw County Sheriff \"Big\" Ed Little. And Flash also plays a big part in saving the day for the Dukes.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3LttRWmuZodecOPA8HGF8iKTlrk.jpg",
+          "airDate": "1981-12-11",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E12_Cletus Falls In Love.mp4",
+            "format": "h.264",
+            "sizeBytes": 270118594,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-12-cletus-falls-in-love/The.Dukes.Of.Hazzard_S04E12_Cletus Falls In Love.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-13-hughie-hogg-strikes-again",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "Hughie Hogg Strikes Again",
+          "overview": "Hughie Hogg's latest scheme targets Cooter, whose garage is threatened with eminent domain so the crooked Hogg can build shoddy condominiums at an inflated price.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/a8unWiBGOgMPQPSGUqoh4b8kLXk.jpg",
+          "airDate": "1981-12-18",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E13_Hughie Hogg Strikes Again.mp4",
+            "format": "h.264",
+            "sizeBytes": 269171840,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-13-hughie-hogg-strikes-again/The.Dukes.Of.Hazzard_S04E13_Hughie Hogg Strikes Again.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-14-the-dukescam-scam",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "Dukescam Scam",
+          "overview": "When Boss Hogg is arrested for robbing his own bank, Uncle Jesse bails out his own enemy by using his farm's mortgage. But did Boss Hogg really rob the bank... or after years of failing to obtain the farm, is he looking for an easy foreclosure?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/hxNQNJe0Degvln5TOnUCk9bx0hh.jpg",
+          "airDate": "1982-01-01",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E14_The Dukescam Scam.mp4",
+            "format": "h.264",
+            "sizeBytes": 273270516,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-14-the-dukescam-scam/The.Dukes.Of.Hazzard_S04E14_The Dukescam Scam.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-15-the-sound-of-music-hazzard-style",
+          "seasonNumber": 4,
+          "episodeNumber": 15,
+          "title": "The Sound of Music - Hazzard Style",
+          "overview": "The Hazzard hills are alive -- with the sound of Mickey Gilley's music. So is Boss Hogg's pirate recording studio, after Boss and his latest associates plan to record Gilley's Hazzard concert and sell the resulting albums on the black market. The FBI is already onto the scheme, so the crooks steal the General Lee. While hiding out at the Duke farm, the crooks name Bo and Luke as the head of the pirating scheme. However, Gilley knows the truth and works with the Duke boys to put a halt to Boss' recording dreams.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/wSL5jYfU020o5fKFuq37ssgzPAh.jpg",
+          "airDate": "1982-01-08",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E15_The Sound Of Music Hazzard Style.mp4",
+            "format": "h.264",
+            "sizeBytes": 269226450,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-15-the-sound-of-music-hazzard-style/The.Dukes.Of.Hazzard_S04E15_The Sound Of Music Hazzard Style.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-16-shine-on-hazzard-moon",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "Shine on Hazzard Moon",
+          "overview": "A determined Boss Hogg, desperately wanting Uncle Jesse's moonshine recipe, makes a demand: give over the recipe, or have Bo and Luke charged with felony theft in the disappearance of funds from the Hazzard County Orphanage.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/p3xp9rjnnUoOp1PTpR2tBsFSsRA.jpg",
+          "airDate": "1982-01-15",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E16_Shine On Hazzard Moon.mp4",
+            "format": "h.264",
+            "sizeBytes": 269485964,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-16-shine-on-hazzard-moon/The.Dukes.Of.Hazzard_S04E16_Shine On Hazzard Moon.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-17-pin-the-tail-on-the-dukes",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "Pin the Tail on the Dukes",
+          "overview": "Bo and Luke have their hands full with Boss Hogg, as they try to thwart a lawsuit for destroying county property (a hair dryer made up to look like a speed radar gun), and saving him from a disgruntled former landowner, who was swindled out of his property and is now returning to Hazzard to exact revenge.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/sEnLKELdsmoNFf4TcGjB5gKjATh.jpg",
+          "airDate": "1982-01-22",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E17_Pin The Tail On The Dukes.mp4",
+            "format": "h.264",
+            "sizeBytes": 269307544,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-17-pin-the-tail-on-the-dukes/The.Dukes.Of.Hazzard_S04E17_Pin The Tail On The Dukes.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-18-miz-tisdale-on-the-lam",
+          "seasonNumber": 4,
+          "episodeNumber": 18,
+          "title": "Miz Tisdale on the Lam",
+          "overview": "Hazzard County Postmistress Emma Tisdale hides out at the Duke farm after learning she is being investigated for mail fraud. The pending charges stemmed from Boss Hogg's decision to shift responsibility for selling non-existent properties. As Bo and Luke investigate, Miz Tisdale does all she can to try to cozy up to longtime crush Uncle Jesse.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4uWik5QNHZB9XSlUveO9onS7XfL.jpg",
+          "airDate": "1982-01-29",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E18_Miz Tisdale On The Lam.mp4",
+            "format": "h.264",
+            "sizeBytes": 269307843,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-18-miz-tisdale-on-the-lam/The.Dukes.Of.Hazzard_S04E18_Miz Tisdale On The Lam.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-19-nothin-but-the-truth",
+          "seasonNumber": 4,
+          "episodeNumber": 19,
+          "title": "Nothin' But the Truth",
+          "overview": "When Boss Hogg learns that a state investigator is on his way to Hazzard to check out a claim of an illegal casino, he shifts the blame to the Duke family. But just as the Dukes are being formally charged, Boss sits on a syringe filled with truth serum. Boss lets slip the truth, and his cronies are none too pleased, forcing Bo and Luke to ride to Boss' rescue.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rlWQVGo3AOwGUa4yqhVGuPuASN1.jpg",
+          "airDate": "1982-02-05",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E19_Nothin' But The Truth.mp4",
+            "format": "h.264",
+            "sizeBytes": 269467930,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-19-nothin-but-the-truth/The.Dukes.Of.Hazzard_S04E19_Nothin' But The Truth.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-20-dear-diary",
+          "seasonNumber": 4,
+          "episodeNumber": 20,
+          "title": "Dear Diary",
+          "overview": "Rosco has kept a diary detailing Boss Hogg's illegal schemes carried out over the years. Two of Boss' former (and now disgruntled) associates become aware of this and swipe the diary, demanding a huge ransom or else they tip off the authorities. This leaves Bo and Luke with a moral dilemma: Defeat the crooks, as their criminal activities are more serious than Boss'; or see their longtime enemy brought to justice once and for all.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/t6BYJ7pd40ujICgTgTIcB2eN7Sb.jpg",
+          "airDate": "1982-02-12",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E20_Dear Diary.mp4",
+            "format": "h.264",
+            "sizeBytes": 268591727,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-20-dear-diary/The.Dukes.Of.Hazzard_S04E20_Dear Diary.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-21-new-deputy-in-town",
+          "seasonNumber": 4,
+          "episodeNumber": 21,
+          "title": "New Deputy in Town",
+          "overview": "When an efficient — and awesomely beautiful — patrol officer effortlessly arrests Bo and Luke on traffic charges, an impressed Boss Hogg and Rosco immediately hire her as a new deputy. However, Boss is so distracted by the new deputy's charms that he forgets to check out her background... or that she is associated with a murder and robbery suspect that is scheduled to spend the night at the Hazzard County Jail.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lA0kfJQjiODapDNtSfHkGWbyFyX.jpg",
+          "airDate": "1982-02-19",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E21_New Deputy In Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 269380209,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-21-new-deputy-in-town/The.Dukes.Of.Hazzard_S04E21_New Deputy In Town.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-22-birds-gotta-fly",
+          "seasonNumber": 4,
+          "episodeNumber": 22,
+          "title": "Birds Gotta Fly",
+          "overview": "Daisy's longtime friend Molly Hargrove offers her a spot on the NASCAR women's racing circuit. But Molly knows a lot more about the job than she's willing to tell Daisy.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/pF2qKNb3S2tYlHuOf55VAWNQLHQ.jpg",
+          "airDate": "1982-02-26",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E22_Birds Gotta Fly.mp4",
+            "format": "h.264",
+            "sizeBytes": 269334521,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-22-birds-gotta-fly/The.Dukes.Of.Hazzard_S04E22_Birds Gotta Fly.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-23-bad-day-in-hazzard",
+          "seasonNumber": 4,
+          "episodeNumber": 23,
+          "title": "Bad Day in Hazzard",
+          "overview": "The Dukes are forced to bond with their sworn enemies — Boss Hogg and Rosco — after they are held at gunpoint by a gang of robbers at the Boar's Nest. The lead robber, posing as a law enforcement officer, then orders an emergency evacuation of Hazzard... thereby eliminating any witnesses to his plans to rob an armored truck making a delivery to Hazzard Bank.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/oK2OdIaNp4LkuZbZf8ZYeRe5BZD.jpg",
+          "airDate": "1982-03-05",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E23_Bad Day In Hazzard.mp4",
+            "format": "h.264",
+            "sizeBytes": 269637498,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-23-bad-day-in-hazzard/The.Dukes.Of.Hazzard_S04E23_Bad Day In Hazzard.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-24-miss-tri-counties",
+          "seasonNumber": 4,
+          "episodeNumber": 24,
+          "title": "Miss Tri-Counties",
+          "overview": "Corruption runs amok in the Miss Tri-Counties pageant when Boss Hogg accepts a $10,000 payoff to rig the contest in favor of Hatchapee County entrant Melanie Dubois. Bo and Luke foil Boss and the other county bosses at every turn as the contests are unfairly tilted against pageant favorite Daisy, but those efforts are easy compared to saving Daisy from a brutal fate when two thugs kidnap her before the final swimsuit competition.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/8rhMuwkC53ZoFD7FPixG1Zg3frm.jpg",
+          "airDate": "1982-03-12",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E24_Miss Tri-Counties.mp4",
+            "format": "h.264",
+            "sizeBytes": 269007945,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-24-miss-tri-counties/The.Dukes.Of.Hazzard_S04E24_Miss Tri-Counties.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-25-share-and-share-alike",
+          "seasonNumber": 4,
+          "episodeNumber": 25,
+          "title": "Share and Share Alike",
+          "overview": "In a nod to the ongoing Equal Rights Amendment debate, Lulu and Daisy co-form the Hazzard County Equal Rights Society to decry overbearing treatment from men. Lulu gets her way when she demands 50-percent control of husband Boss' used car lot. Unknown to both Lulu and Daisy, Boss has stashed stolen credit cards inside the door panels of one of the cars ... and that car so happens to be the one that Chickasaw County Sheriff \"Big\" Ed Little decides to buy as as a personal daily driver.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rGhB6awEFh81UWBwpDBdI8sablG.jpg",
+          "airDate": "1982-03-19",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E25_Share And Share Alike.mp4",
+            "format": "h.264",
+            "sizeBytes": 268938902,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-25-share-and-share-alike/The.Dukes.Of.Hazzard_S04E25_Share And Share Alike.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-26-the-law-and-jesse-duke",
+          "seasonNumber": 4,
+          "episodeNumber": 26,
+          "title": "The Law and Jesse Duke",
+          "overview": "When Rosco and Cletus go on strike after Boss refuses to give them a pay raise, Uncle Jesse is named the sheriff. Bo and Luke are subsequently deputized to help capture a pair of thieves who have stolen a cache of electronics items in Boss' latest effort to frame the Duke boys.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3WvGl2d0heQUswJriPRbOQSl65q.jpg",
+          "airDate": "1982-03-26",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E26_The Law And Jesse Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 269408678,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-26-the-law-and-jesse-duke/The.Dukes.Of.Hazzard_S04E26_The Law And Jesse Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-27-dukes-in-danger",
+          "seasonNumber": 4,
+          "episodeNumber": 27,
+          "title": "Dukes in Danger",
+          "overview": "Friends and enemies are once again forced to band after a pair of escaped convicts take refuge at the Duke farm and, at gunpoint, force the Duke family to cooperate with their escape plans. The criminals burst into the Duke household just as Uncle Jesse was about to drive into town to make his mortgage payment. When Uncle Jesse fails to show, Boss Hogg and Rosco drive out to the Duke farm to foreclose, only for them to be taken hostage as well. With all the communication devices disabled and everyone's car keys confiscated, the Dukes are left to improvise and signal...",
+          "stillURL": "https://image.tmdb.org/t/p/w300/eaWKvY0NB3qX2TFJPfAiEDadYvt.jpg",
+          "airDate": "1982-04-02",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E27_Dukes In Danger.mp4",
+            "format": "h.264",
+            "sizeBytes": 268898298,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-27-dukes-in-danger/The.Dukes.Of.Hazzard_S04E27_Dukes In Danger.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 73
+}

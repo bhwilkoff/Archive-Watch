@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "nashville-on-the-road-2021",
+  "title": "Nashville On The Road",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/nashville-on-the-road-scottsdale-az-1982-most",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "nashville-on-the-road-scottsdale-az-1982-most",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Nashville On The Road: Scottsdale, AZ (1982, most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/nashville-on-the-road-scottsdale-az-1982-most",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Nashville on the Road- Scottsdale, AZ (1982, most).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 811645676,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nashville-on-the-road-scottsdale-az-1982-most/Nashville on the Road- Scottsdale, AZ (1982, most).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

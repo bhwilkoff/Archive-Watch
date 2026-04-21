@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-kate-smith-evening-hour-1960",
+  "title": "The Kate Smith Evening Hour",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006380.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheKateSmithEveningHourFragment",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Kate Smith Evening Hour'' - Fragment",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006380.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1648,
+          "videoFile": {
+            "name": "The Kate Smith Evening Hour Fragment.mp4",
+            "format": "h.264",
+            "sizeBytes": 171536596,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheKateSmithEveningHourFragment/The Kate Smith Evening Hour Fragment.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

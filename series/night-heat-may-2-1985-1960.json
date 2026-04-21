@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "night-heat-may-2-1985-1960",
+  "title": "Night Heat May 2, 1985",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/night-heat-1985-05-02",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "night-heat-1985-05-02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Night Heat May 2, 1985",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/night-heat-1985-05-02",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Night Heat 1985-05-02.mp4",
+            "format": "h.264",
+            "sizeBytes": 278122559,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/night-heat-1985-05-02/Night Heat 1985-05-02.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "triumph-over-disaster-1993",
+  "title": "Triumph Over Disaster",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/triumph-over-disaster-1993",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "triumph-over-disaster-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Triumph Over Disaster - Ted Wass",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/triumph-over-disaster-1993",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Triumph Over Disaster - 1993.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2809594993,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/triumph-over-disaster-1993/Triumph Over Disaster - 1993.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "tek-war-1994",
+  "title": "Tek War",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": "TekWar is a North American television series, based on the TekWar novels ghost-written by Ron Goulart from outlines by William Shatner and developed for television by Stephen Roloff. The series follows Jake Cardigan, a former police officer turned private investigator working for Cosmos, a private security firm owned and operated by Walter Bascom.\n\nThe series was broadcast in Canada on CTV and in the United States on USA Network and the Sci Fi Channel. The series, which was a co-production between Atlantis Films and Universal Television premiered on January 17, 1994 and ended on February 9, 1996.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/95tsFJksRh263dvL8PIOCIvU64J.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CTV",
+    "Syndication"
+  ],
+  "creator": "William Shatner",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tek-war-complete-series-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tek War - Complete Series 1994",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/95tsFJksRh263dvL8PIOCIvU64J.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TekWar S00E01 - TekWar 1994.mp4",
+            "format": "h.264",
+            "sizeBytes": 530172055,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tek-war-complete-series-1994/TekWar S00E01 - TekWar 1994.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

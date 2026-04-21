@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jeannie-ep-5-the-power-failure-1973",
+  "title": "Jeannie EP 5 The Power Failure",
+  "yearStart": 1973,
+  "yearEnd": 1973,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/jeannie-cartoon-series-e-05-the-power-failure",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "jeannie-cartoon-series-e-05-the-power-failure",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Jeannie EP 5 The Power Failure (1973)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jeannie-cartoon-series-e-05-the-power-failure",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jeannie   Cartoon Series E05 The Power Failure_ 360p.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 57942248,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jeannie-cartoon-series-e-05-the-power-failure/Jeannie   Cartoon Series E05 The Power Failure_ 360p.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

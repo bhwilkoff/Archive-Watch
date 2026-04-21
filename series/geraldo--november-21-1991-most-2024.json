@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "geraldo--november-21-1991-most-2024",
+  "title": "Geraldo- November 21, 1991 (most",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/geraldo-november-21-1991-most",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "geraldo-november-21-1991-most",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Geraldo- November 21, 1991 (most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/geraldo-november-21-1991-most",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Geraldo- November 21, 1991 (most).mp4",
+            "format": "h.264",
+            "sizeBytes": 230731368,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/geraldo-november-21-1991-most/Geraldo- November 21, 1991 (most).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

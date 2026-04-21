@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lights-out-for-release-today-01-22-1951-2018",
+  "title": "Lights Out For Release Today 01 22 1951",
+  "yearStart": 2018,
+  "yearEnd": 2018,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/LightsOutForReleaseToday01221951",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LightsOutForReleaseToday01221951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lights Out For Release Today 01 22 1951",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LightsOutForReleaseToday01221951",
+          "airDate": null,
+          "year": 2018,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lights_out_For_release_today_01_22_1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 139635470,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOutForReleaseToday01221951/Lights_out_For_release_today_01_22_1951.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

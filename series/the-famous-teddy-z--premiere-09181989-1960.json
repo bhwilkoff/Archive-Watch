@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-famous-teddy-z--premiere-09181989-1960",
+  "title": "The Famous Teddy Z- PREMIERE (09/18/1989",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheFamousTeddyZPREMIERE09181989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheFamousTeddyZPREMIERE09181989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Famous Teddy Z- PREMIERE (09/18/1989)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheFamousTeddyZPREMIERE09181989",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Famous Teddy Z- PREMIERE (09181989).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 105796184,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheFamousTeddyZPREMIERE09181989/The Famous Teddy Z- PREMIERE (09181989).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

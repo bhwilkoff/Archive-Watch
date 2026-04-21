@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sisters-1991-1996-1960",
+  "title": "Sisters (1991-1996",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sisters1991",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sisters1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sisters (1991-1996) complete series",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sisters1991",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sisters - S06E27-E28 - War & Peace.mkv",
+            "format": "Matroska",
+            "sizeBytes": 1006762388,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sisters1991/Sisters - S06E27-E28 - War & Peace.mkv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

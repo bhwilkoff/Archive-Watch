@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "saturday-night-live--october-15-1983-s9e2-most-2021",
+  "title": "Saturday Night Live- October 15, 1983 (S9E2, most",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/saturday-night-live-october-15-1983-s-9-e-2-most",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 9,
+      "episodes": [
+        {
+          "archiveID": "saturday-night-live-october-15-1983-s-9-e-2-most",
+          "seasonNumber": 9,
+          "episodeNumber": 2,
+          "title": "Saturday Night Live- October 15, 1983 (S9E2, most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/saturday-night-live-october-15-1983-s-9-e-2-most",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live- October 15, 1983 (S9E2, most).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1309988632,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-october-15-1983-s-9-e-2-most/Saturday Night Live- October 15, 1983 (S9E2, most).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

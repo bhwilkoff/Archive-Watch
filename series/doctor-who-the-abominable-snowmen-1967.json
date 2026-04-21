@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "doctor-who-the-abominable-snowmen-1967",
+  "title": "Doctor Who: The Abominable Snowmen",
+  "yearStart": 1967,
+  "yearEnd": 1967,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-abominable-snowmen-episode-2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-abominable-snowmen-episode-2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Doctor Who: The Abominable Snowmen - Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-abominable-snowmen-episode-2",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Abominable Snowmen - Episode 2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 457384530,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-abominable-snowmen-episode-2/The Abominable Snowmen - Episode 2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

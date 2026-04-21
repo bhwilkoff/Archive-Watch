@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-word-from-our-sponsor-1992",
+  "title": "A Word From Our Sponsor",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/a-word-from-our-sponsor-oct-1992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "a-word-from-our-sponsor-oct-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Word From Our Sponsor - Phil Hartman",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/a-word-from-our-sponsor-oct-1992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A Word From Our Sponsor - Oct 1992.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 453259888,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/a-word-from-our-sponsor-oct-1992/A Word From Our Sponsor - Oct 1992.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

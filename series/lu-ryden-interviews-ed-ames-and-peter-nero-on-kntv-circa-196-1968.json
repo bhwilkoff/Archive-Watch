@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lu-ryden-interviews-ed-ames-and-peter-nero-on-kntv-circa-196-1968",
+  "title": "Lu Ryden interviews Ed Ames and Peter Nero on KNTV, circa 1968",
+  "yearStart": 1968,
+  "yearEnd": 1968,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hsj2023-17_kntv_ryden_ed_ames",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hsj2023-17_kntv_ryden_ed_ames",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lu Ryden interviews Ed Ames and Peter Nero on KNTV, circa 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hsj2023-17_kntv_ryden_ed_ames",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "hsj2023-17_kntv_ryden_ed_ames.mp4",
+            "format": "h.264",
+            "sizeBytes": 32326603,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hsj2023-17_kntv_ryden_ed_ames/hsj2023-17_kntv_ryden_ed_ames.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

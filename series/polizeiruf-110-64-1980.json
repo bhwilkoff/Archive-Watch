@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "polizeiruf-110-64-1980",
+  "title": "Polizeiruf 110 (64",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/fcms-260fac-8d-72ff-439d-a-258-3d-8a-063600a-4-be-7c-2950aac-6-26",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "fcms-260fac-8d-72ff-439d-a-258-3d-8a-063600a-4-be-7c-2950aac-6-26",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Polizeiruf 110 (64): Der Einzelgänger (1980)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/fcms-260fac-8d-72ff-439d-a-258-3d-8a-063600a-4-be-7c-2950aac-6-26",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FCMS-260fac8d-72ff-439d-a258-3d8a063600a4-be7c2950aac6_26.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1341940200,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fcms-260fac-8d-72ff-439d-a-258-3d-8a-063600a-4-be-7c-2950aac-6-26/FCMS-260fac8d-72ff-439d-a258-3d8a063600a4-be7c2950aac6_26.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

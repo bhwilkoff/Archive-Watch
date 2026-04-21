@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-dukes-of-hazzard-s-03-e-10-the-great-santa-claus-chase-1982",
+  "title": "The. Dukes. Of. Hazzard S 03 E 10 The Great Santa Claus Chase",
+  "yearStart": 1982,
+  "yearEnd": 1982,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the.-dukes.-of.-hazzard-s-03-e-10-the-great-santa-claus-chase_202409",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-10-the-great-santa-claus-chase_202409",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The. Dukes. Of. Hazzard S 03 E 10 The Great Santa Claus Chase",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the.-dukes.-of.-hazzard-s-03-e-10-the-great-santa-claus-chase_202409",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E10_The Great Santa Claus Chase.mp4",
+            "format": "h.264",
+            "sizeBytes": 274963517,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-10-the-great-santa-claus-chase_202409/The.Dukes.Of.Hazzard_S03E10_The Great Santa Claus Chase.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

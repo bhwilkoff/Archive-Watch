@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "healthy-people-healthy-business-2025",
+  "title": "Healthy People, Healthy Business",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/healthy-people-healthy-business-1987",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "healthy-people-healthy-business-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Healthy People, Healthy Business (1987)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/healthy-people-healthy-business-1987",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Healthy People, Healthy Business (1987).mp4",
+            "format": "h.264",
+            "sizeBytes": 167043381,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/healthy-people-healthy-business-1987/Healthy People, Healthy Business (1987).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

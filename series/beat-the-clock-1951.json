@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "seriesID": "beat-the-clock-1951",
+  "title": "Beat the Clock",
+  "yearStart": 1951,
+  "yearEnd": 1956,
+  "overview": "Beat the Clock is a game show hosted by Bud Collyer that ran on CBS from 1950 to 1958 and ABC from 1958 to 1961.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1kRtb6RKq2hdgZYM7LxJhWiXmyg.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC",
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BeatTheClock13October1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Beat the Clock'' - 13 October 1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1kRtb6RKq2hdgZYM7LxJhWiXmyg.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1771,
+          "videoFile": {
+            "name": "beattheclock13October1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 184602156,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BeatTheClock13October1951/beattheclock13October1951.mp4"
+        },
+        {
+          "archiveID": "beattheclock1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Beat the Clock'' - Circa August 1956",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1kRtb6RKq2hdgZYM7LxJhWiXmyg.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1768,
+          "videoFile": {
+            "name": "beattheclock1956flash.mp4",
+            "format": "h.264",
+            "sizeBytes": 183862020,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/beattheclock1956/beattheclock1956flash.mp4"
+        },
+        {
+          "archiveID": "beat-the-clock-28-november-1953-upgrade",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Beat The Clock - 28 November 1953 [upgrade]",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1kRtb6RKq2hdgZYM7LxJhWiXmyg.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1760,
+          "videoFile": {
+            "name": "Beat the Clock - 28 November 1953 [upgrade].mp4",
+            "format": "h.264",
+            "sizeBytes": 174888081,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/beat-the-clock-28-november-1953-upgrade/Beat the Clock - 28 November 1953 [upgrade].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

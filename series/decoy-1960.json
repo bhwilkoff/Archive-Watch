@@ -1,0 +1,316 @@
+{
+  "version": 1,
+  "seriesID": "decoy-1960",
+  "title": "Decoy",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "New York City policewoman Casey Jones' assignment to fight crime often entails her going undercover in some of the seediest and most dangerous parts of the city. Decoy is a groundbreaking American crime drama television series created for syndication and initially broadcast from October 14, 1957, to July 7, 1958, with thirty-nine 30-minute black-and-white episodes. It was the first American police series with a female protagonist. Many Decoy episodes are in the public domain.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/nGWlVSsW6zzNkGbtlS9v9h62yFo.jpg",
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DecoyThePilotEpisode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Decoy: The Pilot Episode",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1780,
+          "videoFile": {
+            "name": "Decoy-thePilotEpisode.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 175883255,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyThePilotEpisode/Decoy-thePilotEpisode.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "DecoyEyeForAnEye",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "An Eye for an Eye",
+          "overview": "Casey poses as a drug addict.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1959-04-15",
+          "year": null,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "Decoy-eyeForAnEye.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 144725579,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyEyeForAnEye/Decoy-eyeForAnEye.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyTheChallenger",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Challenger",
+          "overview": "Casey suspects that a boxer was drugged before his big fight.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1959-04-22",
+          "year": null,
+          "runtimeSeconds": 1399,
+          "videoFile": {
+            "name": "Decoy-theChallenger.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 134051335,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyTheChallenger/Decoy-theChallenger.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyNightOfFire",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Night of Fire",
+          "overview": "A warehouse fire may be arson.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1958-03-17",
+          "year": null,
+          "runtimeSeconds": 1562,
+          "videoFile": {
+            "name": "Decoy-nightOfFire.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149967785,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyNightOfFire/Decoy-nightOfFire.ia.mp4"
+        },
+        {
+          "archiveID": "DecoySaturdayWasLost",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Saturday Was Lost",
+          "overview": "A young girl is found in a state of shock, and Casey wants to find out why.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1958-03-24",
+          "year": null,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "Decoy-saturdayWasLost-march241958.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159970784,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoySaturdayWasLost/Decoy-saturdayWasLost-march241958.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyEarthboundSatellite",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Earthbound Satellite",
+          "overview": "Casey investigates a high-society gambling syndicate.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1959-06-10",
+          "year": null,
+          "runtimeSeconds": 1537,
+          "videoFile": {
+            "name": "Decoy-earthboundSatellite.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147866276,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyEarthboundSatellite/Decoy-earthboundSatellite.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyTheSoundOfTears",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "The Sound of Tears",
+          "overview": "Casey is suspicious when a woman is accused of killing her fiancee.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1958-10-29",
+          "year": null,
+          "runtimeSeconds": 1568,
+          "videoFile": {
+            "name": "Decoy-theSoundOfTears.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159975937,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyTheSoundOfTears/Decoy-theSoundOfTears.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyLadiesMan",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Ladies' Man",
+          "overview": "Casey travels to a resort hotel to catch a murderer.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1958-04-21",
+          "year": null,
+          "runtimeSeconds": 1544,
+          "videoFile": {
+            "name": "Decoy-ladiesMan.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148407122,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyLadiesMan/Decoy-ladiesMan.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyCryRevenge",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Cry Revenge",
+          "overview": "Casey becomes involved with the personal problems of the mother and daughter she is assigned to protect.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1958-04-28",
+          "year": null,
+          "runtimeSeconds": 1570,
+          "videoFile": {
+            "name": "Decoy-cryRevenge.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151524288,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyCryRevenge/Decoy-cryRevenge.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyTheGentleGunman",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "The Gentle Gunman",
+          "overview": "Casey investigates an illegal-weapons racket.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1958-05-05",
+          "year": null,
+          "runtimeSeconds": 1583,
+          "videoFile": {
+            "name": "Decoy-theGentleGunman.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152170396,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyTheGentleGunman/Decoy-theGentleGunman.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyNightLight",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Night Light",
+          "overview": "A movie star's chauffeur is suspected of stealing a necklace.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1958-11-26",
+          "year": null,
+          "runtimeSeconds": 1572,
+          "videoFile": {
+            "name": "Decoy-nightLight.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160055980,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyNightLight/Decoy-nightLight.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyFiestaAtMidnight",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Fiesta at Midnight",
+          "overview": "Casey must find the witness who can prove a Puerto Rican man is innocent of robbery and murder.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1958-05-19",
+          "year": null,
+          "runtimeSeconds": 1547,
+          "videoFile": {
+            "name": "Decoy-fiestaAtMidnight.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 161696264,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyFiestaAtMidnight/Decoy-fiestaAtMidnight.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyTheShadowOfVanGogh",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Shadow of Van Gogh",
+          "overview": "Casey investigates art swindlers.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1958-06-02",
+          "year": null,
+          "runtimeSeconds": 1552,
+          "videoFile": {
+            "name": "Decoy-theShadowOfVanGogh.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155722412,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyTheShadowOfVanGogh/Decoy-theShadowOfVanGogh.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyTinPanPayoff",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Tin Pan Payoff",
+          "overview": "A philandering songwriter is murdered.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1958-12-19",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Decoy-tinPanPayoff.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155313260,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyTinPanPayoff/Decoy-tinPanPayoff.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyBlindDate",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Blind Date",
+          "overview": "Casey poses as an accident victim who was carrying stolen money.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1958-06-16",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Decoy-blindDate.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156125914,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyBlindDate/Decoy-blindDate.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyTheComeback",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "The Comeback",
+          "overview": "Casey attempts to expose the leader of a counterfeiting ring.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1959-01-14",
+          "year": null,
+          "runtimeSeconds": 1568,
+          "videoFile": {
+            "name": "Decoy-theComeback.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159490608,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyTheComeback/Decoy-theComeback.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 16
+}

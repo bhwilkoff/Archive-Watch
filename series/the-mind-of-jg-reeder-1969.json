@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-mind-of-jg-reeder-1969",
+  "title": "The Mind Of JG Reeder",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": "The Mind of Mr. J.G. Reeder is based on a character created by Edgar Wallace in a series of 1925 short stories of the same name, Hugh Burden played the titular character – A mild-mannered investigator with the Department of Public Prosecutions.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/vwFmX3L7fZDEZLdJkyEA1dksJ31.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/oTcyR5cxewgRFT2K0vKqBmi89z6.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-mind-of-jg-reeder-complete-series-1969",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Mind Of JG Reeder - Complete Series 1969",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vwFmX3L7fZDEZLdJkyEA1dksJ31.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Mind of JG Reeder S01E04 - Sheer Melodrama.mp4",
+            "format": "h.264",
+            "sizeBytes": 301543744,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-mind-of-jg-reeder-complete-series-1969/The Mind of JG Reeder S01E04 - Sheer Melodrama.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

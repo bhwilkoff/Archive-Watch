@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "primo-cruzado-1986",
+  "title": "Primo Cruzado",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/primo-cruzado",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "primo-cruzado",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Primo Cruzado",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/primo-cruzado",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Primo Cruzado Ep04.mp4",
+            "format": "h.264",
+            "sizeBytes": 137698390,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/primo-cruzado/Primo Cruzado Ep04.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

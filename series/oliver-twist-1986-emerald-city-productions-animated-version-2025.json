@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "oliver-twist-1986-emerald-city-productions-animated-version-2025",
+  "title": "Oliver Twist (1986 Emerald City Productions animated version",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/oliver-twist-1986-just-for-kids-animated-release",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "oliver-twist-1986-just-for-kids-animated-release",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Oliver Twist (1986 Emerald City Productions animated version)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/oliver-twist-1986-just-for-kids-animated-release",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Oliver Twist (1986 Just For Kids animated release).mp4",
+            "format": "h.264",
+            "sizeBytes": 300934295,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oliver-twist-1986-just-for-kids-animated-release/Oliver Twist (1986 Just For Kids animated release).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

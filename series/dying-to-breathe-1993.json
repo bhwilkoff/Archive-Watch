@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dying-to-breathe-1993",
+  "title": "Dying to Breathe",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DyingtoBreathe",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DyingtoBreathe",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dying to Breathe",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DyingtoBreathe",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S20E13.Dying.to.Breathe.1993.VHSRip.AAC2.0.x264-rattera.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 261723360,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DyingtoBreathe/NOVA.S20E13.Dying.to.Breathe.1993.VHSRip.AAC2.0.x264-rattera.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

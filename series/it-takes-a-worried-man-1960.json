@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "it-takes-a-worried-man-1960",
+  "title": "It Takes a Worried Man",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "It Takes a Worried Man was a British TV sitcom. It was made by Thames Television and ran for three series, broadcast from October 1981 to November 1983. The first two series were broadcast on the ITV network, and the third and final series on Channel 4. Most episodes were written by the star, Peter Tilbury, who played office worker Philip Roath.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lTASXLVg4KU5zqAkOSnZDjto6gQ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/k8iIe5tyMdGyuzSdD0IvzyN9z9r.jpg",
+  "genres": [],
+  "networks": [
+    "Channel 4"
+  ],
+  "creator": "Peter Tilbury",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "it-takes-a-worried-man-1981-season-1-of-3-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It Takes a Worried Man - 1981 - Season 1 of 3 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lTASXLVg4KU5zqAkOSnZDjto6gQ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It Takes a Worried Man - S01E01 - Endangered Species.mp4",
+            "format": "h.264",
+            "sizeBytes": 160714695,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/it-takes-a-worried-man-1981-season-1-of-3-xvid-avi/It Takes a Worried Man - S01E01 - Endangered Species.mp4"
+        },
+        {
+          "archiveID": "it-takes-a-worried-man-1983-season-2-of-3-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It Takes a Worried Man - 1983 - Season 2 of 3 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lTASXLVg4KU5zqAkOSnZDjto6gQ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It Takes a Worried Man - S02E01 - Arent Our Policemen Wonderful.mp4",
+            "format": "h.264",
+            "sizeBytes": 159003419,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/it-takes-a-worried-man-1983-season-2-of-3-xvid-avi/It Takes a Worried Man - S02E01 - Arent Our Policemen Wonderful.mp4"
+        },
+        {
+          "archiveID": "it-takes-a-worried-man-1983-season-3-of-3-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It Takes a Worried Man - 1983 - Season 3 of 3 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lTASXLVg4KU5zqAkOSnZDjto6gQ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It Takes a Worried Man - S03E06 - Three Cheers.mp4",
+            "format": "h.264",
+            "sizeBytes": 156004069,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/it-takes-a-worried-man-1983-season-3-of-3-xvid-avi/It Takes a Worried Man - S03E06 - Three Cheers.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-town-trackdown-1957",
+  "title": "The Town (Trackdown",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Trackdown_1-11_The_Town",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Trackdown_1-11_The_Town",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Town (Trackdown)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Trackdown_1-11_The_Town",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1372,
+          "videoFile": {
+            "name": "Trackdown_1-11_The_Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 142246627,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Trackdown_1-11_The_Town/Trackdown_1-11_The_Town.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

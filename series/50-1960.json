@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "50-1960",
+  "title": "50",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "India's biggest reality show is about to redefine reality! 50 celebs face survival challenges and intense mind games under the watchful eye of the masked lion.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/r7ZPWfdKJJmSjZDOIMQCz3PXjIa.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/54W3B9UEn68Oc9cnTsEw3fyyCkD.jpg",
+  "genres": [],
+  "networks": [
+    "JioHotstar"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Beat_The_Clock",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "50's Game Show 'Beat The Clock' (Classic TV)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r7ZPWfdKJJmSjZDOIMQCz3PXjIa.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BeatTheClockMisc1.mp4",
+            "format": "h.264",
+            "sizeBytes": 181819431,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beat_The_Clock/BeatTheClockMisc1.mp4"
+        },
+        {
+          "archiveID": "Fifties_Network_IDs",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "Rise of the Champion",
+          "overview": "At this ultimate stage, the finalists face one last ruthless twist: a Lion Crazy Game driven by strategy and sabotage. Who will be the champion?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/m0MdFmxh5lCD3Y5KLFJcasc26Ls.jpg",
+          "airDate": "2026-03-22",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IDs.mp4",
+            "format": "h.264",
+            "sizeBytes": 7169695,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Fifties_Network_IDs/IDs.mp4"
+        },
+        {
+          "archiveID": "EveArdenCoverGirl",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "50's TV: 'The Eve Arden Show' - 'Cover Girl'",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r7ZPWfdKJJmSjZDOIMQCz3PXjIa.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CoverGirl.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 168003251,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/EveArdenCoverGirl/CoverGirl.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

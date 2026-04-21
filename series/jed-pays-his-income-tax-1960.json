@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jed-pays-his-income-tax-1960",
+  "title": "Jed Pays His Income Tax",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep28_Jed_Pays_His_Income_Tax",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep28_Jed_Pays_His_Income_Tax",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jed Pays His Income Tax",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep28_Jed_Pays_His_Income_Tax",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH28_Jed_Pays_His_Income_Tax.mp4",
+            "format": "h.264",
+            "sizeBytes": 148619491,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep28_Jed_Pays_His_Income_Tax/BH28_Jed_Pays_His_Income_Tax.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-third-man-s1ep19-1960",
+  "title": "The Third Man s1ep19",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-third-man-disc-2-5",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-third-man-disc-2-5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Third Man s1ep19",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-third-man-disc-2-5",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 2_5.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 828726034,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-2-5/The Third Man - Disc 2_5.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

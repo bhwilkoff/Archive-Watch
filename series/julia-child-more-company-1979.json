@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "julia-child-more-company-1979",
+  "title": "Julia Child & More Company",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": "Building on the success of The French Chef, the equally successful follow-up series called Julia Child & Company debut five years later in 1978. This series incorporates the planning and preparation of a complete meal – featuring two to three dishes per show.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7Cy9yoHCRRunLFaU27sLfDM6qfX.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "julia-child-more-company",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Summer Dinner",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7Cy9yoHCRRunLFaU27sLfDM6qfX.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Julia Child & More Company.mp4",
+            "format": "h.264",
+            "sizeBytes": 166107360,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/julia-child-more-company/Julia Child & More Company.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

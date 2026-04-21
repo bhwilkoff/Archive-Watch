@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "broken-badges-1990",
+  "title": "Broken Badges",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "Broken Badges is an American-Canadian police drama",
+  "posterURL": "https://image.tmdb.org/t/p/w500/oILjWz31ziCxUQmFVhDDtO2e68t.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/aTtXbK0LhZXl0G7Elb52oimyuP0.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Randall Wallace",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "broken-badges-1.3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Broken Badges - Miguel Ferrer, Eileen Davidson",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oILjWz31ziCxUQmFVhDDtO2e68t.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Broken Badges - 1.3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1395096665,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/broken-badges-1.3/Broken Badges - 1.3.ia.mp4"
+        },
+        {
+          "archiveID": "broken-badges-miniseries",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Broken Badges Complete Mini-Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oILjWz31ziCxUQmFVhDDtO2e68t.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Broken Badges - S01E01&02 - Pilot (1).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1827978754,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/broken-badges-miniseries/Broken Badges - S01E01&02 - Pilot (1).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

@@ -1,0 +1,370 @@
+{
+  "version": 1,
+  "seriesID": "range-rider-1951",
+  "title": "Range Rider",
+  "yearStart": 1951,
+  "yearEnd": 1953,
+  "overview": "The Range Rider is an American Western television series that aired in syndication from 1951 to 1953. A single lost episode surfaced and was broadcast in 1959. The Range Rider was also broadcast on British television during the 1960s, and in Melbourne, Australia during the 1950s.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RangeRiderBadMenOfRimrock",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - Bad Men Of Rimrock",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1491,
+          "videoFile": {
+            "name": "Range Rider - Bad Men of Rimrock.mp4",
+            "format": "h.264",
+            "sizeBytes": 154880929,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderBadMenOfRimrock/Range Rider - Bad Men of Rimrock.mp4"
+        },
+        {
+          "archiveID": "RangeRiderBorderCityAffair",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - Border City Affair",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1492,
+          "videoFile": {
+            "name": "RangeRider-BorderCityAffair.mp4",
+            "format": "h.264",
+            "sizeBytes": 155017508,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderBorderCityAffair/RangeRider-BorderCityAffair.mp4"
+        },
+        {
+          "archiveID": "RangeRiderHideOut",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - Hideout",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1495,
+          "videoFile": {
+            "name": "Range Rider - Hideout.mp4",
+            "format": "h.264",
+            "sizeBytes": 155702786,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderHideOut/Range Rider - Hideout.mp4"
+        },
+        {
+          "archiveID": "RangeRiderIndianWarParty",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - Indian War Party",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1497,
+          "videoFile": {
+            "name": "Range Rider - Indian War Party.mp4",
+            "format": "h.264",
+            "sizeBytes": 155667204,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderIndianWarParty/Range Rider - Indian War Party.mp4"
+        },
+        {
+          "archiveID": "RangeRiderLastOfThePonyExpress",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - Last Of The Pony Express",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1570,
+          "videoFile": {
+            "name": "Range Rider - Last of the Pony Express.mp4",
+            "format": "h.264",
+            "sizeBytes": 163449417,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderLastOfThePonyExpress/Range Rider - Last of the Pony Express.mp4"
+        },
+        {
+          "archiveID": "RangeRiderMarshalFromMadero",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - Marshal From Madero",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1497,
+          "videoFile": {
+            "name": "Range Rider - Marshal from Madero.mp4",
+            "format": "h.264",
+            "sizeBytes": 155894447,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderMarshalFromMadero/Range Rider - Marshal from Madero.mp4"
+        },
+        {
+          "archiveID": "RangeRiderOutlawTerritory",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - Outlaw Territory",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1491,
+          "videoFile": {
+            "name": "Range Rider - Outlaw Territory.mp4",
+            "format": "h.264",
+            "sizeBytes": 155124044,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderOutlawTerritory/Range Rider - Outlaw Territory.mp4"
+        },
+        {
+          "archiveID": "RangeRiderSagaOfSilverTown",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - Saga Of Silver Town",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1491,
+          "videoFile": {
+            "name": "Range Rider - Saga of Silver Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 154999195,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderSagaOfSilverTown/Range Rider - Saga of Silver Town.mp4"
+        },
+        {
+          "archiveID": "RangeRiderShotgunStage",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - Shotgun Stage",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1498,
+          "videoFile": {
+            "name": "Range Rider - Shotgun Stage.mp4",
+            "format": "h.264",
+            "sizeBytes": 155714710,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderShotgunStage/Range Rider - Shotgun Stage.mp4"
+        },
+        {
+          "archiveID": "RangeRiderTheBlackTerror",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - The Black Terror",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1490,
+          "videoFile": {
+            "name": "Range Rider - The Black Terror.mp4",
+            "format": "h.264",
+            "sizeBytes": 155156631,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderTheBlackTerror/Range Rider - The Black Terror.mp4"
+        },
+        {
+          "archiveID": "RangeRiderTheBlindTrail",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - The Blind Trail",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1487,
+          "videoFile": {
+            "name": "Range Rider - The Blind Trail.mp4",
+            "format": "h.264",
+            "sizeBytes": 154638842,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderTheBlindTrail/Range Rider - The Blind Trail.mp4"
+        },
+        {
+          "archiveID": "RangeRiderTheBuckskin",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - The Buckskin",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1493,
+          "videoFile": {
+            "name": "Range Rider - The Buckskin.mp4",
+            "format": "h.264",
+            "sizeBytes": 155402977,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderTheBuckskin/Range Rider - The Buckskin.mp4"
+        },
+        {
+          "archiveID": "RangeRiderTheChase",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - The Chase",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "Range Rider - The Chase.mp4",
+            "format": "h.264",
+            "sizeBytes": 155564650,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderTheChase/Range Rider - The Chase.mp4"
+        },
+        {
+          "archiveID": "RangeRider1951CrookedFork",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - The Crooked Fork",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1578,
+          "videoFile": {
+            "name": "rangeriderCrookedFork.mp4",
+            "format": "h.264",
+            "sizeBytes": 164174266,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRider1951CrookedFork/rangeriderCrookedFork.mp4"
+        },
+        {
+          "archiveID": "RangeRiderTheHolyTerror",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - The Holy Terror",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1495,
+          "videoFile": {
+            "name": "Range Rider - The Holy Terror.mp4",
+            "format": "h.264",
+            "sizeBytes": 155555616,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderTheHolyTerror/Range Rider - The Holy Terror.mp4"
+        },
+        {
+          "archiveID": "RangeRiderTreasureOfSantaDolores",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - Treasure Of Santa Dolores",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "Range Rider - Treasure of Santa Dolores.mp4",
+            "format": "h.264",
+            "sizeBytes": 155912446,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderTreasureOfSantaDolores/Range Rider - Treasure of Santa Dolores.mp4"
+        },
+        {
+          "archiveID": "RangeRiderWestOfCheyenne",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - West Of Cheyenne",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "RangeRider-WestOfCheyenne.mp4",
+            "format": "h.264",
+            "sizeBytes": 155865836,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderWestOfCheyenne/RangeRider-WestOfCheyenne.mp4"
+        },
+        {
+          "archiveID": "rangerider-westernedition",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - Western Edition",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1492,
+          "videoFile": {
+            "name": "rangerider-westernedition.mp4",
+            "format": "h.264",
+            "sizeBytes": 155136219,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/rangerider-westernedition/rangerider-westernedition.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "RangeRiderRustlersRange",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Rustler's Range",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": "1952-01-17",
+          "year": 1952,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "Range Rider - Rustler's Range.mp4",
+            "format": "h.264",
+            "sizeBytes": 155437463,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderRustlersRange/Range Rider - Rustler's Range.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 19
+}

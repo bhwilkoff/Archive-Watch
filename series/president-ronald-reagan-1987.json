@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "president-ronald-reagan-1987",
+  "title": "President Ronald Reagan",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ReagansSpeechAtTheBerlinWall",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ReagansSpeechAtTheBerlinWall",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "President Ronald Reagan's Speech At The Berlin Wall",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ReagansSpeechAtTheBerlinWall",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": 1580,
+          "videoFile": {
+            "name": "President Ronald Reagans Speech at the Berlin Wall 1987-06-12.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 119428842,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ReagansSpeechAtTheBerlinWall/President Ronald Reagans Speech at the Berlin Wall 1987-06-12.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

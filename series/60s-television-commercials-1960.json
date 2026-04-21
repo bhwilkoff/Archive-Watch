@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "60s-television-commercials-1960",
+  "title": "60s Television Commercials",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TvCommercialsSupermanBatmanJamesBond60sAds",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TvCommercialsSupermanBatmanJamesBond60sAds",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "60s Television Commercials: Superman, Batman, James Bond, TV ads",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TvCommercialsSupermanBatmanJamesBond60sAds",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 286,
+          "videoFile": {
+            "name": "Adsbatmn_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 23885745,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TvCommercialsSupermanBatmanJamesBond60sAds/Adsbatmn_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

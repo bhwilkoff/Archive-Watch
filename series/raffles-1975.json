@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "seriesID": "raffles-1975",
+  "title": "Raffles",
+  "yearStart": 1975,
+  "yearEnd": 1977,
+  "overview": "Raffles was a 1977 television adaptation of the A. J. Raffles stories by Ernest William Hornung. The series was produced by Yorkshire Television and written by Philip Mackie. The episodes were largely faithful adaptations of the stories in the books, though occasionally two stories would be merged to create one.\n\nIn Victorian-era London, gentleman thief A. J. Raffles, a renowned cricketer, and his friend, the eager but naive Bunny Manders, test their skills in relieving the wealthy of their valuables whilst avoiding detection, especially from the persistent Inspector Mackenzie.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lm7vxaevLHrzwxf8KFH19kO60eo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/8DmNhVxL9glR7SaBD07Y1Q0V8eS.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Philip Mackie",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "raffles-complete-series-1975",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Raffles - Complete Series 1975",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lm7vxaevLHrzwxf8KFH19kO60eo.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Raffles S01E01 - The First Step.mp4",
+            "format": "h.264",
+            "sizeBytes": 307838114,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles S01E01 - The First Step.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "raffles-ep-1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The First Step",
+          "overview": "Raffles is visited by old school chum Harry 'Bunny' Manders, who has fallen on hard times. Penniless himself, Raffles comes up with a scheme to pay off Bunny's gambling debt by getting the money from the most obvious source—a plot that launches the duo into a life of crime.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/lm7vxaevLHrzwxf8KFH19kO60eo.jpg",
+          "airDate": "1977-02-25",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Raffles ep1.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138152869,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/raffles-ep-1/Raffles ep1.mp4"
+        },
+        {
+          "archiveID": "raffles-ep-2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "A Costume Piece",
+          "overview": "Brash and crude, Reuben Rosenthall is a real 'rough diamond': a self-made millionaire who wears his wealth in the most ostentatious way possible. In other words, he's an irresistible target for Raffles, if not for the more hesitant Bunny. But as the duo find out, Rosenthall has a trick or two up his own sleeve.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/lm7vxaevLHrzwxf8KFH19kO60eo.jpg",
+          "airDate": "1977-02-25",
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "raffles ep 2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 135723667,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/raffles-ep-2/raffles ep 2.mp4"
+        },
+        {
+          "archiveID": "raffles-ep-4",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Gold Cup",
+          "overview": "Raffles and Bunny swipe the famous Royal Gold Cup from the British Museum, but a group of criminologists track them down, suspecting Raffles of the theft. The gentleman thief is forced to come up with an ingenious way to prove them wrong.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/lm7vxaevLHrzwxf8KFH19kO60eo.jpg",
+          "airDate": "1977-03-11",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Raffles ep4.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 149474336,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/raffles-ep-4/Raffles ep4.mp4"
+        },
+        {
+          "archiveID": "raffles-ep-5",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Chest of Silver",
+          "overview": "Raffles tells Bunny that he is going off to Scotland to improve his Scots dialect. During his absence his rooms at The Albany will be renovated, and it becomes imperative that certain items are not found in Raffles' flat.  Therefore, Bunny is entrusted with a chest full of silver, and Raffles requests that he lodge the chest of silver with the Bank.\n\nBunny complies, but are things quite what they seem?",
+          "stillURL": "https://image.tmdb.org/t/p/w500/lm7vxaevLHrzwxf8KFH19kO60eo.jpg",
+          "airDate": "1977-03-18",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Raffles ep5.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 147408374,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/raffles-ep-5/Raffles ep5.mp4"
+        },
+        {
+          "archiveID": "raffles-ep-6",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Last Laugh",
+          "overview": "Visiting a reception at the Italian Ambassador's one evening, Raffles and Bunny conspire to steal an item of jewellery which is on display.  But for the help of Faustina, a maid who works at the Embassy, they would have been caught.  To repay her assistance, Raffles arranges to rescue her from the Embassy where she is being kept against her will by Count Corbucci, the evil Ambassador.\n\nAll goes well, but there is a very nasty shock in wait for Raffles, and an endless night.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/lm7vxaevLHrzwxf8KFH19kO60eo.jpg",
+          "airDate": "1977-03-25",
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "raffles ep6.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 124312100,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/raffles-ep-6/raffles ep6.mp4"
+        },
+        {
+          "archiveID": "raffles-ep-7",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "A Trap to Catch a Cracksman",
+          "overview": "Loud mouthed Barney Maguire is America's champion heavy weight boxer.  At Raffles' Club one evening he brags to Raffles and Bunny that he has a trap which would trap the cleverest of Cracksmen.  He also insults the noble game of cricket and ridicules his English boxing opponent.\n\nThis is enough to tempt Raffles into breaking and entering Maguire's premises, but he is unaware of the nature of the trap which awaits him.  It is left to Bunny to save the day.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/lm7vxaevLHrzwxf8KFH19kO60eo.jpg",
+          "airDate": "1977-04-01",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "raffles ep7.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 140841600,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/raffles-ep-7/raffles ep7.mp4"
+        },
+        {
+          "archiveID": "raffles-ep-9",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "A Bad Night",
+          "overview": "Raffles has his eye on the Van Den Berg's wedding presents, but finds that he has an engagement at Lord's to play cricket on the day that they go on display, so Bunny goes in his place.\n\nBunny falls into the hands of Netje, the trigger-happy younger daughter of the Van Den Berg family who has taken it upon herself to guard the wedding presents from rogues and thieves.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/lm7vxaevLHrzwxf8KFH19kO60eo.jpg",
+          "airDate": "1977-04-15",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "raffles ep9.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145726147,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/raffles-ep-9/raffles ep9.mp4"
+        },
+        {
+          "archiveID": "raffles-ep-10",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Mr. Justice Raffles",
+          "overview": "A friend of Raffles', Teddy Garland, finds that he is in debt to the vicious moneylender, Brigstock.  Raffles and Bunny pay a visit to Brigstock and manage to pay Garland's debt back.\n\nBrigstock asks Raffles to steal a letter which is evidence in a court case pending against him.  Raffles agrees, but has an agenda about which Brigstock knows nothing.\n\nUltimately Raffles puts Brigstock into a position where he must choose between his love for his money and life itself.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/lm7vxaevLHrzwxf8KFH19kO60eo.jpg",
+          "airDate": "1977-04-22",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "raffles ep10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120264142,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/raffles-ep-10/raffles ep10.mp4"
+        },
+        {
+          "archiveID": "raffles-ep-11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Home Affairs",
+          "overview": "Sir Arthur Rumbold, the pompous Secretary for Home Affairs, announces that he wishes to introduce much tougher penalties for offences against property.  Raffles, believing this to be a step back into the dark ages of Botany Bay and transportation for life, is furious and determines to teach Sir Arthur a lesson by burgling his own substantial London home.\n\nAnnouncing to Bunny that the burglary will be an unplanned affair, Raffles goes enthusiastically to work, but it is not long before events start to go drastically wrong.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/lm7vxaevLHrzwxf8KFH19kO60eo.jpg",
+          "airDate": "1977-04-29",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "raffles ep11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121346280,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/raffles-ep-11/raffles ep11.mp4"
+        },
+        {
+          "archiveID": "raffles-ep-13",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "An Old Flame",
+          "overview": "Wandering the streets of London one night with Bunny, Raffles, who is becoming bored and blase about the ease with which he is able to steal from the rich, acts on the spur of the moment and breaks into a house while the owners are actually present.\n\nTo his astonishment he finds that he has chosen the house of an old flame of his, a long lost love who is already married.  He is discovered by this lady in the act of stealing her jewellery, but she confesses to Raffles that she still loves him, and wants him to go away with her.\n\nRaffles still loves the lady, but he also loves his life at The Albany, and playing cricket for England, and stealing diamonds.\n\nRaffles must find a way of maintaining the status quo.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/lm7vxaevLHrzwxf8KFH19kO60eo.jpg",
+          "airDate": "1977-05-13",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "raffles ep13.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 128794770,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/raffles-ep-13/raffles ep13.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 11
+}

@@ -1,0 +1,476 @@
+{
+  "version": 1,
+  "seriesID": "wkrp-in-cincinnati-2020",
+  "title": "WKRP In Cincinnati",
+  "yearStart": 2020,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/h0EIz07TlAEroGIqQEAotgydbIA.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": "Hugh Wilson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "wkrp-in-cincinnati-season-02-episodes-21-22-fifty-pictures",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati Season 02 Episodes 21-22 Fifty Pictures",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S02E21-22 Fifty Pictures.mp4",
+            "format": "h.264",
+            "sizeBytes": 284447018,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-02-episodes-21-22-fifty-pictures/WKRP In Cincinnati S02E21-22 Fifty Pictures.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-1-episodes-09-10-mamas-reviewa-date-with-jennifer",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 01 Episodes 09-10 Mama's Review/A Date With Jennifer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S01E09-10 Mama's Review-A Date With Jennifer.mp4",
+            "format": "h.264",
+            "sizeBytes": 291463608,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-1-episodes-09-10-mamas-reviewa-date-with-jennifer/WKRP In Cincinnati S01E09-10 Mama's Review-A Date With Jennifer.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-01-episodes-15-16-never-leave-me-lucillei-want-to-keep-my-baby",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 01 Episodes 15-16 Never Leave Me, Lucille/I Want To Keep My Baby",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S01E15-16 Never Leave Me, Lucille- I Want To Keep My Baby.mp4",
+            "format": "h.264",
+            "sizeBytes": 290581163,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-01-episodes-15-16-never-leave-me-lucillei-want-to-keep-my-baby/WKRP In Cincinnati S01E15-16 Never Leave Me, Lucille- I Want To Keep My Baby.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-01-episodes-17-18-a-commercial-breakwho-is-gordon-sims",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 01 Episodes 17-18 A Commercial Break/Who Is Gordon Sims",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S01E17-18 A Commercial Break-Who Is Gordon Sims.mp4",
+            "format": "h.264",
+            "sizeBytes": 288286093,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-01-episodes-17-18-a-commercial-breakwho-is-gordon-sims/WKRP In Cincinnati S01E17-18 A Commercial Break-Who Is Gordon Sims.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-01-episodes-19-20-i-do-i-do...-for-nowyoung-master-carlson",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 01 Episodes 19-20 I Do, I Do... For Now/Young Master Carlson",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S01E19-20 I Do, I Do... For Now-Young Master Carlson.mp4",
+            "format": "h.264",
+            "sizeBytes": 288349776,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-01-episodes-19-20-i-do-i-do...-for-nowyoung-master-carlson/WKRP In Cincinnati S01E19-20 I Do, I Do... For Now-Young Master Carlson.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-02-episodes-03-04-baseballbad-risk",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 02 Episodes 03-04 Baseball/Bad Risk",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S02E03-4 Baseball-Bad Risk.mp4",
+            "format": "h.264",
+            "sizeBytes": 291688811,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-02-episodes-03-04-baseballbad-risk/WKRP In Cincinnati S02E03-4 Baseball-Bad Risk.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-02-episodes-05-6-jennifer-falls-in-lovecarlson-for-president",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 02 Episodes 05-06 Jennifer Falls In Love/Carlson For President",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP in Cincinnati S02E05-6 Jennifer Falls In Love-Carlson For President.mp4",
+            "format": "h.264",
+            "sizeBytes": 288585887,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-02-episodes-05-6-jennifer-falls-in-lovecarlson-for-president/WKRP in Cincinnati S02E05-6 Jennifer Falls In Love-Carlson For President.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-02-episodes-15-16-herbs-dad-put-up-or-shut-up",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 02 Episodes 15-16 Herb's Dad-Put Up Or Shut Up",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S02E15-16 Herb's Dad-Put Up Or Shut Up.mp4",
+            "format": "h.264",
+            "sizeBytes": 288127580,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-02-episodes-15-16-herbs-dad-put-up-or-shut-up/WKRP In Cincinnati S02E15-16 Herb's Dad-Put Up Or Shut Up.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-02-episodes-17-18-the-americanization-of-ivan-less-groupe",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 02 Episodes 17-18 The Americanization Of Ivan-Les's Groupe",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S02E17-18 The Americanization of Ivan-Les's Groupe.mp4",
+            "format": "h.264",
+            "sizeBytes": 289346260,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-02-episodes-17-18-the-americanization-of-ivan-less-groupe/WKRP In Cincinnati S02E17-18 The Americanization of Ivan-Les's Groupe.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-02-episodes-19-20-in-concert-the-doctor-daughter",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 02 Episodes 19-20 In Concert/The Doctor Daughter",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S02E19-20 In Concert-The Doctor Daughter.mp4",
+            "format": "h.264",
+            "sizeBytes": 288968782,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-02-episodes-19-20-in-concert-the-doctor-daughter/WKRP In Cincinnati S02E19-20 In Concert-The Doctor Daughter.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-03-episodes-04-05-the-babyhotel-oceanview",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 03 Episodes 04-05 The Baby/Hotel Oceanview",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S03E04-5 The Baby-Hotel Oceanview.mp4",
+            "format": "h.264",
+            "sizeBytes": 278676569,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-04-05-the-babyhotel-oceanview/WKRP In Cincinnati S03E04-5 The Baby-Hotel Oceanview.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-03-episodes-08-09-baby-its-cold-outsidethe-painting",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 03 Episodes 08-09 Baby, It's Cold Outside/The Painting",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S03E08-9 Baby, It's Cold Outside-The Painting.mp4",
+            "format": "h.264",
+            "sizeBytes": 290056529,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-08-09-baby-its-cold-outsidethe-painting/WKRP In Cincinnati S03E08-9 Baby, It's Cold Outside-The Painting.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-03-episodes-10-11-daydreamsfrog-story",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 03 Episodes 10-11 Daydreams/Frog Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S03E10-11 Daydreams-Frog Story.mp4",
+            "format": "h.264",
+            "sizeBytes": 290224001,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-10-11-daydreamsfrog-story/WKRP In Cincinnati S03E10-11 Daydreams-Frog Story.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-03-episodes-13-14-dr.-fever-mr.-tide",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 03 Episodes 13-14 Dr. Fever & Mr. Tide",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S03E13-14 Dr. Fever & Mr. Tide.mp4",
+            "format": "h.264",
+            "sizeBytes": 281903772,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-13-14-dr.-fever-mr.-tide/WKRP In Cincinnati S03E13-14 Dr. Fever & Mr. Tide.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-03-episodes-15-16-ask-jenniferi-am-woman",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 03 Episodes 15-16 Ask Jennifer/I Am Woman",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP in Cincinnati S03E15-16 Ask Jennifer-I Am Woman.mp4",
+            "format": "h.264",
+            "sizeBytes": 291254648,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-15-16-ask-jenniferi-am-woman/WKRP in Cincinnati S03E15-16 Ask Jennifer-I Am Woman.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-03-episodes-19-20-a-simple-little-weddingnothing-to-fear-but...",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 03 Episodes 19-20 A Simple Little Wedding/Nothing To Fear But...",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S03E19-20 A Simple Little Wedding-Nothing to Fear But....mp4",
+            "format": "h.264",
+            "sizeBytes": 286987180,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-19-20-a-simple-little-weddingnothing-to-fear-but.../WKRP In Cincinnati S03E19-20 A Simple Little Wedding-Nothing to Fear But....mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-04-episodes-01-02-an-explosive-affair",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 04 Episodes 01-02 An Explosive Affair",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S04E01-02 An Explosive Affair.mp4",
+            "format": "h.264",
+            "sizeBytes": 253960176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episodes-01-02-an-explosive-affair/WKRP In Cincinnati S04E01-02 An Explosive Affair.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-04-episodes-03-04-the-unionrumors",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 04 Episodes 03-04 The Union/Rumors",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S04E03-4 The Union-Rumors.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 278963578,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episodes-03-04-the-unionrumors/WKRP In Cincinnati S04E03-4 The Union-Rumors.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-04-episodes-05-06-straight-from-the-heartwhos-on-first",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 04 Episodes 05-06 Straight From The Heart/Who's On First",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S04E05-06 Straight From The Heart-Who's On First.mp4",
+            "format": "h.264",
+            "sizeBytes": 280384096,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episodes-05-06-straight-from-the-heartwhos-on-first/WKRP In Cincinnati S04E05-06 Straight From The Heart-Who's On First.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-04-episodes-11-12-you-cant-go-out-of-town-againpills",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 04 Episodes 11-12 You Can't Go Out Of Town Again/Pills",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S04E11-12 You Can't Go Out of Town Again-Pills.mp4",
+            "format": "h.264",
+            "sizeBytes": 279895373,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episodes-11-12-you-cant-go-out-of-town-againpills/WKRP In Cincinnati S04E11-12 You Can't Go Out of Town Again-Pills.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "wkrp-in-cincinnati-season-01-episode-06-baileys-show",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "WKRP In Cincinnati: Season 01 Episode 06 Bailey's Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S01E06 Bailey's Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 145205365,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-01-episode-06-baileys-show/WKRP In Cincinnati S01E06 Bailey's Show.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-03-episode-06-a-mile-in-my-shoes",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Lotto Fever",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": "1991-10-12",
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP in Cincinnati S03E06 A Mile in My Shoes.mp4",
+            "format": "h.264",
+            "sizeBytes": 145093174,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episode-06-a-mile-in-my-shoes/WKRP in Cincinnati S03E06 A Mile in My Shoes.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-04-episode-13-changes",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Venus, We Hardly Knew Ya",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": "1992-01-11",
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S04E13 Changes.mp4",
+            "format": "h.264",
+            "sizeBytes": 144382535,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episode-13-changes/WKRP In Cincinnati S04E13 Changes.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-03-episode-21-till-debt-do-us-part",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Chicken a La Russe",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": "1992-05-02",
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S03E21 Till Debt Do Us Part.mp4",
+            "format": "h.264",
+            "sizeBytes": 144738779,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episode-21-till-debt-do-us-part/WKRP In Cincinnati S03E21 Till Debt Do Us Part.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-04-episode-22-up-and-down-the-dial-last-final-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Where's Jack?",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
+          "airDate": "1992-05-09",
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S04E22 Up And Down The Dial (Last Final Episode).mp4",
+            "format": "h.264",
+            "sizeBytes": 147266544,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episode-22-up-and-down-the-dial-last-final-episode/WKRP In Cincinnati S04E22 Up And Down The Dial (Last Final Episode).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 25
+}

@@ -65,6 +65,17 @@ struct Catalog: Decodable, Sendable {
         // is far more accurate than a year threshold on the app side.
         let isSilentFilm: Bool?
 
+        // TV series card additions. For contentType == "tv-series", the
+        // `archiveID` acts as the series slug ("bonanza-1960") and the
+        // full episode list is lazy-loaded from /series/{seriesID}.json.
+        // These are nil for every non-series item.
+        let seriesID: String?
+        let yearEnd: Int?
+        let seasonsCount: Int?
+        let episodesCount: Int?
+        let networks: [String]?
+        let creator: String?
+
         var id: String { archiveID }
         var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
         var backdropURLParsed: URL? { backdropURL.flatMap(URL.init(string:)) }
@@ -156,3 +167,112 @@ struct Featured: Decodable, Sendable {
 
     func category(id: String) -> Category? { categories.first(where: { $0.id == id }) }
 }
+
+
+// ---------------------------------------------------------------------------
+// TV series (lazy-loaded from /series/{seriesID}.json)
+// ---------------------------------------------------------------------------
+// The main catalog carries a compact SeriesCard per show (as a
+// Catalog.Item with contentType="tv-series"). When the user opens a
+// series, SeriesStore fetches the per-series JSON on demand — that's
+// where the full episode list + per-episode metadata lives. Keeping
+// episode detail out of the main catalog keeps the main download
+// small even for shows with 100+ episodes.
+
+struct Series: Decodable, Sendable, Hashable, Identifiable {
+    let version: Int
+    let seriesID: String
+    let title: String
+    let yearStart: Int?
+    let yearEnd: Int?
+    let overview: String?
+    let posterURL: String?
+    let backdropURL: String?
+    let genres: [String]
+    let networks: [String]
+    let creator: String?
+    let seasons: [Season]
+    let episodesCount: Int?
+
+    var id: String { seriesID }
+    var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
+    var backdropURLParsed: URL? { backdropURL.flatMap(URL.init(string:)) }
+
+    /// A flattened list of episodes in season+episode order. Useful
+    /// for the player's prev/next logic.
+    var flatEpisodes: [Episode] {
+        seasons.flatMap { $0.episodes }
+    }
+
+    func episode(after current: Episode) -> Episode? {
+        let all = flatEpisodes
+        guard let idx = all.firstIndex(of: current), idx + 1 < all.count else { return nil }
+        return all[idx + 1]
+    }
+
+    func episode(before current: Episode) -> Episode? {
+        let all = flatEpisodes
+        guard let idx = all.firstIndex(of: current), idx > 0 else { return nil }
+        return all[idx - 1]
+    }
+
+    static func == (lhs: Series, rhs: Series) -> Bool { lhs.seriesID == rhs.seriesID }
+    func hash(into hasher: inout Hasher) { hasher.combine(seriesID) }
+}
+
+struct Season: Decodable, Sendable, Hashable {
+    /// `nil` means the episodes couldn't be confidently assigned to a
+    /// season number (Archive singletons, anthology one-offs); render
+    /// them under an "Unassigned" / "More Episodes" group.
+    let seasonNumber: Int?
+    let episodes: [Episode]
+
+    var displayTitle: String {
+        if let n = seasonNumber { return "Season \(n)" }
+        return "More Episodes"
+    }
+}
+
+struct Episode: Decodable, Sendable, Hashable, Identifiable {
+    let archiveID: String
+    let seasonNumber: Int?
+    let episodeNumber: Int?
+    let title: String
+    let overview: String?
+    let stillURL: String?
+    let airDate: String?
+    let year: Int?
+    let runtimeSeconds: Int?
+    let videoFile: Catalog.VideoFile?
+    let downloadURL: String?
+
+    var id: String { archiveID }
+    var stillURLParsed: URL? { stillURL.flatMap(URL.init(string:)) }
+    var videoURLParsed: URL? { downloadURL.flatMap(URL.init(string:)) }
+
+    /// Compact label like "S1 · E2" or "Ep. 12" when season is unknown.
+    var numberLabel: String? {
+        if let s = seasonNumber, let e = episodeNumber {
+            return "S\(s) · E\(e)"
+        }
+        if let e = episodeNumber { return "Ep. \(e)" }
+        return nil
+    }
+
+    static func == (lhs: Episode, rhs: Episode) -> Bool { lhs.archiveID == rhs.archiveID }
+    func hash(into hasher: inout Hasher) { hasher.combine(archiveID) }
+}
+
+
+// ---------------------------------------------------------------------------
+// Carriers for navigating to an Episode
+// ---------------------------------------------------------------------------
+// We push this struct (rather than the raw Episode) onto the navigation
+// path so the destination has both the Episode and its parent Series.
+// That lets the player compute prev/next without a second fetch.
+
+struct EpisodeContext: Hashable, Sendable {
+    let series: Series
+    let episode: Episode
+}
+

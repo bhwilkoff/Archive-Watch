@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ronald-reagan-1983",
+  "title": "Ronald Reagan",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ReagansSpeechToJewishHolocaustSurvivors",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ReagansSpeechToJewishHolocaustSurvivors",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ronald Reagan's Speech To Jewish Holocaust Survivors",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ReagansSpeechToJewishHolocaustSurvivors",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "President Ronald Reagans Speech to Jewish Holocaust Survivors 1983-04-11.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 140258662,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ReagansSpeechToJewishHolocaustSurvivors/President Ronald Reagans Speech to Jewish Holocaust Survivors 1983-04-11.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

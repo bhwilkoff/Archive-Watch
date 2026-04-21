@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-oprah-winfrey-show--april-9-1992-most-1960",
+  "title": "The Oprah Winfrey Show- April 9, 1992 (most",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheOprahWinfreyShowApril91992Most",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheOprahWinfreyShowApril91992Most",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Oprah Winfrey Show- April 9, 1992 (most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheOprahWinfreyShowApril91992Most",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The-Oprah-Winfrey-Show-April-9_-1992-_most_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 160671527,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheOprahWinfreyShowApril91992Most/The-Oprah-Winfrey-Show-April-9_-1992-_most_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

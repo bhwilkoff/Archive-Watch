@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "hill-street-blues-1981",
+  "title": "Hill Street Blues",
+  "yearStart": 1981,
+  "yearEnd": 1982,
+  "overview": "A realistic glimpse into the daily lives of the officers and detectives at an urban police station.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/Am2ZRSkoOQd00kmhUF7QtOFbLWQ.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Steven Bochco",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hill.-street.-blues.-s-01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hill Street Blues Season 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hill.Street.Blues.S01E03.Politics.As.Usual.mp4",
+            "format": "h.264",
+            "sizeBytes": 283060564,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.-street.-blues.-s-01/Hill.Street.Blues.S01E03.Politics.As.Usual.mp4"
+        },
+        {
+          "archiveID": "hill.-street.-blues.-season-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hill Street Blues Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hill.Street.Blues.S02E06.Cranky.Streets.mp4",
+            "format": "h.264",
+            "sizeBytes": 280927554,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.-street.-blues.-season-2/Hill.Street.Blues.S02E06.Cranky.Streets.mp4"
+        },
+        {
+          "archiveID": "hill.street.blues.s-07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hill Street Blues Season 7",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hill.street.blues.s07e14.der.roachenkavalier.sdtv.x264.mp4",
+            "format": "h.264",
+            "sizeBytes": 273864276,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.street.blues.s-07/Hill.street.blues.s07e14.der.roachenkavalier.sdtv.x264.mp4"
+        },
+        {
+          "archiveID": "hill.street.blues.s-06",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hill street blues Season 6",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hill.street.blues.s06e05.somewhere.over.the.rambo.sdtv.x264.mp4",
+            "format": "h.264",
+            "sizeBytes": 272625487,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.street.blues.s-06/Hill.street.blues.s06e05.somewhere.over.the.rambo.sdtv.x264.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

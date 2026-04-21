@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "michael-shayne-tv-1960-colorized-1960",
+  "title": "Michael Shayne TV 1960 colorized",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/michael-shayne-tv-1960-colorized-s01e06-shoot-the-works",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "michael-shayne-tv-1960-colorized-s01e06-shoot-the-works",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Michael Shayne TV 1960 colorized s01e06 Shoot the Works",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/michael-shayne-tv-1960-colorized-s01e06-shoot-the-works",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Michael Shayne TV 1960 colorized s01e06 Shoot the Works.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 172515802,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/michael-shayne-tv-1960-colorized-s01e06-shoot-the-works/Michael Shayne TV 1960 colorized s01e06 Shoot the Works.mp4"
+        },
+        {
+          "archiveID": "michael-shayne-tv-1960-s01e13-murder-in-wonderland",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Michael Shayne TV 1960 colorized s01e13 Murder in Wonderland",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/michael-shayne-tv-1960-s01e13-murder-in-wonderland",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Michael Shayne TV 1960 colorized s01e13 Murder in Wonderland.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 360205074,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/michael-shayne-tv-1960-s01e13-murder-in-wonderland/Michael Shayne TV 1960 colorized s01e13 Murder in Wonderland.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

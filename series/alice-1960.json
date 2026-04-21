@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "alice-1960",
+  "title": "Alice",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Alice is an American sitcom television series that ran from August 31, 1976 to March 19, 1985 on CBS. The series is based on the 1974 film Alice Doesn't Live Here Anymore. The show stars Linda Lavin in the title role, a widow who moves with her young son to start her life over again, and finds a job working at a roadside diner on the outskirts of Phoenix, Arizona. Most of the episodes revolve around events at Mel's Diner.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/iEEtQs1mPz3kvvaEFR7HVnME9Or.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/aExRXeP3arR3SmcWkxepJzCLa70.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Robert Getchell",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Alices_Wedding_Gown--Telephone_Time",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alice's Wedding Gown (Telephone Time)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iEEtQs1mPz3kvvaEFR7HVnME9Or.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1580,
+          "videoFile": {
+            "name": "Alices_Wedding_Gown--Telephone_Time.mp4",
+            "format": "h.264",
+            "sizeBytes": 163754811,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Alices_Wedding_Gown--Telephone_Time/Alices_Wedding_Gown--Telephone_Time.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

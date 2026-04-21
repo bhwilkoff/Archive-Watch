@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-journey-into-the-supernatural-1995",
+  "title": "A Journey Into The Supernatural",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/roger-morneau-ex-occultist",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "roger-morneau-ex-occultist",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Journey Into The Supernatural (1995)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/roger-morneau-ex-occultist",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Roger Morneau - Ex-Occultist.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 492020447,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/roger-morneau-ex-occultist/Roger Morneau - Ex-Occultist.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

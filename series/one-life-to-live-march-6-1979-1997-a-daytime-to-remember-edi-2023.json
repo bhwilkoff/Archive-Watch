@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "one-life-to-live-march-6-1979-1997-a-daytime-to-remember-edi-2023",
+  "title": "One Life To Live March 6, 1979 ( 1997 A Daytime To Remember Edit, Most",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/one-life-to-live-march-6-1979-1997-a-daytime-to-remember-edit-most",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "one-life-to-live-march-6-1979-1997-a-daytime-to-remember-edit-most",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "One Life To Live March 6, 1979 ( 1997 A Daytime To Remember Edit, Most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/one-life-to-live-march-6-1979-1997-a-daytime-to-remember-edit-most",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "One Life To Live- March 6, 1979 (1997 A Daytime To Remember edit, most).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321100293,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/one-life-to-live-march-6-1979-1997-a-daytime-to-remember-edit-most/One Life To Live- March 6, 1979 (1997 A Daytime To Remember edit, most).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

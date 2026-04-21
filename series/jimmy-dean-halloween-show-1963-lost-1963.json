@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jimmy-dean-halloween-show-1963-lost-1963",
+  "title": "Jimmy Dean Halloween Show 1963 (lost",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/jimmy-dean-halloween-show",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "jimmy-dean-halloween-show",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jimmy Dean Halloween Show 1963 (lost episode Teresa Brewer)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jimmy-dean-halloween-show",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jimmy Dean 1963 S1E07 Divx.mp4",
+            "format": "h.264",
+            "sizeBytes": 305210901,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jimmy-dean-halloween-show/Jimmy Dean 1963 S1E07 Divx.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "motorweek-late-1986--1987-chrysler-le-baron-mazda-323-2023",
+  "title": "Motorweek (Late 1986) -1987 Chrysler Le Baron, Mazda 323",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/motorweek-1986-1987-chrysler-le-baron-mazda-323",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "motorweek-1986-1987-chrysler-le-baron-mazda-323",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Motorweek (Late 1986) -1987 Chrysler Le Baron, Mazda 323",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/motorweek-1986-1987-chrysler-le-baron-mazda-323",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Motorweek (1986)- 1987 Chrysler LeBaron, Mazda 323.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 577373003,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/motorweek-1986-1987-chrysler-le-baron-mazda-323/Motorweek (1986)- 1987 Chrysler LeBaron, Mazda 323.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cbs-evening-news-jan-28-1991-1991",
+  "title": "CBS Evening News Jan 28, 1991",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/cbs-19910128",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cbs-19910128",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CBS Evening News Jan 28, 1991",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/cbs-19910128",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CBS晚间新闻 19910128.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 165313239,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cbs-19910128/CBS晚间新闻 19910128.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

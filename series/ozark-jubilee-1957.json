@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "ozark-jubilee-1957",
+  "title": "Ozark Jubilee",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": "Ozark Jubilee is the first U.S. network television program to feature country music's top stars, and featured performers located in Springfield, Missouri which has long emulated Nashville, Tennessee as a center of American country music. The weekly live stage show premiered on ABC-TV on January 22, 1955, was renamed Country Music Jubilee on July 6, 1957, and was finally named Jubilee USA on August 2, 1958. Originating \"from the heart of the Ozarks,\" the Saturday night variety series helped popularize country music in America's cities and suburbs, drawing more than nine million viewers. The ABC Radio version was heard by millions more starting in August 1954.\n\nA typical program included a mix of vocal and instrumental performances, comedy routines, square dancing and an occasional novelty act. The host was Red Foley, the nation's top country music personality. Big names such as Patsy Cline, Eddy Arnold, Johnny Cash and Faron Young were interspersed with a regular cast, including a group of young talent the Jubilee brought to national fame: 11-year-old Brenda Lee, Porter Wagoner, Wanda Jackson, Sonny James, Jean Shepard and The Browns. Other featured cast members were Webb Pierce, Bobby Lord, Leroy Van Dyke, Norma Jean and Carl Smith.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OzarkJubilee",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Ozark Jubilee'' - 11 May 1957",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1773,
+          "videoFile": {
+            "name": "Ozark Jubilee.mp4",
+            "format": "h.264",
+            "sizeBytes": 184803198,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzarkJubilee/Ozark Jubilee.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

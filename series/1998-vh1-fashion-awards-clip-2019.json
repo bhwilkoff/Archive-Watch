@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1998-vh1-fashion-awards-clip-2019",
+  "title": "1998 VH1 Fashion Awards Clip",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1998vh1fashionwardsclipconvertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1998vh1fashionwardsclipconvertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1998 VH1 Fashion Awards Clip",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1998vh1fashionwardsclipconvertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1998 VH1 Fashion Wards clip (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 42644755,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1998vh1fashionwardsclipconvertvideoonline.com/1998 VH1 Fashion Wards clip (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

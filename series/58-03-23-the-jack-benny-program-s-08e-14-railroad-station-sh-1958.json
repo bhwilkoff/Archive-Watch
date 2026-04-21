@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "58-03-23-the-jack-benny-program-s-08e-14-railroad-station-sh-1958",
+  "title": "58 03 23 The Jack Benny Program S 08e 14 Railroad Station Show",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/580323TheJackBennyProgramS08e14RailroadStationShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "580323TheJackBennyProgramS08e14RailroadStationShow",
+          "seasonNumber": 1,
+          "episodeNumber": 58,
+          "title": "58 03 23 The Jack Benny Program S 08e 14 Railroad Station Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/580323TheJackBennyProgramS08e14RailroadStationShow",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "58-03-23  The Jack Benny Program  s08e14  Railroad Station Show.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 109220993,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/580323TheJackBennyProgramS08e14RailroadStationShow/58-03-23  The Jack Benny Program  s08e14  Railroad Station Show.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

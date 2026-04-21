@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "come-back-little-junior-1960",
+  "title": "Come Back Little Junior",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/life_of_riley_-_3x18_-_come_back_little_junior",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "life_of_riley_-_3x18_-_come_back_little_junior",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Come Back Little Junior",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_3x18_-_come_back_little_junior",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_3x18_-_come_back_little_junior_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 127610398,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_3x18_-_come_back_little_junior/life_of_riley_-_3x18_-_come_back_little_junior_agk.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

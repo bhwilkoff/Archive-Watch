@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "warning-labels-1992",
+  "title": "Warning Labels",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/warning-labels-doug-stone",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "warning-labels-doug-stone",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Warning Labels - Doug Stone (1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/warning-labels-doug-stone",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "10000000_352322670058444_3903328831979450666_n.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 12015617,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/warning-labels-doug-stone/10000000_352322670058444_3903328831979450666_n.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

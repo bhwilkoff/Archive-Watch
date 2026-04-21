@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "entertainment-tonight-july-14-1992-2023",
+  "title": "Entertainment Tonight (July 14, 1992",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/entertainment-tonight-july-14-1992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "entertainment-tonight-july-14-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Entertainment Tonight (July 14, 1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/entertainment-tonight-july-14-1992",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Entertainment Tonight (July 14, 1992).mp4",
+            "format": "h.264",
+            "sizeBytes": 172849010,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/entertainment-tonight-july-14-1992/Entertainment Tonight (July 14, 1992).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

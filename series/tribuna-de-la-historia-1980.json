@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tribuna-de-la-historia-1980",
+  "title": "Tribuna de la historia",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tribuna-de-la-historia-1980-11-08",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tribuna-de-la-historia-1980-11-08",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tribuna de la historia - La expulsión de los judios (TVE-2) - 8 de noviembre, 1980",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tribuna-de-la-historia-1980-11-08",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tribuna de la historia los judios.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 412774940,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tribuna-de-la-historia-1980-11-08/Tribuna de la historia los judios.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

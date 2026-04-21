@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "many-happy-returns-ep-11-1960",
+  "title": "Many Happy Returns (Ep. 11",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ManyHappyReturnsEp.11TheHouseDivided",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ManyHappyReturnsEp.11TheHouseDivided",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Many Happy Returns (Ep. 11- \"The House Divided\")",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ManyHappyReturnsEp.11TheHouseDivided",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Many-Happy-Returns-_Ep.-11-The-House-Divided_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 113137828,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ManyHappyReturnsEp.11TheHouseDivided/Many-Happy-Returns-_Ep.-11-The-House-Divided_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

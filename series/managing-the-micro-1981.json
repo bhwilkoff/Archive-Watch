@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "seriesID": "managing-the-micro-1981",
+  "title": "Managing the Micro",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": "This series aimed primarily at small businesses and further education colleges was fronted by the much respected Radio 4 'Today' presenter Brian Redhead. It showed examples of what can be done by looking at companies which had embraced the new technology in manufacturing or services.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "managing-the-micro-s01e01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "S01E01 Thinking Small",
+          "overview": "May 17, 1981 BBC\n\n'Software control' is said to be the key to the importance of 'the micro'. But what does that mean? And how is microelectronics helping small companies to stay competitive at a difficult time?",
+          "stillURL": null,
+          "airDate": "1981-05-17",
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Managing the Micro - S01E01 - Thinking Small.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 484627903,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/managing-the-micro-s01e01/Managing the Micro - S01E01 - Thinking Small.ia.mp4"
+        },
+        {
+          "archiveID": "managing-the-micro-s01e02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Managing the Micro - S01E02 - Getting in on the Act",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Managing the Micro - S01E02 - Getting in on the Act.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 479682901,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/managing-the-micro-s01e02/Managing the Micro - S01E02 - Getting in on the Act.ia.mp4"
+        },
+        {
+          "archiveID": "managing-the-micro-s01e03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Managing the Micro - S01E03 - Towards the Last Frontier",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Managing the Micro - S01E03 - Towards the Last Frontier.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 482852090,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/managing-the-micro-s01e03/Managing the Micro - S01E03 - Towards the Last Frontier.ia.mp4"
+        },
+        {
+          "archiveID": "managing-the-micro-s01e04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Managing the Micro - S01E04 - On Line",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Managing the Micro - S01E04 - On Line.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 471068084,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/managing-the-micro-s01e04/Managing the Micro - S01E04 - On Line.ia.mp4"
+        },
+        {
+          "archiveID": "managing-the-micro-s01e05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Managing the Micro - S01E05 - The Human Factor",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Managing the Micro - S01E05 - The Human Factor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 480085949,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/managing-the-micro-s01e05/Managing the Micro - S01E05 - The Human Factor.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

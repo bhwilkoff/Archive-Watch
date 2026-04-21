@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "simon-and-simon-1981",
+  "title": "Simon And Simon",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/simon-and-simon-s-01-e-03-trapdoors-1080p",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "simon-and-simon-s-01-e-03-trapdoors-1080p",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Simon And Simon s01e03 Trapdoors 1080p",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/simon-and-simon-s-01-e-03-trapdoors-1080p",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Simon and Simon S01E03 Trapdoors 1080p Blu-ray 10Bit DDP2 0 HEVC-d3g[EZTVx.to].mp4",
+            "format": "h.264",
+            "sizeBytes": 281641195,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/simon-and-simon-s-01-e-03-trapdoors-1080p/Simon and Simon S01E03 Trapdoors 1080p Blu-ray 10Bit DDP2 0 HEVC-d3g[EZTVx.to].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

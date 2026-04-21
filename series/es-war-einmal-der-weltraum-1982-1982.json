@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "es-war-einmal-der-weltraum-1982-1982",
+  "title": "Es war einmal.. der Weltraum [1982",
+  "yearStart": 1982,
+  "yearEnd": 1982,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/10-in-geheimer-mission",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "10-in-geheimer-mission",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Es war einmal.. der Weltraum [1982] - Once Upon a Time... Space (french: Il était une fois… l’Espace) ce",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/10-in-geheimer-mission",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "03 - Der grüne Planet.mp4",
+            "format": "h.264",
+            "sizeBytes": 163944630,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/10-in-geheimer-mission/03 - Der grüne Planet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

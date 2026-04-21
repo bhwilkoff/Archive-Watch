@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-smith-family-1971",
+  "title": "The Smith Family",
+  "yearStart": 1971,
+  "yearEnd": 1971,
+  "overview": "The Smith Family is an American comedy-drama television series produced by Don Fedderson Productions. The series aired on ABC from January 20, 1971 to June 7, 1972, for 39 episodes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/h4wgTT6PlTKZKYKtK8Lof0vwLlK.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Edmund L. Hartmann",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "thesmithfamilyseason1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Smith Family (Season 1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h4wgTT6PlTKZKYKtK8Lof0vwLlK.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E10- Brian and the Sheriff.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 123854640,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E10- Brian and the Sheriff.ia.mp4"
+        },
+        {
+          "archiveID": "thesmithfamilyseasontwo",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Smith Family (Season 2)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h4wgTT6PlTKZKYKtK8Lof0vwLlK.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S02E20- My Mother the Star-1.mp4",
+            "format": "h.264",
+            "sizeBytes": 130865329,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thesmithfamilyseasontwo/S02E20- My Mother the Star-1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

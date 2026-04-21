@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wheel-of-fortune-s-2403-november-29-1995-long-credits-only-1995",
+  "title": "Wheel of Fortune #S-2403 (November 29, 1995; long credits only",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/19951129wheeloffortunejohnnygilbertstandsinforcharlieodonnelllongcreditsonlystudiomaster",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "19951129wheeloffortunejohnnygilbertstandsinforcharlieodonnelllongcreditsonlystudiomaster",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wheel of Fortune #S-2403 (November 29, 1995; long credits only)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/19951129wheeloffortunejohnnygilbertstandsinforcharlieodonnelllongcreditsonlystudiomaster",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1995-11-29 Wheel of Fortune (Johnny Gilbert stands in for Charlie O'Donnell; long credits only) [studio master].mp4",
+            "format": "h.264",
+            "sizeBytes": 7944166,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/19951129wheeloffortunejohnnygilbertstandsinforcharlieodonnelllongcreditsonlystudiomaster/1995-11-29 Wheel of Fortune (Johnny Gilbert stands in for Charlie O'Donnell; long credits only) [studio master].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cbs-evening-news-nov-23-1992-1992",
+  "title": "CBS Evening News Nov 23, 1992",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/cbs-19921123",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cbs-19921123",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CBS Evening News Nov 23, 1992",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/cbs-19921123",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CBS晚间新闻 19921123.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 163143921,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cbs-19921123/CBS晚间新闻 19921123.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

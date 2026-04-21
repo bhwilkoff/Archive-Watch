@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "rai-1988-1988",
+  "title": "RAI 1988",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/RAI-1988-il-meglio-di-un-anno-di-tv",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RAI-1988-il-meglio-di-un-anno-di-tv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "RAI 1988: il meglio di un anno di tv",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/RAI-1988-il-meglio-di-un-anno-di-tv",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "RAI 1988 - Presentazione aziendale del meglio di un anno di tv.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 731668660,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RAI-1988-il-meglio-di-un-anno-di-tv/RAI 1988 - Presentazione aziendale del meglio di un anno di tv.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

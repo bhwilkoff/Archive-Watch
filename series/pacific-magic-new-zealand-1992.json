@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "pacific-magic-new-zealand-1992",
+  "title": "Pacific Magic: New Zealand",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/pacific-magic-new-zealand-1992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "pacific-magic-new-zealand-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Pacific Magic: New Zealand - Susan Wood",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/pacific-magic-new-zealand-1992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Pacific Magic - New Zealand - 1992.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 679178219,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/pacific-magic-new-zealand-1992/Pacific Magic - New Zealand - 1992.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "seriesID": "studio-one-2024",
+  "title": "Studio One",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": "Studio One is a live daily English-language lifestyle show broadcast on Dubai One in 16 countries in the Middle East and North Africa. Created by the same team that produced Dubai One's popular weekly show Ask One, Studio One is known for its eclectic mix of lifestyle features and celebrity interviews, interactivity and is primarily aimed at women and families. Season One was hosted by Tom Urquhart and Saba Wahid. At the end of the first season Saba left the show and was replaced by former show reporter Aishwarya Ajit. Studio One has been described as Dubai One's flagship show",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "studio-one-1984-1953.",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One - 1984 (1953)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio One - 1984 (1953)..ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 431938353,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-1984-1953./Studio One - 1984 (1953)..ia.mp4"
+        },
+        {
+          "archiveID": "studio-one-abraham-lincoln-1952_202406",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One - Abraham Lincoln (1952)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio One - Abraham Lincoln (1952).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 504655455,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-abraham-lincoln-1952_202406/Studio One - Abraham Lincoln (1952).ia.mp4"
+        },
+        {
+          "archiveID": "studio-one-gian-carlo-menotti-the-medium-1948",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One - Gian Carlo Menotti: The Medium (1948)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio One - Gian Carlo Menotti - The Medium (1948)-.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 202798888,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-gian-carlo-menotti-the-medium-1948/Studio One - Gian Carlo Menotti - The Medium (1948)-.mp4"
+        },
+        {
+          "archiveID": "studio-one-the-remarkable-incident-at-carson-corners-1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One - The Remarkable Incident At Carson Corners (1954)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio One -The Remarkable Incident At Carson Corners (1954).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 463967576,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-the-remarkable-incident-at-carson-corners-1954/Studio One -The Remarkable Incident At Carson Corners (1954).ia.mp4"
+        },
+        {
+          "archiveID": "studio-one-they-came-to-baghdad-1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One - They Came To Baghdad (1952)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio One - They Came To Baghdad (1952).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 399703914,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-they-came-to-baghdad-1952/Studio One - They Came To Baghdad (1952).ia.mp4"
+        },
+        {
+          "archiveID": "studio-one-treasure-island-1952.",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One - Treasure Island (1952).",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio One - Treasure Island (1952)..ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 165751613,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-treasure-island-1952./Studio One - Treasure Island (1952)..ia.mp4"
+        },
+        {
+          "archiveID": "studio-one-wuthering-heights-1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One - Wuthering Heights (1950)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio One - Wuthering Heights (1950).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 578536389,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-wuthering-heights-1950/Studio One - Wuthering Heights (1950).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

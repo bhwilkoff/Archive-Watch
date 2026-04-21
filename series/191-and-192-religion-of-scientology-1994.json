@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "191-and-192-religion-of-scientology-1994",
+  "title": "# 191 And # 192 Religion Of Scientology",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/191-and-192-religion-of-scientology",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "191-and-192-religion-of-scientology",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "# 191 And # 192 Religion Of Scientology",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/191-and-192-religion-of-scientology",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "#45 2 New Evils-Viewer descretion is advised, #46-age of The Emotional Neglect of Babies.mov",
+            "format": "QuickTime",
+            "sizeBytes": 2411812664,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/191-and-192-religion-of-scientology/#45 2 New Evils-Viewer descretion is advised, #46-age of The Emotional Neglect of Babies.mov"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

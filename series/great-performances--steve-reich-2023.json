@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "great-performances--steve-reich-2023",
+  "title": "Great Performances- Steve Reich",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/great-performances-steve-reich-a-new-musical-language-1987",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "great-performances-steve-reich-a-new-musical-language-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Great Performances- Steve Reich: A New Musical Language ( 1987)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/great-performances-steve-reich-a-new-musical-language-1987",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Great Performances- Steve Reich A New Musical Language (1987).mp4",
+            "format": "h.264",
+            "sizeBytes": 335179194,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/great-performances-steve-reich-a-new-musical-language-1987/Great Performances- Steve Reich A New Musical Language (1987).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

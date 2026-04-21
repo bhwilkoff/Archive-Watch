@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "thetube1986s04e26uncut-1960",
+  "title": "The.Tube.1986.S04E26.uncut",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the.-tube.-1986.-s-04-e-26.uncut",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "the.-tube.-1986.-s-04-e-26.uncut",
+          "seasonNumber": 4,
+          "episodeNumber": 26,
+          "title": "The.Tube.1986.S04E26.uncut",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the.-tube.-1986.-s-04-e-26.uncut",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Tube.1986.S04E26.uncut.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 259270360,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-tube.-1986.-s-04-e-26.uncut/The.Tube.1986.S04E26.uncut.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lu-ryden-interviews-marlo-thomas-on-kntv-1970-1970",
+  "title": "Lu Ryden interviews Marlo Thomas on KNTV, 1970",
+  "yearStart": 1970,
+  "yearEnd": 1970,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hsj2023-17_kntv_ryden_marlo_thomas",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hsj2023-17_kntv_ryden_marlo_thomas",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lu Ryden interviews Marlo Thomas on KNTV, 1970",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hsj2023-17_kntv_ryden_marlo_thomas",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "hsj2023-17_kntv_ryden_marlo_thomas.mp4",
+            "format": "h.264",
+            "sizeBytes": 22121528,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hsj2023-17_kntv_ryden_marlo_thomas/hsj2023-17_kntv_ryden_marlo_thomas.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

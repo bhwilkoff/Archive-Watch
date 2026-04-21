@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "friar-tuck-1960",
+  "title": "Friar Tuck",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Robin_Hood_04_Friar_Tuck",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_04_Friar_Tuck",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Friar Tuck",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Robin_Hood_04_Friar_Tuck",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_04_Friar_Tuck.mp4",
+            "format": "h.264",
+            "sizeBytes": 152257726,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_04_Friar_Tuck/Robin_Hood_04_Friar_Tuck.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "episode-79-1993",
+  "title": "Episode 79",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/episode-79_202108",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "episode-79_202108",
+          "seasonNumber": 1,
+          "episodeNumber": 79,
+          "title": "Episode 79 - Dark Shadows",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/episode-79_202108",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 79.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 351210186,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/episode-79_202108/Episode 79.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

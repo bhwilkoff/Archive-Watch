@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "follow-that-man-1960",
+  "title": "Follow that Man",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FollowThatManTheFraternityOfFive",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FollowThatManTheFraternityOfFive",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Follow that Man: The Fraternity of Five",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FollowThatManTheFraternityOfFive",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1548,
+          "videoFile": {
+            "name": "FollowThatMan-theFraternityOfFive.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156706590,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FollowThatManTheFraternityOfFive/FollowThatMan-theFraternityOfFive.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

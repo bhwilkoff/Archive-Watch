@@ -1,0 +1,723 @@
+{
+  "version": 1,
+  "seriesID": "diver-dan-1961",
+  "title": "Diver Dan",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": "Diver Dan was a series of 104 seven-minute live-action shorts made for children's television. Made by Brian Cartoons, it was syndicated and distributed by ITC Entertainment. The shows were sometimes re-edited into half-hour blocks by local stations.\n\nThe series featured the adventures of a diver in an old-fashioned diving suit who talked to the passing fish. The series was filmed in live action with puppet fish; the underwater effect was achieved by shooting through an aquarium.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "DiverDan_Ep01_Hard_Water",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Diver Dan: Ep 01 Hard Water",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_01_Hard_Water_DivX_DVD_640x448__b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 42901047,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep01_Hard_Water/Diver_Dan_01_Hard_Water_DivX_DVD_640x448__b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep02_Goldie_The_Goldfish",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Diver Dan: Ep 02 Goldie The Goldfish",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_02_Goldie_the_Goldfish_DivX_DVD_640x448_b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 43366401,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep02_Goldie_The_Goldfish/Diver_Dan_02_Goldie_the_Goldfish_DivX_DVD_640x448_b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep03_Talking_Fish",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Diver Dan: Ep 03 Talking Fish",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_03_Talking_Fish_DivX_DVD_640x448_b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 40724492,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep03_Talking_Fish/Diver_Dan_03_Talking_Fish_DivX_DVD_640x448_b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep05_Treasure_Ship",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Diver Dan: Ep 05 Treasure Ship",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_05_Treasure_Ship_DivX_DVD_640x448_b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 42101009,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep05_Treasure_Ship/Diver_Dan_05_Treasure_Ship_DivX_DVD_640x448_b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep06_Sawfish_Rescue",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Diver Dan: Ep 06 Sawfish Rescue",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_06_Sawfish_Rescue_DivX_DVD_640x448_b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 38613324,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep06_Sawfish_Rescue/Diver_Dan_06_Sawfish_Rescue_DivX_DVD_640x448_b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep07_Shell_O_Phone",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Diver Dan: Ep 07 Shell-O-Phone",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_07_Shell-O-Phone_DivX_DVD_640x448_b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 40073690,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep07_Shell_O_Phone/Diver_Dan_07_Shell-O-Phone_DivX_DVD_640x448_b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep08_The_Octopus",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Diver Dan: Ep08 The Octopus",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_08_The_Octopus_DivX_DVD_640x448_b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 39081016,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep08_The_Octopus/Diver_Dan_08_The_Octopus_DivX_DVD_640x448_b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep09_Murder_Ink",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Diver Dan: Ep 09 Murder Ink",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_09_Murder_Ink_DivX_DVD_640x448_b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 41309050,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep09_Murder_Ink/Diver_Dan_09_Murder_Ink_DivX_DVD_640x448_b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep10_Bottomless_Pit",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Diver Dan: Ep10 Bottomless Pit",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_10_Bottomless_Pit_DivX_DVD_640x448_b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 43868344,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep10_Bottomless_Pit/Diver_Dan_10_Bottomless_Pit_DivX_DVD_640x448_b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep11_Teetering_Rock",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Diver Dan: Ep 11 Teetering Rock",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_11_Teetering_Rock_DivX_DVD_640x448_b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 41695321,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep11_Teetering_Rock/Diver_Dan_11_Teetering_Rock_DivX_DVD_640x448_b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep12_Barons_Capture",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Diver Dan: Ep12 Barons Capture",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_12_Barons_Capture_DivX_DVD_640x448_b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 38808983,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep12_Barons_Capture/Diver_Dan_12_Barons_Capture_DivX_DVD_640x448_b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep13_An_Unusual_Treasure",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Diver Dan: Ep13 An Unusual Treasure",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_13_An_Unusual_Treasure_DivX_DVD_640x448_b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 41666896,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep13_An_Unusual_Treasure/Diver_Dan_13_An_Unusual_Treasure_DivX_DVD_640x448_b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep14_Triggers_Revenge",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Diver Dan: Ep 14 Triggers Revenge",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_14_Triggers_Revenge_DivX_DVD_640x448_b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 42436118,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep14_Triggers_Revenge/Diver_Dan_14_Triggers_Revenge_DivX_DVD_640x448_b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep15_An_Unusual_Fish",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Diver Dan: Ep 15 An Unusual Fish",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_15_An_Unusual_Fish_DivX_DVD_640x448_b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 42350480,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep15_An_Unusual_Fish/Diver_Dan_15_An_Unusual_Fish_DivX_DVD_640x448_b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep16_The_Verdict",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Diver Dan: Ep 16 The Verdict",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_16_The_Verdict_DivX_DVD_640x448_b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 40571503,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep16_The_Verdict/Diver_Dan_16_The_Verdict_DivX_DVD_640x448_b59_.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep17_Horaces_Dilemma",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Diver Dan: Ep 17 Horaces Dilemma",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_17_Horaces_Dilemma_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 40923515,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep17_Horaces_Dilemma/Diver_Dan_17_Horaces_Dilemma_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep18_The_Trap",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Diver Dan: Ep 18 The Trap",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_18_The_Trap_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 40754834,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep18_The_Trap/Diver_Dan_18_The_Trap_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep19_The_Trap_Is_Sprung",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Diver Dan: Ep 19 The Trap Is Sprung",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_19_The_Trap_is_Sprung_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 40906454,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep19_The_Trap_Is_Sprung/Diver_Dan_19_The_Trap_is_Sprung_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep20_Riddle_Of_The_Hermit_Crab",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Diver Dan: Ep 20 Riddle Of The Hermit Crab",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_20_Riddle_of_the_Hermit_Crab_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 40909939,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep20_Riddle_Of_The_Hermit_Crab/Diver_Dan_20_Riddle_of_the_Hermit_Crab_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep21_Sargasso_Sea",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Diver Dan: Ep 21 Sargasso Sea",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_21_Sargasso_Sea_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 42531521,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep21_Sargasso_Sea/Diver_Dan_21_Sargasso_Sea_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep22_Lost_In_The_Sargasso_Sea",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Diver Dan: Ep 22 Lost In The Sargasso Sea",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_22_Lost_in_the_Sargasso_Sea_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 42774896,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep22_Lost_In_The_Sargasso_Sea/Diver_Dan_22_Lost_in_the_Sargasso_Sea_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep23_Current_Flow",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Diver Dan: Ep 23 Current Flow",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_23_Current_Flow_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 43008260,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep23_Current_Flow/Diver_Dan_23_Current_Flow_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep24_The_Storm",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Diver Dan: Ep 24 The Storm",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_24_The_Storm_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 42059581,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep24_The_Storm/Diver_Dan_24_The_Storm_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep25_Goldies_Heroism",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Diver Dan: Ep 25 Goldie's Heroism",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_25_Goldies_Heroism_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 43431304,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep25_Goldies_Heroism/Diver_Dan_25_Goldies_Heroism_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep26_Dynamite",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Diver Dan: Ep 26 Dynamite",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_26_Dynamite_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 43056056,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep26_Dynamite/Diver_Dan_26_Dynamite_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep27_Ghost_Is_Clear",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Diver Dan: Ep 27 Ghost Is Clear",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_27_Ghost_is_Clear_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 42348699,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep27_Ghost_Is_Clear/Diver_Dan_27_Ghost_is_Clear_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep28_Captain_Barney",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Diver Dan: Ep 28 Captain Barney",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_28_Captain_Barney_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 43485649,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep28_Captain_Barney/Diver_Dan_28_Captain_Barney_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep29_Lost_City",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Diver Dan: Ep 29 Lost City",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_29_Lost_City_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 45443045,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep29_Lost_City/Diver_Dan_29_Lost_City_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep30_Secret_Of_The_Throne",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Diver Dan: EP 30 Secret Of The Throne",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_30_Secret_of_the_Throne_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 44234396,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep30_Secret_Of_The_Throne/Diver_Dan_30_Secret_of_the_Throne_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep31_Crawling_Danger",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Diver Dan: Ep 31 Crawling Danger",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_31_Crawling_Danger_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 43219040,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep31_Crawling_Danger/Diver_Dan_31_Crawling_Danger_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep32_The_Strange_Fish",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Diver Dan: Ep 32 The Strange Fish",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_32_The_Strange_Fish_DivX_DVD_656x464b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 43799123,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep32_The_Strange_Fish/Diver_Dan_32_The_Strange_Fish_DivX_DVD_656x464b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep33_The_Bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Diver Dan: Ep 33 The Bomb",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_33_The_Bomb_DivX_DVD_640x448b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 43182600,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep33_The_Bomb/Diver_Dan_33_The_Bomb_DivX_DVD_640x448b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep34_The_Bubbling_Pit",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Diver Dan: Ep 34 The Bubbling Pit",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_34_The_Bubbling_Pit_DivX_DVD_640x448b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 44143037,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep34_The_Bubbling_Pit/Diver_Dan_34_The_Bubbling_Pit_DivX_DVD_640x448b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep35_The_Volcano",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Diver Dan: Ep 35 The Volcano",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_35_The_Volcano_DivX_DVD_640x448b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 42715669,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep35_The_Volcano/Diver_Dan_35_The_Volcano_DivX_DVD_640x448b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep36_Depth_Charge",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Diver Dan: Ep 36 Depth Charge",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_36_Depth_Charge_DivX_DVD_640x448b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 42538022,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep36_Depth_Charge/Diver_Dan_36_Depth_Charge_DivX_DVD_640x448b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep37_School_Daze",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Diver Dan: Ep 37 School Daze",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_37_School_Daze_DivX_DVD_640x448b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 44465105,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep37_School_Daze/Diver_Dan_37_School_Daze_DivX_DVD_640x448b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep38_Strange_Vines",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Diver Dan: Ep 38 Strange Vines",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_38_Strange_Vines_DivX_DVD_640x448b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 42572275,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep38_Strange_Vines/Diver_Dan_38_Strange_Vines_DivX_DVD_640x448b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep39_Savage_Seaweed",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Diver Dan: Ep 39 Savage Seaweed",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_39_Savage_Seaweed_DivX_DVD_640x448b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 43723056,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep39_Savage_Seaweed/Diver_Dan_39_Savage_Seaweed_DivX_DVD_640x448b59.mp4"
+        },
+        {
+          "archiveID": "DiverDan_Ep40_The_Magnet",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "Diver Dan, Episode 40: The Magnet",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Diver_Dan_40_The_Magnet_DivX_DVD_640x448b59.mp4",
+            "format": "h.264",
+            "sizeBytes": 43694536,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DiverDan_Ep40_The_Magnet/Diver_Dan_40_The_Magnet_DivX_DVD_640x448b59.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 39
+}

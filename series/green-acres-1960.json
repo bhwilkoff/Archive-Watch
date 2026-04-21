@@ -1,0 +1,1478 @@
+{
+  "version": 1,
+  "seriesID": "green-acres-1960",
+  "title": "Green Acres",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Green Acres is an American sitcom starring Eddie Albert and Eva Gabor as a couple who move from New York City to a rural country farm. Produced by Filmways as a sister show to Petticoat Junction, the series was first broadcast on CBS, from September 15, 1965 to April 27, 1971.\n\nReceiving solid ratings during its six-year run, Green Acres was cancelled in 1971 as part of the \"rural purge\" by CBS. The sitcom has been in syndication and is available in DVD and VHS releases. In 1997, the two-part episode \"A Star Named Arnold is Born\" was ranked #59 on TV Guide's 100 Greatest Episodes of All Time.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1tCh5D0dyPw8tiknprgbljAAEPw.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/xyh5AtlJ9jGduhKD7Km5Nf2gbCb.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Paul Henning",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GreenAcresCompleteSeries",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Green Acres Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1tCh5D0dyPw8tiknprgbljAAEPw.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Green Acres Season 1/Green Acres - 003 - The Decorator.mp4",
+            "format": "h.264",
+            "sizeBytes": 166848462,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GreenAcresCompleteSeries/Green Acres Season 1/Green Acres - 003 - The Decorator.mp4"
+        },
+        {
+          "archiveID": "Green_Acres_Season_2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Green Acres Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1tCh5D0dyPw8tiknprgbljAAEPw.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Season 2/Green.Acres.S02E19.It's.Human.to.Be.Humane.DVDrip.XviD-Sporc.mp4",
+            "format": "h.264",
+            "sizeBytes": 159712356,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Green_Acres_Season_2/Season 2/Green.Acres.S02E19.It's.Human.to.Be.Humane.DVDrip.XviD-Sporc.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "s-4-e-01-guess-whos-not-going-to-the-luau",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "Guess Who's Not Going to the Luau?",
+          "overview": "Peterson's Poi Juice is giving away a trip to Hawaii and Arnold Ziffel is chosen as the winner. When the ad agency rep meets Arnold and discovers he's not a human, he tries to disqualify the swine. Famous pig lawyer Oliver Douglas is retained to fight for Arnold's winnings.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ouGHV4D8bJ4BcSkf8vyI0mgE7UC.jpg",
+          "airDate": "1968-09-25",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E01 Guess Who’s Not Going to the Luau.mp4",
+            "format": "h.264",
+            "sizeBytes": 148429976,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-01-guess-whos-not-going-to-the-luau/S4E01 Guess Who’s Not Going to the Luau.mp4"
+        },
+        {
+          "archiveID": "s-4-e-02-the-rummage-sale",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "The Rummage Sale",
+          "overview": "The Douglases are asked to donate old clothing to a charity rummage sale. Lisa is glad to give away Oliver's entire wardrobe, but can't part with any of her dresses. Each has a memory attached, leading to flashbacks of Oliver asking Lisa's father for her hand in marriage, the Douglases' honeymoon in Switzerland and their first party in their new Park Avenue apartment.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/5C3Fk1qfwaUx9CdsUJJVxnP4n2b.jpg",
+          "airDate": "1968-10-02",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E02 The Rummage Sale.mp4",
+            "format": "h.264",
+            "sizeBytes": 147451611,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-02-the-rummage-sale/S4E02 The Rummage Sale.mp4"
+        },
+        {
+          "archiveID": "s-4-e-03-hail-to-the-fire-chief",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "Hail to the Fire Chief",
+          "overview": "Scheming to get Oliver to pay his way to a convention, Fire Chief Joe Carson appoints him as his assistant. Instead, Oliver finds the Hooterville Fire Department to be inept and ill-prepared. Oliver's call for improvements results in Uncle Joe being voted out and him being named the new chief.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/maiICBDYcR7nswa59qoUJvuzs5P.jpg",
+          "airDate": "1968-10-16",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E03 Hail to the Fire Chief.mp4",
+            "format": "h.264",
+            "sizeBytes": 148393830,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-03-hail-to-the-fire-chief/S4E03 Hail to the Fire Chief.mp4"
+        },
+        {
+          "archiveID": "s-4-e-04-ebs-romance",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "Eb's Romance",
+          "overview": "Eb announces his engagement to Loreli Appleby, a girl he met the day before. In an attempt to impress his future father-in-law, Eb succeeds in destroying the farmer's cabbage crop. To get back in the man's good graces, Eb pawns Oliver's cow Eleanor so he can make the Appleby's mortgage payment.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/sw9K9v0nme9qeT5PQ1A4XTIIWLN.jpg",
+          "airDate": "1968-10-23",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E04 Eb’s Romance.mp4",
+            "format": "h.264",
+            "sizeBytes": 148150197,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-04-ebs-romance/S4E04 Eb’s Romance.mp4"
+        },
+        {
+          "archiveID": "s-4-e-05-the-candidate",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "The Candidate",
+          "overview": "Fed up with the lousy condition of the Hooterville highway, Oliver launches an attack on their beloved state district representative, Ben Hanks. The folksy, duck-calling, guitar-playing politician proves too wily for Oliver, even when caught padding the state payroll with relatives.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/mgaSoim7ja1JjhkHN9Sfs3FcC2C.jpg",
+          "airDate": "1968-10-30",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E05 The Candidate.mp4",
+            "format": "h.264",
+            "sizeBytes": 148143406,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-05-the-candidate/S4E05 The Candidate.mp4"
+        },
+        {
+          "archiveID": "s-4-e-06-handy-lessons",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "Handy Lessons",
+          "overview": "Wanting to be a bigger help to Oliver, Lisa decides to learn carpentry. She buys overalls and begins to study the craft from the inept Monroe brothers. Lisa's talents result in destruction in Monroes' workshop and earns Oliver a punch in the nose.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iTacrBrWdevzyHjnJtXm0tbELeW.jpg",
+          "airDate": "1968-11-06",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E06 Handy Lessons.mp4",
+            "format": "h.264",
+            "sizeBytes": 148318568,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-06-handy-lessons/S4E06 Handy Lessons.mp4"
+        },
+        {
+          "archiveID": "s-4-e-07-a-husband-for-eleanor",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "A Husband For Eleanor",
+          "overview": "Oliver plans to leave Eleanor with Mr. Cowan's bull Dudley so she'll birth a calf and start giving milk again. However, Lisa complicates matters when she wants to make sure Eleanor has a good \"husband\" with bright prospects. No bull Lisa meets seems good enough to marry her \"daughter\".",
+          "stillURL": "https://image.tmdb.org/t/p/w300/fsN4cDrjlZKZfTrTkWV6ibsIyQd.jpg",
+          "airDate": "1968-11-13",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E07 A Husband for Eleanor.mp4",
+            "format": "h.264",
+            "sizeBytes": 148791979,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-07-a-husband-for-eleanor/S4E07 A Husband for Eleanor.mp4"
+        },
+        {
+          "archiveID": "s-4-e-08-old-mail-day",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "Old Mail Day",
+          "overview": "It's \"Old Mail Day\" and Sam Drucker hands out letters that have gotten misplaced in his post office. Having learned nothing from his previous letter-writing fiascos, an upset Oliver complains to the Postmaster General for delivery service. The locals soon turn on Oliver because Drucker's General Store is never open; he's always on his bicycle delivering mail.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lOhRxa1rggNxPlipk23MySe2sfI.jpg",
+          "airDate": "1968-11-20",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E08 Old Mail Day.mp4",
+            "format": "h.264",
+            "sizeBytes": 147802201,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-08-old-mail-day/S4E08 Old Mail Day.mp4"
+        },
+        {
+          "archiveID": "s-4-e-09-the-agricultural-student",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "The Agricultural Student",
+          "overview": "The Agricultural Department is sending a student to learn the ropes from agent Hank Kimball. No one's too interested until Terry turns out to be an attractive blonde co-ed. All the men of Hooterville, eligible and otherwise, fall over themselves flirting and fawning. On the night of the big barn dance, the Douglas living room is packed full of maneuvering men, each thinking they're her date for the evening. Terry's choice turns out to be none of the above.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9bhWWx8L2gwP43BwXgfQTa1288m.jpg",
+          "airDate": "1968-11-27",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E09 The Agricultural Student.mp4",
+            "format": "h.264",
+            "sizeBytes": 147766015,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-09-the-agricultural-student/S4E09 The Agricultural Student.mp4"
+        },
+        {
+          "archiveID": "s-4-e-10-how-hooterville-was-floundered",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "How Hooterville was Floundered",
+          "overview": "After Joe Carson quits as head of the Hooterville centennial celebration, Oliver gets the job. His idea is to stage a re-enactment of the town's founding starring he and Lisa as Horace and Doris Hooter. In the dramatization, saloon girl Doris fleeces Horace out of the money he'd hoped to buy a farm with. Eventually, he gets his money back, thanks to her skills as a card shark, and they marry and settle Hooterville.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/vmBL5r1wPLjeH5Gusa753kS0J3H.jpg",
+          "airDate": "1968-12-11",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E10 How Hooterville Was Floundered.mp4",
+            "format": "h.264",
+            "sizeBytes": 148575525,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-10-how-hooterville-was-floundered/S4E10 How Hooterville Was Floundered.mp4"
+        },
+        {
+          "archiveID": "s-4-e-11-the-blue-feather",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "The Blue Feather",
+          "overview": "Lisa's convinced that Hungarian gypsies have placed a curse on her when she receives a dreaded blue feather in the mail. To \"de-hexify\" her, Haney sells Lisa a ridiculous recipe that she mixes up, places in a green purse, and hangs outside the front door. Eb gets a look at it and panics because the \"green purse hex\" will bring a drought. He counteracts it with his own concoction in a yellow purse. Oliver takes action to put a stop to all this foolishness.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/atqBu35WgHvRJEEwMGfhiZJZIGK.jpg",
+          "airDate": "1968-12-18",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E11 The Blue Feather.mp4",
+            "format": "h.264",
+            "sizeBytes": 146850832,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-11-the-blue-feather/S4E11 The Blue Feather.mp4"
+        },
+        {
+          "archiveID": "s-4-e-12-how-to-get-from-hooterville-to-pixley-without-moving",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "How to Get from Hooterville to Pixley Without Moving",
+          "overview": "After Oliver orders the Monroe brothers to finish work on the bedroom, they confess that they never got a building permit. Oliver storms off to get one himself, only to discover his barn is in Hooterville but his house is in Pixley. Haney, who sold them the farm, offers to hook a rope to the house and pull it to Hooterville with his truck.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/kD9cVopKIPY7pEf7aTo0XeLhEaA.jpg",
+          "airDate": "1968-12-25",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E12 How to Get From Hooterville to Pixley Without Moving.mp4",
+            "format": "h.264",
+            "sizeBytes": 144477932,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-12-how-to-get-from-hooterville-to-pixley-without-moving/S4E12 How to Get From Hooterville to Pixley Without Moving.mp4"
+        },
+        {
+          "archiveID": "s-4-e-13-the-birthday-gift",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "The Birthday Gift",
+          "overview": "For Lisa's birthday gift, Oliver plans to gets her a horse. Mr Haney delivers one, and it's not your average nag. Its name is Mr. Fred, a talking horse who's also a has-been TV star. Meanwhile, the locals decide that Lisa has a drinking habit and attempt an intervention.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iv6DQtwaWnKiXYRkW1IcgvZjBh1.jpg",
+          "airDate": "1969-01-01",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E13 The Birthday Gift.mp4",
+            "format": "h.264",
+            "sizeBytes": 147319736,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-13-the-birthday-gift/S4E13 The Birthday Gift.mp4"
+        },
+        {
+          "archiveID": "s-4-e-14-everywhere-a-chick-chick",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "Everywhere a Chick Chick",
+          "overview": "Oliver has the bad idea of getting into the chicken raising business. Haney wants to sell him a ridiculous egg laying contraption, the Monroe brothers build a disastrous chicken coop, and Lisa wants to raise the chicks as human children. The serious trouble begins when the 1000 baby chicks arrive. The brooder stops working and the babies have to stay warm. Lisa's motherly instincts save the day.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2hsVIooofpgDon6hV7tt5YIkVj5.jpg",
+          "airDate": "1969-01-08",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E14 Everywhere a Chick Chick.mp4",
+            "format": "h.264",
+            "sizeBytes": 147572591,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-14-everywhere-a-chick-chick/S4E14 Everywhere a Chick Chick.mp4"
+        },
+        {
+          "archiveID": "s-4-e-15-the-marital-vacation",
+          "seasonNumber": 4,
+          "episodeNumber": 15,
+          "title": "The Marital Vacation",
+          "overview": "Even though taking separate vacations was Lisa's idea, she misses Oliver before she even gets to the airport. Her constant phone calls and the goofy locals who think he tossed her out of the house irritate Oliver to no end. He gives up and hops a plane tojoin her; the layover in Cuba was an added surprise.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lNI7Ta4Yr18OPe29EOnWf7xoPqF.jpg",
+          "airDate": "1969-01-15",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E15 The Marital Vacation.mp4",
+            "format": "h.264",
+            "sizeBytes": 147904058,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-15-the-marital-vacation/S4E15 The Marital Vacation.mp4"
+        },
+        {
+          "archiveID": "s-4-e-16-a-prize-in-every-package",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "A Prize in Every Package",
+          "overview": "Criminals rob a jewelry store in Chicago and stash their haul in a grain bin. The expensive gems end up packed in boxes of Crickly Wickly cereal shipped to Hooterville. Lisa knows real jewels when she sees them, but Oliver's sure they're just costume. After taking them to be appraised, the sheriff arrests Oliver for the jewelry store heist.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/68dVHWQZDWNsvqRb1QiKP7FUnM5.jpg",
+          "airDate": "1969-01-22",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E16 A Prize in Every Package.mp4",
+            "format": "h.264",
+            "sizeBytes": 145592128,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-16-a-prize-in-every-package/S4E16 A Prize in Every Package.mp4"
+        },
+        {
+          "archiveID": "s-4-e-17-law-partners",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "Law Partners",
+          "overview": "Recent law school graduate Brian Williams pitches Oliver on joining him in a new practice. After another of his patriotic speeches, this time about law, Oliver is ready to hang out his shingle. Meanwhile, Lisa is excited about becoming their secretary and Eb is ready to run the farm.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/qyPcWMyjslwLRjBvQVlMcR5E3xe.jpg",
+          "airDate": "1969-01-29",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E17 Law Partners.mp4",
+            "format": "h.264",
+            "sizeBytes": 147053253,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-17-law-partners/S4E17 Law Partners.mp4"
+        },
+        {
+          "archiveID": "s-4-e-18-a-day-in-the-life-of-oliver-wendell-holmes",
+          "seasonNumber": 4,
+          "episodeNumber": 18,
+          "title": "A Day in the Life of Oliver Wendell Holmes",
+          "overview": "The law office of Douglas and Williams is open for business, even though the sign has Oliver Mendell Douglas (later Oliver Wendell Wilkie Holmes) listed as a partner. Unqualified secretary Lisa destroys a office typewriter before having the new phone connected to a fire alarm \"clanger\". Later, to boost business, she advertises a grand opening special with free prizes and discount law services.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/pa4qrF8Y8c3PCxRPMSB7Prc7blW.jpg",
+          "airDate": "1969-02-05",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E18 A Day in the Life of Oliver Wendell Holmes.mp4",
+            "format": "h.264",
+            "sizeBytes": 147844709,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-18-a-day-in-the-life-of-oliver-wendell-holmes/S4E18 A Day in the Life of Oliver Wendell Holmes.mp4"
+        },
+        {
+          "archiveID": "s-4-e-19-economy-flight-to-washington",
+          "seasonNumber": 4,
+          "episodeNumber": 19,
+          "title": "Economy Flight to Washington",
+          "overview": "The Hooterville Young People's Agricultural Society, comprised of Eb, Hank and Arnold, flies to Washington, D. C. for the national convention. When the stewardess tries to throw the pig off the DC-3, the Douglases come on board to smooth over the problem. With Arnold hiding in \"the occupied\", the plane takes off with the whole Hooterville crowd aboard.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/eWKCl9pcQ60Xvtc3KHW6tCGexT7.jpg",
+          "airDate": "1969-02-12",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E19 Economy Flight to Washington.mp4",
+            "format": "h.264",
+            "sizeBytes": 147857815,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-19-economy-flight-to-washington/S4E19 Economy Flight to Washington.mp4"
+        },
+        {
+          "archiveID": "s-4-e-20-retreat-from-washington",
+          "seasonNumber": 4,
+          "episodeNumber": 20,
+          "title": "Retreat From Washington",
+          "overview": "With the Douglases in Washington, the \"Haney Farm Mindin' Service\" leases out their house (for $4 a day) to a couple with six children. Meanwhile in D.C., Lisa and Eb go to the White House to have unannounced lunch with the president, Kimball causes chaos for the Secretary of Agriculture, and Arnold causes problems in a laundromat. Oliver calls an early end to their trip, forcing Haney to quickly dispose of his new tenants.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/8NS4ITLwYWdsRsYUw9DPWVlT5fY.jpg",
+          "airDate": "1969-02-19",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E20 Retreat From Washington.mp4",
+            "format": "h.264",
+            "sizeBytes": 148035812,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-20-retreat-from-washington/S4E20 Retreat From Washington.mp4"
+        },
+        {
+          "archiveID": "s-4-e-21-a-hunting-we-wont-go",
+          "seasonNumber": 4,
+          "episodeNumber": 21,
+          "title": "A Hunting We Won't Go",
+          "overview": "After a friendly doe wanders onto the farm, Lisa starts a drive to ban deer hunting. When the governor arrives in Hooterville for the start of hunting season, Lisa presents him with her petition. He threatens Oliver and Lisa with jail time because her petition promises everyone who signed it a one-hundred dollar payment.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/uxW03PKKGtQfl9vKvt3vaVROSGv.jpg",
+          "airDate": "1969-02-26",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E21 A Hunting We Won’t Go.mp4",
+            "format": "h.264",
+            "sizeBytes": 147504149,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-21-a-hunting-we-wont-go/S4E21 A Hunting We Won’t Go.mp4"
+        },
+        {
+          "archiveID": "s-4-e-22-oh-promise-me_202510",
+          "seasonNumber": 4,
+          "episodeNumber": 22,
+          "title": "Oh, Promise Me",
+          "overview": "A check of their their marriage license revals that Oliver and Lisa aren't husband and wife. They'd been mistakenly given a license to practice dentistry. Refusing to stay in the house with a bachelor dentist, \"Dr. Gronyitz\" moves in with the Monroe brothers until they can re-tie the knot. Their church wedding goes fairly smoothly considering Hank Kimball is the best man and Ralph Monroe is the maid of honor.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/stqozKWvZMSVJCv5KlxY52iQ0fb.jpg",
+          "airDate": "1969-03-05",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E22 Oh, Promise Me.mp4",
+            "format": "h.264",
+            "sizeBytes": 147491896,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-22-oh-promise-me_202510/S4E22 Oh, Promise Me.mp4"
+        },
+        {
+          "archiveID": "s-4-e-23-eb-uses-his-ingenuity",
+          "seasonNumber": 4,
+          "episodeNumber": 23,
+          "title": "Eb Uses His Ingenuity",
+          "overview": "Eb needs to raise $20 for his girlfriends birthday gift.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4Bs4pqGzJzLFoMayWucThtqvjg6.jpg",
+          "airDate": "1969-03-12",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E23 Eb Uses His Ingenuity.mp4",
+            "format": "h.264",
+            "sizeBytes": 149514788,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-23-eb-uses-his-ingenuity/S4E23 Eb Uses His Ingenuity.mp4"
+        },
+        {
+          "archiveID": "s-4-e-24-the-old-trunk",
+          "seasonNumber": 4,
+          "episodeNumber": 24,
+          "title": "The Old Trunk",
+          "overview": "From inside an old trunk Eb found in the barn, Lisa begins reading the diary of Lydia Plunkett who, in 1898, becomes a traveling saleswoman for a corset company. Lydia falls in love with rival salesman Harry Wright, whose career falters as a result of her success. The two marry, she becomes president of the corset company, and unhappily tends house. He eventually tires of being a housewife and leaves her. As Lisa continues reading, Eb is entranced by the story, but Oliver scoffs at the soppy romance.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2JRZP9X6a3vQ84JpSakpTBUQUGv.jpg",
+          "airDate": "1969-03-19",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E24 The Old Trunk.mp4",
+            "format": "h.264",
+            "sizeBytes": 147686282,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-24-the-old-trunk/S4E24 The Old Trunk.mp4"
+        },
+        {
+          "archiveID": "s-4-e-25-the-milk-maker",
+          "seasonNumber": 4,
+          "episodeNumber": 25,
+          "title": "The Milk Maker",
+          "overview": "Local inventor \"Looney Luke\" Needlinger has built a contraption that turns hay into milk. Convinced it will make them rich, Haney and Fred pitch Oliver on investing in the machine, but he thinks they're being conned. After seeing the milk maker in action, Oliver convinces a chemist to give the devise a once-over. What he discovers insures that cows will always have work.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ntlC1ki9WK7ScUmINBGYiZiTyZP.jpg",
+          "airDate": "1969-03-26",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E25 The Milk Maker.mp4",
+            "format": "h.264",
+            "sizeBytes": 147663373,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-25-the-milk-maker/S4E25 The Milk Maker.mp4"
+        },
+        {
+          "archiveID": "s-4-e-26-the-reincarnation-of-eb",
+          "seasonNumber": 4,
+          "episodeNumber": 26,
+          "title": "The Reincarnation of Eb",
+          "overview": "Oliver, Lisa and Eb talk about reincarnation after watching a movie about a grandfather who returns as a racehorse. Later, when Eb goes missing during a nasty thunderstorm, Lisa is worried sick that something bad has happened to him. She's greatly relieved when he returns home safely--\"reincarcerated\" as a dog.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/8kLgL4Zkn9FcClOOZRoOEyqflcG.jpg",
+          "airDate": "1969-04-02",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E26 The Reincarnation of Eb.mp4",
+            "format": "h.264",
+            "sizeBytes": 147590058,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-4-e-26-the-reincarnation-of-eb/S4E26 The Reincarnation of Eb.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "s-5-e-01-lisas-mudder-comes-for-a-visit",
+          "seasonNumber": 5,
+          "episodeNumber": 1,
+          "title": "Lisa's Mudder Comes for a Visit",
+          "overview": "Lisa's 'mudder' (mother) pays a surprise visit to the Hooterville farm and promptly takes over as a three-week house guest.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/tslINVTp5x3KbNzoEn0dN3A5aYU.jpg",
+          "airDate": "1969-09-27",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E01 Lisa’s Mudder Comes for a Visit.mp4",
+            "format": "h.264",
+            "sizeBytes": 148886551,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-01-lisas-mudder-comes-for-a-visit/S5E01 Lisa’s Mudder Comes for a Visit.mp4"
+        },
+        {
+          "archiveID": "s-5-e-02-everybody-tries-to-love-a-countess",
+          "seasonNumber": 5,
+          "episodeNumber": 2,
+          "title": "Everybody Tries to Love a Countess",
+          "overview": "Oliver loses all hopes of getting rid of his mother-in-law when Mr Haney and Uncle Joe Carson vie to become his father-in-law.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/g2rwFSMAN93p1MENj8LtTcAD5aH.jpg",
+          "airDate": "1969-10-04",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E02 Everybody Tries to Love a Countess.mp4",
+            "format": "h.264",
+            "sizeBytes": 148469561,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-02-everybody-tries-to-love-a-countess/S5E02 Everybody Tries to Love a Countess.mp4"
+        },
+        {
+          "archiveID": "s-5-e-03-where-theres-a-will",
+          "seasonNumber": 5,
+          "episodeNumber": 3,
+          "title": "Where There's a Will",
+          "overview": "Fred Ziffel finds out that Arnold may in line for a inheritance. Arnold has the ability to predict the weather with his tail, supposedely making him a direct discendant of Herman, a spokespig who could also do the same. All of Hooterville, including Lisa tries to get Oliver to take Arnold to Chicago to receive the pig's $20,000,000 inheritance.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/c2DR6948PtgvxiJusDvLRceA0on.jpg",
+          "airDate": "1969-10-11",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E03 Where There’s a Will.mp4",
+            "format": "h.264",
+            "sizeBytes": 147770013,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-03-where-theres-a-will/S5E03 Where There’s a Will.mp4"
+        },
+        {
+          "archiveID": "s-5-e-04-a-tale-of-a-tail",
+          "seasonNumber": 5,
+          "episodeNumber": 4,
+          "title": "A Tale of a Tail",
+          "overview": "Oliver takes Arnold the Pig Chicago to receive Arnold's inheritance of $20,000,000. Arnold is a direct discendant of Herman, a pig who could predict the weather with his tail. However, Oliver soon finds it difficult watching after a pig in the hotel.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7RHfYSvVJR3p4DL8gw21NfiGwuD.jpg",
+          "airDate": "1969-10-18",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E04 A Tale of a Tail.mp4",
+            "format": "h.264",
+            "sizeBytes": 147573281,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-04-a-tale-of-a-tail/S5E04 A Tale of a Tail.mp4"
+        },
+        {
+          "archiveID": "s-5-e-05-you-and-your-big-shrunken-head",
+          "seasonNumber": 5,
+          "episodeNumber": 5,
+          "title": "You and Your Big Shrunken Head",
+          "overview": "When the Douglases, Eb, and Arnold return from Chicago, Arnold becomes a gift-bearing pig. He gives Mr. Kimball a wristwatch, Lisa an expensive braclet, and Oliver a shrunken head. Arnold soon finds himself the target of every seller from Hooterville, Pixley, and Crabwell Corners, who want their hands on Arnold's inheritance.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/cdvT2mykqvBLPRDbK0mZii0rvuP.jpg",
+          "airDate": "1969-10-25",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E05 You and Your Big Shrunken Head.mp4",
+            "format": "h.264",
+            "sizeBytes": 148655049,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-05-you-and-your-big-shrunken-head/S5E05 You and Your Big Shrunken Head.mp4"
+        },
+        {
+          "archiveID": "s-5-e-06-the-road",
+          "seasonNumber": 5,
+          "episodeNumber": 6,
+          "title": "The Road",
+          "overview": "Oliver's angry over Hooterville's dirt road, especially after learning the money to pave it was appropriated thirty years earlier. Never content to leave well enough alone, he descends on the state capitol demanding that something be done. He makes little headway until Lisa mentions the name of powerful hot dog vendor Big Joe Haney.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/mSarpcK0KDHgGs1m4UUfCwdRmEo.jpg",
+          "airDate": "1969-11-01",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E06 The Road.mp4",
+            "format": "h.264",
+            "sizeBytes": 128510439,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-06-the-road/S5E06 The Road.mp4"
+        },
+        {
+          "archiveID": "s-5-e-07-four-of-spades",
+          "seasonNumber": 5,
+          "episodeNumber": 7,
+          "title": "Four of Spades",
+          "overview": "Lisa the fortune-teller predicts that a mysterious stranger will soon enter Oliver's life. That stranger is Tadpole Talbot, Eb's country music singing cousin. Tadpole hires Eb to go on the road and plug his music, but it's not nearly as glamourous as Eb imagined.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/qifWV4sC3KKl6e2fuUEyuPKCMgb.jpg",
+          "airDate": "1969-11-08",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E07 Four of Spades.mp4",
+            "format": "h.264",
+            "sizeBytes": 149052475,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-07-four-of-spades/S5E07 Four of Spades.mp4"
+        },
+        {
+          "archiveID": "s-5-e-08-the-youth-center",
+          "seasonNumber": 5,
+          "episodeNumber": 8,
+          "title": "The Youth Center",
+          "overview": "Alarmed by the dropping population of Hooterville, Oliver calls a town meeting to find a way to keep the young people from moving away. Lisa urges him not to become involved because his \"goo dooding\" always backfires, but he forges ahead anyway. Soon, he's involuntarily volunteered his barn to be the valley's new youth center.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/cHrn6uivUuBmEr5ZySslotItFhp.jpg",
+          "airDate": "1969-11-15",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E08 The Youth Center.mp4",
+            "format": "h.264",
+            "sizeBytes": 148434704,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-08-the-youth-center/S5E08 The Youth Center.mp4"
+        },
+        {
+          "archiveID": "s-5-e-09-the-special-delivery-letter",
+          "seasonNumber": 5,
+          "episodeNumber": 9,
+          "title": "The Special Delivery Letter",
+          "overview": "Oliver tries to pick up a special delivery letter that arrived for him at the Hooterville post office. He and Lisa end up traveling all over the valley because Drucker mistakenly gave it to Hank Kimball, who gave it to Fred Ziffel, who gave it to Arnold. Arnold dropped it in the mail, sending the Douglases to the Pixley post office where two sets of identical twins are working at the windows.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/qVqIuy7tClQP8YHNSdt24y3GTE9.jpg",
+          "airDate": "1969-11-22",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E09 The Special Delivery Letter.mp4",
+            "format": "h.264",
+            "sizeBytes": 148397665,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-09-the-special-delivery-letter/S5E09 The Special Delivery Letter.mp4"
+        },
+        {
+          "archiveID": "s-5-e-10-olivers-schoolgirl-crush",
+          "seasonNumber": 5,
+          "episodeNumber": 10,
+          "title": "Oliver's Schoolgirl Crush",
+          "overview": "The principal of Hootervile asks Oliver to address on of his classes, about job opportunities. While talking to the class a high school girl falls for Oliver. This makes Lisa jealous.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/8vzI0YL1wUOAF9cLoDlAAA473iF.jpg",
+          "airDate": "1969-11-29",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E10 Oliver’s Schoolgirl Crush.mp4",
+            "format": "h.264",
+            "sizeBytes": 149082862,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-10-olivers-schoolgirl-crush/S5E10 Oliver’s Schoolgirl Crush.mp4"
+        },
+        {
+          "archiveID": "s-5-e-11-ralphs-nuptials",
+          "seasonNumber": 5,
+          "episodeNumber": 11,
+          "title": "Ralph's Nuptials",
+          "overview": "Ralph finally squeezes a proposal out of a medicated Hank Kimball, sending a delighted Lisa into wedding planning mode. Even though the Haney-produced ceremony goes off without a hitch, the honeymoon with an absent-minded Hank doesn't.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/d2cqKd9EOy5WuzqY3es60UyzMws.jpg",
+          "airDate": "1969-12-13",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E11 Ralph’s Nuptials.mp4",
+            "format": "h.264",
+            "sizeBytes": 148101556,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-11-ralphs-nuptials/S5E11 Ralph’s Nuptials.mp4"
+        },
+        {
+          "archiveID": "s-5-e-12-oliver-and-the-cornstalk",
+          "seasonNumber": 5,
+          "episodeNumber": 12,
+          "title": "Oliver and the Cornstalk",
+          "overview": "With minimal help from Eb, a stressed Oliver begins planting his corn crop. Lisa tries to be a useful farm wife by making dreadful lemonade which Oliver pours out onto the ground. The next morning at that spot, he finds a giant cornstalk that reaches into the clouds. At the top of the stalk there's a Jolly Green Giant who bellows \"Ho, Ho, Ho\" and drops down creamed corn, both in the can and by the bucketful.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/fT0jV2bqohP7GoGwYpmozxPFzHt.jpg",
+          "airDate": "1969-12-20",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E12 Oliver and the Cornstalk.mp4",
+            "format": "h.264",
+            "sizeBytes": 146151777,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-12-oliver-and-the-cornstalk/S5E12 Oliver and the Cornstalk.mp4"
+        },
+        {
+          "archiveID": "s-5-e-13-beauty-is-skin-deep",
+          "seasonNumber": 5,
+          "episodeNumber": 13,
+          "title": "Beauty is Skin Deep",
+          "overview": "Sam Drucker stocks no \"cosmeteticals\" in his store, so Lisa offers to put together a display for him. When 395 cartons of Lady Love cosmetics are delivered, Lisa pushes Sam out the door and converts his business into a \"beauty saloon\". After Oliver tells her she must move her business somewhere else, she sets up shop in their living room",
+          "stillURL": "https://image.tmdb.org/t/p/w300/wJ1KzS8hJZLGPYcsoCPBQzLlN67.jpg",
+          "airDate": "1969-12-27",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E13 Beauty is Skin Deep.mp4",
+            "format": "h.264",
+            "sizeBytes": 148746288,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-13-beauty-is-skin-deep/S5E13 Beauty is Skin Deep.mp4"
+        },
+        {
+          "archiveID": "s-5-e-14-the-wish-book",
+          "seasonNumber": 5,
+          "episodeNumber": 14,
+          "title": "The Wish-Book",
+          "overview": "The discovery of a Wish Book from 1898 leads Haney to tell the story of Calvin and Tessie Whittaker, who once owned the Douglases' house. When a magic lantern is mistakenly delivered by the catalog company, Calvin opens a Wall Picture Theater in Pixley, thrilling audiences with a slide of Abraham Lincoln standing on his head. Eventually he goes to Hollywood to pitch his ideas, but they call him a nut. They even scoff at his idea to put a mouse named Dickey into films. They love Tessie, however, and she becomes a silent film star.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ocBw4PJrOBm6IQNhqe8QxgeAbY0.jpg",
+          "airDate": "1970-01-03",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E14 The Wish-Book.mp4",
+            "format": "h.264",
+            "sizeBytes": 148776615,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-14-the-wish-book/S5E14 The Wish-Book.mp4"
+        },
+        {
+          "archiveID": "s-5-e-15-rest-and-relaxation",
+          "seasonNumber": 5,
+          "episodeNumber": 15,
+          "title": "Rest and Relaxation",
+          "overview": "Oliver's old friend, reporter Mort Warner, comes to Hooterville to relax and soothe his rattled nerves. He's ready to flee in less than one day. Mort is frightened by Lisa's syrupy coffee, hosed down with oil by Oliver's rickety tractor, and has his bed invaded by a TV-watching pig. Fred Ziffel peers at him naked in the outdoor shower, Mr. Haney gouges him with his phony Auto Club, the sheriff arrests him for stealing the Douglas' car, and quail-hunting Hank Kimball fills his behind with buckshot.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/fBdXP8fLr7Pbd3bksZJ3gcsqutU.jpg",
+          "airDate": "1970-01-10",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E15 Rest and Relaxation.mp4",
+            "format": "h.264",
+            "sizeBytes": 148389339,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-15-rest-and-relaxation/S5E15 Rest and Relaxation.mp4"
+        },
+        {
+          "archiveID": "s-5-e-16-trapped",
+          "seasonNumber": 5,
+          "episodeNumber": 16,
+          "title": "Trapped",
+          "overview": "Oliver and Lisa find a basement in their house. While exploring it, they find themselfs trapped. They send a sos up the kitchen sink drain for help.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/k8Uyp7DJLzJJH4jG37gZWWhOMYd.jpg",
+          "airDate": "1970-01-17",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E16 Trapped.mp4",
+            "format": "h.264",
+            "sizeBytes": 149118251,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-16-trapped/S5E16 Trapped.mp4"
+        },
+        {
+          "archiveID": "s-5-e-17-bundle-of-joy",
+          "seasonNumber": 5,
+          "episodeNumber": 17,
+          "title": "Bundle of Joy",
+          "overview": "While Oliver's in New Yorkfinishing a casefor his old law firm, Lisa and Eb discover \"Little Freddie\" on the doorstep. Oliver panics when Lisa calls and tells him about the baby, but fails to mention it's a baby dog. Unable to talk Lina into contacting the sheriff, he abandons his case and races back to Hooterville to take charge.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ehFvUKnCIoo6afqqRZwMxwRM03G.jpg",
+          "airDate": "1970-01-24",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E17 Bundle of Joy.mp4",
+            "format": "h.264",
+            "sizeBytes": 148937962,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-17-bundle-of-joy/S5E17 Bundle of Joy.mp4"
+        },
+        {
+          "archiveID": "s-5-e-18-the-ex-con",
+          "seasonNumber": 5,
+          "episodeNumber": 18,
+          "title": "The Ex-Con",
+          "overview": "Oliver gives another of his speeches, this one to the County Bar Association, encouraging the hiring of ex-convicts. This leads to his hiring of Willie Dunhill, a man who's spent so many years in prison, he can't adjust to life on the outside; he keeps calling Oliver \"warden\".",
+          "stillURL": "https://image.tmdb.org/t/p/w300/owArdLu2vM85OD8nzOdqvp1RUwA.jpg",
+          "airDate": "1970-01-31",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E18 The Ex-Con.mp4",
+            "format": "h.264",
+            "sizeBytes": 129288016,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-18-the-ex-con/S5E18 The Ex-Con.mp4"
+        },
+        {
+          "archiveID": "s-5-e-19-the-cow-killer_202510",
+          "seasonNumber": 5,
+          "episodeNumber": 19,
+          "title": "The Cow Killer",
+          "overview": "Haney's latest attempt to cheat Oliver could land him in jail if he doesn't repay his $200 by six o'clock. He uses Oliver's irritation over Colby's renegade cow, the Douglases' cow Eleanor and a misplaced phony bovine to his advantage, selling and reselling all three cattle to make money. Along the way, Lisa and Eb become convinced that Oliver is a cold blooded \"cow shooster\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/dbCDhffdpCKu8sJ3O8xplDcaxIN.jpg",
+          "airDate": "1970-02-07",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E19 The Cow Killer.mp4",
+            "format": "h.264",
+            "sizeBytes": 148802147,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-19-the-cow-killer_202510/S5E19 The Cow Killer.mp4"
+        },
+        {
+          "archiveID": "s-5-e-20-the-confrontation",
+          "seasonNumber": 5,
+          "episodeNumber": 20,
+          "title": "The Confrontation",
+          "overview": "In just his first day as the School Board President, Oliver has started a grammar school protest. The kids are upset that their mascot, Arnold, has been thrown out for popping his teacher with a pea shooter. Fred asks Oliver to represent his \"son\" on grounds that he was discriminated against, but all Oliver can do is talk to the school's determined principal.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9iZ8RMealHCQNCkKgx5XKizekg0.jpg",
+          "airDate": "1970-02-14",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E20 The Confrontation.mp4",
+            "format": "h.264",
+            "sizeBytes": 148215233,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-20-the-confrontation/S5E20 The Confrontation.mp4"
+        },
+        {
+          "archiveID": "s-5-e-21-the-case-of-the-hooterville-refund-fraud",
+          "seasonNumber": 5,
+          "episodeNumber": 21,
+          "title": "The Case of the Hooterville Refund Fraud",
+          "overview": "Oliver unintentionally provides the motive for the residents of Hooterville to illegally receive more than $500,000 from the Internal Revenue Service. The locals think all they have to do is write in and state their losses--not understanding that they actually have to file taxes first. Eventually, to get its cash back, the IRS invests in Haney's monkey racing track.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/oVsWLakMf5hcbtbBaeWzyazuv9T.jpg",
+          "airDate": "1970-02-28",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E21 The Case of the Hooterville Refund Fraud.mp4",
+            "format": "h.264",
+            "sizeBytes": 148273210,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-21-the-case-of-the-hooterville-refund-fraud/S5E21 The Case of the Hooterville Refund Fraud.mp4"
+        },
+        {
+          "archiveID": "s-5-e-22-the-picnic",
+          "seasonNumber": 5,
+          "episodeNumber": 22,
+          "title": "The Picnic",
+          "overview": "Oliver wants to have a simple, romantic Sunday picnic with Lisa. His afternoon for two turns into an irritating crowd when everyone invites themselves and tags along. Joining the couple are Eb, his girlfriend Linda and her accordion, her parents, Sam Drucker, his date and her sousaphone, Hank Kimball, Linda's Grandpa and some old lady he hit on at the gas station. That night, Oliver and Lisa take refuge in the barn when the crowd shows up at their house.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/19mbqMhfFiGDqt6DaCFm8eHYHuP.jpg",
+          "airDate": "1970-03-07",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E22 The Picnic.mp4",
+            "format": "h.264",
+            "sizeBytes": 146968079,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-22-the-picnic/S5E22 The Picnic.mp4"
+        },
+        {
+          "archiveID": "s-5-e-23-the-beeping-rock",
+          "seasonNumber": 5,
+          "episodeNumber": 23,
+          "title": "The Beeping Rock",
+          "overview": "A wild story told by an 11-year-old about his recent trip to the moon enthralls Eb and Lisa. Oliver believes none of it, especially when the kid sells Lisa a \"moon rock\" for $14. But once the rock starts beeping under the moonlight (and when Arnold snorts at it), he suspects he's the subject of a practical joke. Oliver ships it off to NASA for their scientists to examine.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/nPAwm4N8uqsvAd09yif1T0LiZfP.jpg",
+          "airDate": "1970-03-21",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E23 The Beeping Rock.mp4",
+            "format": "h.264",
+            "sizeBytes": 149286913,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-23-the-beeping-rock/S5E23 The Beeping Rock.mp4"
+        },
+        {
+          "archiveID": "s-5-e-24-uncle-fedor",
+          "seasonNumber": 5,
+          "episodeNumber": 24,
+          "title": "Uncle Fedor",
+          "overview": "Lisa's skittish Uncle Fedor uses the Douglases home to hide out--mostly under the bed and sofa. He claims he's on the run from the Secet Police who want him for smuggling a secret formula. When a man with a scar and another without an ear are spotted in Hooterville, his wild tale starts to seem believable.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/kxKxXt8y1SKVjpdAXtv5AUEmAc3.jpg",
+          "airDate": "1970-03-28",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E24 Uncle Fedor.mp4",
+            "format": "h.264",
+            "sizeBytes": 148794703,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-24-uncle-fedor/S5E24 Uncle Fedor.mp4"
+        },
+        {
+          "archiveID": "s-5-e-25-the-wealthy-landowner",
+          "seasonNumber": 5,
+          "episodeNumber": 25,
+          "title": "The Wealthy Landowner",
+          "overview": "In a personals ad, Eb advertises himself as a wealthy landowner. He begins communicating with a woman with a Park Avenue address, prompting him to exaggerate his worth even more. By the time she arrives for a visit, Eb is passing the Douglases off as sharecroppers who work for him.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iB2KxCITRlmCNsl9dA08gnmGaiK.jpg",
+          "airDate": "1970-04-11",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E25 The Wealthy Landowner.mp4",
+            "format": "h.264",
+            "sizeBytes": 147472219,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-25-the-wealthy-landowner/S5E25 The Wealthy Landowner.mp4"
+        },
+        {
+          "archiveID": "s-5-e-26-happy-birthday",
+          "seasonNumber": 5,
+          "episodeNumber": 26,
+          "title": "Happy Birthday",
+          "overview": "It's Oliver's birthday, and everyone but him wants to celebrate. It also (coincidentally) happens to be Arnold's birthday too. Everyone tries to persuade Oliver to get Arnold a birthday present, while he thinks he deserves one because he's human, while Arnold isn't. It turns out Arnold, and Lisa are the only one's who get Oliver a gift, and when he and Lisa go over to the Ziffel's house for his party, only to find that there wasn't one, they return to find all of their furniture stolen.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/dGC3n6vv7WfR8tCPljFUYCBc2Zy.jpg",
+          "airDate": "1970-04-11",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S5E26 Happy Birthday.mp4",
+            "format": "h.264",
+            "sizeBytes": 147770750,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-5-e-26-happy-birthday/S5E26 Happy Birthday.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "s-6-e-1-the-city-kids",
+          "seasonNumber": 6,
+          "episodeNumber": 1,
+          "title": "The City Kids",
+          "overview": "Four children from the city spend a week on the farm with the Douglases. While Oliver teaches them to plant seeds and milk a cow, Lisa falls in love with the little girl of the group, Lori. The two bond over a batch of banana jelly.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4YceQ3M38x3CvHi6RYI6Gbr2SHA.jpg",
+          "airDate": "1970-09-15",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E1 The City Kids.mp4",
+            "format": "h.264",
+            "sizeBytes": 147637582,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-1-the-city-kids/S6E1 The City Kids.mp4"
+        },
+        {
+          "archiveID": "s-6-e-2-the-coming-out-party",
+          "seasonNumber": 6,
+          "episodeNumber": 2,
+          "title": "The Coming-Out Party",
+          "overview": "Lori, the little girl who missed the train back to the city, is staying with the Douglases. Lisa's plan to introduce her to the local children by having a party and gets out of hand; the festivities grow to include an elephant and Haney giving biplane rides. While Oliver fights to downsize her event, he searches for a replacement part for his ancient Hoyt-Clagwell tractor so he can begin planting.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/6NNfDEQFMM1LkSKExXlnFBME31.jpg",
+          "airDate": "1970-09-22",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E2 The Coming-Out Party.mp4",
+            "format": "h.264",
+            "sizeBytes": 147914956,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-2-the-coming-out-party/S6E2 The Coming-Out Party.mp4"
+        },
+        {
+          "archiveID": "s-6-e-3-jealousy",
+          "seasonNumber": 6,
+          "episodeNumber": 3,
+          "title": "Jealousy",
+          "overview": "Eb won't stop badgering \"Dad\" to buy him a car, though an increasingly irritated Oliver keeps saying no. Meanwhile, Lisa is busy lavishing gifts on little Lori. Feeling he's been replaced in the Douglas family, a dejected Eb runs away to find a new job. He stops by Drucker's store just long enough to tell Sam how Oliver keeps him locked in leg irons and lost his $4000 on a drunken gambling spree in Las Vegas. Eb quickly returns home to discover Oliver isn't the monster he's been claiming.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/6j2COL2eumuLjXafyyTBRyFuZ9.jpg",
+          "airDate": "1970-09-29",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E3 Jealousy.mp4",
+            "format": "h.264",
+            "sizeBytes": 147914763,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-3-jealousy/S6E3 Jealousy.mp4"
+        },
+        {
+          "archiveID": "s-6-e-04-a-royal-love-story",
+          "seasonNumber": 6,
+          "episodeNumber": 4,
+          "title": "A Royal Love Story",
+          "overview": "Lisa tells Lori yet another version of how she and Oliver met. In this one, she was living in a Paris apartment with her father, the deposed King of Hungary. While he was plotting his return to power, Lisa was working as a waitress at a sidewalk cafe when Oliver stopped by for six bottles of champagne. The King wants her to marry a baron who will bankroll his army, but Lisa loves poor American Oliver Douglas.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/pp73BjQ4wrFWmAiKaYcEaLExIRy.jpg",
+          "airDate": "1970-10-06",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E04 A Royal Love Story.mp4",
+            "format": "h.264",
+            "sizeBytes": 147877932,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-04-a-royal-love-story/S6E04 A Royal Love Story.mp4"
+        },
+        {
+          "archiveID": "s-6-e-5-oliver-goes-broke",
+          "seasonNumber": 6,
+          "episodeNumber": 5,
+          "title": "Oliver Goes Broke",
+          "overview": "After saying good-bye to Lori at the airport, a distraught Lisa seeks a job to fill her days. When Haney spots her applying at the County Welfare office, he assumes she's there for the free soup. Soon, Hooterville's convinced \"dumb dumb\" Oliver has lost his money and sent his wife out to find a job.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/eAQESXqJ2aBNImObjJfqNyExMdq.jpg",
+          "airDate": "1970-10-20",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E5 Oliver Goes Broke.mp4",
+            "format": "h.264",
+            "sizeBytes": 147038617,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-5-oliver-goes-broke/S6E5 Oliver Goes Broke.mp4"
+        },
+        {
+          "archiveID": "s-6-e-6-the-great-mayoralty-campaign",
+          "seasonNumber": 6,
+          "episodeNumber": 6,
+          "title": "The Great Mayoralty Campaign",
+          "overview": "Mayorial candidate Oliver Douglas faces an opponent when the Hooterville women nominate Lisa to run. While the men plot to improve Oliver's image, Ralph Monroe wages a campaign of dirty tricks against him that includes hotscake batter in his hat and an appearance by Lady Godiva.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4i4fyYS02QArU0CooRFDJChB4dn.jpg",
+          "airDate": "1970-10-27",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E6 The Great Mayoralty Campaign.mp4",
+            "format": "h.264",
+            "sizeBytes": 148362772,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-6-the-great-mayoralty-campaign/S6E6 The Great Mayoralty Campaign.mp4"
+        },
+        {
+          "archiveID": "s-6-e-7-ebs-double-trouble",
+          "seasonNumber": 6,
+          "episodeNumber": 7,
+          "title": "Eb's Double Trouble",
+          "overview": "The new schoolteacher, Carol, arrives in Hooterville and Eb's heart is aflutter. Eb's current local girlfriend(Darlene) wants to go to the dance which Eb asked Carol to. After seeking advice from Oliver and Mr. Haney, Eb hatches a plan to do double duty and take both girls. Oliver feels the wrath of Darlene's daddy, when Eb lies that he has a wife in Racine, Wisconsin. All works out, when Carol's out-of-town boyfriend arrives to take her to the dance and Eb gets to escort Darlene.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/6fp6xNvz3dxkeow67AI9B9dXuRf.jpg",
+          "airDate": "1970-11-10",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E7 Eb’s Double Trouble.mp4",
+            "format": "h.264",
+            "sizeBytes": 148659251,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-7-ebs-double-trouble/S6E7 Eb’s Double Trouble.mp4"
+        },
+        {
+          "archiveID": "s-6-e-8-apple-picking-time",
+          "seasonNumber": 6,
+          "episodeNumber": 8,
+          "title": "Apple-Picking Time",
+          "overview": "Oliver has his first good apple crop, but the valley has no pickers. He suggests the farmers take turns picking each others' crops, but by the time they get to him, they're worn out. Compounding his problems, Lisa's driving lessons include an unplanned wreck with a sheriff's car.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/fjnhqS4XwiYXj48nPp36QpdqzaC.jpg",
+          "airDate": "1970-11-17",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E8 Apple-Picking Time.mp4",
+            "format": "h.264",
+            "sizeBytes": 149017846,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-8-apple-picking-time/S6E8 Apple-Picking Time.mp4"
+        },
+        {
+          "archiveID": "s-6-e-9-enterprising-eb",
+          "seasonNumber": 6,
+          "episodeNumber": 9,
+          "title": "Enterprising Eb",
+          "overview": "Eb learns that $538 is not enough to build a house on the two acres the Douglases gave to him and Darlene. His schemes to raise a down payment include turning the Douglas farm into a bed and breakfast, a dump, and a trailer camp.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/txkXcqnPIZyMv0vjaFFKIjQTmIE.jpg",
+          "airDate": "1970-11-24",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E9 Enterprising Eb.mp4",
+            "format": "h.264",
+            "sizeBytes": 148736332,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-9-enterprising-eb/S6E9 Enterprising Eb.mp4"
+        },
+        {
+          "archiveID": "s-6-e-10-olivers-double",
+          "seasonNumber": 6,
+          "episodeNumber": 10,
+          "title": "Oliver's Double",
+          "overview": "Confusion takes over Hooterville as a bank robber and his girlfriend hold up in Pixley. The main problem is that the bank robber looks, and sounds exactly like Oliver Wendall Douglas! The first one to get confused is Eb, when he sees what looks like Oliver cheating on Lisa by kissing another girl. The look alike also causes confusions for Mr. Drucker and Mr. Kimbell when he makes a visit to Sam's store. On suspision, Oliver is arrested, while Mr. Drucker and Mr. Kimbell hold up the bank robber and send him to jail. Oliver and the robber are in jail, and the police can't tell who is the real Oliver, but they have Lisa come in to identify the real Mr. Douglas. She picks the robber, but Oliver comes up with an idea to reveal who is the real Oliver, when he has himself, and the robber write down where they believe Lisa has a mole.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/nfewMKzynUxMKz4qbHZdSPGbe8w.jpg",
+          "airDate": "1970-12-01",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E10 Oliver’s Double.mp4",
+            "format": "h.264",
+            "sizeBytes": 149215087,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-10-olivers-double/S6E10 Oliver’s Double.mp4"
+        },
+        {
+          "archiveID": "s-6-e-11-the-high-cost-of-loving",
+          "seasonNumber": 6,
+          "episodeNumber": 11,
+          "title": "The High Cost of Loving",
+          "overview": "Wanting a better paying career, Eb enters the accounting program of a correspondence school. When they mistakenly enroll him in their acting course, Eb believes it's destiny calling. Despite a disastrous attempt at makeup, he studies by dramatizing everyday events; a boring meal becomes dinner with King Louis XIV with Lisa as his serving \"wrench\".",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rNP0PdHvGQbOY9SPGznFB4S3WZw.jpg",
+          "airDate": "1970-12-08",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E11 The High Cost of Loving.mp4",
+            "format": "h.264",
+            "sizeBytes": 149251108,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-11-the-high-cost-of-loving/S6E11 The High Cost of Loving.mp4"
+        },
+        {
+          "archiveID": "s-6-e-12-the-liberation-movement",
+          "seasonNumber": 6,
+          "episodeNumber": 12,
+          "title": "The Liberation Movement",
+          "overview": "After Lisa hears a women's liberation speaker, she demands that Oliver share the household chores while she runs the farm. While he meets with nothing but red tape while trying to build a tool shed, Lisa gets the permit and completes the building with ease. A skeptical Oliver is in disbelief that his wife is so successful at \"men's work\".",
+          "stillURL": "https://image.tmdb.org/t/p/w300/kfrInObaILkIO49MqFRnIOh5ots.jpg",
+          "airDate": "1970-12-15",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E12 The Liberation Movement.mp4",
+            "format": "h.264",
+            "sizeBytes": 149770131,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-12-the-liberation-movement/S6E12 The Liberation Movement.mp4"
+        },
+        {
+          "archiveID": "s-6-e-13-charlie-homer-and-natasha",
+          "seasonNumber": 6,
+          "episodeNumber": 13,
+          "title": "Charlie, Homer and Natasha",
+          "overview": "Oliver won't take Lisa to New York for a big party, but the issue isn't over. She conspires with Eb to invent new invisible friends, hoping the scheme will end with a trip to the city to visit a psychiatrist.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/y4T9LwTINeMajT8IX1aHRYbrVML.jpg",
+          "airDate": "1970-12-22",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E13 Charlie, Homer, and Natasha.mp4",
+            "format": "h.264",
+            "sizeBytes": 149164239,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-13-charlie-homer-and-natasha/S6E13 Charlie, Homer, and Natasha.mp4"
+        },
+        {
+          "archiveID": "s-6-e-14-the-engagement-ring",
+          "seasonNumber": 6,
+          "episodeNumber": 14,
+          "title": "The Engagement Ring",
+          "overview": "Eb is sent packing when Darlene's dad learns he proposed to is daughter with a watch fob instead of a ring. Lisa gives Eb the $2000 ring Oliver used to get engaged to her and everyone is happy--until the father has the ring appraised.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2Y6G7SqIL1ZvqTGV02YSDe6AH75.jpg",
+          "airDate": "1970-12-29",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E14 The Engagement Ring.mp4",
+            "format": "h.264",
+            "sizeBytes": 149757588,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-14-the-engagement-ring/S6E14 The Engagement Ring.mp4"
+        },
+        {
+          "archiveID": "s-6-e-15-the-free-paint-job",
+          "seasonNumber": 6,
+          "episodeNumber": 15,
+          "title": "The Free Paint Job",
+          "overview": "Oliver's happy to let a paint company put a fresh coat on the house as an advertising stunt. But to everyone's surprise, the wood is so porous, it sucks up the paint as quickly as it's applied. In the kitchen, Lisa is taking three weeks to practice cooking spaghetti and meatballs for Oliver's birthday.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/oY3oi4oDJtJpdJco2HDkJZIrPO.jpg",
+          "airDate": "1971-01-05",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E15 The Free Paint Job.mp4",
+            "format": "h.264",
+            "sizeBytes": 149517663,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-15-the-free-paint-job/S6E15 The Free Paint Job.mp4"
+        },
+        {
+          "archiveID": "s-6-e-16-son-of-drobny",
+          "seasonNumber": 6,
+          "episodeNumber": 16,
+          "title": "Son of Drobny",
+          "overview": "Hooterville throws a celebration for the son of a war hero who Lisa claims delivered secret messages during WWII. Oliver tries to tell them that Drobny is just a \"dumb duck\" sent to them by Lisa's father, but they think he's just being a sorehead.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/kfS1zMH7w0oRYUrV0J2kwduqVHa.jpg",
+          "airDate": "1971-01-12",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E16 Son of Drobny.mp4",
+            "format": "h.264",
+            "sizeBytes": 149448249,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-16-son-of-drobny/S6E16 Son of Drobny.mp4"
+        },
+        {
+          "archiveID": "s-6-e-17-the-wedding-deal",
+          "seasonNumber": 6,
+          "episodeNumber": 17,
+          "title": "The Wedding Deal",
+          "overview": "With just two weeks until their wedding, Eb and Darlene still don't have a location for the ceremony. Mr. Haney's first suggestion, to have it for free at a car wash, doesn't wash. His second scheme, which comes complete with a household of furniture, gets Eb's signature on the dotted line. Darlene's father, however, refuses to let her get married on television in a furniture emporium's front window.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/hUICwEJgOnt5QwAM737lWm4r6rM.jpg",
+          "airDate": "1971-01-19",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E17 The Wedding Deal.mp4",
+            "format": "h.264",
+            "sizeBytes": 149237510,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-17-the-wedding-deal/S6E17 The Wedding Deal.mp4"
+        },
+        {
+          "archiveID": "s-6-e-18-star-witness",
+          "seasonNumber": 6,
+          "episodeNumber": 18,
+          "title": "Star Witness",
+          "overview": "When the Ziffels come down with the flu, Arnold the pig stays with the Douglases for a few days, complete with his baggage & ukelele. On a trip into Pixley, Arnold waits in the car, while the Doulases run an errand. Arnold witnesses the Pixley Bank being robbed and notices the robbers description. But with all his squealing he loses his voice, and cannot tell the sheriff what he saw.    Mr. Haney tries to sell Mr. Douglas a witness protection service for Arnold. Mr. Kimball tries to track the robbers and ends up giving the real robbers info about where Arnold can be found. The robbers take Eb hostage, thinking he is Arnold. Arnold saves the day by leading the Douglases to the robbers hideout and helping capture them, by pushing a ladder over their heads. Arnold thus collects the $2500 reward.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/xQbAlU2V335XZON6C9vMGqciXWx.jpg",
+          "airDate": "1971-01-26",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E18 Star Witness.mp4",
+            "format": "h.264",
+            "sizeBytes": 149398843,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-18-star-witness/S6E18 Star Witness.mp4"
+        },
+        {
+          "archiveID": "s-6-e-19-the-spot-remover",
+          "seasonNumber": 6,
+          "episodeNumber": 19,
+          "title": "The Spot Remover",
+          "overview": "Lisa's Uncle Boris sends her a jar of his incredibly effective cleaning fluid. It removes stains from suit coats and rugs, not to mention green from toupees. Seeing dollar signs, Haney sneaks a sample and has it analyzed; the secret formula ends up being a magical recipe for cabbage soup.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/hcwPAyV0ukNvwztBdf2qFUDSMOe.jpg",
+          "airDate": "1971-02-02",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E19 The Spot Remover.mp4",
+            "format": "h.264",
+            "sizeBytes": 149629749,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-19-the-spot-remover/S6E19 The Spot Remover.mp4"
+        },
+        {
+          "archiveID": "s-6-e-20-king-oliver-i",
+          "seasonNumber": 6,
+          "episodeNumber": 20,
+          "title": "King Oliver I",
+          "overview": "The govenor announces \"\"Our state is bankrupt\"\" and that he is raising taxes 52%. Hooterville responds by blowing up the bridge over the swamp and forming their own kingdom, headed by King Oliver the I. King Oliver is wearing a crown because he ate the oleo margerine.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/cWGt0NLq2YPkoRozDQXk3ZKXbgh.jpg",
+          "airDate": "1971-02-09",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E20 King Oliver I.mp4",
+            "format": "h.264",
+            "sizeBytes": 149449316,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-20-king-oliver-i/S6E20 King Oliver I.mp4"
+        },
+        {
+          "archiveID": "s-6-e-21-a-girl-for-drobny",
+          "seasonNumber": 6,
+          "episodeNumber": 21,
+          "title": "A Girl for Drobny",
+          "overview": "Drobny the pet duck, which Lisa received from her uncle in Hungary, is lonesome. He annoys Oliver by playing his phonograph and dancing while Oliver is trying to do his taxes. Lisa sets out to perk up Drobny's loneliness by inviting Arnold the pig over to play. But alas the language barrier is to great to overcome. Drobny speaks only Hungarian, while Arnold speaks English, French, Spanish, and a little Japanese. Lisa decides Drobny needs a girlfriend and they set out to secure one for him. Mr. Haney tries to sell Gertrude the female duck, to the Douglases for $600. When that fails, he accepts the $20 that Oliver offers. Drobny & Gertrude hit it off so well, they are expectant parents soon. But of their 3 offspring, 2 are ducklings and 1 is a baby chick.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/gQAYUfBYB32fmzuJ4NKfMQH9dYl.jpg",
+          "airDate": "1971-02-16",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E21 A Girl for Drobny.mp4",
+            "format": "h.264",
+            "sizeBytes": 149909788,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-21-a-girl-for-drobny/S6E21 A Girl for Drobny.mp4"
+        },
+        {
+          "archiveID": "s-6-e-22-the-carpenters-ball",
+          "seasonNumber": 6,
+          "episodeNumber": 22,
+          "title": "The Carpenter's Ball",
+          "overview": "Ralph wants Hank to ask her to the Carpenter's Ball, but he comes up with feeble excuses to avoid going. Planning to get the two together at the event, Lisa asks Hank to be her date to the party. In no time, Hooterville is convinced that the Douglases' marriage is on the rocks and that Lisa and Hank are running off to Acapulco.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rvLBVRh7rOMl37cCCAp7qqYaFiO.jpg",
+          "airDate": "1971-02-23",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E22 The Carpenter’s Ball.mp4",
+            "format": "h.264",
+            "sizeBytes": 149386388,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-22-the-carpenters-ball/S6E22 The Carpenter’s Ball.mp4"
+        },
+        {
+          "archiveID": "s-6-e-23-the-hole-in-the-porch",
+          "seasonNumber": 6,
+          "episodeNumber": 23,
+          "title": "The Hole in the Porch",
+          "overview": "While fixing a leaky sink pipe, Oliver is reminded that he needs to fix other things around the place, like the loose floorboard on the front porch. After checking it out, he determines it is dryrotted and needs to be replaced. He places a sturdier board on top of it, so no one will get hurt, until he can repair it. Mr. Kimball arrives and removes the sturdy board, sighting it as a tripping danger. He immediately walks on the dry rotted board and falls into a hole up to his knee. With his injury, he needs to recuperate at the Douglases. Lisa bandages his foot and Hank's admirer Ralph arrives to play nurse for her \"\"Hankie-poo\"\". The annoying patient makes matters worse by blowing his kazoo when he needs Oliver or Lisa. Mr. Haney tries to get Mr. Douglas to sign an out of court settlement in Mr. Kimball's (now his client) favor for $50,000; refusing Mr. Douglas throws Mr. Haney out.   Since the patient has taken over Oliver's bed, the Douglases sleep in the barn. The next morning Ralph tr",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4ln6AJmMV7ia7bh8joKcnDvIAiB.jpg",
+          "airDate": "1971-03-02",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E23 The Hole in the Porch.mp4",
+            "format": "h.264",
+            "sizeBytes": 148999813,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-23-the-hole-in-the-porch/S6E23 The Hole in the Porch.mp4"
+        },
+        {
+          "archiveID": "s-6-e-24-lisa-the-psychologist",
+          "seasonNumber": 6,
+          "episodeNumber": 24,
+          "title": "Lisa the Psychologist",
+          "overview": "Lisa & Oliver decide to take a college course together in Pixley. Oliver chooses a farming course meeting on Mondays, Wednesdays & Fridays and Lisa decides on a Psychology course, simply because it meets on Tuesdays & Thursdays. After a few lessons, the zany members of Hooterville become enthralled with \"\"Doctor Lisa\"\", who helps solve Eb's, Mr. Kimball's and Arnold's problems with logical reasoning. Mr. Haney tries to sell Oliver a pyschiatrist's couch once used by Dr.Sigmund Frood. An exasperated Oliver has to make an appointment with \"\"the doctor\"\" when he intrudes on Mr. Drucker's psychiatric visit. Lisa gives up her practice to be Oliver's wife again.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/jvVKzPMSZ3m7qsE7F3OifgW4OrQ.jpg",
+          "airDate": "1971-03-09",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E24 Lisa, the Psychologist.mp4",
+            "format": "h.264",
+            "sizeBytes": 149459752,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-24-lisa-the-psychologist/S6E24 Lisa, the Psychologist.mp4"
+        },
+        {
+          "archiveID": "s-6-e-25-hawaiian-honeymoon",
+          "seasonNumber": 6,
+          "episodeNumber": 25,
+          "title": "Hawaiian Honeymoon",
+          "overview": "Lisa cons Oliver into taking a 'fifth' honeymoon together, this time in Hawaii. When they check into the honeymoon suite, they are unaware that the hotel manager's daughter, has given her friends the suite for their honeymoon also. Since the suite has two bedrooms it's just a case of both couples avoiding each other while on their honeymoon(s), for a while anyway.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/vZTM9vlkZxtNgNwsmtIIH1y1Y6k.jpg",
+          "airDate": "1971-03-16",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E25 Hawaiian Honeymoon.mp4",
+            "format": "h.264",
+            "sizeBytes": 146124534,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-25-hawaiian-honeymoon/S6E25 Hawaiian Honeymoon.mp4"
+        },
+        {
+          "archiveID": "s-6-e-26-the-ex-secretary",
+          "seasonNumber": 6,
+          "episodeNumber": 26,
+          "title": "The Ex-Secretary",
+          "overview": "Oliver is looking through his old Christmas Cards to find the return address of an ex-secretary of his who had moved to California.  He wants to contract her because when his watch broke before, his secretary at the time found a repair shop that was able to fix it. The secretary, Carol now works for a Realtor who she ends up saving from being coned out of $10,000 from a con man that her former boss, Mr. Douglas had tried to indite back in New York. By episode end, Carol remembers the name of the watch repair shop on Madison Avenue.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/dBWCM8KzV3BHpB7sBxMAvCnLXJw.jpg",
+          "airDate": "1971-04-27",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S6E26 The Ex-Secretary.mp4",
+            "format": "h.264",
+            "sizeBytes": 148804446,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-6-e-26-the-ex-secretary/S6E26 The Ex-Secretary.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 80
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-answer-1960",
+  "title": "The Answer",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/xffpKk6xpC38ebYFCp4DkTZIr3Y.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheAnswer",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Answer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xffpKk6xpC38ebYFCp4DkTZIr3Y.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1590,
+          "videoFile": {
+            "name": "TheGift-christmasTv1950s.mp4",
+            "format": "h.264",
+            "sizeBytes": 159971408,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAnswer/TheGift-christmasTv1950s.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

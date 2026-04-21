@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "freight-line-feud-1960",
+  "title": "Freight Line Feud",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Cisco_Kid_-_Freight_Line_Feud",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cisco_Kid_-_Freight_Line_Feud",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Freight Line Feud",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Cisco_Kid_-_Freight_Line_Feud",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cisco_Kid_-_Freight_Line_Feud.mp4",
+            "format": "h.264",
+            "sizeBytes": 150160465,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cisco_Kid_-_Freight_Line_Feud/Cisco_Kid_-_Freight_Line_Feud.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "delta-1992",
+  "title": "Delta",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "Delta is a short-lived U.S television sitcom series produced by ABC starring Delta Burke. Burke plays a woman who leaves her life behind to pursue her dream as a country music singer. Burke, most popular for her role as Suzanne Sugarbaker in the popular CBS sitcom Designing Women, reportedly utilized her own singing talents for the role of Bishop, and dyed her familiar brunette hair blonde to play the role. The series premiered September 15, 1992, to healthy ratings following the ABC blockbuster Roseanne. The series then moved to Thursday nights opposite FOX's The Simpsons, and ratings began to sink. The show was pulled from the schedule and returned to ABC the following Spring for six episodes before finally being canceled. In an attempt to infuse ratings, Burke brought her brunette hair back that spring, in the sake of familiarity, but it did little to save the series.\n\nThe theme song for the show was Reba McEntire's 'Climb That Mountain High' which was not a charted Reba single. The tune appears on the 1990 MCA album Rumor Has It.\n\nThe show received one Golden Globe Award nomination, to co-star Earl Holliman for \"Best Performance by an Actor in a Supporting Role in a TV-Series\".",
+  "posterURL": "https://image.tmdb.org/t/p/w500/99bFCPbyJ6QS3evTSx5RzVuYvH.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/p01LzGEy3vCIMm04evF4XqSr72F.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "delta-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Delta - Delta Burke, Gigi Rice",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/99bFCPbyJ6QS3evTSx5RzVuYvH.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Delta - 1.10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 747426808,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/delta-1.01/Delta - 1.10.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

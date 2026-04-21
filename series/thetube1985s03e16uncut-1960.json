@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "thetube1985s03e16uncut-1960",
+  "title": "The.Tube.1985.S03E16.uncut",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the.-tube.-1985.-s-03-e-16.uncut",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "the.-tube.-1985.-s-03-e-16.uncut",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "The.Tube.1985.S03E16.uncut",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the.-tube.-1985.-s-03-e-16.uncut",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Tube.1985.S03E16.uncut.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 266728072,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-tube.-1985.-s-03-e-16.uncut/The.Tube.1985.S03E16.uncut.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

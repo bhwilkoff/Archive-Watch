@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bbc-horizon-1960",
+  "title": "BBC Horizon",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BBCHorizon19771978NowTheChipsAreDown",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BBCHorizon19771978NowTheChipsAreDown",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Horizon: 1977-1978 Now The Chips Are Down",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BBCHorizon19771978NowTheChipsAreDown",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC Horizon - 1977-1978 Now The Chips Are Down.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 355958700,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BBCHorizon19771978NowTheChipsAreDown/BBC Horizon - 1977-1978 Now The Chips Are Down.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

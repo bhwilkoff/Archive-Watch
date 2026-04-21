@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "seriesID": "this-is-your-life-1960",
+  "title": "This Is Your Life",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "This Is Your Life is an American television documentary series broadcast on NBC, originally hosted by its producer, Ralph Edwards from 1952 to 1961. In the show, the host surprises a guest, and proceeds to take them through their life in front of an audience, including special guest appearances by colleagues, friends and family.\n\nEdwards revived the show in 1971-72, while Joseph Campanella hosted a version in 1983. Edwards returned for some specials in the late 1980s, before his death in 2005. The show originated as a radio show on NBC Radio airing from 1948 to 1952.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/nLjkLp9D5udtgMd2UAweRrHRP9.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ThisIsYourLife-DickClark1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "THIS IS YOUR LIFE - Dick Clark 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 498,
+          "videoFile": {
+            "name": "tiyl_dickclark.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 57133501,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThisIsYourLife-DickClark1959/tiyl_dickclark.ia.mp4"
+        },
+        {
+          "archiveID": "ThisIsYourLifelaurelAndHardywithCommercials",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "This Is Your Life \"Laurel And Hardy\" (With Commercials)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1763,
+          "videoFile": {
+            "name": "TIYL_Laurel_And_Hardy_12_01_1954_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 127470752,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThisIsYourLifelaurelAndHardywithCommercials/TIYL_Laurel_And_Hardy_12_01_1954_512kb.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 8,
+      "episodes": [
+        {
+          "archiveID": "this_is_your_life_jesse_owens",
+          "seasonNumber": 8,
+          "episodeNumber": 29,
+          "title": "Jesse Owens",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
+          "airDate": "1960-04-27",
+          "year": 1960,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "this_is_your_life_jesse_owens.mp4",
+            "format": "h.264",
+            "sizeBytes": 147122741,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/this_is_your_life_jesse_owens/this_is_your_life_jesse_owens.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

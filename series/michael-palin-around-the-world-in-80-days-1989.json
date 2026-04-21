@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "michael-palin-around-the-world-in-80-days-1989",
+  "title": "Michael Palin Around The World In 80 Days",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "Michael Palin attempts to copy the exploits of fictional character Phileas Fogg, by trying to travel around the world (without flying) in 80 days.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4gwmUJhmRTUkpGT6y1KtlZIxZV9.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/fDMHb4Mrd63pYBXyInKfbaGZTyT.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "michaelpalinaroundtheworldin80days",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Michael Palin Around The World In 80 Days",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4gwmUJhmRTUkpGT6y1KtlZIxZV9.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Michael Palin - Around The World In 80 Days E06 - Far East And Farther East - video dailymotion_640X480.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 222102070,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/michaelpalinaroundtheworldin80days/Michael Palin - Around The World In 80 Days E06 - Far East And Farther East - video dailymotion_640X480.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

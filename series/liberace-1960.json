@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "liberace-1960",
+  "title": "Liberace",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Liberace-MusicOfTheDances",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Liberace-MusicOfTheDances",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Liberace - Music of the Dances",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Liberace-MusicOfTheDances",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LiberaceShow-MusicOfTheDances1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 146433377,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Liberace-MusicOfTheDances/LiberaceShow-MusicOfTheDances1956.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ossie-ruby--sales-talk-march-2-1987-2024",
+  "title": "Ossie & Ruby- Sales Talk (March 2, 1987",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ossie-ruby-sales-talk-march-2-1987",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ossie-ruby-sales-talk-march-2-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ossie & Ruby- Sales Talk (March 2, 1987)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ossie-ruby-sales-talk-march-2-1987",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ossie & Ruby- Sales Talk (March 2, 1987).mp4",
+            "format": "h.264",
+            "sizeBytes": 163338045,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ossie-ruby-sales-talk-march-2-1987/Ossie & Ruby- Sales Talk (March 2, 1987).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

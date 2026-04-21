@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lucky-strike-cigarette-1956",
+  "title": "Lucky Strike Cigarette",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Lucky_Strike_1956",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Lucky_Strike_1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lucky Strike Cigarette \"Baseball\" Commercial",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Lucky_Strike_1956",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lucky_Strike_89345749573495749587348957349_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4362188,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Lucky_Strike_1956/Lucky_Strike_89345749573495749587348957349_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

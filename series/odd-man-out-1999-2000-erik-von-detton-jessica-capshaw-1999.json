@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "odd-man-out-1999-2000-erik-von-detton-jessica-capshaw-1999",
+  "title": "Odd Man Out (1999-2000) Erik Von Detton, Jessica Capshaw",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/odd-man-out-1999-2000",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "odd-man-out-1999-2000",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Odd Man Out (1999-2000) Erik Von Detton, Jessica Capshaw",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/odd-man-out-1999-2000",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Odd Man Out (1999) 1X07 _In the Name of the Father_.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 207764818,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/odd-man-out-1999-2000/Odd Man Out (1999) 1X07 _In the Name of the Father_.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

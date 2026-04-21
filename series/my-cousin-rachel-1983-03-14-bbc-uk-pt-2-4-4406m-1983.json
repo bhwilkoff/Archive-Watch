@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "my-cousin-rachel-1983-03-14-bbc-uk-pt-2-4-4406m-1983",
+  "title": "My Cousin Rachel (1983 03 14 BBC, UK, Pt 2 4 .. 44.06m",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/my-cousin-rachel-1983-03-14-bbc-uk-pt-2-4-..-44.06m",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "my-cousin-rachel-1983-03-14-bbc-uk-pt-2-4-..-44.06m",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "My Cousin Rachel (1983 03 14 BBC, UK, Pt 2 4 .. 44.06m)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/my-cousin-rachel-1983-03-14-bbc-uk-pt-2-4-..-44.06m",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": 2646,
+          "videoFile": {
+            "name": "My Cousin Rachel (1983-03-14 BBC, UK, Pt 2-4 .. 44.06m).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 128970582,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/my-cousin-rachel-1983-03-14-bbc-uk-pt-2-4-..-44.06m/My Cousin Rachel (1983-03-14 BBC, UK, Pt 2-4 .. 44.06m).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "vh1-behind-the-music--november-1-1998-stevie-nicks-2019",
+  "title": "VH1 Behind The Music- November 1, 1998 (Stevie Nicks",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/vh1behindthemusicnovember11998stevienicksconvertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "vh1behindthemusicnovember11998stevienicksconvertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "VH1 Behind The Music- November 1, 1998 (Stevie Nicks)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/vh1behindthemusicnovember11998stevienicksconvertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "VH1 Behind The Music- November 1, 1998 (Stevie Nicks) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 198264580,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/vh1behindthemusicnovember11998stevienicksconvertvideoonline.com/VH1 Behind The Music- November 1, 1998 (Stevie Nicks) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

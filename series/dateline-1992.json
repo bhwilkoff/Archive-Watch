@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "dateline-1992",
+  "title": "Dateline",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "Dateline NBC, or simply Dateline, is a weekly American television newsmagazine series. It was previously the network's flagship newsmagazine, but now focuses mainly on true crime stories with only occasional editions that focus on other topics.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/xj9zonhdomfBpEhZQmAON5u3CiB.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4m8QH2C6hBQQ08EgwaOtOv7ATFh.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dateline-elvis-2002",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dateline - Stone Phillips",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xj9zonhdomfBpEhZQmAON5u3CiB.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dateline - Elvis - 2002.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 684267624,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dateline-elvis-2002/Dateline - Elvis - 2002.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

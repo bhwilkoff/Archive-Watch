@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "the-arthur-godfrey-show-1958",
+  "title": "The Arthur Godfrey Show",
+  "yearStart": 1958,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Arthur2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Arthur2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Arthur Godfrey Show''",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Arthur2",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1713,
+          "videoFile": {
+            "name": "Arthur2.mp4",
+            "format": "h.264",
+            "sizeBytes": 177951047,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Arthur2/Arthur2.mp4"
+        },
+        {
+          "archiveID": "arthur4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Arthur Godfrey Show'' - 28 October 1958",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/arthur4",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1617,
+          "videoFile": {
+            "name": "arthur4.mp4",
+            "format": "h.264",
+            "sizeBytes": 168656747,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/arthur4/arthur4.mp4"
+        },
+        {
+          "archiveID": "arthur3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Arthur Godfrey Show'' - with Johnny Nash and Elaine Malbin",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/arthur3",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1773,
+          "videoFile": {
+            "name": "arthur3.mp4",
+            "format": "h.264",
+            "sizeBytes": 184738975,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/arthur3/arthur3.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

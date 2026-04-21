@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "mission-impossible-1988",
+  "title": "Mission: Impossible",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": "Mission: Impossible is an American television series that was created and initially produced by Bruce Geller. It chronicles the missions of a team of secret government agents known as the Impossible Missions Force. In the first season, the team is led by Dan Briggs, played by Steven Hill; Jim Phelps, played by Peter Graves, takes charge for the remaining seasons. A hallmark of the series shows Briggs or Phelps receiving his instructions on a recording that then self-destructs, followed by the theme music composed by Lalo Schifrin.\n\nThe series aired on the CBS network from September 1966 to March 1973, then returned to television for two seasons on ABC, from 1988 to 1990, retaining only Graves in the cast. It later inspired a popular series of theatrical motion pictures starring Tom Cruise, beginning in 1996.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1PnUBKbDR1F2w5qicblLg1QGTif.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/com4DoP6rNkf1fs5KiuLPCRVK6V.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Bruce Geller",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mission-impossible-1.5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mission: Impossible - Peter Graves",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1PnUBKbDR1F2w5qicblLg1QGTif.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mission Impossible - 1.5.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2518945418,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mission-impossible-1.5/Mission Impossible - 1.5.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

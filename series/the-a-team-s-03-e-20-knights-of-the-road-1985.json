@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-a-team-s-03-e-20-knights-of-the-road-1985",
+  "title": "The A Team S 03 E 20 Knights Of The Road",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-a-team-s-03-e-20-knights-of-the-road",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-a-team-s-03-e-20-knights-of-the-road",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The A Team S 03 E 20 Knights Of The Road",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-a-team-s-03-e-20-knights-of-the-road",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The A-Team S03E20 Knights of the Road.mp4",
+            "format": "h.264",
+            "sizeBytes": 286783923,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-a-team-s-03-e-20-knights-of-the-road/The A-Team S03E20 Knights of the Road.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "shadow-raiders-1998",
+  "title": "Shadow Raiders",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": "Despite the history of their warring past, the four planets of Ice, Rock, Fire, and Bone must set aside their differences and feuds to work together and form an alliance: their only hope of defeating a common enemy. The powerful Beast Planet, whose only purpose is the total destruction and annihilation of other worlds, has now entered their universe from the darkest reaches of space.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/zQXauw9aUl9h4mYQp3i1sLcQpHK.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "YTV"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "shadow-raiders-complete-series-1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Shadow Raiders Complete Series (1998)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zQXauw9aUl9h4mYQp3i1sLcQpHK.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Disc 1 of 8/VIDEO_TS/VTS_02_1.mp4",
+            "format": "h.264",
+            "sizeBytes": 136565315,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shadow-raiders-complete-series-1998/Disc 1 of 8/VIDEO_TS/VTS_02_1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

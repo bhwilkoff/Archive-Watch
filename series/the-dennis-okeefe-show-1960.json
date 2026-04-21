@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-dennis-okeefe-show-1960",
+  "title": "The Dennis O'Keefe Show",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "The Dennis O'Keefe Show is a 1959-1960 sitcom produced by United Artists Television which aired on CBS for sponsor General Motors' Oldsmobile division. It was not a ratings success during its original run, and was largely forgotten until a \"Best Of\" DVD release by Alpha Video during 2004. Certain episodes of the show can also be seen at the Internet Archive. It appears the series has entered the public domain.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dduFWsVtaIGKCGiauIO3btn5xFv.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "John Fenton Murray",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dennis3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Dennis O'Keefe Show - ''June Thursday\" (Date: 10 May 1960)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dduFWsVtaIGKCGiauIO3btn5xFv.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1552,
+          "videoFile": {
+            "name": "TheDennisOKeefeShow-JuneThursday.mp4",
+            "format": "h.264",
+            "sizeBytes": 154556341,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dennis3/TheDennisOKeefeShow-JuneThursday.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "city-1990",
+  "title": "City",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "City is an American sitcom which aired on CBS from January 29, 1990 until June 8, 1990. The series was a new starring vehicle for Valerie Harper, which went into development not long after she and husband Tony Cacciotti won their lawsuit against Lorimar Telepictures over her dismissal from her NBC sitcom Valerie. City was created by Paul Haggis, and like Ms. Harper's previous series, was also executive produced by Cacciotti.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Paul Haggis",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "city-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "City - Valerie Harper, Sam Lloyd",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "City - 1.02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 803973407,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/city-1.01/City - 1.02.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

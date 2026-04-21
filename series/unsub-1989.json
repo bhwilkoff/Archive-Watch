@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "unsub-1989",
+  "title": "Unsub",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "Unsub is an American television series that aired on NBC from February 3 to April 14, 1989. The series centers around an elite FBI forensic team that investigates serial murderers and other violent crimes. Unsub is an abbreviation for the unknown subject of an investigation.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ds3pw03qRUH3g2Y0qfHqMSRkPR5.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/we0JPBTmjANH97T1QVe9eRJdZVo.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Stephen J. Cannell",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "unsub-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Unsub (1989) all 8 eps",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ds3pw03qRUH3g2Y0qfHqMSRkPR5.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Unsub   S01E03   Clean Slate.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 112555186,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/unsub-1989/Unsub   S01E03   Clean Slate.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

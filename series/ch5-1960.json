@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ch5-1960",
+  "title": "CH5",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ch5polarodysseyparadoxoftheemperorsoct1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ch5polarodysseyparadoxoftheemperorsoct1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CH5 \"Survival\" Episodes (Apr 1997-1999)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ch5polarodysseyparadoxoftheemperorsoct1998",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CH5 Wild Secrets - Birds of a Feather (narrated by Andrew Sachs) (Oct 1998).mp4",
+            "format": "h.264",
+            "sizeBytes": 325760633,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ch5polarodysseyparadoxoftheemperorsoct1998/CH5 Wild Secrets - Birds of a Feather (narrated by Andrew Sachs) (Oct 1998).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

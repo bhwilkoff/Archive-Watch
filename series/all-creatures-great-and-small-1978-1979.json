@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "all-creatures-great-and-small-1978-1979",
+  "title": "All Creatures Great and Small (1978",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/all-creatures-great-and-small-series-3_202303",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "all-creatures-great-and-small-series-3_202303",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "All Creatures Great and Small (1978 Series 3)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/all-creatures-great-and-small-series-3_202303",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "All Creatures Great and Small S03E15 - The Lord God Made Them All (1983 Christmas Special).mp4",
+            "format": "h.264",
+            "sizeBytes": 526752345,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-3_202303/All Creatures Great and Small S03E15 - The Lord God Made Them All (1983 Christmas Special).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

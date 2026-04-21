@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-wayne-king-show-1960",
+  "title": "The Wayne King show",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/WayneKing06291950",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "WayneKing06291950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Wayne King show\" - 29/June/1950",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/WayneKing06291950",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wayne_King_06_29_1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 184845326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/WayneKing06291950/Wayne_King_06_29_1950.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

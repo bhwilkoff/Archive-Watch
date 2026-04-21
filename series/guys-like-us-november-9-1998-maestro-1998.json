@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "guys-like-us-november-9-1998-maestro-1998",
+  "title": "Guys Like Us (November 9, 1998) Maestro",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/y-2-mate.is-guys-like-us-maestros-big-break-gc-6-mox-3h-do-0-480p-1654303339336",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "y-2-mate.is-guys-like-us-maestros-big-break-gc-6-mox-3h-do-0-480p-1654303339336",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Guys Like Us (November 9, 1998) Maestro's Big Break",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/y-2-mate.is-guys-like-us-maestros-big-break-gc-6-mox-3h-do-0-480p-1654303339336",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Y2Mate.is - Guys Like Us - Maestros Big Break-GC6Mox3hDo0-480p-1654303339336.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 102918482,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/y-2-mate.is-guys-like-us-maestros-big-break-gc-6-mox-3h-do-0-480p-1654303339336/Y2Mate.is - Guys Like Us - Maestros Big Break-GC6Mox3hDo0-480p-1654303339336.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

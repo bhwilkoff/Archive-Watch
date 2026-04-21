@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "seriesID": "the-adventures-of-sir-lancelot-1956",
+  "title": "The Adventures Of Sir Lancelot",
+  "yearStart": 1956,
+  "yearEnd": 1957,
+  "overview": "The Adventures of Sir Lancelot is a British television series first broadcast in 1956, produced by Sapphire Films for ITC Entertainment and screened on the ITV network. The series starred William Russell as the eponymous Sir Lancelot, a Knight of the Round Table in the time of King Arthur at Camelot.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/gsJWXo09AsVVY71cEeIY3WJCmUK.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Leslie Pointon",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp16",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Ruby of Radnor",
+          "overview": "As a punishment because he rebels at working with Merlin's pigeons, Squire Brian is sent on an errand to deliver a crate of pigeons to a neighboring castle. En route, he becomes involved with a gang of thieves who stole the precious Ruby of Radnor.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-01-12",
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep16 The Ruby of Radnor (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158214856,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp16/The Adventures of Sir Lancelot Ep16 The Ruby of Radnor (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp17",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Lesser Breed",
+          "overview": "King Arthur learns that a nearby village is being terrorized by a   horrible monster. Sir Lancelot is sent to investigate. He discovers   that the monster is really a Viking boat, and that it's the Vikings   who are doing the terrorizing.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-01-19",
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep17 The Lesser Breed (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 168544756,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp17/The Adventures of Sir Lancelot Ep17 The Lesser Breed (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp18",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Witches' Brew",
+          "overview": "A woman claiming mystical powers has convinced King Bors of Sagitaw   that she is working evil against him. Sir Lancelot enlists Merlin's aid against her powers.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-01-26",
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep18 Witches' Brew (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160606922,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp18/The Adventures of Sir Lancelot Ep18 Witches' Brew (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp19",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Sir Crustabread",
+          "overview": "King Arthur gives Sir Lancelot a new name and sends him off   to champion a lady who is being forced into marrying an unscrupulous man.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-02-02",
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep19 Sir Crustabread (1956 TV Series) William Russell, color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 172058917,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp19/The Adventures of Sir Lancelot Ep19 Sir Crustabread (1956 TV Series) William Russell, color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp20",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Maid of Somerset",
+          "overview": "A young girl asks Sir Lancelot's aid. An evil monarch, King Meliot,   is selling the young men of the village of Cheddar into slavery.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-02-09",
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep20 Maid of Somerset (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 185231768,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp20/The Adventures of Sir Lancelot Ep20 Maid of Somerset (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp23",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Lady Lilith",
+          "overview": "The Lady Lilith has been running the castle of Goodhue since   it was left to her by the late Sir William , when she was 14 years   old. But now Sir Liones petitions for a ruling at the court of King   Arthur, quoting the law that no property can be inherited by a woman - which sets King Arthur a difficult choice to make. He suggests that the best solution would be for Sir Liones to marry the Lady, but apparently that is not possible.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-03-02",
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep23 The Lady Lilth (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151955549,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp23/The Adventures of Sir Lancelot Ep23 The Lady Lilth (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp26",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Knights' Choice",
+          "overview": "After the death of a knight of the Round Table, a young man enters a tournament that will decide who will fill the vacancy. But the other knights object to the young contestant because of his shabby appearance. Sir Lancelot intercedes for him.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-03-23",
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep26 Knights Choice (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153073812,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp26/The Adventures of Sir Lancelot Ep26 Knights Choice (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp28",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "The Mortaise Fair",
+          "overview": "While visiting Mortaise Castle, Queen Guinevere is presented with a   priceless jewel from the Rajah of Kaipur. Shortly afterward there is a fire, and during the excitement the jewel is stolen.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-04-06",
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep28 The Mortaise Fair (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159757709,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp28/The Adventures of Sir Lancelot Ep28 The Mortaise Fair (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp29",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "The Thieves",
+          "overview": "King Arthur and Sir Lancelot disguise themselves as thieves   in order to test the validity of a statement by Lancelot. The knight believes that the thieves of the kingdom are thieves only because they are starving.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-04-13",
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep29 The Thieves (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 185391529,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp29/The Adventures of Sir Lancelot Ep29 The Thieves (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp30",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "The Prince of Limerick",
+          "overview": "A prince in love with King Anguish's daughter Kathleen, is   banished from the court because he possesses nothing but the ability to write rhymes. Sir Lancelot, hearing of the young couple's plight, travels to Anguish's court to help them.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-04-20",
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep30 The Prince of Limerick (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 164691212,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp30/The Adventures of Sir Lancelot Ep30 The Prince of Limerick (1956 TV Series) William Russell color.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 10
+}

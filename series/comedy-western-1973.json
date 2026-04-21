@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "comedy-western-1973",
+  "title": "Comedy-Western",
+  "yearStart": 1973,
+  "yearEnd": 1973,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Dustys_Trail_Bear",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dustys_Trail_Bear",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Comedy-Western: 'Dusty's Trail' - Androcles and the Bear",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Dustys_Trail_Bear",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dustys_Trail_Bear.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136308791,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dustys_Trail_Bear/Dustys_Trail_Bear.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

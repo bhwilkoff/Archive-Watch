@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "andromeda-breakthrough-1962",
+  "title": "Andromeda Breakthrough",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": "Kidnapped by Intel representative Kaufman, John Fleming—along with Professor Madeleine Dawnay and Andromeda, the artificially constructed female humanoid—are brought to Azaran, a small Middle Eastern country. Upon arrival, the group discover a duplicate of Fleming's machine has been built by Intel. After many dangers, Fleming finds both the reason for the original message having been sent and the means to bring the machine under human control.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/tIshJvVOFzHzqqd0bbrNTaXnoUb.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Fred Hoyle",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "a-for-andromeda-documentary-low-360p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Andromeda Breakthrough",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/tIshJvVOFzHzqqd0bbrNTaXnoUb.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A For Andromeda.mp4",
+            "format": "h.264",
+            "sizeBytes": 348427924,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/a-for-andromeda-documentary-low-360p/A For Andromeda.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

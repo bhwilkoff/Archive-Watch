@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "bbc-archive-2016",
+  "title": "BBC Archive",
+  "yearStart": 2016,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/twitter-956176772671950848",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "twitter-956176772671950848",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Archive - #OTD 1971: \"The general public won't be hyped very easily.\" Frank Zappa, Muff Winwood and John Peel, among others, discussed the world of pop promotion.",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/twitter-956176772671950848",
+          "airDate": null,
+          "year": 2018,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "956176772671950848.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 13553342,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/twitter-956176772671950848/956176772671950848.mp4"
+        },
+        {
+          "archiveID": "twitter-1093839214221905920",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Archive - #OnThisDay 1971: \"I can't remember how many letters there were in the words\" A Frank Zappa concert at the Royal Albert Hall was cancelled because... we're still not sure, really.",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/twitter-1093839214221905920",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1093839214221905920.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 4055423,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/twitter-1093839214221905920/1093839214221905920.mp4"
+        },
+        {
+          "archiveID": "twitter-696675827107233792",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Archive - #OnThisDay 1971: A Frank Zappa concert at the Royal Albert Hall is cancelled because... we're not sure, really",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/twitter-696675827107233792",
+          "airDate": null,
+          "year": 2016,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "696675827107233792.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2581706,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/twitter-696675827107233792/696675827107233792.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

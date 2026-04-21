@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "acasp-0010-1960",
+  "title": "ACASP 0010",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/acasp-0010",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "acasp-0010",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ACASP 0010",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/acasp-0010",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ACASP_0010.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 626036305,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/acasp-0010/ACASP_0010.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

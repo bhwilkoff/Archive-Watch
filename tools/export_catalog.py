@@ -512,6 +512,202 @@ def select_tiered(items, *, profile, editors_picks_ids, shelf_required_ids):
 
 
 # ---------------------------------------------------------------------------
+# TV series export
+# ---------------------------------------------------------------------------
+# When tv_series / tv_episodes tables exist, we emit:
+#   - One compact SeriesCard per tv_series into the main catalog
+#     (instead of ~11k individual tv-episode items).
+#   - One per-series JSON blob under {out_dir}/series/{series_id}.json
+#     with every episode's full metadata (title, overview, still, play
+#     URL). The app lazy-loads these on Series Detail view.
+# The set of canonical_ids in tv_episodes is excluded from the main
+# catalog's regular item emission so we don't double-up.
+
+def tv_episode_cids(conn):
+    """Set of canonical_ids that are part of a tv_series — we never
+    emit these as top-level catalog items."""
+    return {r[0] for r in conn.execute("SELECT canonical_id FROM tv_episodes")}
+
+
+def load_series_rows(conn):
+    """All tv_series with any aggregated data. Ordered by popularity."""
+    return conn.execute("""
+        SELECT * FROM tv_series
+        ORDER BY popularity_score DESC, title ASC
+    """).fetchall()
+
+
+def build_series_card(row):
+    """Compact SeriesCard for the main catalog. The full episode list
+    is fetched lazily from /series/{seriesID}.json."""
+    poster = row["poster_url"]
+    src = artwork_source_for(poster)
+    has_real = src in ("tmdb", "fanart", "omdb", "commons", "wikidata", "aapb", "external")
+    try: genres = json.loads(row["genres"]) if row["genres"] else []
+    except (ValueError, TypeError): genres = []
+    try: networks = json.loads(row["networks"]) if row["networks"] else []
+    except (ValueError, TypeError): networks = []
+    return {
+        "seriesID":         row["series_id"],
+        "title":            row["title"],
+        "yearStart":        row["year_start"],
+        "yearEnd":          row["year_end"],
+        "overview":         row["overview"],
+        "posterURL":        poster,
+        "backdropURL":      row["backdrop_url"],
+        "hasRealArtwork":   has_real,
+        "artworkSource":    src,
+        "contentType":      "tv-series",
+        "genres":           genres,
+        "networks":         networks,
+        "creator":          row["creator"],
+        "seasonsCount":     row["seasons_count"] or 0,
+        "episodesCount":    row["episodes_count"] or 0,
+        "tmdbID":           int(row["tmdb_id"]) if row["tmdb_id"] and str(row["tmdb_id"]).isdigit() else None,
+        "wikidataQID":      row["wikidata_qid"],
+        "imdbID":           row["imdb_id"],
+        "popularityScore":  row["popularity_score"] or 0,
+        "qualityScore":     row["quality_score"] or 0,
+    }
+
+
+def build_series_detail(conn, series_row):
+    """Full per-series JSON: series header + seasons[].episodes[]. Episodes
+    are grouped by season_number (NULL → 0 bucket). Each episode carries
+    its Archive playback URL so the player never needs a second lookup."""
+    series_id = series_row["series_id"]
+    # Pull every episode + its best source (for play URL).
+    eps = conn.execute("""
+        SELECT te.canonical_id, te.season_number, te.episode_number,
+               te.title, te.overview, te.still_url, te.air_date,
+               w.title AS raw_title, w.year, w.runtime_sec,
+               wbs.best_stream_url, wbs.best_derivative, wbs.best_source_type,
+               wbs.best_file_size, wbs.best_format, wbs.best_verified_playable,
+               e.poster_url AS ep_poster
+        FROM tv_episodes te
+        JOIN works w ON w.canonical_id = te.canonical_id
+        LEFT JOIN works_with_best_source wbs ON wbs.canonical_id = te.canonical_id
+        LEFT JOIN enrichment e ON e.canonical_id = te.canonical_id
+        WHERE te.series_id = ?
+        ORDER BY
+          CASE WHEN te.season_number IS NULL THEN 9999 ELSE te.season_number END,
+          CASE WHEN te.episode_number IS NULL THEN 9999 ELSE te.episode_number END,
+          w.title
+    """, (series_id,)).fetchall()
+
+    seasons = {}
+    for e in eps:
+        sn = e["season_number"] if e["season_number"] is not None else 0
+        dl = e["best_stream_url"] or ""
+        # Reject unplayable folder URLs (same guard as build_download_url).
+        if dl and re.match(r"^https?://archive\.org/download/[^/]+/?$", dl):
+            dl = ""
+        if e["best_derivative"]:
+            video_file = {
+                "name":      e["best_derivative"],
+                "format":    e["best_format"] or "h.264",
+                "sizeBytes": int(e["best_file_size"]) if e["best_file_size"] else None,
+                "tier":      1 if e["best_verified_playable"] == 1 else 2,
+            }
+        else:
+            video_file = None
+
+        # archiveID: pipeline stores archive_org source_id in sources;
+        # the canonical_id is our join key. For Archive-sourced episodes
+        # the archiveID == the archive.org identifier embedded in the
+        # stream URL. Pull it from the URL if we can.
+        archive_id = e["canonical_id"]
+        m = re.match(r"https?://archive\.org/download/([^/]+)/", dl or "")
+        if m:
+            archive_id = m.group(1)
+
+        ep_dict = {
+            "archiveID":        archive_id,
+            "seasonNumber":     e["season_number"],
+            "episodeNumber":    e["episode_number"],
+            "title":            e["title"] or e["raw_title"],
+            "overview":         e["overview"],
+            "stillURL":         e["still_url"] or e["ep_poster"],
+            "airDate":          e["air_date"],
+            "year":             e["year"],
+            "runtimeSeconds":   e["runtime_sec"],
+            "videoFile":        video_file,
+            "downloadURL":      dl or None,
+        }
+        seasons.setdefault(sn, []).append(ep_dict)
+
+    season_list = [
+        {
+            "seasonNumber": sn if sn != 0 else None,
+            "episodes":     eps_list,
+        }
+        for sn, eps_list in sorted(seasons.items())
+    ]
+
+    card = build_series_card(series_row)
+    return {
+        "version":      1,
+        "seriesID":     series_id,
+        "title":        card["title"],
+        "yearStart":    card["yearStart"],
+        "yearEnd":      card["yearEnd"],
+        "overview":     card["overview"],
+        "posterURL":    card["posterURL"],
+        "backdropURL":  card["backdropURL"],
+        "genres":       card["genres"],
+        "networks":     card["networks"],
+        "creator":      card["creator"],
+        "seasons":      season_list,
+        "episodesCount": sum(len(s["episodes"]) for s in season_list),
+    }
+
+
+def export_tv_series(conn, out_dir_main_catalog, *, write_details=True):
+    """Return the list of SeriesCards for inclusion in the main catalog.
+    When write_details=True (the hosted full catalog), ALSO writes
+    per-series JSON files under {main_catalog_parent}/series/ — lazy-
+    loaded by the app on Series Detail open. The seed catalog passes
+    write_details=False because those JSONs don't belong inside the
+    app bundle (they're ~29 MB total, hosted on Pages instead)."""
+    series_rows = load_series_rows(conn)
+
+    # Pre-compute the set of series_ids that have ≥1 playable episode in
+    # a single batched query. The per-series join-with-view was 0.36s
+    # each, which times-out at 6.7k series (~40 min). Raw sources table
+    # join completes in one SQLite pass.
+    playable_series_ids = {
+        r[0] for r in conn.execute("""
+            SELECT DISTINCT te.series_id
+            FROM tv_episodes te
+            JOIN sources s ON s.canonical_id = te.canonical_id
+            WHERE s.stream_url IS NOT NULL AND s.stream_url != ''
+        """)
+    }
+
+    cards = []
+    series_dir = Path(out_dir_main_catalog).parent / "series"
+    if write_details:
+        series_dir.mkdir(parents=True, exist_ok=True)
+    written = 0
+    for row in series_rows:
+        if row["series_id"] not in playable_series_ids:
+            continue
+        card = build_series_card(row)
+        cards.append(card)
+        if write_details:
+            detail = build_series_detail(conn, row)
+            out = series_dir / f"{row['series_id']}.json"
+            with open(out, "w", encoding="utf-8") as f:
+                json.dump(detail, f, ensure_ascii=False, indent=2)
+            written += 1
+    if write_details:
+        print(f"[export-tv] wrote {written:,} per-series JSON files to {series_dir}")
+    else:
+        print(f"[export-tv] built {len(cards):,} series cards (no per-series JSONs)")
+    return cards
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -574,6 +770,12 @@ def main():
         for cid in members:
             shelf_ids.setdefault(cid, []).append(shelf["id"])
 
+    # TV episodes live in their own table and are emitted as series
+    # cards (compact) + per-series JSON files (lazy-loaded by the app).
+    # Exclude their canonical_ids from the regular item emission so we
+    # don't double-count them.
+    tv_ep_cids = tv_episode_cids(conn)
+
     # Collect the union of "works we want to emit": everything passing the
     # profile's score thresholds + everything pulled in by any shelf (so
     # curated picks survive score filtering). Editor's Picks survive cap
@@ -585,7 +787,7 @@ def main():
                   AND popularity_score >= {int(profile['min_popularity'])}"""
         )
     }
-    emit_set = defaulted | set(shelf_ids.keys())
+    emit_set = (defaulted | set(shelf_ids.keys())) - tv_ep_cids
 
     # 2. Pull the fat join for every emitted work.
     placeholders = ",".join(["?"] * len(emit_set)) if emit_set else "NULL"
@@ -635,6 +837,17 @@ def main():
         editors_picks_ids=editors_picks_ids,
         shelf_required_ids=shelf_required_ids,
     )
+
+    # 4b. Emit TV series cards. Per-series JSON files are only written
+    # for the hosted full catalog (never the bundled seed — those JSONs
+    # live on GH Pages for lazy-load). Seed gets a top-120 capped subset
+    # to keep the bundle compact.
+    series_cards = export_tv_series(
+        conn, args.out, write_details=(args.mode != "seed"),
+    )
+    if args.mode == "seed":
+        series_cards = series_cards[:120]
+    items = items + series_cards
 
     # 4. Compute stats for the bundle header.
     n = len(items)

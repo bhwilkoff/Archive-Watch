@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "laurel-hardy-1988",
+  "title": "Laurel & Hardy",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": "The animated adventures of Laurel and Hardy.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ppudTUiKSwwZJfDQDDmp09ImnQX.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/7wIyH4csL6FTD8Fq3B0tu4GUZpo.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": "Larry Harmon",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "laurel-hardys-musical-moments-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Laurel & Hardy's Musical Moments (1988)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ppudTUiKSwwZJfDQDDmp09ImnQX.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Laurel & Hardy's Musical Moments (1988, Beta-Film).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 619733611,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/laurel-hardys-musical-moments-1988/Laurel & Hardy's Musical Moments (1988, Beta-Film).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

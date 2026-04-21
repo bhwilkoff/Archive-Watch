@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "space-age-dvd-isos-1992",
+  "title": "Space Age DVD ISOs",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/PBSSpaceAge",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PBSSpaceAge",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Space Age DVD ISOs",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/PBSSpaceAge",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Space.Age.D2.1992.mp4",
+            "format": "h.264",
+            "sizeBytes": 340827928,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PBSSpaceAge/Space.Age.D2.1992.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

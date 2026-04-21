@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-world-news-saturday-march-13-1993-1993",
+  "title": "ABC World News Saturday March 13, 1993",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/abc-19930313",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "abc-19930313",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC World News Saturday March 13, 1993",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/abc-19930313",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC世界新闻 19930313六.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 133329960,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/abc-19930313/ABC世界新闻 19930313六.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

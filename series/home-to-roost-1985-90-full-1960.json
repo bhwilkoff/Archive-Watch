@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "home-to-roost-1985-90-full-1960",
+  "title": "HOME TO ROOST (1985-90) (Full",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/home-to-roost-1985-90",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "home-to-roost-1985-90",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "HOME TO ROOST (1985-90) (Full Series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/home-to-roost-1985-90",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HOME TO ROOST (85-90)/308.Home To Roost...Family ties...XMAS.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 795630565,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/home-to-roost-1985-90/HOME TO ROOST (85-90)/308.Home To Roost...Family ties...XMAS.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

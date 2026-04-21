@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-making-of-1966",
+  "title": "The Making of",
+  "yearStart": 1966,
+  "yearEnd": 1966,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-making-of-theyre-a-weird-mob",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-making-of-theyre-a-weird-mob",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Making of 'They're A Weird Mob'",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-making-of-theyre-a-weird-mob",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3245,
+          "videoFile": {
+            "name": "The Making of 'They're a Weird Mob'.mp4",
+            "format": "h.264",
+            "sizeBytes": 318512939,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-making-of-theyre-a-weird-mob/The Making of 'They're a Weird Mob'.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "the-dinah-shore-show-1962",
+  "title": "The Dinah Shore Show",
+  "yearStart": 1962,
+  "yearEnd": 1963,
+  "overview": "The Dinah Shore Show is an American variety show which was broadcast by NBC from November 1951 to January 1956, sponsored by General Motors' Chevrolet division. For most of the program's run, it aired from 7:30 to 7:45 Eastern Time on Tuesday and Thursday nights, rounding out the time slot which featured the network's regular evening newscast, which, like all such programs of the era, was then only 15 minutes in length.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theDinahShoreShowc1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Dinah Shore Show\" (c1952)",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 865,
+          "videoFile": {
+            "name": "Dinah_Shore_Show_1952.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 92131763,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theDinahShoreShowc1952/Dinah_Shore_Show_1952.ia.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreShow17March1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Show'' - 17 March 1963",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3542,
+          "videoFile": {
+            "name": "The Dinah Shore Show - 17 March 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 369417297,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreShow17March1963/The Dinah Shore Show - 17 March 1963.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreShow20January1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Show'' - 20 January 1963",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3540,
+          "videoFile": {
+            "name": "The Dinah Shore Show - 20 January 1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 369064888,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreShow20January1963/The Dinah Shore Show - 20 January 1963.mp4"
+        },
+        {
+          "archiveID": "Dinahshore9December1962",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Show'' - 9 December 1962",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 3537,
+          "videoFile": {
+            "name": "dinahshore 9 December 1962.mp4",
+            "format": "h.264",
+            "sizeBytes": 368209778,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dinahshore9December1962/dinahshore 9 December 1962.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

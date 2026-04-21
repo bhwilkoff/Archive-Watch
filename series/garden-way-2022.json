@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "garden-way-2022",
+  "title": "Garden Way",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/garden-ways-the-joy-of-gardening-1984-using-a-root-cellar",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "garden-ways-the-joy-of-gardening-1984-using-a-root-cellar",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Garden Way's Joy of Gardening (1984)- Using a root cellar",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/garden-ways-the-joy-of-gardening-1984-using-a-root-cellar",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Garden Ways The Joy of Gardening (1984)- Using a root cellar.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 384953820,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/garden-ways-the-joy-of-gardening-1984-using-a-root-cellar/Garden Ways The Joy of Gardening (1984)- Using a root cellar.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

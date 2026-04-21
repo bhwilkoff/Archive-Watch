@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "improv-tonite-january-7-1989-first-6-minutes-1960",
+  "title": "Improv Tonite January 7, 1989 First 6 Minutes",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/improv-tonite-1989-01-07-opening-minutes",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "improv-tonite-1989-01-07-opening-minutes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Improv Tonite January 7, 1989 First 6 Minutes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/improv-tonite-1989-01-07-opening-minutes",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Improv Tonite 1989-01-07 Opening Minutes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 56316751,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/improv-tonite-1989-01-07-opening-minutes/Improv Tonite 1989-01-07 Opening Minutes.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

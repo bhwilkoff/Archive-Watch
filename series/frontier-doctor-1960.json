@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "seriesID": "frontier-doctor-1960",
+  "title": "Frontier Doctor",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Frontier Doctor is an American Western television series starring Rex Allen that aired in syndication from September 26, 1958, until June 20, 1959.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "elktonlakefeud",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Frontier Doctor'' - Elkton Lake Feud",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1569,
+          "videoFile": {
+            "name": "elktonlakefeud.mp4",
+            "format": "h.264",
+            "sizeBytes": 163526215,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/elktonlakefeud/elktonlakefeud.mp4"
+        },
+        {
+          "archiveID": "FrontierDoctorGringoPete",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Frontier Doctor'' - Gringo Pete",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1571,
+          "videoFile": {
+            "name": "FrontierDoctor-GringoPete.mp4",
+            "format": "h.264",
+            "sizeBytes": 163668421,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontierDoctorGringoPete/FrontierDoctor-GringoPete.mp4"
+        },
+        {
+          "archiveID": "FrontierDoctorMysteryOfTheBlackStallion_201509",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Frontier Doctor'' - Mystery Of The Black Stallion",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1561,
+          "videoFile": {
+            "name": "FrontierDoctor-MysteryOfTheBlackStallion.mp4",
+            "format": "h.264",
+            "sizeBytes": 162495590,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontierDoctorMysteryOfTheBlackStallion_201509/FrontierDoctor-MysteryOfTheBlackStallion.mp4"
+        },
+        {
+          "archiveID": "FrontierDoctorQueenOfTheCimarron",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Frontier Doctor'' - Queen Of The Cimarron",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1574,
+          "videoFile": {
+            "name": "Frontier Doctor - Queen of the Cimarron.mp4",
+            "format": "h.264",
+            "sizeBytes": 163815474,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontierDoctorQueenOfTheCimarron/Frontier Doctor - Queen of the Cimarron.mp4"
+        },
+        {
+          "archiveID": "FrontierDoctorSanFranciscoStory",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Frontier Doctor'' - San Francisco Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1569,
+          "videoFile": {
+            "name": "FrontierDoctor-SanFranciscoStory.mp4",
+            "format": "h.264",
+            "sizeBytes": 163473771,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontierDoctorSanFranciscoStory/FrontierDoctor-SanFranciscoStory.mp4"
+        },
+        {
+          "archiveID": "frontierdoctor-bigframeup",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Frontier Doctor'' - The Big Frame Up",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1575,
+          "videoFile": {
+            "name": "frontierdoctor-bigframeup.mp4",
+            "format": "h.264",
+            "sizeBytes": 163943632,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/frontierdoctor-bigframeup/frontierdoctor-bigframeup.mp4"
+        },
+        {
+          "archiveID": "FrontierDoctorTheOutlawLegion",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Frontier Doctor'' - The Outlaw Legion",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1564,
+          "videoFile": {
+            "name": "Frontier Doctor - The Outlaw Legion.mp4",
+            "format": "h.264",
+            "sizeBytes": 162952928,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontierDoctorTheOutlawLegion/Frontier Doctor - The Outlaw Legion.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

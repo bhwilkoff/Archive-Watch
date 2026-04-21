@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "spring-housecleaning-ozzie-harriet-1955",
+  "title": "Spring Housecleaning (Ozzie & Harriet",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Spring_Housecleaning--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Spring_Housecleaning--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Spring Housecleaning (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Spring_Housecleaning--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1248,
+          "videoFile": {
+            "name": "Spring_Housecleaning--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 129198472,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Spring_Housecleaning--Ozzie-Harriet/Spring_Housecleaning--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

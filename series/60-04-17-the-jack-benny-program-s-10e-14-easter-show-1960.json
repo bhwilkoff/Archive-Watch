@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "60-04-17-the-jack-benny-program-s-10e-14-easter-show-1960",
+  "title": "60 04 17 The Jack Benny Program S 10e 14 Easter Show",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/600417TheJackBennyProgramS10e14EasterShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "600417TheJackBennyProgramS10e14EasterShow",
+          "seasonNumber": 1,
+          "episodeNumber": 60,
+          "title": "60 04 17 The Jack Benny Program S 10e 14 Easter Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/600417TheJackBennyProgramS10e14EasterShow",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "60-04-17  The Jack Benny Program  s10e14  Easter Show.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 116917289,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/600417TheJackBennyProgramS10e14EasterShow/60-04-17  The Jack Benny Program  s10e14  Easter Show.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

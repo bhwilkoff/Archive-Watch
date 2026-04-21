@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "before-they-were-stars-1996",
+  "title": "Before They Were Stars",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": "Before They Were Stars is a 1996 30-minute American ABC television show which was hosted by Scott Baio, with John Cramer as announcer and narrator; it was preceded by four specials, each an hour long.\n\nThe term \"Before They Were Stars\" has since become widely used by television shows and magazines when featuring segments and articles on famous actors in their lesser-known performances.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "before-they-were-stars-1996",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Before They Were Stars - Scott Baio",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Before They Were Stars - 1996.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 452772877,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/before-they-were-stars-1996/Before They Were Stars - 1996.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

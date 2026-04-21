@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "werewolf-1987",
+  "title": "WereWolf",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": "Eric Cord, a college student transformed into a werewolf undergoes a quest to rid himself of his curse by killing the apparent originator of his 'bloodline'.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dxTYVBhxhAYiwhyONPmk7MQGDWF.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/jDTa6Tefo3T5FNDlTGoe5jv6j9j.jpg",
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": "Frank Lupo",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "werewolf-complete-series-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WereWolf - Complete Series 1987",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dxTYVBhxhAYiwhyONPmk7MQGDWF.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WereWolf S01E01 - WereWolf.mp4",
+            "format": "h.264",
+            "sizeBytes": 466368325,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/werewolf-complete-series-1987/WereWolf S01E01 - WereWolf.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sale-of-the-century-s-142-november-12-1985-credits-only-1985",
+  "title": "Sale of the Century #S-142 (November 12, 1985; credits only",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SyndicatedSaleOfTheCenturyNovember1985BcreditsOnly",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SyndicatedSaleOfTheCenturyNovember1985BcreditsOnly",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sale of the Century #S-142 (November 12, 1985; credits only)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SyndicatedSaleOfTheCenturyNovember1985BcreditsOnly",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Syndicated Sale of the Century - November 1985 B (credits only).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 4853078,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SyndicatedSaleOfTheCenturyNovember1985BcreditsOnly/Syndicated Sale of the Century - November 1985 B (credits only).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

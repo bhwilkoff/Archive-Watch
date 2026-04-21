@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-bob-hope-show-1956",
+  "title": "The Bob Hope Show",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": "The Bob Hope Show hosted by Bob Hope, debuted on April 9, 1950. During the 1952-1953 season, NBC rotated with other variety shows in a Sunday night block known as \"The Colgate Comedy Hour\" (Sept. 1950 to Dec. 1955). Also known as, \"The Chevy Show with Bob Hope.\" When the first special debuted in October of 1950 it was the most expensive television program made up to that point - costing an astronomical $1,500 a minute to produce. Bob Hope had his own television show and radio show at the same time. For the next three seasons, The Bob Hope Show was broadcast once a month on Tuesday nights, giving Milton Berle a week off. Bob ended his radio show in April, 1956. Bob Hope also had another show by a similar name, \"The Bob Hope Show (All Star Revue)\". In addition, he performed in \"Specials\" for many years. It is the longest running variety program in television's history with a record of 45 years of televised entertainment.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/155ZMISJkCkTleBKKoNlubt51bB.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-awful-truth_202511",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Bob Hope Show: The Awful Truth (1956)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/155ZMISJkCkTleBKKoNlubt51bB.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Awful Truth.mp4",
+            "format": "h.264",
+            "sizeBytes": 330281310,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-awful-truth_202511/The Awful Truth.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

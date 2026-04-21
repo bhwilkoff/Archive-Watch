@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "seriesID": "the-big-picture-1963",
+  "title": "The Big Picture",
+  "yearStart": 1963,
+  "yearEnd": 1976,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DDayAnniversary",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BeachheadAnzio",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture: Beachhead Anzio",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BeachheadAnzio",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1440,
+          "videoFile": {
+            "name": "BeachheadAnzio.mp4",
+            "format": "h.264",
+            "sizeBytes": 142246836,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BeachheadAnzio/BeachheadAnzio.mp4"
+        },
+        {
+          "archiveID": "DDayAnniversary",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture: D-Day Anniversary",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DDayAnniversary",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1713,
+          "videoFile": {
+            "name": "The Big Picture 762 D-Day Anniversary 1969.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 125661149,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DDayAnniversary/The Big Picture 762 D-Day Anniversary 1969.ogv"
+        },
+        {
+          "archiveID": "OurHeritage_",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture: Our Heritage",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OurHeritage_",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1740,
+          "videoFile": {
+            "name": "OurHeritage.mp4",
+            "format": "h.264",
+            "sizeBytes": 167731744,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OurHeritage_/OurHeritage.mp4"
+        },
+        {
+          "archiveID": "TheBigPicture-USArmyinSpaceandUndertheSea",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture: The Army in Space and Under the Sea",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheBigPicture-USArmyinSpaceandUndertheSea",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1726,
+          "videoFile": {
+            "name": "TheBigPicture-USArmyinSpaceandUndertheSea.mp4",
+            "format": "h.264",
+            "sizeBytes": 167438217,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBigPicture-USArmyinSpaceandUndertheSea/TheBigPicture-USArmyinSpaceandUndertheSea.mp4"
+        },
+        {
+          "archiveID": "TheCobraStrikes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture: The Cobra Strikes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheCobraStrikes",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1740,
+          "videoFile": {
+            "name": "TheCobraStrikes.mp4",
+            "format": "h.264",
+            "sizeBytes": 171510223,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheCobraStrikes/TheCobraStrikes.mp4"
+        },
+        {
+          "archiveID": "24thInfantryDivision",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture: The Twenty-Fourth Infantry Division",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/24thInfantryDivision",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1680,
+          "videoFile": {
+            "name": "24thInfantryDivision.mp4",
+            "format": "h.264",
+            "sizeBytes": 170166873,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/24thInfantryDivision/24thInfantryDivision.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

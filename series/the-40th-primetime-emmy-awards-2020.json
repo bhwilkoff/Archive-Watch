@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-40th-primetime-emmy-awards-2020",
+  "title": "The 40th Primetime Emmy Awards",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-40th-primetime-emmy-awards-pt.-1-convert-video-online.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-40th-primetime-emmy-awards-pt.-1-convert-video-online.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The 40th Primetime Emmy Awards (1988)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-40th-primetime-emmy-awards-pt.-1-convert-video-online.com",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The 40th Primetime Emmy Awards (pt. 2) (convert-video-online.com).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1788767511,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-40th-primetime-emmy-awards-pt.-1-convert-video-online.com/The 40th Primetime Emmy Awards (pt. 2) (convert-video-online.com).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

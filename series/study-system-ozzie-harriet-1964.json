@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "study-system-ozzie-harriet-1964",
+  "title": "Study System (Ozzie & Harriet",
+  "yearStart": 1964,
+  "yearEnd": 1964,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Study_System--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Study_System--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Study System (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Study_System--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1495,
+          "videoFile": {
+            "name": "Study_System--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 155222128,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Study_System--Ozzie-Harriet/Study_System--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

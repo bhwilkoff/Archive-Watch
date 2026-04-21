@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "seriesID": "flash-gordon-1960",
+  "title": "Flash Gordon",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Flash Gordon is an American science fiction television series that debuted on Sci Fi in the United States on August 10, 2007 and continued airing new episodes through February 8, 2008. It has also appeared on the United Kingdom Sci Fi Channel and SPACE in Canada. The series was developed by Peter Hume, who served as executive producer/show runner and wrote the first and last episodes, among others.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/9dJG6tIcqvZJVNh94stXV3RzXv5.jpg",
+  "genres": [],
+  "networks": [
+    "Syfy"
+  ],
+  "creator": "Peter Hume",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FlashGordon-DeadlineAtNoon-1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flash Gordon - Deadline at Noon - 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1554,
+          "videoFile": {
+            "name": "FlashGordon136-DeadlineAtNoon.mp4",
+            "format": "h.264",
+            "sizeBytes": 149319061,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FlashGordon-DeadlineAtNoon-1955/FlashGordon136-DeadlineAtNoon.mp4"
+        },
+        {
+          "archiveID": "FlashGordon-StruggleToTheEnd-1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flash Gordon - Struggle to the End - 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1573,
+          "videoFile": {
+            "name": "Flash_Gordon_Struggle_to_the_end_03_18_1955.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 203371326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FlashGordon-StruggleToTheEnd-1955/Flash_Gordon_Struggle_to_the_end_03_18_1955.ia.mp4"
+        },
+        {
+          "archiveID": "FlashGordon-TheBrainMachine-1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flash Gordon - The Brain Machine - 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1689,
+          "videoFile": {
+            "name": "FlashGordon121-TheBrainMachine.mp4",
+            "format": "h.264",
+            "sizeBytes": 164412450,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FlashGordon-TheBrainMachine-1955/FlashGordon121-TheBrainMachine.mp4"
+        },
+        {
+          "archiveID": "FlashGordon-ThePlanetOfDeath-1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flash Gordon - The Planet of Death - 1954",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1543,
+          "videoFile": {
+            "name": "FlashGordon101-ThePlanetOfDeath.mp4",
+            "format": "h.264",
+            "sizeBytes": 156931529,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FlashGordon-ThePlanetOfDeath-1954/FlashGordon101-ThePlanetOfDeath.mp4"
+        },
+        {
+          "archiveID": "FlashGordon-TheRaceAgainstTime-1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flash Gordon - The Race Against Time - 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1579,
+          "videoFile": {
+            "name": "FlashGordon119-TheRaceAgainstTime.mp4",
+            "format": "h.264",
+            "sizeBytes": 151499561,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FlashGordon-TheRaceAgainstTime-1955/FlashGordon119-TheRaceAgainstTime.mp4"
+        },
+        {
+          "archiveID": "FlashGordon-TheRaceAgainstTime-1955-Ep.1x19",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flash Gordon - The Race Against Time - 1955 - Ep. 1x19",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1583,
+          "videoFile": {
+            "name": "FlashGordon119-TheRaceAgainstTime.mp4",
+            "format": "h.264",
+            "sizeBytes": 150285545,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FlashGordon-TheRaceAgainstTime-1955-Ep.1x19/FlashGordon119-TheRaceAgainstTime.mp4"
+        },
+        {
+          "archiveID": "FlashGordon-TheWitchOfNeptune-1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flash Gordon - The Witch of Neptune - 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "Flash_Gordon_Witch_of_Neptune_03_04_1955.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 195875084,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FlashGordon-TheWitchOfNeptune-1955/Flash_Gordon_Witch_of_Neptune_03_04_1955.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

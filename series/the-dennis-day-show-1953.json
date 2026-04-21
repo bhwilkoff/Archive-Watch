@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-dennis-day-show-1953",
+  "title": "The Dennis Day Show",
+  "yearStart": 1953,
+  "yearEnd": 1954,
+  "overview": "The Dennis Day Show is an American comedy/variety show that aired from 1953 to 1954 on NBC. The series stars singer and radio and television personality Dennis Day, whose career otherwise was rooted as a supporting cast member of the long-running The Jack Benny Program on CBS and later NBC.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dennisday-partypooper",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dennis Day Show'' - Party Pooper",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "dennisday-partypooper.mp4",
+            "format": "h.264",
+            "sizeBytes": 157770726,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dennisday-partypooper/dennisday-partypooper.mp4"
+        },
+        {
+          "archiveID": "dennisdayoldfriend",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dennis Day Show'' - The Old Friend",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1766,
+          "videoFile": {
+            "name": "dennisdayoldfriend.mp4",
+            "format": "h.264",
+            "sizeBytes": 183576645,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dennisdayoldfriend/dennisdayoldfriend.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

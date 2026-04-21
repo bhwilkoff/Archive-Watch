@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jacks-maxwell-is-stolen-1960",
+  "title": "Jacks Maxwell Is Stolen",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Jack_Benny_-_Jacks_Maxwell_Is_Stolen",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Jack_Benny_-_Jacks_Maxwell_Is_Stolen",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jacks Maxwell Is Stolen",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Jack_Benny_-_Jacks_Maxwell_Is_Stolen",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jack_Benny_-_Jacks_Maxwell_Is_Stolen.mp4",
+            "format": "h.264",
+            "sizeBytes": 173364398,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Jack_Benny_-_Jacks_Maxwell_Is_Stolen/Jack_Benny_-_Jacks_Maxwell_Is_Stolen.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

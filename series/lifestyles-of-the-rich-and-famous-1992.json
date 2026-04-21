@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "lifestyles-of-the-rich-and-famous-1992",
+  "title": "Lifestyles of the Rich and Famous",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "Lifestyles of the Rich and Famous is an American television series that aired in syndication from 1984 to 1995. The show featured the extravagant lifestyles of wealthy entertainers, athletes and business moguls.\n\nIt was hosted by Robin Leach for the majority of its run. When Leach was joined by Shari Belafonte in 1994, the show was renamed Lifestyles with Robin Leach and Shari Belafonte. Leach ended each episode with a wish for his viewers that became his signature phrase, \"champagne wishes and caviar dreams.\"",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Al Masini",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "rich-and-famous-sjr-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lifestyles of the Rich and Famous - Robin Leach",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Rich and Famous - Ivana Trump - 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1389240425,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/rich-and-famous-sjr-1989/Rich and Famous - Ivana Trump - 1989.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

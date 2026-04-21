@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "no-place-like-home-1960",
+  "title": "No Place Like Home",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "No Place Like Home is a BBC situation comedy written by Jon Watkins and stars William Gaunt and Patricia Garwood as Arthur and Beryl Crabtree, a middle-aged couple who plan for a quiet life once their children have left home. Sadly, it is not to be.\n\nNo Place Like Home was broadcast for five series between 1983 and 1987, with an early appearance by Martin Clunes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/gY2KnNNuodFm6k1JH2tlq9j3gYK.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep14_No_Place_Like_Home",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "No Place Like Home",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gY2KnNNuodFm6k1JH2tlq9j3gYK.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH14_No_Place_Like_Home.mp4",
+            "format": "h.264",
+            "sizeBytes": 150429965,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep14_No_Place_Like_Home/BH14_No_Place_Like_Home.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

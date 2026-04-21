@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-whispering-shadow-chapter-5-1933",
+  "title": "THE WHISPERING SHADOW. Chapter 5",
+  "yearStart": 1933,
+  "yearEnd": 1933,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MascotPicturesCorporationpublicdomainTHEWHISPERINGSHADOW.Chapter5WantedforMurder",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MascotPicturesCorporationpublicdomainTHEWHISPERINGSHADOW.Chapter5WantedforMurder",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "THE WHISPERING SHADOW. Chapter 5--\"Wanted for Murder\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MascotPicturesCorporationpublicdomainTHEWHISPERINGSHADOW.Chapter5WantedforMurder",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WS05Wanted_For_Murder_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 74552469,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MascotPicturesCorporationpublicdomainTHEWHISPERINGSHADOW.Chapter5WantedforMurder/WS05Wanted_For_Murder_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

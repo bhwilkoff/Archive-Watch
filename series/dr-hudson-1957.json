@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dr-hudson-1957",
+  "title": "Dr. Hudson",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Dr_Hudson--The_Tony_Story",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dr_Hudson--The_Tony_Story",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dr. Hudson's Secret Journal: The Tony Story (1957)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Dr_Hudson--The_Tony_Story",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1548,
+          "videoFile": {
+            "name": "DrHudson159--The_Tony_Story.mp4",
+            "format": "h.264",
+            "sizeBytes": 145036588,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dr_Hudson--The_Tony_Story/DrHudson159--The_Tony_Story.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

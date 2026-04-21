@@ -1,0 +1,421 @@
+{
+  "version": 1,
+  "seriesID": "suspense-1949",
+  "title": "Suspense",
+  "yearStart": 1949,
+  "yearEnd": 1953,
+  "overview": "An anthology series adapted from the radio program of the same name. Like the radio program, many scripts were adaptations of literary classics by well-known authors. Classic authors such as Edgar Allan Poe, Agatha Christie, and Charles Dickens all had stories adapted for the series, while contemporary authors such as Roald Dahl and Gore Vidal also contributed.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Suspense--Far-Off_House",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Suspense: The Far-Off House",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense412_Far-Off_House.mp4",
+            "format": "h.264",
+            "sizeBytes": 136309903,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Far-Off_House/Suspense412_Far-Off_House.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Suspense-TheCaskOfAmontillado",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Cask of Amontillado",
+          "overview": "In World War II Italy, Count Montressor has watched with horror as his former stable boy became a powerful Nazi general. In the process, General Fortanato has murdered the Count's sister and stolen his wife. Knowing the General plans to murder him, Count Montressor lures him into the palace's catacombs to taste the rare cask of Amontillado he has procured.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1949-10-11",
+          "year": 1949,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense-theCaskOfAmontillado.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 132479227,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense-TheCaskOfAmontillado/Suspense-theCaskOfAmontillado.ogv"
+        },
+        {
+          "archiveID": "Suspense--My_Old_Mans_Badge",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "The Old Man's Badge",
+          "overview": "Officer Malone is murdered outside a \"gay 90s\"-themed nightclub simply by buying a seemingly harmless gift from one of the showgirls. His son, a rookie cop, takes a vacation from the force to find the murderer himself. At the club, he uncovers the deadly secret that got his father shot -- they're selling illegal drugs.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1950-03-21",
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense229_My_Old_Mans_Badge.mp4",
+            "format": "h.264",
+            "sizeBytes": 130525781,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--My_Old_Mans_Badge/Suspense229_My_Old_Mans_Badge.mp4"
+        },
+        {
+          "archiveID": "Suspense--Photo_Finish",
+          "seasonNumber": 2,
+          "episodeNumber": 38,
+          "title": "Photo Finish",
+          "overview": "The former medical examiner who had falsified information in a murder case years earlier returns to town. Lawyer Robert Quartermain, who was involved in the trial, kills the ex-examiner, careful to leave no clues behind. But, he hadn't planned on having his picture taken by a street photographer when he was leaving the scene of the crime. Realizing the shutterbug possesses the only evidence against him, Quartermain is frantic to find the man and retrieve that picture.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1950-05-23",
+          "year": 1950,
+          "runtimeSeconds": 1437,
+          "videoFile": {
+            "name": "Suspense--Photo_Finish.mp4",
+            "format": "h.264",
+            "sizeBytes": 133610988,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Photo_Finish/Suspense--Photo_Finish.mp4"
+        },
+        {
+          "archiveID": "Suspense--Im_No_Hero",
+          "seasonNumber": 2,
+          "episodeNumber": 41,
+          "title": "I'm No Hero",
+          "overview": "Dr. Joe Parker and his family are awakened by a gun-wielding criminal demanding treatment for his brother. The man's in serious condition after a bullet pierced his lung. With a pistol pointing at their daughter, the doctor and his wife are forced to perform surgery despite his protests that the patient requires hospital treatment to survive.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1950-06-20",
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense--Im_No_Hero.mp4",
+            "format": "h.264",
+            "sizeBytes": 129031310,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Im_No_Hero/Suspense--Im_No_Hero.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "Suspense--Edge_of_Panic",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Edge of Panic",
+          "overview": "Harry Martin is an insurance agent with an alcohol problem. In a drunk stupor he apparently murders a flirty blonde who was trying to buy a large annuity. He returns to his wife Alice a few minutes before the police arrive. Harry hides while his wife is taken to the police station. The police allow Alice to see the scene of the crime since she is desperate to find her husband innocent. Alice talks to the woman's doctor and later finds a note that convinces her it was a frame up. The police arrest Harry as he is trying to board a ship out of the country. Alice becomes ...",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1950-09-12",
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense--Edge_of_Panic.mp4",
+            "format": "h.264",
+            "sizeBytes": 130137217,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Edge_of_Panic/Suspense--Edge_of_Panic.mp4"
+        },
+        {
+          "archiveID": "Suspense--The_Brush-Off",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "The Brush Off",
+          "overview": "Ralph Farley, a struggling actor, overhears a plot to kill Roger Sherman, a powerful Hollywood agent. Ralph attempts to prevent the murder, but is thwarted by everyone from the police to Sherman himself.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1950-11-14",
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense--The_Brush-Off.mp4",
+            "format": "h.264",
+            "sizeBytes": 134416412,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--The_Brush-Off/Suspense--The_Brush-Off.mp4"
+        },
+        {
+          "archiveID": "Suspense--Tough_Cop",
+          "seasonNumber": 3,
+          "episodeNumber": 20,
+          "title": "Tough Cop",
+          "overview": "Rookie cop Eddie Stone takes out his anger on suspects after Ruth, his fiancé, tells him she's fallen for another man. For two years he seethes, just hoping for the day the \"other man\" is brought into the police station. He finally comes face to face with the scoundrel who stole his girl--right after he's been dismissed from the force for brutal conduct.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1951-01-09",
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense320_Tough_Cop.mp4",
+            "format": "h.264",
+            "sizeBytes": 129423076,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Tough_Cop/Suspense320_Tough_Cop.mp4"
+        },
+        {
+          "archiveID": "Suspense--On_a_Country_Road",
+          "seasonNumber": 3,
+          "episodeNumber": 29,
+          "title": "On a Country Road",
+          "overview": "Running out of gas on a foggy back road in Maine, a couple become frightened by news reports of a murderous woman who's escaped from an asylum. Searching for help, the two take refuge in an abandoned shack. When an hysterical woman appears at the window wanting refuge, they're convinced she's the lunatic that's on the loose.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1951-03-13",
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense--On_a_Country_Road.mp4",
+            "format": "h.264",
+            "sizeBytes": 126518966,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--On_a_Country_Road/Suspense--On_a_Country_Road.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "Suspense--The_Spider",
+          "seasonNumber": 4,
+          "episodeNumber": 20,
+          "title": "The Spider",
+          "overview": "Scientists Bob and Muriel Torres honeymoon in rural Florida. Despite being warned that a professor and his son had gotten lost in the nearby swamp and were never seen again, Muriel goes exploring alone. With night approaching, she stumbles upon a shack inhabited by a blind former explorer. Muriel's fear escalates when the doctor shows off the two shrunken heads he made himself; he learned the skill directly from jungle natives.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1952-01-15",
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense418_The_Spider.mp4",
+            "format": "h.264",
+            "sizeBytes": 126466691,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--The_Spider/Suspense418_The_Spider.mp4"
+        },
+        {
+          "archiveID": "Suspense--The_Red_Signal",
+          "seasonNumber": 4,
+          "episodeNumber": 21,
+          "title": "The Red Signal",
+          "overview": "A supposedly fake medium is hired to a conduct a séance so Sir Alington, a psychiatrist, can observe a patient under stress. She warns the doctor, Clair and her husband Jack to avoid their homes because they are in danger. Her premonition turns out to be true because of insanity, murder, and secret loves.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1952-01-22",
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense419_The_Red_Signal.mp4",
+            "format": "h.264",
+            "sizeBytes": 127824545,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--The_Red_Signal/Suspense419_The_Red_Signal.mp4"
+        },
+        {
+          "archiveID": "Suspense--Night_Drive",
+          "seasonNumber": 4,
+          "episodeNumber": 26,
+          "title": "Night Drive",
+          "overview": "Mrs. Haley takes her horse to blacksmith Bob to have its shoes checked since she'll be traveling alone by buggy to meet her husband at the train station. She's delighted when Dr. Tabor, whose wife was one of two women murdered in the woods along the way, asks if his sister can ride along. As they approach the spot of the two unsolved crimes, the behavior of Mrs. Haley's passenger becomes unsettling.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1952-02-26",
+          "year": 1952,
+          "runtimeSeconds": 1362,
+          "videoFile": {
+            "name": "Suspense424_Night_Drive.mp4",
+            "format": "h.264",
+            "sizeBytes": 126402289,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Night_Drive/Suspense424_Night_Drive.mp4"
+        },
+        {
+          "archiveID": "Suspense-TheDebt",
+          "seasonNumber": 4,
+          "episodeNumber": 38,
+          "title": "The Debt",
+          "overview": "A young drifter is robbed by two other hobos after hopping off a train. Making his way to a country store, he's offered refuge from the rain by the young woman and her father who run the business. During the night the store is robbed and the old man is murdered. The drifter's first instinct is to run, but he quickly figures out who the real murderers are.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1952-05-27",
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense-TheDebt.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 129780863,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense-TheDebt/Suspense-TheDebt.ogv"
+        },
+        {
+          "archiveID": "Suspense--House_of_Masks",
+          "seasonNumber": 4,
+          "episodeNumber": 40,
+          "title": "House of Masks",
+          "overview": "Anna, a delicate and unstable young woman, despises having her life controlled by her older, practical sister. The sister is ready sign the papers to have Anna committed after she hires a mysterious young poet to be the gardener and plies him with cash. Billy has a history of being involved with young women who suddenly die.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1952-06-10",
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense438_House_of_Masks.mp4",
+            "format": "h.264",
+            "sizeBytes": 137716736,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--House_of_Masks/Suspense438_House_of_Masks.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "Suspense--Mr_Matches",
+          "seasonNumber": 5,
+          "episodeNumber": 19,
+          "title": "Mr. Matches",
+          "overview": "An arsonist-for-hire dubbed \"Mr. Matches\" has been been torching buildings all around the city. Bernard Frank, head of the fire bureau, knows who he's looking for because he's spotted in the crowd at each of his jobs admiring his work. To catch \"Mr. Matches\" in the act, the department has an ex-con hire him to take down a building they're monitoring. His capture becomes personal after Frank's son is killed in one of the arsonist's fires.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1953-01-13",
+          "year": 1953,
+          "runtimeSeconds": 1472,
+          "videoFile": {
+            "name": "Suspense--Mr_Matches.mp4",
+            "format": "h.264",
+            "sizeBytes": 137063755,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Mr_Matches/Suspense--Mr_Matches.mp4"
+        },
+        {
+          "archiveID": "Suspense--Mutiny_Below",
+          "seasonNumber": 5,
+          "episodeNumber": 22,
+          "title": "Mutiny Below",
+          "overview": "After saving the chief engineer's life, Danny and Snow are hired as watch officers on a rusty steamer traveling the Indian Ocean. Reading a newspaper story about a stolen diamond being smuggled into Australia, the boiler room crew becomes convinced that Danny and Snow have the jewel. They stage a mutiny, even though the old ship is about to sink.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1953-02-03",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense516_Mutiny_Below.mp4",
+            "format": "h.264",
+            "sizeBytes": 126400943,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Mutiny_Below/Suspense516_Mutiny_Below.mp4"
+        },
+        {
+          "archiveID": "Suspense--The_Kiss-Off",
+          "seasonNumber": 5,
+          "episodeNumber": 26,
+          "title": "The Kiss Off",
+          "overview": "Tom Walker, an ex-convict who was wrongly convicted and just released, holds up a tax office and leaves behind an obvious clue as to his identity. He gives the bag of money to his patient girlfriend and sends her ahead to Florida saying he'll join her soon. Soon enough, he gets the expected visit from the DA and cop who wrongly convicted him. Tom intends to make fools of his former persecutors.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1953-03-03",
+          "year": 1953,
+          "runtimeSeconds": 1382,
+          "videoFile": {
+            "name": "Suspense520_The_Kiss-Off.mp4",
+            "format": "h.264",
+            "sizeBytes": 129118747,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--The_Kiss-Off/Suspense520_The_Kiss-Off.mp4"
+        },
+        {
+          "archiveID": "Suspense--Portrait_of_Constance",
+          "seasonNumber": 5,
+          "episodeNumber": 29,
+          "title": "Portrait of Constance",
+          "overview": "A newlywed accompanies her detective husband on the search for a long-missing woman, whom he once was madly in love with. A reported sighting takes Burt and Sally Hastings to a resort town where a bust of Constance awaits them in their cabin. As Burt races to see the sculptor, Sally realizes her husband's still mesmerized by the young lady. The artist confesses that the model was indeed Constance, his wife, and that he jealously murdered her.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1953-03-24",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense523_Portrait_of_Constance.mp4",
+            "format": "h.264",
+            "sizeBytes": 130667105,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Portrait_of_Constance/Suspense523_Portrait_of_Constance.mp4"
+        },
+        {
+          "archiveID": "Suspense--Kiss_Me_Again_Stranger",
+          "seasonNumber": 5,
+          "episodeNumber": 31,
+          "title": "Kiss Me Again, Stranger",
+          "overview": "A serial killer is on the loose in 1946 London with five victims so far. Elderly Mrs. Thompson rents a room to a secretive young Tim Matthews and is convinced he's the murderer. She calls police after discovering a knife in his room. Meanwhile, Tim has taken a young woman he's obsessed with on a picnic in the country. Having been discharged from the Royal Air Force for physical reasons, he's insanely jealous of her former boyfriend, a strapping man who had served during the war.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1953-04-14",
+          "year": 1953,
+          "runtimeSeconds": 1420,
+          "videoFile": {
+            "name": "Suspense525_Kiss_Me_Again_Stranger.mp4",
+            "format": "h.264",
+            "sizeBytes": 132854519,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Kiss_Me_Again_Stranger/Suspense525_Kiss_Me_Again_Stranger.mp4"
+        },
+        {
+          "archiveID": "Suspense--The_Duel",
+          "seasonNumber": 5,
+          "episodeNumber": 32,
+          "title": "The Duel",
+          "overview": "Madeleine does not care for Raoul, the officer her father intends for her to marry. Instead, she loves Lt. Andre Duport. Her father intends to send her back to Paris and put a stop to their affair. The jilted Raoul challenges Andre to an unusual duel--only one of the pistols will be loaded and each aimed just three inches from the heart. When the time comes to prove he's more than just words, Raoul proves to be a crafty coward.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1953-04-21",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense526_The_Duel.mp4",
+            "format": "h.264",
+            "sizeBytes": 131785716,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--The_Duel/Suspense526_The_Duel.mp4"
+        },
+        {
+          "archiveID": "Suspense--Nightmare_at_Ground_Zero",
+          "seasonNumber": 5,
+          "episodeNumber": 49,
+          "title": "Nightmare at Ground Zero",
+          "overview": "The Nevada Proving Ground is set for another nuclear bomb blast at 4 AM. A harried artist is rushing to finish the mannequins he's been hired to construct that will populate a house at ground zero. His nagging wife, who does nothing but complain about his work, finally pushes him over the edge. As contracted, he delivers five \"people\" to the house that's about to be destroyed.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1953-08-18",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspense543_Nightmare_at_Ground_Zero.mp4",
+            "format": "h.264",
+            "sizeBytes": 133606897,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Nightmare_at_Ground_Zero/Suspense543_Nightmare_at_Ground_Zero.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 21
+}

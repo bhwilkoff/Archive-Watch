@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sneak-previews-august-3-1985-2022",
+  "title": "Sneak Previews (August 3, 1985",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sneak-previews-august-3-1985",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sneak-previews-august-3-1985",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sneak Previews (August 3, 1985)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sneak-previews-august-3-1985",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sneak Previews (August 3, 1985).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 706666250,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sneak-previews-august-3-1985/Sneak Previews (August 3, 1985).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

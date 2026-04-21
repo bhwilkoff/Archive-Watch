@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ferry-boat-1960",
+  "title": "Ferry Boat",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Follow_That_Man_EP4x16_Ferry_Boat",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Follow_That_Man_EP4x16_Ferry_Boat",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ferry Boat",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Follow_That_Man_EP4x16_Ferry_Boat",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FollowThatMan-RalphBellamy-4-16-FerryBoat.mp4",
+            "format": "h.264",
+            "sizeBytes": 143915685,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Follow_That_Man_EP4x16_Ferry_Boat/FollowThatMan-RalphBellamy-4-16-FerryBoat.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

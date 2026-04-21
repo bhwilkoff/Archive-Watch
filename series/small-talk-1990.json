@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "small-talk-1990",
+  "title": "Small Talk",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "Small Talk is a BBC One game show that aired from 24 July 1994 to 18 December 1996 and it was hosted by The Two Ronnies star and Sorry! actor Ronnie Corbett.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "small-talk-talking-fish-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Small Talk - Roger Rose",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Small Talk - Talking Fish - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 540747748,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/small-talk-talking-fish-1990/Small Talk - Talking Fish - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

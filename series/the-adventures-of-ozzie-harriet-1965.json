@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "seriesID": "the-adventures-of-ozzie-harriet-1965",
+  "title": "The Adventures of Ozzie & Harriet",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": "The Adventures of Ozzie and Harriet is an American sitcom, airing on ABC from October 3, 1952 through March 26, 1966, starring the real life Nelson family. After a long run on radio, the show was brought to television where it continued its success, running on both radio and television for a few years. The series stars Ozzie Nelson and his wife, singer Harriet Nelson, and their young sons, David and Eric \"Ricky\" Nelson. Don DeFore had a recurring role as the Nelsons' friendly neighbor \"Thorny\".",
+  "posterURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/z9ipjaUaoRWMl6vvQnLhpuFfkBu.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheAdventuresOfOzzieHarriet_103",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures of Ozzie & Harriet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "012R_CHRISTMAS_MONEY.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 140730950,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieHarriet_103/012R_CHRISTMAS_MONEY.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 14,
+      "episodes": [
+        {
+          "archiveID": "TheAdventuresOfOzzieHarriet-TheProwler1965",
+          "seasonNumber": 14,
+          "episodeNumber": 5,
+          "title": "The Prowler",
+          "overview": "While hiding out from the Randolph's, Ozzie is mistaken for a prowler in his own home.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1965-10-13",
+          "year": 1965,
+          "runtimeSeconds": 1718,
+          "videoFile": {
+            "name": "OzzieProwler.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 170599720,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieHarriet-TheProwler1965/OzzieProwler.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

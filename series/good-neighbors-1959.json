@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "good-neighbors-1959",
+  "title": "Good Neighbors",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FMM_Good_Neighbors",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FMM_Good_Neighbors",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Good Neighbors",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FMM_Good_Neighbors",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FMM_Good_Neighbors.mp4",
+            "format": "h.264",
+            "sizeBytes": 149180893,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FMM_Good_Neighbors/FMM_Good_Neighbors.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

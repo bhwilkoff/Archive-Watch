@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "magicians-1994",
+  "title": "Magicians",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": "A New Year's fairy tale about how true love can work wonders. At the NUINU Institute (Scientific Universal Institute of Unusual Services), work is in full swing on the creation of a magic wand. The presentation of the invention is scheduled for December 31, New Year's Eve.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lD9GTBqYlholY4r7Oq1iTKf0bpN.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/7s0JCuJkLDzTHVqyoNV2jfbVwJW.jpg",
+  "genres": [],
+  "networks": [
+    "Central Television USSR"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "magicians-favorite-magicians-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Magicians' Favorite Magicians - Harry Anderson",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lD9GTBqYlholY4r7Oq1iTKf0bpN.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Magicians Favorite Magicians - 1994.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1450335281,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/magicians-favorite-magicians-1994/Magicians Favorite Magicians - 1994.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

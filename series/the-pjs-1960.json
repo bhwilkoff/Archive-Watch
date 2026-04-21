@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "the-pjs-1960",
+  "title": "The PJs",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Thurgood Stubbs lives with his wife, Muriel, in the Lawrence Hilton-Jacobs housing project, where he is the superintendent. This animated comedy follows the adventures of the Subbs and their friends, while taking a satirical view of the ups and downs of life in a big-city housing project.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ktWIazs5psPUysf73v4UsbuSblv.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/63DQweR1Z8ZPVil0R72wAV836Vm.jpg",
+  "genres": [],
+  "networks": [
+    "FOX",
+    "The WB"
+  ],
+  "creator": "Larry Wilmore",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-pjs-s-01-e-01-hangin-with-mr.-super_202408",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The PJs S01-S03 1999-2001",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ktWIazs5psPUysf73v4UsbuSblv.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The PJs S01E01 - Hangin' with Mr. Super.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 277939709,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-pjs-s-01-e-01-hangin-with-mr.-super_202408/The PJs S01E01 - Hangin' with Mr. Super.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

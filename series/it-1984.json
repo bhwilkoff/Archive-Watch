@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "seriesID": "it-1984",
+  "title": "It",
+  "yearStart": 1984,
+  "yearEnd": 1999,
+  "overview": "In 1960, seven outcast kids known as \"The Losers' Club\" fight against an ancient shape-shifting alien who poses as a child-killing clown, while also dealing with bullies and abusive parents. Thirty years later, they reunite to stop the creature once and for all when it returns to their hometown.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/2lFfjPdVXleGHukp0Phr5pNJ4ab.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Stephen King",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "its-garry-shandlings-show-complete-ish",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Garry Shandling's Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Its.Garry.Shandlings.Show.416.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 518162641,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/its-garry-shandlings-show-complete-ish/Its.Garry.Shandlings.Show.416.mp4"
+        },
+        {
+          "archiveID": "its-howdy-doody-time-a-40-year-celebration-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Howdy Doody Time: A 40 Year Celebration",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Its Howdy Doody Time - A 40 Year Celebration - 1987.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2915332366,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/its-howdy-doody-time-a-40-year-celebration-1987/Its Howdy Doody Time - A 40 Year Celebration - 1987.ia.mp4"
+        },
+        {
+          "archiveID": "its-like-you-know...-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Like, You Know... - A.J. Langer, Jennifer Grey",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Its Like You Know... - 1.01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 671798830,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/its-like-you-know...-1.1/Its Like You Know... - 1.01.ia.mp4"
+        },
+        {
+          "archiveID": "Its_Your_Move_1984",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Your Move (1984) Sitcom, Jason Bateman",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Its_Your_Move_1984",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It's Your Move   s01e07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 322787410,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Its_Your_Move_1984/It's Your Move   s01e07.mp4"
+        },
+        {
+          "archiveID": "its-your-move-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Your Move - Jason Bateman, Caren Kaye",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/its-your-move-1.01",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Its Your Move - 1.01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 722643567,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/its-your-move-1.01/Its Your Move - 1.01.ia.mp4"
+        },
+        {
+          "archiveID": "peanutstv20",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's your 20th Television Anniversary, Charlie Brown",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It's your 20th Television Anniversary, Charlie Brown.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1099412285,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/peanutstv20/It's your 20th Television Anniversary, Charlie Brown.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lucy-and-carol-in-palm-springs-1960",
+  "title": "Lucy And Carol In Palm Springs",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TLS_Lucy_And_Carol_In_Palm_Springs",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TLS_Lucy_And_Carol_In_Palm_Springs",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lucy And Carol In Palm Springs",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TLS_Lucy_And_Carol_In_Palm_Springs",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TLS_LucyAndCarolInPalmSprings.mp4",
+            "format": "h.264",
+            "sizeBytes": 146786716,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TLS_Lucy_And_Carol_In_Palm_Springs/TLS_LucyAndCarolInPalmSprings.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

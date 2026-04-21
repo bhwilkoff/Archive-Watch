@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "marco_giovannetti__ganador_de_la_vuelta_ciclista_a_espan_a_1-1960",
+  "title": "Marco_Giovannetti__ganador_de_la_Vuelta_ciclista_a_Espan_a_1990",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Marco_Giovannetti__ganador_de_la_Vuelta_ciclista_a_Espan_a_1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Marco_Giovannetti__ganador_de_la_Vuelta_ciclista_a_Espan_a_1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Marco_Giovannetti__ganador_de_la_Vuelta_ciclista_a_Espan_a_1990",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Marco_Giovannetti__ganador_de_la_Vuelta_ciclista_a_Espan_a_1990",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Marco_Giovannetti__ganador_de_la_Vuelta_ciclista_a_Espan_a_1990.mp4",
+            "format": "h.264",
+            "sizeBytes": 13930245,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Marco_Giovannetti__ganador_de_la_Vuelta_ciclista_a_Espan_a_1990/Marco_Giovannetti__ganador_de_la_Vuelta_ciclista_a_Espan_a_1990.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

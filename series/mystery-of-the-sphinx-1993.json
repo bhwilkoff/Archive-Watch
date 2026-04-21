@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "mystery-of-the-sphinx-1993",
+  "title": "Mystery of the Sphinx",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Mystery-of-the-Sphinx",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Mystery-of-the-Sphinx",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mystery of the Sphinx",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mystery-of-the-Sphinx",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "shpinx-heston.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 239223402,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mystery-of-the-Sphinx/shpinx-heston.mp4"
+        },
+        {
+          "archiveID": "the-mystery-of-the-sphinx-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Mystery Of The Sphinx - Charlton Heston",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-mystery-of-the-sphinx-1993",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Mystery of the Sphinx - 1993.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1441656366,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-mystery-of-the-sphinx-1993/The Mystery of the Sphinx - 1993.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

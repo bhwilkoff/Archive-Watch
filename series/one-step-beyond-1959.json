@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "seriesID": "one-step-beyond-1959",
+  "title": "One Step Beyond",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": "Alcoa Presents: One Step Beyond is an American anthology series created by Merwin Gerard. The original series ran for three seasons on ABC from January 1959 to July 1961.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/rYWPWFUF3N8zIEzyH2git8hbXWy.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "one-step-beyond-season-1-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "One Step Beyond - Season 1 (1959)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "One Step Beyond - s01e08 - Premonition.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 202178122,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One Step Beyond - s01e08 - Premonition.ia.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "One Step Beyond - Season 2 (1959 - 1960)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "One Step Beyond - s02e35 - Contact.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 259098137,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-2/One Step Beyond - s02e35 - Contact.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "OSBS01E02NightOfApril14",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Night of April 14th",
+          "overview": "A young Englishwoman is suddenly wracked by dreams of drowning in the ocean. She is stunned when her fiancée tells her that he has prepared a surprise honeymoon trip for them--they're sailing to New York on the passenger liner Titanic.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/n3womWGRt0AYES9xx3G3BwqWgQy.jpg",
+          "airDate": "1959-01-27",
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OSB S01E02 Night of April 14.mp4",
+            "format": "h.264",
+            "sizeBytes": 163295445,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSBS01E02NightOfApril14/OSB S01E02 Night of April 14.mp4"
+        },
+        {
+          "archiveID": "OneStepBeyondTheDream",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Dream",
+          "overview": "In 1940, a fearful Britain awaits invasion by Nazi forces. A husband and his wife, separated by their wartime assignments, suddenly dream that each is in danger, and both try frantically to see if their dream has come true.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lJqUytZR0k4ByDBdKIC5jqri1Lp.jpg",
+          "airDate": "1959-03-03",
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OneStepBeyondTheDream.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 143132850,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OneStepBeyondTheDream/OneStepBeyondTheDream.ia.mp4"
+        },
+        {
+          "archiveID": "OneStepBeyondTheRiddle",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Riddle",
+          "overview": "An irrational hatred in an American tourist on the Bombay-Calcutta Mail is considered in terms of metempsychosis.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iGGkp7xWB4Hk5Qtj7fyuSsyP2kK.jpg",
+          "airDate": "1959-06-16",
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OneStepBeyondTheRiddle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 125057850,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OneStepBeyondTheRiddle/OneStepBeyondTheRiddle.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lonesome-loser-1981",
+  "title": "Lonesome Loser",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/little-river-band-lonesome-loser",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "little-river-band-lonesome-loser",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lonesome Loser - Little River Band (Live)1981",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/little-river-band-lonesome-loser",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Little River Band - Lonesome Loser (Live 1981)_Segment_0_x264_004.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 19664269,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/little-river-band-lonesome-loser/Little River Band - Lonesome Loser (Live 1981)_Segment_0_x264_004.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

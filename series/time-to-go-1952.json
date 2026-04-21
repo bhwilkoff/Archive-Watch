@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "time-to-go-1952",
+  "title": "Time to Go",
+  "yearStart": 1952,
+  "yearEnd": 1952,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Tales_Of_Tomorrow_-_Time_To_Go",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Tales_Of_Tomorrow_-_Time_To_Go",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Time to Go",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Tales_Of_Tomorrow_-_Time_To_Go",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TOT_Time_To_Go.mp4",
+            "format": "h.264",
+            "sizeBytes": 135050616,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Tales_Of_Tomorrow_-_Time_To_Go/TOT_Time_To_Go.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

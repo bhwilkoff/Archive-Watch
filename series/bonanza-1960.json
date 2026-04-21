@@ -1,0 +1,645 @@
+{
+  "version": 1,
+  "seriesID": "bonanza-1960",
+  "title": "Bonanza",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "The High-Sierra adventures of Ben Cartwright and his sons as they run and defend their ranch while helping the surrounding community.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/wQ1iVrG871anxkEUwWTRdPRi0j1.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/61OxoiBHvGFOB4gufYfypHyCbI4.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "David Dortort",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bonanzabitterwaterhq",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bonanza - Bitter Water S01- Ep.29",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wQ1iVrG871anxkEUwWTRdPRi0j1.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bonanza - Bitter Water HQ.mp4",
+            "format": "h.264",
+            "sizeBytes": 310209709,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bonanzabitterwaterhq/Bonanza - Bitter Water HQ.mp4"
+        },
+        {
+          "archiveID": "Bonanza-TheAbductionEp2x08",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bonanza - The Abduction Ep 2x08",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wQ1iVrG871anxkEUwWTRdPRi0j1.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2959,
+          "videoFile": {
+            "name": "Bonanza-TheAbductionEp2x08.mp4",
+            "format": "h.264",
+            "sizeBytes": 299660153,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-TheAbductionEp2x08/Bonanza-TheAbductionEp2x08.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Bonanza-DeathOnSunMountain",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Death on Sun Mountain",
+          "overview": "Greedy opportunist Mark Burdette and his accomplice Early Thorne stir up trouble between the Paiute tribe and the citizens of Virginia City.  Ben discovers Burdette and Thorne are selling antelope beef to the miners and finds the price too high.  He offers the miners beef at a more reasonable price.  Burdette and Thorne retaliate by framing the Paiute's for attacks, by dressing as them and killing ranchers.  Based on a factual accounting.  Lorne Greene's first voice-over narration, and no landing constructed yet for the Ponderosa stairway.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/GVcQ0949nXRinRBFRr8v4pQRST.jpg",
+          "airDate": "1959-09-19",
+          "year": null,
+          "runtimeSeconds": 2626,
+          "videoFile": {
+            "name": "BonanzaS1e02DeathOnSunMountain.mp4",
+            "format": "h.264",
+            "sizeBytes": 258647227,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-DeathOnSunMountain/BonanzaS1e02DeathOnSunMountain.mp4"
+        },
+        {
+          "archiveID": "Bonanza-TheGunmen",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Gunmen",
+          "overview": "In the first all-out comic episode of the series, Hoss and Joe travel to Kiowa Flats, Texas, where they are mistaken for the notorious Slade Brothers, also played by Blocker and Landon.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3baHo1Lf57346hqlVrjg5YRpQRW.jpg",
+          "airDate": "1960-01-23",
+          "year": null,
+          "runtimeSeconds": 2945,
+          "videoFile": {
+            "name": "Bonanza_The_Gunmen_S01-E19.mp4",
+            "format": "h.264",
+            "sizeBytes": 292713762,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-TheGunmen/Bonanza_The_Gunmen_S01-E19.mp4"
+        },
+        {
+          "archiveID": "Bonanza-TheFearMerchants",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Fear Merchants",
+          "overview": "The Cartwrights encounter racial bigotry in Virginia City and end up protecting a Chinese boy from mob violence.  Victor Sen Yung, in his largest role to date, speaks normally in the presence of his fellow countrymen, but reverts to broken English when with the Cartwrights.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2wNjVWb00Qz8zSlGNZM27Tp4usQ.jpg",
+          "airDate": "1960-01-30",
+          "year": null,
+          "runtimeSeconds": 2939,
+          "videoFile": {
+            "name": "Bonanza_-_The_Fear_Merchants_S01-E20.mp4",
+            "format": "h.264",
+            "sizeBytes": 285301609,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-TheFearMerchants/Bonanza_-_The_Fear_Merchants_S01-E20.mp4"
+        },
+        {
+          "archiveID": "Bonanza-TheSpanishGrant",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Spanish Grant",
+          "overview": "In \"The Spanish Grant\", a young bargirl, Rosita Morales is pretending to be a Spanish noblewoman named Isabella Marie Inez de la Cuesta and at the end of the story, it's revealed she is really Rosita Morales, but on the other hand, is she really Rosita Morales?  This little twist at the end is simply entertaining everytime it's viewed, with the viewer able to determine the young woman's real identity at the end of act four.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/zlxJDXE6p0vcrRD5A9QEiAegxqW.jpg",
+          "airDate": "1960-02-06",
+          "year": null,
+          "runtimeSeconds": 2978,
+          "videoFile": {
+            "name": "Bonanza_-_The_Spanish_Grant_S01-E21.mp4",
+            "format": "h.264",
+            "sizeBytes": 290961307,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-TheSpanishGrant/Bonanza_-_The_Spanish_Grant_S01-E21.mp4"
+        },
+        {
+          "archiveID": "Bonanza-BloodOnTheLand",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Blood on the Land",
+          "overview": "A shiftless sheepherder, Jeb Drummond, encroaches his herd of sheep on the Ponderosa and refuses to budge.  He resists all of Ben's attempts to throw him off his land and finally resorts to taking Adam prisoner in exchange for ownership of the ranch.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3v4oNOlSbaOoLvVc0jYdJjcJ68c.jpg",
+          "airDate": "1960-02-13",
+          "year": null,
+          "runtimeSeconds": 2962,
+          "videoFile": {
+            "name": "Bonanza_-_Blood_On_The_Land_S01-E22.mp4",
+            "format": "h.264",
+            "sizeBytes": 302181148,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-BloodOnTheLand/Bonanza_-_Blood_On_The_Land_S01-E22.mp4"
+        },
+        {
+          "archiveID": "Bonanza-DesertJustice",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Desert Justice",
+          "overview": "When a tough U.S. Marshal from California arrests a Ponderosa hand, Dave Walker, for murder, Adam and Hoss go along to make sure their employee reaches Los Angeles alive.  In one scene, Adam is dressed in black for the first time.  In another, Hoss, upon seeing Southern California for the first time, remarks, \"It sure ain't never gonna amount to much\".  Later, Adam makes an amusing reference to the chow Joe says he was forced to eat in \"The Last Hunt\".",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2iYMAS3vMduAY6tSdCU4qpBDKL.jpg",
+          "airDate": "1960-02-20",
+          "year": null,
+          "runtimeSeconds": 2967,
+          "videoFile": {
+            "name": "Bonanza_-_Desert_Justice_S01-E23.mp4",
+            "format": "h.264",
+            "sizeBytes": 302193647,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-DesertJustice/Bonanza_-_Desert_Justice_S01-E23.mp4"
+        },
+        {
+          "archiveID": "Bonanza-TheStranger",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The Stranger",
+          "overview": "Nevada Territory is awaiting statehood, and Ben considers running for governor until he learns he is wanted for murder in New Orleans.  Inspector Charles Leduque arrives and says Ben is wanted for commiting the murder 20 years earlier, and after Joe kills his bodyguard in self-defense, Inspector Leduque makes it appear the other way around.  Ben has no choice but go with Leduque, to clear his name in a very suspense-filled episode.  Once again, there are several references to Joe's mother, and viewers are shown Marie's grave near the shore of Lake Tahoe.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4b5R5pczJzV2Ay8RlG5lu7oflco.jpg",
+          "airDate": "1960-02-27",
+          "year": null,
+          "runtimeSeconds": 2964,
+          "videoFile": {
+            "name": "Bonanza_-_The_Stranger_S01-E24.mp4",
+            "format": "h.264",
+            "sizeBytes": 288748212,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-TheStranger/Bonanza_-_The_Stranger_S01-E24.mp4"
+        },
+        {
+          "archiveID": "Bonanza-EscapeToPonderosa",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Escape to Ponderosa",
+          "overview": "After Adam is bushwhacked by three army deserters, Ben tracks them down, and tackles the brutal Captain Bolton who is pursuing them.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/psQhy9MLirnC3mrZHzAEpsj3TjK.jpg",
+          "airDate": "1960-03-05",
+          "year": null,
+          "runtimeSeconds": 2964,
+          "videoFile": {
+            "name": "Bonanza_-_Escape_To_Ponderosa_S01-E25.mp4",
+            "format": "h.264",
+            "sizeBytes": 300485001,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-EscapeToPonderosa/Bonanza_-_Escape_To_Ponderosa_S01-E25.mp4"
+        },
+        {
+          "archiveID": "Bonanza-TheAvenger",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Avenger",
+          "overview": "A restaurant owner whom Ben and Adam have confronted over stolen Ponderosa beef ends up dead one night.  His daughter, Sally Byrnes runs the cafe and in her resentment, wrongfully accuses Ben and Adam of murdering her father and they are sentenced to hang.  A rancher by the name of Hawkins is also jealous of the Cartwrights and has hired his men to stop the town from helping Ben and Adam, ensuring they hang.  Hoss and Joe are willing to stop them, but Ben insists they stay within the limits of the law.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/c6fsK4pU6hznHCyM4VUt2AKNQ20.jpg",
+          "airDate": "1960-03-19",
+          "year": null,
+          "runtimeSeconds": 2965,
+          "videoFile": {
+            "name": "Bonanza_-_The_Avenger_S01-E26.mp4",
+            "format": "h.264",
+            "sizeBytes": 295422378,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-TheAvenger/Bonanza_-_The_Avenger_S01-E26.mp4"
+        },
+        {
+          "archiveID": "Bonanza-TheLastTrophy",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "The Last Trophy",
+          "overview": "Adam takes Ben's friends, Lord Marion Dunsworth and Lady Beatrice, on a hunting expedition, and they are captured by a gang of crude thieves and murderers.  During one early scene, after listening to Ben reminisce, Hoss says, \"Always like to hear Pa get wound up.  He don't do it often.\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/91YBA3447qhCFUBONmYnuVOzXao.jpg",
+          "airDate": "1960-03-26",
+          "year": null,
+          "runtimeSeconds": 2955,
+          "videoFile": {
+            "name": "Bonanza_The_Last_Trophy_S01-E27.mp4",
+            "format": "h.264",
+            "sizeBytes": 292687391,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-TheLastTrophy/Bonanza_The_Last_Trophy_S01-E27.mp4"
+        },
+        {
+          "archiveID": "Bonanza-SanFrancisco",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "San Francisco",
+          "overview": "In this comic episode, the first to take place far from the ranch, Ben, Hoss, and Joe deliver a herd to San Francisco.  Although he warns his sons to be careful in the big city (\"This is not the Ponderosa!\"), Ben is the one who is shanghaied and must be rescued.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7eMTzFMS5Vmm8C0LuNXRGYJiy0N.jpg",
+          "airDate": "1960-04-02",
+          "year": null,
+          "runtimeSeconds": 2966,
+          "videoFile": {
+            "name": "Bonanza_-_San_Francisco_S01-E28.mp4",
+            "format": "h.264",
+            "sizeBytes": 299034309,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-SanFrancisco/Bonanza_-_San_Francisco_S01-E28.mp4"
+        },
+        {
+          "archiveID": "Bonanza-BitterWater",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Bitter Water",
+          "overview": "Len Keith, a miner, wants to purchase some land adjacent to the Ponderosa from rancher Andy McKaren.  Andy's son, Tod, is anxious to sell.  Keith has offered him a partnership,and more importantly, he is in love with Keith's daughter.  When Ben warns Andy that a mine on the property would foul up Ponderosa water, Andy agrees not to sell the land.  Len Keith, determined to get that land, plants tick infested cattle in a Ponderosa herd to turn Andy against the Cartwrights.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/l2cwEYEVO5tc0Z78WAqxxLwqb6Q.jpg",
+          "airDate": "1960-04-09",
+          "year": null,
+          "runtimeSeconds": 2964,
+          "videoFile": {
+            "name": "Bonanza_Bitter_Water_S01-E29.mp4",
+            "format": "h.264",
+            "sizeBytes": 299258037,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-BitterWater/Bonanza_Bitter_Water_S01-E29.mp4"
+        },
+        {
+          "archiveID": "Bonanza-FeetOfClay",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Feet of Clay",
+          "overview": "Hoss takes Billy Allen, the young son of a convicted felon under his wing, then is forced to kill his father and Billy will not forgive him.  The most emotional Hoss story since \"The Newcomers\" and one of Blocker's best.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/tnefDCVikleHwt5JEOCdeF86zgh.jpg",
+          "airDate": "1960-04-16",
+          "year": null,
+          "runtimeSeconds": 2963,
+          "videoFile": {
+            "name": "Bonanza_-_Feet_Of_Clay_S01-E30.mp4",
+            "format": "h.264",
+            "sizeBytes": 294933093,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-FeetOfClay/Bonanza_-_Feet_Of_Clay_S01-E30.mp4"
+        },
+        {
+          "archiveID": "Bonanza-DarkStar",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Dark Star",
+          "overview": "Joe falls in love with Tirza, an undeniably strange gypsy girl who says she is cursed and never does seem to \"snap out of it\".  The first episode of the series with a supernatural flavor, directed appropriately enough, by Lewis Allen, who made the classic ghost film \"The Uninvited\".",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4OHUXGodMGuMZEQsKPFWFC7ySA1.jpg",
+          "airDate": "1960-04-23",
+          "year": null,
+          "runtimeSeconds": 2962,
+          "videoFile": {
+            "name": "Bonanza_-_Dark_Star_S01-E31.mp4",
+            "format": "h.264",
+            "sizeBytes": 289063632,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-DarkStar/Bonanza_-_Dark_Star_S01-E31.mp4"
+        },
+        {
+          "archiveID": "Bonanza-DeathAtDawn",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Death at Dawn",
+          "overview": "Virginia City is plagued by organized crime, Sam Bryant and his gang.  One of his men, Farmer Perkins, kills a storekeeper, and at his trial, the wife of the store owner is afraid to testify.  When Perkins is sentenced to hang, Bryant kidnaps Ben and wants to exchange Ben for Perkins, which leaves Adam with the most difficult decision of his life.  A stellar cast.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/u2hXFBp1UyuUfNfiQ8nH9CfrgK1.jpg",
+          "airDate": "1960-04-30",
+          "year": null,
+          "runtimeSeconds": 2977,
+          "videoFile": {
+            "name": "Bonanza_-_Death_At_Dawn_S01-E32.mp4",
+            "format": "h.264",
+            "sizeBytes": 300359480,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-DeathAtDawn/Bonanza_-_Death_At_Dawn_S01-E32.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Bonanza-Showdown",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Showdown",
+          "overview": "A young bank robber hires on at the Ponderosa in order to keep his gang informed of the law's efforts to discover their whereabouts.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9qw6NOKhGVJHQC4FjjVL5NV3hWA.jpg",
+          "airDate": "1960-09-10",
+          "year": null,
+          "runtimeSeconds": 2964,
+          "videoFile": {
+            "name": "Bonanza_-_Showdown_S02-E01.mp4",
+            "format": "h.264",
+            "sizeBytes": 297849195,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-Showdown/Bonanza_-_Showdown_S02-E01.mp4"
+        },
+        {
+          "archiveID": "Bonanza-TheMission",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Mission",
+          "overview": "Filmed almost entirely outdoors, this is more like a feature than a series.  Captain Pender is looking for a scout to lead him and his company of men across the desert, along with a currency shipment they are carrying to another army fort.  Charlie Trent, a former scout and now a drunk, still blames himself for his troops being led to massacre.  Hoss sees that this is Charlie's opportunity to redeem himself and win back his honor.  Meantime, Captain Pender is having trouble with Cutter, another scout who is a devious and cunning bear of a man, who agreed to lead him across the desert, but Pender lets him go and with Hoss' suggestion, Captain Pender agress to have Charlie be their scout.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/93ZWmG8BT2HeTJzWR4ABtPfEE42.jpg",
+          "airDate": "1960-09-17",
+          "year": null,
+          "runtimeSeconds": 2961,
+          "videoFile": {
+            "name": "Bonanza_-_The_Mission_S02-E02.mp4",
+            "format": "h.264",
+            "sizeBytes": 298159984,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza-TheMission/Bonanza_-_The_Mission_S02-E02.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_Badge_Without_Honor",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Badge Without Honor",
+          "overview": "Adam's life is saved by an enigmatic U. S. Marshal who has come to Virginia City to arrest a friend of the Cartwrights.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/f58gdNNg8HtXWvLouGqthSIlaoS.jpg",
+          "airDate": "1960-09-24",
+          "year": null,
+          "runtimeSeconds": 2963,
+          "videoFile": {
+            "name": "Bonanza_-_Badge_Without_Honor.mp4",
+            "format": "h.264",
+            "sizeBytes": 289563536,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_Badge_Without_Honor/Bonanza_-_Badge_Without_Honor.mp4"
+        },
+        {
+          "archiveID": "Bonanza_The_Mill",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The Mill",
+          "overview": "The Cartwrights construct a grist mill to provide income for a crippled rancher who blames Ben for his predicament.  Ben has to contend with the man's depraved caretaker, and finds himself attracted to his wife.  \"Sons can't be everything,\" Ben tells her.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/vPejycgJpb1leHK3VnnKZiIH2Ze.jpg",
+          "airDate": "1960-10-01",
+          "year": null,
+          "runtimeSeconds": 2962,
+          "videoFile": {
+            "name": "Bonanza_The_Mill.mp4",
+            "format": "h.264",
+            "sizeBytes": 297660435,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_The_Mill/Bonanza_The_Mill.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_The_Hopefuls",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "The Hopefuls",
+          "overview": "Adam guides a wagon train of Quakers and falls for the leader's daughter, Regina.  The force Adam must employ to protect them, conflicts with their passive philosophy of life.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/5bCDhABYdKaTTSCwFAP87PtSjkl.jpg",
+          "airDate": "1960-10-08",
+          "year": null,
+          "runtimeSeconds": 2964,
+          "videoFile": {
+            "name": "Bonanza_-_The_Hopefuls.mp4",
+            "format": "h.264",
+            "sizeBytes": 297229173,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_The_Hopefuls/Bonanza_-_The_Hopefuls.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_Denver_McKee",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Denver McKee",
+          "overview": "While celebrating the return of his daughter Connie, former lawman McKee is asked to assist in the capture of an outlaw gang. While Joe is courting Connie, no one realizes that McKee is involved with the outlaws.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ebAutR8NykZWjqZ6qNvih4UgtYu.jpg",
+          "airDate": "1960-10-15",
+          "year": null,
+          "runtimeSeconds": 2981,
+          "videoFile": {
+            "name": "Bonanza_-_Denver_McKee.mp4",
+            "format": "h.264",
+            "sizeBytes": 302828638,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_Denver_McKee/Bonanza_-_Denver_McKee.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_Day_Of_Reckoning",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Day of Reckoning",
+          "overview": "Prejudice erupts on both sides when Ben gives an Indian named Matsou and his wife, some of his land, after saving Ben's life from a renegade Indian who almost killed him on the Ponderosa.  An intense and magnetic performance by Ricardo Montalban.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3corgathOQUXxAJYSy0rC3ButYS.jpg",
+          "airDate": "1960-10-22",
+          "year": null,
+          "runtimeSeconds": 2965,
+          "videoFile": {
+            "name": "Bonanza_-_Day_Of_Reckoning.mp4",
+            "format": "h.264",
+            "sizeBytes": 301333451,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_Day_Of_Reckoning/Bonanza_-_Day_Of_Reckoning.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_The_Abduction",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Abduction",
+          "overview": "Hoss and Joe take their sweethearts to a colorful and strange carnival for the day.  Joe's recent girlfriend Jennifer Beale is abducted by the sinister owner, Philip Reed and his accomplice Gerner.  Her father is Joshua Beale, the richest man in the Comstock.  Gerner convinces Reed to hold her for a $1 million dollar ransom, and her father will gladly pay them to ensure her safe return.  Reed's girlfriend Della Thompson is jealous of Jennifer and has second thoughts about the abduction.  Hoss and Joe take notice of Jennifer's disappearance and travel deep into the bowels of the carnival, meeting fierce resistance from the carnival people at every avenue.  They come up without a trace of finding her.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/pogcvlBK0FIHkI0kPfPLJ6NCQAU.jpg",
+          "airDate": "1960-10-29",
+          "year": null,
+          "runtimeSeconds": 2959,
+          "videoFile": {
+            "name": "Bonanza_-_The_Abduction.mp4",
+            "format": "h.264",
+            "sizeBytes": 300572945,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_The_Abduction/Bonanza_-_The_Abduction.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_Breed_Of_Violence",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Breed of Violence",
+          "overview": "Joe's friend Dolly Kincaid is the daughter of the sheriff and she's always getting caught up with the wrong crowd. When she gets close to Vince Dagen, Joe gets worried and tries to intervene.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/xXszXe6gP5xkNSu3rs0HupNdhwl.jpg",
+          "airDate": "1960-11-05",
+          "year": null,
+          "runtimeSeconds": 2953,
+          "videoFile": {
+            "name": "Bonanza_-_Breed_Of_Violence.mp4",
+            "format": "h.264",
+            "sizeBytes": 290408070,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_Breed_Of_Violence/Bonanza_-_Breed_Of_Violence.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_The_Last_Viking",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "The Last Viking",
+          "overview": "Gunnar Borgstrom is the leader of a vicious band called the Commancheros. They burn houses, kill people and steal anything of value. When the Commancheros get to Nevada, Gunnar decides to visit his relatives, the Cartwrights. Meanwhile the gang capture Little Joe and his girlfriend. When Gunnar returns to the gang, he has no idea who Joe is because he'd never met his nephew before.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lwfbycuQg44Q9WXN99Rs6HFp2qx.jpg",
+          "airDate": "1960-11-12",
+          "year": null,
+          "runtimeSeconds": 2962,
+          "videoFile": {
+            "name": "Bonanza_-_The_Last_Viking.mp4",
+            "format": "h.264",
+            "sizeBytes": 301925659,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_The_Last_Viking/Bonanza_-_The_Last_Viking.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_The_Trail_Gang",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "The Trail Gang",
+          "overview": "On a cattle drive back to Nevada from Texas, Ben hires a young man who is both an outlaw and the son of the sheriff whose town the Ponderosa cowhands are entering.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/u9Sjh9RLcYMQRYs91AAlEK3XljO.jpg",
+          "airDate": "1960-11-26",
+          "year": null,
+          "runtimeSeconds": 2957,
+          "videoFile": {
+            "name": "Bonanza_-_The_Trail_Gang.mp4",
+            "format": "h.264",
+            "sizeBytes": 297321098,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_The_Trail_Gang/Bonanza_-_The_Trail_Gang.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_The_Savage",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "The Savage",
+          "overview": "Adam's life is saved by a woman known to the Indians as White Buffalo Woman, but who is actually the daughter of Norwegian immigrants.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/d9hgoQ2xH1UcUsd4ICMw38VUq0i.jpg",
+          "airDate": "1960-12-03",
+          "year": null,
+          "runtimeSeconds": 2963,
+          "videoFile": {
+            "name": "Bonanza_-_The_Savage.mp4",
+            "format": "h.264",
+            "sizeBytes": 296763605,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_The_Savage/Bonanza_-_The_Savage.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_Silent_Thunder",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Silent Thunder",
+          "overview": "Captivated by the pretty, deaf-mute daughter of a reclusive mountain man, Little Joe teaches the young woman sign language.  Thrilled with her newfound ability to communicate, Annie mistakes her gratitude to Little Joe for love, much to the chagrin of Albie, who is determined to have her for his own.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/hXWAeJ1g3HtyfugU11TkSUlkbjN.jpg",
+          "airDate": "1960-12-10",
+          "year": null,
+          "runtimeSeconds": 2960,
+          "videoFile": {
+            "name": "Bonanza_-_Silent_Thunder.mp4",
+            "format": "h.264",
+            "sizeBytes": 298343444,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_Silent_Thunder/Bonanza_-_Silent_Thunder.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_The_Ape",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "The Ape",
+          "overview": "Hoss becomes friends with dull-witted Arnie Gurnie, who is a brute of a man with the mentality of a child.  His temper scares everybody, including the Cartwrights.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/eXZGwsozAGgj4yg2n2K0AmRJNYo.jpg",
+          "airDate": "1960-12-17",
+          "year": null,
+          "runtimeSeconds": 2964,
+          "videoFile": {
+            "name": "Bonanza_-_The_Ape.mp4",
+            "format": "h.264",
+            "sizeBytes": 304362584,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_The_Ape/Bonanza_-_The_Ape.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_The_Blood_Line",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "The Blood Line",
+          "overview": "Ben feels responsible for the son of a man he was forced to kill, but the young man is determined to get even.  A professional gunman offers to do the job for him.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/zsI8ehPkm1BhWJ0Q8z6fSU4pfaI.jpg",
+          "airDate": "1960-12-31",
+          "year": null,
+          "runtimeSeconds": 2977,
+          "videoFile": {
+            "name": "Bonanza_-_The_Blood_Line.mp4",
+            "format": "h.264",
+            "sizeBytes": 293477494,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_The_Blood_Line/Bonanza_-_The_Blood_Line.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_The_Courtship",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "The Courtship",
+          "overview": "Hoss plans to marry the widow of one of Ben's friends, not knowing she is a compulsive gambler and refusing to believe it when the other Cartwrights confront him with the truth.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/yUNApyiEsZvSSyY9brECILj6pcf.jpg",
+          "airDate": "1961-01-07",
+          "year": null,
+          "runtimeSeconds": 2960,
+          "videoFile": {
+            "name": "Bonanza_-_The_Courtship.mp4",
+            "format": "h.264",
+            "sizeBytes": 293038391,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_The_Courtship/Bonanza_-_The_Courtship.mp4"
+        },
+        {
+          "archiveID": "Bonanza_-_The_Spitfire",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "The Spitfire",
+          "overview": "Joe becomes the target of a tough and vengeful Kentucky family, after he kills one of them who almost sets the Ponderosa on fire and the Cartwrights take in the dead man's daughter.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lrLrAgSgenNDp5abXCaWNpVadLL.jpg",
+          "airDate": "1961-01-14",
+          "year": null,
+          "runtimeSeconds": 2963,
+          "videoFile": {
+            "name": "Bonanza_-_The_Spitfire.mp4",
+            "format": "h.264",
+            "sizeBytes": 293749956,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bonanza_-_The_Spitfire/Bonanza_-_The_Spitfire.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 34
+}

@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "bell-science-1960",
+  "title": "Bell Science",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bell-science-series-our-mr.-sun-1956-complete",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bell-science-series-our-mr.-sun-1956-complete",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bell Science Series Our Mr. Sun 1956 ( Complete)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bell-science-series-our-mr.-sun-1956-complete",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bell Science Series Our Mr. Sun - 1956 (Complete).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 80562041,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bell-science-series-our-mr.-sun-1956-complete/Bell Science Series Our Mr. Sun - 1956 (Complete).ia.mp4"
+        },
+        {
+          "archiveID": "bell-science-series-the-story-of-the-senses-1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bell Science Series The Story Of The Senses ( 1956)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bell-science-series-the-story-of-the-senses-1956",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bell Science Series The Story of the Senses (1956).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 397877341,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bell-science-series-the-story-of-the-senses-1956/Bell Science Series The Story of the Senses (1956).ia.mp4"
+        },
+        {
+          "archiveID": "bell-science-series-the-strange-case-of-the-cosmic-rays-1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bell Science Series The Strange Case Of The Cosmic Rays ( 1957)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bell-science-series-the-strange-case-of-the-cosmic-rays-1957",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bell Science Series The Strange Case of the Cosmic Rays (1957)-.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 305337947,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bell-science-series-the-strange-case-of-the-cosmic-rays-1957/Bell Science Series The Strange Case of the Cosmic Rays (1957)-.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

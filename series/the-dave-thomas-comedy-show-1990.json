@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-dave-thomas-comedy-show-1990",
+  "title": "The Dave Thomas Comedy Show",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "The Dave Thomas Comedy Show was a sketch-based, half-hour, five-week summer replacement series, which aired on CBS in the summer of 1990. The show starred Canadian comedian Dave Thomas, who is best known for an earlier sketch comedy series, SCTV. Thomas himself served as head writer, while the writing staff included Hollywood scriptwriter Ed Solomon and future celebrity Mike Myers. The series debuted May 28, 1990.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dave-thomas-comedy-show-1.4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Dave Thomas Comedy Show - Dave Thomas",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dave Thomas Comedy Show - 1.4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 134855205,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dave-thomas-comedy-show-1.4/Dave Thomas Comedy Show - 1.4.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

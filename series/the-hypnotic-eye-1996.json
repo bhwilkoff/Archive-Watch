@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "the-hypnotic-eye-1996",
+  "title": "The Hypnotic Eye",
+  "yearStart": 1996,
+  "yearEnd": 1997,
+  "overview": "A hosted horror, science fiction movie and television series show, hosted by Icon, the Hypnotic Eye.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheHypnoticEyeEpisode3",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Show #3",
+          "overview": "Icon, the Hypnotic Eye. (voiced by Joe Riley) takes the audience through an eclectic journey of weird and wonderful clips from science fiction, horror and fanciful movies and television shows, old commercials and garage band performances.",
+          "stillURL": null,
+          "airDate": "1996-08-09",
+          "year": 1996,
+          "runtimeSeconds": 3506,
+          "videoFile": {
+            "name": "TheHypnoticEye3_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 258662887,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheHypnoticEyeEpisode3/TheHypnoticEye3_512kb.mp4"
+        },
+        {
+          "archiveID": "TheHypnoticEyeEpisode5",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Show #5",
+          "overview": "Icon, the Hypnotic Eye. (voiced by Joe Riley) takes the audience through an eclectic journey of weird and wonderful clips from science fiction, horror and fanciful movies and television shows, old commercials and garage band performances.",
+          "stillURL": null,
+          "airDate": "1997-02-14",
+          "year": 1997,
+          "runtimeSeconds": 3531,
+          "videoFile": {
+            "name": "TheHypnoticEye5_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 269679474,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheHypnoticEyeEpisode5/TheHypnoticEye5_512kb.mp4"
+        },
+        {
+          "archiveID": "TheHypnoticEyeEpisode10",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "2nd Anniversary Special",
+          "overview": "Icon, the Hypnotic Eye. (voiced by Joe Riley) takes the audience through an eclectic journey of weird and wonderful clips from science fiction, horror and fanciful movies and television shows, old commercials and garage band performances.",
+          "stillURL": null,
+          "airDate": "1998-05-01",
+          "year": 1997,
+          "runtimeSeconds": 3493,
+          "videoFile": {
+            "name": "TheHypnoticEye10_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 280583467,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheHypnoticEyeEpisode10/TheHypnoticEye10_512kb.mp4"
+        },
+        {
+          "archiveID": "TheHypnoticEyeEpisode11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Half Assed Puppets and Magic",
+          "overview": "Icon, the Hypnotic Eye. (voiced by Joe Riley) takes the audience through an eclectic journey of weird and wonderful clips from science fiction, horror and fanciful movies and television shows, old commercials and garage band performances.",
+          "stillURL": null,
+          "airDate": "1998-06-19",
+          "year": 1997,
+          "runtimeSeconds": 3502,
+          "videoFile": {
+            "name": "TheHypnoticEye11_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 281426738,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheHypnoticEyeEpisode11/TheHypnoticEye11_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

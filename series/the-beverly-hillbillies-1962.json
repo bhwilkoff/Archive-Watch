@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "seriesID": "the-beverly-hillbillies-1962",
+  "title": "The Beverly Hillbillies",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": "Jed Clampett's swamp is loaded with oil. When a wildcatter discovers the huge pool, Jed sells his land to the O.K. Oil Company and at the urging of cousin Pearl, moves his family to a 35-room mansion in Beverly Hills, California.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/sEZs4szkwBXIK3DOm37MnQN9fIe.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/nA19z9LnWYebUt3iqoYvkwRKIUI.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Paul Henning",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep13_Home_For_Christmas",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Beverly Hillbillies : Home For Christmas",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sEZs4szkwBXIK3DOm37MnQN9fIe.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH13_Home_For_Christmas.mp4",
+            "format": "h.264",
+            "sizeBytes": 151387729,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep13_Home_For_Christmas/BH13_Home_For_Christmas.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "aqn-3-jci-oqpyb-uymm-vuq-jtr-2-k-0p-rt-qjt-6ym-0-uvl-d-7-auot-9-ju-pc-bz-o-mae-t",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Clampetts Strike Oil",
+          "overview": "The pilot starts after the theme song when Jed struck oil in his Lake. A rural Ozark family relocates to Beverly Hills after oil is discovered on their property worth $25 million. After finding oil on the land, the family is surprised when Mr. Brewster of the OK Oil Company offers to buy it. After much coaxing by Cousin Pearl, Jed sells the swamp and moves the family to a mansion in Beverly Hills. Upon their arrival, they are arrested because of a case of mistaken identity but are later returned to the mansion safely.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/34R4YCUEFaBnqPkz4rdTsTgrktd.jpg",
+          "airDate": "1962-09-26",
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AQN3JciOQPybUymmVUqJTR2K0pRtQJt6ym0UVlD7AUOT9JuPcBz-oMAeTYT_JlS5s450eUZacLKGcSrlM6Yrp6Ks.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 150677529,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/aqn-3-jci-oqpyb-uymm-vuq-jtr-2-k-0p-rt-qjt-6ym-0-uvl-d-7-auot-9-ju-pc-bz-o-mae-t/AQN3JciOQPybUymmVUqJTR2K0pRtQJt6ym0UVlD7AUOT9JuPcBz-oMAeTYT_JlS5s450eUZacLKGcSrlM6Yrp6Ks.mp4"
+        },
+        {
+          "archiveID": "thebeverlyhillbilliestheclampettsstrikeoilhq",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Beverly Hillbillies - The Clampetts Strike Oil S01 E01",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sEZs4szkwBXIK3DOm37MnQN9fIe.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Beverly Hillbillies - The Clampetts Strike Oil HQ.mp4",
+            "format": "h.264",
+            "sizeBytes": 201133508,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thebeverlyhillbilliestheclampettsstrikeoilhq/The Beverly Hillbillies - The Clampetts Strike Oil HQ.mp4"
+        },
+        {
+          "archiveID": "thebeverlyhillbilliesgettingsettledhq",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Getting Settled",
+          "overview": "The Clampetts begin to settle in their new home in Beverly Hills. They are having to adjust to things such as refrigerators, ovens and the \"cement pond\" (swimming pool). Jethro also encounters a flamingo that he thinks is a chicken (which causes Jed to suspect Jethro has been sneaking drinks of moonshine). Meanwhile, Miss Hathaway, executive secretary to banker Milburn Drysdale, mistakes the Clampetts for \"domestic\" help. She thinks Granny is a cook and Elly a maid.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/6oIMEp9JpJvnfuZPY4Y69fwqd3i.jpg",
+          "airDate": "1962-10-03",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Beverly Hillbillies - Getting Settled HQ.mp4",
+            "format": "h.264",
+            "sizeBytes": 162654711,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thebeverlyhillbilliesgettingsettledhq/The Beverly Hillbillies - Getting Settled HQ.mp4"
+        },
+        {
+          "archiveID": "thebeverlyhillbilliesmeanwhilebackatthecabinhq",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Meanwhile, Back at the Cabin",
+          "overview": "Jane Hathaway finds that making the Clampetts more sophisticated will be harder than expected, while Pearl Bodine tries to get the attention of Mr. Brewster.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/nGfVGeFibx8ayydYyAI1iM4Vl1M.jpg",
+          "airDate": "1962-10-10",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Beverly Hillbillies - Meanwhile, Back at the Cabin HQ.mp4",
+            "format": "h.264",
+            "sizeBytes": 161190634,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thebeverlyhillbilliesmeanwhilebackatthecabinhq/The Beverly Hillbillies - Meanwhile, Back at the Cabin HQ.mp4"
+        },
+        {
+          "archiveID": "thebeverlyhillbilliestheclampettsmeetmrsdrysdalehq",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Clampetts Meet Mrs. Drysdale",
+          "overview": "Mr. Drysdale panics when Mrs. Drysdale comes back from Boston early, because she'll meet the Clampetts. He sets Miss Hathaway on a plan to get them to go to Palm Springs. Meanwhile, Granny and Jed come to think Mrs. Drysdale is a drunk and make plans to cure her.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/1fCR3H39Dh8xxbzPr1CiBE1sRDu.jpg",
+          "airDate": "1962-10-17",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Beverly Hillbillies - The Clampetts Meet Mrs Drysdale HQ.mp4",
+            "format": "h.264",
+            "sizeBytes": 162811387,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thebeverlyhillbilliestheclampettsmeetmrsdrysdalehq/The Beverly Hillbillies - The Clampetts Meet Mrs Drysdale HQ.mp4"
+        },
+        {
+          "archiveID": "Beverly_Hillbillies_Ep06_Trick_Or_Treat",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Trick or Treat",
+          "overview": "Granny wants to go home because folks are so unfriendly and no one has come to call. Jed convinces her they should call on them, and they find that people welcome them and give them all manner of gifts when they show up on Halloween in their normal hillbilly clothes. Meanwhile, Jed works on getting Pearl to come visit while she's trying to get hitched to the oilman and find a young man for Jethrine.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/mChWqhOBrJO5Kabgk0yN42vptGi.jpg",
+          "airDate": "1962-10-31",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH06_Trick_Or_Treat.mp4",
+            "format": "h.264",
+            "sizeBytes": 149433073,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep06_Trick_Or_Treat/BH06_Trick_Or_Treat.mp4"
+        },
+        {
+          "archiveID": "Beverly_Hillbillies_Ep07_The_Servants",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Servants",
+          "overview": "Elly May starts wearing dresses but takes it as an insult when someone says she looks like a city girl. Mr. Drysdale talks Jed into taking in his butler Ravenswood and upstairs girl Marie in a plan to civilize the Clampetts, but they don't quite understand the idea of servants.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lkWbOnejBaF7q9ZWBDmmIzyukBc.jpg",
+          "airDate": "1962-11-07",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH07_The_Servants.mp4",
+            "format": "h.264",
+            "sizeBytes": 154013618,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep07_The_Servants/BH07_The_Servants.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

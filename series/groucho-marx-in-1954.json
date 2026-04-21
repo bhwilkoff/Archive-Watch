@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "groucho-marx-in-1954",
+  "title": "Groucho Marx in",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/GrouchoChair",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GrouchoChair",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Groucho Marx in ''You Bet Your Life'' (''Chair'') (Comedy/Game Show)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/GrouchoChair",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "GrouchoChair.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 172289891,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GrouchoChair/GrouchoChair.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

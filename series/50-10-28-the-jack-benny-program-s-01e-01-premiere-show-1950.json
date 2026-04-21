@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "50-10-28-the-jack-benny-program-s-01e-01-premiere-show-1950",
+  "title": "50 10 28 The Jack Benny Program S 01e 01 Premiere Show",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/501028TheJackBennyProgramS01e01PremiereShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "501028TheJackBennyProgramS01e01PremiereShow",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "50 10 28 The Jack Benny Program S 01e 01 Premiere Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/501028TheJackBennyProgramS01e01PremiereShow",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "50-10-28  The Jack Benny Program  s01e01  Premiere Show.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 204435209,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/501028TheJackBennyProgramS01e01PremiereShow/50-10-28  The Jack Benny Program  s01e01  Premiere Show.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

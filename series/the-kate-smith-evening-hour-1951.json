@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "seriesID": "the-kate-smith-evening-hour-1951",
+  "title": "The Kate Smith Evening Hour",
+  "yearStart": 1951,
+  "yearEnd": 1952,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006380.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheKateSmithEveningHour24October1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'''The Kate Smith Evening Hour'' - 24 October 1951",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006380.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1778,
+          "videoFile": {
+            "name": "The Kate Smith Evening Hour - 24 October 1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 184910206,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheKateSmithEveningHour24October1951/The Kate Smith Evening Hour - 24 October 1951.mp4"
+        },
+        {
+          "archiveID": "KateSmithEveningHour4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Kate Smith Evening Hour'' - 12 March 1952 (incomplete)",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006380.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1747,
+          "videoFile": {
+            "name": "katesmith12March1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 181112433,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/KateSmithEveningHour4/katesmith12March1952.mp4"
+        },
+        {
+          "archiveID": "KateSmithEveningHour3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Kate Smith Evening Hour'' - 16 January 1952 (incomplete)",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006380.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1700,
+          "videoFile": {
+            "name": "katesmith16january1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 176851893,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/KateSmithEveningHour3/katesmith16january1952.mp4"
+        },
+        {
+          "archiveID": "KateSmithEveningHour2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Kate Smith Evening Hour'' - 2 January 1952 (Incomplete)",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006380.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1769,
+          "videoFile": {
+            "name": "katesmith2january1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 184206126,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/KateSmithEveningHour2/katesmith2january1952.mp4"
+        },
+        {
+          "archiveID": "KateSmithEveningHour1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Kate Smith Evening Hour'' - 21 November 1951 (Incomplete)",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006380.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1635,
+          "videoFile": {
+            "name": "katesmith21november1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 170167823,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/KateSmithEveningHour1/katesmith21november1951.mp4"
+        },
+        {
+          "archiveID": "TheKateSmithEveningHour26March1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Kate Smith Evening Hour'' - 26 March 1952",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006380.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 3548,
+          "videoFile": {
+            "name": "The Kate Smith Evening Hour - 26 March 1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 369100863,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheKateSmithEveningHour26March1952/The Kate Smith Evening Hour - 26 March 1952.mp4"
+        },
+        {
+          "archiveID": "TheKateSmithEveningHour4June1952fragment",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Kate Smith Evening Hour'' - 4 June 1952 (fragment)",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006380.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1475,
+          "videoFile": {
+            "name": "The Kate Smith Evening Hour - 4 June 1952 (fragment).mp4",
+            "format": "h.264",
+            "sizeBytes": 153536961,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheKateSmithEveningHour4June1952fragment/The Kate Smith Evening Hour - 4 June 1952 (fragment).mp4"
+        },
+        {
+          "archiveID": "TheKateSmithEveningHour7Nov.1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Kate Smith Evening Hour'' - 7 November 1951 (fragment)",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006380.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "The Kate Smith Evening Hour - 7 Nov. 1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 184223789,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheKateSmithEveningHour7Nov.1951/The Kate Smith Evening Hour - 7 Nov. 1951.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "blacklist-hollywood-on-trial-1996",
+  "title": "Blacklist: Hollywood On Trial",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/blacklist-hollywood-on-trial-1996",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "blacklist-hollywood-on-trial-1996",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Blacklist: Hollywood On Trial - Alec Baldwin",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/blacklist-hollywood-on-trial-1996",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Blacklist Hollywood on Trial - 1996.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2706823713,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/blacklist-hollywood-on-trial-1996/Blacklist Hollywood on Trial - 1996.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

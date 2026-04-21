@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "gildy-the-private-eye-1955",
+  "title": "Gildy The Private Eye",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/GG_Gildy_The_Private_Eye",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GG_Gildy_The_Private_Eye",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Gildy The Private Eye",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/GG_Gildy_The_Private_Eye",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GG_Gildy_The_Private_Eye.mp4",
+            "format": "h.264",
+            "sizeBytes": 151317978,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GG_Gildy_The_Private_Eye/GG_Gildy_The_Private_Eye.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

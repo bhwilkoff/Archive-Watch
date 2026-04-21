@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sha-na-na-show-1979",
+  "title": "Sha Na Na Show",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/y-2mate.is-sha-na-na-season-3-episode-13-with-guest-star-barbara-mandrell-hv-wru",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "y-2mate.is-sha-na-na-season-3-episode-2-guest-star-conway-twitty-exhq-hv-qlu-q-720p-1704120622",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sha Na Na Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/y-2mate.is-sha-na-na-season-3-episode-13-with-guest-star-barbara-mandrell-hv-wru",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "y2mate.is - Sha na na season 3 episode 2 Guest Star Conway Twitty-EXHqHv_QluQ-720p-1704120622.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 380537404,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/y-2mate.is-sha-na-na-season-3-episode-2-guest-star-conway-twitty-exhq-hv-qlu-q-720p-1704120622/y2mate.is - Sha na na season 3 episode 2 Guest Star Conway Twitty-EXHqHv_QluQ-720p-1704120622.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

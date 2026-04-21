@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "all-creatures-great-and-small-1978-1988",
+  "title": "All Creatures Great and Small (1978",
+  "yearStart": 1988,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/all-creatures-great-and-small-series-5",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "all-creatures-great-and-small-series-4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "All Creatures Great and Small (1978 Series 4)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/all-creatures-great-and-small-series-4",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "All Creatures Great and Small S04E08 - The Healing Touch.mp4",
+            "format": "h.264",
+            "sizeBytes": 321897757,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-4/All Creatures Great and Small S04E08 - The Healing Touch.mp4"
+        },
+        {
+          "archiveID": "all-creatures-great-and-small-series-5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "All Creatures Great and Small (1978 Series 5)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/all-creatures-great-and-small-series-5",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "All Creatures Great and Small S05E06 - A New Chapter.mp4",
+            "format": "h.264",
+            "sizeBytes": 291318887,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-5/All Creatures Great and Small S05E06 - A New Chapter.mp4"
+        },
+        {
+          "archiveID": "all-creatures-great-and-small-series-6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "All Creatures Great and Small (1978 Series 6)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/all-creatures-great-and-small-series-6",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "All Creatures Great and Small S06E01 - Here and There.mp4",
+            "format": "h.264",
+            "sizeBytes": 291553443,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-6/All Creatures Great and Small S06E01 - Here and There.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

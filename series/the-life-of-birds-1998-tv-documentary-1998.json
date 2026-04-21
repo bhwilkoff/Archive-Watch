@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-life-of-birds-1998-tv-documentary-1998",
+  "title": "The Life of Birds (1998 TV documentary",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/thelifeofbirds1998BBC",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "thelifeofbirds1998BBC",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Life of Birds (1998 TV documentary series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/thelifeofbirds1998BBC",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "(01) To Fly or Not to Fly.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1089375470,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thelifeofbirds1998BBC/(01) To Fly or Not to Fly.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-dress-2019",
+  "title": "The Dress",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheDress1984",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheDress1984",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Dress (1984)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheDress1984",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The-Dress-_1984_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 97910176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDress1984/The-Dress-_1984_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

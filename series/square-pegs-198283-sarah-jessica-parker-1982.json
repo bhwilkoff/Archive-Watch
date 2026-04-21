@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "square-pegs-198283-sarah-jessica-parker-1982",
+  "title": "Square Pegs (1982–83) Sarah Jessica Parker",
+  "yearStart": 1982,
+  "yearEnd": 1982,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/square-pegs-1982-83-sjp",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "square-pegs-1982-83-sjp",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Square Pegs (1982–83) Sarah Jessica Parker",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/square-pegs-1982-83-sjp",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "00 Square Pegs 1x01 - cr.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 467250725,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/square-pegs-1982-83-sjp/00 Square Pegs 1x01 - cr.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

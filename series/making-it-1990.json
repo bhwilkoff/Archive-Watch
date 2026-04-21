@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "making-it-1990",
+  "title": "Making It",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/making-it-balloon-man-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "making-it-balloon-man-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Making It - Larry McCormick, Minerva Perez, Michele Ruiz",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/making-it-balloon-man-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Making It - Balloon Man - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 750902851,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/making-it-balloon-man-1990/Making It - Balloon Man - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

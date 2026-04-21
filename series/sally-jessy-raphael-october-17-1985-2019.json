@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sally-jessy-raphael-october-17-1985-2019",
+  "title": "Sally Jessy Raphael (October 17, 1985",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sallyjessyraphaeloctober171985",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sallyjessyraphaeloctober171985",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sally Jessy Raphael (October 17, 1985)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sallyjessyraphaeloctober171985",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sally-Jessy-Raphael-_October-17_-1985_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 95790302,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sallyjessyraphaeloctober171985/Sally-Jessy-Raphael-_October-17_-1985_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

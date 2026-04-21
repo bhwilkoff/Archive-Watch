@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-trap-1960",
+  "title": "The Trap",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "An anthology series about people who are suddenly confronted with uncertain situations.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OSB-69_The_Trap",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Trap",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OSB-69_The_Trap.mp4",
+            "format": "h.264",
+            "sizeBytes": 152813558,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-69_The_Trap/OSB-69_The_Trap.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "vintage-colgate-toothpaste-commercial-1960",
+  "title": "Vintage Colgate Toothpaste Commercial",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/VintageColgateToothpasteCommercial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "VintageColgateToothpasteCommercial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Vintage Colgate Toothpaste Commercial",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/VintageColgateToothpasteCommercial",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 60,
+          "videoFile": {
+            "name": "VintageTvCommercial-ColgateToothpasteoldTimeTvRadio50s_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4418401,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/VintageColgateToothpasteCommercial/VintageTvCommercial-ColgateToothpasteoldTimeTvRadio50s_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

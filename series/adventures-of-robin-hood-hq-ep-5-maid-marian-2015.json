@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "adventures-of-robin-hood-hq-ep-5-maid-marian-2015",
+  "title": "Adventures Of Robin Hood (HQ) ep 5 Maid Marian",
+  "yearStart": 2015,
+  "yearEnd": 2015,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AdventuresOfRobinHoodep5MaidMarion",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "AdventuresOfRobinHoodep5MaidMarion",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Adventures Of Robin Hood (HQ) ep 5 Maid Marian",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AdventuresOfRobinHoodep5MaidMarion",
+          "airDate": null,
+          "year": 2015,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Adventures of Robin Hood (ep 5 Maid Marion).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 119024290,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AdventuresOfRobinHoodep5MaidMarion/Adventures of Robin Hood (ep 5 Maid Marion).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

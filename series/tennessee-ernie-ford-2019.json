@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tennessee-ernie-ford-2019",
+  "title": "Tennessee Ernie Ford",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tennesseeerniefordswhitechristmasspecial1972pt.1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tennesseeerniefordswhitechristmasspecial1972pt.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tennessee Ernie Ford's White Christmas special (1972)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tennesseeerniefordswhitechristmasspecial1972pt.1",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tennessee-Ernie-Ford_s-White-Christmas-special-_1972_-pt.-1_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 137950513,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tennesseeerniefordswhitechristmasspecial1972pt.1/Tennessee-Ernie-Ford_s-White-Christmas-special-_1972_-pt.-1_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

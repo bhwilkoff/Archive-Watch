@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "1981-the-fonz-and-the-happy-days-gang-2024",
+  "title": "1981. The Fonz and the Happy Days Gang",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1981.-the-fonz-and-the-happy-days-gang-s-02-e-09-around-the-world-in-80-ways",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "1981.-the-fonz-and-the-happy-days-gang-s-02-e-04-its-all-downhill-from-here",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "1981. The Fonz and the Happy Days Gang - S02E04 - It's All Downhill from Here",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1981.-the-fonz-and-the-happy-days-gang-s-02-e-04-its-all-downhill-from-here",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1981. The Fonz and the Happy Days Gang - S02E04 - It's All Downhill from Here.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 196704279,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1981.-the-fonz-and-the-happy-days-gang-s-02-e-04-its-all-downhill-from-here/1981. The Fonz and the Happy Days Gang - S02E04 - It's All Downhill from Here.mp4"
+        },
+        {
+          "archiveID": "1981.-the-fonz-and-the-happy-days-gang-s-02-e-09-around-the-world-in-80-ways",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "1981. The Fonz and the Happy Days Gang - S02E09 - Around the World in 80 Ways",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1981.-the-fonz-and-the-happy-days-gang-s-02-e-09-around-the-world-in-80-ways",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1981. The Fonz and the Happy Days Gang - S02E09 - Around the World in 80 Ways.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 197386478,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1981.-the-fonz-and-the-happy-days-gang-s-02-e-09-around-the-world-in-80-ways/1981. The Fonz and the Happy Days Gang - S02E09 - Around the World in 80 Ways.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

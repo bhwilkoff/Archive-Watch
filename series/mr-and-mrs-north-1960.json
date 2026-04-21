@@ -1,0 +1,543 @@
+{
+  "version": 1,
+  "seriesID": "mr-and-mrs-north-1960",
+  "title": "Mr. and Mrs. North",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Mr.AndMrs.NorthAGoodBuy",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MrAndMrs.NorthReunion",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr and Mrs. North: Reunion",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MrAndMrs.NorthReunion",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1472,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-reunion.mp4",
+            "format": "h.264",
+            "sizeBytes": 149893209,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MrAndMrs.NorthReunion/Mr.AndMrs.North-reunion.mp4"
+        },
+        {
+          "archiveID": "MrAndMrs.NorthTheManWhoCameToMurder",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr and Mrs. North: The Man Who Came to Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MrAndMrs.NorthTheManWhoCameToMurder",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1564,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-theManWhoCameToMurder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157702990,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MrAndMrs.NorthTheManWhoCameToMurder/Mr.AndMrs.North-theManWhoCameToMurder.ia.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrsWeekendM.3gp",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. And Mrs. North - Weekend Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrsWeekendM.3gp",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mr. And Mrs - Weekend M.mp4",
+            "format": "h.264",
+            "sizeBytes": 160846921,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrsWeekendM.3gp/Mr. And Mrs - Weekend M.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.3gp",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. And Mrs. North - Where There's A Will",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.3gp",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mr. And Mrs.mp4",
+            "format": "h.264",
+            "sizeBytes": 156404546,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.3gp/Mr. And Mrs.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthAGoodBuy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: A Good Buy",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthAGoodBuy",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1479,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-aGoodBuy.mp4",
+            "format": "h.264",
+            "sizeBytes": 146142534,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthAGoodBuy/Mr.AndMrs.North-aGoodBuy.mp4"
+        },
+        {
+          "archiveID": "MrandMrsNorthBeautyPrize",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Beauty Prize",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MrandMrsNorthBeautyPrize",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MrandMrsNorthBeautyPrize.mp4",
+            "format": "h.264",
+            "sizeBytes": 149159283,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MrandMrsNorthBeautyPrize/MrandMrsNorthBeautyPrize.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthBusySignal",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Busy Signal",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthBusySignal",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "MrAndMrs.North-busySignal.mp4",
+            "format": "h.264",
+            "sizeBytes": 155893076,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthBusySignal/MrAndMrs.North-busySignal.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthDeadMansTale",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Dead Man's Tale",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthDeadMansTale",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1544,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-deadMansTale.mp4",
+            "format": "h.264",
+            "sizeBytes": 153489362,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthDeadMansTale/Mr.AndMrs.North-deadMansTale.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthFormulaForTrouble",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Formula for Trouble",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthFormulaForTrouble",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1582,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-formulaForTrouble.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 176611285,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthFormulaForTrouble/Mr.AndMrs.North-formulaForTrouble.ia.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthHomicideLimited",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Homicide Limited",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthHomicideLimited",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1548,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-homicideLimited.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157205009,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthHomicideLimited/Mr.AndMrs.North-homicideLimited.ia.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthHotMink",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Hot Mink",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthHotMink",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1530,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-hotMink.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155127765,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthHotMink/Mr.AndMrs.North-hotMink.ia.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthLoonLake",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Loon Lake",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthLoonLake",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1562,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-loonLake.mp4",
+            "format": "h.264",
+            "sizeBytes": 157415535,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthLoonLake/Mr.AndMrs.North-loonLake.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthMaskOfHate",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Mask of Hate",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthMaskOfHate",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1581,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-maskOfHate.mp4",
+            "format": "h.264",
+            "sizeBytes": 161547888,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthMaskOfHate/Mr.AndMrs.North-maskOfHate.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthMillionDollarCoffin",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Million Dollar Coffin",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthMillionDollarCoffin",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "MrAndMrs.North-millionDollarCoffin.mp4",
+            "format": "h.264",
+            "sizeBytes": 156252056,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthMillionDollarCoffin/MrAndMrs.North-millionDollarCoffin.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthModelForMurder",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Model for Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthModelForMurder",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1545,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-modelForMurder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156758974,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthModelForMurder/Mr.AndMrs.North-modelForMurder.ia.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthOnTheRocks",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: On the Rocks",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthOnTheRocks",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1486,
+          "videoFile": {
+            "name": "MrAndMrs.North-onTheRocks.mp4",
+            "format": "h.264",
+            "sizeBytes": 146653971,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthOnTheRocks/MrAndMrs.North-onTheRocks.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthPrettyBaby",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Pretty Baby",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthPrettyBaby",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-prettyBaby.mp4",
+            "format": "h.264",
+            "sizeBytes": 152999895,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthPrettyBaby/Mr.AndMrs.North-prettyBaby.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthQuickAndDeadly",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Quick and Deadly",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthQuickAndDeadly",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1527,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-quickAndDeadly.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153629418,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthQuickAndDeadly/Mr.AndMrs.North-quickAndDeadly.ia.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthSaltInHisBlood",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Salt in His Blood",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthSaltInHisBlood",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1534,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-saltInHisBlood.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155723174,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthSaltInHisBlood/Mr.AndMrs.North-saltInHisBlood.ia.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthSurprise",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Surprise",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthSurprise",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1537,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-surprise.mp4",
+            "format": "h.264",
+            "sizeBytes": 159358473,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthSurprise/Mr.AndMrs.North-surprise.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthTerror",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Terror",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthTerror",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1553,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-terror.mp4",
+            "format": "h.264",
+            "sizeBytes": 158202325,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthTerror/Mr.AndMrs.North-terror.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthTheNobles",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: The Nobles",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthTheNobles",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-theNobles.mp4",
+            "format": "h.264",
+            "sizeBytes": 151988522,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthTheNobles/Mr.AndMrs.North-theNobles.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthThePlacidAffair",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: The Placid Affair",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthThePlacidAffair",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1537,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-thePlacidAffair.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155757325,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthThePlacidAffair/Mr.AndMrs.North-thePlacidAffair.ia.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthTheShrinkingViolet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: The Shrinking Violet",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthTheShrinkingViolet",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-shrinkingViolet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152579876,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthTheShrinkingViolet/Mr.AndMrs.North-shrinkingViolet.ia.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthTheSilentButler",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: The Silent Butler",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthTheSilentButler",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1548,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-theSilentButler.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156883814,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthTheSilentButler/Mr.AndMrs.North-theSilentButler.ia.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthTheSuspected",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: The Suspected",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthTheSuspected",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1556,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-theSuspected.mp4",
+            "format": "h.264",
+            "sizeBytes": 159776849,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthTheSuspected/Mr.AndMrs.North-theSuspected.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthTheUngratefulKiller",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: The Ungrateful Killer",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthTheUngratefulKiller",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1556,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-theUngratefulKiller.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157619840,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthTheUngratefulKiller/Mr.AndMrs.North-theUngratefulKiller.ia.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthTwoFaced",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Two Faced",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthTwoFaced",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1539,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-twoFaced.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154839585,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthTwoFaced/Mr.AndMrs.North-twoFaced.ia.mp4"
+        },
+        {
+          "archiveID": "Mr.AndMrs.NorthWhereTheresAWill",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. and Mrs. North: Where There's a Will",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.AndMrs.NorthWhereTheresAWill",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "Mr.AndMrs.North-whereTheresAWill.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153143002,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.AndMrs.NorthWhereTheresAWill/Mr.AndMrs.North-whereTheresAWill.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 29
+}

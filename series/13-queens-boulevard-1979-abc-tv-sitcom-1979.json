@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "13-queens-boulevard-1979-abc-tv-sitcom-1979",
+  "title": "13 Queens Boulevard (1979 ABC-TV Sitcom",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/13queensboulevard",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "13queensboulevard",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "13 Queens Boulevard (1979 ABC-TV Sitcom) - Four Episodes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/13queensboulevard",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "02. Reunion.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 113937804,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/13queensboulevard/02. Reunion.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

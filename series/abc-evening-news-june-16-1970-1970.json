@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-evening-news-june-16-1970-1970",
+  "title": "ABC Evening News June 16, 1970",
+  "yearStart": 1970,
+  "yearEnd": 1970,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/abc-19700616",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "abc-19700616",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC Evening News June 16, 1970",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/abc-19700616",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC晚间新闻 19700616.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 57996447,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/abc-19700616/ABC晚间新闻 19700616.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

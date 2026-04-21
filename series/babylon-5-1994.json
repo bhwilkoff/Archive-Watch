@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "seriesID": "babylon-5-1994",
+  "title": "Babylon 5",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": "Babylon 5 is a five-mile long space station located in neutral space. Built by the Earth Alliance in the 2250s, its goal is to maintain peace among the various alien races by providing a sanctuary where grievances and negotiations can be worked out among duly appointed ambassadors. A council made up of representatives from the five major space-faring civilizations - the Earth Alliance, Minbari Federation, Centauri Republic, Narn Regime, and Vorlon Empire - work with the League of Non-Aligned Worlds to keep interstellar relations under control. Aside from its diplomatic function, Babylon 5 also serves as a military post for Earth and a port of call for travelers, traders, businessmen, criminals, and Rangers.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/td8O6KJQpN9ZRiuyFUILziXFMrk.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/ymdCZck7hy7EDxUTR4Uq1MisfyX.jpg",
+  "genres": [],
+  "networks": [
+    "TNT",
+    "Syndication"
+  ],
+  "creator": "J. Michael Straczynski",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lic:916349d53385",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Babylon 5 S01 (1994) Eng cc1 Captions For Deaf and Hearing Impaired",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/td8O6KJQpN9ZRiuyFUILziXFMrk.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

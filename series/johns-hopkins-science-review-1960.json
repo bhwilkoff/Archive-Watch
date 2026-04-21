@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "johns-hopkins-science-review-1960",
+  "title": "Johns Hopkins Science Review",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Johns Hopkins Science Review is a US television series about science that was produced at Johns Hopkins University from 1948-1955. Starting in 1950, the series aired on the DuMont Television Network until the network's demise in 1955. The series' creator was Lynn Poole, who wrote or co-wrote most of its episodes and acted as the on-camera host. In 2002, Patrick Lucanio and Gary Coville wrote that, \"In retrospect, Lynn Poole created one of those unique series that allowed television to fulfill its idealized mission as both an educational and an entertainment medium.\"\n\nThe original series was followed by three related series produced by Poole at Johns Hopkins University: Tomorrow, Tomorrow's Careers, and Johns Hopkins File 7. Johns Hopkins University ended its production of television series in 1960.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3GO8YaSwWbSgOsel5HT5kpytx3b.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS",
+    "DuMont Television Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JohnsHopkinsScienceReview-UsefulnessOfUselessKnowledge",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Johns Hopkins Science Review - Usefulness of Useless Knowledge",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3GO8YaSwWbSgOsel5HT5kpytx3b.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1717,
+          "videoFile": {
+            "name": "JohnsHopkinsScienceReview-UsefulnessOfUselessKnowledge2-18-52_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 124662659,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JohnsHopkinsScienceReview-UsefulnessOfUselessKnowledge/JohnsHopkinsScienceReview-UsefulnessOfUselessKnowledge2-18-52_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

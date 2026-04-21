@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ge-presents-the-bing-crosby-show-ep-debut-1960",
+  "title": "GE Presents The Bing Crosby Show ep Debut",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/GE_Presents_The_Bing_Crosby_Show_-_Debut",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GE_Presents_The_Bing_Crosby_Show_-_Debut",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "GE Presents The Bing Crosby Show ep Debut",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/GE_Presents_The_Bing_Crosby_Show_-_Debut",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GE_Presents_The_Bing_Crosby_Show_-_Debut.mp4",
+            "format": "h.264",
+            "sizeBytes": 156526179,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GE_Presents_The_Bing_Crosby_Show_-_Debut/GE_Presents_The_Bing_Crosby_Show_-_Debut.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

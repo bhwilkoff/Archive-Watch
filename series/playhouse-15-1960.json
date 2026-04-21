@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "playhouse-15-1960",
+  "title": "Playhouse 15",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/playhouse15-EqualPartners",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "playhouse15-EqualPartners",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Playhouse 15'' - Equal Partners",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/playhouse15-EqualPartners",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 724,
+          "videoFile": {
+            "name": "playhouse15-EqualPartners.mp4",
+            "format": "h.264",
+            "sizeBytes": 74671791,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playhouse15-EqualPartners/playhouse15-EqualPartners.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

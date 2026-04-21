@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "devil-proofing-prayers-1996",
+  "title": "Devil-Proofing Prayers",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Analog201802021601",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Analog201802021601",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Devil-Proofing Prayers",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Analog201802021601",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Analog_20180202_1601.mp4",
+            "format": "h.264",
+            "sizeBytes": 319102272,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Analog201802021601/Analog_20180202_1601.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

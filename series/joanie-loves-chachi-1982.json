@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "joanie-loves-chachi-1982",
+  "title": "Joanie Loves Chachi",
+  "yearStart": 1982,
+  "yearEnd": 1982,
+  "overview": "Joanie Loves Chachi is an American television spin-off of the American sitcom Happy Days that was originally broadcast on ABC from March 23, 1982 to May 24, 1983. It stars Erin Moran and Scott Baio as the titular Joanie Cunningham and Chachi Arcola, respectively.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kPJGFJJ6ID3vPo77nXJeZr33y9Y.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bffs3LApuDNAzGp6XKwOFI8e6dt.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Mark Rothman",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "joanieloveschachicompletedvdrip",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Joanie Loves Chachi Complete Series (DVD RIP)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kPJGFJJ6ID3vPo77nXJeZr33y9Y.jpg",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S02E03 One-On-One.mp4",
+            "format": "h.264",
+            "sizeBytes": 146270938,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/joanieloveschachicompletedvdrip/S02E03 One-On-One.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

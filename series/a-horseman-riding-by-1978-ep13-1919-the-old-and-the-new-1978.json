@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-horseman-riding-by-1978-ep13-1919-the-old-and-the-new-1978",
+  "title": "A Horseman Riding By (1978 Ep13) 1919 The Old And The New",
+  "yearStart": 1978,
+  "yearEnd": 1978,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/a-horseman-riding-by-1978-ep-13-1919-the-old-and-the-new",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "a-horseman-riding-by-1978-ep-13-1919-the-old-and-the-new",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "A Horseman Riding By (1978 Ep13) 1919 The Old And The New",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/a-horseman-riding-by-1978-ep-13-1919-the-old-and-the-new",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": 3092,
+          "videoFile": {
+            "name": "A Horseman Riding By (1978 Ep13) 1919 - The Old and the New.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170094341,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/a-horseman-riding-by-1978-ep-13-1919-the-old-and-the-new/A Horseman Riding By (1978 Ep13) 1919 - The Old and the New.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "hill-street-blues-1960",
+  "title": "Hill street blues",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "A realistic glimpse into the daily lives of the officers and detectives at an urban police station.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/Am2ZRSkoOQd00kmhUF7QtOFbLWQ.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Steven Bochco",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hill.street.blues.s-03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hill street blues Season 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hill.street.blues.s03e19.eugene's.comedy.empire.strikes.back.webrip.x264.mp4",
+            "format": "h.264",
+            "sizeBytes": 283615430,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.street.blues.s-03/Hill.street.blues.s03e19.eugene's.comedy.empire.strikes.back.webrip.x264.mp4"
+        },
+        {
+          "archiveID": "hill.street.blues.s-05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hill street blues Season 5",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hill.street.blues.s05e23.grin.and.bear.it.sdtv.x264.mp4",
+            "format": "h.264",
+            "sizeBytes": 274794710,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.street.blues.s-05/Hill.street.blues.s05e23.grin.and.bear.it.sdtv.x264.mp4"
+        },
+        {
+          "archiveID": "hill.street.blues.s-04e-01.heres.adventure.heres.romance.sdtv.x-264",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hill street blues season 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/elvCmYxmwVzv2va3rLKponOJOfm.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hill.street.blues.s04e17.the.end.of.logan's.run.sdtv.x264.mp4",
+            "format": "h.264",
+            "sizeBytes": 270921542,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hill.street.blues.s-04e-01.heres.adventure.heres.romance.sdtv.x-264/Hill.street.blues.s04e17.the.end.of.logan's.run.sdtv.x264.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

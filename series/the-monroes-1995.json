@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-monroes-1995",
+  "title": "The Monroes",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": "The Monroes is a 26-segment Western television series which originally aired on ABC during the 1966-1967 season. The series centers around the story of five orphans trying to survive as a family on the frontier in the area around, what is now, Grand Teton National Park near Jackson, Wyoming.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lxyMLztxHacKUSwEFshUkGAkQXp.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/jFDor25hF1OkajMSwG6BvUzMsjn.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Milt Rosen",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-monroes-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Monroes - William Devane, Susan Sullivan",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lxyMLztxHacKUSwEFshUkGAkQXp.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Monroes - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1433978813,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-monroes-1.1/The Monroes - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

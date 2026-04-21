@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "jake-and-the-fatman-1987",
+  "title": "Jake And The Fatman",
+  "yearStart": 1987,
+  "yearEnd": 1992,
+  "overview": "Jake and the Fatman is a television crime drama starring William Conrad as prosecutor J. L. \"Fatman\" McCabe and Joe Penny as investigator Jake Styles.\n\nThe series ran on CBS for five seasons from 1987 to 1992. Diagnosis: Murder was a spin-off of this series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3WBkepiTwgemGDZadyJTV5SmS4l.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/aRimNw72sdpdvd0i3LqAxkwYdJ1.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Dean Hargrove",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "jake.-and.-the.-fatman.-s-01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jake And The Fatman Season 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3WBkepiTwgemGDZadyJTV5SmS4l.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jake.And.The.Fatman.S01E02E03.mp4",
+            "format": "h.264",
+            "sizeBytes": 546283506,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jake.-and.-the.-fatman.-s-01/Jake.And.The.Fatman.S01E02E03.mp4"
+        },
+        {
+          "archiveID": "jake-and-the-fatman-s05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jake And The Fatman Season 5",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3WBkepiTwgemGDZadyJTV5SmS4l.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jake and the Fatman - 5x17 - Pennies from Heaven.mp4",
+            "format": "h.264",
+            "sizeBytes": 264545443,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jake-and-the-fatman-s05/Jake and the Fatman - 5x17 - Pennies from Heaven.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

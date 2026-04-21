@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-office-1995",
+  "title": "The Office",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": "A look at office life seen though the eyes of Rita Stone, a secretary who has worked at the packaging department of an ad agency called Package, Inc for 19 years. ",
+  "posterURL": "https://image.tmdb.org/t/p/w500/glcJraGwrHarnQTqN0e6p0YpdDw.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/e3h97EqlVpsgJrlWsNHIcZOl2od.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "The-Office-1995-Series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Office (1995) (Valerie Harper) - Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/glcJraGwrHarnQTqN0e6p0YpdDw.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Office (1995) - S1E1 - (pilot episode).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159677127,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The-Office-1995-Series/The Office (1995) - S1E1 - (pilot episode).ia.mp4"
+        },
+        {
+          "archiveID": "the-office-1.5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Office - Valerie Harper, Lisa Darr",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/glcJraGwrHarnQTqN0e6p0YpdDw.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Office - 1.5.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 842439907,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-office-1.5/The Office - 1.5.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

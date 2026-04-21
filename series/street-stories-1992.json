@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "street-stories-1992",
+  "title": "Street Stories",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/street-stories-gay-bashing-1992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "street-stories-gay-bashing-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Street Stories - Ed Bradley",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/street-stories-gay-bashing-1992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Street Stories - Gay Bashing - 1992.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1448091586,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/street-stories-gay-bashing-1992/Street Stories - Gay Bashing - 1992.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

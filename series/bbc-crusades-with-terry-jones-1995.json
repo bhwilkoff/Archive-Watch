@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "bbc-crusades-with-terry-jones-1995",
+  "title": "BBC Crusades with Terry Jones",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bbc.-crusades.with.-terry.-jones.-3of-4.-jihad.-xvi-d.-ac-3.-mvgroup.org",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bbc.-crusades.with.-terry.-jones.-4of-4.-destruction.-xvi-d.-ac-3.-mvgroup.org",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Crusades with Terry Jones \"Destruction\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bbc.-crusades.with.-terry.-jones.-4of-4.-destruction.-xvi-d.-ac-3.-mvgroup.org",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC.Crusades.with.Terry.Jones.4of4.Destruction.XviD.AC3.MVGroup.org.mp4",
+            "format": "h.264",
+            "sizeBytes": 298532368,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bbc.-crusades.with.-terry.-jones.-4of-4.-destruction.-xvi-d.-ac-3.-mvgroup.org/BBC.Crusades.with.Terry.Jones.4of4.Destruction.XviD.AC3.MVGroup.org.mp4"
+        },
+        {
+          "archiveID": "bbc.-crusades.with.-terry.-jones.-2of-4.-jerusalem.-xvi-d.-ac-3.-mvgroup.org",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Crusades with Terry Jones \"Jerusalem\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bbc.-crusades.with.-terry.-jones.-2of-4.-jerusalem.-xvi-d.-ac-3.-mvgroup.org",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC.Crusades.with.Terry.Jones.2of4.Jerusalem.XviD.AC3.MVGroup.org.mp4",
+            "format": "h.264",
+            "sizeBytes": 291083307,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bbc.-crusades.with.-terry.-jones.-2of-4.-jerusalem.-xvi-d.-ac-3.-mvgroup.org/BBC.Crusades.with.Terry.Jones.2of4.Jerusalem.XviD.AC3.MVGroup.org.mp4"
+        },
+        {
+          "archiveID": "bbc.-crusades.with.-terry.-jones.-3of-4.-jihad.-xvi-d.-ac-3.-mvgroup.org",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Crusades with Terry Jones \"Jihad\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bbc.-crusades.with.-terry.-jones.-3of-4.-jihad.-xvi-d.-ac-3.-mvgroup.org",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC.Crusades.with.Terry.Jones.3of4.Jihad.XviD.AC3.MVGroup.org.mp4",
+            "format": "h.264",
+            "sizeBytes": 291490353,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bbc.-crusades.with.-terry.-jones.-3of-4.-jihad.-xvi-d.-ac-3.-mvgroup.org/BBC.Crusades.with.Terry.Jones.3of4.Jihad.XviD.AC3.MVGroup.org.mp4"
+        },
+        {
+          "archiveID": "bbc.-crusades.with.-terry.-jones.-1of-4.-pilgrims.in.-arms.-xvi-d.-ac-3.-mvgroup.org",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Crusades with Terry Jones \"Pilgrims in Arms\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bbc.-crusades.with.-terry.-jones.-1of-4.-pilgrims.in.-arms.-xvi-d.-ac-3.-mvgroup.org",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC.Crusades.with.Terry.Jones.1of4.Pilgrims.in.Arms.XviD.AC3.MVGroup.org.mp4",
+            "format": "h.264",
+            "sizeBytes": 293941670,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bbc.-crusades.with.-terry.-jones.-1of-4.-pilgrims.in.-arms.-xvi-d.-ac-3.-mvgroup.org/BBC.Crusades.with.Terry.Jones.1of4.Pilgrims.in.Arms.XviD.AC3.MVGroup.org.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

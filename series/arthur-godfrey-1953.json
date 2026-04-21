@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "arthur-godfrey-1953",
+  "title": "Arthur Godfrey",
+  "yearStart": 1953,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ArthurGodfreysTalentScouts1956",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ArthurGodfreysTalentScouts1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Arthur Godfrey's Talent Scouts (1956)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ArthurGodfreysTalentScouts1956",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1758,
+          "videoFile": {
+            "name": "Godfreys_Talent_Scouts_07_30_1956.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198528163,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ArthurGodfreysTalentScouts1956/Godfreys_Talent_Scouts_07_30_1956.ia.mp4"
+        },
+        {
+          "archiveID": "ArthurGodfreysTalentScouts-3August1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Arthur Godfrey's Talent Scouts - 3 August 1953",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ArthurGodfreysTalentScouts-3August1953",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1776,
+          "videoFile": {
+            "name": "ArthurGodfreyTalentScouts1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 184046251,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ArthurGodfreysTalentScouts-3August1953/ArthurGodfreyTalentScouts1953.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

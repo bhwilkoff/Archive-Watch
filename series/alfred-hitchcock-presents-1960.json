@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "seriesID": "alfred-hitchcock-presents-1960",
+  "title": "Alfred Hitchcock Presents",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "A television anthology series hosted by Alfred Hitchcock featuring dramas, thrillers, and mysteries.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lmbBSG3jRVjxdovpdhOf2LF1voZ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/aiZEtOKUfUY0zEeLupeLhnJlW7u.jpg",
+  "genres": [],
+  "networks": [
+    "NBC",
+    "CBS"
+  ],
+  "creator": "Alfred Hitchcock",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "alfred-hitchcock-presents-s-1e-1-colorized-720p-hd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alfred Hitchcock Presents - Complete Season 1 (39 Episodes) (restored, colorized) (1955, TV series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lmbBSG3jRVjxdovpdhOf2LF1voZ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "alfred hitchcock presents-s1e25-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 157230866,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alfred-hitchcock-presents-s-1e-1-colorized-720p-hd/alfred hitchcock presents-s1e25-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "alfred-hitchcock-presents-s-2e-13-colorized-sd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alfred Hitchcock Presents - Complete Season 2 (39 Episodes) (restored, colorized) (1956, TV Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lmbBSG3jRVjxdovpdhOf2LF1voZ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "alfred hitchcock presents-s2e30-colorized-sd.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 478684239,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alfred-hitchcock-presents-s-2e-13-colorized-sd/alfred hitchcock presents-s2e30-colorized-sd.ia.mp4"
+        },
+        {
+          "archiveID": "alfred-hitchcock-presents-s-3e-1-colorized-sd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alfred Hitchcock Presents - Complete Season 3 (39 episodes) (restored, colorized) (1957, TV Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lmbBSG3jRVjxdovpdhOf2LF1voZ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "alfred hitchcock presents-s3e16-colorized-sd.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 473054462,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alfred-hitchcock-presents-s-3e-1-colorized-sd/alfred hitchcock presents-s3e16-colorized-sd.ia.mp4"
+        },
+        {
+          "archiveID": "alfred-hitchcock-presents-s-4e-1-colorized-sd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alfred Hitchcock Presents - Complete Season 4 (36 episodes) (restored, colorized) (1958, TV Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lmbBSG3jRVjxdovpdhOf2LF1voZ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "alfred hitchcock presents-s4e4-colorized-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 155983691,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alfred-hitchcock-presents-s-4e-1-colorized-sd/alfred hitchcock presents-s4e4-colorized-sd.mp4"
+        },
+        {
+          "archiveID": "alfred-hitchcock-presents-1959-s-5e-1-colorized-sd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alfred Hitchcock Presents - Complete Season 5 (38 episodes) (restored, colorized) (1959, TV Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lmbBSG3jRVjxdovpdhOf2LF1voZ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "alfred hitchcock presents-1959-s5e24-colorized-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 160734340,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alfred-hitchcock-presents-1959-s-5e-1-colorized-sd/alfred hitchcock presents-1959-s5e24-colorized-sd.mp4"
+        },
+        {
+          "archiveID": "alfred-hitchcock-presents-s-6e-1-colorized-sd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alfred Hitchcock Presents - Complete Season 6 (38 episodes) (restored, colorized) (1960, TV Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lmbBSG3jRVjxdovpdhOf2LF1voZ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "alfred hitchcock presents-s6e18-colorized-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 157691642,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alfred-hitchcock-presents-s-6e-1-colorized-sd/alfred hitchcock presents-s6e18-colorized-sd.mp4"
+        },
+        {
+          "archiveID": "alfred-hitchcock-presents-s-7e-1-colorized-sd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alfred Hitchcock Presents - Complete Season 7 (39 Episodes) (restored, colorized) (1961, TV Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lmbBSG3jRVjxdovpdhOf2LF1voZ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "alfred hitchcock presents-s7e39pd-colorized-sd.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 439250814,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alfred-hitchcock-presents-s-7e-1-colorized-sd/alfred hitchcock presents-s7e39pd-colorized-sd.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "AlfredHitchcockPresentsTheSorcerersApprentice",
+          "seasonNumber": 7,
+          "episodeNumber": 39,
+          "title": "The Sorcerer's Apprentice",
+          "overview": "The frustrated wife of a carnival musician is in love with the circus strong man. With the appearance of a homeless boy comes a plan to free her from her husband. But will he play the final trick?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/y81q090Idq1Z7KHmnUk1GXP0oq5.jpg",
+          "airDate": "1962-07-03",
+          "year": null,
+          "runtimeSeconds": 1528,
+          "videoFile": {
+            "name": "AHP_The_Sorcerers_Apprentice.mp4",
+            "format": "h.264",
+            "sizeBytes": 155652436,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlfredHitchcockPresentsTheSorcerersApprentice/AHP_The_Sorcerers_Apprentice.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

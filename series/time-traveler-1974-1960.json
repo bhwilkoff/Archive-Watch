@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "time-traveler-1974-1960",
+  "title": "TIME TRAVELER 1974",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TIMETRAVELER1974",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TIMETRAVELER1974",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TIME TRAVELER 1974",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TIMETRAVELER1974",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TIME_TRAVELER__1975_mpeg2video_mpeg2video.mp4",
+            "format": "h.264",
+            "sizeBytes": 436481447,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TIMETRAVELER1974/TIME_TRAVELER__1975_mpeg2video_mpeg2video.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

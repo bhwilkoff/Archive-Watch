@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "condorman01_06-1960",
+  "title": "condorman01_06",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/condorman01_06",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "condorman01_06",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "condorman01_06",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/condorman01_06",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1491,
+          "videoFile": {
+            "name": "CondormanEp06.mp4",
+            "format": "h.264",
+            "sizeBytes": 148648910,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/condorman01_06/CondormanEp06.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

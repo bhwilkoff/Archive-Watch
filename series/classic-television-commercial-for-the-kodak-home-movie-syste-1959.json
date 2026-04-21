@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "classic-television-commercial-for-the-kodak-home-movie-syste-1959",
+  "title": "Classic Television Commercial for the Kodak Home Movie System",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ClassicTelevisionCommercialForTheKodakHomeMovieSystem1959",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ClassicTelevisionCommercialForTheKodakHomeMovieSystem1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Television Commercial for the Kodak Home Movie System (1959)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ClassicTelevisionCommercialForTheKodakHomeMovieSystem1959",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 69,
+          "videoFile": {
+            "name": "Kodak_HomeMovieCamera_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4934900,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClassicTelevisionCommercialForTheKodakHomeMovieSystem1959/Kodak_HomeMovieCamera_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

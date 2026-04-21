@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "allo-1984",
+  "title": "Allo",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "The misadventures of hapless cafe owner René Artois and his escapades with the Resistance in occupied France.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/m42lb4UxkpaFil4bw0bqqjlWCY4.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/pnyulr7wX1vEfyzScMRDAdxCwMc.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "David Croft",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "allo-allo",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Allo 'Allo DVD Rip",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/m42lb4UxkpaFil4bw0bqqjlWCY4.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "15 - Allo Allo S2E07 - The Gateau from the Chateau.mp4",
+            "format": "h.264",
+            "sizeBytes": 277470534,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/allo-allo/15 - Allo Allo S2E07 - The Gateau from the Chateau.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

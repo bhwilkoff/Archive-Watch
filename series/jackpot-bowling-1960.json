@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "seriesID": "jackpot-bowling-1960",
+  "title": "Jackpot Bowling",
+  "yearStart": 1960,
+  "yearEnd": 1961,
+  "overview": "Jackpot Bowling was a professional bowling show on NBC from January 9, 1959 to June 24, 1960 and again from September 19, 1960 to March 13, 1961.\n\nJackpot Bowling was the first national TV bowling show since Bowling Headliners aired in the early days of television. Jackpot Bowling aired on Fridays at 10:45 PM following the Cavalcade of Sports Friday Night Fight.\n\nLeo Durocher was the show's first host, but bowed out after only two shows and was replaced by Mel Allen. Allen's lack of bowling knowledge made him an unpopular host, however. On April 10, 1959 Bud Palmer became the show's third host.\n\nAllen returned in October 1959 and remained with the show until April 1960, after which Palmer returned and hosted through June.\n\nThe show was put on a brief hiatus after the June 24, 1960 episode, as its Cavalcade of Sports lead-in had ended its run on NBC. When it returned on September 19, 1960, a retooled version hit the airwaves; the series not only moved to Monday nights at 10:30, but Bayuk Cigars replaced Phillies Cigars as sponsor, the Hollywood Legion Lanes replaced Wayne, New Jersey's T-Bowl as the show's venue, and Milton Berle took over as host with Chick Hearn providing play-by-play. The show now ran 30 minutes, and the professional bowler challenges were supplemented with segments of celebrities being interviewed by Berle and then rolling a shot for charity.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "jackpotbowling-16January1961-extremelybadpicture",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Jackpot Bowling'' - 16 January 1961",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1769,
+          "videoFile": {
+            "name": "jackpotbowling-16January1961-extremelybadpicture.mp4",
+            "format": "h.264",
+            "sizeBytes": 183857084,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jackpotbowling-16January1961-extremelybadpicture/jackpotbowling-16January1961-extremelybadpicture.mp4"
+        },
+        {
+          "archiveID": "jackpotbowling2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Jackpot Bowling'' - 19 December 1960?",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1775,
+          "videoFile": {
+            "name": "jackpotbowling2.mp4",
+            "format": "h.264",
+            "sizeBytes": 184309313,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jackpotbowling2/jackpotbowling2.mp4"
+        },
+        {
+          "archiveID": "jackpotbowling2January1961",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Jackpot Bowling'' - 2 January 1961",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "jackpotbowling2January1961.mp4",
+            "format": "h.264",
+            "sizeBytes": 182103541,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jackpotbowling2January1961/jackpotbowling2January1961.mp4"
+        },
+        {
+          "archiveID": "jackpotbowling23January1961",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Jackpot Bowling'' - 23 January 1961",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1774,
+          "videoFile": {
+            "name": "jackpotbowling23January1961.mp4",
+            "format": "h.264",
+            "sizeBytes": 184494400,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jackpotbowling23January1961/jackpotbowling23January1961.mp4"
+        },
+        {
+          "archiveID": "jackpotbowling9January1961",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Jackpot Bowling'' - 9 January 1961",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1771,
+          "videoFile": {
+            "name": "jackpotbowling9January1961.mp4",
+            "format": "h.264",
+            "sizeBytes": 182154962,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jackpotbowling9January1961/jackpotbowling9January1961.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

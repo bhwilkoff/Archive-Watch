@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tales-of-tomorrow-15-1952",
+  "title": "Tales of Tomorrow #15",
+  "yearStart": 1952,
+  "yearEnd": 1952,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tales_of_tomorrow_15_the_dune_roller",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tales_of_tomorrow_15_the_dune_roller",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales of Tomorrow #15: The Dune Roller",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tales_of_tomorrow_15_the_dune_roller",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "tales_of_tomorrow_15_the_dune_roller.mp4",
+            "format": "h.264",
+            "sizeBytes": 135635870,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tales_of_tomorrow_15_the_dune_roller/tales_of_tomorrow_15_the_dune_roller.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "candid-camera-2022",
+  "title": "Candid Camera",
+  "yearStart": 2022,
+  "yearEnd": 2025,
+  "overview": "Smile! Candid Camera's back with all-new gags drawn from today's headlines that put unsuspecting people on the spot and deliver smiles and laughter to a new generation. Tune in to TV Land and laugh more with Candid Camera!",
+  "posterURL": "https://image.tmdb.org/t/p/w500/b8woKxJ58ZtOQZEHJ1AmMN9NBmJ.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "TV Land"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "candid-camera-1974-first-scene-filmaker-looking-for-a-completely-natural-commercial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Candid Camera (1974)- First scene: filmaker looking for a completely natural commercial",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/b8woKxJ58ZtOQZEHJ1AmMN9NBmJ.jpg",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Candid Camera (1974)- First scene filmaker looking for a completely natural commercial.mp4",
+            "format": "h.264",
+            "sizeBytes": 137234518,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/candid-camera-1974-first-scene-filmaker-looking-for-a-completely-natural-commercial/Candid Camera (1974)- First scene filmaker looking for a completely natural commercial.mp4"
+        },
+        {
+          "archiveID": "candid-camera-comedy-shopping-spree-special-may-4-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Candid Camera: Comedy Shopping Spree special (May 4, 1990)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/b8woKxJ58ZtOQZEHJ1AmMN9NBmJ.jpg",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Candid Camera- Comedy Shopping Spree Special (May 4, 1990).mp4",
+            "format": "h.264",
+            "sizeBytes": 136107667,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/candid-camera-comedy-shopping-spree-special-may-4-1990/Candid Camera- Comedy Shopping Spree Special (May 4, 1990).mp4"
+        },
+        {
+          "archiveID": "candid-camera-the-first-40-years-special-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Candid Camera: The First 40 Years special (1987)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/b8woKxJ58ZtOQZEHJ1AmMN9NBmJ.jpg",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Candid Camera The First 40 Years special (1987).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1546385688,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/candid-camera-the-first-40-years-special-1987/Candid Camera The First 40 Years special (1987).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

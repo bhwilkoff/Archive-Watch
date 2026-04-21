@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "almost-home-1993",
+  "title": "Almost Home",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "Having a hard time making ends meet after her divorce, Millicent Torkelson moves her three children to Seattle, where she becomes the nanny to the spoiled Morgan children.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dIml9FYiihLmXe1xV2qCYtmfUI4.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Lynn Montgomery",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "almost-home-1.08",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Home - Brittany Murphy, Olivia Burnette",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dIml9FYiihLmXe1xV2qCYtmfUI4.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Almost Home - 2.05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 715827078,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/almost-home-1.08/Almost Home - 2.05.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

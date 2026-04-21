@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-clampetts-get-culture-1960",
+  "title": "The Clampetts Get Culture",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep49_The_Clampetts_Get_Culture",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep49_The_Clampetts_Get_Culture",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Clampetts Get Culture",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep49_The_Clampetts_Get_Culture",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Beverly_Hillbillies_Ep49_The_Clampetts_Get_Culture.mp4",
+            "format": "h.264",
+            "sizeBytes": 146653486,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep49_The_Clampetts_Get_Culture/Beverly_Hillbillies_Ep49_The_Clampetts_Get_Culture.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

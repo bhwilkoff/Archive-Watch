@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sweetwater-texas-trackdown-1957",
+  "title": "Sweetwater, Texas (Trackdown",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Trackdown_1-06_Sweetwater_Texas",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Trackdown_1-06_Sweetwater_Texas",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sweetwater, Texas (Trackdown)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Trackdown_1-06_Sweetwater_Texas",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1373,
+          "videoFile": {
+            "name": "Trackdown_1-06_Sweetwater_Texas.mp4",
+            "format": "h.264",
+            "sizeBytes": 142360218,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Trackdown_1-06_Sweetwater_Texas/Trackdown_1-06_Sweetwater_Texas.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

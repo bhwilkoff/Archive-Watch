@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "hullabaloo--march-21-1966-s2e27-2023",
+  "title": "Hullabaloo- March 21, 1966 (S2E27",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hullabaloo-march-21-1966-s-2-e-27",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "hullabaloo-march-21-1966-s-2-e-27",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "Hullabaloo- March 21, 1966 (S2E27)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hullabaloo-march-21-1966-s-2-e-27",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hullabaloo- March 21, 1966 (S2E27).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 539616914,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hullabaloo-march-21-1966-s-2-e-27/Hullabaloo- March 21, 1966 (S2E27).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

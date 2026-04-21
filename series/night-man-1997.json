@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "night-man-1997",
+  "title": "Night Man",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": "Night Man is an American action/adventure/sci-fi series that aired in syndication from September 15, 1997 to May 17, 1999. The series is loosely based on a comic book published by Malibu Comics and was created by Steve Englehart and developed for television by Glen A. Larson.\n\nIt stars Matt McColm as the title character, a superhero whose real name was Johnny Domino, a saxophonist. Englehart would write three episodes of the series. Night Man is also one of the few series to cross over with characters from Larson's previous series: in the episode \"Manimal\", Johnny allies with Professor Jonathan Chase, the star of the short-lived 1980s' series Manimal.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/d5rE9WSSsRTuvfjRb9dOpnIMAOJ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/38UpV8o9cbXtj4gwZrCHSVb9che.jpg",
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": "Glen A. Larson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "night-man.-s-01-e-08.-takin.-it.to.the.-streets",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Night Man s01 complete with Subtitles{NICKLAUS}",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/d5rE9WSSsRTuvfjRb9dOpnIMAOJ.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NightMan.S01E01.Pilot.(1).mp4",
+            "format": "h.264",
+            "sizeBytes": 268403237,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/night-man.-s-01-e-08.-takin.-it.to.the.-streets/NightMan.S01E01.Pilot.(1).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

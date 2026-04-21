@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "degrassi-talks-on-drugs-1992",
+  "title": "Degrassi Talks On Drugs",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/degrassi-talks-on-drugs_202208",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "degrassi-talks-on-drugs_202208",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Degrassi Talks On Drugs",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-talks-on-drugs_202208",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Talks On Drugs.mp4",
+            "format": "h.264",
+            "sizeBytes": 136714789,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-talks-on-drugs_202208/Degrassi Talks On Drugs.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

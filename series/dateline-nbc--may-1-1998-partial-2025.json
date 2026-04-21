@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dateline-nbc--may-1-1998-partial-2025",
+  "title": "Dateline NBC- May 1, 1998 (partial",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/dateline-nbc-may-1-1998-partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dateline-nbc-may-1-1998-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dateline NBC- May 1, 1998 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/dateline-nbc-may-1-1998-partial",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dateline NBC- May 1, 1998 (partial).mp4",
+            "format": "h.264",
+            "sizeBytes": 190139871,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dateline-nbc-may-1-1998-partial/Dateline NBC- May 1, 1998 (partial).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

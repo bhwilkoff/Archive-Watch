@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "queenie-1960",
+  "title": "QUEENIE",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "A half-caste beauty emigrates from India to Great Britain, pursues fame and fortune at the cost of personal happiness, and becomes a Hollywood movie star while suppressing the truth of her heritage.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/gW4RU5HobJLNkuGUAovyBXiSwRC.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/sr4R6LROGPRT9vuoM60vcHqfGmL.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "queenies-castle-1970-72",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "QUEENIE'S CASTLE (1970-72) (Full Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gW4RU5HobJLNkuGUAovyBXiSwRC.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "QUEENIES CASTLE (1970-72)/104.Queenie's Castle...Friends.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121587252,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/queenies-castle-1970-72/QUEENIES CASTLE (1970-72)/104.Queenie's Castle...Friends.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

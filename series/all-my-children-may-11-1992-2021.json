@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "all-my-children-may-11-1992-2021",
+  "title": "All My Children (May 11, 1992",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/all-my-children-may-11-1992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "all-my-children-may-11-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "All My Children (May 11, 1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/all-my-children-may-11-1992",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "All My Children (May 11, 1992).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 495495041,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/all-my-children-may-11-1992/All My Children (May 11, 1992).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

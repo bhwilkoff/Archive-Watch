@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "seriesID": "ironside-1967",
+  "title": "Ironside",
+  "yearStart": 1967,
+  "yearEnd": 1973,
+  "overview": "When an assassin's bullet confines him to a wheelchair for life ending his career as Chief of Detectives, Robert T. Ironside becomes a consultant to the police department. Detective Sergeant Ed Brown and policewoman Eve Whitfield join with him to crack varied and fascinating cases. Ex-con Mark Sanger is employed by the chief as home help but eventually becomes a fully fledged member of the team also. Officer Whitfield leaves after 4 years service, and is replaced by Officer Fran Belding.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/Fu9Sv0pQ0s89uWwwXcaG0kiNW7.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/7lYBvjfgrguOUgnS9NrpysHtaCq.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Collier Young",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ironsides02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ironside Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/Fu9Sv0pQ0s89uWwwXcaG0kiNW7.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ironside S02e19 And Be My Love.mp4",
+            "format": "h.264",
+            "sizeBytes": 280045153,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ironsides02/Ironside S02e19 And Be My Love.mp4"
+        },
+        {
+          "archiveID": "ironsideS03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ironside Season 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/Fu9Sv0pQ0s89uWwwXcaG0kiNW7.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ironside S03e07 Seeing Is Believing.mp4",
+            "format": "h.264",
+            "sizeBytes": 281120548,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ironsideS03/Ironside S03e07 Seeing Is Believing.mp4"
+        },
+        {
+          "archiveID": "ironsideS04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ironside Season 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/Fu9Sv0pQ0s89uWwwXcaG0kiNW7.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ironside S04e06 The Lonely Way To Go.mp4",
+            "format": "h.264",
+            "sizeBytes": 279819762,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ironsideS04/Ironside S04e06 The Lonely Way To Go.mp4"
+        },
+        {
+          "archiveID": "ironside-S05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ironside Season 5",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/Fu9Sv0pQ0s89uWwwXcaG0kiNW7.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ironside S05e01 Priest-Killer.mp4",
+            "format": "h.264",
+            "sizeBytes": 554842908,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ironside-S05/Ironside S05e01 Priest-Killer.mp4"
+        },
+        {
+          "archiveID": "ironside-S06",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ironside Season 6",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/Fu9Sv0pQ0s89uWwwXcaG0kiNW7.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ironside S06e16 A Special Person.mp4",
+            "format": "h.264",
+            "sizeBytes": 278904234,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ironside-S06/Ironside S06e16 A Special Person.mp4"
+        },
+        {
+          "archiveID": "ironside-season7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ironside Season 7",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/Fu9Sv0pQ0s89uWwwXcaG0kiNW7.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ironside S07e04 Fragile Is The House Of Cards.mp4",
+            "format": "h.264",
+            "sizeBytes": 279074078,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ironside-season7/Ironside S07e04 Fragile Is The House Of Cards.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

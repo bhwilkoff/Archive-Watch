@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "general-hospital--january-30-1990-most-2020",
+  "title": "General Hospital- January 30, 1990 (most",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/general-hospital-january-30-1990-most-convert-video-online.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "general-hospital-january-30-1990-most-convert-video-online.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "General Hospital- January 30, 1990 (most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/general-hospital-january-30-1990-most-convert-video-online.com",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "General Hospital- January 30, 1990 (most) (convert-video-online.com).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 437543248,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/general-hospital-january-30-1990-most-convert-video-online.com/General Hospital- January 30, 1990 (most) (convert-video-online.com).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

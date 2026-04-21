@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bob-hope-2024",
+  "title": "Bob Hope",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bob-hopes-jolly-christmas-show-with-the-all-american-camps-1988",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bob-hopes-jolly-christmas-show-with-the-all-american-camps-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope's Jolly Christmas Show with the All-American Camps (1988)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hopes-jolly-christmas-show-with-the-all-american-camps-1988",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hope's Jolly Christmas Show with The All-American Camps (1988).mp4",
+            "format": "h.264",
+            "sizeBytes": 280049012,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hopes-jolly-christmas-show-with-the-all-american-camps-1988/Bob Hope's Jolly Christmas Show with The All-American Camps (1988).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

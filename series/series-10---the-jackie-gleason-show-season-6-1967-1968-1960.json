@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "series-10---the-jackie-gleason-show-season-6-1967-1968-1960",
+  "title": "Series 10 - The Jackie Gleason Show Season 6 (1967-1968)",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-jackie-gleason-show-season-6-1967-1968",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-jackie-gleason-show-season-6-1967-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Series 10 - The Jackie Gleason Show Season 6 (1967-1968)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-jackie-gleason-show-season-6-1967-1968",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S02E06 - 10-14-1967 - JGSR - Groucho Marx.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 744009762,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-jackie-gleason-show-season-6-1967-1968/S02E06 - 10-14-1967 - JGSR - Groucho Marx.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

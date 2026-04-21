@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "seriesID": "petticoat-junction-1963",
+  "title": "Petticoat Junction",
+  "yearStart": 1963,
+  "yearEnd": 1964,
+  "overview": "The Bradley family are proud owners of the Shady Rest Hotel. Kate and her three young daughters do the job of running the hotel.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/2kTGzz870hmdmQ074CYTdKFRqSm.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/hQWWSbiUz4HKQxRQJtPXpO8ixJB.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Paul Henning",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PetticoatJunction",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Petticoat Junction",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2kTGzz870hmdmQ074CYTdKFRqSm.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Petticoat-Junction-1-7-64.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158379083,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PetticoatJunction/Petticoat-Junction-1-7-64.ia.mp4"
+        },
+        {
+          "archiveID": "PetticoatJunction_374",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Petticoat Junction",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2kTGzz870hmdmQ074CYTdKFRqSm.jpg",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Petticoat-Junction-10-29-63.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158625683,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PetticoatJunction_374/Petticoat-Junction-10-29-63.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "PJ_Spurline",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Spur Line to Shady Rest",
+          "overview": "Homer Bedloe, trouble-shooter for the C&F W Railroad, is sent by railroad president Norman P. Curtis to the little community of Hooterville to find out why a branch line doesn't connect with the main line. The branch line carries the \"Cannonball\" train, and is vital to the Shady Rest Hotel, run by Kate Bradley, her three grown daughters and \"Uncle Joe\" Carson. If Bedloe succeeds in shutting down the Cannonball, Kate faces ruin. John Ashley appears as passenger Fred.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/d0gq2GnAsoO96l1njb1JyKFTj2B.jpg",
+          "airDate": "1963-09-24",
+          "year": 1963,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "PJ_SpurLineToShadyRest_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 108384790,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PJ_Spurline/PJ_SpurLineToShadyRest_512kb.mp4"
+        },
+        {
+          "archiveID": "PJ_HootervilleHilton",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "A Night at the Hooterville Hilton",
+          "overview": "A brochure made by Uncle Joe describing the incomparable Shady Rest Hotel of the future is accidentally mailed to The Centerville Sun Express travel columnist Gladys Stroud. In the brochure was the vision of what he hoped the hotel would one day be, including indoor ice rink, bowling alley, and swimming pool. Gladys decides to come and review the Shady Rest. Now the family has to scramble to keep her from finding out the truth and closing them down for lying. Despite their best efforts, Gladys finds out. Uncle Joe manages to sweet talk Gladys into not closing them down.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/bzBgx0UCIWziBJI11SzTSkhoEpj.jpg",
+          "airDate": "1963-12-17",
+          "year": 1963,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "PJ_HootervilleHilton_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 108594114,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PJ_HootervilleHilton/PJ_HootervilleHilton_512kb.mp4"
+        },
+        {
+          "archiveID": "PJ_Herbie",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Herbie Gets Drafted",
+          "overview": "Herby is depressed when he gets drafted, so the girls cheer him up by suggesting he could be an astronaut. Uncle Joe hears this and decides he needs to promote Herby's future political career to the whole town. When Herby gets a discharge for minor medical problems, Kate finds a way for him to save face with Billie Jo and the rest.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9qaXiWCFgCbYvaM9OVv0E8YOmrD.jpg",
+          "airDate": "1963-12-31",
+          "year": 1963,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "PJ_HerbieGetsDrafted_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 108653402,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PJ_Herbie/PJ_HerbieGetsDrafted_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

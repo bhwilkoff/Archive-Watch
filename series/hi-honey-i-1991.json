@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "hi-honey-i-1991",
+  "title": "Hi Honey, I",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hi-honey-im-home",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hi-honey-im-home-1.2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hi Honey, I'm Home - Julie Benz, Charlotte Booker",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hi-honey-im-home-1.2",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hi Honey Im Home - 1.2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 700456728,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hi-honey-im-home-1.2/Hi Honey Im Home - 1.2.ia.mp4"
+        },
+        {
+          "archiveID": "hi-honey-im-home",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hi Honey, I'm Home! (1992-93) sitcom, Julie Benz",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hi-honey-im-home",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hi Honey Im Home - 1.2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 700456728,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hi-honey-im-home/Hi Honey Im Home - 1.2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

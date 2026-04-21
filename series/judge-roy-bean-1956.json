@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "seriesID": "judge-roy-bean-1956",
+  "title": "Judge Roy Bean",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": "Judge Roy Bean is a syndicated American Western series starring Edgar Buchanan as the legendary Kentucky-born Judge Roy Bean, a justice of the peace known as \"The Law West of the Pecos\".",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kyv6FXHU9jxKn6zns114sW23ciZ.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JUDGE_ROY_BEAN_Black_Jack",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Judge Roy Bean\" Black Jack",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kyv6FXHU9jxKn6zns114sW23ciZ.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1548,
+          "videoFile": {
+            "name": "JUDGE_ROY_BEAN_Black_Jack.mp4",
+            "format": "h.264",
+            "sizeBytes": 149673216,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JUDGE_ROY_BEAN_Black_Jack/JUDGE_ROY_BEAN_Black_Jack.mp4"
+        },
+        {
+          "archiveID": "JUDGE_ROY_BEAN_Letty_Leaves_Home",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Judge Roy Bean\" Letty Leaves Home",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kyv6FXHU9jxKn6zns114sW23ciZ.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1587,
+          "videoFile": {
+            "name": "JUDGE_ROY_BEAN_Letty_Leaves_Home.mp4",
+            "format": "h.264",
+            "sizeBytes": 154448752,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JUDGE_ROY_BEAN_Letty_Leaves_Home/JUDGE_ROY_BEAN_Letty_Leaves_Home.mp4"
+        },
+        {
+          "archiveID": "JUDGE_ROY_BEAN_Slightly_Prodigal",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Judge Roy Bean\" Slightly Prodigal",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kyv6FXHU9jxKn6zns114sW23ciZ.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1594,
+          "videoFile": {
+            "name": "JUDGE_ROY_BEAN_Slightly_Prodigal.mp4",
+            "format": "h.264",
+            "sizeBytes": 155421480,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JUDGE_ROY_BEAN_Slightly_Prodigal/JUDGE_ROY_BEAN_Slightly_Prodigal.mp4"
+        },
+        {
+          "archiveID": "JUDGE_ROY_BEAN_The_Fugitive",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Judge Roy Bean\" The Fugitive",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kyv6FXHU9jxKn6zns114sW23ciZ.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1562,
+          "videoFile": {
+            "name": "JUDGE_ROY_BEAN_The_Fugitive.mp4",
+            "format": "h.264",
+            "sizeBytes": 150606995,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JUDGE_ROY_BEAN_The_Fugitive/JUDGE_ROY_BEAN_The_Fugitive.mp4"
+        },
+        {
+          "archiveID": "JudgeRoyBeanCheckmate",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Judge Roy Bean'' - Checkmate",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kyv6FXHU9jxKn6zns114sW23ciZ.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1538,
+          "videoFile": {
+            "name": "Judge Roy Bean - Checkmate.mp4",
+            "format": "h.264",
+            "sizeBytes": 160083028,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JudgeRoyBeanCheckmate/Judge Roy Bean - Checkmate.mp4"
+        },
+        {
+          "archiveID": "JudgeRoyBean-DeliverTheBody",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Judge Roy Bean'' - Deliver the Body",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kyv6FXHU9jxKn6zns114sW23ciZ.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "judgeroybean-DeliverTheBody.mp4",
+            "format": "h.264",
+            "sizeBytes": 162536983,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JudgeRoyBean-DeliverTheBody/judgeroybean-DeliverTheBody.mp4"
+        },
+        {
+          "archiveID": "JudgeRoyBeanOutlawsSon",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Judge Roy Bean'' - Outlaw's Son",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kyv6FXHU9jxKn6zns114sW23ciZ.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1526,
+          "videoFile": {
+            "name": "Judge Roy Bean - Outlaw's Son.mp4",
+            "format": "h.264",
+            "sizeBytes": 159111810,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JudgeRoyBeanOutlawsSon/Judge Roy Bean - Outlaw's Son.mp4"
+        },
+        {
+          "archiveID": "JudgeRoyBeanTheDefenseRests",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Judge Roy Bean'' - The Defense Rests",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kyv6FXHU9jxKn6zns114sW23ciZ.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1539,
+          "videoFile": {
+            "name": "Judge Roy Bean - The Defense Rests.mp4",
+            "format": "h.264",
+            "sizeBytes": 160247548,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JudgeRoyBeanTheDefenseRests/Judge Roy Bean - The Defense Rests.mp4"
+        },
+        {
+          "archiveID": "JudgeRoyBeanTheEyesOfTexas",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Judge Roy Bean'' - The Eyes Of Texas",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kyv6FXHU9jxKn6zns114sW23ciZ.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1540,
+          "videoFile": {
+            "name": "Judge Roy Bean - The Eyes of Texas.mp4",
+            "format": "h.264",
+            "sizeBytes": 160336907,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JudgeRoyBeanTheEyesOfTexas/Judge Roy Bean - The Eyes of Texas.mp4"
+        },
+        {
+          "archiveID": "JudgeRoyBeanTheHiddenTruth",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Judge Roy Bean'' - The Hidden Truth",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kyv6FXHU9jxKn6zns114sW23ciZ.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1555,
+          "videoFile": {
+            "name": "Judge Roy Bean - The Hidden Truth.mp4",
+            "format": "h.264",
+            "sizeBytes": 162029574,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JudgeRoyBeanTheHiddenTruth/Judge Roy Bean - The Hidden Truth.mp4"
+        },
+        {
+          "archiveID": "JudgeRoyBeanTheRunaway",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Judge Roy Bean'' - The Runaway",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kyv6FXHU9jxKn6zns114sW23ciZ.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1566,
+          "videoFile": {
+            "name": "Judge Roy Bean - The Runaway.mp4",
+            "format": "h.264",
+            "sizeBytes": 163169422,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JudgeRoyBeanTheRunaway/Judge Roy Bean - The Runaway.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 11
+}

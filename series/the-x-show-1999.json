@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-x-show-1999",
+  "title": "The X Show",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": "The X Show is a magazine, variety, and interview/talk program that aired on FX Network in the US from May 1999 to April 2001. Running time was originally one hour, but this was later reduced to a half-hour. The show was 'guy-themed' much like a TV equivalent of Maxim magazine The X Show had numerous hosts and co-hosts, both male and female and would frequently feature spokesmodels. Ava Cadell was featured in segments providing sexual information and Chris Gore would host segments about movies.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "FX"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-x-show-5-october-1999",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The X Show - 5 October 1999",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The X Show - 5October1999.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1396239091,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-x-show-5-october-1999/The X Show - 5October1999.ia.mp4"
+        },
+        {
+          "archiveID": "the-x-show-5-october-1999_202207",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The X Show - Mark DeCarlo, Berglind Icey",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The X Show - 5October1999.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1417556589,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-x-show-5-october-1999_202207/The X Show - 5October1999.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

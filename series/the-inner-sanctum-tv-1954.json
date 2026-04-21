@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-inner-sanctum-tv-1954",
+  "title": "The Inner Sanctum TV",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/face-of-the-dead-is-low-360p-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "face-of-the-dead-is-low-360p-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Inner Sanctum TV Series",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/face-of-the-dead-is-low-360p-1",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Port Of Regrets Is [low, 360p]-4.mp4",
+            "format": "h.264",
+            "sizeBytes": 159640728,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/face-of-the-dead-is-low-360p-1/Port Of Regrets Is [low, 360p]-4.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

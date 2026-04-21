@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "seriesID": "the-perry-como-show-1960",
+  "title": "The Perry Como Show",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Perry Como Show was a musical-comedy variety program hosted by Perry Como. ",
+  "posterURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PerryComoShow02141951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Perry Como Show\" - 14/February/1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Perry_Como_show_02_14_1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 90175995,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PerryComoShow02141951/Perry_Como_show_02_14_1951.mp4"
+        },
+        {
+          "archiveID": "thePerryComoShow-16september1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Perry Como Show\" - 16/September/1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 864,
+          "videoFile": {
+            "name": "53-09-16_Perry_Como_show.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 93035559,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thePerryComoShow-16september1953/53-09-16_Perry_Como_show.ia.mp4"
+        },
+        {
+          "archiveID": "Perry_Como_1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Perry Como Show\" - 1952 Episode",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PerryComo1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 89265744,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Perry_Como_1952/PerryComo1952.mp4"
+        },
+        {
+          "archiveID": "thePerryComoShow-20january1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Perry Como Show\" - 20/January/1954",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 877,
+          "videoFile": {
+            "name": "54-01-20_Perry_Como_show.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 93651013,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thePerryComoShow-20january1954/54-01-20_Perry_Como_show.ia.mp4"
+        },
+        {
+          "archiveID": "thePerryComoShow-24december1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Perry Como Show\" - 24/December/1952",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "Perry_Como_show_12_24_1952.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 118462481,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thePerryComoShow-24december1952/Perry_Como_show_12_24_1952.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

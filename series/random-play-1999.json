@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "random-play-1999",
+  "title": "Random Play",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "VH1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "random-play-dave-tv-1999",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Random Play - Jim Gaffigan, Michael Ian Black, Jerry Minor",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Random Play - Dave TV - 1999.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1024789112,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/random-play-dave-tv-1999/Random Play - Dave TV - 1999.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

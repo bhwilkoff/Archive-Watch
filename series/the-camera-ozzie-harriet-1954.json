@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-camera-ozzie-harriet-1954",
+  "title": "The Camera (Ozzie & Harriet",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/The_Camera--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "The_Camera--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Camera (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/The_Camera--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1326,
+          "videoFile": {
+            "name": "The_Camera--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 137634196,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The_Camera--Ozzie-Harriet/The_Camera--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

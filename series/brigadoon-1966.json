@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "brigadoon-1966",
+  "title": "Brigadoon",
+  "yearStart": 1966,
+  "yearEnd": 1966,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Brigadoon1966",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Brigadoon1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brigadoon (1966)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Brigadoon1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 4865,
+          "videoFile": {
+            "name": "BrigadoonTv1966_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 469829565,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Brigadoon1966/BrigadoonTv1966_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

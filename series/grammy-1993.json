@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "seriesID": "grammy-1993",
+  "title": "Grammy",
+  "yearStart": 1993,
+  "yearEnd": 1999,
+  "overview": "An awards show honoring the achievements of the members of the professional music recording industry. The members of the Recording Academy vote on who they think is most deserving of an award in 108 categories as specified by the academy.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/2itSpL4aBPoJXQ4QVtBFxQyz0j0.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/11QwqK3hUCWkLJclPUPzd6tgtxL.jpg",
+  "genres": [],
+  "networks": [
+    "ABC",
+    "NBC",
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "grammys-greatest-moments-35th-anniversary-celebration-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grammy's Greatest Moments: 35th Anniversary Celebration - Vanessa Williams",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2itSpL4aBPoJXQ4QVtBFxQyz0j0.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grammys Greatest Moments 35th Anniversary Celebration - 1993.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2812052976,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grammys-greatest-moments-35th-anniversary-celebration-1993/Grammys Greatest Moments 35th Anniversary Celebration - 1993.ia.mp4"
+        },
+        {
+          "archiveID": "grammys-greatest-performances-1999",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grammy's Greatest Performances - Natalie Cole, Whitney Houston",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2itSpL4aBPoJXQ4QVtBFxQyz0j0.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grammys Greatest Performances - 1999.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1257016246,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grammys-greatest-performances-1999/Grammys Greatest Performances - 1999.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

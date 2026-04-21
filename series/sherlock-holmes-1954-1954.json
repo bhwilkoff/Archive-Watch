@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sherlock-holmes-1954-1954",
+  "title": "Sherlock Holmes 1954",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": "The first American television series of Sherlock Holmes adventures aired in syndication in the fall of 1954. The 39 half-hour mostly original stories were produced by Sheldon Reynolds and filmed in France by Guild Films, starring Ronald Howard as Holmes and Howard Marion Crawford as Watson. Archie Duncan appeared in many episodes as Inspector Lestrade. Richard Larke, billed as Kenneth Richards, played Sgt. Wilkins in about fifteen episodes. The series' associate producer, Nicole Milinaire, was one of the first women to attain a senior production role in a television series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/eroaHmsBZXTsL64oo72Yi3eJaiz.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/AhlihKYnLZmNZiIItB4RBZoJHP8.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "sherlock-holmes-1954-s-01-e-14-the-case-of-the-french-interpreter-14-mbps",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Case of the French Interpreter",
+          "overview": "Dr. Watson urgently fetches Sherlock Holmes from his club, and brings him to see a French interpreter who urgently needs the detective. The interpreter, M. Dubec, explains how his services were requested by a man named Lattimer, who then abducted him and took him to an unknown location. There Dubec was asked to persuade a Frenchman to sign some papers for Lattimer and an associate, so that they can gain control over his sister's wealth. The case becomes more urgent when the criminals find out about Dubec's meeting with Holmes, and once again take him to their hidden location.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rlkyhVEoyKyKSI4j6XJRZfD2Wus.jpg",
+          "airDate": "1955-01-17",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sherlock Holmes - 1954 - S01E14 -  The Case of the French Interpreter - 14MBPs.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1961402025,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sherlock-holmes-1954-s-01-e-14-the-case-of-the-french-interpreter-14-mbps/Sherlock Holmes - 1954 - S01E14 -  The Case of the French Interpreter - 14MBPs.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

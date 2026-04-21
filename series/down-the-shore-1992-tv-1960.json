@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "down-the-shore-1992-tv-1960",
+  "title": "Down the Shore (1992 TV",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/down_the_shore_1992_tv_series",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "down_the_shore_1992_tv_series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Down the Shore (1992 TV Series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/down_the_shore_1992_tv_series",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Down The Shore/Season 01/10. And Justice for All.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 251389454,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/down_the_shore_1992_tv_series/Down The Shore/Season 01/10. And Justice for All.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

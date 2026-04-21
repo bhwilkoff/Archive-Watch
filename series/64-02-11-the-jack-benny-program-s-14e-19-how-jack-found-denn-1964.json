@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "64-02-11-the-jack-benny-program-s-14e-19-how-jack-found-denn-1964",
+  "title": "64 02 11 The Jack Benny Program S 14e 19 How Jack Found Dennis",
+  "yearStart": 1964,
+  "yearEnd": 1964,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/640211TheJackBennyProgramS14e19HowJackFoundDennis",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "640211TheJackBennyProgramS14e19HowJackFoundDennis",
+          "seasonNumber": 1,
+          "episodeNumber": 64,
+          "title": "64 02 11 The Jack Benny Program S 14e 19 How Jack Found Dennis",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/640211TheJackBennyProgramS14e19HowJackFoundDennis",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "64-02-11  The Jack Benny Program  s14e19  How Jack Found Dennis.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 102195596,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/640211TheJackBennyProgramS14e19HowJackFoundDennis/64-02-11  The Jack Benny Program  s14e19  How Jack Found Dennis.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

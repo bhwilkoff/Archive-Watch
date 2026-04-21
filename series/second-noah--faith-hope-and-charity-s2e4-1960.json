@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "second-noah--faith-hope-and-charity-s2e4-1960",
+  "title": "Second Noah- Faith, Hope and Charity (S2E4",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SecondNoahFaithHopeAndCharityS2E4",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "SecondNoahFaithHopeAndCharityS2E4",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Second Noah- Faith, Hope and Charity (S2E4)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SecondNoahFaithHopeAndCharityS2E4",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Second-Noah-Faith_-Hope-and-Charity-_S2E4_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 206650925,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SecondNoahFaithHopeAndCharityS2E4/Second-Noah-Faith_-Hope-and-Charity-_S2E4_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "kraft-television-theatre-1953",
+  "title": "Kraft Television Theatre",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": "Kraft Television Theater is an American, well-received anthology series presenting live television dramas.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/57qN0OyANif7zOI1oaX7r5SgTGg.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/9IJLbNsPGitXRbkfHPiNADPg3nN.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "Kraft_Television--Keep_Our_Honor_Bright",
+          "seasonNumber": 7,
+          "episodeNumber": 7,
+          "title": "Keep Our Honor Bright",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/57qN0OyANif7zOI1oaX7r5SgTGg.jpg",
+          "airDate": "1953-10-14",
+          "year": 1953,
+          "runtimeSeconds": 3161,
+          "videoFile": {
+            "name": "KraftTelevision--Keep_Our_Honor_Bright.mp4",
+            "format": "h.264",
+            "sizeBytes": 329095476,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Kraft_Television--Keep_Our_Honor_Bright/KraftTelevision--Keep_Our_Honor_Bright.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

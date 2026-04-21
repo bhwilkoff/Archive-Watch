@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "don-kirshner-2022",
+  "title": "Don Kirshner",
+  "yearStart": 2022,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/don-kirshners-rock-concert-september-15-1979-7th-season-premiere",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "don-kirshners-rock-concert-may-26-1979",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Don Kirshner's Rock Concert (May 26, 1979)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/don-kirshners-rock-concert-may-26-1979",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Don Kirshner's Rock Concert (May 26, 1979).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1668285663,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/don-kirshners-rock-concert-may-26-1979/Don Kirshner's Rock Concert (May 26, 1979).ia.mp4"
+        },
+        {
+          "archiveID": "don-kirshners-rock-concert-september-15-1979-7th-season-premiere",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Don Kirshner's Rock Concert (September 15, 1979)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/don-kirshners-rock-concert-september-15-1979-7th-season-premiere",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Don Kirshner's Rock Concert- September 15, 1979 (7th season premiere).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1962778186,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/don-kirshners-rock-concert-september-15-1979-7th-season-premiere/Don Kirshner's Rock Concert- September 15, 1979 (7th season premiere).ia.mp4"
+        },
+        {
+          "archiveID": "don-kirshners-rock-concert-february-6-1982-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Don Kirshner's Rock Concert- February 6, 1982 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/don-kirshners-rock-concert-february-6-1982-partial",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Don Kirshner's Rock Concert- February 6, 1982 (partial).mp4",
+            "format": "h.264",
+            "sizeBytes": 129533558,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/don-kirshners-rock-concert-february-6-1982-partial/Don Kirshner's Rock Concert- February 6, 1982 (partial).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

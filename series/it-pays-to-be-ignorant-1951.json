@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "it-pays-to-be-ignorant-1951",
+  "title": "It Pays to be Ignorant",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": "It Pays to Be Ignorant was a radio comedy show which maintained its popularity during a nine-year run on three networks for such sponsors as Philip Morris, Chrysler, and DeSoto.\n\nThe series was a spoof on the authoritative, academic discourse evident on such authoritative panel series as Quiz Kids and Information Please, while the beginning of the program parodied the popular quiz show, Doctor I.Q. With announcers Ken Roberts and Dick Stark, the program was broadcast on Mutual from June 25, 1942 to February 28, 1944, on CBS from February 25, 1944 to September 27, 1950 and finally on NBC from July 4, 1951 to September 26, 1951.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "itpaystobeignorant_201403",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''It Pays to be Ignorant'' - 5 July 1951",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1773,
+          "videoFile": {
+            "name": "itpaystobeignorant.mp4",
+            "format": "h.264",
+            "sizeBytes": 182350444,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/itpaystobeignorant_201403/itpaystobeignorant.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

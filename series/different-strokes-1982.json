@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "different-strokes-1982",
+  "title": "Different Strokes",
+  "yearStart": 1982,
+  "yearEnd": 1982,
+  "overview": "The series stars Gary Coleman and Todd Bridges as Arnold and Willis Jackson, two African American boys from Harlem who are taken in by a rich white Park Avenue businessman named Phillip Drummond and his daughter Kimberly, for whom their deceased mother previously worked. During the first season and first half of the second season, Charlotte Rae also starred as the Drummonds' housekeeper, Mrs. Garrett.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3MNIPC2v9a43IJCwEYiiY327rKH.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/Ahau5SbGYBISr1fNCtCqbnxqfsV.jpg",
+  "genres": [],
+  "networks": [
+    "ABC",
+    "NBC"
+  ],
+  "creator": "Bernie Kukoff",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "wnew-promos-september-1984-merged",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Club Meeting",
+          "overview": "Willis invites his neighborhood club from Harlem to visit, but things get out of hand when he tries to impress them with his new wealth.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/qbF1diZ4WViMwZpE2cgPstJleFo.jpg",
+          "airDate": "1979-01-12",
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WNEW Promos, September 1984__Merged.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 164267520,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wnew-promos-september-1984-merged/WNEW Promos, September 1984__Merged.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

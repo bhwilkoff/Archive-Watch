@@ -1,0 +1,201 @@
+{
+  "version": 1,
+  "seriesID": "project-universe-1978",
+  "title": "Project Universe",
+  "yearStart": 1978,
+  "yearEnd": 1978,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/project-universe-origin-of-the-universe",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "project-universe-extraterrestrial-communication",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Project Universe - Extraterrestrial Communication",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/project-universe-extraterrestrial-communication",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Project Universe - Extraterrestrial Communication.mp4",
+            "format": "h.264",
+            "sizeBytes": 175289494,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/project-universe-extraterrestrial-communication/Project Universe - Extraterrestrial Communication.mp4"
+        },
+        {
+          "archiveID": "project-universe-origin-of-the-universe",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Project Universe - Origin of the Universe",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/project-universe-origin-of-the-universe",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Project Universe - Origin of the Universe.mp4",
+            "format": "h.264",
+            "sizeBytes": 169273421,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/project-universe-origin-of-the-universe/Project Universe - Origin of the Universe.mp4"
+        },
+        {
+          "archiveID": "project-universe-relativity",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Project Universe - Relativity",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/project-universe-relativity",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Project Universe - Relativity.mp4",
+            "format": "h.264",
+            "sizeBytes": 169511184,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/project-universe-relativity/Project Universe - Relativity.mp4"
+        },
+        {
+          "archiveID": "project-universe-saturn",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Project Universe - Saturn",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/project-universe-saturn",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Project Universe - Saturn.mp4",
+            "format": "h.264",
+            "sizeBytes": 169421232,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/project-universe-saturn/Project Universe - Saturn.mp4"
+        },
+        {
+          "archiveID": "project-universe-stars-the-nuclear-furnace",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Project Universe - Stars: The Nuclear Furnace",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/project-universe-stars-the-nuclear-furnace",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Project Universe - Stars the Nuclear Furnace.mp4",
+            "format": "h.264",
+            "sizeBytes": 169939474,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/project-universe-stars-the-nuclear-furnace/Project Universe - Stars the Nuclear Furnace.mp4"
+        },
+        {
+          "archiveID": "project-universe-supernovae-pulsars",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Project Universe - Supernovae & Pulsars",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/project-universe-supernovae-pulsars",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Project Universe - Supernovae & Pulsars.mp4",
+            "format": "h.264",
+            "sizeBytes": 176568156,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/project-universe-supernovae-pulsars/Project Universe - Supernovae & Pulsars.mp4"
+        },
+        {
+          "archiveID": "project-universe-milky-way-discovered",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Project Universe - The Milky Way: Discovered",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/project-universe-milky-way-discovered",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Project Universe - Milky Way Discovered.mp4",
+            "format": "h.264",
+            "sizeBytes": 170044728,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/project-universe-milky-way-discovered/Project Universe - Milky Way Discovered.mp4"
+        },
+        {
+          "archiveID": "project-universe-solar-image",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Project Universe - The Solar Image",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/project-universe-solar-image",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Project Universe - Solar Image.mp4",
+            "format": "h.264",
+            "sizeBytes": 168947545,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/project-universe-solar-image/Project Universe - Solar Image.mp4"
+        },
+        {
+          "archiveID": "project-universe-uranus-neptune-pluto",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Project Universe - Uranus, Neptune, Pluto",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/project-universe-uranus-neptune-pluto",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Project Universe - Uranus Neptune Pluto.mp4",
+            "format": "h.264",
+            "sizeBytes": 170611299,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/project-universe-uranus-neptune-pluto/Project Universe - Uranus Neptune Pluto.mp4"
+        },
+        {
+          "archiveID": "project-universe-white-dwarfs-and-red-giants",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Project Universe - White Dwarfs & Red Giants",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/project-universe-white-dwarfs-and-red-giants",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Project Universe - White Dwarfs and Red Giants.mp4",
+            "format": "h.264",
+            "sizeBytes": 170744930,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/project-universe-white-dwarfs-and-red-giants/Project Universe - White Dwarfs and Red Giants.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 10
+}

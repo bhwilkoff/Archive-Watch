@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "one-life-to-live--july-20-1984-partial-2023",
+  "title": "One Life To Live- July 20, 1984 (partial",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/one-life-to-live-july-20-1984-partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "one-life-to-live-july-20-1984-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "One Life To Live- July 20, 1984 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/one-life-to-live-july-20-1984-partial",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "One Life To Live- July 20, 1984 (partial).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1216862548,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/one-life-to-live-july-20-1984-partial/One Life To Live- July 20, 1984 (partial).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ep-79-neighbors-1960",
+  "title": "EP 79 Neighbors",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/I_Married_Joan_EP79_Neighbors",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "I_Married_Joan_EP79_Neighbors",
+          "seasonNumber": 1,
+          "episodeNumber": 79,
+          "title": "EP 79 Neighbors",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/I_Married_Joan_EP79_Neighbors",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "I_Married_Joan_EP79_Neighbors.mp4",
+            "format": "h.264",
+            "sizeBytes": 146416627,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan_EP79_Neighbors/I_Married_Joan_EP79_Neighbors.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

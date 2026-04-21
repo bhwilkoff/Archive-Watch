@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "timecop-1997-09-22-1997",
+  "title": "Timecop (1997-09-22",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/timecop-97-09-22-s-01-e-01-a-rip-in-time",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "timecop-97-09-22-s-01-e-01-a-rip-in-time",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Timecop (1997-09-22 S01E01) A Rip In Time",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/timecop-97-09-22-s-01-e-01-a-rip-in-time",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": 2585,
+          "videoFile": {
+            "name": "Timecop (97-09-22_S01E01) A Rip In Time.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 125955030,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/timecop-97-09-22-s-01-e-01-a-rip-in-time/Timecop (97-09-22_S01E01) A Rip In Time.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

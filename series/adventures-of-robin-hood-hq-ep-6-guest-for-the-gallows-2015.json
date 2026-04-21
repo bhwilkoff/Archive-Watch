@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "adventures-of-robin-hood-hq-ep-6-guest-for-the-gallows-2015",
+  "title": "Adventures Of Robin Hood (HQ) Ep 6 Guest For The Gallows",
+  "yearStart": 2015,
+  "yearEnd": 2015,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AdventuresOfRobinHoodEp6GuestForTheGallows",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "AdventuresOfRobinHoodEp6GuestForTheGallows",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Adventures Of Robin Hood (HQ) Ep 6 Guest For The Gallows",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AdventuresOfRobinHoodEp6GuestForTheGallows",
+          "airDate": null,
+          "year": 2015,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Adventures of Robin Hood ep 6 Guest for the Gallows.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 118640556,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AdventuresOfRobinHoodEp6GuestForTheGallows/Adventures of Robin Hood ep 6 Guest for the Gallows.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "matisse-in-nice-1917-1930-2023",
+  "title": "Matisse In Nice, 1917-1930",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/matisse-in-nice-1917-1930-1986",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "matisse-in-nice-1917-1930-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Matisse In Nice, 1917-1930 (1986)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/matisse-in-nice-1917-1930-1986",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Matisse In Nice 1917-1930 (1986).mp4",
+            "format": "h.264",
+            "sizeBytes": 164347127,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/matisse-in-nice-1917-1930-1986/Matisse In Nice 1917-1930 (1986).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

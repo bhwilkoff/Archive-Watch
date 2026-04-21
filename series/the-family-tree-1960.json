@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-family-tree-1960",
+  "title": "The Family Tree",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Family Tree is an American 1983 television series. Its pilot episode was a made-for-television movie called The Six of Us, broadcast a year before.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/163/407743.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Carol Evan McKeand",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep25_The_Family_Tree",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Family Tree",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/163/407743.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH25_The_Family_Tree.mp4",
+            "format": "h.264",
+            "sizeBytes": 147928535,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep25_The_Family_Tree/BH25_The_Family_Tree.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "fresh-start-schlitz-playhouse-1953",
+  "title": "Fresh Start (Schlitz Playhouse",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Fresh_Start--Schlitz",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Fresh_Start--Schlitz",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fresh Start (Schlitz Playhouse)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Fresh_Start--Schlitz",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1733,
+          "videoFile": {
+            "name": "Fresh_Start--Schlitz.mp4",
+            "format": "h.264",
+            "sizeBytes": 180006086,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Fresh_Start--Schlitz/Fresh_Start--Schlitz.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

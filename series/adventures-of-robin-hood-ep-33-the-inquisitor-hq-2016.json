@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "adventures-of-robin-hood-ep-33-the-inquisitor-hq-2016",
+  "title": "Adventures Of Robin Hood (Ep 33 The Inquisitor) HQ",
+  "yearStart": 2016,
+  "yearEnd": 2016,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AdventuresOfRobinHoodEp33TheInquisitorHQ",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "AdventuresOfRobinHoodEp33TheInquisitorHQ",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Adventures Of Robin Hood (Ep 33 The Inquisitor) HQ",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AdventuresOfRobinHoodEp33TheInquisitorHQ",
+          "airDate": null,
+          "year": 2016,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Adventures of Robin Hood ( ep 33 The Inquisitor) HQ.mp4",
+            "format": "h.264",
+            "sizeBytes": 161218010,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AdventuresOfRobinHoodEp33TheInquisitorHQ/Adventures of Robin Hood ( ep 33 The Inquisitor) HQ.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

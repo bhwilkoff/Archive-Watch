@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "companero-y-companera-dramatization-1999",
+  "title": "Companero Y Companera Dramatization",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/companero-y-companera-7-dvegjxlnyk",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "companero-y-companera-7-dvegjxlnyk",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Companero Y Companera Dramatization",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/companero-y-companera-7-dvegjxlnyk",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Companero y companera -7DVEGJxlnyk-.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 165281906,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/companero-y-companera-7-dvegjxlnyk/Companero y companera -7DVEGJxlnyk-.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

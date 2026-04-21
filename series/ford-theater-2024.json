@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ford-theater-2024",
+  "title": "Ford Theater",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ford-theater-years-ago-1948",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ford-theater-years-ago-1948",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ford Theater - Years Ago (1948)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ford-theater-years-ago-1948",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ford Theater - Years Ago (1948).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 661698317,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ford-theater-years-ago-1948/Ford Theater - Years Ago (1948).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

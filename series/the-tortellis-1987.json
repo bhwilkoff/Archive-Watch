@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-tortellis-1987",
+  "title": "The Tortellis",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": "The Tortellis is an American sitcom that aired from January to May 1987 on NBC. A spin-off of the hit series Cheers, The Tortellis stars Dan Hedaya and Jean Kasem. Nick Tortelli, the loutish ex-husband of Cheers waitress Carla Tortelli, moves to Las Vegas to try and reconcile with his bimbo second wife Loretta, who now lives with her more sensible, divorced sister Charlotte and nephew Mark.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/5LcFlA97LfRxF5hMWdxvEQbYQsC.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/gUcdzN5z9ABuoHbR3j1Ij1u1hgz.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Ken Estin",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-tortellis-1.4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Tortellis - Jean Kasem, Dan Hedaya",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/5LcFlA97LfRxF5hMWdxvEQbYQsC.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Tortellis - 1.6.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 708960319,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-tortellis-1.4/The Tortellis - 1.6.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

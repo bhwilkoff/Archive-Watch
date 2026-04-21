@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wews-newschannel-5-at-11pm-weekend-edition-02261994-1994",
+  "title": "WEWS NewsChannel 5 At 11PM Weekend Edition 02/26/1994",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/wews-newschannel-5-at-11pm-weekend-edition-02-26-1994",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "wews-newschannel-5-at-11pm-weekend-edition-02-26-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WEWS NewsChannel 5 At 11PM Weekend Edition 02/26/1994",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/wews-newschannel-5-at-11pm-weekend-edition-02-26-1994",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "y2mate.com - 1994 WEWS Channel 5 Cleveland News Broadcast_480p.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155454138,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wews-newschannel-5-at-11pm-weekend-edition-02-26-1994/y2mate.com - 1994 WEWS Channel 5 Cleveland News Broadcast_480p.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "british-television-advertising-awards-1996-1960",
+  "title": "British Television Advertising Awards 1996",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/british-television-advertising-awards-1996",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "british-television-advertising-awards-1996",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "British Television Advertising Awards 1996",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/british-television-advertising-awards-1996",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "British Television Advertising Awards 1996.mp4",
+            "format": "h.264",
+            "sizeBytes": 649102157,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/british-television-advertising-awards-1996/British Television Advertising Awards 1996.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

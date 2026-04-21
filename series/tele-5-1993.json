@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tele-5-1993",
+  "title": "Tele 5",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tele-5-gala-de-presentacion-de-la-nueva-programacion-1993-09-24",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tele-5-gala-de-presentacion-de-la-nueva-programacion-1993-09-24",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tele 5 - Gala de presentación de la nueva programación - 24 de septiembre, 1993",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tele-5-gala-de-presentacion-de-la-nueva-programacion-1993-09-24",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Gala de presentación de la nueva programación (24-9-1993).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1108509070,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tele-5-gala-de-presentacion-de-la-nueva-programacion-1993-09-24/Gala de presentación de la nueva programación (24-9-1993).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

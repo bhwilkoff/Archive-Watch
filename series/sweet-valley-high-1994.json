@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "seriesID": "sweet-valley-high-1994",
+  "title": "Sweet Valley High",
+  "yearStart": 1994,
+  "yearEnd": 1997,
+  "overview": "Twins Jessica and Liz face the ups and downs of life at Sweet Valley High.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rkdEnsWEJuNREP1DUFNqy6zKbmk.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/wdvHiWNSeR9xTGWuxmOhBc6rpQ4.jpg",
+  "genres": [],
+  "networks": [
+    "UPN",
+    "Syndication"
+  ],
+  "creator": "Josh Goldstein",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sweet-valley-high-1994-tv-series-season-one",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sweet Valley High (1994) Season 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rkdEnsWEJuNREP1DUFNqy6zKbmk.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sweet Valley High S01E05 What Me Study.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 270695792,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sweet-valley-high-1994-tv-series-season-one/Sweet Valley High S01E05 What Me Study.ia.mp4"
+        },
+        {
+          "archiveID": "sweet-valley-high-1994-tv-series-season-two",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sweet Valley High (1994) Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rkdEnsWEJuNREP1DUFNqy6zKbmk.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sweet Valley High S02E21 Sam Kind Of Wonderful.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 298976660,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sweet-valley-high-1994-tv-series-season-two/Sweet Valley High S02E21 Sam Kind Of Wonderful.ia.mp4"
+        },
+        {
+          "archiveID": "sweet-valley-high-1994-tv-series-third-season",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sweet Valley High (1994) Season 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rkdEnsWEJuNREP1DUFNqy6zKbmk.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sweet Valley High S03E21 Search For Liz.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 266417141,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sweet-valley-high-1994-tv-series-third-season/Sweet Valley High S03E21 Search For Liz.ia.mp4"
+        },
+        {
+          "archiveID": "sweet-valley-high-1994-tv-series-season-four",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sweet Valley High (1994) Season 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rkdEnsWEJuNREP1DUFNqy6zKbmk.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sweet Valley High S04E04 The Right T Bare Midriffs.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310913965,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sweet-valley-high-1994-tv-series-season-four/Sweet Valley High S04E04 The Right T Bare Midriffs.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

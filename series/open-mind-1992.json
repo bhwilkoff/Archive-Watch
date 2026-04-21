@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "open-mind-1992",
+  "title": "Open Mind",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "This public affairs talk show is a thoughtful excursion into the world of ideas across politics, media, technology, the arts, and all realms of civic life. First broadcast in 1956, it explores challenges of the digital age, American politics and emerging issues.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dDAWHDEfkk4HlAVIgGmmiLUKzWQ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/R9SaZpFpawdYyJhB692mNtOhbX.jpg",
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": "Richard Heffner",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "open-mind-george-romney-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Open Mind - Richard Heffner",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dDAWHDEfkk4HlAVIgGmmiLUKzWQ.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Open Mind - George Romney - 1992.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 871655830,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/open-mind-george-romney-1992/Open Mind - George Romney - 1992.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

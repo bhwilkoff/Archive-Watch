@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-george-burns-show-1958",
+  "title": "The George Burns Show",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": "The George Burns Show is a short-lived comedy television spin-off of \"The Burns and Allen Show\" that aired on NBC for one season in 1958. After Gracie Allen retired from show business, George Burns continued to play himself, although he now cast himself as a television producer. ",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GeorgeBurnsShowLaVieEnRose",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The George Burns Show'' - La Vie En Rose (aka A Wife for Christmas)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1757,
+          "videoFile": {
+            "name": "georgeburnsshow.mp4",
+            "format": "h.264",
+            "sizeBytes": 182675482,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeorgeBurnsShowLaVieEnRose/georgeburnsshow.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

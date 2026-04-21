@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "laugh-in-1977",
+  "title": "Laugh In",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": "A late-'70s attempt to revive the classic comedy show, minus (among others) original hosts Rowan and Martin. It didn't fare well, but is noteworthy for one of its bit players: a then-unknown Robin Williams. He would soon become a star with `Mork & Mindy.'",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/344/861761.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "laugh-in-jimmy-stewart-1977",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Laugh In '77 - Lenny Schultz",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/344/861761.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Laugh-In - Bette Davis - 1977.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1491894894,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/laugh-in-jimmy-stewart-1977/Laugh-In - Bette Davis - 1977.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

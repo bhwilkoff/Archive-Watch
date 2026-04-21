@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "family-dog-1993",
+  "title": "Family Dog",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "Family Dog is an American animated television series that aired in the summer of 1993 on CBS. Created by Brad Bird, the series was about an average suburban family, the Binsfords, as told through the eyes of their dog. It first appeared as an episode of the TV show Amazing Stories, then was expanded into a very short-lived series of its own.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/777qvJ4LphNi79gKbzGVEl9rlQ9.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3Xl70dcsqS7kSA3EkKr3XZnI0qH.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Brad Bird",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "family_dog",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Family Dog (1993) [Complete Series]",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/777qvJ4LphNi79gKbzGVEl9rlQ9.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Family Dog S01E00 Amazing Stories.mp4",
+            "format": "h.264",
+            "sizeBytes": 143607443,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/family_dog/Family Dog S01E00 Amazing Stories.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

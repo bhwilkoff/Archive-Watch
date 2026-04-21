@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "uno-nunca-sabe-1989",
+  "title": "¡Uno Nunca Sabe!",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/uno-nunca-sabe-free-kick-1989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "uno-nunca-sabe-free-kick-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "¡Uno Nunca Sabe! - Tomas Goros",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/uno-nunca-sabe-free-kick-1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Uno Nunca Sabe - Free Kick - 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 675988916,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/uno-nunca-sabe-free-kick-1989/Uno Nunca Sabe - Free Kick - 1989.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

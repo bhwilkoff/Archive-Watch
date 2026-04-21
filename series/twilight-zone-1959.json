@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "twilight-zone-1959",
+  "title": "Twilight Zone",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": "An anthology series containing drama, psychological thriller, fantasy, science fiction, suspense, and/or horror, often concluding with a macabre or unexpected twist.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7uY4pCOxbEdv4M8jTE4uMPVoSIW.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/fg5GcstgP9H8OCNS0MjOMp6MH8R.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Rod Serling",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tz_promos_s1_1959-60",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Twilight Zone \"Next Week\" Promos (Season 1, 1959-60)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7uY4pCOxbEdv4M8jTE4uMPVoSIW.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Twilight Zone promo (S1E01 Where Is Everybody).mp4",
+            "format": "h.264",
+            "sizeBytes": 3972869,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tz_promos_s1_1959-60/Twilight Zone promo (S1E01 Where Is Everybody).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,797 @@
+{
+  "version": 1,
+  "seriesID": "howdy-doody-1948",
+  "title": "Howdy Doody",
+  "yearStart": 1948,
+  "yearEnd": 1954,
+  "overview": "Howdy Doody is an American children's television program that was created and produced by E. Roger Muir and telecast on the NBC network in the United States from December 27, 1947 until September 24, 1960. It was a pioneer in children's television programming and set the pattern for many similar shows. One of the first television series produced at NBC in Rockefeller Center, in Studio 3A, it was also a pioneer in early color production as NBC used the show in part to sell color television sets in the 1950s.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "E. Roger Muir",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "HowdyDoodyForPresident",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Howdy Doody'' - Howdy Doody for President",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 1698,
+          "videoFile": {
+            "name": "HowdyDoodyForPresident1948.mp4",
+            "format": "h.264",
+            "sizeBytes": 176180836,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoodyForPresident/HowdyDoodyForPresident1948.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody1April1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 1 April 1952",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1754,
+          "videoFile": {
+            "name": "Howdy Doody - 1 April 1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 182435305,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody1April1952/Howdy Doody - 1 April 1952.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody1April1953_201809",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 1 April 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1756,
+          "videoFile": {
+            "name": "Howdy Doody - 1 April 1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 182426652,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody1April1953_201809/Howdy Doody - 1 April 1953.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody1December1952_201809",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 1 December 1952",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1777,
+          "videoFile": {
+            "name": "Howdy Doody - 1 December 1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 184768861,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody1December1952_201809/Howdy Doody - 1 December 1952.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody1February1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 1 February 1949",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1773,
+          "videoFile": {
+            "name": "Howdy Doody - 1 February 1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 184652519,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody1February1949/Howdy Doody - 1 February 1949.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody1July1952_201809",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 1 July 1952",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1772,
+          "videoFile": {
+            "name": "Howdy Doody - 1 July 1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 184419219,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody1July1952_201809/Howdy Doody - 1 July 1952.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody1June1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 1 June 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1777,
+          "videoFile": {
+            "name": "Howdy Doody - 1 June 1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 185130645,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody1June1953/Howdy Doody - 1 June 1953.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody1May1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 1 May 1950",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1564,
+          "videoFile": {
+            "name": "Howdy Doody - 1 May 1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 162529706,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody1May1950/Howdy Doody - 1 May 1950.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody1May1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 1 May 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1774,
+          "videoFile": {
+            "name": "Howdy Doody - 1 May 1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 184448441,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody1May1953/Howdy Doody - 1 May 1953.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody1November1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 1 November 1950",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1663,
+          "videoFile": {
+            "name": "Howdy Doody - 1 November 1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 172984408,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody1November1950/Howdy Doody - 1 November 1950.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody1November1951_201809",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 1 November 1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1776,
+          "videoFile": {
+            "name": "Howdy Doody - 1 November 1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 184698703,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody1November1951_201809/Howdy Doody - 1 November 1951.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody1October1951_201809",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 1 October 1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1781,
+          "videoFile": {
+            "name": "Howdy Doody - 1 October 1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 185159239,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody1October1951_201809/Howdy Doody - 1 October 1951.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody1October1952_201809",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 1 October 1952",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1721,
+          "videoFile": {
+            "name": "Howdy Doody - 1 October 1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 179081427,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody1October1952_201809/Howdy Doody - 1 October 1952.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody10July1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 10 July 1950",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1776,
+          "videoFile": {
+            "name": "Howdy Doody -10 July 1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 185035359,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody10July1950/Howdy Doody -10 July 1950.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody13April1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 13 April 1954",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1773,
+          "videoFile": {
+            "name": "Howdy Doody - 13 April 1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 184463918,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody13April1954/Howdy Doody - 13 April 1954.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody16March1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 16 March 1949",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1772,
+          "videoFile": {
+            "name": "Howdy Doody - 16 March 1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 183924029,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody16March1949/Howdy Doody - 16 March 1949.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody17October1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 17 October 1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1776,
+          "videoFile": {
+            "name": "Howdy Doody 17 October 1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 184896482,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody17October1951/Howdy Doody 17 October 1951.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody19June1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 19 June 1950",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1771,
+          "videoFile": {
+            "name": "Howdy Doody - 19 June 1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 184285368,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody19June1950/Howdy Doody - 19 June 1950.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody2April1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 2 April 1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1777,
+          "videoFile": {
+            "name": "Howdy Doody - 2 April 1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 184945478,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody2April1951/Howdy Doody - 2 April 1951.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody2February1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 2 February 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1769,
+          "videoFile": {
+            "name": "Howdy Doody - 2 February 1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 184053055,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody2February1953/Howdy Doody - 2 February 1953.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody2January1953_201809",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 2 January 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1780,
+          "videoFile": {
+            "name": "Howdy Doody - 2 January 1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 185161443,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody2January1953_201809/Howdy Doody - 2 January 1953.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody2July1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 2 July 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1774,
+          "videoFile": {
+            "name": "Howdy Doody - 2 July 1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 184471017,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody2July1953/Howdy Doody - 2 July 1953.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody2June1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 2 June 1952",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "Howdy Doody - 2 June 1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 184053391,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody2June1952/Howdy Doody - 2 June 1952.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody2May1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 2 May 1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1780,
+          "videoFile": {
+            "name": "Howdy Doody - 2 May 1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 185017502,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody2May1951/Howdy Doody - 2 May 1951.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody2October1950_201809",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 2 October 1950",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1775,
+          "videoFile": {
+            "name": "Howdy Doody  - 2 October 1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 184920746,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody2October1950_201809/Howdy Doody  - 2 October 1950.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody24December1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 24 December 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1783,
+          "videoFile": {
+            "name": "Howdy Doody - 24 December 1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 185581088,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody24December1953/Howdy Doody - 24 December 1953.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody26May1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 26 May 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "Howdy Doody - 26 May 1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 183914059,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody26May1953/Howdy Doody - 26 May 1953.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody27March1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 27 March 1950",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1783,
+          "videoFile": {
+            "name": "Howdy Doody - 27 March 1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 185260044,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody27March1950/Howdy Doody - 27 March 1950.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody29December1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 29 December 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1777,
+          "videoFile": {
+            "name": "Howdy Doody -  29 December 1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 184897499,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody29December1953/Howdy Doody -  29 December 1953.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody3August1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 3 August 1949",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1785,
+          "videoFile": {
+            "name": "Howdy Doody -3 August 1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 185797878,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody3August1949/Howdy Doody -3 August 1949.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody3August1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 3 August 1950",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1777,
+          "videoFile": {
+            "name": "Howdy Doody - 3 August 1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 185243512,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody3August1950/Howdy Doody - 3 August 1950.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody3August1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 3 August 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1772,
+          "videoFile": {
+            "name": "Howdy Doody -  3 August 1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 184354975,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody3August1953/Howdy Doody -  3 August 1953.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody3November1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 3 November 1952",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1724,
+          "videoFile": {
+            "name": "Howdy Doody - 3 November 1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 179330500,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody3November1952/Howdy Doody - 3 November 1952.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody31December1952_201809",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 31 December 1952",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "Howdy Doody - 31 December 1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 184056251,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody31December1952_201809/Howdy Doody - 31 December 1952.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody31December1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 31 December 1954",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1773,
+          "videoFile": {
+            "name": "Howdy Doody -  31 December 1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 184453962,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody31December1954/Howdy Doody -  31 December 1954.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody4February1954_201809",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 4 February 1954",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1780,
+          "videoFile": {
+            "name": "Howdy Doody - 4 February 1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 185044655,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody4February1954_201809/Howdy Doody - 4 February 1954.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody4July1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 4 July 1950",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1781,
+          "videoFile": {
+            "name": "Howdy Doody - 4 July 1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 185435830,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody4July1950/Howdy Doody - 4 July 1950.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody5January1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 5 January 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1771,
+          "videoFile": {
+            "name": "Howdy Doody - 5 January 1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 184459287,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody5January1953/Howdy Doody - 5 January 1953.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody6April1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 6 April 1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1777,
+          "videoFile": {
+            "name": "Howdy Doody - 6 April 1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 184641987,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody6April1951/Howdy Doody - 6 April 1951.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody6January1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 6 January 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1774,
+          "videoFile": {
+            "name": "Howdy Doody - 6 January 1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 184600388,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody6January1953/Howdy Doody - 6 January 1953.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody6March1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 6 March 1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1782,
+          "videoFile": {
+            "name": "Howdy Doody -6 March 1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 185483990,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody6March1951/Howdy Doody -6 March 1951.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody7June1954_201809",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 7 June 1954",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1775,
+          "videoFile": {
+            "name": "Howdy Doody - 7 June 1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 184925243,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody7June1954_201809/Howdy Doody - 7 June 1954.mp4"
+        },
+        {
+          "archiveID": "HowdyDoody8March1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Howdy Doody - 8 March 1949",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1772,
+          "videoFile": {
+            "name": "Howdy Doody - 8 March 1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 184407180,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HowdyDoody8March1949/Howdy Doody - 8 March 1949.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 43
+}

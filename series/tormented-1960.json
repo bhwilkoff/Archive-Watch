@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "seriesID": "tormented-1960",
+  "title": "Tormented",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/8sGHAZVgizrAO2ixNliGVLDgZwg.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Horror",
+    "Thriller"
+  ],
+  "networks": [
+    "Česká televize"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Tormented-WeirdnessBadMovie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tormented - Weirdness Bad Movie",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8sGHAZVgizrAO2ixNliGVLDgZwg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 7051,
+          "videoFile": {
+            "name": "WRBM_Tormented_WS_AF_fixed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3624218471,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Tormented-WeirdnessBadMovie/WRBM_Tormented_WS_AF_fixed.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

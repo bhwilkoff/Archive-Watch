@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "frank-1987",
+  "title": "Frank",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/franks-place-1987",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "franks-place-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Frank's Place (1987-88) Tim Reid -all 22 eps",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/franks-place-1987",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Frank's Place  s01e01 - Pilot - RareGems yt Jul 17, 2022.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 88320541,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/franks-place-1987/Frank's Place  s01e01 - Pilot - RareGems yt Jul 17, 2022.ia.mp4"
+        },
+        {
+          "archiveID": "franks-place-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Frank's Place - Tim Reid",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/franks-place-1.01",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Franks Place - 1.01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 721712360,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/franks-place-1.01/Franks Place - 1.01.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

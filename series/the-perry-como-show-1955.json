@@ -1,0 +1,185 @@
+{
+  "version": 1,
+  "seriesID": "the-perry-como-show-1955",
+  "title": "The Perry Como Show",
+  "yearStart": 1955,
+  "yearEnd": 1959,
+  "overview": "The Perry Como Show was a musical-comedy variety program hosted by Perry Como. ",
+  "posterURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PerryComoShow17January1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Perry Como Show'' - 17 January 1959(?)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3535,
+          "videoFile": {
+            "name": "PerryComoShow17January1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 368308382,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PerryComoShow17January1959/PerryComoShow17January1959.mp4"
+        },
+        {
+          "archiveID": "PerryComo18February1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Perry Como Show'' - 18 February 1956",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 3147,
+          "videoFile": {
+            "name": "perrycomo18Feb1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 326946524,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PerryComo18February1956/perrycomo18Feb1956.mp4"
+        },
+        {
+          "archiveID": "PerryComo19January1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Perry Como Show'' - 19 January 1957",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 3100,
+          "videoFile": {
+            "name": "perrycomo19January1957.mp4",
+            "format": "h.264",
+            "sizeBytes": 322541267,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PerryComo19January1957/perrycomo19January1957.mp4"
+        },
+        {
+          "archiveID": "ThePerryComoShow-11March1955_907",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Perry Como Show - 11 March 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 866,
+          "videoFile": {
+            "name": "ThePerryComoShow-11march1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 90251848,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThePerryComoShow-11March1955_907/ThePerryComoShow-11march1955.mp4"
+        },
+        {
+          "archiveID": "ThePerryComoShow-2March1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Perry Como Show - 2 March 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 863,
+          "videoFile": {
+            "name": "PerryComoShow2March1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 89889501,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThePerryComoShow-2March1955/PerryComoShow2March1955.mp4"
+        },
+        {
+          "archiveID": "ThePerryComoShow-22February1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Perry Como Show - 28 February 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 869,
+          "videoFile": {
+            "name": "PerryComoShow28february1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 90476582,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThePerryComoShow-22February1955/PerryComoShow28february1955.mp4"
+        },
+        {
+          "archiveID": "ThePerryComoShow-4March1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Perry Como Show - 4 March 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 866,
+          "videoFile": {
+            "name": "ThePerryComoShow4March1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 89815949,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThePerryComoShow-4March1955/ThePerryComoShow4March1955.mp4"
+        },
+        {
+          "archiveID": "ThePerryComoShow-7March1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Perry Como Show - 7 March 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 864,
+          "videoFile": {
+            "name": "perrycomoshow7March1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 89971968,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThePerryComoShow-7March1955/perrycomoshow7March1955.mp4"
+        },
+        {
+          "archiveID": "ThePerryComoShow-11March1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Perry Como Show - 9 March 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 867,
+          "videoFile": {
+            "name": "PerryComo9March1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 90262416,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThePerryComoShow-11March1955/PerryComo9March1955.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9
+}

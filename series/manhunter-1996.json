@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "manhunter-1996",
+  "title": "Manhunter",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": "The Manhunter is an American crime drama that was part of CBS' lineup for the 1974–1975 television season. The series was produced by Quinn Martin and starred Ken Howard as Dave Barret, a 1930s-era private investigator from Idaho. The series was executive produced by Quinn Martin.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/iOEcdiX2KXJlW7KFZuu9TWBL5Xr.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4oJZwdeuPIr5lQs8bclhRI1T5pq.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "manhunter1996",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Manhunter (1996)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iOEcdiX2KXJlW7KFZuu9TWBL5Xr.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "38 - Manhunter (2nd segment).mp4",
+            "format": "h.264",
+            "sizeBytes": 96276559,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/manhunter1996/38 - Manhunter (2nd segment).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

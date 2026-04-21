@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "let-1950",
+  "title": "Let",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/LetsJoinJoanie",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LetsJoinJoanie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Let's Join Joanie",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LetsJoinJoanie",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1920,
+          "videoFile": {
+            "name": "Let's Join Joanie.mp4",
+            "format": "h.264",
+            "sizeBytes": 199729996,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LetsJoinJoanie/Let's Join Joanie.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

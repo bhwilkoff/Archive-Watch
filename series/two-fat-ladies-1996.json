@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "two-fat-ladies-1996",
+  "title": "Two Fat Ladies",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": "Two Fat Ladies was a BBC Two television cooking programme starring Clarissa Dickson Wright, and Jennifer Paterson. It originally ran for four series, from 1996 to 1999. The show was produced by the BBC and has also appeared on the Food Network and Cooking Channel in the U.S. and on the Australian Broadcasting Corporation in Australia.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/2xMCzPNTU6Y7YhA3VRieE4g5wgi.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lJ0ZoXC7nV51lK4pQe1bia0zL2l.jpg",
+  "genres": [],
+  "networks": [
+    "BBC Two"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "two.-fat.-ladies.-s-01-e-04.-cakes.and.-baking.-sdtv.x-265-aac",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Two Fat Ladies - Complete Series, HEVC",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2xMCzPNTU6Y7YhA3VRieE4g5wgi.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Two.Fat.Ladies.Complete.Series.4SL-DVD.SDTV.MKV.HEVC.x265.AAC/Specials/Two.Fat.Ladies.S00E03.Jennifer.Paterson.One.Fat.Lady.-.One.Large.Life.SDTV.x265 AAC.mp4",
+            "format": "h.264",
+            "sizeBytes": 231339943,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/two.-fat.-ladies.-s-01-e-04.-cakes.and.-baking.-sdtv.x-265-aac/Two.Fat.Ladies.Complete.Series.4SL-DVD.SDTV.MKV.HEVC.x265.AAC/Specials/Two.Fat.Ladies.S00E03.Jennifer.Paterson.One.Fat.Lady.-.One.Large.Life.SDTV.x265 AAC.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "this-week-1976",
+  "title": "This Week",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": "ABC's Sunday morning political affairs program, currently hosted by George Stephanopoulos.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/6PeM4uf6I839nidogcxMlE6XLck.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/vgzTeyvBTumK2JrByrDTs65yhsd.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Roone Arledge",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DeathInTheWestFull",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "This Week: Death In The West",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/6PeM4uf6I839nidogcxMlE6XLck.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Death in the West Full.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 145783095,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DeathInTheWestFull/Death in the West Full.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

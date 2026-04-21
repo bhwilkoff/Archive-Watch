@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "mark-walberg-1995",
+  "title": "mark walberg",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": "The Mark Walberg Show was an American talk show presented by Mark L. Walberg which aired from September 11, 1995 until May 31, 1996.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mark-walberg-faded-fame-1995",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "mark walberg - Mark L. Walberg",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mark Walberg - Faded Fame - 1995.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 928326228,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mark-walberg-faded-fame-1995/Mark Walberg - Faded Fame - 1995.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

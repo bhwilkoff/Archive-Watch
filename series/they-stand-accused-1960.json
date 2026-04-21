@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "they-stand-accused-1960",
+  "title": "They Stand Accused",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "They Stand Accused is an American dramatized court show broadcast on the now-defunct DuMont Television Network from September 11, 1949 to October 5, 1952 and again from September 9 to December 30, 1954.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "DuMont Television Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheyStandAccused",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "They Stand Accused - The Johnny Roberts Story",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TheyStandAccused-JohnnyRobertsStory1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 338764883,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheyStandAccused/TheyStandAccused-JohnnyRobertsStory1950.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

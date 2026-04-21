@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "naked-city-tv-1958-colorized-1958",
+  "title": "Naked City TV 1958 colorized",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/naked-city-tv-1958-colorized-s-01e-01-meridian",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "naked-city-tv-1958-colorized-s-01e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Naked City TV 1958 colorized s01e01 \"Meridian\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/naked-city-tv-1958-colorized-s-01e-01-meridian",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Naked City TV 1958 colorized s01e01 \"Meridian\".mp4",
+            "format": "MPEG4",
+            "sizeBytes": 184510858,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/naked-city-tv-1958-colorized-s-01e-01-meridian/Naked City TV 1958 colorized s01e01 \"Meridian\".mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

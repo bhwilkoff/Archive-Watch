@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "the-man-from-uncle-1960",
+  "title": "The Man from U.N.C.L.E",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Agents Napoleon Solo and Illya Kuryakin work for a secret intelligence service working under the auspices of the U.N.\n\nTheir immediate superior is Mr. Waverly.\n\nTogether  they operate out of a secret base beneath the streets of New York City, and accesses through several cover business such as Del Floria's Tailor Shop and the Masque Club.\n\nThis secret intelligence service is called U.N.C.L.E.\n\nUnited Network Command for Law and Enforcement.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/a0nMOwNZXyJrMTPoaCzJJZeT0Yl.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/rcKJYoqQxhjQfsKBb6CUbFMSoMh.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Sam Rolfe",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-man-from-uncle-s-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Man from U.N.C.L.E. Season 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/a0nMOwNZXyJrMTPoaCzJJZeT0Yl.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Man From U.N.C.L.E. S01E19 The Secret Sceptre Affair.mp4",
+            "format": "h.264",
+            "sizeBytes": 293425199,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-man-from-uncle-s-1/The Man From U.N.C.L.E. S01E19 The Secret Sceptre Affair.mp4"
+        },
+        {
+          "archiveID": "the-man-from-uncle-s-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Man from U.N.C.L.E. Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/a0nMOwNZXyJrMTPoaCzJJZeT0Yl.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Man From U.N.C.L.E. S02E24 The Nowhere Affair.mp4",
+            "format": "h.264",
+            "sizeBytes": 294071425,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-man-from-uncle-s-2/The Man From U.N.C.L.E. S02E24 The Nowhere Affair.mp4"
+        },
+        {
+          "archiveID": "the-man-from-uncle-s-3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Man from U.N.C.L.E. Season 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/a0nMOwNZXyJrMTPoaCzJJZeT0Yl.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Man From U.N.C.L.E. S03E05 The Monks of St. Thomas Affair.mp4",
+            "format": "h.264",
+            "sizeBytes": 294843694,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-man-from-uncle-s-3/The Man From U.N.C.L.E. S03E05 The Monks of St. Thomas Affair.mp4"
+        },
+        {
+          "archiveID": "the-man-from-uncle-s-4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Man from U.N.C.L.E. Season 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/a0nMOwNZXyJrMTPoaCzJJZeT0Yl.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Man From U.N.C.L.E. S04E16 The Seven Wonders of the World Affair (2).mp4",
+            "format": "h.264",
+            "sizeBytes": 295161915,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-man-from-uncle-s-4/The Man From U.N.C.L.E. S04E16 The Seven Wonders of the World Affair (2).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

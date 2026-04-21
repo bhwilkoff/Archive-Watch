@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bowling-time-1960",
+  "title": "Bowling Time",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bowlingtime",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bowlingtime",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Bowling Time'' - Misc episode",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bowlingtime",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3213,
+          "videoFile": {
+            "name": "bowlingtime.mp4",
+            "format": "h.264",
+            "sizeBytes": 330719745,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bowlingtime/bowlingtime.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

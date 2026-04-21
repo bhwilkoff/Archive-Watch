@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "fitchburg-civic-days-1960-roll-002-1960",
+  "title": "Fitchburg Civic Days 1960 Roll 002",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FitchburgCivicDays1960Roll002",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FitchburgCivicDays1960Roll002",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fitchburg Civic Days 1960 Roll 002",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FitchburgCivicDays1960Roll002",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fitchburg Civic Days 1960 roll 002.mp4",
+            "format": "h.264",
+            "sizeBytes": 120438654,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FitchburgCivicDays1960Roll002/Fitchburg Civic Days 1960 roll 002.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

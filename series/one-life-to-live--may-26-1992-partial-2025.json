@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "one-life-to-live--may-26-1992-partial-2025",
+  "title": "One Life To Live- May 26, 1992 (partial",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/one-life-to-live-may-26-1992-partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "one-life-to-live-may-26-1992-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "One Life To Live- May 26, 1992 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/one-life-to-live-may-26-1992-partial",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "One Life To Live- May 26, 1992 (partial).mp4",
+            "format": "h.264",
+            "sizeBytes": 131573592,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/one-life-to-live-may-26-1992-partial/One Life To Live- May 26, 1992 (partial).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

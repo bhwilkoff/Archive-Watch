@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "rude-awakening-1998",
+  "title": "Rude Awakening",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": "An alcoholic former soap opera actress joins AA and tries to stay sober while dealing with an overbearing family and romantic entanglements.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/cz6ExQrCKgCzmGKwzzUpRiVlMSO.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/sv4PPmKSg9qRU0YlYqIQI0DrmY2.jpg",
+  "genres": [],
+  "networks": [
+    "Showtime"
+  ],
+  "creator": "Claudia Lonow",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "rude-awakening-2.6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Rude Awakening - Sherilyn Fenn, Corinne Bohrer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/cz6ExQrCKgCzmGKwzzUpRiVlMSO.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Rude Awakening - 2.6.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 864129646,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/rude-awakening-2.6/Rude Awakening - 2.6.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

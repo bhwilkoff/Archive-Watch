@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "mysterious-crash-of-flight-201-1993",
+  "title": "Mysterious Crash of Flight 201",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MysteriousCrashofFlight201",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MysteriousCrashofFlight201",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mysterious Crash of Flight 201",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MysteriousCrashofFlight201",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S20E17.Mysterious.Crash.of.Flight.201.1993.VHSRip.AAC2.0.x264-rattera.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 271570580,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MysteriousCrashofFlight201/NOVA.S20E17.Mysterious.Crash.of.Flight.201.1993.VHSRip.AAC2.0.x264-rattera.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

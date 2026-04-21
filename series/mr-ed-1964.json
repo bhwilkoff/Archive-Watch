@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "mr-ed-1964",
+  "title": "Mr ED",
+  "yearStart": 1964,
+  "yearEnd": 1964,
+  "overview": "Wilbur Pope gets a horse to come live with him and his wife. But it's not just any kind of horse: It can talk! As you expect, Ed gets him into all sorts of trouble with Wilbur trying to straighten out the mess.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Mr_ED_WilburGetsTheMessage",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr ED \"Wilbur Gets The Message... About Payroll Savings!\"",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1140,
+          "videoFile": {
+            "name": "Mr_Ed_WilburGetsTheMessage_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 79758886,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr_ED_WilburGetsTheMessage/Mr_Ed_WilburGetsTheMessage_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

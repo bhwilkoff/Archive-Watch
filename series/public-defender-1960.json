@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "seriesID": "public-defender-1960",
+  "title": "Public Defender",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Public Defender is a half-hour 69-episode television dramatic series starring Reed Hadley as Bart Matthews, an attorney for the indigent. The series aired on CBS from March 11, 1954 to June 23, 1955, a season and a half.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Mort R. Lewis",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PublicDefenderCornered-withCommercials",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Public Defender: Cornered-With Commercials",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1761,
+          "videoFile": {
+            "name": "PublicDefender-cornered.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 197289064,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicDefenderCornered-withCommercials/PublicDefender-cornered.ia.mp4"
+        },
+        {
+          "archiveID": "PublicDefenderEightOutOfOneHundred",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Public Defender: Eight Out of One Hundred",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1516,
+          "videoFile": {
+            "name": "PublicDefender-eightOutOfOneHundred.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150921160,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicDefenderEightOutOfOneHundred/PublicDefender-eightOutOfOneHundred.ia.mp4"
+        },
+        {
+          "archiveID": "PublicDefenderLivingALie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Public Defender: Living a Lie",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1535,
+          "videoFile": {
+            "name": "PublicDefender-livingALie.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150485213,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicDefenderLivingALie/PublicDefender-livingALie.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "PublicDefenderBadgeOfHonor",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Badge of Honor",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-05-06",
+          "year": null,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "PublicDefender-badgeOfHonor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148802058,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicDefenderBadgeOfHonor/PublicDefender-badgeOfHonor.ia.mp4"
+        },
+        {
+          "archiveID": "PublicDefenderLetJusticeBeDone",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Let Justice Be Done",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-05-13",
+          "year": null,
+          "runtimeSeconds": 1502,
+          "videoFile": {
+            "name": "PublicDefender-letJusticeBeDone.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150587303,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicDefenderLetJusticeBeDone/PublicDefender-letJusticeBeDone.ia.mp4"
+        },
+        {
+          "archiveID": "PublicDefenderACallInTheNight",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Call in the Night",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-07-12",
+          "year": null,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "PublicDefender-anythingForAThrill.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148654164,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicDefenderACallInTheNight/PublicDefender-anythingForAThrill.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "PublicDefenderTheBigRace",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "The Big Race",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-09-20",
+          "year": null,
+          "runtimeSeconds": 1494,
+          "videoFile": {
+            "name": "PublicDefender-theBigRace.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148428281,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicDefenderTheBigRace/PublicDefender-theBigRace.ia.mp4"
+        },
+        {
+          "archiveID": "PublicDefenderTheStoryOfNoraFulton",
+          "seasonNumber": 2,
+          "episodeNumber": 40,
+          "title": "Story of Nora Fulton",
+          "overview": "Matthews defends an ex-policeman's daughter when she is accused of murdering her boyfriend.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1955-06-02",
+          "year": null,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "PublicDefender-theStoryOfNoraFulton.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149427422,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicDefenderTheStoryOfNoraFulton/PublicDefender-theStoryOfNoraFulton.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

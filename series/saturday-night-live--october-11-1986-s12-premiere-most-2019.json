@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "seriesID": "saturday-night-live--october-11-1986-s12-premiere-most-2019",
+  "title": "Saturday Night Live- October 11, 1986 (S12 Premiere, most",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SaturdayNightLiveOctober111986S12PremiereMost",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lic:75b60309cba1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Saturday Night Live- October 11, 1986 (S12 Premiere, most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SaturdayNightLiveOctober111986S12PremiereMost",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

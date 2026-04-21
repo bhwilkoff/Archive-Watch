@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-orchid-and-the-violet-1960",
+  "title": "The Orchid And The Violet",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OZZIE_AND_HARRIET_ep_The_Orchid_And_The_Violet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OZZIE_AND_HARRIET_ep_The_Orchid_And_The_Violet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Orchid And The Violet",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OZZIE_AND_HARRIET_ep_The_Orchid_And_The_Violet",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OZZIE_AND_HARRIET_ep_The_Orchid_And_The_Violet.mp4",
+            "format": "h.264",
+            "sizeBytes": 170248847,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OZZIE_AND_HARRIET_ep_The_Orchid_And_The_Violet/OZZIE_AND_HARRIET_ep_The_Orchid_And_The_Violet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

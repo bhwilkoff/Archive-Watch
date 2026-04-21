@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "american-playhouse-s6e6-eleanor-in-her-own-words-2023",
+  "title": "American Playhouse (S6E6, Eleanor In Her Own Words",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/american-playhouse-s-6e-6-eleanor-in-her-own-words-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "american-playhouse-s-6e-6-eleanor-in-her-own-words-1",
+          "seasonNumber": 6,
+          "episodeNumber": 6,
+          "title": "American Playhouse (S6E6, Eleanor In Her Own Words)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/american-playhouse-s-6e-6-eleanor-in-her-own-words-1",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "American Playhouse (S6e6, Eleanor In Her Own Words)-1.mp4",
+            "format": "h.264",
+            "sizeBytes": 307744839,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/american-playhouse-s-6e-6-eleanor-in-her-own-words-1/American Playhouse (S6e6, Eleanor In Her Own Words)-1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

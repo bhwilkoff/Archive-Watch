@@ -627,6 +627,57 @@ CREATE TABLE IF NOT EXISTS engagement (
     PRIMARY KEY (source_type, source_id)
 );
 
+-- TV series grouping. One row per *series* (built from clustering
+-- tv_episode works by normalized series title). Episode-level metadata
+-- (names, overviews, stills) is fetched from TMDb /tv/{id}/season/{n}.
+-- We treat anthology shows (Studio One, Playhouse 90, etc.) as a single
+-- series — each of their stories appears as an episode.
+CREATE TABLE IF NOT EXISTS tv_series (
+    series_id        TEXT PRIMARY KEY,    -- slug: 'dragnet-1951'
+    title            TEXT NOT NULL,
+    title_normalized TEXT NOT NULL,
+    year_start       INTEGER,
+    year_end         INTEGER,
+    tmdb_id          TEXT,
+    tvmaze_id        TEXT,
+    wikidata_qid     TEXT,
+    imdb_id          TEXT,
+    overview         TEXT,
+    poster_url       TEXT,
+    backdrop_url     TEXT,
+    creator          TEXT,
+    genres           TEXT,                 -- JSON array
+    networks         TEXT,                 -- JSON array
+    seasons_count    INTEGER DEFAULT 0,
+    episodes_count   INTEGER DEFAULT 0,    -- episodes we have playable on Archive
+    quality_score    INTEGER DEFAULT 50,
+    popularity_score INTEGER DEFAULT 0,
+    created_at       TEXT DEFAULT CURRENT_TIMESTAMP,
+    updated_at       TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
+-- One row per playable episode. canonical_id is the Archive-playable
+-- work; series_id + (season_number, episode_number) give its position
+-- in the series. All metadata fields are nullable — when TMDb doesn't
+-- have the episode we fall back to the raw Archive title.
+CREATE TABLE IF NOT EXISTS tv_episodes (
+    canonical_id    TEXT PRIMARY KEY,
+    series_id       TEXT NOT NULL,
+    season_number   INTEGER,
+    episode_number  INTEGER,
+    title           TEXT,
+    overview        TEXT,
+    still_url       TEXT,
+    air_date        TEXT,
+    FOREIGN KEY (series_id)    REFERENCES tv_series(series_id)     ON DELETE CASCADE,
+    FOREIGN KEY (canonical_id) REFERENCES works(canonical_id)      ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS idx_tv_series_normtitle ON tv_series(title_normalized);
+CREATE INDEX IF NOT EXISTS idx_tv_series_tmdb      ON tv_series(tmdb_id);
+CREATE INDEX IF NOT EXISTS idx_tv_series_pop       ON tv_series(popularity_score DESC);
+CREATE INDEX IF NOT EXISTS idx_tv_episodes_series  ON tv_episodes(series_id, season_number, episode_number);
+
 CREATE INDEX IF NOT EXISTS idx_works_year        ON works(year);
 CREATE INDEX IF NOT EXISTS idx_works_type        ON works(work_type);
 CREATE INDEX IF NOT EXISTS idx_works_rights      ON works(rights_status);
@@ -701,6 +752,47 @@ def migrate_schema(conn):
     for table, col, sql in additions:
         if col not in _cols(table):
             conn.execute(sql)
+
+    # New tables are CREATE IF NOT EXISTS — safe to re-run.
+    conn.executescript("""
+        CREATE TABLE IF NOT EXISTS tv_series (
+            series_id        TEXT PRIMARY KEY,
+            title            TEXT NOT NULL,
+            title_normalized TEXT NOT NULL,
+            year_start       INTEGER,
+            year_end         INTEGER,
+            tmdb_id          TEXT,
+            tvmaze_id        TEXT,
+            wikidata_qid     TEXT,
+            imdb_id          TEXT,
+            overview         TEXT,
+            poster_url       TEXT,
+            backdrop_url     TEXT,
+            creator          TEXT,
+            genres           TEXT,
+            networks         TEXT,
+            seasons_count    INTEGER DEFAULT 0,
+            episodes_count   INTEGER DEFAULT 0,
+            quality_score    INTEGER DEFAULT 50,
+            popularity_score INTEGER DEFAULT 0,
+            created_at       TEXT DEFAULT CURRENT_TIMESTAMP,
+            updated_at       TEXT DEFAULT CURRENT_TIMESTAMP
+        );
+        CREATE TABLE IF NOT EXISTS tv_episodes (
+            canonical_id    TEXT PRIMARY KEY,
+            series_id       TEXT NOT NULL,
+            season_number   INTEGER,
+            episode_number  INTEGER,
+            title           TEXT,
+            overview        TEXT,
+            still_url       TEXT,
+            air_date        TEXT
+        );
+        CREATE INDEX IF NOT EXISTS idx_tv_series_normtitle ON tv_series(title_normalized);
+        CREATE INDEX IF NOT EXISTS idx_tv_series_tmdb      ON tv_series(tmdb_id);
+        CREATE INDEX IF NOT EXISTS idx_tv_series_pop       ON tv_series(popularity_score DESC);
+        CREATE INDEX IF NOT EXISTS idx_tv_episodes_series  ON tv_episodes(series_id, season_number, episode_number);
+    """)
 
     # The view gets dropped and recreated — views can't be ALTERed.
     conn.execute("DROP VIEW IF EXISTS works_with_best_source")

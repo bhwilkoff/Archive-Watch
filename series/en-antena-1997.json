@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "en-antena-1997",
+  "title": "En Antena",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/en-antena-1997-11-03",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "en-antena-1997-11-03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "En Antena - 3 de noviembre, 1997",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/en-antena-1997-11-03",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Antena 3 - Fragmento  En Antena  (3-11-1997).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 66292763,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/en-antena-1997-11-03/Antena 3 - Fragmento  En Antena  (3-11-1997).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "eat-bulaga-2022",
+  "title": "Eat Bulaga",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": "Eat Bulaga! is a noon-time variety show in the Philippines produced by Television And Production Exponents Inc. and aired by GMA Network. The show broadcasts from The New TAPE Studios at the GMA Broadway Centrum in New Manila, Quezon City. Eat Bulaga! is aired Weekdays at 12:00pm to 2:30 pm and Saturdays at 11:30am to 2:30pm. The show is also broadcast worldwide through GMA Pinoy TV. The name approximately translates to \"Lunchtime Surprise!\". The show celebrated its 34th year on Philippine television on July 31, 2013, holding the record of being the longest-running noontime variety program on air in the history of local television.\n\nIts first overseas version was Eat Bulaga! Indonesia, which premiered on Indonesia's SCTV network on July 16, 2012. Eat Bulaga! became the first Philippine show, variety show in particular, to be franchised by another country.",
+  "posterURL": null,
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/uvZk7WWTICEmAzyryqtLH69AWRP.jpg",
+  "genres": [],
+  "networks": [
+    "Radio Philippines Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "eat-bulaga-january-11-2022_202205",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eat Bulaga: The Moving (January 28, 1995)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "bandicam 2022-01-11 14-20-38-652.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 74820736,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eat-bulaga-january-11-2022_202205/bandicam 2022-01-11 14-20-38-652.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

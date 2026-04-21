@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "64-04-07-the-jack-benny-program-s-14e-26-jack-goes-to-an-all-1964",
+  "title": "64 04 07 The Jack Benny Program S 14e 26 Jack Goes To An Allergy Doctor",
+  "yearStart": 1964,
+  "yearEnd": 1964,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/640407TheJackBennyProgramS14e26JackGoesToAnAllergyDoctor",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "640407TheJackBennyProgramS14e26JackGoesToAnAllergyDoctor",
+          "seasonNumber": 1,
+          "episodeNumber": 64,
+          "title": "64 04 07 The Jack Benny Program S 14e 26 Jack Goes To An Allergy Doctor",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/640407TheJackBennyProgramS14e26JackGoesToAnAllergyDoctor",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "64-04-07  The Jack Benny Program  s14e26  Jack Goes To An Allergy Doctor.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 112632950,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/640407TheJackBennyProgramS14e26JackGoesToAnAllergyDoctor/64-04-07  The Jack Benny Program  s14e26  Jack Goes To An Allergy Doctor.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "pie-in-the-sky-1994-1994",
+  "title": "Pie in the Sky (1994",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/pie-in-the-sky-94-97",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "pie-in-the-sky-94-97",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Pie in the Sky (1994 - 97) Complete Series",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/pie-in-the-sky-94-97",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Pie in the Sky (1994 - 97)/Series 2 (1995)/S02E04 The One That Got Away.mp4",
+            "format": "h.264",
+            "sizeBytes": 300909605,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/pie-in-the-sky-94-97/Pie in the Sky (1994 - 97)/Series 2 (1995)/S02E04 The One That Got Away.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

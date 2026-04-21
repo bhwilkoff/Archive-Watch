@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "blind-faith-1990",
+  "title": "Blind Faith",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "Successful insurance salesman Rob Marshall, his bright and devoted wife Maria, and their three sons are the perfect American family. Then the nightmare begins. One night, Rob is attacked and Maria is shot dead. At first, Rob seems the a grieving widower. But, as incriminating secrets come out, he must prove his innocence before the judicial system-- and the horrified suspicions of his sons.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/r7gTKLh26MHoMj3g9z8i6MdKjRT.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/86VXB72unr97MZi7imAr8ftNEhD.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Paul Wendkos",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "blind-faith-1990-pt-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Blind Faith - Joanna Kerns, Robert Urich",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r7gTKLh26MHoMj3g9z8i6MdKjRT.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Blind Faith - 1990 - Pt 2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2984304205,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/blind-faith-1990-pt-1/Blind Faith - 1990 - Pt 2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

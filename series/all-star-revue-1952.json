@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "seriesID": "all-star-revue-1952",
+  "title": "All Star Revue",
+  "yearStart": 1952,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BobHope26April1952",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AllStarRevue1March1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''All Star Revue'' - 1 March 1952",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AllStarRevue1March1952",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 3558,
+          "videoFile": {
+            "name": "AllStarRevue1March1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 369980479,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AllStarRevue1March1952/AllStarRevue1March1952.mp4"
+        },
+        {
+          "archiveID": "DannyThomas1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''All Star Revue'' - 10 May 1952",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DannyThomas1952",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 3150,
+          "videoFile": {
+            "name": "AllStarRevue10May1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 326692590,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DannyThomas1952/AllStarRevue10May1952.mp4"
+        },
+        {
+          "archiveID": "AllStarRevue14February1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''All Star Revue'' - 14 February 1953",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AllStarRevue14February1953",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 3417,
+          "videoFile": {
+            "name": "allstar14February1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 354121904,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AllStarRevue14February1953/allstar14February1953.mp4"
+        },
+        {
+          "archiveID": "allstarrevue",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''All Star Revue'' - 2 February 1952",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/allstarrevue",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "allstarrevue.mp4",
+            "format": "h.264",
+            "sizeBytes": 369887570,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/allstarrevue/allstarrevue.mp4"
+        },
+        {
+          "archiveID": "BobHope26April1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''All-Star Revue'' - 26 April 1952",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BobHope26April1952",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 3571,
+          "videoFile": {
+            "name": "Allstarrevue26April1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 371555957,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BobHope26April1952/Allstarrevue26April1952.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

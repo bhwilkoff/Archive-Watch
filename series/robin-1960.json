@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "robin-1960",
+  "title": "ROBIN",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Robin is a cartoon created by Swedish cartoonist Magnus Carlsson and narrated by Dave Avellone.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/f8v2UaOCZXOADETdy0nYz31XB2h.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/swFwQe4oJnBeau5eMmFP7xZPXuH.jpg",
+  "genres": [],
+  "networks": [
+    "Locomotion TV"
+  ],
+  "creator": "Magnus Carlsson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "robins-nest-1977-81",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ROBIN'S NEST (1977-81)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/f8v2UaOCZXOADETdy0nYz31XB2h.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ROBINS NEST (1977-81)/204.Robin's Nest...Three Times Table.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136011209,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/robins-nest-1977-81/ROBINS NEST (1977-81)/204.Robin's Nest...Three Times Table.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

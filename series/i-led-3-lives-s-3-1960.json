@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "i-led-3-lives-s-3-1960",
+  "title": "I Led 3 Lives s 3",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/i-led-3-lives-s3_202105",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "i-led-3-lives-s3_202105",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "I Led 3 Lives s 3",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/i-led-3-lives-s3_202105",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "I Led 3 Lives 14_1 Common Denominator.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 858633395,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/i-led-3-lives-s3_202105/I Led 3 Lives 14_1 Common Denominator.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

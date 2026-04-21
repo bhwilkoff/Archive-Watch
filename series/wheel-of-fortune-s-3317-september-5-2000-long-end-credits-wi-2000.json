@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wheel-of-fortune-s-3317-september-5-2000-long-end-credits-wi-2000",
+  "title": "Wheel of Fortune #S-3317 (September 5, 2000) long end credits without local promos",
+  "yearStart": 2000,
+  "yearEnd": 2000,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/2000-09-05-wheel-of-fortune-long-credits-only-with-no-local-promos",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "2000-09-05-wheel-of-fortune-long-credits-only-with-no-local-promos",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wheel of Fortune #S-3317 (September 5, 2000) long end credits without local promos",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/2000-09-05-wheel-of-fortune-long-credits-only-with-no-local-promos",
+          "airDate": null,
+          "year": 2000,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2000-09-05 Wheel of Fortune (long credits only with no local promos).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 30053776,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/2000-09-05-wheel-of-fortune-long-credits-only-with-no-local-promos/2000-09-05 Wheel of Fortune (long credits only with no local promos).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

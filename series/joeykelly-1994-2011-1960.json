@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "joeykelly-1994-2011-1960",
+  "title": "Joey/Kelly (1994-2011",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/joeyandkelly",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "joeyandkelly",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Joey/Kelly (1994-2011)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/joeyandkelly",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1999 12 30 J.mp4",
+            "format": "h.264",
+            "sizeBytes": 8180444,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/joeyandkelly/1999 12 30 J.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

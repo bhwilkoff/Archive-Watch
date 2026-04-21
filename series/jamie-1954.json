@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "jamie-1954",
+  "title": "Jamie",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": "After the death of his parents, seven-year-old Jamie  is moved from relative to relative until he finally arrives at the home of  his aunt Laurie and grandfather.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JamiebicycleBuiltForJamieApril121954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jamie, \"Bicycle Built for Jamie\", Brandon deWilde",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1695,
+          "videoFile": {
+            "name": "Jamie-ABicycleBuiltForJamie.mp4",
+            "format": "h.264",
+            "sizeBytes": 171500212,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JamiebicycleBuiltForJamieApril121954/Jamie-ABicycleBuiltForJamie.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

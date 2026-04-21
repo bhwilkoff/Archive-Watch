@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "great-circuses-of-the-world-1987",
+  "title": "Great Circuses Of The World",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/great-circuses-of-the-world-1987",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "great-circuses-of-the-world-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Great Circuses Of The World - Mary Hart",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/great-circuses-of-the-world-1987",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Great Circuses of the World - 1987.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1173511838,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/great-circuses-of-the-world-1987/Great Circuses of the World - 1987.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

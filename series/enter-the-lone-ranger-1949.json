@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "enter-the-lone-ranger-1949",
+  "title": "Enter the Lone Ranger",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/enter_the_lone_ranger",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "enter_the_lone_ranger",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Enter the Lone Ranger",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/enter_the_lone_ranger",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 4129,
+          "videoFile": {
+            "name": "enter_the_lone_ranger_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 291671485,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/enter_the_lone_ranger/enter_the_lone_ranger_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

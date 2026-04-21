@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "seriesID": "caiga-quien-caiga-1997",
+  "title": "Caiga quien caiga",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": "Caiga Quien Caiga, also known as CQC, is an Argentine television show. Under the format of the production company Cuatro Cabezas, CQC has also been adapted in Spain, France, Chile, Italy, Brazil, Portugal and briefly in Israel and the Netherlands.\n\nIt won an International Emmy for Best Non-Scripted Entertainment in 2010.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kE3BnUFPlyAAnCe4AqC4YaCoxvC.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3pfbAT6p5dre1z9p1Gn84qxTUmn.jpg",
+  "genres": [],
+  "networks": [
+    "Telecinco",
+    "Cuatro",
+    "laSexta"
+  ],
+  "creator": "Mario Pergolini",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "caiga-quien-caiga-1997-10-12",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Caiga quien caiga - 12 de octubre, 1997",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kE3BnUFPlyAAnCe4AqC4YaCoxvC.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CQC (12-10-1997) (incompleto).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 176726964,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/caiga-quien-caiga-1997-10-12/CQC (12-10-1997) (incompleto).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

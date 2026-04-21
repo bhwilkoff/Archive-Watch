@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "mike-wallace-then-now-1990",
+  "title": "Mike Wallace: Then & Now",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/mike-wallace-then-now-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mike-wallace-then-now-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mike Wallace: Then & Now - Mike Wallace",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/mike-wallace-then-now-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mike Wallace Then & Now - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 467792239,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mike-wallace-then-now-1990/Mike Wallace Then & Now - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

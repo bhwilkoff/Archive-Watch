@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "man-without-a-family-ozzie-harriet-1957",
+  "title": "Man without a Family (Ozzie & Harriet",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Man_without_a_Family--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Man_without_a_Family--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man without a Family (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Man_without_a_Family--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1319,
+          "videoFile": {
+            "name": "Man_without_a_Family--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 136932684,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_without_a_Family--Ozzie-Harriet/Man_without_a_Family--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

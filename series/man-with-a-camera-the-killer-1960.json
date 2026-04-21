@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "man-with-a-camera-the-killer-1960",
+  "title": "Man With A Camera The Killer",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ManWithACameraTheK.3gp",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ManWithACameraTheK.3gp",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man With A Camera The Killer",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ManWithACameraTheK.3gp",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Man With A Camera - The K.mp4",
+            "format": "h.264",
+            "sizeBytes": 160873230,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ManWithACameraTheK.3gp/Man With A Camera - The K.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

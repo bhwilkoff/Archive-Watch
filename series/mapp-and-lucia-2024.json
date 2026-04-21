@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "mapp-and-lucia-2024",
+  "title": "Mapp And Lucia",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": "1930s comedy drama based on EF Benson's novels, about the rivalry between two women in a quaint village.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/Nidg5OIaEv8tcDZK7LTe2iiOr9.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/uJDgeu0nTszpSIdH3gyhF5XqlNu.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mapp-and-lucia-2x-01-winner-takes-all",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mapp And Lucia (1985)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/Nidg5OIaEv8tcDZK7LTe2iiOr9.jpg",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mapp and Lucia 2x01 Winner Takes All.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 279142856,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mapp-and-lucia-2x-01-winner-takes-all/Mapp and Lucia 2x01 Winner Takes All.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

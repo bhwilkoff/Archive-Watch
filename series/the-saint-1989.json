@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-saint-1989",
+  "title": "The Saint",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "Simon Templar is The Saint, a handsome, sophisticated, debonair, modern-day Robin Hood who recovers ill-gotten wealth and redistributes it to those in need.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/zwNVpAJkE4Gu1jv922IH7GOQlen.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/aXwtwGjS7QjwY9HRPb1gH5stxvs.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Leslie Charteris",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-saint-complete-series-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Saint - Complete Series 1989",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zwNVpAJkE4Gu1jv922IH7GOQlen.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Saint  S01E06 - The Software Murders.mp4",
+            "format": "h.264",
+            "sizeBytes": 576174619,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-saint-complete-series-1989/The Saint  S01E06 - The Software Murders.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

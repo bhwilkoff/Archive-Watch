@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bob-hopes-spring-fling-from-acapulco-1990",
+  "title": "Bob Hopes Spring Fling From Acapulco",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bob-hopes-spring-fling-from-acapulco-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bob-hopes-spring-fling-from-acapulco-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hopes Spring Fling From Acapulco - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hopes-spring-fling-from-acapulco-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hopes Spring Fling from Acapulco - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1090772313,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hopes-spring-fling-from-acapulco-1990/Bob Hopes Spring Fling from Acapulco - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

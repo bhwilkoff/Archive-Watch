@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-world-of-penguins-1995",
+  "title": "The World of Penguins",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/NatureS14E04TheWorldOfPenguins",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "NatureS14E04TheWorldOfPenguins",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The World of Penguins",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/NatureS14E04TheWorldOfPenguins",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Nature.S14E04.The.World.of.Penguins.1995.DVDRip.DD2.0.x264-astro.mp4",
+            "format": "h.264",
+            "sizeBytes": 356196161,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/NatureS14E04TheWorldOfPenguins/Nature.S14E04.The.World.of.Penguins.1995.DVDRip.DD2.0.x264-astro.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

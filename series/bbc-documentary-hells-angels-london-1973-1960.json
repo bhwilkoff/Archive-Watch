@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bbc-documentary-hells-angels-london-1973-1960",
+  "title": "BBC Documentary Hells Angels London 1973",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BBCDocumentaryHellsAngelsLondon1973",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BBCDocumentaryHellsAngelsLondon1973",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Documentary Hells Angels London 1973",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BBCDocumentaryHellsAngelsLondon1973",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC Documentary - Hells Angels - London - 1973.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 110043371,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BBCDocumentaryHellsAngelsLondon1973/BBC Documentary - Hells Angels - London - 1973.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

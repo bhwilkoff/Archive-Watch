@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "federal-men-1960",
+  "title": "Federal Men",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FederalMenCaseOfTheReadyGuns",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FederalMenCaseOfTheReadyGuns",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Federal Men: Case of the Ready Guns",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FederalMenCaseOfTheReadyGuns",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FederalMen-caseOfTheReadyGuns.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156001713,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FederalMenCaseOfTheReadyGuns/FederalMen-caseOfTheReadyGuns.ia.mp4"
+        },
+        {
+          "archiveID": "FederalTheCaseOfTheCharteredChiseler",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Federal Men: The Case of the Chartered Chiseler",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FederalTheCaseOfTheCharteredChiseler",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "FederalMen-theCaseOfTheCharteredChiseler.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157602003,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FederalTheCaseOfTheCharteredChiseler/FederalMen-theCaseOfTheCharteredChiseler.ia.mp4"
+        },
+        {
+          "archiveID": "FederalMenTheCaseOfTheIronCurtain",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Federal Men: The Case of the Iron Curtain",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FederalMenTheCaseOfTheIronCurtain",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1542,
+          "videoFile": {
+            "name": "FederalMen-caseOfTheIronCurtain.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156330055,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FederalMenTheCaseOfTheIronCurtain/FederalMen-caseOfTheIronCurtain.ia.mp4"
+        },
+        {
+          "archiveID": "FederalMenTheManOutside",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Federal Men: The Man Outside",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FederalMenTheManOutside",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1555,
+          "videoFile": {
+            "name": "FederalMen-theManOutside.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157132820,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FederalMenTheManOutside/FederalMen-theManOutside.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

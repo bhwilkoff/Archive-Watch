@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "spy-trap-1972",
+  "title": "Spy Trap",
+  "yearStart": 1972,
+  "yearEnd": 1972,
+  "overview": "Spy Trap is a British television drama programme created by Robert Barr for BBC One. A team of spies at espionage agency 'The Department' are responsible for protecting national security. Reporting to the Department of Defense, no-nonsense Commander Paul Ryan uses intel discovered by his agents, to question suspects.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/atnNsTCfN60zc09vthBxihkWg0A.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Robert Barr",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "spy-trap",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Spy Trap : TV Espionage Series : 4 Episodes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/atnNsTCfN60zc09vthBxihkWg0A.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Spy Trap - 1972 - S01E04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 232808753,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy Trap - 1972 - S01E04.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

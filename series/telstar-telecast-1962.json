@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "telstar-telecast-1962",
+  "title": "Telstar Telecast",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TelestarTelecast",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TelestarTelecast",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Telstar Telecast",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TelestarTelecast",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 469,
+          "videoFile": {
+            "name": "Telestar Telecast Orleans France Berlin Germany and Verona Italy 1962-07-23.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 30227086,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TelestarTelecast/Telestar Telecast Orleans France Berlin Germany and Verona Italy 1962-07-23.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bartleby-by-britannica-1960",
+  "title": "Bartleby by Britannica",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BartlebyByBritannica_296",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BartlebyByBritannica_296",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bartleby by Britannica",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BartlebyByBritannica_296",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1661,
+          "videoFile": {
+            "name": "Bartleby.mp4",
+            "format": "h.264",
+            "sizeBytes": 156131918,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BartlebyByBritannica_296/Bartleby.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

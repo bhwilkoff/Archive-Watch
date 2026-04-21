@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-jerry-springer-show-february-14-1994-2025",
+  "title": "The Jerry Springer Show (February 14, 1994",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-jerry-springer-show-february-14-1994",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-jerry-springer-show-february-14-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Jerry Springer Show (February 14, 1994)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-jerry-springer-show-february-14-1994",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Jerry Springer Show (February 14, 1994).mp4",
+            "format": "h.264",
+            "sizeBytes": 256858863,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-jerry-springer-show-february-14-1994/The Jerry Springer Show (February 14, 1994).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

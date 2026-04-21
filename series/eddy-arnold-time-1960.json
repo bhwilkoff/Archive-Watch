@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "eddy-arnold-time-1960",
+  "title": "Eddy Arnold Time",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Eddy Arnold Time is an American musical television series syndicated to local stations from 1955 through 1957. The show consisted of 26 half-hour filmed episodes starring Eddy Arnold in different roles within a musical narrative. Arnold portrayed, among others, a lumberjack, a traveling salesman, a cowboy, a pet shop owner, himself, and even Stephen Foster.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "EddyarnoldtimenotWatched",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Eddy Arnold Time'' - Misc episode No. 1",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1598,
+          "videoFile": {
+            "name": "eddyarnoldtime (not watched).mp4",
+            "format": "h.264",
+            "sizeBytes": 166532446,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/EddyarnoldtimenotWatched/eddyarnoldtime (not watched).mp4"
+        },
+        {
+          "archiveID": "EddyArnoldMiscEpisode2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Eddy Arnold Time'' - Misc episode No. 2",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1592,
+          "videoFile": {
+            "name": "Eddy Arnold - Misc episode 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 165967118,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/EddyArnoldMiscEpisode2/Eddy Arnold - Misc episode 2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

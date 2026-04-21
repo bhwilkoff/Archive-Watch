@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "burns-and-allen-1960",
+  "title": "Burns and Allen",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BurnsAndAllen-PropertyTaxAssessor",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BurnsAndAllen-PropertyTaxAssessor",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Burns and Allen - Property Tax Assessor",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BurnsAndAllen-PropertyTaxAssessor",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1768,
+          "videoFile": {
+            "name": "BurnsAndAllen-PropertyTaxAssessor11-9-50.mp4",
+            "format": "h.264",
+            "sizeBytes": 175276401,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BurnsAndAllen-PropertyTaxAssessor/BurnsAndAllen-PropertyTaxAssessor11-9-50.mp4"
+        },
+        {
+          "archiveID": "BurnsAndAllenFreeTripToHawaii",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Burns and Allen: Free Trip to Hawaii",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BurnsAndAllenFreeTripToHawaii",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1453,
+          "videoFile": {
+            "name": "BurnsAndAllen-freeTripToHawaii.mp4",
+            "format": "h.264",
+            "sizeBytes": 139823432,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BurnsAndAllenFreeTripToHawaii/BurnsAndAllen-freeTripToHawaii.mp4"
+        },
+        {
+          "archiveID": "BurnsAndAllenGracieGivesAWedding",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Burns and Allen: Gracie Gives a Wedding",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BurnsAndAllenGracieGivesAWedding",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1348,
+          "videoFile": {
+            "name": "BurnsAndAllen-gracieGivesAWedding.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 130327976,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BurnsAndAllenGracieGivesAWedding/BurnsAndAllen-gracieGivesAWedding.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

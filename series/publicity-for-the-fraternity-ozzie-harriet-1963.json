@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "publicity-for-the-fraternity-ozzie-harriet-1963",
+  "title": "Publicity for the Fraternity (Ozzie & Harriet",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Publicity_for_the_Fraternity--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Publicity_for_the_Fraternity--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Publicity for the Fraternity (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Publicity_for_the_Fraternity--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1254,
+          "videoFile": {
+            "name": "Publicity_for_the_Fraternity--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 130497197,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Publicity_for_the_Fraternity--Ozzie-Harriet/Publicity_for_the_Fraternity--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

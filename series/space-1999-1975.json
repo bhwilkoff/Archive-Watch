@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "seriesID": "space-1999-1975",
+  "title": "Space 1999",
+  "yearStart": 1975,
+  "yearEnd": 1975,
+  "overview": "The crew of Moonbase Alpha must struggle to survive when a massive explosion throws the Moon from orbit into deep space.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/77Jn71Aw4mct3phi7wpjLdvO9U5.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3igZ4K3pKIEoD2nyvgmmVOMuz3E.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Sylvia Anderson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Space1999.Series1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Space 1999 (Complete Series 1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/77Jn71Aw4mct3phi7wpjLdvO9U5.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "Space 1999 S01E05 Death's Other Dominion.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 356766945,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Space1999.Series1/Space 1999 S01E05 Death's Other Dominion.ia.mp4"
+        },
+        {
+          "archiveID": "Space1999.Series1_201602",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Space 1999 (Complete Series 2)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/77Jn71Aw4mct3phi7wpjLdvO9U5.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "Space 1999 S02E08 The Rules of Luton.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 349128668,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space 1999 S02E08 The Rules of Luton.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "space-1999-1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Breakaway",
+          "overview": "In September 1999, John Koenig reports to Earth's Space Research Centre at Moonbase Alpha as its new commander. A strange sickness is killing some of the Moonbase Alpha crew. Commander Koenig's investigation reveals that the source lies at Nuclear Waste Disposal Area 1 caused by excessive magnetic energy fields. The continuous build up of energy shortly causes massive explosion clusters that knocks the moon off orbit into deep space.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/hqMXghc17vT586GVJg7yBGIQlYL.jpg",
+          "airDate": "1975-09-04",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "this one.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160351749,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/space-1999-1/this one.ia.mp4"
+        },
+        {
+          "archiveID": "space-999-8",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Dragon's Domain",
+          "overview": "In 1996, Tony Cellini commanded a high-profile space mission which ended in disaster. The sole survivor, he told an outrageous tale of a spaceship graveyard and an alien 'dragon' which devoured his crew. Believed by no one, he was left a broken man. Five years later, the truth is revealed when the runaway Moon approaches the same deadly Sargasso in space.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/72zYpChnMWQbXbv6cThMWccHnGc.jpg",
+          "airDate": "1975-10-23",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01_E08 - Dragon-s Domain-NA_x264_001.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160129830,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/space-999-8/S01_E08 - Dragon-s Domain-NA_x264_001.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

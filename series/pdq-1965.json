@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "pdq-1965",
+  "title": "PDQ",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": "PDQ is an American television game shows created by Heatter-Quigley Productions. The objective was to guess a word or a given phrase in the shortest amount of time with the fewest letters given as possible. It was syndicated by Four Star Television which aired from September 6, 1965 to September 26, 1969, primarily on NBC-owned stations but syndicated in markets where NBC didn't own a station. PDQ was named after its original sponsor, a flavored drink mix. The show and product shared logos, although on the show the initials stood for \"Please Draw Quickly\".",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PDQ_Game_Show",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'PDQ' Pilot Episode (1965)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PDQ1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 158712640,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PDQ_Game_Show/PDQ1965.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

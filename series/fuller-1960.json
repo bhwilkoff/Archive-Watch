@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "fuller-1960",
+  "title": "Fuller",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Follow_That_Man_EP4x09_Fullers_Folly",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Follow_That_Man_EP4x09_Fullers_Folly",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fuller's Folly",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Follow_That_Man_EP4x09_Fullers_Folly",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Follow_That_Man-Ralph_Bellamy-4x09_Fullers_Folly.mp4",
+            "format": "h.264",
+            "sizeBytes": 154611363,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Follow_That_Man_EP4x09_Fullers_Folly/Follow_That_Man-Ralph_Bellamy-4x09_Fullers_Folly.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

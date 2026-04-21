@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "uncle-vanya-by-anton-chekhov-performance-1991-1991",
+  "title": "Uncle Vanya by Anton Chekhov (Performance, 1991",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/uncle-vanya-performance-1991",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "uncle-vanya-performance-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Uncle Vanya by Anton Chekhov (Performance, 1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/uncle-vanya-performance-1991",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Uncle Vanya by Anton Chekhov (Performance S01Ep02, 1991).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 627609437,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/uncle-vanya-performance-1991/Uncle Vanya by Anton Chekhov (Performance S01Ep02, 1991).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-storyteller-greek-myths-1991",
+  "title": "The Storyteller: Greek Myths",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "A storyteller in a labyrinth tells his dog the stories of Perseus and Medusa, Icarus and Daedalus, Theseus and the Minotaur, and Orpheus and Euridyce.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/l4OBhyj2gheh16iuG6wvTNDzfjr.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/wP4Vl2epVhA5yNWWAHDURZnPNpa.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": "Anthony Minghella",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-storyteller-greek-myths-complete-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Storyteller: Greek Myths - Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/l4OBhyj2gheh16iuG6wvTNDzfjr.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 2- Perseus and the Gorgon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 474721392,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-storyteller-greek-myths-complete-series/Episode 2- Perseus and the Gorgon.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

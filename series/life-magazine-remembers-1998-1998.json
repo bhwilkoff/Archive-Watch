@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "life-magazine-remembers-1998-1998",
+  "title": "Life Magazine Remembers 1998",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/life-remembers-1998-1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "life-remembers-1998-1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Life Magazine Remembers 1998 - Anthony Edwards",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life-remembers-1998-1998",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Life Remembers 1998 - 1998.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1551216833,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life-remembers-1998-1998/Life Remembers 1998 - 1998.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

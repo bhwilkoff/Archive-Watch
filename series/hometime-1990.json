@@ -1,0 +1,347 @@
+{
+  "version": 1,
+  "seriesID": "hometime-1990",
+  "title": "Hometime",
+  "yearStart": 1990,
+  "yearEnd": 1994,
+  "overview": "Hometime is a PBS home improvement television show produced by Hometime Video Publishing, Chaska, Minnesota, in association with WHYY-TV Philadelphia/Wilmington, Delaware, and broadcast on public television and in syndication. It first aired in 1986. In the 1990s, Hometime aired on TLC.\n\nHometime demonstrates both do-it-yourself- and contractor-performed projects, ranging from simple weekend projects to complete homes. Hometime episodes have covered many aspects of home construction and maintenance.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hometime-bathroom-plumbing",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Bathroom Plumbing",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Bathroom Plumbing.mp4",
+            "format": "h.264",
+            "sizeBytes": 158792843,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-bathroom-plumbing/Hometime - Bathroom Plumbing.mp4"
+        },
+        {
+          "archiveID": "hometime-common-home-repairs",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Common Home Repairs",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Common Home Repairs.mp4",
+            "format": "h.264",
+            "sizeBytes": 154591385,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-common-home-repairs/Hometime - Common Home Repairs.mp4"
+        },
+        {
+          "archiveID": "hometime-drywall-project",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Drywall Project",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Drywall Project.mp4",
+            "format": "h.264",
+            "sizeBytes": 160256502,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-drywall-project/Hometime - Drywall Project.mp4"
+        },
+        {
+          "archiveID": "hometime-framing-02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Framing Roofs",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Framing 02.mp4",
+            "format": "h.264",
+            "sizeBytes": 157593115,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-framing-02/Hometime - Framing 02.mp4"
+        },
+        {
+          "archiveID": "hometime-framing-01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Framing Walls",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Framing 01.mp4",
+            "format": "h.264",
+            "sizeBytes": 156901232,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-framing-01/Hometime - Framing 01.mp4"
+        },
+        {
+          "archiveID": "hometime-garage",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Garage",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Garage.mp4",
+            "format": "h.264",
+            "sizeBytes": 156656091,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-garage/Hometime - Garage.mp4"
+        },
+        {
+          "archiveID": "hometime-gazebo",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Gazebo",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Gazebo.mp4",
+            "format": "h.264",
+            "sizeBytes": 153135099,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-gazebo/Hometime - Gazebo.mp4"
+        },
+        {
+          "archiveID": "hometime-habitat-for-humanity",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Habitat for Humanity",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Habitat for Humanity.mp4",
+            "format": "h.264",
+            "sizeBytes": 154477138,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-habitat-for-humanity/Hometime - Habitat for Humanity.mp4"
+        },
+        {
+          "archiveID": "hometime-hiring-a-contractor",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Hiring a Contractor",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Hiring a Contractor.mp4",
+            "format": "h.264",
+            "sizeBytes": 161225898,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-hiring-a-contractor/Hometime - Hiring a Contractor.mp4"
+        },
+        {
+          "archiveID": "hometime-home-of-the-future-3-5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Home of the Future (3/5)",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Home of the Future (3-5).mp4",
+            "format": "h.264",
+            "sizeBytes": 159794221,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-home-of-the-future-3-5/Hometime - Home of the Future (3-5).mp4"
+        },
+        {
+          "archiveID": "hometime-interior-paint",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Interior paint & fridge installation",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Interior Paint.mp4",
+            "format": "h.264",
+            "sizeBytes": 156056456,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-interior-paint/Hometime - Interior Paint.mp4"
+        },
+        {
+          "archiveID": "hometime-patios",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Patios",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Patios.mp4",
+            "format": "h.264",
+            "sizeBytes": 151804964,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-patios/Hometime - Patios.mp4"
+        },
+        {
+          "archiveID": "hometime-playhouse",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Playhouse",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Playhouse.mp4",
+            "format": "h.264",
+            "sizeBytes": 156880528,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-playhouse/Hometime - Playhouse.mp4"
+        },
+        {
+          "archiveID": "hometime-plumbing",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Plumbing",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Plumbing.mp4",
+            "format": "h.264",
+            "sizeBytes": 158705445,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-plumbing/Hometime - Plumbing.mp4"
+        },
+        {
+          "archiveID": "hometime-preventative-maintenance",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Preventative Maintenance",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Preventative Maintenance.mp4",
+            "format": "h.264",
+            "sizeBytes": 158378336,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-preventative-maintenance/Hometime - Preventative Maintenance.mp4"
+        },
+        {
+          "archiveID": "hometime-putter-shed",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Putter Shed",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Putter Shed.mp4",
+            "format": "h.264",
+            "sizeBytes": 159598200,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-putter-shed/Hometime - Putter Shed.mp4"
+        },
+        {
+          "archiveID": "hometime-retaining-wall",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Retaining Wall",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Retaining Wall.mp4",
+            "format": "h.264",
+            "sizeBytes": 164826243,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-retaining-wall/Hometime - Retaining Wall.mp4"
+        },
+        {
+          "archiveID": "hometime-windows-and-doors",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hometime - Windows & Doors",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hometime - Windows and Doors.mp4",
+            "format": "h.264",
+            "sizeBytes": 157310608,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hometime-windows-and-doors/Hometime - Windows and Doors.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 18
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "style-substance-1998",
+  "title": "Style & Substance",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": "Style & Substance was a television situation comedy that premiered on CBS July 22, 1998.\n\nThe show starred Jean Smart as Chelsea Stevens, a Martha Stewart-like star of a how-to home show, and Nancy McKeon as her producer, Jane Sokol, a small-town girl new to New York City. Chelsea Stevens was an expert cook, decorator, and party planner who knew much more about thread-count than she did relationships. She was well-meaning at times, but her narcissism usually got in the way of actually understanding anyone else's problems.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/eYCigcivPVX02J6tfQlHrP2uAF1.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bUQV5pcFeF33kuA3nbJ234qyptF.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Peter Tolan",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "style-substance-1.03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Style & Substance - Jean Smart, Nancy McKeon",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eYCigcivPVX02J6tfQlHrP2uAF1.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Style & Substance - 1.04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 701831019,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/style-substance-1.03/Style & Substance - 1.04.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-intruders-1960",
+  "title": "The Intruders",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Paula, 40, must return to work after maternity leave but feels overwhelmed. She hires Tess as an au pair who seems perfect. As strange incidents multiply, Paula suspects Tess has dark intentions, but no one believes her warnings.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/jprkC47Soh12Azf4sRVbfTC44xu.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/9lVSc8vnrlVOqMU8wK0Gddl6p5w.jpg",
+  "genres": [],
+  "networks": [
+    "France 2"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_18_The_Intruders",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Intruders",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jprkC47Soh12Azf4sRVbfTC44xu.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_18_The_Intruders.mp4",
+            "format": "h.264",
+            "sizeBytes": 151226020,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_18_The_Intruders/Robin_Hood_18_The_Intruders.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

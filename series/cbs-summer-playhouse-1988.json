@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "seriesID": "cbs-summer-playhouse-1988",
+  "title": "CBS Summer Playhouse",
+  "yearStart": 1988,
+  "yearEnd": 1989,
+  "overview": "CBS anthology series airing unsold television pilots during the summer season.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/zsjXnBDPAS5oBeWt59eUIgU2t65.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cbs-summer-playhouse-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CBS Summer Playhouse - Robert Wuhl, Richard Gilliland",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zsjXnBDPAS5oBeWt59eUIgU2t65.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CBS Summer Playhouse  - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 411672281,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cbs-summer-playhouse-1988/CBS Summer Playhouse  - 1988.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "cbs-summer-playhouse-42",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Elysian Fields",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zsjXnBDPAS5oBeWt59eUIgU2t65.jpg",
+          "airDate": "1989-07-11",
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CBS Summer Playhouse - 42.mp4",
+            "format": "h.264",
+            "sizeBytes": 287733364,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cbs-summer-playhouse-42/CBS Summer Playhouse - 42.mp4"
+        },
+        {
+          "archiveID": "cbs-summer-playhouse-44",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Curse of the Corn People",
+          "overview": "A group of Kansas friends in their 20s undertakes the making of a horror movie.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/zsjXnBDPAS5oBeWt59eUIgU2t65.jpg",
+          "airDate": "1989-08-01",
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CBS Summer Playhouse - 3-7.mp4",
+            "format": "h.264",
+            "sizeBytes": 277941822,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cbs-summer-playhouse-44/CBS Summer Playhouse - 3-7.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

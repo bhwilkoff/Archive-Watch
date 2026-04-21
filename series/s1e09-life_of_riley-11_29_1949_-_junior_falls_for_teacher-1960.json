@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "s1e09-life_of_riley-11_29_1949_-_junior_falls_for_teacher-1960",
+  "title": "S1E09-Life_Of_Riley-11_29_1949_-_Junior_Falls_For_Teacher",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/S1E09-Life_Of_Riley-11_29_1949_-_Junior_Falls_For_Teacher",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "S1E09-Life_Of_Riley-11_29_1949_-_Junior_Falls_For_Teacher",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "S1E09-Life_Of_Riley-11_29_1949_-_Junior_Falls_For_Teacher",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/S1E09-Life_Of_Riley-11_29_1949_-_Junior_Falls_For_Teacher",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E09-Life_Of_Riley-11_29_1949-Junior_Falls_For_Teacher.mp4",
+            "format": "h.264",
+            "sizeBytes": 128731104,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E09-Life_Of_Riley-11_29_1949_-_Junior_Falls_For_Teacher/S1E09-Life_Of_Riley-11_29_1949-Junior_Falls_For_Teacher.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

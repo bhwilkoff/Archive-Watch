@@ -1,0 +1,303 @@
+{
+  "version": 1,
+  "seriesID": "medic-1954",
+  "title": "Medic",
+  "yearStart": 1954,
+  "yearEnd": 1956,
+  "overview": "Medic is an American medical drama that aired on NBC beginning in 1954. Medic was television's first doctor drama to focus attention on medical procedures.\n\nCreated by its principal writer James E. Moser, Medic tried to create realism which would typify medical shows from then on. Moser had previously written for the radio shows Dragnet and Dr. Kildare. He went on to write the television series Ben Casey.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/2kPb6HpCETum4r0TxLkiZXlZOqZ.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "James E. Moser",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MEDIC_Time_To_Be_Alive",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Medic\" A Time to Be Alive",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_Time_To_Be_Alive.mp4",
+            "format": "h.264",
+            "sizeBytes": 158014549,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Time_To_Be_Alive/MEDIC_Time_To_Be_Alive.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Boy_In_The_Storm",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Medic\" Boy in the Storm",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_Boy_In_The_Storm.mp4",
+            "format": "h.264",
+            "sizeBytes": 155788681,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Boy_In_The_Storm/MEDIC_Boy_In_The_Storm.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Dr_Impossible",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Medic\" Dr. Impossible",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_Dr_Impossible.mp4",
+            "format": "h.264",
+            "sizeBytes": 158862072,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Dr_Impossible/MEDIC_Dr_Impossible.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Flash_Of_Darkness",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Medic\" Flash of Darkness",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_Flash_Of_Darkness.mp4",
+            "format": "h.264",
+            "sizeBytes": 147861931,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Flash_Of_Darkness/MEDIC_Flash_Of_Darkness.mp4"
+        },
+        {
+          "archiveID": "MEDIC_General_Practitioner",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Medic\" General Practitioner",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_General_Practitioner.mp4",
+            "format": "h.264",
+            "sizeBytes": 151644481,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_General_Practitioner/MEDIC_General_Practitioner.mp4"
+        },
+        {
+          "archiveID": "MEDIC_My_Brother_Joe",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Medic\" My Brother Joe",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_My_Brother_Joe.mp4",
+            "format": "h.264",
+            "sizeBytes": 155271425,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_My_Brother_Joe/MEDIC_My_Brother_Joe.mp4"
+        },
+        {
+          "archiveID": "MEDIC_The_Wild_Intruder",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Medic\" The Wild Intruder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_The_Wild_Intruder.mp4",
+            "format": "h.264",
+            "sizeBytes": 156942817,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_The_Wild_Intruder/MEDIC_The_Wild_Intruder.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Walk_With_Lions",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Medic\" Walk with Lions",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_Walk_With_Lions.mp4",
+            "format": "h.264",
+            "sizeBytes": 157310881,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Walk_With_Lions/MEDIC_Walk_With_Lions.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "MEDIC_Break_Through",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Break Through the bars",
+          "overview": "A quiet, sedate, middle-aged bank cashier suddenly begins to exhibit strange and disturbing behavior. After a thorough examination, a medical team decides that his problem can best be treated by electroshock therapy.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-03-14",
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_Break_Through.mp4",
+            "format": "h.264",
+            "sizeBytes": 153879341,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Break_Through/MEDIC_Break_Through.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Never_Comes_Sunday",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Never Comes Sunday",
+          "overview": "The blow to a child's head causes not only brain damage, but a dysfunctional family, as the members try to cope with the girl's problems.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-05-23",
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_Never_Comes_Sunday.mp4",
+            "format": "h.264",
+            "sizeBytes": 156295825,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Never_Comes_Sunday/MEDIC_Never_Comes_Sunday.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Medic--When_Mama_Says_Jump",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "When Mama Says Jump",
+          "overview": "Dr. Styner offers advice and support when a 17-year-old track star develops severe acne and chronic fatigue due to stresses caused by his demanding mother's determination to see him achieve his father's dream of Olympic stardom.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-10-31",
+          "year": 1955,
+          "runtimeSeconds": 1491,
+          "videoFile": {
+            "name": "Medic_207--When_Mama_Says_Jump.mp4",
+            "format": "h.264",
+            "sizeBytes": 154716209,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Medic--When_Mama_Says_Jump/Medic_207--When_Mama_Says_Jump.mp4"
+        },
+        {
+          "archiveID": "Medic--Glass_of_Fear",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Glass of Fear",
+          "overview": "Comic strip artist Dick Hooper does a nationally syndicated feature called \"Salty\", but he can't make his due dates for finished cartoons because he's become obsessed with germs and various muscle and stomach pains that doctors can't locate. He's become a raging hypochondriac that's about to lose his wife and career.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-11-28",
+          "year": 1955,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "Medic_210--Glass_of_Fear.mp4",
+            "format": "h.264",
+            "sizeBytes": 156529512,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Medic--Glass_of_Fear/Medic_210--Glass_of_Fear.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Who_Search_for_Truth",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Who Search for Truth",
+          "overview": "This is the story of Alexis St. Martin, a young fur trapper who was shot in the side and was used by Dr. William Beaumont for research into the function of the human digestive system.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1956-02-27",
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_Who_Search_for_Truth.mp4",
+            "format": "h.264",
+            "sizeBytes": 158982909,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Who_Search_for_Truth/MEDIC_Who_Search_for_Truth.mp4"
+        },
+        {
+          "archiveID": "Medic--Awake_to_Spring",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Awake to Spring",
+          "overview": "An old man is the only family left for his crippled grandson. He's worried about his ability to carry on, and after a painful heart incident, he's convinced he'll soon be dead and his helpless charge will be doomed, so he decides they should go together and leaves the gas pipe open as they sleep.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1956-03-26",
+          "year": 1956,
+          "runtimeSeconds": 1371,
+          "videoFile": {
+            "name": "Medic_221--Awake_to_Spring.mp4",
+            "format": "h.264",
+            "sizeBytes": 142419371,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Medic--Awake_to_Spring/Medic_221--Awake_to_Spring.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "Till the Song Is Done, till the Dance Is Gone",
+          "overview": "This is the story of a young girl named Mary. She has a weak heart due to a defective heart valve. Doctors race to operate on her after she collapses at a dance she attended with her classmates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1956-07-09",
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone.mp4",
+            "format": "h.264",
+            "sizeBytes": 156742174,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone/MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "56-04-22-the-jack-benny-program-s-06e-16-jack-tries-to-get-a-1956",
+  "title": "56 04 22 The Jack Benny Program S 06e 16 Jack Tries To Get A Passport",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/560422TheJackBennyProgramS06e16JackTriesToGetAPassport",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "560422TheJackBennyProgramS06e16JackTriesToGetAPassport",
+          "seasonNumber": 1,
+          "episodeNumber": 56,
+          "title": "56 04 22 The Jack Benny Program S 06e 16 Jack Tries To Get A Passport",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/560422TheJackBennyProgramS06e16JackTriesToGetAPassport",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "56-04-22  The Jack Benny Program  s06e16  Jack Tries to Get A Passport.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 137523415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/560422TheJackBennyProgramS06e16JackTriesToGetAPassport/56-04-22  The Jack Benny Program  s06e16  Jack Tries to Get A Passport.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

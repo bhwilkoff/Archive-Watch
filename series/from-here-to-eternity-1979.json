@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "from-here-to-eternity-1979",
+  "title": "From Here To Eternity",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": "From Here to Eternity was short-lived dramatic television series that aired in 1980. It was a spinoff of the successful 1979 miniseries of the same title. The series featured most of the cast members from the original miniseries, including William Devane and Kim Basinger. Barbara Hershey replaced Natalie Wood for the role of Karen Holmes.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/275/689299.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "from-here-to-eternity-1979-1-3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "From Here To Eternity - Natalie Wood",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/275/689299.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "From Here To Eternity - 1979 - 1-3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2824599464,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/from-here-to-eternity-1979-1-3/From Here To Eternity - 1979 - 1-3.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

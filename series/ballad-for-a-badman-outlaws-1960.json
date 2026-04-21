@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ballad-for-a-badman-outlaws-1960",
+  "title": "Ballad for a Badman (Outlaws",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Ballad_for_a_Badman--Outlaws",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Ballad_for_a_Badman--Outlaws",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ballad for a Badman (Outlaws)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ballad_for_a_Badman--Outlaws",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2774,
+          "videoFile": {
+            "name": "Ballad_for_a_Badman--Outlaws_2.mp4",
+            "format": "h.264",
+            "sizeBytes": 151031890,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ballad_for_a_Badman--Outlaws/Ballad_for_a_Badman--Outlaws_2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

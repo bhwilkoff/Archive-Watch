@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "you-can-1960",
+  "title": "You Can",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/YCDTOTV1979-90",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "YCDTOTV1979-90",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "You Can't Do That on Television (1979-1990)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/YCDTOTV1979-90",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "You Can't Do That on Film.mp4",
+            "format": "h.264",
+            "sizeBytes": 508070755,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YCDTOTV1979-90/You Can't Do That on Film.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

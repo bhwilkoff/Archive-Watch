@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "see-it-now-1951",
+  "title": "See it now",
+  "yearStart": 1951,
+  "yearEnd": 1952,
+  "overview": "See It Now is an American newsmagazine and documentary series broadcast by CBS from 1951 to 1958. It was created by Edward R. Murrow and Fred W. Friendly, Murrow being the host of the show. From 1952 to 1957, See It Now won four Emmy Awards and was nominated three other times. It also won a 1952 Peabody Award, which cited its",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dJkJQ0W9WKhNXu7WAw8bYcfFzNs.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Fred W. Friendly",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "seeItNow-24February1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''See It Now'' - 24 February 1952",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dJkJQ0W9WKhNXu7WAw8bYcfFzNs.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1759,
+          "videoFile": {
+            "name": "SeeItNow24February1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 181777920,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/seeItNow-24February1952/SeeItNow24February1952.mp4"
+        },
+        {
+          "archiveID": "seeItNow-29june1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''See it Now'' - 29/June/1952",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dJkJQ0W9WKhNXu7WAw8bYcfFzNs.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1761,
+          "videoFile": {
+            "name": "SeeItNow29June1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 182165837,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/seeItNow-29june1952/SeeItNow29June1952.mp4"
+        },
+        {
+          "archiveID": "SeeItNow1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "See it now (1951)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dJkJQ0W9WKhNXu7WAw8bYcfFzNs.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1777,
+          "videoFile": {
+            "name": "See_it_now_12_23_1951.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 241892116,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SeeItNow1951/See_it_now_12_23_1951.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

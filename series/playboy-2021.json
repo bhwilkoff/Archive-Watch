@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "playboy-2021",
+  "title": "Playboy",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": "Three friends dive into the dark side of the sex industry to find a missing person, facing their own fears and desires along the way.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7Ewd3BLkE5MshNFxDFAdmDYvXkS.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/zw7jm3EzJmmzoq8LrRC46bgr1Fc.jpg",
+  "genres": [],
+  "networks": [
+    "GagaOOLala"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "playboys-windy-city-comedy-blowout-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Playboy's Windy City Comedy Blowout (1987)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7Ewd3BLkE5MshNFxDFAdmDYvXkS.jpg",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy's Windy City Comedy Blowout (1987).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1412370154,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboys-windy-city-comedy-blowout-1987/Playboy's Windy City Comedy Blowout (1987).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

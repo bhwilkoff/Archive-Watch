@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "thetube1984s02e14uncut-1960",
+  "title": "The.Tube.1984.S02E14.uncut",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the.-tube.-1984.-s-02-e-14.uncut",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the.-tube.-1984.-s-02-e-14.uncut",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "The.Tube.1984.S02E14.uncut",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the.-tube.-1984.-s-02-e-14.uncut",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Tube.1984.S02E14.uncut.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324382714,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-tube.-1984.-s-02-e-14.uncut/The.Tube.1984.S02E14.uncut.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

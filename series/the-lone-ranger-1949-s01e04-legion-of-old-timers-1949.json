@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-lone-ranger-1949-s01e04-legion-of-old-timers-1949",
+  "title": "The Lone Ranger 1949 (S01E04) Legion Of Old Timers",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-lone-ranger-1949-s-01-e-04-legion-of-old-timers",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-lone-ranger-1949-s-01-e-04-legion-of-old-timers",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Lone Ranger 1949 (S01E04) Legion Of Old Timers",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-lone-ranger-1949-s-01-e-04-legion-of-old-timers",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1356,
+          "videoFile": {
+            "name": "The Lone Ranger 1949 (S01E04) Legion of old Timers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 99533323,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-lone-ranger-1949-s-01-e-04-legion-of-old-timers/The Lone Ranger 1949 (S01E04) Legion of old Timers.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

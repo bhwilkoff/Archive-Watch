@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "muriel-cigars-with-edie-adamsmiss-television-1950-1960",
+  "title": "Muriel Cigars with Edie Adams,Miss Television 1950",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MurielCigarsWithEdieAdamsmissTelevision1950",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MurielCigarsWithEdieAdamsmissTelevision1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Muriel Cigars with Edie Adams,Miss Television 1950",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MurielCigarsWithEdieAdamsmissTelevision1950",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TvCommercial-MurielCigars1965WEdieAdamsStanGetz_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4301702,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MurielCigarsWithEdieAdamsmissTelevision1950/TvCommercial-MurielCigars1965WEdieAdamsStanGetz_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

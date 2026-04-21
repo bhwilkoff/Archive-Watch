@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "jimmy-durante-show-1960",
+  "title": "Jimmy Durante Show",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Jimmy Durante Show is a 51-episode half-hour comedy/variety television program presented live on NBC from October 2, 1954 to June 23, 1956.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JimmyDuranteShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jimmy Durante Show",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1728,
+          "videoFile": {
+            "name": "JimmyDuranteShow-GuestCarmenMiranda10-15-55_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 124858817,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JimmyDuranteShow/JimmyDuranteShow-GuestCarmenMiranda10-15-55_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

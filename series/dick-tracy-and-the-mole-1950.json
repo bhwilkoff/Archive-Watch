@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dick-tracy-and-the-mole-1950",
+  "title": "Dick Tracy and The Mole",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DickTracyAndTheMole1950",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DickTracyAndTheMole1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dick Tracy and The Mole (1950)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DickTracyAndTheMole1950",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dick_Tracy_The_Mole_I_11_08_1950.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 200126687,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DickTracyAndTheMole1950/Dick_Tracy_The_Mole_I_11_08_1950.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

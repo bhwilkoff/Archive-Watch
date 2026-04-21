@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "call-to-glory-1984",
+  "title": "Call to Glory",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "Call to Glory is an American drama series created by Ronald M. Cohen, and starring Craig T. Nelson as USAF Colonel Raynor Sarnac and his family as they navigated the political tensions and military duties of the early 1960s.\n\nHeavily promoted during ABC's broadcast of the 1984 Summer Olympics, the two-part pilot aired August 13, 1984. The first episode is related to the U-2 flights over Cuba during the 1962 Cuban Missile Crisis. During production, the plot came to focus more on the loneliness experienced by wife Vanessa while stationed on base and what she and the family would do to spend time in productive pursuits while enduring the Antelope Valley's isolation from civilization.\n\nThe series, set near Edwards Air Force Base, blended historical events with the challenges of military family life, featuring themes of duty, family relationships, and the looming Vietnam War.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/xGcwzBKJArpKYd7bnbLU494WRl.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/hjPaJ9a8J5URPMXGAfi4qQMSpVk.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Ronald M. Cohen",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "call-to-glory-s-01-e-01-pilot",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Pilot",
+          "overview": "During the darkest days of the Cuban missile crisis, Raynor is ordered to fly over Cuba to obtain proof that the Russians are installing nuclear warheads.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/kcK6BEAA2pOQjSua7lSYaOJGHOW.jpg",
+          "airDate": "1984-08-13",
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Call to Glory - S01E01 - Pilot.mp4",
+            "format": "h.264",
+            "sizeBytes": 581990779,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/call-to-glory-s-01-e-01-pilot/Call to Glory - S01E01 - Pilot.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

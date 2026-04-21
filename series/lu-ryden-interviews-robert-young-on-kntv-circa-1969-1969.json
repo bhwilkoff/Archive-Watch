@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lu-ryden-interviews-robert-young-on-kntv-circa-1969-1969",
+  "title": "Lu Ryden interviews Robert Young on KNTV, circa 1969",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hsj2023-17_kntv_ryden_robert_young",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hsj2023-17_kntv_ryden_robert_young",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lu Ryden interviews Robert Young on KNTV, circa 1969",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hsj2023-17_kntv_ryden_robert_young",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "hsj2023-17_kntv_ryden_robert_young.mp4",
+            "format": "h.264",
+            "sizeBytes": 18084052,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hsj2023-17_kntv_ryden_robert_young/hsj2023-17_kntv_ryden_robert_young.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

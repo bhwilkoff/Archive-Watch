@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "an-age-of-kings-1960",
+  "title": "An Age of Kings",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "A linking together of Shakespeare's history plays — Richard II, 1 Henry IV, 2 Henry IV, Henry V, 1 Henry VI, 2 Henry VI, 3 Henry VI, and Richard III — chronicling the rise and fall of monarchs over the 86 years between Richard II and Richard III.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/wktuD6RcbSJmAWpeT01szcRfYVV.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/71JTJfHMBov7Uoc38lV2bCKSwJe.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Peter Dews",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "an-age-of-kings-1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "An Age of Kings (1960) Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wktuD6RcbSJmAWpeT01szcRfYVV.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep03 Rebellion from the North (1 Henry IV - Part 1).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 467035020,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An Age of Kings (1960)/Ep03 Rebellion from the North (1 Henry IV - Part 1).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

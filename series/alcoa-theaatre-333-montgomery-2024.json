@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "alcoa-theaatre-333-montgomery-2024",
+  "title": "Alcoa Theaatre 333 Montgomery",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/alcoa-theaatre-333-montgomery-1960",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "alcoa-theaatre-333-montgomery-1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alcoa Theaatre 333 Montgomery (1960)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/alcoa-theaatre-333-montgomery-1960",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alcoa Theaatre   333 Montgomery (1960).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 241260721,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alcoa-theaatre-333-montgomery-1960/Alcoa Theaatre   333 Montgomery (1960).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

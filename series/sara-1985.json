@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "sara-1985",
+  "title": "Sara",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": "A newly minted attorney joins the legal aid clinic in San Francisco where her best friend works.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ySqcek4mf9mM2BdHIXbv4RYHTEP.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/uheqhya7oU7XLPvYgOWCPnY5eRK.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Gary David Goldberg",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sara-1.09",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sara - Geena Davis",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ySqcek4mf9mM2BdHIXbv4RYHTEP.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sara - 1.09.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 721988468,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sara-1.09/Sara - 1.09.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

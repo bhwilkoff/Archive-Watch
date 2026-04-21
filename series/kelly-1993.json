@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "kelly-1993",
+  "title": "Kelly",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "Kelly is a Australian children's television series that first screened on Network Ten in 1991. The series was produced by Jonathan M. Shiff Productions and featured the adventures of a former highly trained German Shepherd police dog called Kelly.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rrfM9GhQHLfmnxf5wXtdzPBiblD.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/sx79BxJsw2lWL8Gul6GfZqcuNxa.jpg",
+  "genres": [],
+  "networks": [
+    "10"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "kelly-s1e3",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Bird Thieves",
+          "overview": "AKA Bird Dog. Jo, Danny and Kelly discover a bird smuggling ring. When Danny is captured, Jo and Kelly lead the police to the crook's secret hiding place.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rrfM9GhQHLfmnxf5wXtdzPBiblD.jpg",
+          "airDate": "1991-08-24",
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "10 - Kelly s1e3 (3rd segment).mp4",
+            "format": "h.264",
+            "sizeBytes": 55249718,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/kelly-s1e3/10 - Kelly s1e3 (3rd segment).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "guy-lombardo-new-years-eve-party-1957",
+  "title": "Guy Lombardo New Years Eve Party",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/GuyLombardo1957-1958TV",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GuyLombardo1957-1958TV",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Guy Lombardo New Years Eve Party",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/GuyLombardo1957-1958TV",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 3564,
+          "videoFile": {
+            "name": "guylombardo-newyearseve.mp4",
+            "format": "h.264",
+            "sizeBytes": 369988267,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GuyLombardo1957-1958TV/guylombardo-newyearseve.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

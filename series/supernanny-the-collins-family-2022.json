@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "supernanny-the-collins-family-2022",
+  "title": "Supernanny The Collins Family",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/supernanny-the-collins-family",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "supernanny-the-collins-family",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Supernanny The Collins Family",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/supernanny-the-collins-family",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Supernanny The Collins Family.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 140246581,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/supernanny-the-collins-family/Supernanny The Collins Family.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

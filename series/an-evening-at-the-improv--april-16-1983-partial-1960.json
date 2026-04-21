@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "an-evening-at-the-improv--april-16-1983-partial-1960",
+  "title": "An Evening At The Improv- April 16, 1983 (partial",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AnEveningAtTheImprovApril161983Partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AnEveningAtTheImprovApril161983Partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "An Evening At The Improv- April 16, 1983 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AnEveningAtTheImprovApril161983Partial",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "An-Evening-At-The-Improv-April-16_-1983-_partial_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 147988969,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AnEveningAtTheImprovApril161983Partial/An-Evening-At-The-Improv-April-16_-1983-_partial_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

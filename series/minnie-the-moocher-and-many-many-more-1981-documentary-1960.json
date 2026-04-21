@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "minnie-the-moocher-and-many-many-more-1981-documentary-1960",
+  "title": "Minnie The Moocher and Many, Many, More (1981 documentary",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MinnieTheMoocherAndManyManyMore1981Documentary",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MinnieTheMoocherAndManyManyMore1981Documentary",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Minnie The Moocher and Many, Many, More (1981 documentary)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MinnieTheMoocherAndManyManyMore1981Documentary",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Minnie-The-Moocher-and-Many_-Many-More-_1981-documentary_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 216275350,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MinnieTheMoocherAndManyManyMore1981Documentary/Minnie-The-Moocher-and-Many_-Many-More-_1981-documentary_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "andy-griffith-the-bighouse-1960",
+  "title": "Andy Griffith The Bighouse",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Andy_Griffith_The_Bighouse",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Andy_Griffith_The_Bighouse",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Andy Griffith The Bighouse",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Andy_Griffith_The_Bighouse",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bighouse.mp4",
+            "format": "h.264",
+            "sizeBytes": 132023836,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Andy_Griffith_The_Bighouse/Bighouse.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

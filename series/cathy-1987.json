@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cathy-1987",
+  "title": "Cathy",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/cathy-1987",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cathy-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cathy - Kathleen Wilhoite",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/cathy-1987",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cathy - 1987.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 196220748,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cathy-1987/Cathy - 1987.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "west-57th-1988",
+  "title": "West 57th",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": "West 57th is a newsmagazine series which aired on CBS from August 13, 1985, through September 9, 1989.West 57th originally premiered as a summer series, and took its name from the New York address of the CBS Broadcast Center. The original correspondents were Jane Wallace, Bob Sirott, Meredith Vieira, and John Ferrugia. Later contributors included Steve Kroft, Selina Scott, Karen Burnes, and Stephen Schiff.\n\nThe style of the program was intended to use the contemporary tools of television to tell compelling stories. The show's popularity, a concern for Hewitt, prompted 60 Minutes pundit Andy Rooney to dedicate one of his closing segments on his program to a parody of West 57th correspondents.\n\nAfter the cancellation, the show was replaced by the short-lived Saturday Night with Connie Chung. Vieira and fellow correspondent Steve Kroft transferred to 60 Minutes, where Kroft currently remains. Vieira went on to anchor NBC's Today Show. Sirott moved to Chicago to continue a successful career in local TV and radio. John Ferrugia moved to Denver, where he is an award-winning investigative reporter for KMGH-TV.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Don Hewitt",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "west-57th-community-chapel-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "West 57th - Meredith Viera, Steve Kroft",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "West 57th - Jack the Ripper - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1551174629,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/west-57th-community-chapel-1988/West 57th - Jack the Ripper - 1988.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

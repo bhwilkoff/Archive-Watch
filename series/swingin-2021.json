@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "swingin-2021",
+  "title": "Swingin",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": "Sketch show exploring the unique British attitude towards sex and relationships.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/t9D2R1dBuKK3WHoyzx8Q6r1R9bv.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "5"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "swingin-the-blues-goin-to-kansas-city-documentary-1981",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Swingin' The Blues- Goin' To Kansas City documentary (1981)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/t9D2R1dBuKK3WHoyzx8Q6r1R9bv.jpg",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Swingin' The Blues- Goin' To Kansas City documentary (1981).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 311956095,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/swingin-the-blues-goin-to-kansas-city-documentary-1981/Swingin' The Blues- Goin' To Kansas City documentary (1981).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

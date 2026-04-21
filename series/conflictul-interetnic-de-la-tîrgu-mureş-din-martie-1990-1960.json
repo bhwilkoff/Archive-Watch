@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "conflictul-interetnic-de-la-tîrgu-mureş-din-martie-1990-1960",
+  "title": "Conflictul Interetnic de la Tîrgu-Mureş din martie 1990",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Episod1A",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Episod1A",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Conflictul Interetnic de la Tîrgu-Mureş din martie 1990",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Episod1A",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episod 3 A.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 118657980,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Episod1A/Episod 3 A.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

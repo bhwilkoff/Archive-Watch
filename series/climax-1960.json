@@ -1,0 +1,331 @@
+{
+  "version": 1,
+  "seriesID": "climax-1960",
+  "title": "Climax!",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Climax! is an American anthology series that aired on CBS from 1954 to 1958. The series was hosted by William Lundigan and later co-hosted by Mary Costa. It was one of the few CBS programs of that era to be broadcast in color. Many of the episodes were performed and broadcast live.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tc1YJLMCMFyvA1OsFyzMMJ2wIfL.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ClimaxJacobsAngel",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Climax!: Jacob's Angel",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3561,
+          "videoFile": {
+            "name": "Climax-jacobsAngel.mp4",
+            "format": "h.264",
+            "sizeBytes": 354821452,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxJacobsAngel/Climax-jacobsAngel.mp4"
+        },
+        {
+          "archiveID": "ClimaxTrailOfTerror",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Climax: Trail of Terror",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3565,
+          "videoFile": {
+            "name": "Climax-trailOfTerror.mp4",
+            "format": "h.264",
+            "sizeBytes": 356425528,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxTrailOfTerror/Climax-trailOfTerror.mp4"
+        },
+        {
+          "archiveID": "ClimaxWildStallion",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Climax: Wild Stallion",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3531,
+          "videoFile": {
+            "name": "Climax-wildStallion.mp4",
+            "format": "h.264",
+            "sizeBytes": 351789053,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxWildStallion/Climax-wildStallion.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ClimaxCasinoRoyale",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Casino Royale",
+          "overview": "American spy James Bond must outsmart card wiz and crime boss LeChiffre while monitoring his actions. The first dramatization of a James Bond novel.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7LsYHOfxrcinFYbfEolXptswqzn.jpg",
+          "airDate": "1954-10-21",
+          "year": null,
+          "runtimeSeconds": 3109,
+          "videoFile": {
+            "name": "Climax-casinoRoyale.mp4",
+            "format": "h.264",
+            "sizeBytes": 305649288,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxCasinoRoyale/Climax-casinoRoyale.mp4"
+        },
+        {
+          "archiveID": "ClimaxAnErrorInChemistry",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "An Error in Chemistry",
+          "overview": "A carnival huckster ingratiates himself with an elderly farmer and his naïve daughter; she soon falls for her new suitor and marries him, only to wind up dead shortly afterwards, the husband quick to confess.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1954-12-02",
+          "year": null,
+          "runtimeSeconds": 3562,
+          "videoFile": {
+            "name": "Climax-anErrorInChemistry.mp4",
+            "format": "h.264",
+            "sizeBytes": 369457151,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxAnErrorInChemistry/Climax-anErrorInChemistry.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "ClimaxTheAdventuresOfHuckleberryFinn",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "The Adventures of Huckleberry Finn",
+          "overview": "Huck and Jim once again embark on their adventure-filled trek down the Mississippi .",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1955-09-01",
+          "year": null,
+          "runtimeSeconds": 3547,
+          "videoFile": {
+            "name": "Climax-theAdventuresOfHuckleberryFinn.mp4",
+            "format": "h.264",
+            "sizeBytes": 359873111,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxTheAdventuresOfHuckleberryFinn/Climax-theAdventuresOfHuckleberryFinn.mp4"
+        },
+        {
+          "archiveID": "ClimaxPublicPigeon1",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Public Pigeon #1",
+          "overview": "Cafeteria worker Rusty is cheated by stock swindlers and winds up in jail, but the crooks have to break him out in order to recover their loot, which was stashed in Rusty's safety deposit box.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1955-09-08",
+          "year": null,
+          "runtimeSeconds": 3067,
+          "videoFile": {
+            "name": "Climax-publicPigeon1.mp4",
+            "format": "h.264",
+            "sizeBytes": 305556834,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxPublicPigeon1/Climax-publicPigeon1.mp4"
+        },
+        {
+          "archiveID": "ClimaxNightOfExecution",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Night of Execution",
+          "overview": "A mother watches her cruel and destructive husband continually expose their young son to all kinds of violence. Finally she feels she must take steps to save her son from this sinister influence.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1955-09-22",
+          "year": null,
+          "runtimeSeconds": 3561,
+          "videoFile": {
+            "name": "Climax-nightOfExecution.mp4",
+            "format": "h.264",
+            "sizeBytes": 365043824,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxNightOfExecution/Climax-nightOfExecution.mp4"
+        },
+        {
+          "archiveID": "ClimaxAPromiseToMurder",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "A Promise to Murder",
+          "overview": "At his wealthy aunt's insistence, a rising young London barrister submits to having his palm read. The prophecies come true with alarming accuracy.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1955-11-17",
+          "year": null,
+          "runtimeSeconds": 3562,
+          "videoFile": {
+            "name": "Climax-aPromiseToMurder.mp4",
+            "format": "h.264",
+            "sizeBytes": 354256356,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxAPromiseToMurder/Climax-aPromiseToMurder.mp4"
+        },
+        {
+          "archiveID": "ClimaxTheFifthWheel",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "The Fifth Wheel",
+          "overview": "Two sports-minded priests, off for a fishing holiday, become involved with thieves, a stolen car and stolen money!",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1956-02-09",
+          "year": null,
+          "runtimeSeconds": 3559,
+          "videoFile": {
+            "name": "Climax-theFifthWheel.mp4",
+            "format": "h.264",
+            "sizeBytes": 369393236,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxTheFifthWheel/Climax-theFifthWheel.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "ClimaxStrangeSanctuary",
+          "seasonNumber": 3,
+          "episodeNumber": 26,
+          "title": "Strange Sanctuary",
+          "overview": "In the old southwest, a pair of bank robbers must ride out after killing a man. They intend on eventually getting far away, but one seeks to reunite with his daughter in a nearby convent. When he is wounded in a gunfight, they end up hiding out there, though the men from town are a mob out for their blood,sanctuary or not.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1957-03-28",
+          "year": null,
+          "runtimeSeconds": 3156,
+          "videoFile": {
+            "name": "Climax-strangeSanctuary.mp4",
+            "format": "h.264",
+            "sizeBytes": 313947534,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxStrangeSanctuary/Climax-strangeSanctuary.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "ClimaxTrialByFire",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "Trial by Fire",
+          "overview": "A forest fire spreads with fury, threatens a town with destruction, and brands a boy a murderer.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1957-09-05",
+          "year": null,
+          "runtimeSeconds": 3587,
+          "videoFile": {
+            "name": "Climax-trialByFire.mp4",
+            "format": "h.264",
+            "sizeBytes": 357858173,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxTrialByFire/Climax-trialByFire.mp4"
+        },
+        {
+          "archiveID": "ClimaxKeepMeInMind",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "Keep Me in Mind",
+          "overview": "Publicity hungry, Las Vegas lounge singer, Mike Owens stages a hoax publicity stunt making the local police and his entourage furious with him, especially his press agent. And like the little boy who cried wolf, he discovers when he actually can identify a cop-killer, the cops and the newspapers and his press agent don't believe him. But the killer knows he isn't lying and determines to kill him next.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1957-11-07",
+          "year": null,
+          "runtimeSeconds": 3561,
+          "videoFile": {
+            "name": "Climax-keepMeInMind.mp4",
+            "format": "h.264",
+            "sizeBytes": 355976926,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxKeepMeInMind/Climax-keepMeInMind.mp4"
+        },
+        {
+          "archiveID": "ClimaxTheScreamInSilence",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "Scream in Silence",
+          "overview": "Medical student tries to help depressed neighbor.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1958-01-02",
+          "year": null,
+          "runtimeSeconds": 3569,
+          "videoFile": {
+            "name": "Climax-theScreamInSilence.mp4",
+            "format": "h.264",
+            "sizeBytes": 357044000,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxTheScreamInSilence/Climax-theScreamInSilence.mp4"
+        },
+        {
+          "archiveID": "ClimaxFoursHoursInWhite",
+          "seasonNumber": 4,
+          "episodeNumber": 21,
+          "title": "Four Hours in White",
+          "overview": "Trapped in a crossfire of human emotions, a hospital chief surgeon fights his own conscience to decide the fate of two men. He must weigh the possible sacrifice of one life for another. Drawing on years of experience, he defies the pressures of time and personal fear to face one crucial moment of judgment.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1958-02-06",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Climax-fourHoursInWhite.mp4",
+            "format": "h.264",
+            "sizeBytes": 354902786,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxFoursHoursInWhite/Climax-fourHoursInWhite.mp4"
+        },
+        {
+          "archiveID": "ClimaxTheVolcanoSeat",
+          "seasonNumber": 4,
+          "episodeNumber": 28,
+          "title": "The Volcano Seat",
+          "overview": "This true story involving the crew of an in-air refueling operation for Air Force bombers who take a training team on a dangerous mission.\n\nRAF Flight Lieutenant MacKenzie Barton is assigned to an American Air Force base as a result of an exchange of pilots between the RAF and the U.S. Air Force. Barton receives orders to pilot an Air Force tanker--a plane which is capable of refueling jet bombers in mid-air. But in trying to gain the confidence of the American crew members, Barton encounters only resentment. The story is based on an actual experience.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1958-04-10",
+          "year": null,
+          "runtimeSeconds": 3533,
+          "videoFile": {
+            "name": "Climax-theVolcanoSeat.mp4",
+            "format": "h.264",
+            "sizeBytes": 366777515,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxTheVolcanoSeat/Climax-theVolcanoSeat.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 16
+}

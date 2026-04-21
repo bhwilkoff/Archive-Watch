@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1970-1970",
+  "title": "1970",
+  "yearStart": 1970,
+  "yearEnd": 1970,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ABC1970",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ABC1970",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1970 ''Fall Preview Reel'' for ABC Television Network",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ABC1970",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1750,
+          "videoFile": {
+            "name": "ABCFallPreview1970.mp4",
+            "format": "h.264",
+            "sizeBytes": 172201507,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ABC1970/ABCFallPreview1970.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

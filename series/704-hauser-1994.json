@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "704-hauser-1994",
+  "title": "704 Hauser",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": "704 Hauser is an American sitcom that aired on CBS from April to May 1994. A spin-off of All in the Family, the series is built around the concept of a black family, the Cumberbatches, moving into the former Queens home of Archie Bunker years after Bunker had sold the house. The All in the Family character Joey Stivic, Archie's grandson, makes a cameo in the first episode.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/seZtoxIhjMg3aM1ZFWrN2UKduAs.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Norman Lear",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "704hauser_202404",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "704 Hauser (Season 1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/seZtoxIhjMg3aM1ZFWrN2UKduAs.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E01- Meet the Cumberbatchs.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 129363023,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/704hauser_202404/S01E01- Meet the Cumberbatchs.ia.mp4"
+        },
+        {
+          "archiveID": "704-hauser-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "704 Hauser - Maura Tierney, John Amos",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/seZtoxIhjMg3aM1ZFWrN2UKduAs.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "704 Hauser - 1.2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 709483517,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/704-hauser-1.1/704 Hauser - 1.2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

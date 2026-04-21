@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-home-court-1995",
+  "title": "The Home Court",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": "Sydney J. Solomon is a family-court judge and a divorced mother of four who tries to juggle her home and professional lives.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kf36PWsXvNLvbp4wdQrLa5yyYTK.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Denise Moss",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "home-court-1.20",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Home Court - Pamela Reed",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kf36PWsXvNLvbp4wdQrLa5yyYTK.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Home Court - 1.20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 951412389,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/home-court-1.20/Home Court - 1.20.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

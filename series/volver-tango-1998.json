@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "volver-tango-1998",
+  "title": "Volver Tango",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/volver-tango-osvaldo-pugliese-1998-1080p",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "volver-tango-el-cine-y-el-tango-1998-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Volver Tango - El Cine y el Tango (1998) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/volver-tango-el-cine-y-el-tango-1998-1080p",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Volver Tango - El Cine y el Tango (1998) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1998096874,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/volver-tango-el-cine-y-el-tango-1998-1080p/Volver Tango - El Cine y el Tango (1998) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "volver-tango-osvaldo-pugliese-1998-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Volver Tango - Osvaldo Pugliese (1998) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/volver-tango-osvaldo-pugliese-1998-1080p",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Volver Tango - Osvaldo Pugliese (1998) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1750590352,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/volver-tango-osvaldo-pugliese-1998-1080p/Volver Tango - Osvaldo Pugliese (1998) [1080p].mp4"
+        },
+        {
+          "archiveID": "volver-tango-tita-merello-1998-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Volver Tango - Tita Merello (1998) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/volver-tango-tita-merello-1998-1080p",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Volver Tango - Tita Merello (1998) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2053507823,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/volver-tango-tita-merello-1998-1080p/Volver Tango - Tita Merello (1998) [1080p].mp4"
+        },
+        {
+          "archiveID": "volver-tango-astor-piazzolla-1998-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Volver Tango: Astor Piazzolla (1998) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/volver-tango-astor-piazzolla-1998-1080p",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Volver Tango - Astor Piazzolla (Parte 2) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1856625458,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/volver-tango-astor-piazzolla-1998-1080p/Volver Tango - Astor Piazzolla (Parte 2) [1080p].ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

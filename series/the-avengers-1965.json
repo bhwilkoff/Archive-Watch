@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "seriesID": "the-avengers-1965",
+  "title": "The Avengers",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": "A quirky spy show of the adventures of eccentrically suave British Agent John Steed and his predominantly female partners. Jonathan Steed - an urbane, proper gentleman spy - teams with various assistants throughout the series' run, including Dr. David Keel, Cathy Gale, Emma Peel and Tara King, to repeatedly save the world from diabolical schemes plotted by equally diabolical evil-doers (among them robots and man-eating monsters).",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fQ4GHecDFEAmJcwc10zUrdIDLFd.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/AqZ48TMJRPCpbuy09S0RXFAhvFa.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Sydney Newman",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-avengers-s-4e-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Avengers - Complete Season 4 (24 Episodes) (restored, colorized) (1966, TV series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fQ4GHecDFEAmJcwc10zUrdIDLFd.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "the avengers s4e2.mp4",
+            "format": "h.264",
+            "sizeBytes": 431304534,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the avengers s4e2.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Avengers - Complete Season 5 (24 Episodes) (restored, in color) (1967, TV series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fQ4GHecDFEAmJcwc10zUrdIDLFd.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "the avengers-s5e12restored-720p-hd.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 360714400,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the avengers-s5e12restored-720p-hd.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "lic:0e7c1034428e",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "The Town of No Return",
+          "overview": "Four agents have vanished, looking for each other, in Little Bazeley-by-the-Sea.  Steed and Emma go in for the man who went in for the man who.... and meet the odd local landlord, blacksmith and vicar.  Are they more than they seem?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/6rFA9Rt9oFayV7AROEq8I3jj3K5.jpg",
+          "airDate": "1965-10-02",
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        },
+        {
+          "archiveID": "lic:559064ea0f0d",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "The Murder Market",
+          "overview": "What could an outbreak of motiveless murders have to do with the activities of a marriage bureau called Togetherness Inc.?  Well, think of Hitchcock's 'Strangers On A Train' and you'll be close.  Steed and Emma seek their ideal partners....",
+          "stillURL": "https://image.tmdb.org/t/p/w300/wndYCmbDiyQCEaTQMoEPM4yHMsg.jpg",
+          "airDate": "1965-11-13",
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

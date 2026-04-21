@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "man-with-a-camera-1958-1960-tv-1960",
+  "title": "Man with a Camera (1958-1960 TV",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/manwithacamera_202002",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "manwithacamera_202002",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man with a Camera (1958-1960 TV series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/manwithacamera_202002",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MAN WITH A CAMERA s01e04 Closeup On Violence.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 166803582,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/manwithacamera_202002/MAN WITH A CAMERA s01e04 Closeup On Violence.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "emergency-call-1991",
+  "title": "Emergency Call",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Emergency Call is an American informational reality-based television series that aired in syndication from 1991 to 1998.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "emergency-call-glendale-fd-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Emergency Call - Joseph Campanella",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Emergency Call - Glendale FD - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 171277404,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/emergency-call-glendale-fd-1991/Emergency Call - Glendale FD - 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

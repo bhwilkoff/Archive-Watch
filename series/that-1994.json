@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "that-1994",
+  "title": "That",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/thatsentertainmentgma71994",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "thatsentertainmentgma71994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "That's Entertainment April 1994 Episodes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/thatsentertainmentgma71994",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Entertainment.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 333251178,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thatsentertainmentgma71994/Saturday Entertainment.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

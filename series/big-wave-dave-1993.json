@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "big-wave-dave-1993",
+  "title": "Big Wave Dave",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "Big Wave Dave's is a sitcom that ran from August 9, 1993 until September 13, 1993. In it, three friends decide to drop everything and run a surf shop in Hawaii. When they arrive, they find out that it's not as easy as they thought. The show was produced by Levine & Isaacs Productions in association with Paramount Television.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/213/534170.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Ken Levine",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "big-wave-daves-1.5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Big Wave Dave's - Jane Kaczmarek, Adam Arkin",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/213/534170.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Big Wave Daves - 1.5.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 983029398,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/big-wave-daves-1.5/Big Wave Daves - 1.5.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

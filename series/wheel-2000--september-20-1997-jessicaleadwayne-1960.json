@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wheel-2000--september-20-1997-jessicaleadwayne-1960",
+  "title": "Wheel 2000- September 20, 1997 (Jessica/Lea/Dwayne",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Wheel2000September201997JessicaLeaDwayne",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Wheel2000September201997JessicaLeaDwayne",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wheel 2000- September 20, 1997 (Jessica/Lea/Dwayne)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Wheel2000September201997JessicaLeaDwayne",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wheel-2000-September-20_-1997-_Jessica-Lea-Dwayne_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 99925684,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Wheel2000September201997JessicaLeaDwayne/Wheel-2000-September-20_-1997-_Jessica-Lea-Dwayne_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

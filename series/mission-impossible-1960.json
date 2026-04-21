@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "mission-impossible-1960",
+  "title": "Mission Impossible",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Mission: Impossible is an American television series that was created and initially produced by Bruce Geller. It chronicles the missions of a team of secret government agents known as the Impossible Missions Force. In the first season, the team is led by Dan Briggs, played by Steven Hill; Jim Phelps, played by Peter Graves, takes charge for the remaining seasons. A hallmark of the series shows Briggs or Phelps receiving his instructions on a recording that then self-destructs, followed by the theme music composed by Lalo Schifrin.\n\nThe series aired on the CBS network from September 1966 to March 1973, then returned to television for two seasons on ABC, from 1988 to 1990, retaining only Graves in the cast. It later inspired a popular series of theatrical motion pictures starring Tom Cruise, beginning in 1996.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1PnUBKbDR1F2w5qicblLg1QGTif.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/com4DoP6rNkf1fs5KiuLPCRVK6V.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Bruce Geller",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "mission-impossible-1988-s-01-e-01-the-killer-sdtv",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Pilot",
+          "overview": "IMF team leader Dan Briggs assembles his team for the first time. The mission: to recover two nuclear warheads belonging to General Rio Dominguez from a hotel vault in Santa Costa. Jim and Willy sneak safecracker Terry Targo into the vault, who figures out how to get out. The team then captures Dominguez but Targo's fingers are broken in the attempt. With no other alternative, Briggs has himself and Dominguez put into the vault, and Briggs threatens to enter a random combination if Alicio doesn't tell him the code. Dominguez breaks. With the bombs defused, Willy takes the warheads out of the vault. Briggs remains behind and uses the information Targo gathered earlier to get out during a fireworks distraction set off by Barney. Briggs and the rest of the team make a desperate race for safety and get onto a plane heading to safety seconds before the military can catch up to them.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4ZTNwQSrZxaQfQX18myCFyay56G.jpg",
+          "airDate": "1966-09-17",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mission Impossible (1988) - S01E01 - The Killer - SDTV.mp4",
+            "format": "h.264",
+            "sizeBytes": 293156643,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mission-impossible-1988-s-01-e-01-the-killer-sdtv/Mission Impossible (1988) - S01E01 - The Killer - SDTV.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

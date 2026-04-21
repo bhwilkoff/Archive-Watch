@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "hudson-street--the-hit-parade-ep-6-2020",
+  "title": "Hudson Street- The Hit Parade (Ep. 6",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hudson-street-the-hit-parade-ep.-6-convert-video-online.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hudson-street-the-hit-parade-ep.-6-convert-video-online.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hudson Street- The Hit Parade (Ep. 6)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hudson-street-the-hit-parade-ep.-6-convert-video-online.com",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hudson Street- The Hit Parade (Ep. 6) (convert-video-online.com).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 314778584,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hudson-street-the-hit-parade-ep.-6-convert-video-online.com/Hudson Street- The Hit Parade (Ep. 6) (convert-video-online.com).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

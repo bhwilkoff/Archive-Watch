@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "seriesID": "our-miss-brooks-1955",
+  "title": "Our Miss Brooks",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": "Our Miss Brooks is an American situation comedy starring Eve Arden as a sardonic high school English teacher. It began as a radio show broadcast on CBS from 1948 to 1957. When the show was adapted to television, it became one of the medium's earliest hits. In 1956, the sitcom was adapted for big screen in the film of the same name.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OurMissBrooks-ThisIsYourPast",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Our Miss Brooks - This is Your Past",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "OurMissBrooks-ThisIsYourPast.mp4",
+            "format": "h.264",
+            "sizeBytes": 150067845,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OurMissBrooks-ThisIsYourPast/OurMissBrooks-ThisIsYourPast.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "OurMissBrooks-MadisonMascot",
+          "seasonNumber": 3,
+          "episodeNumber": 28,
+          "title": "Madison Mascot",
+          "overview": "Mr. Conklin thinks the school needs a new mascot and his wife breaks an elephant bookend. Due to a torn note Miss Brooks and Mr. Boynton misunderstand the situation and head to the circus to get the animal they believe has been selected.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+          "airDate": "1955-05-20",
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OurMissBrooks-MadisonMascot.mp4",
+            "format": "h.264",
+            "sizeBytes": 131501771,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OurMissBrooks-MadisonMascot/OurMissBrooks-MadisonMascot.mp4"
+        },
+        {
+          "archiveID": "OurMissBrooks-TheBigJump",
+          "seasonNumber": 3,
+          "episodeNumber": 29,
+          "title": "The Big Jump",
+          "overview": "Mr. Conklin gets his name in the paper by scheduling a safety jump from the school roof. However, when the day arrives for him to jump he gets cold feet, fakes an injury and then tries to get someone else at Madison to do the jump in his place. Suddenly all of the male teachers are injured in some way and it is up to Miss Brooks to jump or else!",
+          "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+          "airDate": "1955-05-27",
+          "year": 1955,
+          "runtimeSeconds": 1320,
+          "videoFile": {
+            "name": "OurMissBrooks-TheBigJump.mp4",
+            "format": "h.264",
+            "sizeBytes": 132902117,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OurMissBrooks-TheBigJump/OurMissBrooks-TheBigJump.mp4"
+        },
+        {
+          "archiveID": "OurMissBrooks-HomeCookedMeal",
+          "seasonNumber": 3,
+          "episodeNumber": 30,
+          "title": "Home Cooked Meal",
+          "overview": "Connie is going to cook a meal on Mr. Boynton's new stove to prove to him that she is the \"domestic type\" and enlists Mrs. Davis's help (since she can't cook). Little does she know that the stove isn't properly installed and soon the kitchen full of gas, and Mr. Conklin arrives with a stuffed-up nose and a box of matches to find his toolbox in the dark kitchen. You can guess what happens next!",
+          "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+          "airDate": "1955-06-03",
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OurMissBrooks-HomeCookedMeal.mp4",
+            "format": "h.264",
+            "sizeBytes": 150315457,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OurMissBrooks-HomeCookedMeal/OurMissBrooks-HomeCookedMeal.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

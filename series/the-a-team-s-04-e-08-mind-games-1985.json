@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-a-team-s-04-e-08-mind-games-1985",
+  "title": "The A Team S 04 E 08 Mind Games",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-a-team-s-04-e-08-mind-games",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-a-team-s-04-e-08-mind-games",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The A Team S 04 E 08 Mind Games",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-a-team-s-04-e-08-mind-games",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The A-Team S04E08 Mind Games.mp4",
+            "format": "h.264",
+            "sizeBytes": 281337413,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-a-team-s-04-e-08-mind-games/The A-Team S04E08 Mind Games.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

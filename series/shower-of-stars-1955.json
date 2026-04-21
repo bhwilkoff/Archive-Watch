@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "seriesID": "shower-of-stars-1955",
+  "title": "Shower of Stars",
+  "yearStart": 1955,
+  "yearEnd": 1956,
+  "overview": "Shower of Stars is an American variety television series broadcast live in the United States from 1954 to 1958 by CBS. The series was broadcast in color which was a departure from the usual programming broadcast by CBS.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4fcXlj6SDll8mNehFuBZ02sKiGY.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ShowerofStars1November1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Shower of Stars'' - 1 November 1956",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4fcXlj6SDll8mNehFuBZ02sKiGY.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 3250,
+          "videoFile": {
+            "name": "Showerofstars-1November1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 337679688,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ShowerofStars1November1956/Showerofstars-1November1956.mp4"
+        },
+        {
+          "archiveID": "ShowerOfStars15December1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Shower of Stars'' - 16 February 1956",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4fcXlj6SDll8mNehFuBZ02sKiGY.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 3562,
+          "videoFile": {
+            "name": "ShowerOfStars15December1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 370334591,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ShowerOfStars15December1952/ShowerOfStars15December1955.mp4"
+        },
+        {
+          "archiveID": "ShowerOfStars17February1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Shower of Stars'' - 17 February 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4fcXlj6SDll8mNehFuBZ02sKiGY.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 3589,
+          "videoFile": {
+            "name": "ShowerOfStars17February1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 372392317,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ShowerOfStars17February1955/ShowerOfStars17February1955.mp4"
+        },
+        {
+          "archiveID": "showerOfStars-HighPitch",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Shower of Stars'' - High Pitch",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4fcXlj6SDll8mNehFuBZ02sKiGY.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 3558,
+          "videoFile": {
+            "name": "ShowerOfStars-HighPitch.mp4",
+            "format": "h.264",
+            "sizeBytes": 368543017,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/showerOfStars-HighPitch/ShowerOfStars-HighPitch.mp4"
+        },
+        {
+          "archiveID": "showerOfStars-TimeOutForGinger",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Shower of Stars'' - Time Out for Ginger",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4fcXlj6SDll8mNehFuBZ02sKiGY.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 3178,
+          "videoFile": {
+            "name": "ShowerOfStars-TimeOutforGinger.mp4",
+            "format": "h.264",
+            "sizeBytes": 327872571,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/showerOfStars-TimeOutForGinger/ShowerOfStars-TimeOutforGinger.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

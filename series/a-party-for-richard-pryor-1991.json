@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-party-for-richard-pryor-1991",
+  "title": "A Party For Richard Pryor",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/a-party-for-richard-pryor-1991",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "a-party-for-richard-pryor-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Party For Richard Pryor - Eddie Murphy",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/a-party-for-richard-pryor-1991",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A Party for Richard Pryor - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2853239364,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/a-party-for-richard-pryor-1991/A Party for Richard Pryor - 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

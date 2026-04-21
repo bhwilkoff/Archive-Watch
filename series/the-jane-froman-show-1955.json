@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "the-jane-froman-show-1955",
+  "title": "The Jane Froman Show",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheJaneFromanShow_201502",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheJaneFromanShow_201502",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Jane Froman Show'' - Final episode",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheJaneFromanShow_201502",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 752,
+          "videoFile": {
+            "name": "The Jane Froman Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 78247247,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheJaneFromanShow_201502/The Jane Froman Show.mp4"
+        },
+        {
+          "archiveID": "TheJaneFromanShowGraduationDay",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Jane Froman Show'' - Graduation Day",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheJaneFromanShowGraduationDay",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 732,
+          "videoFile": {
+            "name": "The Jane Froman Show - Graduation Day.mp4",
+            "format": "h.264",
+            "sizeBytes": 75967180,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheJaneFromanShowGraduationDay/The Jane Froman Show - Graduation Day.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

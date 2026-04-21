@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "free-spirit-198990-fantasy-sitcom-1989",
+  "title": "Free Spirit (1989–90) Fantasy Sitcom",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/free-spirit-1989-sitcom",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "free-spirit-1989-sitcom",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Free Spirit (1989–90) Fantasy Sitcom - Alyson Hannigan",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/free-spirit-1989-sitcom",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Free Spirit 1.14 Love and Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 341727111,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/free-spirit-1989-sitcom/Free Spirit 1.14 Love and Death.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

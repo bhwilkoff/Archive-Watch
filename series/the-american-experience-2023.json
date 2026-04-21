@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-american-experience-2023",
+  "title": "The American Experience",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": "TV's most-watched history series brings to life the compelling stories from our past that inform our understanding of the world today.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/YkcFBVYG6jvvHBRL1BxraAcOxh.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/9VvaU8b9oRDH6yzvzIIOLweCUvk.jpg",
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-american-experience-hearts-and-hands-s-1-e-12",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Hearts and Hands",
+          "overview": "The design and art of quilting yields intimate clues about the lives of 19th century women, who stitched their personal and political stories into these artifacts of history.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/YkcFBVYG6jvvHBRL1BxraAcOxh.jpg",
+          "airDate": "1988-12-20",
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The American Experience- Hearts and Hands (S1E12).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1027026168,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-american-experience-hearts-and-hands-s-1-e-12/The American Experience- Hearts and Hands (S1E12).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

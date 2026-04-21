@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "fragment-from-1960",
+  "title": "Fragment from",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ArthurGodfreyTime2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ArthurGodfreyTime2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fragment from ''Arthur Godfrey Time''",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ArthurGodfreyTime2",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 866,
+          "videoFile": {
+            "name": "ArthurGodfreyTime2.mp4",
+            "format": "h.264",
+            "sizeBytes": 90351865,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ArthurGodfreyTime2/ArthurGodfreyTime2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

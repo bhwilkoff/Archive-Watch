@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "the-jonathan-winters-show-1957",
+  "title": "The Jonathan Winters Show",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/jonathanwinters",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "jonathanwinters",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Jonathan Winters Show'' - 16 April 1957",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jonathanwinters",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 867,
+          "videoFile": {
+            "name": "jonathanwinters.mp4",
+            "format": "h.264",
+            "sizeBytes": 90165490,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jonathanwinters/jonathanwinters.mp4"
+        },
+        {
+          "archiveID": "jonathanwinters_201503",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Jonathan Winters Show'' - 26 February 1957",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jonathanwinters_201503",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 848,
+          "videoFile": {
+            "name": "jonathanwinters.mp4",
+            "format": "h.264",
+            "sizeBytes": 88350792,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jonathanwinters_201503/jonathanwinters.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

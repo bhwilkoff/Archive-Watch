@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-super-dave-osborne-show-1960",
+  "title": "The Super Dave Osborne Show",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/56/140544.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-super-dave-osborne-show",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Super Dave Osborne Show",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/56/140544.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Super Dave Osborne Show/The Super Dave Osborne Show - Season 3/The Super Dave Osborne Show - S03E22.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 181620655,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-super-dave-osborne-show/The Super Dave Osborne Show/The Super Dave Osborne Show - Season 3/The Super Dave Osborne Show - S03E22.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

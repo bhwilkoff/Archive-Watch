@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "catch-a-rising-star-50th-anniversary-1996",
+  "title": "Catch A Rising Star 50th Anniversary",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/catch-a-rising-star-50th-anniversary-1996",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "catch-a-rising-star-50th-anniversary-1996",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Catch A Rising Star 50th Anniversary - Rosie O'Donnell",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/catch-a-rising-star-50th-anniversary-1996",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Catch A Rising Star 50th Anniversary - 1996.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1212921625,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/catch-a-rising-star-50th-anniversary-1996/Catch A Rising Star 50th Anniversary - 1996.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

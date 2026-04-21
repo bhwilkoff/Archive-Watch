@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "some-old-gasoline-and-auto-engine-additive-commercials-1960",
+  "title": "Some Old Gasoline and Auto Engine Additive Commercials",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SomeOldGasolineAndAutoEngineAdditiveCommercials",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SomeOldGasolineAndAutoEngineAdditiveCommercials",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Some Old Gasoline and Auto Engine Additive Commercials",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SomeOldGasolineAndAutoEngineAdditiveCommercials",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1242,
+          "videoFile": {
+            "name": "AssortedGasolineAndEngineAdditiveCommercials_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 89626312,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SomeOldGasolineAndAutoEngineAdditiveCommercials/AssortedGasolineAndEngineAdditiveCommercials_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

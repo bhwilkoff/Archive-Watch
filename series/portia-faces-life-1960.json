@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "portia-faces-life-1960",
+  "title": "Portia Faces Life",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Portia Faces Life was heard on radio from 1940 to 1970, and this soap opera was also telecast for a single season in the mid-1950s. It began in syndication on April 1, 1940, and was broadcast on some stations that carried NBC programs, although it does not seem to have been an official part of that network's programming. The original title was Portia Blake Faces Life.\n\nThe program starred veteran radio actress Lucille Wall, who had been on Your Family and Mine and other radio dramas since the mid-1920s. Stations airing the series included WNAC in Boston, WLS in Chicago, KRLD in Dallas, KGW in Portland, Oregon and KFI in Los Angeles, according to newspaper advertisements. On October 7, 1940, the program became part of the CBS Radio Network, and its title was changed to Portia Faces Life at that point. It was sponsored by General Foods.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PortiaFacesLife",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Portia Faces Life",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TvSoapOpera-PortiaFacesLife7-07-54.mp4",
+            "format": "h.264",
+            "sizeBytes": 81972326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PortiaFacesLife/TvSoapOpera-PortiaFacesLife7-07-54.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

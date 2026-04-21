@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "hot-country-nights-1991",
+  "title": "Hot Country Nights",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Hot Country Nights is an American television series which presented country music acts performing their biggest hits. The series aired on NBC from November 1991 to March 1992.\n\nEach episode featured between four to six singing acts, including established stars, up-and-comers and a veteran star. A featured comedian would also perform between acts. Some of the comedians who appeared included Tim Allen and Jeff Dunham.\n\nThe first broadcast featured Alabama, Clint Black, K.T. Oslin, Kenny Rogers and Pam Tillis.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hot-country-nights-suzy-bogguss-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hot Country Nights - Merle Haggard, Suzy Bogguss",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hot Country Nights - Suzy Bogguss - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 934843256,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hot-country-nights-suzy-bogguss-1991/Hot Country Nights - Suzy Bogguss - 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

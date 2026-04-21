@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "12244-the-awful-truth-about-society-24-25-1994",
+  "title": "12244 The Awful Truth About Society # 24 25",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/12244-the-awful-truth-about-society-24-25",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "12244-the-awful-truth-about-society-24-25",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "12244 The Awful Truth About Society # 24 25",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/12244-the-awful-truth-about-society-24-25",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "12244 The Awful Truth About Society #24-25.mp4",
+            "format": "h.264",
+            "sizeBytes": 680843644,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/12244-the-awful-truth-about-society-24-25/12244 The Awful Truth About Society #24-25.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

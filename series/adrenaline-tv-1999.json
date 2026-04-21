@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "adrenaline-tv-1999",
+  "title": "Adrenaline TV",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/adrenaline-tv-jackson-hole-1999",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "adrenaline-tv-jackson-hole-1999",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Adrenaline TV - Dana West",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/adrenaline-tv-jackson-hole-1999",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Adrenaline TV - Jackson Hole - 1999.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 737711491,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/adrenaline-tv-jackson-hole-1999/Adrenaline TV - Jackson Hole - 1999.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-big-bounce-1960",
+  "title": "The Big Bounce",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Dragnet_S05E12_-_The_Big_Bounce",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dragnet_S05E12_-_The_Big_Bounce",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Bounce",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Dragnet_S05E12_-_The_Big_Bounce",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dragnet_S05E12_-_The_Big_Bounce.mp4",
+            "format": "h.264",
+            "sizeBytes": 160838937,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dragnet_S05E12_-_The_Big_Bounce/Dragnet_S05E12_-_The_Big_Bounce.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

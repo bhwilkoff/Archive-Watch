@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-prairie-home-companion-with-garrison-keillor-april-26-1986-1960",
+  "title": "A Prairie Home Companion with Garrison Keillor (April 26, 1986",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/APrairieHomeCompanionWithGarrisonKeillorApril261986Pt.1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "APrairieHomeCompanionWithGarrisonKeillorApril261986Pt.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Prairie Home Companion with Garrison Keillor (April 26, 1986)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/APrairieHomeCompanionWithGarrisonKeillorApril261986Pt.1",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A-Prairie-Home-Companion-with-Garrison-Keillor-_April-26_-1986_-pt.-1_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 267014716,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/APrairieHomeCompanionWithGarrisonKeillorApril261986Pt.1/A-Prairie-Home-Companion-with-Garrison-Keillor-_April-26_-1986_-pt.-1_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

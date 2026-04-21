@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lu-ryden-tries-on-wigs-on-kntv-channel-11-circa-1965-1965",
+  "title": "Lu Ryden tries on wigs on KNTV Channel 11, circa 1965",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hsj2023-17_kntv_ryden_wigs_clip",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hsj2023-17_kntv_ryden_wigs_clip",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lu Ryden tries on wigs on KNTV Channel 11, circa 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hsj2023-17_kntv_ryden_wigs_clip",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "hsj2023-17_kntv_ryden_wigs_clip.mp4",
+            "format": "h.264",
+            "sizeBytes": 11404471,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hsj2023-17_kntv_ryden_wigs_clip/hsj2023-17_kntv_ryden_wigs_clip.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

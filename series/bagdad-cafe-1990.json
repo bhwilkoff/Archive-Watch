@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "bagdad-cafe-1990",
+  "title": "Bagdad Cafe",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "Bagdad Cafe is an American television sitcom starring Whoopi Goldberg and Jean Stapleton. The series premiered March 30, 1990 on CBS. The show is based on the 1987 Percy Adlon film Bagdad Cafe.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pYB2Oti1NlMUJL4Lgry5H3Vqrrh.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Percy Adlon",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bagdad-cafe-2.6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bagdad Cafe - Whoopi Goldberg, Jean Stapleton",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pYB2Oti1NlMUJL4Lgry5H3Vqrrh.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bagdad Cafe - 2.6.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 902930883,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bagdad-cafe-2.6/Bagdad Cafe - 2.6.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

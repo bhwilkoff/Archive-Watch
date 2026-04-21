@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "pearl-harbor-two-hours-that-changed-the-world-1991",
+  "title": "Pearl Harbor: Two Hours That Changed The World",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "pearl-harbor-two-hours-that-changed-the-world-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Pearl Harbor: Two Hours That Changed The World - David Brinkley",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Pearl Harbor - Two Hours That Changed The World - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1351805899,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/pearl-harbor-two-hours-that-changed-the-world-1991/Pearl Harbor - Two Hours That Changed The World - 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

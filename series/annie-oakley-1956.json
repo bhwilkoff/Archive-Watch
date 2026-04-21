@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "annie-oakley-1956",
+  "title": "Annie Oakley",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": "Annie Oakley was an American Western television series that fictionalized the life of famous sharpshooter Annie Oakley. It ran from January 1954 to February 1957 in syndication, for a total of 81 black and white episodes, each 25 minutes long. ABC showed reruns on Saturday and Sunday daytime from 1959 to 1960 and from 1964 to 1965.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/ovUZ1545CqMw5LnQZoars7RxDzM.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AnnieOakleySanta",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Annie Oakley'' - Santa Claus Wears a Gun",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1575,
+          "videoFile": {
+            "name": "annieoakleysanta.mp4",
+            "format": "h.264",
+            "sizeBytes": 163572598,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AnnieOakleySanta/annieoakleysanta.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

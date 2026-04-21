@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "cbs-storybreak-1985",
+  "title": "CBS Storybreak",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": "Hosted by Captain Kangaroo's Bob Keeshan, the episodes are half-hour animated adaptations of some of the most beloved children's books published at the time of airing, including How to Eat Fried Worms. Other episodes included Dragon's Blood and Ratha's Creature.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/bipFBeaou8MK1UBSDSc6ugNS5uk.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "cbs-storybreak-16",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Roquefort Gang",
+          "overview": "Three street-smart mice are stymied by an evil cat as they try to rescue twin mice who disappeared in the perilous Windberry Lot.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/bipFBeaou8MK1UBSDSc6ugNS5uk.jpg",
+          "airDate": "1985-11-02",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CBS Storybreak - 2-6.mp4",
+            "format": "h.264",
+            "sizeBytes": 139636387,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cbs-storybreak-16/CBS Storybreak - 2-6.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

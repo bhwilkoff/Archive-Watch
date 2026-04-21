@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "arts-entertainment-revue-march-13-1992-1960",
+  "title": "Arts & Entertainment Revue (March 13, 1992",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AERevueMarch131992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AERevueMarch131992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Arts & Entertainment Revue (March 13, 1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AERevueMarch131992",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A_E-Revue-March-13_-1992.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 204641185,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AERevueMarch131992/A_E-Revue-March-13_-1992.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

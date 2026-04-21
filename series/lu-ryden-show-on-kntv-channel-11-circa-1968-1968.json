@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lu-ryden-show-on-kntv-channel-11-circa-1968-1968",
+  "title": "Lu Ryden Show on KNTV Channel 11 (circa 1968",
+  "yearStart": 1968,
+  "yearEnd": 1968,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hsj2023-17-kntv_ryden_set_montage_dialfordollars",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hsj2023-17-kntv_ryden_set_montage_dialfordollars",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lu Ryden Show on KNTV Channel 11 (circa 1968)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hsj2023-17-kntv_ryden_set_montage_dialfordollars",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2023-17_kntv_ryden_set_montage_dialfordollars.mp4",
+            "format": "h.264",
+            "sizeBytes": 9192976,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hsj2023-17-kntv_ryden_set_montage_dialfordollars/2023-17_kntv_ryden_set_montage_dialfordollars.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

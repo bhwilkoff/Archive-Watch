@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "bakersfield-pd-1993",
+  "title": "Bakersfield P.D",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "Bakersfield P.D. is a short-lived American television comedy series that aired on the Fox network in 1993-94.\n\nThe show was based in the police department of the city of Bakersfield, California. It was shot with naturalistic lighting and without a laugh track. Fox canceled the show after one season, citing low ratings.\n\nThe cable channel Trio reran the show under its \"Brilliant But Cancelled\" umbrella.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/yVf9iACvTnJ8dQY0XRdl4G9eA4r.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/fqyBZ4UQKSyZYHNDcBz8ecwNWlv.jpg",
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bakersfield-pd-1.03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bakersfield P.D. - Giancarlo Esposito, Ron Eldard",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yVf9iACvTnJ8dQY0XRdl4G9eA4r.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bakersfield PD - 1.03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1051120173,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bakersfield-pd-1.03/Bakersfield PD - 1.03.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

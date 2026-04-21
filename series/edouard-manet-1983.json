@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "edouard-manet-1983",
+  "title": "Edouard Manet",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/EdouardManetPainterOfModernLife1983",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "EdouardManetPainterOfModernLife1983",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Edouard Manet: Painter of Modern Life (1983)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/EdouardManetPainterOfModernLife1983",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Edouard-Manet-Painter-of-Modern-Life-_1983_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 126526096,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/EdouardManetPainterOfModernLife1983/Edouard-Manet-Painter-of-Modern-Life-_1983_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

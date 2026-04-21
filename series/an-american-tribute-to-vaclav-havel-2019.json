@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "an-american-tribute-to-vaclav-havel-2019",
+  "title": "An American Tribute To Vaclav Havel",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/anamericantributetovaclavhavel1990convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "anamericantributetovaclavhavel1990convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "An American Tribute To Vaclav Havel (1990)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/anamericantributetovaclavhavel1990convertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "An American Tribute to Vaclav Havel (1990) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 253963545,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/anamericantributetovaclavhavel1990convertvideoonline.com/An American Tribute to Vaclav Havel (1990) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

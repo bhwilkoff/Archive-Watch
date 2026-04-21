@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "general-hospital--february-25-1981-partial-2025",
+  "title": "General Hospital- February 25, 1981 (partial",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/general-hospital-february-25-1981-partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "general-hospital-february-25-1981-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "General Hospital- February 25, 1981 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/general-hospital-february-25-1981-partial",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "General Hospital- February 25, 1981 (partial).mp4",
+            "format": "h.264",
+            "sizeBytes": 101804927,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/general-hospital-february-25-1981-partial/General Hospital- February 25, 1981 (partial).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

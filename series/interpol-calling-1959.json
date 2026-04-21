@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "interpol-calling-1959",
+  "title": "Interpol Calling",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": "The adventures of Interpol policemen Duval and Mornay as they fought against international drug-running, homicide, robbery and forgery.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/q5Rcq91pMF7sqyxb6OnSzWw6tCb.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qgm6TuMWoTOO0aSGwCoN4GsDfgv.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Leonard Fincham",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "interpol-calling-s-01-e-14-the-mans-a-clown",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Interpol Calling Series 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/q5Rcq91pMF7sqyxb6OnSzWw6tCb.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Interpol Calling - S01E14 - The Man's a Clown.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 323515981,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/interpol-calling-s-01-e-14-the-mans-a-clown/Interpol Calling - S01E14 - The Man's a Clown.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

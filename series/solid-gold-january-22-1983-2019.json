@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "solid-gold-january-22-1983-2019",
+  "title": "Solid Gold (January 22, 1983",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SolidGoldJanuary221983",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SolidGoldJanuary221983",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Solid Gold (January 22, 1983)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SolidGoldJanuary221983",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Solid-Gold-_January-22_-1983_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 179847509,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SolidGoldJanuary221983/Solid-Gold-_January-22_-1983_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

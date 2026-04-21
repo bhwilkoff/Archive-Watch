@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "introducing-sunnyvale-educational-television-1995",
+  "title": "Introducing Sunnyvale Educational Television",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/se-tv",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "se-tv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Introducing Sunnyvale Educational Television",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/se-tv",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "SE-TV.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 458613781,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/se-tv/SE-TV.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "water-birth-2023",
+  "title": "Water, Birth",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/water-birth-the-planet-earth-1984-1986-pbs-broadcast",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "water-birth-the-planet-earth-1984-1986-pbs-broadcast",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Water, Birth: The Planet Earth (1984, 1986 PBS Broadcast)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/water-birth-the-planet-earth-1984-1986-pbs-broadcast",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Water Birth The Planet Earth (1984, 1986 PBS broadcast).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1441652562,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/water-birth-the-planet-earth-1984-1986-pbs-broadcast/Water Birth The Planet Earth (1984, 1986 PBS broadcast).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

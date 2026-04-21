@@ -1,0 +1,399 @@
+{
+  "version": 1,
+  "seriesID": "compilation-of-classic-tv-footage-2011",
+  "title": "Compilation of Classic TV Footage",
+  "yearStart": 2011,
+  "yearEnd": 2012,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/CompilationOfClassicTvFootage",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "CompilationOfClassicTvFootage",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Compilation of Classic TV Footage - Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage",
+          "airDate": null,
+          "year": 2011,
+          "runtimeSeconds": 1296,
+          "videoFile": {
+            "name": "CompilationOfClassicTvFootage.mp4",
+            "format": "h.264",
+            "sizeBytes": 133909713,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage/CompilationOfClassicTvFootage.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Part2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Compilation of Classic TV Footage - Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Part2",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 1308,
+          "videoFile": {
+            "name": "CompilationofClassicTVFootagePart2.mp4",
+            "format": "h.264",
+            "sizeBytes": 134876424,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Part2/CompilationofClassicTVFootagePart2.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Part3",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Compilation of Classic TV Footage - Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Part3",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 1464,
+          "videoFile": {
+            "name": "CompilationofClassicTVFootagePart3.mp4",
+            "format": "h.264",
+            "sizeBytes": 151942748,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Part3/CompilationofClassicTVFootagePart3.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode4",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Compilation of Classic TV Footage - Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode4",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 1798,
+          "videoFile": {
+            "name": "CompilationofClassicTVFootagePart4.mp4",
+            "format": "h.264",
+            "sizeBytes": 185890401,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode4/CompilationofClassicTVFootagePart4.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode5",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Compilation of Classic TV Footage - Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode5",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 1378,
+          "videoFile": {
+            "name": "CompilationofClassicTVFootagePart5.mp4",
+            "format": "h.264",
+            "sizeBytes": 142375071,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode5/CompilationofClassicTVFootagePart5.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode6",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Compilation of Classic TV Footage - Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode6",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 1735,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart6.mp4",
+            "format": "h.264",
+            "sizeBytes": 179429230,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode6/CompilationOfClassicTVFootagePart6.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode7",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Compilation of Classic TV Footage - Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode7",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 1729,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart7.mp4",
+            "format": "h.264",
+            "sizeBytes": 178452668,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode7/CompilationOfClassicTVFootagePart7.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode8",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Compilation of Classic TV Footage - Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode8",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 1766,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart8.mp4",
+            "format": "h.264",
+            "sizeBytes": 181937025,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode8/CompilationOfClassicTVFootagePart8.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode9",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Compilation of Classic TV Footage - Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode9",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 1769,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart9.mp4",
+            "format": "h.264",
+            "sizeBytes": 182273838,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode9/CompilationOfClassicTVFootagePart9.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode10",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Compilation of Classic TV Footage - Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode10",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3555,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootage10.mp4",
+            "format": "h.264",
+            "sizeBytes": 367114700,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode10/CompilationOfClassicTVFootage10.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Compilation of Classic TV Footage - Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode11",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3588,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootage11.mp4",
+            "format": "h.264",
+            "sizeBytes": 371863439,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode11/CompilationOfClassicTVFootage11.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode12",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Compilation of Classic TV Footage - Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode12",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 1787,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootage12.mp4",
+            "format": "h.264",
+            "sizeBytes": 184921091,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode12/CompilationOfClassicTVFootage12.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode13",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Compilation of Classic TV Footage - Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode13",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 1686,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootage13.mp4",
+            "format": "h.264",
+            "sizeBytes": 175328448,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode13/CompilationOfClassicTVFootage13.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode14",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Compilation of Classic TV Footage - Episode 14",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode14",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3557,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootage14.mp4",
+            "format": "h.264",
+            "sizeBytes": 368447780,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode14/CompilationOfClassicTVFootage14.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode15",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Compilation of Classic TV Footage - Episode 15",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode15",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3552,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart15.mp4",
+            "format": "h.264",
+            "sizeBytes": 367192590,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode15/CompilationOfClassicTVFootagePart15.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode16",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Compilation of Classic TV Footage - Episode 16",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode16",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3560,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart16.mp4",
+            "format": "h.264",
+            "sizeBytes": 369128348,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode16/CompilationOfClassicTVFootagePart16.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode17",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Compilation of Classic TV Footage - Episode 17",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode17",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3268,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart17.mp4",
+            "format": "h.264",
+            "sizeBytes": 337613598,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode17/CompilationOfClassicTVFootagePart17.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode18",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Compilation of Classic TV Footage - Episode 18",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode18",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3594,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart18.mp4",
+            "format": "h.264",
+            "sizeBytes": 373079935,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode18/CompilationOfClassicTVFootagePart18.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode19",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Compilation of Classic TV Footage - Episode 19",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode19",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3093,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart19.mp4",
+            "format": "h.264",
+            "sizeBytes": 319687851,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode19/CompilationOfClassicTVFootagePart19.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode20comedy",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Compilation of Classic TV Footage - Episode 20 (Comedy)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode20comedy",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3482,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart20.mp4",
+            "format": "h.264",
+            "sizeBytes": 360046913,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode20comedy/CompilationOfClassicTVFootagePart20.mp4"
+        },
+        {
+          "archiveID": "compilationOfClassicTvFootage-Episode21",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Compilation of Classic TV Footage - Episode 21",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/compilationOfClassicTvFootage-Episode21",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3141,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart21.mp4",
+            "format": "h.264",
+            "sizeBytes": 324936834,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/compilationOfClassicTvFootage-Episode21/CompilationOfClassicTVFootagePart21.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 21
+}

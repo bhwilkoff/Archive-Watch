@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-krofft-superhow-1977",
+  "title": "The Krofft Superhow",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/174/435547.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "krofft-supershow-s-2-e-11",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "The Krofft Superhow S2 E11 (1977)",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/174/435547.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "KROFFT SUPERSHOW S2E11.mp4",
+            "format": "h.264",
+            "sizeBytes": 276051811,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/krofft-supershow-s-2-e-11/KROFFT SUPERSHOW S2E11.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

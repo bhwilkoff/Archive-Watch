@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "morton-hayes-1960",
+  "title": "Morton & Hayes",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Morton & Hayes was a short-lived comedy television series, shown Wednesday nights at 8:30 on CBS. Only six episodes were shown, from July 24 to August 28, 1991.\n\nThis series was centered around the \"rediscovered\" work of a fictitious comedy duo.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/se0Y037BZG2AyNFOXpH077kWibr.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qa1xX8MvirPKb2aHT23vgiGlwk2.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Rob Reiner",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "morton-hayes-s-01-e-01-daffy-dicks",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Morton & Hayes S01 1991",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/se0Y037BZG2AyNFOXpH077kWibr.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Morton & Hayes S01E02 - The Bride of Mummula.mp4",
+            "format": "h.264",
+            "sizeBytes": 141581607,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/morton-hayes-s-01-e-01-daffy-dicks/Morton & Hayes S01E02 - The Bride of Mummula.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

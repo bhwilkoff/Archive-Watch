@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "seriesID": "the-colgate-comedy-hour-1951",
+  "title": "The Colgate Comedy Hour",
+  "yearStart": 1951,
+  "yearEnd": 1955,
+  "overview": "The Colgate Comedy Hour is an American comedy-musical variety series that aired live on the NBC network from 1950 to 1955. The show starred many notable comedians and entertainers of the era, including Eddie Cantor, Dean Martin and Jerry Lewis, Fred Allen, Donald O'Connor, Bud Abbott and Lou Costello, Bob Hope, Jimmy Durante, Ray Bolger, Gordon MacRae, Ben Blue, Robert Paige, Tony Curtis, Burt Lancaster, Broadway dancer Wayne Lamb and Spike Jones and His City Slickers.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4QrmsUEZgIjzr64MpHprZYEChUN.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Fred Hamilton",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theColgateComedyHour-15May1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Colgate Comedy Hour'' - 15 May 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 3127,
+          "videoFile": {
+            "name": "ColgateComedyHour-15May1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 323411405,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theColgateComedyHour-15May1955/ColgateComedyHour-15May1955.mp4"
+        },
+        {
+          "archiveID": "theColgateComedyHour-19September1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Colgate Comedy Hour'' - 19 September 1954",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 2971,
+          "videoFile": {
+            "name": "ColgateComedyHour19September1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 308232678,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theColgateComedyHour-19September1954/ColgateComedyHour19September1954.mp4"
+        },
+        {
+          "archiveID": "TheColgateComedyHour2December1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Colgate Comedy Hour'' - 2 December 1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 3084,
+          "videoFile": {
+            "name": "The Colgate Comedy Hour - 2 December 1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 321019018,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheColgateComedyHour2December1951/The Colgate Comedy Hour - 2 December 1951.mp4"
+        },
+        {
+          "archiveID": "TheColgateComedyHour21October1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Colgate Comedy Hour'' - 21 October 1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 3046,
+          "videoFile": {
+            "name": "The Colgate Comedy Hour - 21 October 1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 317365450,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheColgateComedyHour21October1951/The Colgate Comedy Hour - 21 October 1951.mp4"
+        },
+        {
+          "archiveID": "ColgateComedyHour_AbbottCostello",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Colgate Comedy Hour - Abbott and Costello and Company",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/88/220476.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 2460,
+          "videoFile": {
+            "name": "Colgate_Comedy_Abbott_Costello_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 179955178,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ColgateComedyHour_AbbottCostello/Colgate_Comedy_Abbott_Costello_512kb.mp4"
+        },
+        {
+          "archiveID": "TheColgateComedyHour-1April1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Colgate Comedy Hour - 1 April 1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 3114,
+          "videoFile": {
+            "name": "ColgateComedyHour1April1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 323203572,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheColgateComedyHour-1April1951/ColgateComedyHour1April1951.mp4"
+        },
+        {
+          "archiveID": "ColgateComedyHour-20-January-1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Colgate Comedy Hour - 20 January 1952",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 3580,
+          "videoFile": {
+            "name": "Colgate1952EddieCantor.mp4",
+            "format": "h.264",
+            "sizeBytes": 372627970,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ColgateComedyHour-20-January-1952/Colgate1952EddieCantor.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "Colgate-Comedy-Hour-S6E1",
+          "seasonNumber": 6,
+          "episodeNumber": 1,
+          "title": "Martin & Lewis",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": "1955-09-18",
+          "year": 1955,
+          "runtimeSeconds": 3557,
+          "videoFile": {
+            "name": "ColgateComedyHourS6E1.mp4",
+            "format": "h.264",
+            "sizeBytes": 351438748,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Colgate-Comedy-Hour-S6E1/ColgateComedyHourS6E1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

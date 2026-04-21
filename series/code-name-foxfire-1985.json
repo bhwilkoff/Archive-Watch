@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "code-name-foxfire-1985",
+  "title": "Code Name: Foxfire",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": "An unorthodox trio of female government agents perform secret missions for the brother of the president of the United States.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1OBazL06FjgFx5G0tsPOHi7pVvT.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Bill Dial",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "code-name-foxfire-1.4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Code Name: Foxfire - Joanna Cassidy, Sheryl Lee Ralph",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1OBazL06FjgFx5G0tsPOHi7pVvT.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Code Name Foxfire - 1.5.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1462334972,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/code-name-foxfire-1.4/Code Name Foxfire - 1.5.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

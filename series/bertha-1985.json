@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "bertha-1985",
+  "title": "Bertha",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": "Bertha is a British stop motion-animated children's television series about a factory machine of that name, comprising 13 episodes that aired from 1985 to 1986. Other major characters in the series were Mr Willmake, Mr Sprott and Tracy. All the characters were designed by Ivor Wood, and the series was produced by his company, Woodland Animations. It was broadcast on BBC Television.\n\nA series of six storybooks based on Bertha was published by André Deutsch at the same time as the series was broadcast. They were adapted by Eric Charles and illustrated by Steve Augarde, who was also responsible for the artwork and music in the children's series Bump.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/44oayQkGuACBlTLbOM3667Fags9.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/rrut89p5DMVB9V03siRLee9IKWE.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One",
+    "BBC Two"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bertha-1985-4-episodes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bertha (1985) - 4 Episode compilation",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/44oayQkGuACBlTLbOM3667Fags9.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bertha (1985) - The Great Painting Job.mp4",
+            "format": "h.264",
+            "sizeBytes": 86781093,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bertha-1985-4-episodes/Bertha (1985) - The Great Painting Job.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

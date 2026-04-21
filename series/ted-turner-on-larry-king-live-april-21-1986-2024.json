@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ted-turner-on-larry-king-live-april-21-1986-2024",
+  "title": "Ted Turner on Larry King Live (April 21, 1986",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ted-turner-on-larry-king-live-april-21-1986",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ted-turner-on-larry-king-live-april-21-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ted Turner on Larry King Live (April 21, 1986)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ted-turner-on-larry-king-live-april-21-1986",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ted Turner on Larry King Live (April 21, 1986).mp4",
+            "format": "h.264",
+            "sizeBytes": 113086067,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ted-turner-on-larry-king-live-april-21-1986/Ted Turner on Larry King Live (April 21, 1986).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "seriesID": "knight-rider-1960",
+  "title": "Knight Rider",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Michael Long, an undercover police officer, is shot while investigating a case and left for dead by his assailants. He is rescued by Wilton Knight, a wealthy, dying millionaire and inventor who arranges life-saving surgery, including a new face and a new identity--that of Michael Knight. Michael is then given a special computerized and indestructible car called the Knight Industries Two Thousand (nicknamed KITT), and a mission: apprehend criminals who are beyond the reach of the law. The series depicts Michael's exploits as he and KITT battle the forces of evil on behalf of the Foundation for Law and Government.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/t57NXzTrwp5rnPXiaX4BThrDxt1.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/fmPo20ZTzxNketxL2jt6ZX6KSPi.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Glen A. Larson",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "knight.-rider.-s-01-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Knight of the Phoenix",
+          "overview": "When a young detective is ambushed in a failed police stakeout, he is believed to have been killed. In reality, he survives and learns that his face has been altered and his identity has been changed to Michael Knight. The man responsible for this is Wilton Knight, a dying billionaire who, convinced that one man can make a difference, has selected Michael for the role as a crime-fighter.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/dRg9Z0OjrVHBcTlxQecC10a3wnq.jpg",
+          "airDate": "1982-09-26",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Knight.Rider.S01E01E02.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 560164153,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-01-e-02.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E01E02.BluRay.1080p.AC3.H265-d3g.mp4"
+        },
+        {
+          "archiveID": "knight.-rider.-s-01-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Slammin' Sammy's Stunt Show Spectacular",
+          "overview": "Michael joins an auto-daredevil show whose owners unwittingly took out a second mortgage from a crook who arranges \"accidents\" so he can take over the business.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/fBM5cfUanuQVvaLnw69HnmGWeHK.jpg",
+          "airDate": "1982-10-22",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Knight.Rider.S01E05.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283778676,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E05.BluRay.1080p.AC3.H265-d3g.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "289355027",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Diamonds Aren't a Girl's Best Friend",
+          "overview": "Michael heads for Mexico to trap a talent agent who's using beautiful models to smuggle diamonds into the U.S.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/sgihXKkd2uR90COEXHo8CRHHIjo.jpg",
+          "airDate": "1984-01-15",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "289355027.mp4",
+            "format": "h.264",
+            "sizeBytes": 284071973,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/289355027/289355027.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "knight.-rider.-s-03-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Junk Yard Dog",
+          "overview": "Michael vows to nail the owner of a toxic-waste dump when KITT is nearly destroyed in an acid pit.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/5rWBUyJGM9m1HTqNeNHLvIsUco5.jpg",
+          "airDate": "1985-02-03",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Knight.Rider.S03E13.BluRay.1080p.AC3.H265-d3g.mp4",
+            "format": "h.264",
+            "sizeBytes": 283444840,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knight.-rider.-s-03-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S03E13.BluRay.1080p.AC3.H265-d3g.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

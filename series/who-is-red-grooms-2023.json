@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "who-is-red-grooms-2023",
+  "title": "Who Is Red Grooms",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/who-is-red-grooms-1985",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "who-is-red-grooms-1985",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Who Is Red Grooms (1985)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/who-is-red-grooms-1985",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Who Is Red Grooms (1985).mp4",
+            "format": "h.264",
+            "sizeBytes": 160281392,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/who-is-red-grooms-1985/Who Is Red Grooms (1985).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

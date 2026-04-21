@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "you-bet-your-life-1960",
+  "title": "You Bet Your Life",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "You Bet Your Life is an American quiz show that aired on both radio and television. The original and best-known version was hosted by Groucho Marx of the Marx Brothers, with announcer and assistant George Fenneman. The show debuted on ABC Radio in October 1947, then moved to CBS Radio in September 1949 before making the transition to NBC-TV in October 1950. Because of its simple format, it was possible to broadcast the show simultaneously on the radio and on television. In 1960, the show was renamed The Groucho Show and ran a further year. Most episodes are in the public domain.\n\nThe play of the game, however, was secondary to the interplay between Groucho, the contestants, and occasionally Fenneman. The program was rerun into the 1970s, and later in syndication as The Best of Groucho. As such, it was the first game show to have its reruns syndicated.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lyRfeIXMj3Bcyy3ich05kqpx4Th.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "You_Bet_Your_Life_Groucho",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"You Bet Your Life\" With Groucho Marx",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "You_Bet_Your_Life_Groucho_Marx.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 174039662,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/You_Bet_Your_Life_Groucho/You_Bet_Your_Life_Groucho_Marx.ia.mp4"
+        },
+        {
+          "archiveID": "Groucho_Marx_Water",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'You Bet Your Life' - Secret Word: Water",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Water_Groucho.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158521332,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Groucho_Marx_Water/Water_Groucho.ia.mp4"
+        },
+        {
+          "archiveID": "YouBetYourLife19591960Outtakes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "You Bet Your Life - 1959-1960 outtakes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 863,
+          "videoFile": {
+            "name": "You Bet Your Life - 1959-1960 outtakes.mp4",
+            "format": "h.264",
+            "sizeBytes": 90240376,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YouBetYourLife19591960Outtakes/You Bet Your Life - 1959-1960 outtakes.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

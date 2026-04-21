@@ -1,0 +1,195 @@
+{
+  "version": 1,
+  "seriesID": "tales-of-tomorrow-1951",
+  "title": "Tales of Tomorrow",
+  "yearStart": 1951,
+  "yearEnd": 1953,
+  "overview": "Tales of Tomorrow is an American anthology science fiction series that was performed and broadcast live on ABC from 1951 to 1953. The series covered such stories as Frankenstein, starring Lon Chaney, Jr., 20,000 Leagues Under the Sea starring Thomas Mitchell as Captain Nemo, and many others featuring such performers as Boris Karloff, Brian Keith, Lee J. Cobb, Rod Steiger, Bruce Cabot, Franchot Tone, Gene Lockhart, Walter Abel, Leslie Nielsen, and Paul Newman. The series had many similarities to the later Twilight Zone which also covered one of the same stories, \"What You Need\". In total it ran for eighty-five 30-minute episodes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "UpdateTalesOfTomorrow-AllTheTimeInTheWorld1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Tales of Tomorrow' - All the time in the world (1952)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ToT_All_time_in_world_NEW_06_13_52.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 197611001,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/UpdateTalesOfTomorrow-AllTheTimeInTheWorld1952/ToT_All_time_in_world_NEW_06_13_52.ia.mp4"
+        },
+        {
+          "archiveID": "talesOfTomorrow-Blunder1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Tales of Tomorrow' - Blunder (1951)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ToT_Blunder_08_10_1951.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198023946,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/talesOfTomorrow-Blunder1951/ToT_Blunder_08_10_1951.ia.mp4"
+        },
+        {
+          "archiveID": "talesOfTomorrow-TheLittleBlackBag1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Tales of Tomorrow' - The little black bag (1952)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ToT_Little_black_bag_05_30_52.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 199722347,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/talesOfTomorrow-TheLittleBlackBag1952/ToT_Little_black_bag_05_30_52.ia.mp4"
+        },
+        {
+          "archiveID": "talesOfTomorrow-WhatYouNeed1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Tales of Tomorrow' - What you need (1952)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ToT_What_you_need_02_08_52.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 199457995,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/talesOfTomorrow-WhatYouNeed1952/ToT_What_you_need_02_08_52.ia.mp4"
+        },
+        {
+          "archiveID": "talesOfTomorrowMiraculousSerum1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Tales of Tomorrow' Miraculous serum (1952)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ToT_Miraculous_serum_06_20_52.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 201366919,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/talesOfTomorrowMiraculousSerum1952/ToT_Miraculous_serum_06_20_52.ia.mp4"
+        },
+        {
+          "archiveID": "Tales_of_Tomorrow--Youth_on_Tap",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales of Tomorrow: Youth on Tap",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TalesOfTomorrow204_Youth_on_Tap.mp4",
+            "format": "h.264",
+            "sizeBytes": 117254591,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Tales_of_Tomorrow--Youth_on_Tap/TalesOfTomorrow204_Youth_on_Tap.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TalesOfTomorrow20000LeaguesUnderTheSeaTheChasePart1",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The Diamond Lens",
+          "overview": "Shortly before he is scheduled to go to the guillotine, a scientist confesses to a priest the fantastic reason why he committed murder to obtain the perfect diamond for use in a microscope.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": "1952-03-14",
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of Tomorrow - The Diamond Lens.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 194377584,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTomorrow20000LeaguesUnderTheSeaTheChasePart1/Tales of Tomorrow - The Diamond Lens.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "TalesOfTomorrowTombOfKingTarus",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "The Tomb of King Tarus",
+          "overview": "An archeologist discovers that an ancient king has been able to stay alive for centuries in a tomb deep beneath the Egyptian desert.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": "1952-10-31",
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of Tomorrow - Tomb of king Tarus.mp4",
+            "format": "h.264",
+            "sizeBytes": 140858766,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTomorrowTombOfKingTarus/Tales of Tomorrow - Tomb of king Tarus.mp4"
+        },
+        {
+          "archiveID": "Tales_of_Tomorrow--The_Spiders_Web",
+          "seasonNumber": 2,
+          "episodeNumber": 40,
+          "title": "The Spider's Web",
+          "overview": "Inhabitants of an island find themselves affected by atomic radiation.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/yBpGH6FkFZy8ciq4JU0wNkp4Bo5.jpg",
+          "airDate": "1953-05-22",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TalesOfTomorrow240_Spiders_Web.mp4",
+            "format": "h.264",
+            "sizeBytes": 146882594,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Tales_of_Tomorrow--The_Spiders_Web/TalesOfTomorrow240_Spiders_Web.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9
+}

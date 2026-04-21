@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "chicago-sons-1997",
+  "title": "Chicago Sons",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": "A bachelor pad overlooking Wrigley Field is home to the close-knit but usually bickering Kolchuk brothers.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/6GZ8wYEeosNKhk450zmMxsXX7p4.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/1DlRC9QfUIM2zMIaPGBW5EqH6OM.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Ed Decter",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "chicago-sons-1.13",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Chicago Sons - Paula Marshall, Jason Bateman",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/6GZ8wYEeosNKhk450zmMxsXX7p4.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Chicago Sons - 1.05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 702330365,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/chicago-sons-1.13/Chicago Sons - 1.05.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "the-alan-young-show-1950",
+  "title": "The Alan Young Show",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AlanYoung1950",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AlanYoung1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Alan Young Show'' - 18 April 1950",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanYoung1950",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1755,
+          "videoFile": {
+            "name": "AlanYoung18April1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 182495880,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanYoung1950/AlanYoung18April1950.mp4"
+        },
+        {
+          "archiveID": "AlanYoung-Retake",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Alan Young Show'' - Retake of Monica Lewis segment",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanYoung-Retake",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 254,
+          "videoFile": {
+            "name": "AlanYoungRe-take1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 26351808,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanYoung-Retake/AlanYoungRe-take1950.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

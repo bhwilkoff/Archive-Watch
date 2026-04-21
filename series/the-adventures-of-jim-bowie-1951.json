@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-adventures-of-jim-bowie-1951",
+  "title": "The Adventures Of Jim Bowie",
+  "yearStart": 1951,
+  "yearEnd": 1956,
+  "overview": "The Adventures of Jim Bowie is an American Western television series that aired on ABC from 1956 to 1958. Its setting was the 1830s-era Louisiana Territory. The series was an adaptation of the book Tempered Blade, by Monte Barrett. The series stars Scott Forbes as the real-life adventurer Jim Bowie. The series initially portrayed Jim Bowie as something of an outdoors-man, riding his horse through the wilderness near his home in Opelousas, where he would stumble across someone needing his assistance. He was aided by the Bowie Knife, his ever-present weapon. He designed it in the first episode, The Birth of the Blade.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/sNjQ6G2mHMVdCOzSik6QosvLIVn.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/h7WhB8QTpqZPzpVUURyYyV1YHGy.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheAdventuresOfJimBowieTheSquatter",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Adventures Of Jim Bowie'' - The Squatter",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sNjQ6G2mHMVdCOzSik6QosvLIVn.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 7516,
+          "videoFile": {
+            "name": "The Adventures of Jim Bowie - The Squatter.mp4",
+            "format": "h.264",
+            "sizeBytes": 157609437,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfJimBowieTheSquatter/The Adventures of Jim Bowie - The Squatter.mp4"
+        },
+        {
+          "archiveID": "jimbowie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures of Jim Bowie",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sNjQ6G2mHMVdCOzSik6QosvLIVn.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "the_adventures_of_jim_bowie__1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 145618317,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jimbowie/the_adventures_of_jim_bowie__1951.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

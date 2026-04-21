@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1990_elections__november_4__1990-1960",
+  "title": "1990_Elections__November_4__1990",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1990_Elections__November_4__1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1990_Elections__November_4__1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1990_Elections__November_4__1990",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1990_Elections__November_4__1990",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1990_Elections__November_4__1990.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 172832720,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1990_Elections__November_4__1990/1990_Elections__November_4__1990.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

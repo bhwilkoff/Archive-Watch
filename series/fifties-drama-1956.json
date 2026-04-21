@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "fifties-drama-1956",
+  "title": "Fifties Drama",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Dr_Hudson",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dr_Hudson",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fifties Drama: ''Dr Hudson's Secret Journal'' - Carlton's Story",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Dr_Hudson",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1569,
+          "videoFile": {
+            "name": "Dr_Hudson_1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159127989,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dr_Hudson/Dr_Hudson_1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

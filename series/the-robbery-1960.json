@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-robbery-1960",
+  "title": "The Robbery",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Andy_Griffith_The_Robbery",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Andy_Griffith_The_Robbery",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Robbery",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Andy_Griffith_The_Robbery",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robbery.mp4",
+            "format": "h.264",
+            "sizeBytes": 138395673,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Andy_Griffith_The_Robbery/Robbery.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

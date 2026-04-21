@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "twenty-questions-january-18-1952-1960",
+  "title": "Twenty Questions (January 18, 1952",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TwentyQuestionsjanuary181952",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TwentyQuestionsjanuary181952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Twenty Questions (January 18, 1952)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TwentyQuestionsjanuary181952",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1756,
+          "videoFile": {
+            "name": "Twenty_Questions_01_18_1952.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 249355294,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TwentyQuestionsjanuary181952/Twenty_Questions_01_18_1952.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

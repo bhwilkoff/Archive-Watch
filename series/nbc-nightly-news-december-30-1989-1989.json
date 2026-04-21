@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "nbc-nightly-news-december-30-1989-1989",
+  "title": "NBC Nightly News December 30, 1989",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/nbc-19891230",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "nbc-19891230",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "NBC Nightly News December 30, 1989",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/nbc-19891230",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NBC晚间新闻 19891230周末.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 153329744,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nbc-19891230/NBC晚间新闻 19891230周末.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

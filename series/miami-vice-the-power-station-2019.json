@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "miami-vice-the-power-station-2019",
+  "title": "Miami Vice The Power Station",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/miamivicethepowerstation",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "miamivicethepowerstation",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Miami Vice The Power Station",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/miamivicethepowerstation",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Miami Vice - The Power Station.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 21759955,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/miamivicethepowerstation/Miami Vice - The Power Station.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

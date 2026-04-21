@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-7th-annual-soap-opera-digest-awards-1991",
+  "title": "The 7th Annual Soap Opera Digest Awards",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/7th-soap-opera-digest-awards-1991",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "7th-soap-opera-digest-awards-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The 7th Annual Soap Opera Digest Awards - Robin Mattson, Kevin Dobson",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/7th-soap-opera-digest-awards-1991",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "7th Soap Opera Digest Awards - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 791465010,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/7th-soap-opera-digest-awards-1991/7th Soap Opera Digest Awards - 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

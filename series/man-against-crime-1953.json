@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "seriesID": "man-against-crime-1953",
+  "title": "Man against Crime",
+  "yearStart": 1953,
+  "yearEnd": 1956,
+  "overview": "Man Against Crime, one of the first television programs about private eyes, ran on CBS, the DuMont Television Network and NBC from October 7, 1949 to August 26, 1956. The show was created by Lawrence Klee and Paul Alter and was broadcast live until 1952. It was also directed by Paul Alter. The series was one of the few television programs ever to have been simulcast on more than one network: the program aired on both NBC and DuMont during the 1953-1954 television season.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS",
+    "DuMont Television Network",
+    "NBC"
+  ],
+  "creator": "Lawrence M. Klee",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Man_Against_Crime--Hide_and_Seek",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man Against Crime: Hide and Seek",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1585,
+          "videoFile": {
+            "name": "Man_Against_Crime--Hide_and_Seek.mp4",
+            "format": "h.264",
+            "sizeBytes": 165008162,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_Against_Crime--Hide_and_Seek/Man_Against_Crime--Hide_and_Seek.mp4"
+        },
+        {
+          "archiveID": "Man_Against_Crime--Washington_Story",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man Against Crime: Washington Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1545,
+          "videoFile": {
+            "name": "4-36_Washington_Story.mp4",
+            "format": "h.264",
+            "sizeBytes": 160718392,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_Against_Crime--Washington_Story/4-36_Washington_Story.mp4"
+        },
+        {
+          "archiveID": "Man_Against_Crime--High_Ambush",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man against Crime: High Ambush",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1535,
+          "videoFile": {
+            "name": "Man_Against_Crime--High_Ambush.mp4",
+            "format": "h.264",
+            "sizeBytes": 159136718,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_Against_Crime--High_Ambush/Man_Against_Crime--High_Ambush.mp4"
+        },
+        {
+          "archiveID": "Man_against_Crime--Missing_Cadet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man against Crime: The Missing Cadet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1572,
+          "videoFile": {
+            "name": "4-43_Missing_Cadet.mp4",
+            "format": "h.264",
+            "sizeBytes": 163267795,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_against_Crime--Missing_Cadet/4-43_Missing_Cadet.mp4"
+        },
+        {
+          "archiveID": "ManAgainstCrime08051956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man against crime (1956)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Man_against_crime_08_05_1956.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 247357331,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ManAgainstCrime08051956/Man_against_crime_08_05_1956.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "Man_against_Crime--Murder_in_the_Rough",
+          "seasonNumber": 5,
+          "episodeNumber": 5,
+          "title": "Murder In The Rough",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": "1953-11-08",
+          "year": 1953,
+          "runtimeSeconds": 1588,
+          "videoFile": {
+            "name": "5-05_Murder_in_the_Rough.mp4",
+            "format": "h.264",
+            "sizeBytes": 164813197,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_against_Crime--Murder_in_the_Rough/5-05_Murder_in_the_Rough.mp4"
+        },
+        {
+          "archiveID": "Follow_That_Man--Murder_Mountain",
+          "seasonNumber": 5,
+          "episodeNumber": 9,
+          "title": "Murder Mountain",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": "1953-12-06",
+          "year": 1953,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "5-09_Murder_Mountain.mp4",
+            "format": "h.264",
+            "sizeBytes": 159156275,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Follow_That_Man--Murder_Mountain/5-09_Murder_Mountain.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

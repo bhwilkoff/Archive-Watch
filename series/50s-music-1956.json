@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "50s-music-1956",
+  "title": "50's Music",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Standing_At_The_Corner_Jeice",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Standing_At_The_Corner_Jeice",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "50's Music: \"Standing at the Corner\", June 2 1956",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Standing_At_The_Corner_Jeice",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 154,
+          "videoFile": {
+            "name": "Standing_At_The_Corner.mp4",
+            "format": "h.264",
+            "sizeBytes": 14892783,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Standing_At_The_Corner_Jeice/Standing_At_The_Corner.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

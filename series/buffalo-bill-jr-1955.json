@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "buffalo-bill-jr-1955",
+  "title": "Buffalo Bill Jr",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": "Buffalo Bill, Jr. is an American Western television series starring Dickie Jones that aired in syndication from March 1, 1955, until September 21, 1956.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/aCPTsRcAxR5rwnzQgWCumPKATZP.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BuffaloBillJr-Firstposse1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Buffalo Bill Jr'' - First Posse",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/aCPTsRcAxR5rwnzQgWCumPKATZP.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "buffalobilljr-firstposse.mp4",
+            "format": "h.264",
+            "sizeBytes": 162866256,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BuffaloBillJr-Firstposse1955/buffalobilljr-firstposse.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

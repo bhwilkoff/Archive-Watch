@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "charlie-1976",
+  "title": "Charlie",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/347/869952.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "classiccharliesangels",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Charlie's Angels Theme (1976)",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/347/869952.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Charlie's Angels 1976 - 1981 Opening and Closing Theme.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 5444305,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/classiccharliesangels/Charlie's Angels 1976 - 1981 Opening and Closing Theme.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

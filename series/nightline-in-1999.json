@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "nightline-in-1999",
+  "title": "Nightline (in",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/nightline-19990414",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "nightline-19990414",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Nightline (incomplete - 14/04/1999)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/nightline-19990414",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "34 - Nightline - 14-04-1999 (incomplete).mp4",
+            "format": "h.264",
+            "sizeBytes": 72898751,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nightline-19990414/34 - Nightline - 14-04-1999 (incomplete).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

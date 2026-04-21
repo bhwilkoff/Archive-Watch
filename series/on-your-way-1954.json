@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "on-your-way-1954",
+  "title": "On your way",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": "On Your Way is an American game show that aired on the DuMont Television Network from September 9, 1953 to January 20, 1954 before moving to ABC from January 23 to April 17.\n\nThe series originated from New York City, and was sponsored by Welch's Family Wine.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "onYourWay1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'On your way' (1954)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "On_your_way_1954.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154925061,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/onYourWay1954/On_your_way_1954.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

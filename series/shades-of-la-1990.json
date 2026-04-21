@@ -1,0 +1,206 @@
+{
+  "version": 1,
+  "seriesID": "shades-of-la-1990",
+  "title": "Shades of L.A",
+  "yearStart": 1990,
+  "yearEnd": 1991,
+  "overview": "Shades of L.A. is an American crime drama television series that aired from October 10, 1990 until April 6, 1991. Det. Michael Burton of the Los Angeles Police Department is a casual cop until he finds himself in limbo after a bullet grazes his head. He finds himself surrounded by \"shades\" - spirits trapped between heaven and hell until they can complete any unfinished business on earth. Once resuscitated, he can still see the \"shades\" so goes about helping them.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/vhlGeVmUi89HX6rVp2txdiigkcl.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": "William Bleich",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "shades-of-la-10",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Shades of L.A. - 10: Dreams",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vhlGeVmUi89HX6rVp2txdiigkcl.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shades of LA - 10.mp4",
+            "format": "h.264",
+            "sizeBytes": 270560128,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shades-of-la-10/Shades of LA - 10.mp4"
+        },
+        {
+          "archiveID": "shades-of-la-20",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Shades of L.A. - 20: Line of Fire, Part II",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vhlGeVmUi89HX6rVp2txdiigkcl.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shades of LA - 20.mp4",
+            "format": "h.264",
+            "sizeBytes": 266265953,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shades-of-la-20/Shades of LA - 20.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "shades-of-la-03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Cooper's Coroner",
+          "overview": "A baseball announcer wants to make peace with the grown-up son of a former rival he framed for gambling.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vhlGeVmUi89HX6rVp2txdiigkcl.jpg",
+          "airDate": "1990-10-24",
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shades of LA - 03.mp4",
+            "format": "h.264",
+            "sizeBytes": 273642948,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shades-of-la-03/Shades of LA - 03.mp4"
+        },
+        {
+          "archiveID": "shades-of-la-05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Big Brother Is Watching",
+          "overview": "The murdered ventioloquist Sibling of one of Michael's friends returns to point out his killer.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vhlGeVmUi89HX6rVp2txdiigkcl.jpg",
+          "airDate": "1990-11-07",
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shades of LA - 05.mp4",
+            "format": "h.264",
+            "sizeBytes": 270701190,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shades-of-la-05/Shades of LA - 05.mp4"
+        },
+        {
+          "archiveID": "shades-of-la-06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Pointers From Paz",
+          "overview": "Prodded by a dead detective framed for corruption, Michael goes after the true crooked cop.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vhlGeVmUi89HX6rVp2txdiigkcl.jpg",
+          "airDate": "1990-11-14",
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shades of LA - 06.mp4",
+            "format": "h.264",
+            "sizeBytes": 271308999,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shades-of-la-06/Shades of LA - 06.mp4"
+        },
+        {
+          "archiveID": "shades-of-la-09",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Some Like It Cold",
+          "overview": "A touch and attractive lawyer on whom Michael had a crush falls in love with himâ€”but only after she's murdered.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vhlGeVmUi89HX6rVp2txdiigkcl.jpg",
+          "airDate": "1990-12-05",
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shades of LA - 09.mp4",
+            "format": "h.264",
+            "sizeBytes": 261789794,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shades-of-la-09/Shades of LA - 09.mp4"
+        },
+        {
+          "archiveID": "shades-of-la-11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Dead Dogs Tell No Tales",
+          "overview": "Michael helps Trudy, a dog accidentally killed while being used in a bank robberty, save her four pups from similar fates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vhlGeVmUi89HX6rVp2txdiigkcl.jpg",
+          "airDate": "1991-01-08",
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shades of LA - 11.mp4",
+            "format": "h.264",
+            "sizeBytes": 270269964,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shades-of-la-11/Shades of LA - 11.mp4"
+        },
+        {
+          "archiveID": "shades-of-la-13",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Last Laugh",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vhlGeVmUi89HX6rVp2txdiigkcl.jpg",
+          "airDate": "1991-01-22",
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shades of LA - 13.mp4",
+            "format": "h.264",
+            "sizeBytes": 270710843,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shades-of-la-13/Shades of LA - 13.mp4"
+        },
+        {
+          "archiveID": "shades-of-la-14",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Burial Ground",
+          "overview": "While returning a suspect to L.A., Michael helps a Nevada cop killed trying to stop an Indian Payroll Service robbery.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vhlGeVmUi89HX6rVp2txdiigkcl.jpg",
+          "airDate": "1991-01-29",
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shades of LA - 14.mp4",
+            "format": "h.264",
+            "sizeBytes": 271757878,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shades-of-la-14/Shades of LA - 14.mp4"
+        },
+        {
+          "archiveID": "shades-of-la-16",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Til Death Do Us Part",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vhlGeVmUi89HX6rVp2txdiigkcl.jpg",
+          "airDate": "1991-02-09",
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shades of LA - 16.mp4",
+            "format": "h.264",
+            "sizeBytes": 271570838,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shades-of-la-16/Shades of LA - 16.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 10
+}

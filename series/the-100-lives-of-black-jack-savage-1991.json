@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-100-lives-of-black-jack-savage-1991",
+  "title": "The 100 Lives of Black Jack Savage",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "The 100 Lives of Black Jack Savage is a television series broadcast in the United States by NBC and produced by Stephen J. Cannell Productions in association with Walt Disney Television. This show originated as a TV-movie. The program originally aired in 1991, but lasted less than one season. The series was officially titled Disney Presents The 100 Lives of Black Jack Savage.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/qEEY0Ue6yOZcFFNORSpMTAraOKx.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Glen Morgan",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-100-lives-of-black-jack-savage-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The 100 Lives of Black Jack Savage - Roma Downey, Daniel Hugh Kelly",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/qEEY0Ue6yOZcFFNORSpMTAraOKx.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The 100 Lives of Black Jack Savage - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2848733300,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-100-lives-of-black-jack-savage-1991/The 100 Lives of Black Jack Savage - 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

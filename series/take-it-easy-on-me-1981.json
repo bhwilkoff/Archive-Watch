@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "take-it-easy-on-me-1981",
+  "title": "Take It Easy On Me",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/littleriverband_202108",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "littleriverband_202108",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Take It Easy On Me - Little River Band (1981)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/littleriverband_202108",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Little River Band - Take It Easy On Me (Film CLIP) 1981.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 12331161,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/littleriverband_202108/Little River Band - Take It Easy On Me (Film CLIP) 1981.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

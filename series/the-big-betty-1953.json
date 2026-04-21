@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-big-betty-1953",
+  "title": "The Big Betty",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheBigBetty",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheBigBetty",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Betty",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheBigBetty",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "drag_ep051_09-24-53_The_Big_Betty.mp4",
+            "format": "h.264",
+            "sizeBytes": 156259787,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBigBetty/drag_ep051_09-24-53_The_Big_Betty.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

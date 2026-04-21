@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "geraldo-september-25-1989-2024",
+  "title": "Geraldo (September 25, 1989",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/geraldo-september-25-1989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "geraldo-september-25-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Geraldo (September 25, 1989)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/geraldo-september-25-1989",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Geraldo (September 25, 1989).mp4",
+            "format": "h.264",
+            "sizeBytes": 259774831,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/geraldo-september-25-1989/Geraldo (September 25, 1989).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

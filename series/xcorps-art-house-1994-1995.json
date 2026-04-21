@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "xcorps-art-house-1994-1995",
+  "title": "Xcorps Art House 1994",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/XcorpsArtHousePart4",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "XcorpsArtHousePart4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Xcorps Art House 1994 - pt. 4 – Nurf Bahl and Mary Dolan",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/XcorpsArtHousePart4",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "XcorpsArtHousePart4.mp4",
+            "format": "h.264",
+            "sizeBytes": 52585973,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/XcorpsArtHousePart4/XcorpsArtHousePart4.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

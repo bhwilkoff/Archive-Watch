@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "acme-school-of-stuff-1988",
+  "title": "Acme School Of Stuff",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": "The Acme School of Stuff is a half-hour Canadian children's television show which aired on TVOntario between September 1, 1988 and December 1, 1990. The Acme School of Stuff was hosted by its producer David Stringer. The show primarily consisted of theory of operation on a subject or certain item at the beginning, then a field trip to a plant in the middle and following another theory of operation on some other item or subject at the end.\n\nNotable features included:\n\n⁕A Rube Goldberg machine made from devices explained on the show, as an opening scene\n\n⁕Technical facts presented in a way understandable to school age children in a conversational manner\n\n⁕Breaking the fourth wall by use of camera and lighting effects, and audible comments by the TV crew\n\nMany of the episodes have been uploaded to YouTube under the acmeschool channel.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "TVOntario"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "acme-school-of-stuff-composites-piano-rolls-tire-alignment_20210713",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Acme School Of Stuff: Composites, Piano Rolls, & Tire Alignment",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Acme School of Stuff - Composites, Piano Rolls, & Tire Alignment.mp4",
+            "format": "h.264",
+            "sizeBytes": 140888090,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/acme-school-of-stuff-composites-piano-rolls-tire-alignment_20210713/Acme School of Stuff - Composites, Piano Rolls, & Tire Alignment.mp4"
+        },
+        {
+          "archiveID": "acme-toilets-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Acme School of Stuff - David Stringer",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Acme School of Stuff - Telephones - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 743818810,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/acme-toilets-1988/Acme School of Stuff - Telephones - 1988.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

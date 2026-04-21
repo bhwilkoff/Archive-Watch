@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "home-movies-3-5-1999",
+  "title": "Home Movies 3-5",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/20230725_20230725_0704",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "20230725_20230725_0704",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Home Movies 3-5 \"Fours Company\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/20230725_20230725_0704",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "yt5s.com-Home Movies - 3-5 - Fours Company-(480p)_chf3_alq13.mp4",
+            "format": "h.264",
+            "sizeBytes": 132059426,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/20230725_20230725_0704/yt5s.com-Home Movies - 3-5 - Fours Company-(480p)_chf3_alq13.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

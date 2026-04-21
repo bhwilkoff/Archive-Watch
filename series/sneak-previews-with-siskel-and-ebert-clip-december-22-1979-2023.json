@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sneak-previews-with-siskel-and-ebert-clip-december-22-1979-2023",
+  "title": "Sneak Previews with Siskel and Ebert clip (December 22, 1979",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sneak-previews-with-siskel-and-ebert-clip-december-22-1979",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sneak-previews-with-siskel-and-ebert-clip-december-22-1979",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sneak Previews with Siskel and Ebert clip (December 22, 1979)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sneak-previews-with-siskel-and-ebert-clip-december-22-1979",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sneak Previews with Siskel and Ebert clip (December 22, 1979).mp4",
+            "format": "h.264",
+            "sizeBytes": 57392877,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sneak-previews-with-siskel-and-ebert-clip-december-22-1979/Sneak Previews with Siskel and Ebert clip (December 22, 1979).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

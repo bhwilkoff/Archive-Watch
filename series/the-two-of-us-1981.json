@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-two-of-us-1981",
+  "title": "The Two Of Us",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/442/1106808.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-two-of-us-2.10",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Two Of Us - Dana Hill, Peter Cook",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/442/1106808.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Two of Us - 2.10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 682212173,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-two-of-us-2.10/The Two of Us - 2.10.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

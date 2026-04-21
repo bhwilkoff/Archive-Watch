@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "hullabaloo--february-14-1966-s2e22-2023",
+  "title": "Hullabaloo- February 14, 1966 (S2E22",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hullabaloo-february-14-1966-s-2-e-22",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "hullabaloo-february-14-1966-s-2-e-22",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Hullabaloo- February 14, 1966 (S2E22)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hullabaloo-february-14-1966-s-2-e-22",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hullabaloo- February 14, 1966 (S2E22).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 410090325,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hullabaloo-february-14-1966-s-2-e-22/Hullabaloo- February 14, 1966 (S2E22).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

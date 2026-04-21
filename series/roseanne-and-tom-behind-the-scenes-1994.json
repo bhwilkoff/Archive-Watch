@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "roseanne-and-tom-behind-the-scenes-1994",
+  "title": "Roseanne and Tom: Behind the Scenes",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/roseanne-and-tom-behind-the-scenes-1994",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "roseanne-and-tom-behind-the-scenes-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Roseanne and Tom: Behind the Scenes - Patrika Darbo, Stephen Lee",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/roseanne-and-tom-behind-the-scenes-1994",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Roseanne and Tom Behind the Scenes - 1994.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2025829562,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/roseanne-and-tom-behind-the-scenes-1994/Roseanne and Tom Behind the Scenes - 1994.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-andy-griffith-show-1963",
+  "title": "The Andy Griffith Show",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": "The Andy Griffith Show is an American sitcom first televised on CBS between October 3, 1960 and April 1, 1968. Andy Griffith portrays the widowed sheriff of the fictional small community of Mayberry, North Carolina. His life is complicated by an inept, but well-meaning deputy, Barney Fife, a spinster aunt and housekeeper, Aunt Bee, and a precocious young son, Opie. Local ne'er-do-wells, bumbling pals, and temperamental girlfriends further complicate his life. Andy Griffith stated in a Today Show interview, with respect to the time period of the show: \"Well, though we never said it, and though it was shot in the '60s, it had a feeling of the '30s. It was when we were doing it, of a time gone by.\"\n\nThe series never placed lower than seventh in the Nielsen ratings and ended its final season at number one. It has been ranked by TV Guide as the 9th-best show in American television history. Though neither Griffith nor the show won awards during its eight-season run, series co-stars Knotts and Bavier accumulated a combined total of six Emmy Awards. The show, a semi-spin-off from an episode of The Danny Thomas Show titled \"Danny Meets Andy Griffith\", spawned its own spin-off series, Gomer Pyle, U.S.M.C., a sequel series, Mayberry R.F.D., and a reunion telemovie, Return to Mayberry. The show's enduring popularity has generated a good deal of show-related merchandise. Reruns currently air on TV Land, and the complete series is available on DVD. All eight seasons are also now available by streaming video services such as Netflix.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3KvTKLH40z5zDMilg2lXqmOUrRy.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/szx8lk5wIv1jU3NpMBZVjjs96Fi.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Sheldon Leonard",
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "AndyGriffith_Opie-SpoiledKid_3D",
+          "seasonNumber": 3,
+          "episodeNumber": 21,
+          "title": "Opie and the Spoiled Kid",
+          "overview": "Opie's new friend Arnold is a spoiled brat used to getting his own way. He convinces Opie to try and get a raise in his allowance by throwing a temper tantrum, showing Andy that he must teach Arnold's father the importance of discipline before Opie picks up any more of Arnold's spoiled habits.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/vJlDfWQJGGevm5AwEiswYE174T2.jpg",
+          "airDate": "1963-02-18",
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AG_Opie-Spoiled-Kid_3d.mp4",
+            "format": "h.264",
+            "sizeBytes": 130920550,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AndyGriffith_Opie-SpoiledKid_3D/AG_Opie-Spoiled-Kid_3d.mp4"
+        },
+        {
+          "archiveID": "Andy-Griffith-Show_Andy-Discovers-America",
+          "seasonNumber": 3,
+          "episodeNumber": 23,
+          "title": "Andy Discovers America",
+          "overview": "Opie complains to Andy about how his new history teacher Ms. Crump is a mean old woman who likes to assign extra homework. Andy tells Opie it's not important if he doesn't know every answer, which leaves Opie believing history isn't important. Now Andy has to show Opie, and his class, how much history matters before Ms. Crump decides to quit.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/vWdRJn5UvgUOJz1C0vo7EixZe2D.jpg",
+          "airDate": "1963-03-04",
+          "year": 1963,
+          "runtimeSeconds": 1530,
+          "videoFile": {
+            "name": "AndyGriffithShow_AndyDiscoversAmerica.mp4",
+            "format": "h.264",
+            "sizeBytes": 151078423,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Andy-Griffith-Show_Andy-Discovers-America/AndyGriffithShow_AndyDiscoversAmerica.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

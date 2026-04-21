@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "stat-1991",
+  "title": "STAT",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Stat is an American television sitcom that aired from April 16, 1991 to May 21, 1991 on ABC on Tuesday night at 9:30pm Eastern Time.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/qm58X5SQqC6NB0WVjy53m1EtlWC.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3scIiihEeSXRhqMP7IHYEv7CAgz.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Chris Hayward",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "stat-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "STAT - Alison La Placa, Cynthia Lea Clark",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/qm58X5SQqC6NB0WVjy53m1EtlWC.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "STAT - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 194452590,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/stat-1.1/STAT - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

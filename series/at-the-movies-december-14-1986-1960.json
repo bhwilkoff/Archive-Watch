@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "at-the-movies-december-14-1986-1960",
+  "title": "At The Movies (December 14, 1986",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AtTheMoviesDecember141986",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AtTheMoviesDecember141986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "At The Movies (December 14, 1986)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AtTheMoviesDecember141986",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "At-The-Movies-_December-14_-1986_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 100545242,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AtTheMoviesDecember141986/At-The-Movies-_December-14_-1986_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

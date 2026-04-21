@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tatort-363-1996",
+  "title": "Tatort (363",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/5c-90a-2f-0-88c-0-413f-922b-7ea-23a-270e-57-hd-1080-avc-1080",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "5c-90a-2f-0-88c-0-413f-922b-7ea-23a-270e-57-hd-1080-avc-1080",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tatort (363): Mord hinterm Deich (1996/1997)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/5c-90a-2f-0-88c-0-413f-922b-7ea-23a-270e-57-hd-1080-avc-1080",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "5c90a2f0-88c0-413f-922b-7ea23a270e57_hd1080-avc1080.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 3237752588,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/5c-90a-2f-0-88c-0-413f-922b-7ea-23a-270e-57-hd-1080-avc-1080/5c90a2f0-88c0-413f-922b-7ea23a270e57_hd1080-avc1080.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

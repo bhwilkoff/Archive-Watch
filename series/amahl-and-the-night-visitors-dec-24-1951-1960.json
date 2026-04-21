@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "amahl-and-the-night-visitors-dec-24-1951-1960",
+  "title": "Amahl and the Night Visitors (Dec. 24, 1951",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AmahlNightVisitors12241951",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AmahlNightVisitors12241951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Amahl and the Night Visitors (Dec. 24, 1951)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AmahlNightVisitors12241951",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amahl_night_visitors_12_24_1951.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 461912424,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AmahlNightVisitors12241951/Amahl_night_visitors_12_24_1951.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

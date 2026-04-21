@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "3-hours-of-win-television-halfway-across-the-galaxy-and-turn-2020",
+  "title": "3 Hours Of WIN Television (Halfway Across The Galaxy And Turn Left, The Saddle Club",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/3-hours-of-win-television-halfway-across-the-galaxy-and-turn-left-the-saddle-club",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "3-hours-of-win-television-halfway-across-the-galaxy-and-turn-left-the-saddle-club",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "3 Hours Of WIN Television (Halfway Across The Galaxy And Turn Left, The Saddle Club)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/3-hours-of-win-television-halfway-across-the-galaxy-and-turn-left-the-saddle-club",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "3 hours of WIN Television (Halfway Across The Galaxy and Turn Left, The Saddle Club).mp4",
+            "format": "h.264",
+            "sizeBytes": 1067012617,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/3-hours-of-win-television-halfway-across-the-galaxy-and-turn-left-the-saddle-club/3 hours of WIN Television (Halfway Across The Galaxy and Turn Left, The Saddle Club).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

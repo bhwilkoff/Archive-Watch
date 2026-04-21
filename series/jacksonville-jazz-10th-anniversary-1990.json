@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jacksonville-jazz-10th-anniversary-1990",
+  "title": "Jacksonville Jazz 10th Anniversary",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/jacksonville-jazz-10th-anniversary-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "jacksonville-jazz-10th-anniversary-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jacksonville Jazz 10th Anniversary - Nancy Wilson",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jacksonville-jazz-10th-anniversary-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jacksonville Jazz 10th Anniversary - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1783516915,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jacksonville-jazz-10th-anniversary-1990/Jacksonville Jazz 10th Anniversary - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

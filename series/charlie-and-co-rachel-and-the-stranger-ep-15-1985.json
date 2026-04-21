@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "charlie-and-co-rachel-and-the-stranger-ep-15-1985",
+  "title": "Charlie And Co. Rachel And The Stranger ( Ep. 15",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/CharlieAndCo.RachelAndTheStrangerEp.15",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CharlieAndCo.RachelAndTheStrangerEp.15",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Charlie And Co. Rachel And The Stranger ( Ep. 15)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CharlieAndCo.RachelAndTheStrangerEp.15",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Charlie and Co.- Rachel and the Stranger (Ep. 15).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 107397291,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CharlieAndCo.RachelAndTheStrangerEp.15/Charlie and Co.- Rachel and the Stranger (Ep. 15).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "a-year-in-the-life-1987",
+  "title": "A Year In The Life",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": "Following the success of the three-part miniseries of the same name, the drama series follows the daily lives of Seattle's Gardner family. Joe Gardner is the owner of a successful plastics business and the father of four adult children. The Gardner family includes twice-divorced daughter Anne, who returns home with her two teenaged children; daughter Lindley and husband Jim, parents of a newborn baby daughter; black sheep son Jack; and conservative youngest son Sam, newly married to free-spirited Kay.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pSyyb5QxgSFmrgv1cwgn8hYSE0d.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/mhNTxugOdNofq1kxFSve4EhmebR.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Joshua Brand",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "a-year-in-the-life-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Year In The Life - Sarah Jessica Parker, David Oliver, Richard Kiley",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pSyyb5QxgSFmrgv1cwgn8hYSE0d.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A Year in the Life - 1.01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2627471651,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/a-year-in-the-life-1.01/A Year in the Life - 1.01.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

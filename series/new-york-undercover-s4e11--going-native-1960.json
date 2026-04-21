@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "new-york-undercover-s4e11--going-native-1960",
+  "title": "New York Undercover (S4E11- Going Native",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/NewYorkUndercoverS4E11GoingNative",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "NewYorkUndercoverS4E11GoingNative",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "New York Undercover (S4E11- Going Native)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/NewYorkUndercoverS4E11GoingNative",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "New-York-Undercover-_S4E11-Going-Native_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 203615824,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/NewYorkUndercoverS4E11GoingNative/New-York-Undercover-_S4E11-Going-Native_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

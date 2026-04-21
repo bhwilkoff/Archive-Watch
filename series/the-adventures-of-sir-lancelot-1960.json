@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "seriesID": "the-adventures-of-sir-lancelot-1960",
+  "title": "The Adventures of Sir Lancelot",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Adventures of Sir Lancelot is a British television series first broadcast in 1956, produced by Sapphire Films for ITC Entertainment and screened on the ITV network. The series starred William Russell as the eponymous Sir Lancelot, a Knight of the Round Table in the time of King Arthur at Camelot.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/gsJWXo09AsVVY71cEeIY3WJCmUK.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Leslie Pointon",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-TheKnightWithTheRedPlume_122",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Knight with the Red Plume",
+          "overview": "Sir Lancelot is challenged by the other knights before he can   become a member of King Arthur's Knights of the Round Table. He has to prove his worth and is put through a series of rigorous tests.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-09-15",
+          "year": null,
+          "runtimeSeconds": 1497,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-KnightWithTheRedPlume.mp4",
+            "format": "h.264",
+            "sizeBytes": 146214690,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-TheKnightWithTheRedPlume_122/TheAdventuresOfSirLancelot-KnightWithTheRedPlume.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-TheFerociousFathers",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Ferocious Fathers",
+          "overview": "Sir Lancelot goes to the rescue of Urgan the Strong, whose castle is    besieged by Sir Melius the Mighty and his two sons. Sir Lancelot drives    off the invaders, and Urgan offers his daughter Igrane in marriage to the    knight as a reward for his bravery.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-09-22",
+          "year": null,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-TheFerociousFathers.mp4",
+            "format": "h.264",
+            "sizeBytes": 148490194,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-TheFerociousFathers/TheAdventuresOfSirLancelot-TheFerociousFathers.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-QueensKnight",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Queen's Knight",
+          "overview": "Queen Guinevere is kidnapped by King Arthur's cousin, Sir Mordred. He and his father, King Pell, demand King Arthur's kingdom in exchange for the queen's life.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-09-29",
+          "year": null,
+          "runtimeSeconds": 1452,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-QueensKnight.mp4",
+            "format": "h.264",
+            "sizeBytes": 142356603,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-QueensKnight/TheAdventuresOfSirLancelot-QueensKnight.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-TheOutcast",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Outcast",
+          "overview": "When Sir Lancelot requests that his squire be trained to become a knight of the Round Table, he meets with considerable opposition.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-10-06",
+          "year": null,
+          "runtimeSeconds": 1522,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-TheOutcast.mp4",
+            "format": "h.264",
+            "sizeBytes": 149223346,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-TheOutcast/TheAdventuresOfSirLancelot-TheOutcast.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-WingedVictory",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Winged Victory",
+          "overview": "King Arthur entrusts Sir Lancelot with a secret battle plan   for Prince Boudwin. The Prince is besieged in his castle by King Mark and is badly in need of help. When Sir Lancelot and his squire Brian arrive to help they are captured and King Mark attempts to persuade them to reveal the secret information.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-10-13",
+          "year": null,
+          "runtimeSeconds": 1492,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-WingedVictory.mp4",
+            "format": "h.264",
+            "sizeBytes": 147324593,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-WingedVictory/TheAdventuresOfSirLancelot-WingedVictory.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-SirBliant",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Sir Bliant",
+          "overview": "Sir Bliant's three sons decide to break the truce King Arthur   arranged between their father and Sir Rolf. They carry Sir Rolf's three daughters away as hostages and the distraught father comes to King Arthur for aid.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-10-20",
+          "year": null,
+          "runtimeSeconds": 1494,
+          "videoFile": {
+            "name": "TheAdventureOfSirLancelot-SirBliant.mp4",
+            "format": "h.264",
+            "sizeBytes": 147414152,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-SirBliant/TheAdventureOfSirLancelot-SirBliant.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-ThePirates",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Pirates",
+          "overview": "King Arthur and his men set off to capture a band of pirates,   believing they are hiding out in a coastal town. Actually, the pirates are just waiting for them to leave so they can raid the castle.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-10-27",
+          "year": null,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "AdventuresOfSirLancelot-ThePirates.mp4",
+            "format": "h.264",
+            "sizeBytes": 149390561,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-ThePirates/AdventuresOfSirLancelot-ThePirates.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-TheMagicSword",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Magic Sword",
+          "overview": "A cowardly knight wants to rescue a lady who is imprisoned by her brother. He comes to King Arthur, for advice on how to become courageous. Merlin instills confidence in the young knight by lending him Sir Lancelot's weapon and telling him it is a magic sword.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-11-03",
+          "year": null,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-TheMagicSword.mp4",
+            "format": "h.264",
+            "sizeBytes": 149939523,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-TheMagicSword/TheAdventuresOfSirLancelot-TheMagicSword.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-LancelotsBanishment",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Lancelot's Banishment",
+          "overview": "Lancelot is banished from Camelot because King Arthur thinks he made a false claim against King Marhaus. Outside Camelot, Lancelot encounters Marhaus and discovers and evil plot.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-11-10",
+          "year": null,
+          "runtimeSeconds": 1497,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-LancelotsBanishment.mp4",
+            "format": "h.264",
+            "sizeBytes": 147562026,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-LancelotsBanishment/TheAdventuresOfSirLancelot-LancelotsBanishment.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-RomanWall",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Roman Wall",
+          "overview": "Sir Lancelot and his squire Brian go to the aid of King Boltan, who swears that ghosts have abducted his daughter.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-11-17",
+          "year": null,
+          "runtimeSeconds": 1522,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-1x10-RomanWall.mp4",
+            "format": "h.264",
+            "sizeBytes": 150050648,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-RomanWall/TheAdventuresOfSirLancelot-1x10-RomanWall.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 10
+}

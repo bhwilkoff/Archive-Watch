@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "american-bandstand-may-23-1970-1960",
+  "title": "American Bandstand (May 23, 1970",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AmericanBandstandMay231970",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AmericanBandstandMay231970",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "American Bandstand (May 23, 1970)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AmericanBandstandMay231970",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "American-Bandstand-May-23_-1970.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 196946606,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AmericanBandstandMay231970/American-Bandstand-May-23_-1970.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

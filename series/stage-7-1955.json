@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "seriesID": "stage-7-1955",
+  "title": "Stage 7",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": "Stage 7 (1955)\n\nA weekly half-hour anthology series, similar to \"Four Star Playhouse\".",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": "Arnold Laven",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Stage7BillyandtheBride",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stage 7'' - Billy and the Bride",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1522,
+          "videoFile": {
+            "name": "Stage7-BillyandtheBride.mp4",
+            "format": "h.264",
+            "sizeBytes": 158662889,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Stage7BillyandtheBride/Stage7-BillyandtheBride.mp4"
+        },
+        {
+          "archiveID": "Stage7Emergency",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stage 7'' - Emergency",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1531,
+          "videoFile": {
+            "name": "Stage7-Emergency.mp4",
+            "format": "h.264",
+            "sizeBytes": 159349991,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Stage7Emergency/Stage7-Emergency.mp4"
+        },
+        {
+          "archiveID": "Stage7Endoftheline",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stage 7'' - End of the Line",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1530,
+          "videoFile": {
+            "name": "Stage7-endoftheline.mp4",
+            "format": "h.264",
+            "sizeBytes": 158932352,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Stage7Endoftheline/Stage7-endoftheline.mp4"
+        },
+        {
+          "archiveID": "Stage7FoxHunt",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stage 7'' - Fox Hunt",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1479,
+          "videoFile": {
+            "name": "Stage7-FoxHunt.mp4",
+            "format": "h.264",
+            "sizeBytes": 154424307,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Stage7FoxHunt/Stage7-FoxHunt.mp4"
+        },
+        {
+          "archiveID": "Stage7PressConference",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stage 7'' - Press Conference",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1494,
+          "videoFile": {
+            "name": "Stage7-PressConference.mp4",
+            "format": "h.264",
+            "sizeBytes": 155508038,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Stage7PressConference/Stage7-PressConference.mp4"
+        },
+        {
+          "archiveID": "Stage7Thedeceivingeye",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stage 7'' - The Deceiving Eye",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1532,
+          "videoFile": {
+            "name": "Stage7-thedeceivingeye.mp4",
+            "format": "h.264",
+            "sizeBytes": 159506221,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Stage7Thedeceivingeye/Stage7-thedeceivingeye.mp4"
+        },
+        {
+          "archiveID": "stage7-thegreatestmanintheworld",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stage 7'' - The Greatest Man in the World",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "stage7-thegreatestmanintheworld.mp4",
+            "format": "h.264",
+            "sizeBytes": 157468405,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/stage7-thegreatestmanintheworld/stage7-thegreatestmanintheworld.mp4"
+        },
+        {
+          "archiveID": "stage7-thehayfield",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stage 7'' - The Hayfield",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1532,
+          "videoFile": {
+            "name": "stage7-thehayfield.mp4",
+            "format": "h.264",
+            "sizeBytes": 159413497,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/stage7-thehayfield/stage7-thehayfield.mp4"
+        },
+        {
+          "archiveID": "stage7-thelongcount",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stage 7'' - The Long Count",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1537,
+          "videoFile": {
+            "name": "stage7-thelongcount.mp4",
+            "format": "h.264",
+            "sizeBytes": 159234498,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/stage7-thelongcount/stage7-thelongcount.mp4"
+        },
+        {
+          "archiveID": "Stage7-TheTimeOfTheDay",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stage 7'' - The Time of Day",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1534,
+          "videoFile": {
+            "name": "Stage7-TheTimeOfTheDay.mp4",
+            "format": "h.264",
+            "sizeBytes": 159703824,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Stage7-TheTimeOfTheDay/Stage7-TheTimeOfTheDay.mp4"
+        },
+        {
+          "archiveID": "Stage7Travelingsalesman",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stage 7'' - The Traveling Salesman",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1487,
+          "videoFile": {
+            "name": "Stage7-travelingsalesman.mp4",
+            "format": "h.264",
+            "sizeBytes": 155139953,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Stage7Travelingsalesman/Stage7-travelingsalesman.mp4"
+        },
+        {
+          "archiveID": "TigerAtNoon1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stage 7'' - Tiger at Noon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "TigeratNoon1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 159011680,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TigerAtNoon1955/TigeratNoon1955.mp4"
+        },
+        {
+          "archiveID": "Star_Playhouse--Yesterdays_Pawnshop",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Stage 7: Yesterday's Pawnshop",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1534,
+          "videoFile": {
+            "name": "Four_Star_Playhouse--Yesterdays_Pawnshop.mp4",
+            "format": "h.264",
+            "sizeBytes": 158367857,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Star_Playhouse--Yesterdays_Pawnshop/Four_Star_Playhouse--Yesterdays_Pawnshop.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13
+}

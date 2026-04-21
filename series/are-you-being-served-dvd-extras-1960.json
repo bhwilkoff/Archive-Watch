@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "are-you-being-served-dvd-extras-1960",
+  "title": "Are You Being Served? DVD Extras",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/are-you-being-served-extras",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "are-you-being-served-extras",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Are You Being Served? DVD Extras",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/are-you-being-served-extras",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Celebrating Mollie Sugden.mp4",
+            "format": "h.264",
+            "sizeBytes": 528317659,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-extras/Celebrating Mollie Sugden.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

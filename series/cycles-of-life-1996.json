@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cycles-of-life-1996",
+  "title": "Cycles of Life",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/cycles-of-life-exploring-biology",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cycles-of-life-exploring-biology",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cycles of Life: Exploring Biology (1996) (Complete series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/cycles-of-life-exploring-biology",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "25. Ecosystems and the Biosphere.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 573706510,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cycles-of-life-exploring-biology/25. Ecosystems and the Biosphere.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

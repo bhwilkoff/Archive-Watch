@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "the-kojak-chronicles-2026",
+  "title": "The Kojak-Chronicles",
+  "yearStart": 2026,
+  "yearEnd": 2026,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/kojak-chronicles-s-01e-08-11",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "kojak-chronicles-s-01e-08-11",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Kojak-Chronicles S01e08-11 Dark Sunday, Conspiracy Of Fear, Cop In A Cage, & Marker To A Dead Bookie",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/kojak-chronicles-s-01e-08-11",
+          "airDate": null,
+          "year": 2026,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Kojak-Chronicles S01e08-11 Dark Sunday, Conspiracy Of Fear, Cop In A Cage, & Marker To A Dead Bookie.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 889993522,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/kojak-chronicles-s-01e-08-11/Kojak-Chronicles S01e08-11 Dark Sunday, Conspiracy Of Fear, Cop In A Cage, & Marker To A Dead Bookie.ia.mp4"
+        },
+        {
+          "archiveID": "kojak-chronicles-s01e12-15",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Kojak-Chronicles S01e12-15 Last Rites For A Dead Priest, Death Is Not A Passing Grade, Die Before They Wake, & Deliver Us From Evil",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/kojak-chronicles-s01e12-15",
+          "airDate": null,
+          "year": 2026,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Kojak-Chronicles S01e12-15 Last Rites For A Dead Priest, Death Is Not A Passing Grade, Die Before They Wake, & Deliver Us From Evil_.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1138430811,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/kojak-chronicles-s01e12-15/Kojak-Chronicles S01e12-15 Last Rites For A Dead Priest, Death Is Not A Passing Grade, Die Before They Wake, & Deliver Us From Evil_.ia.mp4"
+        },
+        {
+          "archiveID": "the-kojak-chronicles-s01e16-18",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Kojak-Chronicles S01e16-18 Eighteen Hours Of Fear, Before The Devil Know, & Dead On His Feet",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-kojak-chronicles-s01e16-18",
+          "airDate": null,
+          "year": 2026,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Kojak-Chronicles S01e16-18 Eighteen Hours Of Fear, Before The Devil Know, & Dead On His Feet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 960420020,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-kojak-chronicles-s01e16-18/The Kojak-Chronicles S01e16-18 Eighteen Hours Of Fear, Before The Devil Know, & Dead On His Feet.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1971-mar-23-gloria-demands-equality-women-1971",
+  "title": "1971 MAR 23 Gloria Demands Equality, Women",
+  "yearStart": 1971,
+  "yearEnd": 1971,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1971MAR23_Gloria_Demands_Equality_Womens_Liberation_According_Archie_Bunker_V02",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1971MAR23_Gloria_Demands_Equality_Womens_Liberation_According_Archie_Bunker_V02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1971 MAR 23 Gloria Demands Equality, Women's Liberation; According Archie Bunker V 02",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1971MAR23_Gloria_Demands_Equality_Womens_Liberation_According_Archie_Bunker_V02",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1971 MAR 23 Gloria Demands Equality, Women's Liberation; According Archie Bunker V02.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 8969265,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1971MAR23_Gloria_Demands_Equality_Womens_Liberation_According_Archie_Bunker_V02/1971 MAR 23 Gloria Demands Equality, Women's Liberation; According Archie Bunker V02.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

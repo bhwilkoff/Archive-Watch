@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "escape-into-night-1972",
+  "title": "Escape Into Night",
+  "yearStart": 1972,
+  "yearEnd": 1972,
+  "overview": "Escape Into Night is a six-part 1972 British children's fantasy horror television serial produced by Associated Television for ITV.\n\nBedridden young Marianne doodles an imaginary house in her notepad — and soon the line between dreams and reality blurs.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/cyxgFxHGzIt2UbfLZamPboo3IKH.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/dwPSTlRVbWNzYMLVQvXcvBxsUPH.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Catherine Storr",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "escape_into_night",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Escape Into Night (1972) [Complete Series]",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/cyxgFxHGzIt2UbfLZamPboo3IKH.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01.E05.mp4",
+            "format": "h.264",
+            "sizeBytes": 148107108,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/escape_into_night/S01.E05.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

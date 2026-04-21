@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-miser-1960",
+  "title": "The Miser",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "A series within the layout of separate connected episodes, each episode tells a famous story about miserliness that was mentioned in the book \"Kitāb al-Bukhalā’ (البُخلاء) 'the book of misers' (a.k.a. 'avarice and the avaricious')\" by Al-Jahiz. The roles were performed by a large group of Lebanese artistic stars.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pEaPZCg5tKTaNxuXHCdOTs5Zle3.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": "مروان العبد",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_26_The_Miser",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Miser",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEaPZCg5tKTaNxuXHCdOTs5Zle3.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_26_The_Miser.mp4",
+            "format": "h.264",
+            "sizeBytes": 152348455,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_26_The_Miser/Robin_Hood_26_The_Miser.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

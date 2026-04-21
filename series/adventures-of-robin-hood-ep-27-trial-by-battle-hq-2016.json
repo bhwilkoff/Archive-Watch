@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "adventures-of-robin-hood-ep-27-trial-by-battle-hq-2016",
+  "title": "Adventures Of Robin Hood ( ep 27 Trial By Battle) HQ",
+  "yearStart": 2016,
+  "yearEnd": 2016,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AdventuresOfRobinHoodTrialByBattleHQ",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "AdventuresOfRobinHoodTrialByBattleHQ",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Adventures Of Robin Hood ( ep 27 Trial By Battle) HQ",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AdventuresOfRobinHoodTrialByBattleHQ",
+          "airDate": null,
+          "year": 2016,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Adventures of Robin Hood (Trial by Battle) HQ.mp4",
+            "format": "h.264",
+            "sizeBytes": 156637887,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AdventuresOfRobinHoodTrialByBattleHQ/Adventures of Robin Hood (Trial by Battle) HQ.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

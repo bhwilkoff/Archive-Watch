@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-beulah-show-1952",
+  "title": "The Beulah Show",
+  "yearStart": 1952,
+  "yearEnd": 1952,
+  "overview": "The Beulah Show is an American situation-comedy series that ran on CBS Radio from 1945 to 1954, and on ABC Television from 1950 to 1952. The show is notable for being the first sitcom to star an African American actress.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "The_Beulah_Show",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Beulah Goes Gardening",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1952-08-12",
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BeulahGoesGardening.mp4",
+            "format": "h.264",
+            "sizeBytes": 155035394,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The_Beulah_Show/BeulahGoesGardening.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

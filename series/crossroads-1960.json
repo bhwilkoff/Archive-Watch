@@ -1,0 +1,185 @@
+{
+  "version": 1,
+  "seriesID": "crossroads-1960",
+  "title": "Crossroads",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Crossroads is a British television soap opera set in a fictional motel near Birmingham, England. Created by Hazel Adair and Peter Ling, the commercial ITV network originally broadcast the series between 1964 and 1988. Produced by ATV and later by Central it became a byword for cheap production values, particularly in the 1970s and early 1980s. The series was revived in a glossier version by Carlton Television in 2001, but was again cancelled in 2003.\n\nThe original theme tune was composed by Tony Hatch, and notably covered by Paul McCartney & Wings on their 1975 album Venus and Mars. A new version, which was first aired in 1987 when the series was relaunched as Crossroads, Kings Oak, was composed by Raf Ravenscroft and Max Early.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Peter Ling",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Crossroads930Action",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Crossroads: 9:30 Action",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1514,
+          "videoFile": {
+            "name": "Crossroads930action.mp4",
+            "format": "h.264",
+            "sizeBytes": 149037919,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Crossroads930Action/Crossroads930action.mp4"
+        },
+        {
+          "archiveID": "CrossroadsCallForHelp",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Crossroads: Call for Help",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1446,
+          "videoFile": {
+            "name": "Crossroads-callForHelp.mp4",
+            "format": "h.264",
+            "sizeBytes": 144191459,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsCallForHelp/Crossroads-callForHelp.mp4"
+        },
+        {
+          "archiveID": "CrossroadsGodsHealing",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Crossroads: God's Healing",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CrossroadsGodsHealing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150316187,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsGodsHealing/CrossroadsGodsHealing.ia.mp4"
+        },
+        {
+          "archiveID": "CrossroadsMotherObrien",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Crossroads: Mother O'Brien",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "Crossroads-motherObrien.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150043791,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsMotherObrien/Crossroads-motherObrien.ia.mp4"
+        },
+        {
+          "archiveID": "CrossroadsParatroopPadre",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Crossroads: Paratroop Padre",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1466,
+          "videoFile": {
+            "name": "crossroads-paratropperpadre.mp4",
+            "format": "h.264",
+            "sizeBytes": 142558644,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsParatroopPadre/crossroads-paratropperpadre.mp4"
+        },
+        {
+          "archiveID": "CrossroadsTheGoodThief",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Crossroads: The Good Thief",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "Crossroads-theGoodThief.mp4",
+            "format": "h.264",
+            "sizeBytes": 149389183,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsTheGoodThief/Crossroads-theGoodThief.mp4"
+        },
+        {
+          "archiveID": "CrossroadsTheInnerLight",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Crossroads: The Inner Light",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "Crossroads-theInnerLight.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149727240,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsTheInnerLight/Crossroads-theInnerLight.ia.mp4"
+        },
+        {
+          "archiveID": "CrossroadsTheLastStrand",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Crossroads: The Last Strand",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1492,
+          "videoFile": {
+            "name": "crossroads-thelaststrand.mp4",
+            "format": "h.264",
+            "sizeBytes": 146233713,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsTheLastStrand/crossroads-thelaststrand.mp4"
+        },
+        {
+          "archiveID": "CrossroadsTheManWhoWalkedOnWater",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Crossroads: The Man Who Walked On Water",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1513,
+          "videoFile": {
+            "name": "Crossroads-theManWhoWalkedOnWater.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150683324,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsTheManWhoWalkedOnWater/Crossroads-theManWhoWalkedOnWater.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9
+}

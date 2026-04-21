@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "alias-smith-and-jones-1971-1973-1960",
+  "title": "Alias Smith And Jones (1971-1973",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Alias-Smith-And-Jones-1973",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alias Smith And Jones (1971-1973) - Complete Series",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Alias-Smith-And-Jones-1973",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x01 - Pilot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 977996289,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias Smith/Season 1/Alias Smith and Jones - 1x01 - Pilot.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

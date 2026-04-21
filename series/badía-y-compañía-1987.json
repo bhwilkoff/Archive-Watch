@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "badía-y-compañía-1987",
+  "title": "Badía y Compañía",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/badia-y-compania-charly-garcia-26-12-87-1080p",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "badia-y-compania-charly-garcia-26-12-87-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Badía y Compañía - Charly García (26-12-87) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/badia-y-compania-charly-garcia-26-12-87-1080p",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Badía y Compañía - Charly García (26-12-87) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 973444611,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/badia-y-compania-charly-garcia-26-12-87-1080p/Badía y Compañía - Charly García (26-12-87) [1080p].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

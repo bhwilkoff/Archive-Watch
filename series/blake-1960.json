@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "blake-1960",
+  "title": "Blake",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/blakes-7-season-4-special-features-xvid-avi",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "blakes-7-season-4-special-features-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Blake's 7 - Season 4 - Special Features - XviD AVI",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/blakes-7-season-4-special-features-xvid-avi",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Blake's 7 - Season 4 - Special Features - Part 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 475360919,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/blakes-7-season-4-special-features-xvid-avi/Blake's 7 - Season 4 - Special Features - Part 1.mp4"
+        },
+        {
+          "archiveID": "blakes-7-the-making-of-season-1-through-3-mp4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Blake's 7 - The Making Of - Season 1 through 3 - MP4",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/blakes-7-the-making-of-season-1-through-3-mp4",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Blake's 7 - The Making Of - Season 2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 287112555,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/blakes-7-the-making-of-season-1-through-3-mp4/Blake's 7 - The Making Of - Season 2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

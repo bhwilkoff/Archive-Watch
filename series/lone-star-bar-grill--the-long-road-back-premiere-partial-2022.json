@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lone-star-bar-grill--the-long-road-back-premiere-partial-2022",
+  "title": "Lone Star Bar & Grill- The Long Road Back (Premiere, partial",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/lone-star-bar-grill-the-long-road-back-premeire-partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lone-star-bar-grill-the-long-road-back-premeire-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lone Star Bar & Grill- The Long Road Back (Premiere, partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/lone-star-bar-grill-the-long-road-back-premeire-partial",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lone Star Bar & Grill- The Long Road Back (Premeire, partial).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 859037756,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lone-star-bar-grill-the-long-road-back-premeire-partial/Lone Star Bar & Grill- The Long Road Back (Premeire, partial).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "money-watchers-ozzie-harriet-1963",
+  "title": "Money Watchers (Ozzie & Harriet",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Money_Watchers--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Money_Watchers--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Money Watchers (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Money_Watchers--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1672,
+          "videoFile": {
+            "name": "Money_Watchers--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 173801616,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Money_Watchers--Ozzie-Harriet/Money_Watchers--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

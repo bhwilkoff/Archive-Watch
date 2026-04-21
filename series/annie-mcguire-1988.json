@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "seriesID": "annie-mcguire-1988",
+  "title": "Annie McGuire",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": "Annie McGuire is an American sitcom that aired from October 26 to December 28, 1988. The series stars Mary Tyler Moore and Dennis Arndt as newlyweds who both have kids from previous marriages.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/467/1167813.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Elliot Shoenman",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "annie-mc-guire-1.6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Annie McGuire - Mary Tyler Moore",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/467/1167813.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Annie McGuire - 1.7.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 192032711,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/annie-mc-guire-1.6/Annie McGuire - 1.7.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "annie-mc-guire",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Hold-Up",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/467/1167813.jpg",
+          "airDate": "1988-10-26",
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Annie McGuire.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1449071717,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/annie-mc-guire/Annie McGuire.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

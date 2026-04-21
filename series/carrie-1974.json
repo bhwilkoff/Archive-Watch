@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "seriesID": "carrie-1974",
+  "title": "Carrie",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": "A reimagining of the story of misfit high-schooler Carrie White, who has spent her life in seclusion with her domineering mother. After her father's sudden death, Carrie finds herself contending with the challenges of attending high school, a bullying scandal, and the emergence of mysterious telekinetic powers.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7adGN2fQAhseYYMf6eVWhbI186r.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3owSuKbZ6s2v5hhhZS29p8ZQAkd.jpg",
+  "genres": [],
+  "networks": [
+    "Prime Video"
+  ],
+  "creator": "Mike Flanagan",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "carries-war-s-01-e-01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7adGN2fQAhseYYMf6eVWhbI186r.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Carrie's War S01E01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 433338059,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/carries-war-s-01-e-01/Carrie's War S01E01.ia.mp4"
+        },
+        {
+          "archiveID": "carries-war-s-01-e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Carrie's War S01E02",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7adGN2fQAhseYYMf6eVWhbI186r.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Carrie's War S01E02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 456355519,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/carries-war-s-01-e-02/Carrie's War S01E02.ia.mp4"
+        },
+        {
+          "archiveID": "carries-war-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Carrie's War S01E03",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7adGN2fQAhseYYMf6eVWhbI186r.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Carrie's War S01E03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400218989,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/carries-war-s-01-e-03/Carrie's War S01E03.ia.mp4"
+        },
+        {
+          "archiveID": "carries-war-s-01-e-04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Carrie's War S01E04",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7adGN2fQAhseYYMf6eVWhbI186r.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Carrie's War S01E04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400048826,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/carries-war-s-01-e-04/Carrie's War S01E04.ia.mp4"
+        },
+        {
+          "archiveID": "carries-war-s-01-e-05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Carrie's War S01E05",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7adGN2fQAhseYYMf6eVWhbI186r.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Carrie's War S01E05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 399155065,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/carries-war-s-01-e-05/Carrie's War S01E05.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "out-of-this-world-1987-tv-1987",
+  "title": "Out of this World [1987] TV",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/out-of-this-world-s01-s02-missing-episodes",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "out-of-this-world-s01-s02-missing-episodes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Out of this World [1987] TV Series - S01/S02",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/out-of-this-world-s01-s02-missing-episodes",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E18 - The Russians Are Coming.mp4",
+            "format": "h.264",
+            "sizeBytes": 128102882,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/out-of-this-world-s01-s02-missing-episodes/S01E18 - The Russians Are Coming.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

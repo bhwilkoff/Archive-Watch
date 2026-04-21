@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-dark-angel-1951",
+  "title": "The Dark Angel",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Tales_Of_Tomorrow_-_The_Dark_Angel",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Tales_Of_Tomorrow_-_The_Dark_Angel",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Dark Angel",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Tales_Of_Tomorrow_-_The_Dark_Angel",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TOT_The_Dark_Angel.mp4",
+            "format": "h.264",
+            "sizeBytes": 123436502,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Tales_Of_Tomorrow_-_The_Dark_Angel/TOT_The_Dark_Angel.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

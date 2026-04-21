@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "the-jim-backus-show-1960",
+  "title": "The Jim Backus Show",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "Mike O'Toole owns and runs a second-rate news service that he struggles to keep afloat financially. His employees include the attractive Dora and Dave as reporters. Sidney is the office boy who often gets into misadventures.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dip5TNT2xCzKTy7mF3NuUHe2Zvw.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theJimBackusShow-OldArmyGame",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Jim Backus Show'' - Old Army Game",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dip5TNT2xCzKTy7mF3NuUHe2Zvw.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1554,
+          "videoFile": {
+            "name": "HotOfftheWire-OldArmyGame.mp4",
+            "format": "h.264",
+            "sizeBytes": 160727214,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theJimBackusShow-OldArmyGame/HotOfftheWire-OldArmyGame.mp4"
+        },
+        {
+          "archiveID": "theJimBackusShow-TheWomansTouch",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Jim Backus Show'' - The Woman's Touch",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dip5TNT2xCzKTy7mF3NuUHe2Zvw.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1554,
+          "videoFile": {
+            "name": "HotOffTheWire-WomansTouch.mp4",
+            "format": "h.264",
+            "sizeBytes": 161149939,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theJimBackusShow-TheWomansTouch/HotOffTheWire-WomansTouch.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

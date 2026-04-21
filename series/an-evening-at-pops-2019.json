@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "an-evening-at-pops-2019",
+  "title": "An Evening At Pops",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/aneveningatpopsjoanbaez1985convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "aneveningatpopsjoanbaez1985convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "An Evening At Pops: Joan Baez (1985)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/aneveningatpopsjoanbaez1985convertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "An Evening At Pops Joan Baez (1985) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 254280618,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/aneveningatpopsjoanbaez1985convertvideoonline.com/An Evening At Pops Joan Baez (1985) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

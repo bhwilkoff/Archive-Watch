@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wheel-of-fortune-s-4979-january-29-2009-long-credits-only-2009",
+  "title": "Wheel of Fortune #S-4979 (January 29, 2009; long credits only",
+  "yearStart": 2009,
+  "yearEnd": 2009,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/20090129wheeloffortunelongcreditsonlywsbkmynetworktvbostonma",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "20090129wheeloffortunelongcreditsonlywsbkmynetworktvbostonma",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wheel of Fortune #S-4979 (January 29, 2009; long credits only)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/20090129wheeloffortunelongcreditsonlywsbkmynetworktvbostonma",
+          "airDate": null,
+          "year": 2009,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2009-01-29 Wheel of Fortune (long credits only) [WSBK-My Network TV Boston, MA].mp4",
+            "format": "h.264",
+            "sizeBytes": 5540187,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/20090129wheeloffortunelongcreditsonlywsbkmynetworktvbostonma/2009-01-29 Wheel of Fortune (long credits only) [WSBK-My Network TV Boston, MA].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

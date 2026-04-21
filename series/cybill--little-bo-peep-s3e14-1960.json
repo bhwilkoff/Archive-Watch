@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cybill--little-bo-peep-s3e14-1960",
+  "title": "Cybill- Little Bo Peep (S3E14",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/CybillLittleBoPeepS3E14",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "CybillLittleBoPeepS3E14",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Cybill- Little Bo Peep (S3E14)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CybillLittleBoPeepS3E14",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cybill-Little-Bo-Peep-_S3E14_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 101287185,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CybillLittleBoPeepS3E14/Cybill-Little-Bo-Peep-_S3E14_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

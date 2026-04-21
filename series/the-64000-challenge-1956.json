@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-64000-challenge-1956",
+  "title": "The $64,000 Challenge",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/64challage",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "64challage",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The $64,000 Challenge'' - 6 May 1956",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/64challage",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1758,
+          "videoFile": {
+            "name": "64challange.mp4",
+            "format": "h.264",
+            "sizeBytes": 183162722,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/64challage/64challange.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

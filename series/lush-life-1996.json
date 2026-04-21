@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "lush-life-1996",
+  "title": "Lush Life",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": "Lush Life is an American sitcom that aired in September 1996 on Fox. The series stars Lori Petty and Karyn Parsons as roommates who shared a studio apartment for financial reasons.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pLxaeQS7V7DX23HO9EdntDpCqLg.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/yjHr1X28GHK4lNoi90dl5buclyd.jpg",
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": "Yvette Lee Bowser",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lush-life-1.3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lush Life - Lori Petty, Karyn Parsons",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pLxaeQS7V7DX23HO9EdntDpCqLg.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lush Life - 1.3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 521808799,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lush-life-1.3/Lush Life - 1.3.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

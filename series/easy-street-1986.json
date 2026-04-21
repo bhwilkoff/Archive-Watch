@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "easy-street-1986",
+  "title": "Easy Street",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "Easy Street is an American sitcom that aired for 22 episodes on NBC during the 1986-87 television season.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/wAmx5TUwOUEKD2hkzNMS0ZHVMxh.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/ovM4c1nYq2AaVIPSu6uZLdNccKA.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Hugh Wilson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "easy-street-1.03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Easy Street - Loni Anderson, Jack Elam, James Cromwell",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wAmx5TUwOUEKD2hkzNMS0ZHVMxh.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Easy Street - 1.18.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 479094950,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/easy-street-1.03/Easy Street - 1.18.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

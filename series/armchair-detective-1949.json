@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "armchair-detective-1949",
+  "title": "Armchair Detective",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ArmchairDetective1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Armchair Detective (1949)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1543,
+          "videoFile": {
+            "name": "Armchair_detective_1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 151161639,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ArmchairDetective1949/Armchair_detective_1949.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

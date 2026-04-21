@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "babs-school-election-1960",
+  "title": "Babs School Election",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/life_of_riley_-_1x01_-_babs_school_election",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "life_of_riley_-_1x01_-_babs_school_election",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Babs School Election",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_1x01_-_babs_school_election",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_1x01_-_babs_school_election_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 149030044,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_1x01_-_babs_school_election/life_of_riley_-_1x01_-_babs_school_election_agk.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

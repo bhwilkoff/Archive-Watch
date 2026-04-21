@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "dolphin-cove-1986",
+  "title": "Dolphin Cove",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "Dolphin Cove is an American drama created by Peter Benchley, set in Queensland, Australia that aired on CBS in 1989 for eight episodes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fyHzckSWjaQvgKudko6uFbgumOV.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Allan Marcil",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dolphin-cove-1.3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dolphin Cove - Frank Converse, Karron Graves",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fyHzckSWjaQvgKudko6uFbgumOV.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dolphin Cove - 1.3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1428527435,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dolphin-cove-1.3/Dolphin Cove - 1.3.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

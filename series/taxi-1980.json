@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "taxi-1980",
+  "title": "Taxi",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": "Louie De Palma is a cantankerous, acerbic taxi dispatcher in New York City. He tries to maintain order over a collection of varied and strange characters who drive for him. As he bullies and insults them from the safety of his “cage,” they form a special bond among themselves, becoming friends and supporting each other through the inevitable trials and tribulations of life.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pua3A2XSaO6bP6WhVDBRbcyRTAS.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/8Y8vn9feCVUoJRXpWK6xno5VrUz.jpg",
+  "genres": [],
+  "networks": [
+    "ABC",
+    "NBC"
+  ],
+  "creator": "Stan Daniels",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Taxi1x14SugarMama",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Taxi Season 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pua3A2XSaO6bP6WhVDBRbcyRTAS.jpg",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Taxi 1x19 Mama Gravas.mp4",
+            "format": "h.264",
+            "sizeBytes": 154233149,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Taxi1x14SugarMama/Taxi 1x19 Mama Gravas.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

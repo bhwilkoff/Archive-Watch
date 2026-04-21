@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "splendid-stones-1991",
+  "title": "Splendid Stones",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SplendidStones",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SplendidStones",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Splendid Stones",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SplendidStones",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "National.Geographic.Specials.S25E03.Splendid.Stones.1991.DVDRip.DD2.0.x264-rattera.mp4",
+            "format": "h.264",
+            "sizeBytes": 355149947,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SplendidStones/National.Geographic.Specials.S25E03.Splendid.Stones.1991.DVDRip.DD2.0.x264-rattera.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

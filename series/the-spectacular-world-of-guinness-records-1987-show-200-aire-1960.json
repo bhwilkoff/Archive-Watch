@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-spectacular-world-of-guinness-records-1987-show-200-aire-1960",
+  "title": "The Spectacular World of Guinness Records 1987 Show 200 (Aired October 2, 1988",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-spectacular-world-of-guinness-records-1987-show-200",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-spectacular-world-of-guinness-records-1987-show-200",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Spectacular World of Guinness Records 1987 Show 200 (Aired October 2, 1988)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-spectacular-world-of-guinness-records-1987-show-200",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Spectacular World of Guinness Records 1987 Show 200.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 207774186,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-spectacular-world-of-guinness-records-1987-show-200/The Spectacular World of Guinness Records 1987 Show 200.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

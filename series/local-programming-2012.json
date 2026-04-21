@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "local-programming-2012",
+  "title": "Local Programming",
+  "yearStart": 2012,
+  "yearEnd": 2012,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/LocalProgramming",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LocalProgramming",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Local Programming",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LocalProgramming",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LocalProgramming.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 16595202,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LocalProgramming/LocalProgramming.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

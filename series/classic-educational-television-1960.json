@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "classic-educational-television-1960",
+  "title": "Classic Educational Television",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/IfYouWannaBeHappy",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "IfYouWannaBeHappy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Educational Television: ''Mr. Wizard'' - Episode on ''Electricity''",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/IfYouWannaBeHappy",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1713,
+          "videoFile": {
+            "name": "WatchMrWizardElectricity.mp4",
+            "format": "h.264",
+            "sizeBytes": 165403198,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/IfYouWannaBeHappy/WatchMrWizardElectricity.mp4"
+        },
+        {
+          "archiveID": "MrWizard4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Educational Television: ''Mr. Wizard'' - Legs and Speed of Animals",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MrWizard4",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1714,
+          "videoFile": {
+            "name": "WatchMrWizard-Legs-and-Speed-of-Animals.mp4",
+            "format": "h.264",
+            "sizeBytes": 167135373,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MrWizard4/WatchMrWizard-Legs-and-Speed-of-Animals.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

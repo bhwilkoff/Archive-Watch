@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "flights-of-fantasy-95-102-104-131-1997",
+  "title": "Flights Of Fantasy #95, #102, #104, #131",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FlightsOfFantasy-95-102-104-131",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FlightsOfFantasy-95-102-104-131",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flights Of Fantasy #95, #102, #104, #131",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FlightsOfFantasy-95-102-104-131",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flights of Fantasy 95, 102, 104, 131 (Audio Synced 2).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 545889159,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FlightsOfFantasy-95-102-104-131/Flights of Fantasy 95, 102, 104, 131 (Audio Synced 2).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

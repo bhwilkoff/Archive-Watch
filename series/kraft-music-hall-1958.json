@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "kraft-music-hall-1958",
+  "title": "Kraft Music Hall",
+  "yearStart": 1958,
+  "yearEnd": 1959,
+  "overview": "Kraft Music Hall is an umbrella title for several television series aired by NBC in the United States from the 1950s to the 1970s in the musical variety genre, sponsored by Kraft Foods, the producers of a well-known line of cheeses and related dairy products. Their commercials were usually announced by \"The Voice of Kraft\", Ed Herlihy.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3rwVdpyQpzZ0UYPkaqBjuNjOHgN.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "KraftMusicHall1April1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Kraft Music Hall'' - 1 April 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3rwVdpyQpzZ0UYPkaqBjuNjOHgN.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1784,
+          "videoFile": {
+            "name": "Kraft Music Hall - 1 April 1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 185802844,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/KraftMusicHall1April1959/Kraft Music Hall - 1 April 1959.mp4"
+        },
+        {
+          "archiveID": "KraftMusicHall-12November1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Kraft Music Hall'' - 12 November 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3rwVdpyQpzZ0UYPkaqBjuNjOHgN.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1527,
+          "videoFile": {
+            "name": "kraftmusichall-12November1958.mp4",
+            "format": "h.264",
+            "sizeBytes": 158745984,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/KraftMusicHall-12November1958/kraftmusichall-12November1958.mp4"
+        },
+        {
+          "archiveID": "KraftMusicHall17December1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Kraft Music Hall'' - 17 December 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3rwVdpyQpzZ0UYPkaqBjuNjOHgN.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1755,
+          "videoFile": {
+            "name": "kraftmusichall-17December1958.mp4",
+            "format": "h.264",
+            "sizeBytes": 182721199,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/KraftMusicHall17December1958/kraftmusichall-17December1958.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

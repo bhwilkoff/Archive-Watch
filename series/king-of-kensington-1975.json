@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "king-of-kensington-1975",
+  "title": "King of Kensington",
+  "yearStart": 1975,
+  "yearEnd": 1975,
+  "overview": "King of Kensington is a Canadian television sitcom which aired on CBC Television from 1975 to 1980.\n\nThe show starred Al Waxman as Larry King, a convenience store owner in Toronto's Kensington Market who was known for helping friends and neighbours solve problems. His multicultural group of friends consisted of Nestor Best, Max, and Tony \"Duke\" Zarro, who hung around regularly to the perennial disapproval of King's mother Gladys.\n\nThe show was popular with viewers; prior to the start of the fourth season one of the producers noted that show drew 1.5 to 1.8 million viewers weekly.\n\nFor the first three seasons, Fiona Reid played his wife Cathy. At the end of the third season, Reid decided to leave the series, so Larry and Cathy divorced. The show never fully recovered its stride or chemistry as Larry pursued other relationships, most notably with Gwen Twining in the final season.\n\nThe show's gentle but politically conscious humour is seen by some critics as a Canadian version of the topical Norman Lear sitcoms of the 1970s, such as All in the Family and Maude. The series was syndicated to some American stations during the height of its popularity, including WTTG in Washington, D.C.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/6VHB1Pn37cPm5Xv3940WI1f8gaI.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/5FleNyMqSsiLC1BqtE6VHrzrlHE.jpg",
+  "genres": [],
+  "networks": [
+    "CBC Television"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "king.of.kensington.s01e07.half.way.home.480p",
+          "seasonNumber": 1,
+          "episodeNumber": 0,
+          "title": "King of Kensington S01E0 Half Way Home 480p",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/6VHB1Pn37cPm5Xv3940WI1f8gaI.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "King.Of.Kensington.S01E07.Half.Way.Home.480p.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 431410383,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/king.of.kensington.s01e07.half.way.home.480p/King.Of.Kensington.S01E07.Half.Way.Home.480p.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

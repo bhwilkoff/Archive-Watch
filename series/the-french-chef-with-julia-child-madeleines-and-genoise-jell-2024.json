@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-french-chef-with-julia-child-madeleines-and-genoise-jell-2024",
+  "title": "The French Chef With Julia Child Madeleines And Genoise Jelly Roll",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-french-chef-with-julia-child-madeleines-and-genoise-jelly-roll-1971",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-french-chef-with-julia-child-madeleines-and-genoise-jelly-roll-1971",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The French Chef With Julia Child Madeleines And Genoise Jelly Roll ( 1971)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-french-chef-with-julia-child-madeleines-and-genoise-jelly-roll-1971",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The French Chef with Julia Child- Madeleines and Genoise Jelly Roll (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 169472768,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-french-chef-with-julia-child-madeleines-and-genoise-jelly-roll-1971/The French Chef with Julia Child- Madeleines and Genoise Jelly Roll (1971).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "an-1960",
+  "title": "An",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/unknownuntitledredoneavi",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "unknownuntitledredoneavi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "An Episode of the Red Skelton Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/unknownuntitledredoneavi",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "red_one.mp4",
+            "format": "h.264",
+            "sizeBytes": 154849120,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/unknownuntitledredoneavi/red_one.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "50-years-of-soaps-an-all-star-celebration-1994",
+  "title": "50 Years Of Soaps: An All-Star Celebration",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/50-years-of-soaps-an-all-star-celebration-1994",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "50-years-of-soaps-an-all-star-celebration-1994",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "50 Years Of Soaps: An All-Star Celebration - Kelly Ripa",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/50-years-of-soaps-an-all-star-celebration-1994",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "50 Years of Soaps - An All-Star Celebration - 1994.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2732860386,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/50-years-of-soaps-an-all-star-celebration-1994/50 Years of Soaps - An All-Star Celebration - 1994.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

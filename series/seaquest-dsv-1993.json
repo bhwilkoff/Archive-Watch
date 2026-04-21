@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "seaquest-dsv-1993",
+  "title": "Seaquest DSV",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "In the early 21st century, mankind has colonized the oceans. The United Earth Oceans Organization enlists Captain Nathan Bridger and the submarine seaQuest DSV to keep the peace and explore the last frontier on Earth.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/azbnl41bGqTcp2ajyfm9JYekEHp.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bcVUkIKsnLozS5Yl8DnZ7nac3GM.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Rockne S. O'Bannon",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "seaquest9",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Knight of Shadows",
+          "overview": "When Bridger is hurled across his quarters by an unknown force, it leads the seaQuest to find a hundred-year-old sunken ship.\n\nThe spirits of those who perished there haunt its ancient hull, one of which possesses Dr. Westphalen.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/yPakf4E2JKi4SmaeV0ZVo8A8Ki4.jpg",
+          "airDate": "1993-10-31",
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "c4fa3c4bcac7d7fb0c2255eab2188278-360p - Copy_x264.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206562331,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/seaquest9/c4fa3c4bcac7d7fb0c2255eab2188278-360p - Copy_x264.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

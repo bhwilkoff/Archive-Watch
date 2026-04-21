@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "seriesID": "perfect-strangers-1986",
+  "title": "Perfect Strangers",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "The chronicles of the rocky coexistence of midwestern American Larry Appleton and his distant cousin from eastern Mediterranean Europe, Balki Bartokomous.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/wZ7RomWxcrdMwK63XzVeQGFK6Dy.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/o76eZkTfIAtcGsN3MCVtKDfDTNf.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Dale McRaven",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "perfect_strangers",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Perfect Strangers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wZ7RomWxcrdMwK63XzVeQGFK6Dy.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Primo Cruzado Ep01.mp4",
+            "format": "h.264",
+            "sizeBytes": 145207609,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/perfect_strangers/Primo Cruzado Ep01.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "1x-03-first-date",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Knock Knock, Who's There?",
+          "overview": "Larry Appleton has just settled in his new Chicago apartment after leaving home of one of nine kids and took a job at the corner discount store working for his greedy landlord Mr. Twinkacetti until he can eventually become a photo journalist. But one evening, Balki Bartokomous, his distant cousin and a Mediterranean sheep herder from the island of Mypos shows up on his door step looking for a place to stay. So Larry takes him in and tries to get him a job at Twinkacetti's store which may mean risking his own job.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/H0MtQPbG4vKf29mTyILhTw11La.jpg",
+          "airDate": "1986-03-25",
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1x01 Knock Knock, Who's There.mp4",
+            "format": "h.264",
+            "sizeBytes": 145589806,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1x-03-first-date/1x01 Knock Knock, Who's There.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

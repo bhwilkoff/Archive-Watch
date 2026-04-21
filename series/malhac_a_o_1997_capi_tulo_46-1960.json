@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "malhac_a_o_1997_capi_tulo_46-1960",
+  "title": "Malhac_a_o_1997_Capi_tulo_46",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Malhac_a_o_1997_Capi_tulo_46",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Malhac_a_o_1997_Capi_tulo_46",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Malhac_a_o_1997_Capi_tulo_46",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Malhac_a_o_1997_Capi_tulo_46",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Malhac_a_o_1997_Capi_tulo_46.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 204986996,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Malhac_a_o_1997_Capi_tulo_46/Malhac_a_o_1997_Capi_tulo_46.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

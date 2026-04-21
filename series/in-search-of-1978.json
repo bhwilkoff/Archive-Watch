@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "in-search-of-1978",
+  "title": "In Search of",
+  "yearStart": 1978,
+  "yearEnd": 1978,
+  "overview": "In Search of... is a TV series that was broadcast weekly from 1977 to 1982, devoted to mysterious phenomena. It was created after the success of three one-hour TV documentaries produced by creator Alan Landsburg: In Search of Ancient Astronauts in 1973, In Search of Ancient Mysteries and The Outer Space Connection, both in 1975. All three featured narration by Rod Serling, who was the initial choice to host the spin-off show. After Serling's death, Leonard Nimoy was selected to be the host.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/bJunFmZZ3WiUv0ZIR5tXVXwd6Hu.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/17vLrCRmYxj9V2F7KLf17DUf4G5.jpg",
+  "genres": [],
+  "networks": [
+    "Syfy"
+  ],
+  "creator": "Alan Landsburg",
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "In_Search_of_S02E23_The_Coming_Ice_Age",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "The Coming Ice Age",
+          "overview": "An inquiry into whether the dramatic weather changes in America's northern states mean that a new ice age is approaching.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/bJunFmZZ3WiUv0ZIR5tXVXwd6Hu.jpg",
+          "airDate": "1978-05-18",
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1978 MAY In Search of... The Coming Ice Age.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 95428893,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/In_Search_of_S02E23_The_Coming_Ice_Age/1978 MAY In Search of... The Coming Ice Age.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

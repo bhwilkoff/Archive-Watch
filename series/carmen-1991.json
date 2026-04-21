@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "carmen-1991",
+  "title": "Carmen",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/carmen-abcstereospecial-1991",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "carmen-abcstereospecial-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Carmen – ABC Sunday Stereo Special (17/11/1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/carmen-abcstereospecial-1991",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "01 - Carmen - Act 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 308052592,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/carmen-abcstereospecial-1991/01 - Carmen - Act 1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "seriesID": "armstrong-circle-theatre-1963",
+  "title": "Armstrong Circle Theatre",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": "Armstrong Circle Theatre is an American anthology drama television series which ran from 1950 to 1957 on NBC, and then until 1963 on CBS. It alternated weekly with The U.S. Steel Hour.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/vE3axIcdW0855TMOU9zLnyRzEla.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheCounterfeitLeague",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Armstrong Circle Theatre - The Counterfeit League",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheCounterfeitLeague",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3094,
+          "videoFile": {
+            "name": "ArmstrongCircleTheatre-TheCounterfeitLeague1963-01-30.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 229194512,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheCounterfeitLeague/ArmstrongCircleTheatre-TheCounterfeitLeague1963-01-30.ogv"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "ArmstrongCircleTheatre-TheContender",
+          "seasonNumber": 6,
+          "episodeNumber": 13,
+          "title": "The Contender",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vE3axIcdW0855TMOU9zLnyRzEla.jpg",
+          "airDate": "1954-11-30",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ArmstrongCircleTheatre-TheContender11-30-54PaulNewmaningerStevensfrankMchugh.mp4",
+            "format": "h.264",
+            "sizeBytes": 150970315,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ArmstrongCircleTheatre-TheContender/ArmstrongCircleTheatre-TheContender11-30-54PaulNewmaningerStevensfrankMchugh.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "end-of-part-one-1979",
+  "title": "End of Part One",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": "End of Part One was a British television comedy sketch show written by David Renwick and Andrew Marshall, it was made by London Weekend Television. It ran for two series on ITV, from 1979 to 1980 and was an attempt at a TV version of The Burkiss Way. The first series concerned the lives of Norman and Vera Straightman, who had their lives interrupted by various television personalities of the day. The second series was mainly a straight succession of parodies of TV shows of the time, including Larry Grayson's Generation Game and Nationwide.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "David Renwick",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "EndOfPartOne",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "End of Part One",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "End of Part 1 S02E07.mp4",
+            "format": "h.264",
+            "sizeBytes": 167023210,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/EndOfPartOne/End of Part 1 S02E07.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

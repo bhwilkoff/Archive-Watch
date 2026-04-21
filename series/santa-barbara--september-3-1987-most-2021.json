@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "santa-barbara--september-3-1987-most-2021",
+  "title": "Santa Barbara- September 3, 1987 (most",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/santa-barbara-september-3-1987-most",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "santa-barbara-september-3-1987-most",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Santa Barbara- September 3, 1987 (most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/santa-barbara-september-3-1987-most",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Santa Barbara- September 3, 1987 (most).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 640326535,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/santa-barbara-september-3-1987-most/Santa Barbara- September 3, 1987 (most).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

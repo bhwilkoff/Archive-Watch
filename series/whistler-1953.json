@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "whistler-1953",
+  "title": "Whistler",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Whistlers_Daughter--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Whistler's Daughter (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1593,
+          "videoFile": {
+            "name": "Whistlers_Daughter--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 155114368,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Whistlers_Daughter--Ozzie-Harriet/Whistlers_Daughter--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

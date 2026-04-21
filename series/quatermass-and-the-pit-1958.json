@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "seriesID": "quatermass-and-the-pit-1958",
+  "title": "Quatermass and the Pit",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": "A team of scientists search for the origin and purpose of a mysterious capsule found on a building site.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/mtcmZEcsFiczV4mcmOQ2yYWMm06.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/19tGKK1OgB6suNBbAO3RSBPmwl3.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Nigel Kneale",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "quatermass-and-the-pit-1958-part-2-the-ghosts",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Quatermass and the Pit (1958)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mtcmZEcsFiczV4mcmOQ2yYWMm06.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Quatermass and the Pit [1958] Part 2 - The Ghosts.mp4",
+            "format": "h.264",
+            "sizeBytes": 212309730,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/quatermass-and-the-pit-1958-part-2-the-ghosts/Quatermass and the Pit [1958] Part 2 - The Ghosts.mp4"
+        },
+        {
+          "archiveID": "QuatermassAndThePit-EpisodeFive",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Quatermass and the Pit - Episode Five",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mtcmZEcsFiczV4mcmOQ2yYWMm06.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 2147,
+          "videoFile": {
+            "name": "QuatermassAndThePit-Episode5.mp4",
+            "format": "h.264",
+            "sizeBytes": 206056496,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/QuatermassAndThePit-EpisodeFive/QuatermassAndThePit-Episode5.mp4"
+        },
+        {
+          "archiveID": "QuatermassAndThePit-EpisodeOne",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Quatermass and the Pit - Episode One",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mtcmZEcsFiczV4mcmOQ2yYWMm06.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 2111,
+          "videoFile": {
+            "name": "QuatermassAndThePit-Episode1.mp4",
+            "format": "h.264",
+            "sizeBytes": 203170378,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/QuatermassAndThePit-EpisodeOne/QuatermassAndThePit-Episode1.mp4"
+        },
+        {
+          "archiveID": "QuatermassAndThePit-EpisodeSix",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Quatermass and the Pit - Episode Six",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mtcmZEcsFiczV4mcmOQ2yYWMm06.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 2122,
+          "videoFile": {
+            "name": "QuatermassAndThePit-Episode6.mp4",
+            "format": "h.264",
+            "sizeBytes": 203445436,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/QuatermassAndThePit-EpisodeSix/QuatermassAndThePit-Episode6.mp4"
+        },
+        {
+          "archiveID": "QuatermassAndThePit-EpisodeTwo",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Quatermass and the Pit - Episode Two",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mtcmZEcsFiczV4mcmOQ2yYWMm06.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 2201,
+          "videoFile": {
+            "name": "QuatermassAndThePit-Episode2.mp4",
+            "format": "h.264",
+            "sizeBytes": 211833078,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/QuatermassAndThePit-EpisodeTwo/QuatermassAndThePit-Episode2.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "QuatermassAndThePit-Episode3",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Imp & Demons",
+          "overview": "The shell of the object is so hard that even a borazon drill makes no impression, and when the attempt is made, strange vibrations cause severe distress in the people around the object. Quatermass interviews the local residents and discovers that sightings of ghosts and other poltergeist activity have been common in the area for decades. Meanwhile, a soldier is carried out of the object in hysterics — he claims to have seen a dwarf-like apparition walk through the wall of the artefact, a description which matches a 1927 newspaper account of a ghost sighting.\n\nFollowing the drilling attempt, a hole has somehow opened up in the wall which allows Quatermass and the others access to the interior chamber.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/uoIGX261YToUEC8KHGigmhhvWp9.jpg",
+          "airDate": "1959-01-05",
+          "year": 1958,
+          "runtimeSeconds": 1874,
+          "videoFile": {
+            "name": "QuatermassAndThePit-Episode3.mp4",
+            "format": "h.264",
+            "sizeBytes": 180105462,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/QuatermassAndThePit-Episode3/QuatermassAndThePit-Episode3.mp4"
+        },
+        {
+          "archiveID": "QuatermassAndThePit-Episode4",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Enchanted",
+          "overview": "Following the drilling attempt, a hole has somehow opened up in the wall which allows Quatermass and the others access to the interior chamber. There they find the remains of insect-like aliens resembling giant three-legged locusts, with stubby antennae on their heads giving the impression of horns. As Quatermass and Roney examine the remains, they theorise that the aliens might have come from a nearby planet which was habitable five million years ago — Mars.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/sHTZ8H7DtC4v3lGVXr2UfYz7Bny.jpg",
+          "airDate": "1959-01-12",
+          "year": 1958,
+          "runtimeSeconds": 1967,
+          "videoFile": {
+            "name": "QuatermassAndThePit-Episode4.mp4",
+            "format": "h.264",
+            "sizeBytes": 189072577,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/QuatermassAndThePit-Episode4/QuatermassAndThePit-Episode4.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

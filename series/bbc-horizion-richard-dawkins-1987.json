@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bbc-horizion-richard-dawkins-1987",
+  "title": "BBC Horizion Richard Dawkins",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bbc-horizon-richard-dawkins",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bbc-horizon-richard-dawkins",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Horizion Richard Dawkins",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bbc-horizon-richard-dawkins",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bbc Horizon - The Blind Watch Maker (Richard Dawkins,1987).mp4",
+            "format": "h.264",
+            "sizeBytes": 298139265,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bbc-horizon-richard-dawkins/Bbc Horizon - The Blind Watch Maker (Richard Dawkins,1987).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "death-valley-days-1952",
+  "title": "Death Valley Days",
+  "yearStart": 1952,
+  "yearEnd": 1952,
+  "overview": "Death Valley Days is an American radio and television anthology series featuring true stories of the old American West, particularly the Death Valley area. Created in 1930 by Ruth Woodman, the program was broadcast on radio until 1945 and continued from 1952 to 1970 as a syndicated television series, with reruns continuing through August 1, 1975.\n\nThe series was sponsored by the Pacific Coast Borax Company and hosted by Stanley Andrews, Ronald Reagan, Robert Taylor, and Dale Robertson. With the passing of Dale Robertson in 2013, all the former Death Valley Days hosts are now deceased.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/miogG5V6KSOV6ijH9mE4OOXFlF1.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/cMlK8DxAJDrBxnOFhjALs0BwgxN.jpg",
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "death-valley-days-s-01-e-04-the-lost-pegleg-mine",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Death Valley Days",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/miogG5V6KSOV6ijH9mE4OOXFlF1.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "18-Death Valley Days S01 E18 Land of the Free .ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 479544403,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/death-valley-days-s-01-e-04-the-lost-pegleg-mine/18-Death Valley Days S01 E18 Land of the Free .ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

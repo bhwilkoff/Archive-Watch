@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "thick-as-thieves-1974",
+  "title": "THICK AS THIEVES",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": "British ITV sitcom starring John Thaw and Bob Hoskins as two friends in a love triangle.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4NqX7V7bebRgfZ3PfOeQb67r4Sx.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "thick-as-thieves-1977",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "THICK AS THIEVES (1974) (Full Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4NqX7V7bebRgfZ3PfOeQb67r4Sx.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THICK AS THIEVES (1974)/104.Thick As Thieves...Two Men In My Life.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 158870270,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thick-as-thieves-1977/THICK AS THIEVES (1974)/104.Thick As Thieves...Two Men In My Life.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

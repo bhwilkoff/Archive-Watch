@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ten-eyewitness-news-04031987-1987",
+  "title": "Ten Eyewitness News (04/03/1987",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/teneyewitnessnews-19870304",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "teneyewitnessnews-19870304",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ten Eyewitness News (04/03/1987)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/teneyewitnessnews-19870304",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "24 - Ten Eyewitness News (1st segment).mp4",
+            "format": "h.264",
+            "sizeBytes": 37318111,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/teneyewitnessnews-19870304/24 - Ten Eyewitness News (1st segment).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

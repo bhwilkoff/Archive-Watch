@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "clinton-sesquicentennial-telethon-1984",
+  "title": "Clinton Sesquicentennial Telethon",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SESQUI1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SESQUI1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Clinton Sesquicentennial Telethon, Disc 1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SESQUI1",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "SESQUI_1.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 533049366,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SESQUI1/SESQUI_1.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

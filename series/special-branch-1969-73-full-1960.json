@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "special-branch-1969-73-full-1960",
+  "title": "SPECIAL BRANCH (1969-73) (Full",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/special-branch-1969-73",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "special-branch-1969-73",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "SPECIAL BRANCH (1969-73) (Full Series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/special-branch-1969-73",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "SPECIAL BRANCH (1969)/211.Special Branch...Error of Judgement.mp4",
+            "format": "h.264",
+            "sizeBytes": 305653300,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/special-branch-1969-73/SPECIAL BRANCH (1969)/211.Special Branch...Error of Judgement.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

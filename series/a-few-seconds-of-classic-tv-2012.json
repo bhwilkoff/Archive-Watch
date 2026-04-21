@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-few-seconds-of-classic-tv-2012",
+  "title": "A Few Seconds of Classic TV",
+  "yearStart": 2012,
+  "yearEnd": 2012,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AFewSecondsOfClassicTv",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AFewSecondsOfClassicTv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Few Seconds of Classic TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AFewSecondsOfClassicTv",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 362,
+          "videoFile": {
+            "name": "AFewSecondsOfClassicTV2012.mp4",
+            "format": "h.264",
+            "sizeBytes": 37462476,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AFewSecondsOfClassicTv/AFewSecondsOfClassicTV2012.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "supercarrier-1988",
+  "title": "Supercarrier",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": "Supercarrier is a 1988 ABC television series aired during the Top Gun trend of the late 1980s. It features US Navy Pilots aboard the fictional aircraft carrier USS Georgetown, and ran for eight episodes before being cancelled.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/n3UWTYIthk5v0VhM5Di6PyLG7og.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "supercarrier-1.01-02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Supercarrier - Dale Dye, Marie Windsor, Matthew Walker",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/n3UWTYIthk5v0VhM5Di6PyLG7og.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Supercarrier - 1.01-02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2175461984,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/supercarrier-1.01-02/Supercarrier - 1.01-02.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

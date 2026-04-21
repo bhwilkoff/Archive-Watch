@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-whispering-shadow-chapter-1-1933",
+  "title": "THE WHISPERING SHADOW. Chapter 1",
+  "yearStart": 1933,
+  "yearEnd": 1933,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MascotPicturesCorporationpublicdomainTheWhisperingShadow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MascotPicturesCorporationpublicdomainTheWhisperingShadow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "THE WHISPERING SHADOW. Chapter 1--\"The Master Magician\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MascotPicturesCorporationpublicdomainTheWhisperingShadow",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WS01The_Master_Magician_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 129190128,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MascotPicturesCorporationpublicdomainTheWhisperingShadow/WS01The_Master_Magician_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

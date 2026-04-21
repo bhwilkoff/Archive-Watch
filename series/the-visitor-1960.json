@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-visitor-1960",
+  "title": "The Visitor",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Visitor is a science fiction television series created by Roland Emmerich and Dean Devlin which aired on Fox from 1997–1998. It starred John Corbett as Adam McArthur who was abducted by extraterrestrials 50 years earlier and escapes back to Earth to help improve life for humanity.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/tlJR5IMAp4eZC66H8VoeSAXxPmp.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/vIz5SGbz5ZFBLVoqpe0axojtw24.jpg",
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": "Dean Devlin",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OSB-55_The_Visitor",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Visitor",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/tlJR5IMAp4eZC66H8VoeSAXxPmp.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OSB-55_The_Visitor.mp4",
+            "format": "h.264",
+            "sizeBytes": 134657507,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-55_The_Visitor/OSB-55_The_Visitor.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

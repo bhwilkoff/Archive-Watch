@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-ghost-busters-1975",
+  "title": "The Ghost Busters",
+  "yearStart": 1975,
+  "yearEnd": 1975,
+  "overview": "The Ghost Busters was a live-action children's television series that ran in 1975, about a team of bumbling detectives who would investigate ghostly occurrences. Only 15 episodes were created.\n\nThis series reunited Forrest Tucker and Larry Storch in roles similar to their characters in F Troop. Tucker played Jake Kong, and Storch played zoot suit-wearing Eddie Spencer. The third member of the trio was Tracy the Gorilla, played by actor Bob Burns.\n\nThe series was unrelated to the 1984 film Ghostbusters.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/e6870w2UUqIu1Ndza5xaG5ULia5.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/dPOzeeGWr0dM3EVAMgmvkBFqIrY.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Marc Richards",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-ghost-busters",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Dr. Whatshisname",
+          "overview": "Dr. Frankenstein returns, seeking the brain of the world's most gullible fool to transplant into his Monster. Enter Eddie Spencer.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/gNpEcuX7tOaSC6lQOljHQ40gd9X.jpg",
+          "airDate": "1975-09-13",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Ghost Busters (1975) Live Action Episode 02 Dr Whatshisname.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 75815758,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-ghost-busters/The Ghost Busters (1975) Live Action Episode 02 Dr Whatshisname.mp4"
+        },
+        {
+          "archiveID": "the-ghost-busters-1975-live-action-episode-04-whos-afraid-of-the-big-bad-wolf-360p",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Who's Afraid of The Big Bad Wolf",
+          "overview": "Hoping to remove the curse of the werewolf from hapless Harry Albert, Gypsy fortuneteller Sophia comes seeking to steal the Baldus Lupus Amulet that Spencer recently unearthed.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/nuLgEGULLa5cilF5Udx63Lr2FBE.jpg",
+          "airDate": "1975-09-27",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Ghost Busters (1975) _ Live Action _ Episode 04 Whos Afraid of the Big Bad Wolf_ 360p.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 73105811,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-ghost-busters-1975-live-action-episode-04-whos-afraid-of-the-big-bad-wolf-360p/The Ghost Busters (1975) _ Live Action _ Episode 04 Whos Afraid of the Big Bad Wolf_ 360p.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

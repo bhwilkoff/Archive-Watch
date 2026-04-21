@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bob-and-the-dumb-blonde-1960",
+  "title": "Bob and the Dumb Blonde",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Love_That_Bob-5x02-Bob_and_the_Dumb_Blonde",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Love_That_Bob-5x02-Bob_and_the_Dumb_Blonde",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob and the Dumb Blonde",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Love_That_Bob-5x02-Bob_and_the_Dumb_Blonde",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LoveThatBob-5x02-1958-09-30-BobandtheDumbBlonde.mp4",
+            "format": "h.264",
+            "sizeBytes": 149894486,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Love_That_Bob-5x02-Bob_and_the_Dumb_Blonde/LoveThatBob-5x02-1958-09-30-BobandtheDumbBlonde.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-dean-martin-show-1958",
+  "title": "The Dean Martin Show",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheDeanMartinShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheDeanMartinShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Dean Martin Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheDeanMartinShow",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 3572,
+          "videoFile": {
+            "name": "The Dean Martin Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 371824650,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDeanMartinShow/The Dean Martin Show.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

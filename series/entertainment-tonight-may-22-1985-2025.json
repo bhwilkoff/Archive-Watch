@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "entertainment-tonight-may-22-1985-2025",
+  "title": "Entertainment Tonight (May 22, 1985",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/entertainment-tonight-may-22-1985",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "entertainment-tonight-may-22-1985",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Entertainment Tonight (May 22, 1985)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/entertainment-tonight-may-22-1985",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Entertainment Tonight (May 22, 1985).mp4",
+            "format": "h.264",
+            "sizeBytes": 127823650,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/entertainment-tonight-may-22-1985/Entertainment Tonight (May 22, 1985).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

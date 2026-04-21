@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "seriesID": "robert-montgomery-presents-1952",
+  "title": "Robert Montgomery Presents",
+  "yearStart": 1952,
+  "yearEnd": 1956,
+  "overview": "Robert Montgomery Presents is an American dramatic television series which was produced by NBC from January 30, 1950 until June 24, 1957. The live show had several sponsors during its seven-year run, and the title was altered to feature the sponsor, usually Lucky Strike cigarettes, for example, Robert Montgomery Presents Your Lucky Strike Theater, ....The Johnson's Wax Program, and so on.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/jZLS9pS4JGltYIB43c2UvXhqZqW.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qMFJgJrrSArM69NXLAPiWx7JCa1.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ringmaster_201407",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Robert Montgomery Presents'' - The Ringmaster",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jZLS9pS4JGltYIB43c2UvXhqZqW.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 3480,
+          "videoFile": {
+            "name": "ringmaster.mp4",
+            "format": "h.264",
+            "sizeBytes": 362350287,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ringmaster_201407/ringmaster.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 8,
+      "episodes": [
+        {
+          "archiveID": "Robert_Montgomery--Sunset_Boulevard",
+          "seasonNumber": 8,
+          "episodeNumber": 12,
+          "title": "Sunset Boulevard",
+          "overview": "In this adaptation of the 1950 film, an opportunist writer grudgingly plays love interest to delusional silent film star Nora Desmond. In her fantasy world she's still the world's biggest star and throngs of adoring fans are awaiting her big comeback.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/jZLS9pS4JGltYIB43c2UvXhqZqW.jpg",
+          "airDate": "1956-12-03",
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "RobertMontgomery813_Sunset_Boulevard.mp4",
+            "format": "h.264",
+            "sizeBytes": 291626506,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robert_Montgomery--Sunset_Boulevard/RobertMontgomery813_Sunset_Boulevard.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

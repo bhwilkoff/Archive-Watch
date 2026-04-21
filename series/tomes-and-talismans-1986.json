@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "tomes-and-talismans-1986",
+  "title": "Tomes and Talismans",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "Tomes & Talismans is a 1986 educational television series produced by Mississippi Public Broadcasting, consisting of thirteen 20-minute episodes presented as a dramatic serial story. Each episode defines, illustrates, and reviews specific library research concepts.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/A8xkk4dkPJIlMiL3LpSLp6bBMDE.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TomesAndTalismans_S01E01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Tomes Entombed",
+          "overview": "Lesson: Overview of a library\n\nAs humanity prepares its final evacuation to the White Crystal Solar System, librarian Ms. Bookhart desperately searches for the final volume of a book series on Wipers. This volume will complete the knowledge repository being created for others to discover - the last human library.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/eS3omwIcJUGNWGgoYPKz6s9V2jF.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tomes and Talismans _ Episode 1 - Tomes Entombed _ MPB-6DzzPDnIKtQ.mp4",
+            "format": "h.264",
+            "sizeBytes": 117579952,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TomesAndTalismans_S01E01/Tomes and Talismans _ Episode 1 - Tomes Entombed _ MPB-6DzzPDnIKtQ.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "street-cents-january-19-1991-1960",
+  "title": "Street Cents January 19, 1991",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/street-cents-1991-01-19-the-space-show",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "street-cents-1991-01-19-the-space-show",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Street Cents January 19, 1991 - Season 2 Episode 17 - The Space Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/street-cents-1991-01-19-the-space-show",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Street Cents 1991-01-19 The Space Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 176782011,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/street-cents-1991-01-19-the-space-show/Street Cents 1991-01-19 The Space Show.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

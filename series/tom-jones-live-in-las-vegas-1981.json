@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tom-jones-live-in-las-vegas-1981",
+  "title": "Tom Jones Live in Las Vegas",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tom-jones-in-concert-1981",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tom-jones-in-concert-1981",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tom Jones Live in Las Vegas - Tom Jones",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tom-jones-in-concert-1981",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tom Jones in Concert - 1981.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1849015751,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tom-jones-in-concert-1981/Tom Jones in Concert - 1981.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

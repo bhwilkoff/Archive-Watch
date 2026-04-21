@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "phantom-ship-1960",
+  "title": "Phantom Ship",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/PhantomShip-Wrbm",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PhantomShip-Wrbm",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Phantom Ship - WRBM",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/PhantomShip-Wrbm",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 5828,
+          "videoFile": {
+            "name": "WRBM_Phantom Ship_WS_AF_03_fixed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3662419584,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PhantomShip-Wrbm/WRBM_Phantom Ship_WS_AF_03_fixed.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

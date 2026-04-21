@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ep-15-1960",
+  "title": "Ep 15",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ep-15_202105",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ep-15_202105",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Ep 15",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ep-15_202105",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ep15.mp4",
+            "format": "h.264",
+            "sizeBytes": 311537633,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ep-15_202105/Ep15.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

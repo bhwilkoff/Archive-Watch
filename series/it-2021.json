@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "it-2021",
+  "title": "It",
+  "yearStart": 2021,
+  "yearEnd": 2025,
+  "overview": "In 1960, seven outcast kids known as \"The Losers' Club\" fight against an ancient shape-shifting alien who poses as a child-killing clown, while also dealing with bullies and abusive parents. Thirty years later, they reunite to stop the creature once and for all when it returns to their hometown.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/2lFfjPdVXleGHukp0Phr5pNJ4ab.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Stephen King",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "its-showtime-at-the-apollo-april-23-1988-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Showtime At The Apollo- April 23, 1988 (partial)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It's Showtime At The Apollo- April 23, 1988 (partial).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 531274057,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/its-showtime-at-the-apollo-april-23-1988-partial/It's Showtime At The Apollo- April 23, 1988 (partial).ia.mp4"
+        },
+        {
+          "archiveID": "its-showtime-at-the-apollo-december-24-1988-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Showtime At The Apollo- December 24, 1988 (partial)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It's Showtime At The Apollo- December 24, 1988 (partial).mp4",
+            "format": "h.264",
+            "sizeBytes": 96707992,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/its-showtime-at-the-apollo-december-24-1988-partial/It's Showtime At The Apollo- December 24, 1988 (partial).mp4"
+        },
+        {
+          "archiveID": "its-showtime-at-the-apollo-may-21-1994-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Showtime At The Apollo- May 21, 1994 (partial)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It's Showtime At The Apollo- May 21, 1994 (partial).mp4",
+            "format": "h.264",
+            "sizeBytes": 138527702,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/its-showtime-at-the-apollo-may-21-1994-partial/It's Showtime At The Apollo- May 21, 1994 (partial).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

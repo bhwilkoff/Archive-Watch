@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "504n-cr4w60rd-0n-7h3-71m-c0nw4y-c0m3dy-h0ur-1970",
+  "title": "504N CR4W60RD 0N 7H3 71M C0NW4Y C0M3DY H0UR",
+  "yearStart": 1970,
+  "yearEnd": 1970,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/504-n-cr-4-w-60-rd-0-n-7-h-3-71-m-c-0-nw-4-y-c-0-m-3-dy-h-0-ur-1970-s-01-e-03",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "504-n-cr-4-w-60-rd-0-n-7-h-3-71-m-c-0-nw-4-y-c-0-m-3-dy-h-0-ur-1970-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "504N CR4W60RD 0N 7H3 71M C0NW4Y C0M3DY H0UR (1970) (S01E03)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/504-n-cr-4-w-60-rd-0-n-7-h-3-71-m-c-0-nw-4-y-c-0-m-3-dy-h-0-ur-1970-s-01-e-03",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "504N CR4W60RD 0N 7H3 71M C0NW4Y C0M3DY H0UR (1970) (S01E03).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 828572865,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/504-n-cr-4-w-60-rd-0-n-7-h-3-71-m-c-0-nw-4-y-c-0-m-3-dy-h-0-ur-1970-s-01-e-03/504N CR4W60RD 0N 7H3 71M C0NW4Y C0M3DY H0UR (1970) (S01E03).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

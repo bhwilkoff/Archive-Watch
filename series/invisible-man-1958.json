@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "seriesID": "invisible-man-1958",
+  "title": "Invisible Man",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": "British scientist Peter Brady, while working on an invisibility formula, suffers a tragic accident which turns himself invisible. Unfortunately, there is no antidote, so, while working on a method to regain his visibility, he undertakes missions for his government stopping bad guys.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lWfSnaC5OlpqNtWPA5HLlY1e9qP.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/j6X4HkXwMkD182IyJQ9GGWO6tHo.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Ralph Smart",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-invisible-man-complete-series-1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Invisible Man - Complete Series 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lWfSnaC5OlpqNtWPA5HLlY1e9qP.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Invisible Man S01E00 - Piolt.mp4",
+            "format": "h.264",
+            "sizeBytes": 145576468,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-complete-series-1958/The Invisible Man S01E00 - Piolt.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Invisible Man ★ (Complete TV Series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-invisible-man-shadow-bomb",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Invisible Man 18 Flight Into Darkness.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 188555867,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The Invisible Man 18 Flight Into Darkness.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "InvisibleMan-SecretExperiment1958",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Secret Experiment",
+          "overview": "Dr. John Brady is working at the Castle Hill government laboratory investigating the nature of refraction - his experiments achieve success when he is able to make a rat become invisible - but a leak in the containment chamber releases the radation into the lab, and Brady finds himself rendered completely invisible as well. At first put under lock and key by the government, he escapes and runs to his former colleague Dr. Crompton for help, but finds that the powers of invisibility have the potential to corrupt...\n\nThe first episode begins very quickly, with Brady becoming invisible in the first moments. Fortunately they give time to introduce and develop Brady and his family before the action starts - already however, the 25 minute runtimes of these episodes starts to show itself, and the pacing does seem a little rushed.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/fLvhqWiHBLYeBfuay4f2MBjvAEQ.jpg",
+          "airDate": "1958-09-14",
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "secret_experiment_DIVX.mp4",
+            "format": "h.264",
+            "sizeBytes": 156342276,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InvisibleMan-SecretExperiment1958/secret_experiment_DIVX.mp4"
+        },
+        {
+          "archiveID": "Invisible_Man-Shadow_on_the_Screen_1958",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Shadow on the Screen",
+          "overview": "A Russian sailor makes a bid for freedom from a trawler at anchor in a British harbour, but is soon captured and taken back to the ship. The head of the refugee committee appeals to Brady to help them and although reluctant to assist, he soon decides to sneak on board the ship and find out what he can do to help - however, it soon turns out that Brady has been set up, and he is ambushed by the sailors as the ship heads back towards Russia.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/jdN9mYwfjWlN2Pcgw9Qr2w2emTk.jpg",
+          "airDate": "1958-11-02",
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shadow_on_the_screen.mp4",
+            "format": "h.264",
+            "sizeBytes": 153287854,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Invisible_Man-Shadow_on_the_Screen_1958/Shadow_on_the_screen.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

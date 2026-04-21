@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "i-love-lucy-disk-3-1960",
+  "title": "I LOVE LUCY DISK 3",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/vts-01-1_20220124_0109",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "vts-01-1_20220124_0109",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "I LOVE LUCY DISK 3",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/vts-01-1_20220124_0109",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "VTS_01_1.mp4",
+            "format": "h.264",
+            "sizeBytes": 499378253,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/vts-01-1_20220124_0109/VTS_01_1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

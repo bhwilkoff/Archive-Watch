@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "seriesID": "to-tell-the-truth-1957",
+  "title": "To Tell the Truth",
+  "yearStart": 1957,
+  "yearEnd": 1958,
+  "overview": "The show features a panel of four celebrities attempting to correctly identify a described contestant who has an unusual occupation or experience. This central character is accompanied by two impostors who pretend to be the central character. The celebrity panelists question the three contestants; the impostors are allowed to lie but the central character is sworn \"to tell the truth\". After questioning, the panel attempts to identify which of the three challengers is telling the truth and is thus the central character.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/65826.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/p3adrihdBYjnpAkBPBYEL2lfbq6.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Mark Goodson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ToTellTheTruth30July1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''To Tell The Truth'' - 30 July 1957",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/65826.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1751,
+          "videoFile": {
+            "name": "To Tell The Truth - 30 July 1957.mp4",
+            "format": "h.264",
+            "sizeBytes": 182439689,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ToTellTheTruth30July1957/To Tell The Truth - 30 July 1957.mp4"
+        },
+        {
+          "archiveID": "totellthetruth14May1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''To Tell the Truth'' - 14 May 1957",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/65826.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1763,
+          "videoFile": {
+            "name": "totellthetruth14May1957.mp4",
+            "format": "h.264",
+            "sizeBytes": 183837698,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/totellthetruth14May1957/totellthetruth14May1957.mp4"
+        },
+        {
+          "archiveID": "totellthetruth16July1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''To Tell the Truth'' - 16 July 1957",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/65826.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1757,
+          "videoFile": {
+            "name": "totellthetruth16July1957.mp4",
+            "format": "h.264",
+            "sizeBytes": 183006836,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/totellthetruth16July1957/totellthetruth16July1957.mp4"
+        },
+        {
+          "archiveID": "totellthetruth21january1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''To Tell the Truth'' - 21 January 1958",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/65826.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1758,
+          "videoFile": {
+            "name": "totellthetruth21january1958.mp4",
+            "format": "h.264",
+            "sizeBytes": 182777358,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/totellthetruth21january1958/totellthetruth21january1958.mp4"
+        },
+        {
+          "archiveID": "totellthetruth-5November1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''To Tell the Truth'' - 5 November 1957",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/65826.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1756,
+          "videoFile": {
+            "name": "totellthetruth-5November1957.mp4",
+            "format": "h.264",
+            "sizeBytes": 182067489,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/totellthetruth-5November1957/totellthetruth-5November1957.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

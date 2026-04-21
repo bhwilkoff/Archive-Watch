@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "condoolman_01_08-1960",
+  "title": "condoolman_01_08",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/condoolman_01_08",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "condoolman_01_08",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "condoolman_01_08",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/condoolman_01_08",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1490,
+          "videoFile": {
+            "name": "CondormanEp08.mp4",
+            "format": "h.264",
+            "sizeBytes": 148778117,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/condoolman_01_08/CondormanEp08.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

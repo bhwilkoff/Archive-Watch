@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-cavanaughs-1986",
+  "title": "The Cavanaughs",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "The Cavanaughs is an American television situation comedy, broadcast on CBS from 1986 to 1989.\n\nThe series revolved around Francis \"Pop\" Cavanaugh, a 71-year-old, blue-collar Irish Catholic man living in South Boston with his daughter Kit and son Chuck, as well as Chuck's sons and daughter. Much of the show's humor stemmed from conflicts between the cantankerous, opinionated Pop and his grown children.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Robert Moloney",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-cavanaughs-2.2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Cavanaughs - Christine Ebersole, Barnard Hughes",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Cavanaughs - 2.2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 736468145,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-cavanaughs-2.2/The Cavanaughs - 2.2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

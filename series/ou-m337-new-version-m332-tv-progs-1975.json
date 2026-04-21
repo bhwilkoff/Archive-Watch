@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ou-m337-new-version-m332-tv-progs-1975",
+  "title": "OU M337 [New Version] (+ M332 TV Progs",
+  "yearStart": 1975,
+  "yearEnd": 1975,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "OU M337 [New Version] (+ M332 TV Progs) (1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "M332 Ep 05 of 11 Evaluation of Contour Integrals (20 May 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 207575395,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/M332 Ep 05 of 11 Evaluation of Contour Integrals (20 May 1975).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

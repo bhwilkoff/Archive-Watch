@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dustys-trail-1973",
+  "title": "Dusty's Trail",
+  "yearStart": 1973,
+  "yearEnd": 1973,
+  "overview": "Dusty's Trail is an American Western/comedy series that aired in syndication from September 1973 to March 1974 starring Bob Denver and Forrest Tucker. The series is a western-themed reworking of Gilligan's Island.\n\nThe series, set in the latter 19th century, is about a small, diverse cluster of lost travelers, who become separated from their wagon train.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ciHyrgOpLVlVCOlLeH8f9ZRRhCC.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/fp5DK9K5iP8IstXgORwMIa9R1Fa.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": "Sherwood Schwartz",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dustys_Trail_2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Dusty's Trail\" - Brookhaven U.S.A (70's Sitcom) (Classic TV)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ciHyrgOpLVlVCOlLeH8f9ZRRhCC.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dustys_Trail_2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136462264,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dustys_Trail_2/Dustys_Trail_2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

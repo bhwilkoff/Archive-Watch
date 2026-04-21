@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-magic-of-david-copperfield-1994",
+  "title": "The Magic Of David Copperfield",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": "The annual specials of magic featuring the world's leading illusionist. David Copperfield weaves a narrative with exceptional music in each of his stage illusions, often recorded before a live audience.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ii2p9EBcRFI1uVkKBzXytRy1kTn.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/k5qNk9yKLqRLE0SjYVIRX4ubopJ.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-magic-of-david-copperfield-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Magic Of David Copperfield - Claudia Schiffer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ii2p9EBcRFI1uVkKBzXytRy1kTn.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Magic of David Copperfield - 1994.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2934629775,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-magic-of-david-copperfield-1994/The Magic of David Copperfield - 1994.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

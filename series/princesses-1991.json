@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "princesses-1991",
+  "title": "Princesses",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Princesses is a short-lived American situation comedy that aired on CBS in 1991. The series was produced by Universal Television and only lasted five episodes because of low ratings, likely due to direct competition from ABC's Top 30 hit Family Matters and NBC's Top 40 show Matlock. The series also aired in Germany on RTL in 2004. The series theme song, \"Someday My Prince Will Come\" was written by Frank Churchill and Larry Morey, and was sung by The Roches.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/295/739311.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Robin Schiff",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "princesses-1991-sitcom",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Princesses (1991) Sitcom, 3 roomies in NYC, ft Fran Drescher - all 8 eps",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/295/739311.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Princesses (1991) S1 EP4 Someday My Prince Will Gum (CBS) Fran Drescher.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 226329181,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/princesses-1991-sitcom/Princesses (1991) S1 EP4 Someday My Prince Will Gum (CBS) Fran Drescher.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

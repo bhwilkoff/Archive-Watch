@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "a-show-called-fred-1960",
+  "title": "A Show Called Fred",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "A Show Called Fred was the successor series to The Idiot Weekly, Price 2d. It was made by Associated-Rediffusion and broadcast only in London area. It was 25 minutes plus adverts.\n\nIt was predominantly a sketch comedy attempting to translate the audio antics of the The Goon Show into visual antics in bizarre and often surreal comedy sketches which just suddenly ended with a new sketch beginning. Many performers played small parts in the shows like Ernest Clark, Jon Jon Keefe, Patricia Driscoll, etc. Famous people of the day like Hans and Lotte Hass were parodied. Canadian star, Patti Lewis had a singing spot about the middle of the show, and Max Geldray a music spot later on. There were few taboos with sketches showing people in various states of undress, cameramen, behind the scenes workers and the studios. The Ying Tong song was sung for no apparent reason at various times.\n\nThe series was written by Spike Milligan and produced and directed by Richard Lester.\n\nIt was followed by Son of Fred later in 1956.\n\nA half hour special Best of Fred was broadcast on 18 September 1963 combining surviving sketches from A Show Called Fred and Son of Fred.\n\nThe 1995 convention of the Goon Show Preservation Society was billed as A Weekend Called Fred.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AShowCalledFred",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Show Called Fred",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AShowCalledFred.mp4",
+            "format": "h.264",
+            "sizeBytes": 145859722,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AShowCalledFred/AShowCalledFred.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

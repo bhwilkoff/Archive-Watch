@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "gogs-1960",
+  "title": "GOGS",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Gogs!, or simply Gogs, is a claymation-style animated television series which takes the form of a sitcom, originally aired on Welsh television in 1993, and aired to the rest of the United Kingdom on the BBC in 1996. Gogs has since been aired internationally, and still enjoys re-runs on occasion.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/37sWL8YKFQpe6P0tRLQs5bOl067.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/vm4zKBfOsQ3VrpMQWeRuxCFyBic.jpg",
+  "genres": [],
+  "networks": [
+    "BBC Two"
+  ],
+  "creator": "Sion Jones",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "gogs-the-complete-series-1-2-1993-96",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "GOGS - The Complete Series 1 & 2 (1993-96)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/37sWL8YKFQpe6P0tRLQs5bOl067.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GOGS - S02E03.mp4",
+            "format": "h.264",
+            "sizeBytes": 56564217,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gogs-the-complete-series-1-2-1993-96/GOGS - S02E03.mp4"
+        },
+        {
+          "archiveID": "gogs-the-complete-collection-1993-98",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Gogs: The Complete Collection (1993-98)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/37sWL8YKFQpe6P0tRLQs5bOl067.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GOGS - S03E00. Gogwana (1998).mp4",
+            "format": "h.264",
+            "sizeBytes": 168859108,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gogs-the-complete-collection-1993-98/GOGS - S03E00. Gogwana (1998).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

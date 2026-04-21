@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "general-hospital--september-2-1980-partial-2024",
+  "title": "General Hospital- September 2, 1980 (partial",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/general-hospital-september-2-1980-partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "general-hospital-september-2-1980-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "General Hospital- September 2, 1980 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/general-hospital-september-2-1980-partial",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "General Hospital- September 2, 1980 (partial).mp4",
+            "format": "h.264",
+            "sizeBytes": 167934187,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/general-hospital-september-2-1980-partial/General Hospital- September 2, 1980 (partial).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

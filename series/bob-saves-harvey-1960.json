@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bob-saves-harvey-1960",
+  "title": "Bob Saves Harvey",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Love_That_Bob_Ep4x25_Bob_Saves_Harvey",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Love_That_Bob_Ep4x25_Bob_Saves_Harvey",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Saves Harvey",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Love_That_Bob_Ep4x25_Bob_Saves_Harvey",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LoveThatBob-4x25-1958-03-18-BobSavesHarvey.mp4",
+            "format": "h.264",
+            "sizeBytes": 149477803,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Love_That_Bob_Ep4x25_Bob_Saves_Harvey/LoveThatBob-4x25-1958-03-18-BobSavesHarvey.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "seriesID": "oh-grow-up-1999",
+  "title": "Oh, Grow Up",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/b54DJKDdyNt8aI7O0p6CH0UNvWN.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Alan Ball",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "oh-grow-up-1999-s-01-e-01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Oh, Grow Up (1999) S01 Pilot Episode",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Oh Grow Up (1999) S01 E01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71421417,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-01/Oh Grow Up (1999) S01 E01.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "oh-grow-up-1999-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Love Stinks",
+          "overview": "Ford fouls out at the dating game when the guys set him up with the only other men they knowâ€”or thinkâ€”are gay. Meanwhile, Suzanne tries to save a trapped mouse that she and Ford considered a pet during their marriage.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
+          "airDate": "1999-10-06",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Oh, Grow Up (1999) S01E03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1005674272,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-03/Oh, Grow Up (1999) S01E03.ia.mp4"
+        },
+        {
+          "archiveID": "oh-grow-up-1999-s-01-e-04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "President of the House",
+          "overview": "War breaks out in the house when Ford starts to take over and Norris feels replaced. Meanwhile, Suzanne and Chloe reveal a little too much on a hidden video TV show.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
+          "airDate": "1999-10-13",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Oh, Grow Up (1999) S01E04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1190869107,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-04/Oh, Grow Up (1999) S01E04.ia.mp4"
+        },
+        {
+          "archiveID": "oh-grow-up-1999-s-01-e-05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Marathon Man",
+          "overview": "Ford's competitive streak comes out when he tricks an untrained Hunter into running a marathon with him. Meanwhile, Suzanne looks for clues that her ex-husband ever cared about her and finds some surprising evidence.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
+          "airDate": "1999-10-20",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Oh, Grow Up (1999) S01E05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1187314007,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-05/Oh, Grow Up (1999) S01E05.ia.mp4"
+        },
+        {
+          "archiveID": "oh-grow-up-1999-s-01-e-06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Clods and Monsters",
+          "overview": "Halloween fiend Hunter drags a bored Ford to a gay bar; a horror flick has Norris running scared to find Chloe at an underground party.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
+          "airDate": "1999-10-27",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Oh, Grow Up (1999) S01E06.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1318520287,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-06/Oh, Grow Up (1999) S01E06.ia.mp4"
+        },
+        {
+          "archiveID": "oh-grow-up-1999-s-01-e-07",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Hunter's Metamorphosis",
+          "overview": "Hunter throws a surprise birthday party for Chloe, who refuses to let her errant dad have his cake and eat hers, too. Meanwhile, Suzanne helps Norris fulfill a dream when she hires him to babysit a nightmarish artist.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
+          "airDate": "1999-11-03",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Oh, Grow Up (1999) S01E07.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1159687226,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-07/Oh, Grow Up (1999) S01E07.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

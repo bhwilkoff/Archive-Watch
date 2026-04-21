@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wews-newschannel-5-at-11pm-03011996-1996",
+  "title": "WEWS NewsChannel 5 At 11PM 03/01/1996",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/3-1-1996-wews-news-channel-5-at-11",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "3-1-1996-wews-news-channel-5-at-11",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WEWS NewsChannel 5 At 11PM 03/01/1996",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/3-1-1996-wews-news-channel-5-at-11",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "3-1-1996 WEWS News Channel 5 at 11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 103126930,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/3-1-1996-wews-news-channel-5-at-11/3-1-1996 WEWS News Channel 5 at 11.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

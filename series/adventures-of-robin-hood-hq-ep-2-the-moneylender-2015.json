@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "adventures-of-robin-hood-hq-ep-2-the-moneylender-2015",
+  "title": "Adventures Of Robin Hood (HQ) ep 2 The Moneylender",
+  "yearStart": 2015,
+  "yearEnd": 2015,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AdventuresOfRobinHoodep2TheMoneylender",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "AdventuresOfRobinHoodep2TheMoneylender",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Adventures Of Robin Hood (HQ) ep 2 The Moneylender",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AdventuresOfRobinHoodep2TheMoneylender",
+          "airDate": null,
+          "year": 2015,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Adventures of Robin Hood (ep 2 the Moneylender).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 125254876,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AdventuresOfRobinHoodep2TheMoneylender/Adventures of Robin Hood (ep 2 the Moneylender).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

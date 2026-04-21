@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-watch-dog-1960",
+  "title": "The Watch Dog",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/life_of_riley_-_3x05_-_the_dog_watch",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "life_of_riley_-_3x05_-_the_dog_watch",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Watch Dog",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_3x05_-_the_dog_watch",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_3x05_-_the_dog_watch_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 125319740,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_3x05_-_the_dog_watch/life_of_riley_-_3x05_-_the_dog_watch_agk.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

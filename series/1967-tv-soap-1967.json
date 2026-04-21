@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1967-tv-soap-1967",
+  "title": "1967 TV Soap",
+  "yearStart": 1967,
+  "yearEnd": 1967,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1967_PD_Soapie",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1967_PD_Soapie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1967 TV Soap: ''Love is a Many Splendored Thing'' - 1st of December 1967",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1967_PD_Soapie",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1717,
+          "videoFile": {
+            "name": "LoveisaManySplenderedThing1967.mp4",
+            "format": "h.264",
+            "sizeBytes": 177138480,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1967_PD_Soapie/LoveisaManySplenderedThing1967.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

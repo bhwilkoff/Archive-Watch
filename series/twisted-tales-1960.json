@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "twisted-tales-1960",
+  "title": "Twisted Tales",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Twisted Tales is a dark and stylish comedy drama series. With intense scripts written by a mix of established writers and upcoming talent, each story is a self-contained episode with a mysterious twist.\n\nThe tales set out to spook the brain and tickle the funny bone, so be prepared to expect the unexpected.\n\nThe series is very closely related to Spine Chillers, an earlier BBC Three series. In effect, Twisted Tales is a rebranded second series of the earlier successful production.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1bF4DloiWdHTZErLlxiKzkSAb8A.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/mYWi52NxPw7wMmFbOWrjn0JdEGn.jpg",
+  "genres": [],
+  "networks": [
+    "BBC Three"
+  ],
+  "creator": "Bill Dare",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "twisted-tales-s-01-e-01-night-of-the-monster",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Twisted Tales S01 1996-98",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1bF4DloiWdHTZErLlxiKzkSAb8A.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Twisted Tales S01E12 - One Way Ticket.mp4",
+            "format": "h.264",
+            "sizeBytes": 132347407,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/twisted-tales-s-01-e-01-night-of-the-monster/Twisted Tales S01E12 - One Way Ticket.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

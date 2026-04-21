@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "family-1994-2022",
+  "title": "Family 1994",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/family-1994",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "family-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Family 1994",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/family-1994",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Family Episode 4 Paula.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 418929603,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/family-1994/Family Episode 4 Paula.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

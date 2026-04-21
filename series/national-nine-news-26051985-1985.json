@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "national-nine-news-26051985-1985",
+  "title": "National Nine News (26/05/1985",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/nationalninenews-19850526",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "nationalninenews-19850526",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "National Nine News (26/05/1985)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/nationalninenews-19850526",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "13 - National Nine News.mp4",
+            "format": "h.264",
+            "sizeBytes": 47268260,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nationalninenews-19850526/13 - National Nine News.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

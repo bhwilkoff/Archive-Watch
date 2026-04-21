@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "the-undersea-world-of-jacques-cousteau-1976",
+  "title": "The Undersea World of Jacques Cousteau",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": "The intrepid undersea explorer and author circles the globe on his floating laboratory, Calypso, in this occasional series. A pioneer in marine study, the red-capped Frenchman introduced generations of landlubbers to the creatures and mysteries of the sea.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/u4nMk7XRR7hlQgUtszbd9pbVFwa.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/okvvW8chOTJUBz9Iv6NIRVu9Twl.jpg",
+  "genres": [],
+  "networks": [
+    "Das Erste",
+    "ORTF Télévision"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-undersea-world-of-jacques-cousteau-1976",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Undersea World of Jacques Cousteau (1976)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u4nMk7XRR7hlQgUtszbd9pbVFwa.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "files/S01E36 - The Incredible March of the Spiny Lobsters.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 500439532,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-undersea-world-of-jacques-cousteau-1976/files/S01E36 - The Incredible March of the Spiny Lobsters.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

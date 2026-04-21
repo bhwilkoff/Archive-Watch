@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-avengers-room-without-a-view-2019",
+  "title": "The Avengers Room Without A View",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the.avengers.1966.s04e15.room.without.a.view_201912",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the.avengers.1966.s04e15.room.without.a.view_201912",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Avengers Room Without A View.",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the.avengers.1966.s04e15.room.without.a.view_201912",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Avengers.1966.S04E15.Room.Without.a.View.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 233416658,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.avengers.1966.s04e15.room.without.a.view_201912/The.Avengers.1966.S04E15.Room.Without.a.View.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

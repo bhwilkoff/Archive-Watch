@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-rescue-1960",
+  "title": "The Rescue",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Andy_Griffith_The_Rescue",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Andy_Griffith_The_Rescue",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Rescue",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Andy_Griffith_The_Rescue",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "RESCUE.mp4",
+            "format": "h.264",
+            "sizeBytes": 124554402,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Andy_Griffith_The_Rescue/RESCUE.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

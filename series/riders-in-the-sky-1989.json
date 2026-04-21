@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "seriesID": "riders-in-the-sky-1989",
+  "title": "Riders In The Sky",
+  "yearStart": 1989,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RidersInTheSkyMaybeIllCryOverYouByeByeBlackbird1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riders In The Sky: Maybe I'll Cry Over You & Bye Bye Blackbird (1989)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Riders In The Sky - Maybe I'll Cry Over You & Bye Bye Blackbird (1989).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 35258882,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RidersInTheSkyMaybeIllCryOverYouByeByeBlackbird1989/Riders In The Sky - Maybe I'll Cry Over You & Bye Bye Blackbird (1989).ogv"
+        },
+        {
+          "archiveID": "RidersInTheSkyWahoo1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riders In The Sky: Wahoo (1998)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Riders In The Sky-Wahoo(1998).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 19315745,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RidersInTheSkyWahoo1998/Riders In The Sky-Wahoo(1998).ogv"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "riders-in-the-sky-06-sourdoughs-surprise",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Riders In The Sky (1991) Episode 6: Sourdough's Surprise",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "riders-in-the-sky-06-sourdoughs-surprise.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 107182939,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/riders-in-the-sky-06-sourdoughs-surprise/riders-in-the-sky-06-sourdoughs-surprise.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

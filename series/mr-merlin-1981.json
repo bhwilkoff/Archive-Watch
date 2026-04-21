@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "mr-merlin-1981",
+  "title": "Mr Merlin",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": "Immortal Merlin the wizard lives in modern-day San Francisco under the identity of Max Merlin, a mechanic. He uses his magic while trying to blend into the modern world.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pKdILVFzpKOwJ18awirRUU8RhRw.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/eRuVBMlaAz4lV4yPG2n6lXrYYJe.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Larry Tucker",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mr-merlin-1981",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr Merlin - Complete Series 1981",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pKdILVFzpKOwJ18awirRUU8RhRw.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mr. Merlin_ 1x21   Arrivederci_ Dink.mp4",
+            "format": "h.264",
+            "sizeBytes": 145458601,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mr-merlin-1981/Mr. Merlin_ 1x21   Arrivederci_ Dink.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

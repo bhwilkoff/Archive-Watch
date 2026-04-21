@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "peter-lorre-joanie-somers-as-guests-1960",
+  "title": "Peter Lorre & Joanie Somers as Guests",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/PeterLorreJoanieSomersAsGuests",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PeterLorreJoanieSomersAsGuests",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Peter Lorre & Joanie Somers as Guests",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/PeterLorreJoanieSomersAsGuests",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1437,
+          "videoFile": {
+            "name": "JackBenny-PeterLorreJoanieSomersAsGuests.mp4",
+            "format": "h.264",
+            "sizeBytes": 149415793,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PeterLorreJoanieSomersAsGuests/JackBenny-PeterLorreJoanieSomersAsGuests.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

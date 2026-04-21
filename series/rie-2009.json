@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "rie-2009",
+  "title": "rie",
+  "yearStart": 2009,
+  "yearEnd": 2009,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/batteriesfinal",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "batteriesfinal",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "rie",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/batteriesfinal",
+          "airDate": null,
+          "year": 2009,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "batteriesnotincluded4_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 260117487,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/batteriesfinal/batteriesnotincluded4_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

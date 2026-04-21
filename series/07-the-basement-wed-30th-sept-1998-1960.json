@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "07-the-basement-wed-30th-sept-1998-1960",
+  "title": "07. The Basement: Wed 30th Sept 1998",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/7-the-basement-wed-30th-sept-1998-episode-thurs-24th-sept-1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "7-the-basement-wed-30th-sept-1998-episode-thurs-24th-sept-1998",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "07. The Basement: Wed 30th Sept 1998 Episode (Thurs 24th Sept 1998) - short TV Clip",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/7-the-basement-wed-30th-sept-1998-episode-thurs-24th-sept-1998",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "7_The Basement Wed 30th Sept 1998 Episode (Thurs 24th Sept 1998).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 4040994,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/7-the-basement-wed-30th-sept-1998-episode-thurs-24th-sept-1998/7_The Basement Wed 30th Sept 1998 Episode (Thurs 24th Sept 1998).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

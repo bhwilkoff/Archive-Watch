@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "victory-at-sea-1960",
+  "title": "VICTORY AT SEA",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Victory at Sea is a documentary television series about naval warfare during World War II that was originally broadcast by NBC in the USA in 1952–1953. It was condensed into a film in 1954. Excerpts from the music soundtrack, by Richard Rodgers and Robert Russell Bennett, were re-recorded and sold as record albums. The original TV broadcasts comprised 26 half-hour segments—Sunday afternoons at 3pm in most markets—starting October 26, 1952 and ending May 3, 1953. The series, which won an Emmy award in 1954 as \"best public affairs program\", played an important part in establishing historic \"compilation\" documentaries as a viable television genre.  \n\nOver 13,000 hours of footage gathered from US, British, German and Japanese navies during World War II were perused in the making of these compelling episodes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "01designforwar",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "VICTORY AT SEA part 1 of 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "01_Design_For_War.MPEG4..mp4",
+            "format": "h.264",
+            "sizeBytes": 165247788,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01designforwar/01_Design_For_War.MPEG4..mp4"
+        },
+        {
+          "archiveID": "08marenostrum",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "VICTORY AT SEA part 2 of 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "09_Sea_And_Sand.mp4",
+            "format": "h.264",
+            "sizeBytes": 165249485,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/08marenostrum/09_Sea_And_Sand.mp4"
+        },
+        {
+          "archiveID": "15dday",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "VICTORY AT SEA part 3 of 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "17_The_Turkey_Shoot.mp4",
+            "format": "h.264",
+            "sizeBytes": 164997238,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/15dday/17_The_Turkey_Shoot.mp4"
+        },
+        {
+          "archiveID": "22thefateofeurope",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "VICTORY AT SEA part 4 of 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "23_Target_Suribachi.mp4",
+            "format": "h.264",
+            "sizeBytes": 164943829,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/22thefateofeurope/23_Target_Suribachi.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

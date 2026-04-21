@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "barbara-mandrell-and-the-mandrell-sisters-november-21-1981-2023",
+  "title": "Barbara Mandrell and the Mandrell Sisters (November 21, 1981",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/barbara-mandrell-and-the-mandrell-sisters-november-21-1981",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "barbara-mandrell-and-the-mandrell-sisters-november-21-1981",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Barbara Mandrell and the Mandrell Sisters (November 21, 1981)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/barbara-mandrell-and-the-mandrell-sisters-november-21-1981",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Barbara Mandrell and the Mandrell Sisters (November 21, 1981).mp4",
+            "format": "h.264",
+            "sizeBytes": 259072412,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/barbara-mandrell-and-the-mandrell-sisters-november-21-1981/Barbara Mandrell and the Mandrell Sisters (November 21, 1981).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

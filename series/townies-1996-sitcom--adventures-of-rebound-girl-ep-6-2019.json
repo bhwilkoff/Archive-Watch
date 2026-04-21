@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "townies-1996-sitcom--adventures-of-rebound-girl-ep-6-2019",
+  "title": "Townies (1996 Sitcom)- Adventures Of Rebound Girl (Ep. 6",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/townies1996sitcomadventuresofreboundgirlep.6convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "townies1996sitcomadventuresofreboundgirlep.6convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Townies (1996 Sitcom)- Adventures Of Rebound Girl (Ep. 6)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/townies1996sitcomadventuresofreboundgirlep.6convertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Townies (1996 sitcom)- Adventures of Rebound Girl (Ep. 6) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 100107194,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/townies1996sitcomadventuresofreboundgirlep.6convertvideoonline.com/Townies (1996 sitcom)- Adventures of Rebound Girl (Ep. 6) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

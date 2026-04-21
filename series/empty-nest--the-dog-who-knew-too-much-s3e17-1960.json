@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "empty-nest--the-dog-who-knew-too-much-s3e17-1960",
+  "title": "Empty Nest- The Dog Who Knew Too Much (S3E17",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/EmptyNestTheDogWhoKnewTooMuchS3E17",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "EmptyNestTheDogWhoKnewTooMuchS3E17",
+          "seasonNumber": 3,
+          "episodeNumber": 17,
+          "title": "Empty Nest- The Dog Who Knew Too Much (S3E17)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/EmptyNestTheDogWhoKnewTooMuchS3E17",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Empty Nest- The Dog Who Knew Too Much (S3E17).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 96009716,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/EmptyNestTheDogWhoKnewTooMuchS3E17/Empty Nest- The Dog Who Knew Too Much (S3E17).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-guest-for-the-gallows-1960",
+  "title": "A Guest For The Gallows",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Robin_Hood_06_A_Guest_For_The_Gallows",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_06_A_Guest_For_The_Gallows",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Guest For The Gallows",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Robin_Hood_06_A_Guest_For_The_Gallows",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_06_A_Guest_For_The_Gallows.mp4",
+            "format": "h.264",
+            "sizeBytes": 155719632,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_06_A_Guest_For_The_Gallows/Robin_Hood_06_A_Guest_For_The_Gallows.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

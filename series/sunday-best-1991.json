@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "sunday-best-1991",
+  "title": "Sunday Best",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Sunday Best was GMTV's original Sunday magazine programme, launched in January 1993. It was originally intended to be a Sunday edition of the regular weekday programme, featuring the regular lifestyle and human interest stories, interviews, and news bulletins.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ITV1",
+    "GMTV (Good Morning Television)"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sunday-best-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sunday Best - Carl Reiner",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sunday Best - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1479405221,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sunday-best-1991/Sunday Best - 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

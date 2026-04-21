@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "mission-genesis-1997",
+  "title": "Mission Genesis",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": "In the future, Earth's entire population is being wiped out by an unstoppable virus. Mankind's only hope for survival is to launch a spaceship stocked with clones in cryogenic freeze, which will return to a devastated planet and re-populate it. Prior to its arrival, however, its crew of 6 is awoken to face a threat to the ship. They must come to terms with the workings of the ship, the dangers faced by their ship, the realization that they are clones, and their ultimate destiny: to save their race.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3ae1SXF1Mq4UDI8U4c4cJs0tPpx.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "YTV",
+    "Syfy"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mission-genesis-complete-series-1997",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mission Genesis Complete Series (1997)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3ae1SXF1Mq4UDI8U4c4cJs0tPpx.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "E02 Lullaby.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 233788057,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mission-genesis-complete-series-1997/E02 Lullaby.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

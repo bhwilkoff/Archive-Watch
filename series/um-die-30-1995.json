@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "um-die-30-1995",
+  "title": "Um die 30",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/kwRJ1B3shYUrEmXLEUAmprG5QmZ.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ZDF"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "um-die-30-1-babyboomer",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Um die 30: The Complete Series (All Episodes)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kwRJ1B3shYUrEmXLEUAmprG5QmZ.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Um die 30 (1) Babyboomer.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1721768167,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/um-die-30-1-babyboomer/Um die 30 (1) Babyboomer.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

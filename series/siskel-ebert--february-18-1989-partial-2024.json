@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "siskel-ebert--february-18-1989-partial-2024",
+  "title": "Siskel & Ebert- February 18, 1989 (partial",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/siskel-ebert-february-18-1989-partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "siskel-ebert-february-18-1989-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Siskel & Ebert- February 18, 1989 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/siskel-ebert-february-18-1989-partial",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Siskel & Ebert- February 18, 1989 (partial).mp4",
+            "format": "h.264",
+            "sizeBytes": 92618255,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/siskel-ebert-february-18-1989-partial/Siskel & Ebert- February 18, 1989 (partial).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

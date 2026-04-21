@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "perversions-of-science-1997",
+  "title": "Perversions Of Science",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": "Perversions of Science is a science fiction/horror television series that ran on the cable channel HBO for one season in 1997.\n\nIt is a spin-off of popular horror series Tales from the Crypt also shown on HBO, and its episodes are based on EC's Weird Science comic book series.\n\nThe format of Perversions of Science is very similar to Tales From The Crypt, the show was introduced by a sexualized female robot named Chrome and then an individual episode would start. After the episode was complete, Chrome would conclude Perversions of Science.\n\nMost episodes focused on a part of science fiction such as alien invasion or space/time travel.\n\nThe show featured a mix of established talent and young up-and-comers. \"Panic\", for instance, starred a young Jason Lee and Jamie Kennedy opposite Harvey Korman.\n\nAs of 2011 the series has not been released on DVD in the US. However in 2001 it was released in Japan by Pioneer Entertainment where it has since gone out of print subsequently becoming sought after by collectors.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lA4zvjHMICXl5XDpShfemcNSDNv.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/nhYLGiTWcBXYOvMfvu83tPugnLG.jpg",
+  "genres": [],
+  "networks": [
+    "HBO"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "perversions-of-science-HBO",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Perversions Of Science Complete TV Series HBO (1997) SPACE TV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lA4zvjHMICXl5XDpShfemcNSDNv.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Perversions of Science -06- Planely Possible.mp4",
+            "format": "h.264",
+            "sizeBytes": 162700921,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/perversions-of-science-HBO/Perversions of Science -06- Planely Possible.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

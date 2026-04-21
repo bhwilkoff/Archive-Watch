@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-skin-of-our-teeth-1983-by-thornton-wilder-disc-rip-ameri-1983",
+  "title": "The Skin Of Our Teeth 1983 by Thornton Wilder (DISC RIP) American Playhouse",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-skin-of-our-teeth-1983-disc-rip",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-skin-of-our-teeth-1983-disc-rip",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Skin Of Our Teeth 1983 by Thornton Wilder (DISC RIP) American Playhouse",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-skin-of-our-teeth-1983-disc-rip",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Skin of Our Teeth 1983 (DISC RIP).mp4",
+            "format": "h.264",
+            "sizeBytes": 722625378,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-skin-of-our-teeth-1983-disc-rip/The Skin of Our Teeth 1983 (DISC RIP).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

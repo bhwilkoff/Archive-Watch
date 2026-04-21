@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "degrassi-between-takes-1988",
+  "title": "Degrassi Between Takes",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/degrassi-between-takes",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "degrassi-between-takes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Degrassi Between Takes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-between-takes",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Between Takes.mp4",
+            "format": "h.264",
+            "sizeBytes": 136654073,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-between-takes/Degrassi Between Takes.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

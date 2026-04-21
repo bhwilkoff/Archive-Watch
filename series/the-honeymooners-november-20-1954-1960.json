@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-honeymooners-november-20-1954-1960",
+  "title": "The Honeymooners November 20, 1954",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-honeymooners-1954-11-20",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-honeymooners-1954-11-20",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Honeymooners November 20, 1954",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-honeymooners-1954-11-20",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Honeymooners 1954-11-20.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 229098452,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-honeymooners-1954-11-20/The Honeymooners 1954-11-20.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "atom-man-vs-superman-1950-s01e15-superman-salva-el-universo-2023",
+  "title": "Atom Man Vs. Superman 1950 (S01E15) Superman Salva El Universo",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/atom-man-vs.-superman-1950-1x-15-superman-salva-el-universo",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "atom-man-vs.-superman-1950-1x-15-superman-salva-el-universo",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Atom Man Vs. Superman 1950 (S01E15) Superman Salva El Universo",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/atom-man-vs.-superman-1950-1x-15-superman-salva-el-universo",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Atom Man Vs. Superman 1950 1x15 Superman Salva el Universo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 127578753,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/atom-man-vs.-superman-1950-1x-15-superman-salva-el-universo/Atom Man Vs. Superman 1950 1x15 Superman Salva el Universo.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

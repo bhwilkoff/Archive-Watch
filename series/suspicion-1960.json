@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "suspicion-1960",
+  "title": "Suspicion",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Suspicion is the title of an American television mystery drama series which aired on the NBC from 1957 through 1959. The executive producer of Suspicion was film director Alfred Hitchcock.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/g3InNLJAdrkhYAqTTj8b4yClfj6.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "suspicion-s-01-e-12-doomsday-1957",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Doomsday",
+          "overview": "A master of disguise plans a payroll theft with the only two men that know his true identity. McDillard has eluded police for years with his clever disguises and carefully planned robberies.  Now he is setting up a $300,000 payroll theft, taking on two partners, who are the only men who know his true identity.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/g3InNLJAdrkhYAqTTj8b4yClfj6.jpg",
+          "airDate": "1957-12-16",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Suspicion S01E12 Doomsday (1957).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 173419788,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/suspicion-s-01-e-12-doomsday-1957/Suspicion S01E12 Doomsday (1957).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

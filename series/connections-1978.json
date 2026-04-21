@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "connections-1978",
+  "title": "Connections",
+  "yearStart": 1978,
+  "yearEnd": 1978,
+  "overview": "Taking an interdisciplinary approach to the history of science and invention, Connections explores an \"Alternative View of Change\" that rejects the conventional linear and teleological view of historical progress. To demonstrate this view, Burke begins each episode with a particular event or innovation in the past (usually ancient or medieval) and traces a path from that event through a series of connections to a fundamental and essential aspect of the modern world.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/6XToMleIbB8MxoMM2JDOgqBXX9E.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/6ONyas61mF1u7OKmotB0PFzVZjy.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One",
+    "TLC"
+  ],
+  "creator": "James Burke",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "connections-1978-complete-first-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Connections (1978) Complete First Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/6XToMleIbB8MxoMM2JDOgqBXX9E.jpg",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Connections (1978) - Season 01/Connections (1978) - S01E03 - Distant Voices.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 295911909,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/connections-1978-complete-first-series/Connections (1978) - Season 01/Connections (1978) - S01E03 - Distant Voices.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

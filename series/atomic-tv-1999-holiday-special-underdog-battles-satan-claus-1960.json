@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "atomic-tv-1999-holiday-special-underdog-battles-satan-claus-1960",
+  "title": "Atomic TV 1999 Holiday Special “Underdog Battles Satan Claus”",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AtomicTVUnderdogBattlesSatanClaus",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AtomicTVUnderdogBattlesSatanClaus",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Atomic TV 1999 Holiday Special “Underdog Battles Satan Claus”",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AtomicTVUnderdogBattlesSatanClaus",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Underdog_Battles_Satan_Claus_archive.org.mp4",
+            "format": "h.264",
+            "sizeBytes": 382439951,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AtomicTVUnderdogBattlesSatanClaus/Underdog_Battles_Satan_Claus_archive.org.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

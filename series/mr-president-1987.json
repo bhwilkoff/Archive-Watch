@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "mr-president-1987",
+  "title": "Mr. President",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": "Mr. President is a United States television series starring George C. Scott that premiered on May 3, 1987. It was part of the Fox Broadcasting Company's premiere season of prime time entertainment, alongside Married... With Children, The Tracey Ullman Show, and Duet.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/zhwb1MlnSauU5ziNheo8QGnsW4K.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": "Gene Reynolds",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mr-president-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. President - Madeline Kahn, Carlin Glynn",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zhwb1MlnSauU5ziNheo8QGnsW4K.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mr President - 1.01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 800426241,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mr-president-1.01/Mr President - 1.01.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

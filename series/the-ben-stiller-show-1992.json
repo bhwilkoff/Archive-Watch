@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-ben-stiller-show-1992",
+  "title": "The Ben Stiller Show",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "This sketch show specialises in parodies of movies, shows and commercials. Special guest stars join them in the comedy sketches with crazy results.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7AIbFuUbETdBomWpWanrU8vMJEc.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qN1zhowmJMNBaS6p4yyjffkshH5.jpg",
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": "Judd Apatow",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-ben-stiller-show-complete-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Ben Stiller Show: Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7AIbFuUbETdBomWpWanrU8vMJEc.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 7 - With Rob Morrow.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 165027740,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-ben-stiller-show-complete-series/Episode 7 - With Rob Morrow.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

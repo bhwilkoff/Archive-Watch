@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "stingray-1964-tv-1964",
+  "title": "Stingray (1964 TV",
+  "yearStart": 1964,
+  "yearEnd": 1964,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/stingray-the-reunion-party",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "stingray-the-reunion-party",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "Stingray (1964 TV) - Episode 40: The Reunion Party",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/stingray-the-reunion-party",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Stingray - The Reunion Party.mp4",
+            "format": "h.264",
+            "sizeBytes": 168481764,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/stingray-the-reunion-party/Stingray - The Reunion Party.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-inheritance-1960",
+  "title": "The Inheritance",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Thirteen strangers are summoned to a grand stately home. They are there to compete for part of the fortune left in the will of The Deceased, a fabulously glamourous benefactor played by Elizabeth Hurley.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/uCDfJhKz5GAbW1FwtmSP402upBg.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/rLVhBVT82Ridwrt3hybiiiBB1LT.jpg",
+  "genres": [],
+  "networks": [
+    "Channel 4"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OSB-28_The_Inheritance",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Inheritance",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uCDfJhKz5GAbW1FwtmSP402upBg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OSB-28_The_Inheritance.mp4",
+            "format": "h.264",
+            "sizeBytes": 151770758,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-28_The_Inheritance/OSB-28_The_Inheritance.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

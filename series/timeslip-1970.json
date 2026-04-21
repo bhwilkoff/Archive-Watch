@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "timeslip-1970",
+  "title": "Timeslip",
+  "yearStart": 1970,
+  "yearEnd": 1970,
+  "overview": "Simon Randall and Liz Skinner discover the existence of a strange anomaly, known as the “Time Barrier”, that enables them to travel in time to different historical periods in alternate pasts and futures.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rl4qdU43TYPYWAzuEjJ1ruoKYRl.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/eRzcNGvBPofZXESBzHa6X0w6taP.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "timeslip-complete-series-1970",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Timeslip - Complete Series 1970",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rl4qdU43TYPYWAzuEjJ1ruoKYRl.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Timeslip S01E03 - The Wrong End of Time Pt 3.mp4",
+            "format": "h.264",
+            "sizeBytes": 143701720,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip S01E03 - The Wrong End of Time Pt 3.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

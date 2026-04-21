@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "seriesID": "ozzie-harriet-1960",
+  "title": "Ozzie & Harriet",
+  "yearStart": 1960,
+  "yearEnd": 1965,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Ozzie-Harriet--Piano_for_Fraternity",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Ozzie-Harriet--Friend_in_Need",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: A Friend in Need",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet--Friend_in_Need",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1340,
+          "videoFile": {
+            "name": "09-08_Friend_in_Need.mp4",
+            "format": "h.264",
+            "sizeBytes": 139770823,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet--Friend_in_Need/09-08_Friend_in_Need.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet--Piano_for_Fraternity",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: A Piano for the Fraternity",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet--Piano_for_Fraternity",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "09-13_Piano_for_the_Fraternity.mp4",
+            "format": "h.264",
+            "sizeBytes": 162767240,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet--Piano_for_Fraternity/09-13_Piano_for_the_Fraternity.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_08-19",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: A Trap for Ricky (1960)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_08-19",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "Ozzie-Harriet_08-19_Trap_for_Ricky.mp4",
+            "format": "h.264",
+            "sizeBytes": 155502297,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_08-19/Ozzie-Harriet_08-19_Trap_for_Ricky.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_08-20",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: An Interesting Evening (1960)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_08-20",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1514,
+          "videoFile": {
+            "name": "Ozzie-Harriet_08-20_An_Interesting_Evening.mp4",
+            "format": "h.264",
+            "sizeBytes": 157499276,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_08-20/Ozzie-Harriet_08-20_An_Interesting_Evening.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_08-26",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Bad Day at Blueberry Rock (1960)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_08-26",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1481,
+          "videoFile": {
+            "name": "Ozzie-Harriet_08-26_Bad_Day_at_Blueberry_Rock.mp4",
+            "format": "h.264",
+            "sizeBytes": 153919283,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_08-26/Ozzie-Harriet_08-26_Bad_Day_at_Blueberry_Rock.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_12-07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: David Takes a Client to Dinner (1963)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_12-07",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1378,
+          "videoFile": {
+            "name": "Ozzie-Harriet_12-07_David_Takes_Client_to_Dinner.mp4",
+            "format": "h.264",
+            "sizeBytes": 143191557,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_12-07/Ozzie-Harriet_12-07_David_Takes_Client_to_Dinner.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_14-04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Helpful June (1965)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_14-04",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1320,
+          "videoFile": {
+            "name": "Ozzie-Harriet_14-04_Helpful_June.mp4",
+            "format": "h.264",
+            "sizeBytes": 137053224,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_14-04/Ozzie-Harriet_14-04_Helpful_June.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_08-22",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Magic Dishes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_08-22",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1443,
+          "videoFile": {
+            "name": "Ozzie_08-22_Magic_Dishes.mp4",
+            "format": "h.264",
+            "sizeBytes": 150078459,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_08-22/Ozzie_08-22_Magic_Dishes.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_14-07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Secret Passage (1965)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_14-07",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "Ozzie-Harriet_14-07_Secret_Passage.mp4",
+            "format": "h.264",
+            "sizeBytes": 157972181,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_14-07/Ozzie-Harriet_14-07_Secret_Passage.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_08-17",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: The Lockout",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_08-17",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1501,
+          "videoFile": {
+            "name": "Ozzie_08-17_The_Lockout.mp4",
+            "format": "h.264",
+            "sizeBytes": 156172761,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_08-17/Ozzie_08-17_The_Lockout.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_14-06",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: The Nelsons Revisited (1965)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_14-06",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1330,
+          "videoFile": {
+            "name": "Ozzie-Harriet_14-06_The_Nelsons_Revisited.mp4",
+            "format": "h.264",
+            "sizeBytes": 138086998,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_14-06/Ozzie-Harriet_14-06_The_Nelsons_Revisited.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_13-07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: The Pennies (1964)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_13-07",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1738,
+          "videoFile": {
+            "name": "Ozzie-Harriet_13-07_The_Pennies.mp4",
+            "format": "h.264",
+            "sizeBytes": 180561640,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_13-07/Ozzie-Harriet_13-07_The_Pennies.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_10-14",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: The Special Cake (1962)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_10-14",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1744,
+          "videoFile": {
+            "name": "Ozzie-Harriet_10-14_Special_Cake.mp4",
+            "format": "h.264",
+            "sizeBytes": 181389011,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_10-14/Ozzie-Harriet_10-14_Special_Cake.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13
+}

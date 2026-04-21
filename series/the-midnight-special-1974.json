@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-midnight-special-1974",
+  "title": "The Midnight Special",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": "The Midnight Special is an American late-night musical variety series that aired on NBC during the 1970s and early 1980s, created and produced by Burt Sugarman. It premiered as a special on August 19, 1972, then began its run as a regular series on February 2, 1973; its last episode was on May 1, 1981. The ninety-minute program followed the Friday night edition of The Tonight Show Starring Johnny Carson. The show typically featured guest hosts, except for a period from July 1975 through March 1976 when singer Helen Reddy served as the regular host. Wolfman Jack served as the announcer and frequent guest host. The series also occasionally aired vintage footage of older acts. As the program neared the end of its run in the early 1980s, it began to frequently use lip-synched performances rather than live. The program also featured occasional comedic performances such as Richard Pryor and Andy Kaufman.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3pHSprTU1ccTbgwrw0R1jRa0YHg.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/abfHLYpvS64lanCac2kzTMXfJKg.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "midnight-special-million-sellers-of-1974",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Midnight Special - Million Sellers Of 1974",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3pHSprTU1ccTbgwrw0R1jRa0YHg.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Midnight Special - Million Sellers of 1974.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 507063736,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/midnight-special-million-sellers-of-1974/Midnight Special - Million Sellers of 1974.ia.mp4"
+        },
+        {
+          "archiveID": "the-midnight-special-1974",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Midnight Special (1974)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3pHSprTU1ccTbgwrw0R1jRa0YHg.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Midnight Special (1974).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 389966652,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-midnight-special-1974/The Midnight Special (1974).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "pacific-station-1991",
+  "title": "Pacific Station",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "A police comedy show about eccentric police officers. Veteran police detective Bob Ballard is reassigned to Pacific Station in Venice, California. The station is habitually used as an exile place for the police force's most eccentric or outright incompetent officers. They primarily have to deal with rather weird suspects from Venice Beach. Bob also has to deal with his new superior officer, the recently promoted Captain Ken Epstein. Ken is a rather immature young man who has been asked to lead officers than are older than himself.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pUYBUBaJ1N6ji5o62Zde7k2LP5j.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/aypXTobyVJem9HSjZCk862LUkgp.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Kathy Speer",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "pacific-station-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Pacific Station - Robert Guillaume",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pUYBUBaJ1N6ji5o62Zde7k2LP5j.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Pacific Station - 1.01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 704765445,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/pacific-station-1.01/Pacific Station - 1.01.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "korea-2015",
+  "title": "Korea",
+  "yearStart": 2015,
+  "yearEnd": 2015,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/KoreaUnknownWar",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "KoreaUnknownWar",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Korea : The Unknown War",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/KoreaUnknownWar",
+          "airDate": null,
+          "year": 2015,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Korea.The.Unknown.War.S01E06.Armed.Truce.1990.TVRip.DD2.0.x264-rattera.mp4",
+            "format": "h.264",
+            "sizeBytes": 348871582,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/KoreaUnknownWar/Korea.The.Unknown.War.S01E06.Armed.Truce.1990.TVRip.DD2.0.x264-rattera.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

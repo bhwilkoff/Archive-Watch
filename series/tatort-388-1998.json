@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tatort-388-1998",
+  "title": "Tatort (388",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/3334545-63294513",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "3334545-63294513",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tatort (388): Bildersturm (1998)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/3334545-63294513",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "3334545_63294513.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2655508173,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/3334545-63294513/3334545_63294513.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cbs-evening-news-june-1-1993-1993",
+  "title": "CBS Evening News June 1, 1993",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/cbs-19930601",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cbs-19930601",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CBS Evening News June 1, 1993",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/cbs-19930601",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CBS晚间新闻 19930601.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 192508861,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cbs-19930601/CBS晚间新闻 19930601.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

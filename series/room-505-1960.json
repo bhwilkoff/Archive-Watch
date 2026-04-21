@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "room-505-1960",
+  "title": "Room 505",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FollowThatMan-RalphBellamy-4-32-Room505",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FollowThatMan-RalphBellamy-4-32-Room505",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Room 505",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FollowThatMan-RalphBellamy-4-32-Room505",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FollowThatMan-RalphBellamy-4-32-Room505.mp4",
+            "format": "h.264",
+            "sizeBytes": 155243329,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FollowThatMan-RalphBellamy-4-32-Room505/FollowThatMan-RalphBellamy-4-32-Room505.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

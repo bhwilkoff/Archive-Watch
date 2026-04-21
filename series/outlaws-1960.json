@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "seriesID": "outlaws-1960",
+  "title": "Outlaws",
+  "yearStart": 1960,
+  "yearEnd": 1961,
+  "overview": "Outlaws is an NBC Western television series, starring Barton MacLane as U.S. marshal Frank Caine, who operated in a lawless section of Oklahoma Territory about Stillwater. The program aired 50 one-hour episodes from September 29, 1960, to May 10, 1962. The first season was shot in black-and-white, the second in color. Co-starring with MacLane in the 1960–1961 season was Don Collier as deputy marshal Will Foreman. In the second season, MacLane left the program, and Collier was promoted to full marshal, with Bruce Yarnell joining the cast as deputy marshal Chalk Breeson. Jock Gaynor appeared in the first season as deputy Heck Martin, the on-screen nephew of Will Foreman. Slim Pickens appeared as \"Slim\" in the second season. Judy Lewis also appeared the second season as Connie Masters, an employee of the Wells Fargo office in Stillwater.\n\nThe dog who appeared in Walt Disney's Old Yeller was also cast in The Outlaws.\n\nOthers who appeared on the program on at least three occasions were Vic Morrow, Cliff Robertson, Pippa Scott, and Harry Townes. In addition, John Anderson, Edgar Buchanan, Jackie Coogan, Bruce Gordon, Robert Harland, Robert Lansing Cloris Leachman, Robert Karnes, Brian Keith, Larry Pennell, Chris Robinson, William Shatner, Ray Walston, Jack Warden, and David Wayne each appeared twice in the series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/93BqkPyaI0nt7w4YSEbkSauKfUz.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/a5Ifvd2PhCrvcD0HzuToU5wLSUo.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Outlaws--Thirty_a_Month",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Thirty a Month",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/93BqkPyaI0nt7w4YSEbkSauKfUz.jpg",
+          "airDate": "1960-09-29",
+          "year": 1960,
+          "runtimeSeconds": 2754,
+          "videoFile": {
+            "name": "Outlaws_01-01_Thirty_a_Month.mp4",
+            "format": "h.264",
+            "sizeBytes": 287718396,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Outlaws--Thirty_a_Month/Outlaws_01-01_Thirty_a_Month.mp4"
+        },
+        {
+          "archiveID": "Outlaws--Beat_the_Drum_Slowly",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Beat the Drum Slowly",
+          "overview": "Two cowboys join a crooked judge who plans the robbery of a casino that cheated them out of nearly 3500 dollars, unaware the judge is very murderous.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/93BqkPyaI0nt7w4YSEbkSauKfUz.jpg",
+          "airDate": "1960-10-20",
+          "year": 1960,
+          "runtimeSeconds": 2758,
+          "videoFile": {
+            "name": "Outlaws_01-03_Beat_the_Drum_Slowly.mp4",
+            "format": "h.264",
+            "sizeBytes": 286896959,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Outlaws--Beat_the_Drum_Slowly/Outlaws_01-03_Beat_the_Drum_Slowly.mp4"
+        },
+        {
+          "archiveID": "Outlaws--Rape_of_Red_Sky",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Rape of Red Sky",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/93BqkPyaI0nt7w4YSEbkSauKfUz.jpg",
+          "airDate": "1960-10-27",
+          "year": 1960,
+          "runtimeSeconds": 2768,
+          "videoFile": {
+            "name": "Outlaws--Rape_of_Red_Sky.mp4",
+            "format": "h.264",
+            "sizeBytes": 288501012,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Outlaws--Rape_of_Red_Sky/Outlaws--Rape_of_Red_Sky.mp4"
+        },
+        {
+          "archiveID": "Outlaws--Shorty",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Shorty",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/93BqkPyaI0nt7w4YSEbkSauKfUz.jpg",
+          "airDate": "1960-11-03",
+          "year": 1960,
+          "runtimeSeconds": 2763,
+          "videoFile": {
+            "name": "Outlaws_01-05_Shorty.mp4",
+            "format": "h.264",
+            "sizeBytes": 287775224,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Outlaws--Shorty/Outlaws_01-05_Shorty.mp4"
+        },
+        {
+          "archiveID": "Outlaws--Last_Chance",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Last Chance",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/93BqkPyaI0nt7w4YSEbkSauKfUz.jpg",
+          "airDate": "1960-11-10",
+          "year": 1960,
+          "runtimeSeconds": 2750,
+          "videoFile": {
+            "name": "Outlaws_01-06_Last_Chance.mp4",
+            "format": "h.264",
+            "sizeBytes": 286728634,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Outlaws--Last_Chance/Outlaws_01-06_Last_Chance.mp4"
+        },
+        {
+          "archiveID": "Outlaws--Fortune_Stone",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Fortune Stone",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/93BqkPyaI0nt7w4YSEbkSauKfUz.jpg",
+          "airDate": "1960-12-15",
+          "year": 1960,
+          "runtimeSeconds": 2743,
+          "videoFile": {
+            "name": "Outlaws_1-09_Fortune_Stone.mp4",
+            "format": "h.264",
+            "sizeBytes": 286630611,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Outlaws--Fortune_Stone/Outlaws_1-09_Fortune_Stone.mp4"
+        },
+        {
+          "archiveID": "Outlaws--Quiet_Killer",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Quiet Killer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/93BqkPyaI0nt7w4YSEbkSauKfUz.jpg",
+          "airDate": "1960-12-29",
+          "year": 1960,
+          "runtimeSeconds": 2759,
+          "videoFile": {
+            "name": "Outlaws_1-10_Quiet_Killer.mp4",
+            "format": "h.264",
+            "sizeBytes": 288337472,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Outlaws--Quiet_Killer/Outlaws_1-10_Quiet_Killer.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Outlaws--Cutups",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The Cutups",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/93BqkPyaI0nt7w4YSEbkSauKfUz.jpg",
+          "airDate": "1961-10-26",
+          "year": 1961,
+          "runtimeSeconds": 2779,
+          "videoFile": {
+            "name": "Outlaws_2-04_Cutups.mp4",
+            "format": "h.264",
+            "sizeBytes": 289709949,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Outlaws--Cutups/Outlaws_2-04_Cutups.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

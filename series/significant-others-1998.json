@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "significant-others-1998",
+  "title": "Significant Others",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": "Significant Others is an American drama series that aired on the Fox Network from March 11, 1998 to January 31, 1999. The series was created and executive produced by Christopher Keyser and Amy Lippman.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/49S7DM3Helq1JcjbY83mcDqVrXj.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/94SZOGRBgnuHRBfQEG26Q0TiX43.jpg",
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": "Christopher Keyser",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "significant-others-1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Significant Others (1998) Jennifer Garner - miniseries",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/49S7DM3Helq1JcjbY83mcDqVrXj.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Significant Others (1998) Episode 5 (1x05).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 176035432,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/significant-others-1998/Significant Others (1998) Episode 5 (1x05).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

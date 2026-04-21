@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-special-political-broadcast-1960",
+  "title": "A Special Political Broadcast",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ASpecialPoliticalBroadcast",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ASpecialPoliticalBroadcast",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Special Political Broadcast",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ASpecialPoliticalBroadcast",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ASpecialPoliticalBroadcast.mp4",
+            "format": "h.264",
+            "sizeBytes": 31552897,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ASpecialPoliticalBroadcast/ASpecialPoliticalBroadcast.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

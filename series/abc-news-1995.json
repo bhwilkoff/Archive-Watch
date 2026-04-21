@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-news-1995",
+  "title": "ABC News",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/abc-news-carole-simpson-2apr-95",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "abc-news-carole-simpson-2apr-95",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC News - April 2, 1995",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/abc-news-carole-simpson-2apr-95",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC News - Carole Simpson - 2apr95.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 242753730,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/abc-news-carole-simpson-2apr-95/ABC News - Carole Simpson - 2apr95.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "strange-report-1969",
+  "title": "Strange Report",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": "Adam Strange, a retired Home Office criminologist, solves bizarre cases – which have been marked \"Open File\" by various government departments – with the help of Hamlyn Gynt, Evelyn and Professor Marks. He employs the latest techniques in forensic investigation, which he undertakes in his own laboratory in his flat in Warwick Crescent in the Maida Vale/Little Venice area of Paddington.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/mzoFiG8jaxmrzcxwwVJhkBrA4zR.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/91iXpCTR3lz0qxCfjEIwzXDkijf.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "strange-report-complete-series-1969",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Strange Report - Complete Series 1969",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mzoFiG8jaxmrzcxwwVJhkBrA4zR.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 09 Shrapnel.mp4",
+            "format": "h.264",
+            "sizeBytes": 280659806,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange Report (1969 TV Series) - 09 Shrapnel.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

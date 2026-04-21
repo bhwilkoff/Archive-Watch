@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "colonel-march-of-scotland-yard-tv-1954-colorized-1954",
+  "title": "Colonel March of Scotland Yard TV 1954 colorized",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/colonel-march-of-scotland-yard-tv-1954-colorized-s01e04-at-night-all-cats-are-gray",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "colonel-march-of-scotland-yard-tv-1954-colorized-s01e04-at-night-all-cats-are-gray",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Colonel March of Scotland Yard TV 1954 colorized s01e04 At Night All Cats Are Gray",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/colonel-march-of-scotland-yard-tv-1954-colorized-s01e04-at-night-all-cats-are-gray",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Colonel March of Scotland Yard TV 1954 colorized s01e04 At Night All Cats Are Gray.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 177931032,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/colonel-march-of-scotland-yard-tv-1954-colorized-s01e04-at-night-all-cats-are-gray/Colonel March of Scotland Yard TV 1954 colorized s01e04 At Night All Cats Are Gray.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

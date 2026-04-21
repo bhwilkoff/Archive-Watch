@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "seriesID": "farscape-1999",
+  "title": "Farscape",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": "A freak accident during an experimental space mission catapults Astronaut John Crichton across a thousand galaxies to an alien battlefield.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fCJx7cCXKOEkmCVIIyP8qk0Pb7Y.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/uo4wPlubpUwjlLm39PF8BxXCqLm.jpg",
+  "genres": [],
+  "networks": [
+    "Nine Network",
+    "Syfy"
+  ],
+  "creator": "Rockne S. O'Bannon",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "farscape-s-02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Farscape Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fCJx7cCXKOEkmCVIIyP8qk0Pb7Y.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Farscape S02E07 Home on the Remains.mp4",
+            "format": "h.264",
+            "sizeBytes": 273653950,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-02/Farscape S02E07 Home on the Remains.mp4"
+        },
+        {
+          "archiveID": "farscape-s-03-",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Farscape Season 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fCJx7cCXKOEkmCVIIyP8qk0Pb7Y.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Farscape S03E15 Infinite Possibilities (2) Icarus Abides.mp4",
+            "format": "h.264",
+            "sizeBytes": 272441770,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-03-/Farscape S03E15 Infinite Possibilities (2) Icarus Abides.mp4"
+        },
+        {
+          "archiveID": "farscape-s-04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Farscape Season 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fCJx7cCXKOEkmCVIIyP8qk0Pb7Y.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Farscape S04E06 Natural Election.mp4",
+            "format": "h.264",
+            "sizeBytes": 272877168,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-04/Farscape S04E06 Natural Election.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "farscape-s-01-e-01-premiere-march-19-1999-australia-and-united-states-premiere-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Premiere",
+          "overview": "Astronaut John Crichton attempts to use the Earth's atmosphere to propel his module at high speeds. He is hit by a radiation wave and is sucked through a wormhole into a distant part of the universe--straight into the middle of a space battle.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rbsUpWs1X9YvV5ZgZcyjnsNA44E.jpg",
+          "airDate": "1999-03-19",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Farscape S01E01 Premiere (March 19, 1999, Australia and United States, Premiere Episode).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 452335076,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-01-e-01-premiere-march-19-1999-australia-and-united-states-premiere-episode/Farscape S01E01 Premiere (March 19, 1999, Australia and United States, Premiere Episode).mp4"
+        },
+        {
+          "archiveID": "farscape-s-01-e-02-i-e.-t.-april-30-1999-australia-and-united-states_202602",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Exodus from Genesis",
+          "overview": "Moya gets infested with bugs who have come on board to breed. They turn up the temperature to speed up the process but this causes Aeryn to get heat delirium as she is cold blooded. The bugs seem to be able to replicate members of the crew. And as if that isn't enough, a peacekeeper ship shows up.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/cQ3VkArC3d8r2FsvAJRpXow4Ago.jpg",
+          "airDate": "1999-03-26",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Farscape S01E02 I, E.T. (April 30, 1999, Australia and United States).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 378609687,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-01-e-02-i-e.-t.-april-30-1999-australia-and-united-states_202602/Farscape S01E02 I, E.T. (April 30, 1999, Australia and United States).mp4"
+        },
+        {
+          "archiveID": "farscape-s-01-e-03-exodus-from-genesis-may-14-1999-australia-and-united-states_202602",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Back and Back and Back to the Future",
+          "overview": "The crew come across a ship that is molecularly de-stabilizing. D'Argo makes everyone bring it aboard when he discovers that there are Ilanics on board. Crichton goes on to the escape pod he gets a shock and starts experiencing strange visions of the future, firstly of himself and Matala, then of Moya's destruction.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4YlKy4nXwacdDVhCCrWBfgK6plX.jpg",
+          "airDate": "1999-04-01",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Farscape S01E03 Exodus from Genesis (May 14, 1999, Australia and United States).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 467490697,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-01-e-03-exodus-from-genesis-may-14-1999-australia-and-united-states_202602/Farscape S01E03 Exodus from Genesis (May 14, 1999, Australia and United States).mp4"
+        },
+        {
+          "archiveID": "farscape-s-01-e-04-throne-for-a-loss-april-9-1999-australia-and-united-states_202602",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Throne for a Loss",
+          "overview": "A group of Tavleks come aboard for trade negotiations. Rygel takes a vitally important crystal from Moya to make himself seem wealthy. The Tavleks kidnap Rygel and take him down to the planet, leaving one of their wounded on board. Everyone goes to the surface to get him except Zhaan who stays on board to keep an eye on the Tavlek left behind.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/wBxD6LI62GKgRZCLkZ4KOAqQ5dn.jpg",
+          "airDate": "1999-04-08",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Farscape S01E04 Throne for a Loss (April 9, 1999, Australia and United States).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 452538332,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-01-e-04-throne-for-a-loss-april-9-1999-australia-and-united-states_202602/Farscape S01E04 Throne for a Loss (April 9, 1999, Australia and United States).mp4"
+        },
+        {
+          "archiveID": "farscape-s-01-e-16-a-human-reaction-august-20-1999-australia-and-united-states",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "A Human Reaction",
+          "overview": "Crichton is sucked down a wormhole and crash lands on a beach...on Earth, Australia. Although the home he has returned to isn't as real as it seems. Everything gets worse when the rest of Moya's crew shows up and are experimented on...killing Rygel.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lDp1PXWSFmhTCKH11iGVJq23tpU.jpg",
+          "airDate": "1999-07-31",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Farscape S01E16 A Human Reaction (August 20, 1999, Australia and United States).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 416341654,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-01-e-16-a-human-reaction-august-20-1999-australia-and-united-states/Farscape S01E16 A Human Reaction (August 20, 1999, Australia and United States).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

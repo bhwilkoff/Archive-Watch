@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "curiosity-ozzie-harriet-1953",
+  "title": "Curiosity (Ozzie & Harriet",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Curiosity--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Curiosity--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Curiosity (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Curiosity--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "Curiosity--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 157780492,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Curiosity--Ozzie-Harriet/Curiosity--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

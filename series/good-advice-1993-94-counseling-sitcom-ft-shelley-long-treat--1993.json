@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "good-advice-1993-94-counseling-sitcom-ft-shelley-long-treat--1993",
+  "title": "Good Advice (1993-94) counseling sitcom ft Shelley Long + Treat Williams",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/good-advice-1993",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "good-advice-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Good Advice (1993-94) counseling sitcom ft Shelley Long + Treat Williams",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/good-advice-1993",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Good Advice  s01e04 The Kiss - 4_26_93  - andrewmillsap3634  (480x360).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 122726409,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/good-advice-1993/Good Advice  s01e04 The Kiss - 4_26_93  - andrewmillsap3634  (480x360).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

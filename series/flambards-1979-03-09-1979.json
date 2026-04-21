@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "flambards-1979-03-09-1979",
+  "title": "Flambards (1979-03-09",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/flambards-1979-03-09-s-1-e-07-by-alan-plater-edge-of-the-cloud",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "flambards-1979-03-09-s-1-e-07-by-alan-plater-edge-of-the-cloud",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Flambards (1979-03-09 S01E07 By Alan Plater) EDGE Of The CLOUD",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/flambards-1979-03-09-s-1-e-07-by-alan-plater-edge-of-the-cloud",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": 3151,
+          "videoFile": {
+            "name": "Flambards (1979-03-09 S1E07 by Alan Plater) EDGE of the CLOUD.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 177612539,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flambards-1979-03-09-s-1-e-07-by-alan-plater-edge-of-the-cloud/Flambards (1979-03-09 S1E07 by Alan Plater) EDGE of the CLOUD.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

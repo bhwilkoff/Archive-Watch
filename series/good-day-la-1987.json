@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "good-day-la-1987",
+  "title": "Good Day LA",
+  "yearStart": 1987,
+  "yearEnd": 1999,
+  "overview": "Good Day L.A. is a morning talk show airing on KTTV, the Fox Broadcasting Company-owned and operated station in Los Angeles, California. The show airs Monday through Friday mornings from 7:00 AM to 10:00 AM and is simulcast live on myfoxla.com. The show is currently hosted by Steve Edwards and co-hosted by Maria Sansone, with Maria Quiban doing weather and social media reports, Julie Chang covering entertainment, and Rick Dickert covering traffic reports.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/mdhit408BYXjSw8VvhHnmXLPAmS.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "KTTV"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "good-day-la-11-june-99",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Good Day LA - June 11, 1999",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mdhit408BYXjSw8VvhHnmXLPAmS.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Good Day LA - 11June99.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1827905890,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/good-day-la-11-june-99/Good Day LA - 11June99.ia.mp4"
+        },
+        {
+          "archiveID": "good-day-la-sushi-chef-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Good Day LA - Mario Machado",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/good-day-la-sushi-chef-1987",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Good Day LA - Sushi Chef - 1987.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 475964894,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/good-day-la-sushi-chef-1987/Good Day LA - Sushi Chef - 1987.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

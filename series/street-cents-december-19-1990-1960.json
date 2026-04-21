@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "street-cents-december-19-1990-1960",
+  "title": "Street Cents December 19, 1990",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/street-cents-1990-12-19-cheap-but-fun",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "street-cents-1990-12-19-cheap-but-fun",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Street Cents December 19, 1990 - Season 2 Episode 14 - Cheap But Fun",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/street-cents-1990-12-19-cheap-but-fun",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Street Cents 1990-12-19 Cheap But Fun.mp4",
+            "format": "h.264",
+            "sizeBytes": 178068731,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/street-cents-1990-12-19-cheap-but-fun/Street Cents 1990-12-19 Cheap But Fun.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,298 @@
+{
+  "version": 1,
+  "seriesID": "sigmund-and-the-sea-monsters-1973",
+  "title": "Sigmund And The Sea Monsters",
+  "yearStart": 1973,
+  "yearEnd": 1973,
+  "overview": "Sigmund and the Sea Monsters was an American children's television series that ran from 1973 to 1975, produced by Sid and Marty Krofft and aired on Saturday mornings. There were 29 episodes spanning two seasons.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/elRBynx0PN8xUMfwEXuyAKR11Ep.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Marty Krofft",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sigmund3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sigmund and the Sea Monsters \"Frankenstein Drops In\" (1973)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 125799387,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund3/S1.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sigmund and the Sea Monsters \"Is There a Doctor in the Cave?\"",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "output2_x264.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 120621204,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters/output2_x264.ia.mp4"
+        },
+        {
+          "archiveID": "sigmundandtheseamonsters",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sigmund and the Sea Monsters \"The Monster Who Came to Dinner\"",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "output_x264_003.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 140031249,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmundandtheseamonsters/output_x264_003.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-01_202106",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Monster Who Came to Dinner",
+          "overview": "Johnny and Scott bring Sigmund home from the beach and hide him in their clubhouse from Zelda, who invited the sherriff over for dinner. Meanwhile, Sigmund's family gets a visit from their rich Uncle Siggy, who demands to see Sigmund or he'll disinherit the family.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-09-08",
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 272261120,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-01_202106/Sigmund and The Sea Monsters S01E01.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-02_202106",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Puppy Love",
+          "overview": "Sigmund falls in love with Fluffy, a dog that belongs to Johnny's girlfriend, Peggy. Sigmund's family schemes to get him back by tricking him into meeting Diana Demon, a sea monster actress who Sigmund has a crush on.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-09-15",
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 251282222,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-02_202106/Sigmund and The Sea Monsters S01E02.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-03_202106",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Frankenstein Drops In",
+          "overview": "Sigmund's family kidnaps Scott, so Johnny dresses up like Frankenstein to save him.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-09-22",
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 244966415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-03_202106/Sigmund and The Sea Monsters S01E02.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Is There a Doctor in the Cave?",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-09-29",
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 243046172,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-04/Sigmund and The Sea Monsters S01E04.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Happy Birthdaze",
+          "overview": "Burp and Slurp decide to bring home Sigmund to be Big Daddy's birthday present. Not only do they take Sigmund but the cake and presents that Aunt Zelda had gotten for the sheriffs birthday. and its up to Johnny and Scott to save the Birthdaze",
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-10-06",
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 246809199,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-05/Sigmund and The Sea Monsters S01E05.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Nasty Nephew",
+          "overview": "Aunt Zelda brings home her nephew (Leroy) for the weekend. Leroy is determined not to get along with the boys and an attack from Burp and Slurp to a blindfolded  Leroy (an initiation to enter the club) didn't help matter. meanwhile Burp and Slurp take Sigmund back to the cave. when Johnny and Scott sneak out to resque sigmun, Leroy follows when he see Sigmund will he tell or keep the boys secret",
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-10-13",
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E06.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 219281085,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-06/Sigmund and The Sea Monsters S01E06.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-07",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Monster Rock Festival",
+          "overview": "Sigmund wins a radio singing contest the problem is, not only do they need to hide Sigmund identity from the radio DJ but the Ooze Family needs him to sing with them in the Monster rock festival",
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-10-20",
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E07.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 248464522,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-07/Sigmund and The Sea Monsters S01E07.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-08",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Ghoul School Days",
+          "overview": "When the monster School principal tells the Oozo family that they must send one member of the family to school they choose Sigmund. The trouble is thinking he is nothing but trouble Sigmund has run away.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-10-27",
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E08.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 260969771,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-08/Sigmund and The Sea Monsters S01E08.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-09",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Curfew Shall Ring Tonight",
+          "overview": "After breaking Aunt Zelda's favorite salad bowl, Sigmund defies curfew and heads home to pick up 50 clams he's got hidden to buy her a new one.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-11-03",
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E09.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 257084980,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-09/Sigmund and The Sea Monsters S01E09.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-10",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Sweet Mama Redecorates",
+          "overview": "Big Daddy's strapped for cash, but that doesn't stop Sweet Mama from wanting to redecorate their cave. Luckily, Blurp and Slurp come up with a brilliant idea: trade their furniture with that from Johnny and Scott's house.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-11-10",
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 250709038,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-10/Sigmund and The Sea Monsters S01E10.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Make Room for Big Daddy",
+          "overview": "When Sweet Mama kicks Big Daddy out of the cave, he moves into the club house with Sigmund.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-11-17",
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 220311742,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-11/Sigmund and The Sea Monsters S01E11.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-krofft",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Trick or Treat",
+          "overview": "When Blurp and Slurp find out Sigmund is the grand-prize winner of a contest worth a lot of \"clams,\" they kidnap him while he's out trick-or-treating.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-12-01",
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "videoplayback.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 93696729,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-krofft/videoplayback.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15
+}

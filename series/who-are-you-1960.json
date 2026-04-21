@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "who-are-you-1960",
+  "title": "Who Are You?",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "After an enduring vicious bullying, orphaned student, Mind, will attempts to take her life in hopes of escaping her problems. Miraculously, she was survives with the loss of all memory and wakes up with a new life as she takes on the identity of Meen.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/eRsWSqEGDSGKBvOK3UPxxKHo9MN.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/dM9QKUJrLBb79uFpE9dOT0XUdZK.jpg",
+  "genres": [],
+  "networks": [
+    "GMM 25"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OSB-42_Who_Are_You",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Who Are You?",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eRsWSqEGDSGKBvOK3UPxxKHo9MN.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OSB-42_Who_Are_You.mp4",
+            "format": "h.264",
+            "sizeBytes": 131514592,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-42_Who_Are_You/OSB-42_Who_Are_You.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

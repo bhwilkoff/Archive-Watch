@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "can-you-believe-the-tv-ratings-1992",
+  "title": "Can You Believe the TV Ratings?",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/CanYouBelievetheTVRatings",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CanYouBelievetheTVRatings",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Can You Believe the TV Ratings?",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CanYouBelievetheTVRatings",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S19E05.Can.You.Believe.the.TV.Ratings.1992.VHSRip.AAC2.0.x264-rattera.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 270790129,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CanYouBelievetheTVRatings/NOVA.S19E05.Can.You.Believe.the.TV.Ratings.1992.VHSRip.AAC2.0.x264-rattera.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

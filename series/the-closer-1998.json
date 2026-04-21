@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "seriesID": "the-closer-1998",
+  "title": "The Closer",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": "The Closer was an American television situation comedy that aired on CBS for 10 episodes in 1998. The show starred Tom Selleck as a successful advertising agency executive.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/38/97435.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Ed Decter",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-closer-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Closer - Hedy Burress, Suzy Nakamura",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/38/97435.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Closer - 1.01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 706305094,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-closer-1.01/The Closer - 1.01.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheCloser1998MyBestFriendSFuneralFINALE",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "My Best Friend's Funeral",
+          "overview": "Jack attempts to relinquish certain office responsibilities in order to have a more balanced life and -- more importantly -- prove to Carrie that he is ready to date again. He puts Bruno in charge of hiring the new office assistant. But in the middle of his plans, Julie suddenly shows up and she's still in love with him. To get her out of the way, Jack gets the lonely Bruno to go out with Julie. Against all odds, Bruno and Julie have great sex, and Julie convinces Bruno to hire her as the new office assistant. However, she turns out to be completely incompetent and everyone hates her.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/38/97435.jpg",
+          "airDate": "1998-05-04",
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The-Closer-_1998_-My-Best-Friend_s-Funeral-_FINALE_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 91851207,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheCloser1998MyBestFriendSFuneralFINALE/The-Closer-_1998_-My-Best-Friend_s-Funeral-_FINALE_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

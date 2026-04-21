@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "seriesID": "days-of-our-lives-november-28-1984-2018",
+  "title": "Days Of Our Lives (November 28, 1984",
+  "yearStart": 2018,
+  "yearEnd": 2018,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DaysOfOurLivesNovember281984",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lic:38fea524c91b",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Days Of Our Lives (November 28, 1984)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DaysOfOurLivesNovember281984",
+          "airDate": null,
+          "year": 2018,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

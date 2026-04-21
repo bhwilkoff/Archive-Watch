@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-miracle-ozzie-harriet-1953",
+  "title": "The Miracle (Ozzie & Harriet",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/The_Miracle--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "The_Miracle--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Miracle (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/The_Miracle--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1478,
+          "videoFile": {
+            "name": "The_Miracle--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 153613058,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The_Miracle--Ozzie-Harriet/The_Miracle--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

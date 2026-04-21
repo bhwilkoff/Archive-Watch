@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "tina-turner-1986",
+  "title": "Tina Turner",
+  "yearStart": 1986,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tina-turner-private-dancer-1985",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tina-turner-private-dancer-1985",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tina Turner: Private Dancer Tour '85 - Tina Turner",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tina-turner-private-dancer-1985",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tina Turner - Private Dancer - 1985.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1688681224,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tina-turner-private-dancer-1985/Tina Turner - Private Dancer - 1985.ia.mp4"
+        },
+        {
+          "archiveID": "tina-turner-whats-love-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tina Turner: What's Love? Live - Tina Turner",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tina-turner-whats-love-1994",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tina Turner - Whats Love - 1994.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1377550518,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tina-turner-whats-love-1994/Tina Turner - Whats Love - 1994.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

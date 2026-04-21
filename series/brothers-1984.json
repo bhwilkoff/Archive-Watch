@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "brothers-1984",
+  "title": "Brothers",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "Two conservative men support their younger brother when he comes out as gay, and help him navigate being openly homosexual in 1980s Philadelphia.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9mBJsdAXYbNdbNquwxu5AKzEnQ2.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/yLiaNDffEn4QUUsiP5EoYhQqqoN.jpg",
+  "genres": [],
+  "networks": [
+    "Showtime"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "brothers-1.14",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brothers - Philip Charles MacKenzie, Brandon Maggart",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9mBJsdAXYbNdbNquwxu5AKzEnQ2.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Brothers - 1.14.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1264903236,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brothers-1.14/Brothers - 1.14.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

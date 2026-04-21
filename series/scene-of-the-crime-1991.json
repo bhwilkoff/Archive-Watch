@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "seriesID": "scene-of-the-crime-1991",
+  "title": "Scene of the Crime",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Tatort is a long-running German/Austrian/Swiss, crime television series set in various parts of these countries. The show is broadcast on the channels of ARD in Germany, ORF in Austria and SF1 in Switzerland.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/yh43TKi9himQWhzrlWBxV8WjsFn.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lUrtMjiunomHPDC2sQNIxswbmdU.jpg",
+  "genres": [],
+  "networks": [
+    "ORF 1",
+    "Das Erste",
+    "SRF 1",
+    "ORF 2"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "scene-of-the-crime-01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Scene of the Crime - 01: Sauce for the Goose",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yh43TKi9himQWhzrlWBxV8WjsFn.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Scene of the Crime - 01.mp4",
+            "format": "h.264",
+            "sizeBytes": 247865163,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/scene-of-the-crime-01/Scene of the Crime - 01.mp4"
+        },
+        {
+          "archiveID": "scene-of-the-crime-03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Scene of the Crime - 03: The Girl Who Cried Lupo",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yh43TKi9himQWhzrlWBxV8WjsFn.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Scene of the Crime - 03.mp4",
+            "format": "h.264",
+            "sizeBytes": 239566900,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/scene-of-the-crime-03/Scene of the Crime - 03.mp4"
+        },
+        {
+          "archiveID": "scene-of-the-crime-04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Scene of the Crime - 04: Show and Tell",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yh43TKi9himQWhzrlWBxV8WjsFn.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Scene of the Crime - 04.mp4",
+            "format": "h.264",
+            "sizeBytes": 238391199,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/scene-of-the-crime-04/Scene of the Crime - 04.mp4"
+        },
+        {
+          "archiveID": "scene-of-the-crime-05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Scene of the Crime - 05: To Make Amends",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yh43TKi9himQWhzrlWBxV8WjsFn.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Scene of the Crime - 05.mp4",
+            "format": "h.264",
+            "sizeBytes": 242536812,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/scene-of-the-crime-05/Scene of the Crime - 05.mp4"
+        },
+        {
+          "archiveID": "scene-of-the-crime-06",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Scene of the Crime - 06: The Devil’s Music",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yh43TKi9himQWhzrlWBxV8WjsFn.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Scene of the Crime - 06.mp4",
+            "format": "h.264",
+            "sizeBytes": 239482393,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/scene-of-the-crime-06/Scene of the Crime - 06.mp4"
+        },
+        {
+          "archiveID": "scene-of-the-crime-07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Scene of the Crime - 07: Put Them Altogether They Spell Mother",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yh43TKi9himQWhzrlWBxV8WjsFn.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Scene of the Crime - 07.mp4",
+            "format": "h.264",
+            "sizeBytes": 239547233,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/scene-of-the-crime-07/Scene of the Crime - 07.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

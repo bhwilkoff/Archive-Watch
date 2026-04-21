@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-word-is-out-51994-61994-1994",
+  "title": "The Word is Out (5/1994 & 6/1994",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DVDVideoRecordingTitle1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DVDVideoRecordingTitle1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Word is Out (5/1994 & 6/1994)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DVDVideoRecordingTitle1",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TheWordisOut51994.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 226619913,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DVDVideoRecordingTitle1/TheWordisOut51994.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-big-score-1960",
+  "title": "The Big Score",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/richard_diamond_-_1x07_the_big_score",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "richard_diamond_-_1x07_the_big_score",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Score",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/richard_diamond_-_1x07_the_big_score",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "richard_diamond_-_1x07_the_big_score.mp4",
+            "format": "h.264",
+            "sizeBytes": 143408931,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/richard_diamond_-_1x07_the_big_score/richard_diamond_-_1x07_the_big_score.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

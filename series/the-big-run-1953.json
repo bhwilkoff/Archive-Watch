@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-big-run-1953",
+  "title": "The Big Run",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheBigRun",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheBigRun",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Run",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheBigRun",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "drag_ep032_03_12_53_The_Big_Run.mp4",
+            "format": "h.264",
+            "sizeBytes": 157140509,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBigRun/drag_ep032_03_12_53_The_Big_Run.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "star-search-april-7-1990-2019",
+  "title": "Star Search (April 7, 1990",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/StarSearchApril71990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "StarSearchApril71990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Star Search (April 7, 1990)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/StarSearchApril71990",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Star-Search-_April-7_-1990_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 198442764,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StarSearchApril71990/Star-Search-_April-7_-1990_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

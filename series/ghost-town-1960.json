@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "ghost-town-1960",
+  "title": "Ghost Town",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/52SMPiJfBiEEIfkszXcuCkkM2zU.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/sybpkPVjOl4kFBtHphGYZYhh1Bp.jpg",
+  "genres": [],
+  "networks": [
+    "Rai 5"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cisco_Kid_-_Ghost_Town",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ghost Town",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/52SMPiJfBiEEIfkszXcuCkkM2zU.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cisco_Kid_-_Ghost_Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 146832273,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cisco_Kid_-_Ghost_Town/Cisco_Kid_-_Ghost_Town.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "north-hollywood-bank-robbery-1997",
+  "title": "North Hollywood Bank Robbery",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/north-hollywood-bank-robbery-28feb-1997",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "north-hollywood-bank-robbery-28feb-1997",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "North Hollywood Bank Robbery - February 28, 1997",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/north-hollywood-bank-robbery-28feb-1997",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "North Hollywood Bank Robbery - 28feb1997.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3817609416,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/north-hollywood-bank-robbery-28feb-1997/North Hollywood Bank Robbery - 28feb1997.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

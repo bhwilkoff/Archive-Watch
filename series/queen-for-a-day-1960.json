@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "seriesID": "queen-for-a-day-1960",
+  "title": "Queen for a Day",
+  "yearStart": 1960,
+  "yearEnd": 1964,
+  "overview": "Queen for a Day was an American radio and television game show that helped to usher in American listeners' and viewers' fascination with big-prize giveaway shows. Queen for a Day originated on the Mutual Radio Network on April 30, 1945 in New York City before moving to Los Angeles a few months later, and running until 1957. The show then ran on NBC Television from 1956 to 1964.\n\nThe series is considered a forerunner of modern-day \"reality television\". The show became popular enough that NBC increased its running time from 30 to 45 minutes to sell more commercials, at a then-premium rate of $4,000 per minute.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC",
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "queenforaday1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Queen for a Day'' - Misc 1963 episode",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1707,
+          "videoFile": {
+            "name": "queenforaday1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 177818394,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/queenforaday1963/queenforaday1963.mp4"
+        },
+        {
+          "archiveID": "queen-for-a-day-1963-episode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Queen for a Day - 1963 episode",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1727,
+          "videoFile": {
+            "name": "Queen for a Day - 1963 episode.mp4",
+            "format": "h.264",
+            "sizeBytes": 176829893,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/queen-for-a-day-1963-episode/Queen for a Day - 1963 episode.mp4"
+        },
+        {
+          "archiveID": "queen-for-a-day-6-april-1964",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Queen for a Day - 6 April 1964",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1725,
+          "videoFile": {
+            "name": "Queen for a Day - 6 April 1964.mp4",
+            "format": "h.264",
+            "sizeBytes": 178625707,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/queen-for-a-day-6-april-1964/Queen for a Day - 6 April 1964.mp4"
+        },
+        {
+          "archiveID": "queen-for-a-day-california-egg-council",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Queen for a Day - California Egg Council",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1740,
+          "videoFile": {
+            "name": "Queen for a Day - California Egg Council.mp4",
+            "format": "h.264",
+            "sizeBytes": 181848599,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/queen-for-a-day-california-egg-council/Queen for a Day - California Egg Council.mp4"
+        },
+        {
+          "archiveID": "queen-for-a-day-excerpt-from-unidentified-episode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Queen for a Day - Excerpt from unidentified episode",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 312,
+          "videoFile": {
+            "name": "Queen for a Day - Excerpt from unidentified episode.mp4",
+            "format": "h.264",
+            "sizeBytes": 30802847,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/queen-for-a-day-excerpt-from-unidentified-episode/Queen for a Day - Excerpt from unidentified episode.mp4"
+        },
+        {
+          "archiveID": "queen-for-a-day-misc-1960-episode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Queen for a Day - Misc 1960 episode",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1698,
+          "videoFile": {
+            "name": "Queen for a Day - Misc 1960 episode.mp4",
+            "format": "h.264",
+            "sizeBytes": 173239421,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/queen-for-a-day-misc-1960-episode/Queen for a Day - Misc 1960 episode.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

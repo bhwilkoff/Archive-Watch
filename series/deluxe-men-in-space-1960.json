@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "deluxe-men-in-space-1960",
+  "title": "Deluxe Men in Space",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/deluxemeninspace",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "deluxemeninspace",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Deluxe Men in Space - 1960 Toy Commercial",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/deluxemeninspace",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "toycomercial001_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 3721320,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/deluxemeninspace/toycomercial001_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

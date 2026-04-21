@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "seriesID": "ramar-of-the-jungle-1960",
+  "title": "Ramar of the Jungle",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Ramar of the Jungle was a syndicated American television series that starred Jon Hall as Dr. Tom Reynolds and Ray Montgomery as his associate. Episodes were set in Africa and India. Produced by Rudolph Flothow for Arrow Productions and ITC Entertainment, four sets of 13 episodes were produced for a total of 52. Each episode runs approximately 25 minutes. In season one, the first 13 episodes are set in Africa and the second 13 are set in India. For the second season, all 26 episodes take place in Africa.\n\nSeveral television episodes were combined and released as theatrical movies by producer Leon Fromkess.\n\nSelect episodes have been released on several DVDs through discount & \"dollar\" stores. Each disc contains approx. 4 episodes, with no extras available.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/318429.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RamarOfTheJungle-DrumsOfAfrica",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ramar of the Jungle - Drums of Africa",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/318429.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "RamarOfTheJungle-DrumsOfTheJungle.mp4",
+            "format": "h.264",
+            "sizeBytes": 153165587,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RamarOfTheJungle-DrumsOfAfrica/RamarOfTheJungle-DrumsOfTheJungle.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "RamarOfTheJungle-EvilTrek",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Evil Trek",
+          "overview": "While researching a medical project. Dr. Reynolds and Prof. Ogden learn of an area ruled by a woman called The White Goddess, who uses a witch doctor's secret formula to remain young and rule over the local tribesmen.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/318429.jpg",
+          "airDate": "1953-04-18",
+          "year": null,
+          "runtimeSeconds": 1581,
+          "videoFile": {
+            "name": "RamarOfTheJungle-EvilTrek.mp4",
+            "format": "h.264",
+            "sizeBytes": 152138526,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RamarOfTheJungle-EvilTrek/RamarOfTheJungle-EvilTrek.mp4"
+        },
+        {
+          "archiveID": "RamarOfTheJungle-WhiteSavages",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "White Savages",
+          "overview": "Ramar hears about a rare substance that halts the effects of aging. The only problem is that it is in territory controlled by The White Goddess, where white men are forbidden to enter. Nevertheless, Ramar is determined to make contact with her, but discovers that he's not the only one--two dangerous escaped convicts are looking for her, too.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/318429.jpg",
+          "airDate": "1953-04-25",
+          "year": null,
+          "runtimeSeconds": 1572,
+          "videoFile": {
+            "name": "RamarOfTheJungle-WhiteSavages.mp4",
+            "format": "h.264",
+            "sizeBytes": 153906485,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RamarOfTheJungle-WhiteSavages/RamarOfTheJungle-WhiteSavages.mp4"
+        },
+        {
+          "archiveID": "RamarOfTheJungle-TheDoomedSafari",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Doomed Safari",
+          "overview": "Jeff Sharpe, an old college friend of Dr. Reynolds, arrives in Africa in search of a rumored vast uranium deposit. Reynolds warns him that another scientist who had come seeking out the same deposit has vanished into thin air.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/318429.jpg",
+          "airDate": "1953-05-09",
+          "year": null,
+          "runtimeSeconds": 1568,
+          "videoFile": {
+            "name": "RamarOfTheJungle-TheDoomedSafari.mp4",
+            "format": "h.264",
+            "sizeBytes": 150297166,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RamarOfTheJungle-TheDoomedSafari/RamarOfTheJungle-TheDoomedSafari.mp4"
+        },
+        {
+          "archiveID": "RamarOfTheJungle-TribalFeud",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Tribal Feud",
+          "overview": "Trudy Van Dyne has been kidnapped by a wandering tribe, and her father asks Dr. Reynolds and Dr. Ogden to help find her. They eventually trace her to a village, but discover that the local witch doctor has placed her under a black magic spell.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/318429.jpg",
+          "airDate": "1953-05-16",
+          "year": null,
+          "runtimeSeconds": 1574,
+          "videoFile": {
+            "name": "RamarOfTheJungle-TribalFeud.mp4",
+            "format": "h.264",
+            "sizeBytes": 156162659,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RamarOfTheJungle-TribalFeud/RamarOfTheJungle-TribalFeud.mp4"
+        },
+        {
+          "archiveID": "RamarOfTheJungle-TheVoiceInTheSky",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Voice in the Sky",
+          "overview": "Ramar investigates when he hears that tribesmen are bringing their daughters to be sacrificed at a jungle altar after being ordered to by a voice that comes out of the sky.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/318429.jpg",
+          "airDate": "1953-05-30",
+          "year": null,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "RamarOfTheJungle-01x07-TheVoiceInTheSky.mp4",
+            "format": "h.264",
+            "sizeBytes": 154766431,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RamarOfTheJungle-TheVoiceInTheSky/RamarOfTheJungle-01x07-TheVoiceInTheSky.mp4"
+        },
+        {
+          "archiveID": "RamarOfTheJungle-TheUnknownTerror",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Unknown Terror",
+          "overview": "Ramar travels to a teak lumber camp in the jungle to investigate a series of seemingly unexplainable accidents.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/318429.jpg",
+          "airDate": "1953-06-13",
+          "year": null,
+          "runtimeSeconds": 1583,
+          "videoFile": {
+            "name": "RamarOfTheJungle-TheUnkownTerror.mp4",
+            "format": "h.264",
+            "sizeBytes": 155913028,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RamarOfTheJungle-TheUnknownTerror/RamarOfTheJungle-TheUnkownTerror.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

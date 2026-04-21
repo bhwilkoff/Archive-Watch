@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "top-of-the-pops-6th-of-june-1974-2024",
+  "title": "Top Of The Pops 6th Of June 1974",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/top-of-the-pops-6th-of-june-1974.",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "top-of-the-pops-6th-of-june-1974.",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Top Of The Pops 6th Of June 1974.",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/top-of-the-pops-6th-of-june-1974.",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Top of the Pops-6th of June 1974..ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 433817088,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/top-of-the-pops-6th-of-june-1974./Top of the Pops-6th of June 1974..ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

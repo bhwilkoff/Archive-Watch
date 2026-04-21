@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-ed-wynn-show-15-december-1949-1960",
+  "title": "The Ed Wynn Show (15 December 1949",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheEdWynnShow15December1949Episode13",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheEdWynnShow15December1949Episode13",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Ed Wynn Show (15 December 1949, Episode 13)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheEdWynnShow15December1949Episode13",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1604,
+          "videoFile": {
+            "name": "EdWynn4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155371275,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheEdWynnShow15December1949Episode13/EdWynn4.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

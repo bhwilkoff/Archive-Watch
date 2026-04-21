@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1963-bufferin-tv-commercial-ad-1960",
+  "title": "1963 Bufferin TV commercial ad",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1963BufferinTvCommercialAd",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1963BufferinTvCommercialAd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1963 Bufferin TV commercial ad",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1963BufferinTvCommercialAd",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 94,
+          "videoFile": {
+            "name": "Bufferin_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 7953230,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1963BufferinTvCommercialAd/Bufferin_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

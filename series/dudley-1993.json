@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "dudley-1993",
+  "title": "Dudley",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "Dudley is an American Primetime television series starring Dudley Moore and Joanna Cassidy. The series premiered April 16, 1993 on CBS, temporarily replacing on Friday primetime-slot the series Major Dad, and was canceled May 14, 1993, just one episode before its regular ending.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dPiI6p0s7vUiva252bYkVHXOTvO.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4mDBoUsk6ZebXYqCBm9l452NmGX.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Susan Beavers",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dudley-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dudley - Dudley Moore, Joanna Cassidy, Lupe Ontiveros",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dPiI6p0s7vUiva252bYkVHXOTvO.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dudley - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 926254639,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dudley-1.1/Dudley - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

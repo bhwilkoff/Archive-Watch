@@ -1,0 +1,492 @@
+{
+  "version": 1,
+  "seriesID": "alas-smith-and-jones-1984",
+  "title": "Alas Smith and Jones",
+  "yearStart": 1984,
+  "yearEnd": 1987,
+  "overview": "A British comedy sketch television series featuring Mel Smith and Griff Rhys Jones that ran on BBC One and BBC Two from 31 January 1984 to 14 October 1998. From series 5 in 1989 the 'Alas' title was dropped and became simply Smith and Jones.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tmh4l2LnUi8F2VgwFldJSZuPHL0.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One",
+    "BBC Two"
+  ],
+  "creator": "Mel Smith",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "alas-smith-and-jones-s-1x-e-1-31-january-1984_202210",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Alas Smith and Jones - Series 1, Episode 1 (1984)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S1xE1 (31 January 1984).mp4",
+            "format": "h.264",
+            "sizeBytes": 169947810,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-1x-e-1-31-january-1984_202210/Alas Smith and Jones - S1xE1 (31 January 1984).mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-2x-e-1-31-october-1985",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Alas Smith and Jones - Series 2, Episode 1 (1985)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S2xE1 (31 October 1985).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 169004672,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-2x-e-1-31-october-1985/Alas Smith and Jones - S2xE1 (31 October 1985).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-3x-e-1-18-september-1986",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Bronstein, Police Chiropodist",
+          "overview": "The first of six programmes starring Mel Smith and Griff Rhys Jones with Annabel Leventon, Annette Lynton, Shane Rimmer. Andrew Francis, Raymond Mason and a special guest appearance by Nicholas Ball. A hard-hitting exposé of sperm banks, Samurai accountants and chiropody, all done with impeccable taste and integrity.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/oZ4rHwVxcTfpBNsqNLIUgtN4TIF.jpg",
+          "airDate": "1984-01-31",
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S3xE1 (18 September 1986).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 180653534,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-3x-e-1-18-september-1986/Alas Smith and Jones - S3xE1 (18 September 1986).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-4x-e-1-15-october-1987",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Alas Smith and Jones - Series 4, Episode 1 (1987)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S4xE1 (15 October 1987).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 175991945,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-4x-e-1-15-october-1987/Alas Smith and Jones - S4xE1 (15 October 1987).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-1x-e-2-7-february-1984",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Alas Smith and Jones - Series 1, Episode 2 (1984)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S1xE2 (7 February 1984).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 172273717,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-1x-e-2-7-february-1984/Alas Smith and Jones - S1xE2 (7 February 1984).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-2x-e-2-7-november-1985",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Alas Smith and Jones - Series 2, Episode 2 (1985)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S2xE2 (7 November 1985).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 171337974,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-2x-e-2-7-november-1985/Alas Smith and Jones - S2xE2 (7 November 1985).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-3x-e-2-25-september-1986",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Alas Smith and Jones - Series 3, Episode 2 (1986)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S3xE2 (25 September 1986).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 180917653,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-3x-e-2-25-september-1986/Alas Smith and Jones - S3xE2 (25 September 1986).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-4x-e-2-22-october-1987",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Desert",
+          "overview": "With Ken Morley, Hugh Thomas and Geoff Capes. The 'right to know' team look into orange juice cartons and discover divorce, pornography, bran and two donkeys.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": "1984-02-07",
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S4xE2 (22 October 1987).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 175754700,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-4x-e-2-22-october-1987/Alas Smith and Jones - S4xE2 (22 October 1987).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-1x-e-3-14-february-1984",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Alas Smith and Jones - Series 1, Episode 3 (1984)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S1xE3 (14 February 1984).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 166571665,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-1x-e-3-14-february-1984/Alas Smith and Jones - S1xE3 (14 February 1984).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-2x-e-3-14-november-1985",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Alas Smith and Jones - Series 2, Episode 3 (1985)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S2xE3 (14 November 1985).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 168656325,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-2x-e-3-14-november-1985/Alas Smith and Jones - S2xE3 (14 November 1985).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-3x-e-3-2-october-1986",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Alas Smith and Jones - Series 3, Episode 3 (1986)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S3xE3 (2 October 1986).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 86701595,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-3x-e-3-2-october-1986/Alas Smith and Jones - S3xE3 (2 October 1986).mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-4x-e-3-29-october-1987",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Raz Soap Powder",
+          "overview": "Guest stars Tony Robinson and Brenda Blethyn. This is your only chance to discover what the Pope really gets up to at home, how the French Resistance resisted and the secret of Roger Moore's success.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": "1984-02-14",
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S4xE3 (29 October 1987).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 177066757,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-4x-e-3-29-october-1987/Alas Smith and Jones - S4xE3 (29 October 1987).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-1x-e-4-21-february-1984",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Alas Smith and Jones - Series 1, Episode 4 (1984)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S1xE4 (21 February 1984).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 91760755,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-1x-e-4-21-february-1984/Alas Smith and Jones - S1xE4 (21 February 1984).mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-1x-e-4-21-february-1984-alt-version",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Alas Smith and Jones - Series 1, Episode 4 (different version, 1984)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S1xE4 (21 February 1984, alt version).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 181747595,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-1x-e-4-21-february-1984-alt-version/Alas Smith and Jones - S1xE4 (21 February 1984, alt version).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-2x-e-4-21-november-1985",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Alas Smith and Jones - Series 2, Episode 4 (1985)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S2xE4 (21 November 1985).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 165301272,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-2x-e-4-21-november-1985/Alas Smith and Jones - S2xE4 (21 November 1985).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-3x-e-4-9-october-1986",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Alas Smith and Jones - Series 3, Episode 4 (1986)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S3xE4 (9 October 1986).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 173248526,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-3x-e-4-9-october-1986/Alas Smith and Jones - S3xE4 (9 October 1986).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-4x-e-4-5-november-1987",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Dr. Jekyll",
+          "overview": "Witness Margaret Thatcher 's finest hour, sample the exciting qualities of real ale and spend a day with the Great Gobbo in this week's tasteful programme.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": "1984-02-21",
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S4xE4 (5 November 1987).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 174563138,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-4x-e-4-5-november-1987/Alas Smith and Jones - S4xE4 (5 November 1987).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-1x-e-5-28-february-1984",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Alas Smith and Jones - Series 1, Episode 5 (1984)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S1xE5 (28 February 1984).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158657060,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-1x-e-5-28-february-1984/Alas Smith and Jones - S1xE5 (28 February 1984).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-2x-e-5-28-november-1985",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Alas Smith and Jones - Series 2, Episode 5 (1985)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S2xE5 (28 November 1985).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158408225,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-2x-e-5-28-november-1985/Alas Smith and Jones - S2xE5 (28 November 1985).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-3x-e-5-16-october-1986",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Alas Smith and Jones - Series 3, Episode 5 (1986)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S3xE5 (16 October 1986).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 86789169,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-3x-e-5-16-october-1986/Alas Smith and Jones - S3xE5 (16 October 1986).mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-4x-e-5-12-november-1987",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "George Smiley, British Spy",
+          "overview": "Join the police on a night siege and probe the soft underbelly of the pop world. Yes, it's another exciting episode in the Smith and Jones 'Guide to Life'. This week: how to become a barbed-wire consultant and solve the enigma of correlation.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": "1984-02-28",
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S4xE5 (12 November 1987).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 165749414,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-4x-e-5-12-november-1987/Alas Smith and Jones - S4xE5 (12 November 1987).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-1x-e-6-6-march-1984",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Alas Smith and Jones - Series 1, Episode 6 (1984)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S1xE6 (6 March 1984).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 168328517,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-1x-e-6-6-march-1984/Alas Smith and Jones - S1xE6 (6 March 1984).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-2x-e-6-5-december-1985",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Alas Smith and Jones - Series 2, Episode 6 (1985)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S2xE6 (5 December 1985).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 165601261,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-2x-e-6-5-december-1985/Alas Smith and Jones - S2xE6 (5 December 1985).ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-3x-e-6-23-october-1986",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Alas Smith and Jones - Series 3, Episode 6 (1986)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S3xE6 (23 October 1986).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 83590948,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-3x-e-6-23-october-1986/Alas Smith and Jones - S3xE6 (23 October 1986).mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-4x-e-6-19-november-1987",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "SDP",
+          "overview": "The last of six programmes starring Mel Smith and Griff Rhys Jones, with Andrew Francis, Tony Robinson, Brenda Blethyn, Annabel Leventon, Annette Lynton and Hugh Burden. Alas the last Alas... but beware these scholars of history, literature and contemporary comment may well return to enlighten you. Tonight's dissertation is on the Spanish Civil War. Ole.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": "1984-03-06",
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S4xE6 (19 November 1987.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 173467612,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-4x-e-6-19-november-1987/Alas Smith and Jones - S4xE6 (19 November 1987.ia.mp4"
+        },
+        {
+          "archiveID": "alas-smith-and-jones-s-4x-e-7-26-november-1987",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Alas Smith and Jones - Series 4, Episode 7 (1987)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alas Smith and Jones - S4xE7 (26 November 1987).mp4",
+            "format": "h.264",
+            "sizeBytes": 175756019,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-4x-e-7-26-november-1987/Alas Smith and Jones - S4xE7 (26 November 1987).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 26
+}

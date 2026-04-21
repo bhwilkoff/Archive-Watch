@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "another-dumont-television-set-commercial-1960",
+  "title": "Another Dumont Television Set Commercial",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AnotherDumontTelevisionSetCommercial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AnotherDumontTelevisionSetCommercial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Another Dumont Television Set Commercial",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AnotherDumontTelevisionSetCommercial",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TvCommercial-DumontTelevisionSets1950_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 8796120,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AnotherDumontTelevisionSetCommercial/TvCommercial-DumontTelevisionSets1950_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

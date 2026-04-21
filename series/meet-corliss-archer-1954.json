@@ -1,0 +1,602 @@
+{
+  "version": 1,
+  "seriesID": "meet-corliss-archer-1954",
+  "title": "Meet Corliss Archer",
+  "yearStart": 1954,
+  "yearEnd": 1955,
+  "overview": "Meet Corliss Archer is an American sitcom that aired in syndication from April to December 1954. The series stars Ann Baker in the title role. The program was an adaptation of the radio series of the same name, which was based on a series of short stories by F. Hugh Herbert.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "A_Date_For_Doris",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Meet Corliss Archer\" - A Date for Doris",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A_Date_For_Doris.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 146339205,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/A_Date_For_Doris/A_Date_For_Doris.ia.mp4"
+        },
+        {
+          "archiveID": "Meet_Corliss_Archer_1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Meet Corliss Archer\" - Friends Forever",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Meet_Corliss_Archer.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147606961,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Meet_Corliss_Archer_1954/Meet_Corliss_Archer.ia.mp4"
+        },
+        {
+          "archiveID": "Meet_Corliss_Archer_Algebra",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Meet Corliss Archer\" - The Algebra Problem",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Meet_Corliss_Archer_Algebra.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149063680,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Meet_Corliss_Archer_Algebra/Meet_Corliss_Archer_Algebra.ia.mp4"
+        },
+        {
+          "archiveID": "Corliss_Archer_Vase",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Meet Corliss Archer\" - The Vase That Came for Dinner",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Meet_Corliss_Archer_Vase.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147407000,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Corliss_Archer_Vase/Meet_Corliss_Archer_Vase.ia.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-DexterAndTheCar",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - Dexter and the Car",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "DexterAndTheCar.mp4",
+            "format": "h.264",
+            "sizeBytes": 161453635,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-DexterAndTheCar/DexterAndTheCar.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-DextersSurpriseParty",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - Dexter's Surprise Party",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "DextersSurpriseParty1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 160877426,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-DextersSurpriseParty/DextersSurpriseParty1954.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-FortuneTeller",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - Fortune Teller",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1565,
+          "videoFile": {
+            "name": "FortuneTeller1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 161813994,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-FortuneTeller/FortuneTeller1954.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-HarryGivesAdvice",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - Harry Gives Advice",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "HarryGivesAdvice.mp4",
+            "format": "h.264",
+            "sizeBytes": 161387724,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-HarryGivesAdvice/HarryGivesAdvice.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-HarryTellsDexHowItIs",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - Harry Tells Dex How It Is",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "HarryTellsDexHowItIs.mp4",
+            "format": "h.264",
+            "sizeBytes": 161204363,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-HarryTellsDexHowItIs/HarryTellsDexHowItIs.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-HarryAndTheSoapOperaQueen",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - Harry and the Soap Opera Queen",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1555,
+          "videoFile": {
+            "name": "SoapOperaQueen1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 160687060,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-HarryAndTheSoapOperaQueen/SoapOperaQueen1954.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-HarryThePhotographer",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - Harry the Photographer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1566,
+          "videoFile": {
+            "name": "HarryThePhotographer.mp4",
+            "format": "h.264",
+            "sizeBytes": 161343482,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-HarryThePhotographer/HarryThePhotographer.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-HarrysDiet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - Harry's Diet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "HarryDiet1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 151546673,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-HarrysDiet/HarryDiet1954.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-JanetGoesToCollege",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - Janet Goes to College",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1562,
+          "videoFile": {
+            "name": "JanetGoesToCollege.mp4",
+            "format": "h.264",
+            "sizeBytes": 161254921,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-JanetGoesToCollege/JanetGoesToCollege.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-MoneyMatters",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - Money Matters",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "MoneyMatters1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 161717376,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-MoneyMatters/MoneyMatters1954.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-PersonalityTest1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - Personality Test (1955)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "PersonalityTest1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 160923254,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-PersonalityTest1955/PersonalityTest1955.mp4"
+        },
+        {
+          "archiveID": "meetCorlissArcher-TheNewNeighbors",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Meet Corliss Archer'' - The New Neighbors",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1565,
+          "videoFile": {
+            "name": "CorlissArchernewneighbors1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 152707072,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meetCorlissArcher-TheNewNeighbors/CorlissArchernewneighbors1954.mp4"
+        },
+        {
+          "archiveID": "Corliss_9",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Meet Corliss Archer' - Dexter the Helper",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Corliss_9.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148825552,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Corliss_9/Corliss_9.ia.mp4"
+        },
+        {
+          "archiveID": "Corliss_10",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Meet Corliss Archer' - Dexter's Masquerade Costume",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Corliss_10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147178595,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Corliss_10/Corliss_10.ia.mp4"
+        },
+        {
+          "archiveID": "Corliss_11",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Meet Corliss Archer' - Harry's Cold",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Corliss_11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149233170,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Corliss_11/Corliss_11.ia.mp4"
+        },
+        {
+          "archiveID": "Corliss_12",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Meet Corliss Archer' - Male Ego",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Corliss_12.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148331116,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Corliss_12/Corliss_12.ia.mp4"
+        },
+        {
+          "archiveID": "Corliss_7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Meet Corliss Archer' - No Clothes for the Party",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Corliss_7_1954.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 145306343,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Corliss_7/Corliss_7_1954.ia.mp4"
+        },
+        {
+          "archiveID": "Meet_Corliss_Archer_6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Meet Corliss Archer' - Quaranteened (1954)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Corliss_6.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148562403,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Meet_Corliss_Archer_6/Corliss_6.ia.mp4"
+        },
+        {
+          "archiveID": "Corliss_8",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Meet Corliss Archer' - The Best Policy",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Corliss_8.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149619262,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Corliss_8/Corliss_8.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "MeetCorlissArcher-harryChildPsychiatrist",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Harry, Child Psychiatrist",
+          "overview": "Harry and Mr. Franklyn try to teach Corliss and Dex the value of money, and promise to match dollar for dollar everything the kids \n\ncan earn.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "HarryChildPsychiatrist1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 151284869,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MeetCorlissArcher-harryChildPsychiatrist/HarryChildPsychiatrist1954.mp4"
+        },
+        {
+          "archiveID": "MeetCorlissArcher-DexterTheDirector1954",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Dexter, The Director",
+          "overview": "Dexter is directing the school parent/student play. Corliss is the lead but to get Harry he tells him Judge Peters is appearing. To get \n\nthe Judge he gives the lead to Lucy Peters and, well, you get the idea!",
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1533,
+          "videoFile": {
+            "name": "DexterTheDirector.mp4",
+            "format": "h.264",
+            "sizeBytes": 148795247,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MeetCorlissArcher-DexterTheDirector1954/DexterTheDirector.mp4"
+        },
+        {
+          "archiveID": "MeetCorlissArcher-ThePhoneFumble1954",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Phone Fumble",
+          "overview": "Synopsis 1: \n\nHarry Archer needs to make an important phone call but is hindered by losing the phone number, not to mention the phone! Not helping at all is Corliss doing housework and Dexter's arrival with a pie and a watermelon.\n\nSynopsis 2:\n\nThere's only one phone number in the Archer household - not enough when there's a teenager in the home. The phone is constantly in use, and Mr. Archer keeps missing important business calls.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1565,
+          "videoFile": {
+            "name": "ThePhoneFumble.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150493124,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MeetCorlissArcher-ThePhoneFumble1954/ThePhoneFumble.ia.mp4"
+        },
+        {
+          "archiveID": "Corliss_The_Cheerleader",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Corliss, The Cheerleader",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Corliss_The_Cheerleader.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147828117,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Corliss_The_Cheerleader/Corliss_The_Cheerleader.ia.mp4"
+        },
+        {
+          "archiveID": "MeetCorlissArcher-TheArchersGetAMaid",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Archers Get a Maid",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "MeetCorlissMaid.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149705611,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MeetCorlissArcher-TheArchersGetAMaid/MeetCorlissMaid.ia.mp4"
+        },
+        {
+          "archiveID": "MeetCorlissArcher-Episode17dexterBecomesAMan",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Dexter Becomes a Man",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1567,
+          "videoFile": {
+            "name": "MeetCorlissArcherMan.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150101492,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MeetCorlissArcher-Episode17dexterBecomesAMan/MeetCorlissArcherMan.ia.mp4"
+        },
+        {
+          "archiveID": "Meet_Corliss_Archer--A_Party_for_Corliss",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "A Party for Corliss",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MeetCorlissArcher122_A_Party_for_Corliss.mp4",
+            "format": "h.264",
+            "sizeBytes": 145833073,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Meet_Corliss_Archer--A_Party_for_Corliss/MeetCorlissArcher122_A_Party_for_Corliss.mp4"
+        },
+        {
+          "archiveID": "MeetCorlissArcher-TheBoatbuilders1954",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Boat Builders",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "MeetCorliss1954Boat.mp4",
+            "format": "h.264",
+            "sizeBytes": 151962022,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MeetCorlissArcher-TheBoatbuilders1954/MeetCorliss1954Boat.mp4"
+        },
+        {
+          "archiveID": "MeetCorlissArcher-ChristmasEpisodecirca1954Syndicated",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "The Christmas Story",
+          "overview": "Corliss Archer and her goofy steady Dexter resolve to make gifts for everyone as Mr. and Mrs. Archer takes charge of decorating the house. Unfortunately others don't cooperate and even though the decorations, gifts, and Christmas tree are ruined, everyone ends up in the high spirits of the season.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/znyyPzeUBbtqNIofE4rEGj3CHZN.jpg",
+          "airDate": "1954-12-24",
+          "year": 1954,
+          "runtimeSeconds": 1542,
+          "videoFile": {
+            "name": "ChristmasStory1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 161732126,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MeetCorlissArcher-ChristmasEpisodecirca1954Syndicated/ChristmasStory1954.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 32
+}

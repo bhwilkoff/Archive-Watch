@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "seriesID": "tales-of-the-unexpected-1980",
+  "title": "Tales Of The Unexpected",
+  "yearStart": 1980,
+  "yearEnd": 1988,
+  "overview": "A British television anthology of stories, often with sinister and wryly comedic undertones, and a twist at the end. With early episodes written and presented by Roald Dahl, the series featured a plethora of big name guest stars.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/pd6OT8CjLWM48BOY7qubIKNbtYl.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Roald Dahl",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 413 - theres one born every minute.mp4",
+            "format": "h.264",
+            "sizeBytes": 167977675,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries4/Tales of the Unexpected - 413 - theres one born every minute.mp4"
+        },
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 5",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 512 - death in the morning.mp4",
+            "format": "h.264",
+            "sizeBytes": 170695364,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries5/Tales of the Unexpected - 512 - death in the morning.mp4"
+        },
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 6",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 607 - down among the sheltering palms.mp4",
+            "format": "h.264",
+            "sizeBytes": 168210015,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries6/Tales of the Unexpected - 607 - down among the sheltering palms.mp4"
+        },
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 7",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TalesOfTheUnexpected-713-TheReconciliation.mp4",
+            "format": "h.264",
+            "sizeBytes": 166072967,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries7/TalesOfTheUnexpected-713-TheReconciliation.mp4"
+        },
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries8-9",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 8&9",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 901 - skeleton in the cupboard.mp4",
+            "format": "h.264",
+            "sizeBytes": 167289039,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries8-9/Tales of the Unexpected - 901 - skeleton in the cupboard.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

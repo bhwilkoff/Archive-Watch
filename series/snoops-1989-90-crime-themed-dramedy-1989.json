@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "snoops-1989-90-crime-themed-dramedy-1989",
+  "title": "Snoops (1989-90) crime themed dramedy",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/snoops-1989-tim-reid",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "snoops-1989-tim-reid",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Snoops (1989-90) crime themed dramedy - Tim Reid",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/snoops-1989-tim-reid",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Snoops (1989) s01e05 - - SaveOLTL1741.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 281566184,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/snoops-1989-tim-reid/Snoops (1989) s01e05 - - SaveOLTL1741.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

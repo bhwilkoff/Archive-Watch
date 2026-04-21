@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "project-ufo-1978",
+  "title": "Project UFO",
+  "yearStart": 1978,
+  "yearEnd": 1978,
+  "overview": "Project U.F.O. is a NBC television series based loosely on the real-life Project Blue Book",
+  "posterURL": "https://image.tmdb.org/t/p/w500/j32NNKpsbgdN5FbJ4dSAbvq7GbB.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Jack Webb",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "project-ufo-complete-series-1978",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Project UFO - Complete Series 1978",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/j32NNKpsbgdN5FbJ4dSAbvq7GbB.jpg",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Project UFO S01E08 - The Desert Springs Incident.mp4",
+            "format": "h.264",
+            "sizeBytes": 277976557,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/project-ufo-complete-series-1978/Project UFO S01E08 - The Desert Springs Incident.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

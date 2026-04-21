@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "hammer-house-of-horror-witching-time-1980",
+  "title": "Hammer House Of Horror Witching Time",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hammer-house-of-horror-witching-time",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hammer-house-of-horror-witching-time",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hammer House Of Horror Witching Time",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hammer-house-of-horror-witching-time",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hammer House of Horror - Witching Time.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157883568,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hammer-house-of-horror-witching-time/Hammer House of Horror - Witching Time.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

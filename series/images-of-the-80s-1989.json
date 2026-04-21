@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "images-of-the-80s-1989",
+  "title": "Images Of The 80s",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/images-of-the-80s-1989-hqe",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "images-of-the-80s-1989-hqe",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Images Of The 80s - Peter Jennings",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/images-of-the-80s-1989-hqe",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Images of the 80s 1989 hqe.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400906049,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/images-of-the-80s-1989-hqe/Images of the 80s 1989 hqe.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

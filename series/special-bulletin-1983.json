@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "special-bulletin-1983",
+  "title": "Special Bulletin",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/special-bulletin-1983",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "special-bulletin-1983",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Special Bulletin ( 1983)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/special-bulletin-1983",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Special Bulletin (1983).mp4",
+            "format": "h.264",
+            "sizeBytes": 562610009,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/special-bulletin-1983/Special Bulletin (1983).mp4"
+        },
+        {
+          "archiveID": "special-bulletin-1983_202204",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Special Bulletin - Kathryn Walker, Ed Flanders",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/special-bulletin-1983_202204",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Special Bulletin - 1983.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2924104908,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/special-bulletin-1983_202204/Special Bulletin - 1983.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "working-1997",
+  "title": "Working",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": "Working is an American situation comedy that aired on NBC from 1997 to 1999. The series was created and executive produced by Michael Davidoff and Bill Rosenthal.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7ITaI3sN8XV0JgVlbaeMuj0601U.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/mDcgXdhEyOBfkjtEx0qZvF6W700.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "working-1.05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Working - Fred Savage",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7ITaI3sN8XV0JgVlbaeMuj0601U.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Working - 1.05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 683462900,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/working-1.05/Working - 1.05.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

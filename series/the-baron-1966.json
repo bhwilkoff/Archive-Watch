@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-baron-1966",
+  "title": "The Baron",
+  "yearStart": 1966,
+  "yearEnd": 1966,
+  "overview": "The Baron is a British television series, made in 1965/66 based on the book series by John Creasey, written under the pseudonym Anthony Morton, and produced by ITC Entertainment. It was the first ITC show without marionettes to be produced entirely in colour.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/5tIrG3Cs83BcYqnGu6ptlRDxGBI.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/uGbqhDPESGJuLCeMCEJBzM2cFZM.jpg",
+  "genres": [],
+  "networks": [
+    "Associated Television"
+  ],
+  "creator": "Monty Berman",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "The_Baron_1966_Series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Baron (1966) - Full Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/5tIrG3Cs83BcYqnGu6ptlRDxGBI.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E22 - Evening of Hunter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 308195001,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The Baron (30 of 30)/S01E22 - Evening of Hunter.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

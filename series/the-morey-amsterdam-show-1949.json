@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "seriesID": "the-morey-amsterdam-show-1949",
+  "title": "The Morey Amsterdam Show",
+  "yearStart": 1949,
+  "yearEnd": 1950,
+  "overview": "The Morey Amsterdam Show is an American sitcom which ran from 1948-1949 on CBS Television and 1949-1950 on the DuMont Television Network, for a total of 71 episodes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/zRSvrN8V6bOXqz2R3r5o1G2HLK0.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/hWihL5S55l46tC1o9YuahFLmH3N.jpg",
+  "genres": [],
+  "networks": [
+    "CBS",
+    "DuMont Television Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MoreyAmsterdamApril1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Morey Amsterdam Show'' - 21 April 1949",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zRSvrN8V6bOXqz2R3r5o1G2HLK0.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "moreyamsterdam21april1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 183792011,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MoreyAmsterdamApril1949/moreyamsterdam21april1949.mp4"
+        },
+        {
+          "archiveID": "TheMoreyAmsterdamShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Morey Amsterdam Show'' - Unknown episode",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zRSvrN8V6bOXqz2R3r5o1G2HLK0.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1772,
+          "videoFile": {
+            "name": "TheMoreyAmsterdamShow.mp4",
+            "format": "h.264",
+            "sizeBytes": 184530189,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheMoreyAmsterdamShow/TheMoreyAmsterdamShow.mp4"
+        },
+        {
+          "archiveID": "moreyamsterdam",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Morey Amsterdam Show'' - Unknown episode, No. 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zRSvrN8V6bOXqz2R3r5o1G2HLK0.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1775,
+          "videoFile": {
+            "name": "moreyamsterdam.mp4",
+            "format": "h.264",
+            "sizeBytes": 184895030,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moreyamsterdam/moreyamsterdam.mp4"
+        },
+        {
+          "archiveID": "moreymisc3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Morey Amsterdam Show'' - Unknown episode, No. 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zRSvrN8V6bOXqz2R3r5o1G2HLK0.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "moreymisc3.mp4",
+            "format": "h.264",
+            "sizeBytes": 183875692,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moreymisc3/moreymisc3.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

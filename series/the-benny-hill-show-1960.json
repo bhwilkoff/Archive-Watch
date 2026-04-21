@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "seriesID": "the-benny-hill-show-1960",
+  "title": "The Benny Hill Show",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Benny Hill Show is a British comedy television show that starred Benny Hill and aired in various incarnations between 15 January 1955 and 30 May 1991 in over 140 countries. The show focused on sketches that were full of slapstick, mime, parody, and double-entendre. Thames Television cancelled production of the show in 1989 due to declining ratings and large production costs at £450,000 per show.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/y3mGj6YAy7CRWMq06gjsXf3rIJ1.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bp30imMTFKAcxrZMi4hjBwY91A6.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1",
+    "BBC One",
+    "Associated Television"
+  ],
+  "creator": "Benny Hill",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-benny-hill-show",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Benny Hill Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/y3mGj6YAy7CRWMq06gjsXf3rIJ1.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "54 - Benny Hill.mp4",
+            "format": "h.264",
+            "sizeBytes": 177807099,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-benny-hill-show/54 - Benny Hill.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

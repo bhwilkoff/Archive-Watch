@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "david-lynch-1993",
+  "title": "David Lynch",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/david-lynchs-hotel-room-1993-highest-quality-version-1080-p",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "david-lynchs-hotel-room-1993-highest-quality-version-1080-p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "David Lynch's Hotel Room ( 1993)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/david-lynchs-hotel-room-1993-highest-quality-version-1080-p",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "David Lynch's Hotel Room (1993) [Highest-Quality Version] 1080P.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 969719944,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/david-lynchs-hotel-room-1993-highest-quality-version-1080-p/David Lynch's Hotel Room (1993) [Highest-Quality Version] 1080P.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

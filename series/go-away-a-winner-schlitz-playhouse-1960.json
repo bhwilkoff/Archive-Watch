@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "go-away-a-winner-schlitz-playhouse-1960",
+  "title": "Go Away a Winner (Schlitz Playhouse",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Go_Away_a_Winner--Schlitz",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Go_Away_a_Winner--Schlitz",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Go Away a Winner (Schlitz Playhouse)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Go_Away_a_Winner--Schlitz",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1573,
+          "videoFile": {
+            "name": "Go_Away_a_Winner--Schlitz.mp4",
+            "format": "h.264",
+            "sizeBytes": 162926340,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Go_Away_a_Winner--Schlitz/Go_Away_a_Winner--Schlitz.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

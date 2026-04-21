@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-comedy-store-1992",
+  "title": "The Comedy Store",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "\"Ha-Comedy Store\" was an Israeli entertainment program which was broadcast on the Israeli Channel 2 between the years 1994-1996. In its prime it starred Tzvika Hadar, Assaf Ashtar, Ruby Duenyas, Gil Sassover and Itai Segev.\n\nThe show scheduled weekly consisted different short non-sense styled skits including recurring nooks, such as \"JoJo Ticked-Off\" and \"Jacques' Bulletin\" and music segments which were mostly parodies of famous Israeli songs.\n\nDuring the first seasons, the show won a great success, and coined a number of unique expressions to the Hebrew language such as \"Laflaf\", \"Khalastra\". The character which is mostly remembered and identified with the show is apparently Jojo Halastra, played by Tzvika Hadar, which was a parody on the Israeli Ars.\n\nIn 1995 a \"Ha-Comedy Store\" album was released containing all of the most popular songs and skits.\n\nAfter the third season the shows' popularity descended after some of the actors left the show.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/nelPFHlQWrskwUa9FB139I0AUQs.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Channel 2"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "comedy-stores-20th-birthday-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Comedy Store's 20th Birthday - Pauly Shore",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nelPFHlQWrskwUa9FB139I0AUQs.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Comedy Stores 20th Birthday - 1992.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 394169232,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/comedy-stores-20th-birthday-1992/Comedy Stores 20th Birthday - 1992.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-new-show-1984",
+  "title": "The New Show",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "The New Show is a NBC sketch comedy show produced by Saturday Night Live creator Lorne Michaels, which ran for only one season from January 6 to March 23, 1984. Apart from being 60 minutes in length and entirely pre-recorded, the show is similar in format to SNL. It was the lowest rated of 94 programs that aired during the 1983-84 television season, averaging a dismal 7.81 household rating. It was opposite 20/20 & Falcon Crest.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/33abFaoc3uyi2SjxZRHDMxU067T.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-new-show-1.2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The New Show - Paul Simon, Buck Henry",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/33abFaoc3uyi2SjxZRHDMxU067T.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The New Show - 1.2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 414204413,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-new-show-1.2/The New Show - 1.2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

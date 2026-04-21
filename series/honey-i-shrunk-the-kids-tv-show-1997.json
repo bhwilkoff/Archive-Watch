@@ -1,0 +1,689 @@
+{
+  "version": 1,
+  "seriesID": "honey-i-shrunk-the-kids-tv-show-1997",
+  "title": "Honey I shrunk the kids TV Show",
+  "yearStart": 1997,
+  "yearEnd": 1999,
+  "overview": "The adventures of brilliant but befuddled scientist Wayne Szalinski, whose often-misguided projects wreak havoc on his family and friends.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/wYvz2QbFj0BJliC5cMCL1jcgMqU.jpg",
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": "Ed Ferrara",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-1-honey-weve-been-swallowed-by-grandpa",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Honey, We've Been Swallowed By Grandpa",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-09-27",
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Honey, We've Been Swallowed by Grandpa) Episode 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 214056973,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-1-honey-weve-been-swallowed-by-grandpa/Honey, I Shrunk the Kids(Honey, We've Been Swallowed by Grandpa) Episode 1.ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-season-2-episode-2-honey-the-house-is-trying-to-kill-us",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Honey, the House is Trying to Kill Us",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-10-04",
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids (Honey, the House is Trying to Kill Us) EP 2-c2yRKmpfYqo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 139424845,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-season-2-episode-2-honey-the-house-is-trying-to-kill-us/Honey, I Shrunk the Kids (Honey, the House is Trying to Kill Us) EP 2-c2yRKmpfYqo.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-2-honey-its-a-billion-dollar-brain",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Honey, It's A Billion Dollar Brain",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-10-02",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HISTK S03E02-wn91d8su3lfb.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121067550,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-2-honey-its-a-billion-dollar-brain/HISTK S03E02-wn91d8su3lfb.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-4-honey-were-stuck-in-the-70s",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Honey, We're Stuck in the 70's",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-10-18",
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Honey, We're Stuck in the 70's)Episode 4-Vv7vJ2GlVUc.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 167210399,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-4-honey-were-stuck-in-the-70s/Honey, I Shrunk the Kids(Honey, We're Stuck in the 70's)Episode 4-Vv7vJ2GlVUc.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-5-honey-i-shrunk-the-science-dude",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Honey, I Shrunk the Science Dude",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-10-25",
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Honey, I Shrunk the Science Dude)Episode 5.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 241580608,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-5-honey-i-shrunk-the-science-dude/Honey, I Shrunk the Kids(Honey, I Shrunk the Science Dude)Episode 5.ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-6-honey-were-young-at-heart",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Honey, You've Got Nine Lives",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-11-01",
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HISTK S02E06-3egp7jka7o5c.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 146326602,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-6-honey-were-young-at-heart/HISTK S02E06-3egp7jka7o5c.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-7-honey-im-not-up-to-par",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Honey, I Got Duped",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-11-08",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HISTK S03E07-yhuwudmb87hi.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 144337327,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-7-honey-im-not-up-to-par/HISTK S03E07-yhuwudmb87hi.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-8-honey-theyre-after-me-lucky-charms",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Honey I shrunk the kids TV Show Season 1 Episode 8 Honey, They're After Me Lucky Charms",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 8)-xHdKwAKRfxE.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 141569426,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-8-honey-theyre-after-me-lucky-charms/Honey, I Shrunk the Kids(Episode 8)-xHdKwAKRfxE.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-8-honey-its-one-small-step-for-mankind",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Honey, They're After Me Lucky Charms",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-11-15",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HISTK S03E08-ngbtlme9jau2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 127177523,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-8-honey-its-one-small-step-for-mankind/HISTK S03E08-ngbtlme9jau2.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-9-honey-youre-driving-me-like-crazy",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Honey, They Call Me The Space Cowboy",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-11-22",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HISTK S03E09-94onncp6ontd.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 125799919,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-9-honey-youre-driving-me-like-crazy/HISTK S03E09-94onncp6ontd.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-9-honey-the-bunny-bit-it",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Honey, the Bunny Bit It",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-12-05",
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DaClips - Just watch it!.mp4",
+            "format": "h.264",
+            "sizeBytes": 255634797,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-9-honey-the-bunny-bit-it/DaClips - Just watch it!.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-9-honey-they-call-me-the-space-cowboy",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Honey, I Shrunk The Kids TV show episode 9 Honey, They Call Me the Space Cowboy",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 9).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 210109829,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-9-honey-they-call-me-the-space-cowboy/Honey, I Shrunk the Kids(Episode 9).ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-10-honey-ive-joined-the-bigtop",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Honey, I've Joined the Bigtop",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-12-12",
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HISTK S02E10-0897honfeb13.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 179767443,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-10-honey-ive-joined-the-bigtop/HISTK S02E10-0897honfeb13.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-3-episode-10-honey-the-plays-the-thingie",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Honey, I Know What You're Thinking",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-11-29",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HISTK S03E10-iubwb4gh4adf.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 123097819,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-3-episode-10-honey-the-plays-the-thingie/HISTK S03E10-iubwb4gh4adf.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-11-honey-youre-living-in-the-past",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Honey I shrunk the kids TV Show Season 1 Episode 11 Honey, You're Living in the Past",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "histk-s01e11-honey-you-re-living-in-the-past.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 142419949,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-11-honey-youre-living-in-the-past/histk-s01e11-honey-you-re-living-in-the-past.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-episode-11-honey-im-the-sorcerers-apprentice",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Honey, You're Living in the Past",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1997-12-15",
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HISTK S02E11-fmy4bu7yjaom.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 135430392,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-episode-11-honey-im-the-sorcerers-apprentice/HISTK S02E11-fmy4bu7yjaom.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-12-honey-im-king-of-the-rocket-guys",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Honey, I'm Streakin'",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-01-17",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 34).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 130404852,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-12-honey-im-king-of-the-rocket-guys/Honey, I Shrunk the Kids(Episode 34).mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-13-honey-meet-the-barbarians",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Honey, Meet the Barbarians",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-01-07",
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 13)-oRzw39Pc2B0.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 153979184,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-13-honey-meet-the-barbarians/Honey, I Shrunk the Kids(Episode 13)-oRzw39Pc2B0.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-14-honey-its-a-miracle",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Honey, You Drained My Brain",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-02-14",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 36)-OI0zRkxq_yo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 122441891,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-14-honey-its-a-miracle/Honey, I Shrunk the Kids(Episode 36)-OI0zRkxq_yo.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-14-honey-youve-drained-my-brain",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Honey I shrunk the kids TV show episode 14 Honey, You've Drained My Brain",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "histk-s01e14-honey-you-drained-my-brain.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145837477,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-14-honey-youve-drained-my-brain/histk-s01e14-honey-you-drained-my-brain.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-15-honey-youll-always-be-a-princess-to-me",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Honey, I Shrunk The Kids TV show Season 2 Episode 15 Honey, You'll Always Be a Princess to Me",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 37).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 140747821,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-15-honey-youll-always-be-a-princess-to-me/Honey, I Shrunk the Kids(Episode 37).mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-15-honey-hes-not-abominable...-hes-just-misunderstood",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Honey, He's Not Abdominable...He's Just Misunderstood",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-02-21",
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 15)-zcrtbGv1uto.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156810551,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-15-honey-hes-not-abominable...-hes-just-misunderstood/Honey, I Shrunk the Kids(Episode 15)-zcrtbGv1uto.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-16-honey-theres-a-pox-on-our-house",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Honey, I'm in the Mood for Love",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-02-28",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HISTK S02E16-unvnif4yybnj.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 137698784,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-16-honey-theres-a-pox-on-our-house/HISTK S02E16-unvnif4yybnj.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-17-honey-im-going-to-teach-you-a-lesson",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Honey, The Bear is Bad News",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-03-28",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 39)-4F49Sc-JUOQ.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 134568409,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-17-honey-im-going-to-teach-you-a-lesson/Honey, I Shrunk the Kids(Episode 39)-4F49Sc-JUOQ.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-19-honey-im-dreaming...-but-am-i",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Honey I shrunk the kids TV Show Season 1 Episode 19 Honey, I'm Dreaming... But Am I?",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "histk-s01e19-honey-i-m-dreaming-but-am-i.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158050993,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-19-honey-im-dreaming...-but-am-i/histk-s01e19-honey-i-m-dreaming-but-am-i.ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-19-honey-its-a-blunderful-life",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Honey, I'm Dreaming... But Am I?",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-04-23",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HISTK S02E19-xixetfljutjr.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 119830230,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-19-honey-its-a-blunderful-life/HISTK S02E19-xixetfljutjr.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-20-honey-the-garbage-is-taking-us-out",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Honey I shrunk the kids TV Show Season 1 Episode 20 Honey, the Garbage Is Taking Us Out",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 20).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 278385231,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-20-honey-the-garbage-is-taking-us-out/Honey, I Shrunk the Kids(Episode 20).ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-20-honey-its-your-party",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Honey, the Garbage is Taking Us Out",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-04-30",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 42)-PhTNPC9ldRU.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138670557,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-20-honey-its-your-party/Honey, I Shrunk the Kids(Episode 42)-PhTNPC9ldRU.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-21-honey-im-not-just-clowning-around",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Honey, You're So Transparent",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-05-09",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HISTK S02E21-xiw1262ytdzx.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 107347628,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-21-honey-im-not-just-clowning-around/HISTK S02E21-xiw1262ytdzx.ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-22-honey-its-no-fun-being-an-illegal-alien",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Honey, It's No Fun Being An Illegal Alien",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-05-16",
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 22).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 277570950,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-22-honey-its-no-fun-being-an-illegal-alien/Honey, I Shrunk the Kids(Episode 22).ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-23-honey-its-quarkzilla",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Honey, I Shrunk The Kids TV show Episode 23 Honey, It's Quarkzilla",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 23).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 285749477,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-23-honey-its-quarkzilla/Honey, I Shrunk the Kids(Episode 23).ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-24-honey-shes-like-a-fish-out-of-water",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Honey, She's Like a Fish Out of Water",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-10-03",
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HISTK S02E02-5n8bqthzb78k.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180528787,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-24-honey-shes-like-a-fish-out-of-water/HISTK S02E02-5n8bqthzb78k.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-episode-29-honey-were-past-tense",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Honey, We're Past Tense",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1998-11-14",
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Honey, I Shrunk the Kids(Episode 29).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 295711396,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-episode-29-honey-were-past-tense/Honey, I Shrunk the Kids(Episode 29).ia.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-35-honey-the-futures-coming-back-to-me",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Honey, the Future's Comin' Back on Me",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-02-06",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DaClips - Just watch it! copy 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 259303297,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-35-honey-the-futures-coming-back-to-me/DaClips - Just watch it! copy 2.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-episode-45-honey-name-that-tune",
+          "seasonNumber": 1,
+          "episodeNumber": 45,
+          "title": "Honey, Name That Tune",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-09-25",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DaClips - Just watch it! 4.mp4",
+            "format": "h.264",
+            "sizeBytes": 249040903,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-episode-45-honey-name-that-tune/DaClips - Just watch it! 4.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-48-honey-were-on-tv",
+          "seasonNumber": 1,
+          "episodeNumber": 48,
+          "title": "Honey, We're on TV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-10-16",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HISTK S03E04-v9qwclvf963o.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 146410670,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-48-honey-were-on-tv/HISTK S03E04-v9qwclvf963o.mp4"
+        },
+        {
+          "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-50-honey-im-kung-fu-fighting",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "Honey, I'm Kung Fu Fighting",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+          "airDate": "1999-11-06",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DaClips - Just watch it!(1).mp4",
+            "format": "h.264",
+            "sizeBytes": 249645064,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-50-honey-im-kung-fu-fighting/DaClips - Just watch it!(1).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 37
+}

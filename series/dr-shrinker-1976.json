@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "seriesID": "dr-shrinker-1976",
+  "title": "DR. SHRINKER",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": "Dr. Shrinker was a segment during the first season of the ABC network's The Krofft Supershow in 1976.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/8vVhQ1uqdp13E0xX5gAnm9PZNL9.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dr-shrinker-online",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "DR SHRINKER \"Slowly I Turn\" (1976)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DR SHRINKER SLOWLY I TURN.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 33087361,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dr-shrinker-online/DR SHRINKER SLOWLY I TURN.ia.mp4"
+        },
+        {
+          "archiveID": "dr-shrinker",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "DR. SHRINKER \"Pardon Me, King Kong\"",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dr. Shrinker - Pardon Me, King Kong - Krofft Supershow (1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 39868141,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dr-shrinker/Dr. Shrinker - Pardon Me, King Kong - Krofft Supershow (1).mp4"
+        },
+        {
+          "archiveID": "dr-shrinker-p-1-and-2-x-264-001",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dr. Shrinker \"The Sands Document Part 1 & 2 (1976)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DR SHRINKER P1 AND 2_x264_001.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 82802243,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dr-shrinker-p-1-and-2-x-264-001/DR SHRINKER P1 AND 2_x264_001.ia.mp4"
+        },
+        {
+          "archiveID": "dr-shrinker-full-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dr. Shrinker - Full Series! (1976)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dr. Shrinker (1976)_ 360p.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 513592868,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dr-shrinker-full-series/Dr. Shrinker (1976)_ 360p.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "dr-shrinker-krofft",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Other Brad",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
+          "airDate": "1976-09-18",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dr. Shrinker - The Other Brad - Krofft Supershow (1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 38512984,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dr-shrinker-krofft/Dr. Shrinker - The Other Brad - Krofft Supershow (1).mp4"
+        },
+        {
+          "archiveID": "dr.-shrinker",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Shake Up",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
+          "airDate": "1976-09-25",
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dr. Shrinker - Episode 3 - The Shake Up - Krofft Supershow.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 40074862,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dr.-shrinker/Dr. Shrinker - Episode 3 - The Shake Up - Krofft Supershow.mp4"
+        },
+        {
+          "archiveID": "dr.shrinker",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Gordie's Bird",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
+          "airDate": "1976-10-02",
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dr. Shrinker - Episode 4 - Gordie's Bird - Krofft Supershow.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 35373421,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dr.shrinker/Dr. Shrinker - Episode 4 - Gordie's Bird - Krofft Supershow.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

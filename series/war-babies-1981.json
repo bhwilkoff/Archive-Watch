@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "war-babies-1981",
+  "title": "War Babies",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/war-babies-1981",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "war-babies-1981",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "War Babies - Maryedith Burrell, Caren Kaye",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/war-babies-1981",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "War Babies - 1981.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 421796630,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/war-babies-1981/War Babies - 1981.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

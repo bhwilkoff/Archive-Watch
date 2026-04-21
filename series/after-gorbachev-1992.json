@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "after-gorbachev-1992",
+  "title": "After Gorbachev",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AfterGorbachevsUSSR",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AfterGorbachevsUSSR",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "After Gorbachev's USSR",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AfterGorbachevsUSSR",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Frontline.S10E04.After.Gorbachevs.USSR.1992.VHSRip.AAC2.0.x264-rattera.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 731555005,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AfterGorbachevsUSSR/Frontline.S10E04.After.Gorbachevs.USSR.1992.VHSRip.AAC2.0.x264-rattera.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

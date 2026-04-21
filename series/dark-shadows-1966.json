@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "seriesID": "dark-shadows-1966",
+  "title": "Dark Shadows",
+  "yearStart": 1966,
+  "yearEnd": 1966,
+  "overview": "Dark Shadows is an American gothic soap opera that originally aired weekdays on the ABC television network, from June 27, 1966, to April 2, 1971. The show was created by Dan Curtis. The story bible, which was written by Art Wallace, does not mention any supernatural elements. It was unprecedented in daytime television when ghosts were introduced about six months after it began.\n\nThe series became hugely popular when vampire Barnabas Collins appeared a year into its run. Dark Shadows also featured werewolves, zombies, man-made monsters, witches, warlocks, time travel, and a parallel universe. A small company of actors each played many roles; indeed, as actors came and went, some characters were played by more than one actor. Major writers besides Art Wallace included Malcolm Marmorstein, Sam Hall, Gordon Russell, and Violet Welles.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/fmFsm4dq02k2Xxs7M887unPAiXd.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Dan Curtis",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dark-shadows-disc-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "DARK SHADOWS DISC 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DARK_SHADOWS_DISC1_Title1.mp4",
+            "format": "h.264",
+            "sizeBytes": 637047248,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dark-shadows-disc-2/DARK_SHADOWS_DISC1_Title1.mp4"
+        },
+        {
+          "archiveID": "dark-shadows-disc-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dark Shadows Disc 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dark Shadows Disc1-1.mp4",
+            "format": "h.264",
+            "sizeBytes": 776628358,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dark-shadows-disc-1/Dark Shadows Disc1-1.mp4"
+        },
+        {
+          "archiveID": "dark-shadows-disc-3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dark Shadows Disc 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dark Shadows Disc 3.mp4",
+            "format": "h.264",
+            "sizeBytes": 1304502073,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dark-shadows-disc-3/Dark Shadows Disc 3.mp4"
+        },
+        {
+          "archiveID": "dark-shadows-disc-4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dark Shadows Disc 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dark Shadows Disc 4.mp4",
+            "format": "h.264",
+            "sizeBytes": 1297667013,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dark-shadows-disc-4/Dark Shadows Disc 4.mp4"
+        },
+        {
+          "archiveID": "dark-shadows-disc-5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dark Shadows Disc 5",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dark Shadows Disc 5.mp4",
+            "format": "h.264",
+            "sizeBytes": 1282062401,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dark-shadows-disc-5/Dark Shadows Disc 5.mp4"
+        },
+        {
+          "archiveID": "dark-shadows-disc-6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dark Shadows Disc 6",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dark Shadows Disc 6 B.mp4",
+            "format": "h.264",
+            "sizeBytes": 646897158,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dark-shadows-disc-6/Dark Shadows Disc 6 B.mp4"
+        },
+        {
+          "archiveID": "dark-shadows-disc-7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dark Shadows Disc 7",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dark Shadows Disc 7 B.mp4",
+            "format": "h.264",
+            "sizeBytes": 670259041,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dark-shadows-disc-7/Dark Shadows Disc 7 B.mp4"
+        },
+        {
+          "archiveID": "dark-shadows-disc-8",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dark Shadows Disc 8",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eRtnI7qTJIiPUmlY3J8TTM3jlT7.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dark Shadows Disc 8 B.mp4",
+            "format": "h.264",
+            "sizeBytes": 651565051,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dark-shadows-disc-8/Dark Shadows Disc 8 B.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

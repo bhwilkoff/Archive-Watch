@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "thetwilightzone1959-1964s01-1960",
+  "title": "The.Twilight.Zone.1959-1964.S01",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/The.Twilight.Zone.1959-1964.S01",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "The.Twilight.Zone.1959-1964.S01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The.Twilight.Zone.1959-1964.S01",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/The.Twilight.Zone.1959-1964.S01",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S00E00 - The Time Element - by Rod Serling (1958) 1080p BluRay-Remux.mkv",
+            "format": "Matroska",
+            "sizeBytes": 8344843691,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The.Twilight.Zone.1959-1964.S01/S00E00 - The Time Element - by Rod Serling (1958) 1080p BluRay-Remux.mkv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

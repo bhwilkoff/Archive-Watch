@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "christmas-in-rockefeller-center-1998",
+  "title": "Christmas In Rockefeller Center",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": "Christmas In Rockefeller Center is an annual one-hour Christmas special airing live on NBC. It features the biggest stars, TV personalities and musical guests as they join the celebration to watch as 30,000 lights bring the world's most famous Christmas tree to life. ",
+  "posterURL": "https://image.tmdb.org/t/p/w500/gW5npq65S7zAM9430ARv9J0aZvD.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lloqpBe8eBBVEBapIGxzfaqdeMa.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ChristmasInRockefellerCenter1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Christmas In Rockefeller Center (1998)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gW5npq65S7zAM9430ARv9J0aZvD.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Christmas in Rockefeller Center (1998).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 193622295,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ChristmasInRockefellerCenter1998/Christmas in Rockefeller Center (1998).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

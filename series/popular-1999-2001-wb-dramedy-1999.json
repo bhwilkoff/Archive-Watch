@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "popular-1999-2001-wb-dramedy-1999",
+  "title": "Popular (1999-2001) WB dramedy",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/popular-1999-2001",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "popular-1999-2001",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Popular (1999-2001) WB dramedy - all 43 eps",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/popular-1999-2001",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Popular Season 2 - 21 eps/popular-_season_02_-_episode_08  _Misery Loathes Company_.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 176040749,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/popular-1999-2001/Popular Season 2 - 21 eps/popular-_season_02_-_episode_08  _Misery Loathes Company_.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "seriesID": "the-lone-ranger-tv-1950-colorized-1950",
+  "title": "The Lone Ranger TV 1950 colorized",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/lone-ranger-tv-1950-s01e44-white-mans-magic",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-lone-ranger-tv-1950-s01e38-spanish-gold",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "The Lone Ranger TV 1950 colorized s01e38 Spanish Gold",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-lone-ranger-tv-1950-s01e38-spanish-gold",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Lone Ranger TV 1950 colorized s01e38 Spanish Gold.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 171744524,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-lone-ranger-tv-1950-s01e38-spanish-gold/The Lone Ranger TV 1950 colorized s01e38 Spanish Gold.mp4"
+        },
+        {
+          "archiveID": "lone-ranger-tv-1950-s01e44-white-mans-magic",
+          "seasonNumber": 1,
+          "episodeNumber": 44,
+          "title": "The Lone Ranger TV 1950 colorized s01e44 White Man's Magic",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/lone-ranger-tv-1950-s01e44-white-mans-magic",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lone Ranger TV 1950 colorized s01e44 White Man's Magic.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 217026905,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lone-ranger-tv-1950-s01e44-white-mans-magic/Lone Ranger TV 1950 colorized s01e44 White Man's Magic.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the-lone-ranger-tv-1950-s02e09-the-squire",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "The Lone Ranger TV 1950 colorized s02e09 The Squire",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-lone-ranger-tv-1950-s02e09-the-squire",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Lone Ranger TV 1950 colorized s02e09 The Squire.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 233440085,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-lone-ranger-tv-1950-s02e09-the-squire/The Lone Ranger TV 1950 colorized s02e09 The Squire.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

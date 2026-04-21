@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "beasts-1976",
+  "title": "Beasts",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": "Beasts is a series of six television plays by Manx writer Nigel Kneale, unconnected but for a bestial horror theme, made by ATV for ITV in the United Kingdom and broadcast in 1976.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/f2XO7aIODBdtwPhmq4c2NXtdRmh.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/6ymPPGkwYzATBZ6pXvSo8YlPbj8.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Nigel Kneale",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "beasts-1976",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Beasts (1976) Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/f2XO7aIODBdtwPhmq4c2NXtdRmh.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Beasts (1976)/Ep03 Buddyboy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 350598127,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/beasts-1976/Beasts (1976)/Ep03 Buddyboy.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

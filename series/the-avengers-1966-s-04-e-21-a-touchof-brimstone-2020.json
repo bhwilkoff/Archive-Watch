@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-avengers-1966-s-04-e-21-a-touchof-brimstone-2020",
+  "title": "The. Avengers. 1966. S 04 E 21. A. Touch.of. Brimstone",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the.avengers.1966.s04e21.a.touch.of.brimstone_202001",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the.avengers.1966.s04e21.a.touch.of.brimstone_202001",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The. Avengers. 1966. S 04 E 21. A. Touch.of. Brimstone",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the.avengers.1966.s04e21.a.touch.of.brimstone_202001",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Avengers.1966.S04E21.A.Touch.of.Brimstone.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 232152716,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.avengers.1966.s04e21.a.touch.of.brimstone_202001/The.Avengers.1966.S04E21.A.Touch.of.Brimstone.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

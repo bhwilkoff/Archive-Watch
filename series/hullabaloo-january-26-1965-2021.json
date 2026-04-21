@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "hullabaloo-january-26-1965-2021",
+  "title": "Hullabaloo (January 26, 1965",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hullabaloo-january-26-1965",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hullabaloo-january-26-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hullabaloo (January 26, 1965)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hullabaloo-january-26-1965",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hullabaloo (January 26, 1965).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 924463661,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hullabaloo-january-26-1965/Hullabaloo (January 26, 1965).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "thriller-1960",
+  "title": "Thriller",
+  "yearStart": 1960,
+  "yearEnd": 1961,
+  "overview": "Thriller is an American anthology television series that aired during the 1960–61 and 1961–62 seasons on NBC. The show featured host Boris Karloff introducing a mix of self-contained, macabre weird-horror and morbid, hitchockian crime stories, in some of which he also starred.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lLrNBo5Krzu1oNlxEqKprk8UW5b.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4gFB4BF4zojCrD5JVHp74xWcoQL.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "KarloffThriller",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Thriller\" The Return of Andrew Bentley",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lLrNBo5Krzu1oNlxEqKprk8UW5b.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "BorisKarloffTHRILLER.mp4",
+            "format": "h.264",
+            "sizeBytes": 310482760,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/KarloffThriller/BorisKarloffTHRILLER.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Thriller (1960) - Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lLrNBo5Krzu1oNlxEqKprk8UW5b.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E04 - THE WEIRD TAILOR.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 305193656,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller (1960) - COMPLETE/S02E04 - THE WEIRD TAILOR.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

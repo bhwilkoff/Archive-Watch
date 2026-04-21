@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "get-out-of-town-1960",
+  "title": "Get Out Of Town",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Follow_That_Man_EP4x08_Get_Out_Of_Town",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Follow_That_Man_EP4x08_Get_Out_Of_Town",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Get Out Of Town",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Follow_That_Man_EP4x08_Get_Out_Of_Town",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Follow_That_Man-Ralph_Bellamy_4x08-Get_Out_of_Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 156676017,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Follow_That_Man_EP4x08_Get_Out_Of_Town/Follow_That_Man-Ralph_Bellamy_4x08-Get_Out_of_Town.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "camel-news-caravan-1960",
+  "title": "Camel News Caravan",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Camel News Caravan was a 15-minute American television news program aired by NBC News from February 14, 1949, to October 26, 1956. Sponsored by the Camel cigarette brand and anchored by John Cameron Swayze, it was the first NBC news program to use NBC filmed news stories rather than movie newsreels. On February 16, 1954, the Camel News Caravan became the first news program broadcast in color, making use of 16mm color film. In early 1955, the R.J. Reynolds Tobacco Company, maker of Camel cigarettes, cut back its sponsorship to three days a week. Chrysler's Plymouth division sponsored the other days, and on those days, the program was labelled the Plymouth News Caravan. The program featured a young Washington correspondent named David Brinkley, and competed against Douglas Edwards with the News on rival CBS. With greater resources, the News Caravan attracted a larger audience than its CBS competition until 1955.\n\nLaunched on February 16, 1948, by NBC as NBC Television Newsreel, and later Camel Newsreel Theatre it began as a 10-minute program that featured Fox Movietone News newsreels. John Cameron Swayze provided voice-over for the series. The Camel News Caravan was an expanded version of the Camel Newsreel Theatre feature Swayze on-camera.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CamelNewsCaravan-19september1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Camel News Caravan - 19/September/1952",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 875,
+          "videoFile": {
+            "name": "Camel_News_Caravan_09_19_1952.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 124007162,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CamelNewsCaravan-19september1952/Camel_News_Caravan_09_19_1952.ia.mp4"
+        },
+        {
+          "archiveID": "CamelNewsCaravan-28september1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Camel News Caravan - 28/September/1954",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 877,
+          "videoFile": {
+            "name": "Camel_News_Caravan_09_28_1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 90772182,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CamelNewsCaravan-28september1954/Camel_News_Caravan_09_28_1954.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

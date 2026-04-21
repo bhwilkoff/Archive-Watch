@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "seriesID": "misc-1950",
+  "title": "Misc",
+  "yearStart": 1950,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Cavalcade",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MiscEpisodeOfyouAskedForIt6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Misc episode of ''You Asked For It'' #6",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MiscEpisodeOfyouAskedForIt6",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1766,
+          "videoFile": {
+            "name": "YouAskedForItMiscEpisode6.mp4",
+            "format": "h.264",
+            "sizeBytes": 182647243,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MiscEpisodeOfyouAskedForIt6/YouAskedForItMiscEpisode6.mp4"
+        },
+        {
+          "archiveID": "MiscEpisodeOfyouAskedForIt7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Misc episode of ''You Asked For It'' #7",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MiscEpisodeOfyouAskedForIt7",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1775,
+          "videoFile": {
+            "name": "YouAskedForItMiscEpisode7.mp4",
+            "format": "h.264",
+            "sizeBytes": 183074818,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MiscEpisodeOfyouAskedForIt7/YouAskedForItMiscEpisode7.mp4"
+        },
+        {
+          "archiveID": "Arthur_Godfrey_Time",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Misc episode of 'Arthur Godfrey Time'",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Arthur_Godfrey_Time",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ArthurGodfreyTime1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 166981353,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Arthur_Godfrey_Time/ArthurGodfreyTime1955.mp4"
+        },
+        {
+          "archiveID": "Cavalcade",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Misc episode of 'Cavalcade of Stars'",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Cavalcade",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CavalcadeOfStars1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 326272121,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cavalcade/CavalcadeOfStars1950.mp4"
+        },
+        {
+          "archiveID": "Asked_For_It_1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Misc episode of 'You Asked For It' #1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Asked_For_It_1",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "YouAskedForItMiscEpisode1.mp4",
+            "format": "h.264",
+            "sizeBytes": 170156867,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Asked_For_It_1/YouAskedForItMiscEpisode1.mp4"
+        },
+        {
+          "archiveID": "Asked_For_It_3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Misc episode of 'You Asked For It' #3",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Asked_For_It_3",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "YouAskedForItMiscEpisode3.mp4",
+            "format": "h.264",
+            "sizeBytes": 171129386,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Asked_For_It_3/YouAskedForItMiscEpisode3.mp4"
+        },
+        {
+          "archiveID": "You_Asked_For_It_4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Misc episode of 'You Asked For It' #4",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/You_Asked_For_It_4",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "YouAskedForItMiscEpisode4.mp4",
+            "format": "h.264",
+            "sizeBytes": 170711542,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/You_Asked_For_It_4/YouAskedForItMiscEpisode4.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ultimate-trek-1999",
+  "title": "Ultimate Trek",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ultimate-trek-1999",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ultimate-trek-1999",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ultimate Trek - 1999",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ultimate-trek-1999",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ultimate Trek - 1999.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1290110348,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ultimate-trek-1999/Ultimate Trek - 1999.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "03-the-basement-fri-28th-aug-1998-1960",
+  "title": "03. The Basement: Fri 28th Aug 1998",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/3-the-basement-friday-28th-august-1998-episode-fri-21st-aug-1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "3-the-basement-friday-28th-august-1998-episode-fri-21st-aug-1998",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "03. The Basement: Fri 28th Aug 1998 Episode (Fri 21st Aug 1998) - short TV clip",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/3-the-basement-friday-28th-august-1998-episode-fri-21st-aug-1998",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "3_The Basement Friday 28th August 1998 Episode (Fri 21st Aug 1998).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 8937307,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/3-the-basement-friday-28th-august-1998-episode-fri-21st-aug-1998/3_The Basement Friday 28th August 1998 Episode (Fri 21st Aug 1998).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

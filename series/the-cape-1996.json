@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-cape-1996",
+  "title": "The Cape",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": "The Cape is an American dramatic TV series, with elements of science fiction, action/adventure, and drama, that was produced for syndication during the 1996–1997 television season. The Cape told the story of select members of the NASA Astronaut Corps at the Kennedy Space Center in Florida with a focus on their personal lives as they train for, and execute, Space Shuttle missions. The series stars Corbin Bernsen as USAF Colonel Henry J. \"Bull\" Eckert, an experienced astronaut who, early in the series, was the Director of Astronaut Training but later in the series was also tasked with the responsibility of Chief of the Astronaut Office.\n\nThe series focused on authenticity and was filmed in and around Cape Canaveral, Florida. Former astronaut Buzz Aldrin served as technical consultant.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4Of0ll29MYL2yTwOUZPbx2ysSuu.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lgE8OzLDpL3sckSGnhSXSleTvgj.jpg",
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": "Kary Antholis",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-cape-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Cape - Corbin Bernsen, Adam Baldwin",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4Of0ll29MYL2yTwOUZPbx2ysSuu.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Cape - 1.01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2691707884,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-cape-1.01/The Cape - 1.01.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

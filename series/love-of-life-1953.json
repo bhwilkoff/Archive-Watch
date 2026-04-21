@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "seriesID": "love-of-life-1953",
+  "title": "Love of Life",
+  "yearStart": 1953,
+  "yearEnd": 1955,
+  "overview": "Love of Life is an American soap opera which aired on CBS from September 24, 1951, to February 1, 1980. It was created by Roy Winsor, whose previous creation Search for Tomorrow had premiered three weeks before Love of Life, and who would go on to create The Secret Storm two and a half years later.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Roy Winsor",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LoveOfLife8February1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Love Of Life'' - 8 February 1955 (improved copy)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 865,
+          "videoFile": {
+            "name": "LoveOfLife-8February1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 90232940,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LoveOfLife8February1955/LoveOfLife-8February1955.mp4"
+        },
+        {
+          "archiveID": "loveoflife20march1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Love of Life'' - 20 March 1953 (improved copy)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 866,
+          "videoFile": {
+            "name": "loveoflife20march1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 90197686,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/loveoflife20march1953/loveoflife20march1953.mp4"
+        },
+        {
+          "archiveID": "Love-Of-Life_3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Love of Life' - February 8, 1955",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LoveOfLife-3.mp4",
+            "format": "h.264",
+            "sizeBytes": 89548664,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Love-Of-Life_3/LoveOfLife-3.mp4"
+        },
+        {
+          "archiveID": "Love_Of_Life_Soap",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Love of Life' - March 20, 1953",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LoveofLifeMarch20-1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 85315681,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Love_Of_Life_Soap/LoveofLifeMarch20-1953.mp4"
+        },
+        {
+          "archiveID": "Love_Of_Life_2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Love of Life' - May 22, 1953",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LoveOfLife5-22-1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 89375634,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Love_Of_Life_2/LoveOfLife5-22-1953.mp4"
+        },
+        {
+          "archiveID": "LoveOfLife-22ndDecember1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Love of Life - 22nd December 1955",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 865,
+          "videoFile": {
+            "name": "loveoflife22december1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 90327569,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LoveOfLife-22ndDecember1955/loveoflife22december1955.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

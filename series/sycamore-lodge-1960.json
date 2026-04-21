@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sycamore-lodge-1960",
+  "title": "Sycamore Lodge",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "http://commons.wikimedia.org/wiki/Special:FilePath/SycamoreLodgeC21961-BW.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CATC_SycamoreLodge",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sycamore Lodge",
+          "overview": null,
+          "stillURL": "http://commons.wikimedia.org/wiki/Special:FilePath/SycamoreLodgeC21961-BW.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "SycamoreLodge.mp4",
+            "format": "h.264",
+            "sizeBytes": 172096745,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CATC_SycamoreLodge/SycamoreLodge.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}
