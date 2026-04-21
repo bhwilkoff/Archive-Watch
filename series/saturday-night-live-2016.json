@@ -4,13 +4,11 @@
   "title": "Saturday Night Live",
   "yearStart": 2016,
   "yearEnd": 2016,
-  "overview": "The Arabic version of the popular, late-night comedy sketch show features celebrity guests, parodies, and a variety of laugh-out-loud antics.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/u20OnP4ebCKb0ZTsYSGPdkt2i2B.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/9NNlLwOICFhzUsv9CwkKqidFdek.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "OSN"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

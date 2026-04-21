@@ -4,13 +4,11 @@
   "title": "Inquiry",
   "yearStart": 1984,
   "yearEnd": 1984,
-  "overview": "Inquiry is a Canadian current affairs television series which aired on CBC Television from 1960 to 1964.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBC Television"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

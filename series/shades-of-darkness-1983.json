@@ -4,13 +4,11 @@
   "title": "Shades of Darkness",
   "yearStart": 1983,
   "yearEnd": 1983,
-  "overview": "With Norma West, Annette Wilkie-Miller, Francesca Annis, Eileen Atkins. An anthology of short mysterious dramas, each with a supernatural twist.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/19JjNUrgCG2WrhzmgsfN8GKztXj.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/rdsa5LwR7p6Eu6VlO7M8J43hIto.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ITV1"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {
@@ -20,10 +18,10 @@
           "archiveID": "shadesofdarkness-s1e3-incomplete",
           "seasonNumber": 1,
           "episodeNumber": 3,
-          "title": "Feet Foremost",
-          "overview": "A magnate buys an old house that has been abandoned since the early 19th century because it is haunted by a ghost of a 16 year old girl murdered by the lord of the manor, who, if carried across the threshold, will select a victim to kill from the inside out.",
+          "title": "Shades of Darkness - Series 1 - Episode 3 - Feet Foremost (incomplete - 1983)",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/19JjNUrgCG2WrhzmgsfN8GKztXj.jpg",
-          "airDate": "1983-06-10",
+          "airDate": null,
           "year": 1983,
           "runtimeSeconds": null,
           "videoFile": {

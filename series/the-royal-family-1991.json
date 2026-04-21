@@ -4,14 +4,12 @@
   "title": "The Royal Family",
   "yearStart": 1991,
   "yearEnd": 1991,
-  "overview": "A soon-to-be divorced woman moves back home with her three kids.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/8A6pMG0MuRqYdPV3AzzhqBGPVti.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Eddie Murphy",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

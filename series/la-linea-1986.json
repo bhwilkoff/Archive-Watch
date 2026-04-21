@@ -4,14 +4,12 @@
   "title": "La Linea",
   "yearStart": 1986,
   "yearEnd": 1986,
-  "overview": "Features a man known as \"Mr. Linea\" drawn as a single outline of an infinite line, which encounters various obstacles during his walking, and often turns to the cartoonist, represented as a live-action hand holding a pencil, to draw him a solution. All episodes are short subjects, ranging from 2:30 to 6:40 in runtime.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/dzIBm3qZvWY9jomjR7Qt8pPewOH.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/hBVXHoweDSOLhCzbBXSgKr3ld8V.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "Rai 1"
-  ],
-  "creator": "Osvaldo Cavandoli",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

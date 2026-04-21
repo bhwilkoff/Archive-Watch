@@ -4,14 +4,12 @@
   "title": "Pacific Station",
   "yearStart": 1991,
   "yearEnd": 1991,
-  "overview": "A police comedy show about eccentric police officers. Veteran police detective Bob Ballard is reassigned to Pacific Station in Venice, California. The station is habitually used as an exile place for the police force's most eccentric or outright incompetent officers. They primarily have to deal with rather weird suspects from Venice Beach. Bob also has to deal with his new superior officer, the recently promoted Captain Ken Epstein. Ken is a rather immature young man who has been asked to lead officers than are older than himself.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/pUYBUBaJ1N6ji5o62Zde7k2LP5j.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/aypXTobyVJem9HSjZCk862LUkgp.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Kathy Speer",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

@@ -4,14 +4,12 @@
   "title": "Code Red",
   "yearStart": 1981,
   "yearEnd": 1981,
-  "overview": "Code Red is an American drama series that ran from 1981 to 1982 on ABC and was produced by Irwin Allen. The series revolves around the family and crew of L.A. Battalion Fire Chief Joe Rorchek.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/rOFXAg6lPrjLAw2NhtQYRrSpFXd.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/iNdAbBlcmCYBAMVZ2lp9Hqopv3W.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "Laurence Heath",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

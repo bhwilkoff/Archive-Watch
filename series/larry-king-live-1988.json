@@ -4,14 +4,12 @@
   "title": "Larry King Live",
   "yearStart": 1988,
   "yearEnd": 1988,
-  "overview": "Larry King Live is an American talk show that was hosted by Larry King on CNN from 1985 to 2010. It was CNN's most watched and longest-running program, with over one million viewers nightly.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/bjBePP4oQdyVWzsVp168WsoiRDm.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/2dXIL3sZ9TmR3nxaEfZmhouuSbF.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CNN"
-  ],
-  "creator": "Larry King",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

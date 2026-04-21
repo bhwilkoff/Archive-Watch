@@ -4,14 +4,12 @@
   "title": "Coronation Street",
   "yearStart": null,
   "yearEnd": null,
-  "overview": "The residents of Coronation Street are ordinary, working-class people, and the show follows them through regular social and family interactions at home, in the workplace, and in their local pub, the Rovers Return Inn. Britain's longest-running soap.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/5x1HXqYqPyYw7oc7Isu1lvVmwRP.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/5APjn4LnV5wWk5DXq7ZewT6zzP1.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ITV1"
-  ],
-  "creator": "Tony Warren",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

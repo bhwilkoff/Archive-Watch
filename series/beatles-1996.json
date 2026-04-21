@@ -4,14 +4,12 @@
   "title": "Beatles",
   "yearStart": 1996,
   "yearEnd": 1996,
-  "overview": "The Beatles is an American animated television series featuring the fanciful and musical misadventures of the popular English rock band of the same name. It ran from 1965 to 1969 on ABC in the US. The series debuted on September 25, 1965 and ended on September 7, 1969. A total of 39 episodes were produced. The series was shown on Saturday mornings at 10:30 AM EST until the 1967 third season when it was moved to 12:00 PM EST. For the fourth season, which consisted of reruns, the series was shown at 9:30 AM EST on Sunday mornings. Each episode has a name of a Beatles song, so the story is based on its lyrics and it is also played at some time in the episode. The original series was rebroadcast in syndication by MTV in 1986 and 1987 and on the Disney Channel. The series was a historical milestone as the first weekly television series to feature animated versions of real, living people.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/gvkbpEK7WbF0uGyuhCaRnwuYyyX.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/qvKGzaAAvwo2gsn7CIMk77Z8wVp.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "Al Brodax",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

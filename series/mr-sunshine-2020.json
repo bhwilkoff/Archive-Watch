@@ -4,14 +4,12 @@
   "title": "Mr. Sunshine",
   "yearStart": 2020,
   "yearEnd": 2020,
-  "overview": "Set in the early 1900s, this drama tells the story of a young man from Korea who grows up in the United States. When he returns to Korea as a US Marine Corps officer, he meets and falls in love with a noblewoman who is fighting for Korean independence. Their romance is complicated by social class and political ideology.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/p7ljjykSsiyWstGVAwIkbdfPzRV.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/gQwa6X2nmTHkmDgAifU4wacNqp4.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "tvN"
-  ],
-  "creator": "Lee Eung-bok",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

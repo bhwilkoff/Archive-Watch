@@ -4,14 +4,12 @@
   "title": "My Friend Tony",
   "yearStart": 1969,
   "yearEnd": 1969,
-  "overview": "My Friend Tony is an American crime drama that aired on NBC in 1969. The pilot originally aired as \"My Pal Tony\" on The Danny Thomas Hour on March 4, 1968.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Warren Duff",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

@@ -4,14 +4,12 @@
   "title": "The Wild West",
   "yearStart": 1993,
   "yearEnd": 1993,
-  "overview": "The Wild Wild West is an American television series. Developed at a time when the television western was losing ground to the spy genre, this show was conceived by its creator, Michael Garrison, as \"James Bond on horseback.\" Set during the administration of President Ulysses Grant, the series followed Secret Service agents James West and Artemus Gordon as they solved crimes, protected the President, and foiled the plans of megalomaniacal villains to take over all or part of the United States.\n\nThe show also featured a number of fantasy elements, such as the technologically advanced devices used by the agents and their adversaries. The combination of the Victorian era time-frame and the use of Verne-esque style technology have inspired some to give the show credit for the origins of the steam punk subculture.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/4LSZNCSxDodwCP8EsKRTgMDUKY4.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/4iSl4y1gWZwXmjyS3Ho8HqLWXAK.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Michael Garrison",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

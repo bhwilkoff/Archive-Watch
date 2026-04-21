@@ -4,14 +4,12 @@
   "title": "Almost Grown",
   "yearStart": 1988,
   "yearEnd": 1988,
-  "overview": "Almost Grown is an American television drama series about a couple, whose lives are explored during three time periods of their lives. The series was well received by critics, but aired for only 10 episodes between 27 November 1988 and 20 February 1989 due to low ratings. The series is notable for being co-created by David Chase, who would later go on to create the critically and commercially successful HBO original series The Sopranos. Many themes appearing in Almost Grown were later explored in The Sopranos.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/qKTJNoMNKYK68rC48FV3myTUmqQ.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/8I26dxDzhRq02vjkaEvChgMWvEZ.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "David Chase",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

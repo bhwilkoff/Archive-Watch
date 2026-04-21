@@ -4,13 +4,11 @@
   "title": "Acme School Of Stuff",
   "yearStart": 1988,
   "yearEnd": 1988,
-  "overview": "The Acme School of Stuff is a half-hour Canadian children's television show which aired on TVOntario between September 1, 1988 and December 1, 1990. The Acme School of Stuff was hosted by its producer David Stringer. The show primarily consisted of theory of operation on a subject or certain item at the beginning, then a field trip to a plant in the middle and following another theory of operation on some other item or subject at the end.\n\nNotable features included:\n\n⁕A Rube Goldberg machine made from devices explained on the show, as an opening scene\n\n⁕Technical facts presented in a way understandable to school age children in a conversational manner\n\n⁕Breaking the fourth wall by use of camera and lighting effects, and audible comments by the TV crew\n\nMany of the episodes have been uploaded to YouTube under the acmeschool channel.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "TVOntario"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

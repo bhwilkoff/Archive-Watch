@@ -4,13 +4,11 @@
   "title": "The Tomorrow Show",
   "yearStart": 1981,
   "yearEnd": 1981,
-  "overview": "Tomorrow is an American late-night television talk show hosted by Tom Snyder. The show aired on NBC from 1973 to 1982 and featured many prominent guests, including Paul McCartney, \"Weird Al\" Yankovic, Ayn Rand, John Lennon, Jerry Garcia, the Grateful Dead, Ken Kesey, Charles Manson, The Clash, Johnny Rotten, Ramones, and U2. Los Angeles news anchor Kelly Lange, a good friend of Snyder, was the regular substitute guest host.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/2vAT2V8CEe0zzEJ4WZ7iBLCZz2o.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/xhrfke4UJE4yxOLCNs4KS42ObbK.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

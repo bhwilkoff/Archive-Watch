@@ -4,13 +4,11 @@
   "title": "Redigo",
   "yearStart": 1963,
   "yearEnd": 1963,
-  "overview": "Redigo is a 15-week Western dramatic series, set on a New Mexico ranch during the early 1960s, which aired over NBC from September 24 to December 31, 1963. The series features Richard Egan as ranch owner Jim Redigo, Roger Davis as Mike the ranch hand, and Elena Verdugo as Gerry. Don Diamond appeared in four episodes, three as the character Arturo.\n\nRedigo was the truncated second half-hour season of the previous one-hour series, Empire, which aired from September 25, 1962, to May 13, 1963. Both programs were placed on the Tuesday evening schedule against CBS's The Red Skelton Show. Redigo also lost out in the ratings to the ABC military sitcom, McHale's Navy, starring Ernest Borgnine and Tim Conway.\n\nIn Redigo, Egan's character Jim Redigo was no longer the manager of the large Garrett Ranch but the owner of his own smaller spread nearby. The half-hour format made it hard for the program to develop complex characters as had been done in the initial one-hour version of the show.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/1g5I1UgArPEBvEucXo7ugCDHzCu.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {
@@ -20,10 +18,10 @@
           "archiveID": "redigo-s-1-e-2-the-blooded-bull",
           "seasonNumber": 1,
           "episodeNumber": 2,
-          "title": "The Blooded Bull",
-          "overview": "Rustlers have taken Redigo's prize bull, leaving the future of the ranch in jeopardy.",
+          "title": "Redigo S1 E2 The Blooded Bull",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/1g5I1UgArPEBvEucXo7ugCDHzCu.jpg",
-          "airDate": "1963-10-01",
+          "airDate": null,
           "year": 1963,
           "runtimeSeconds": null,
           "videoFile": {

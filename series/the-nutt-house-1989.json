@@ -8,10 +8,8 @@
   "posterURL": "https://image.tmdb.org/t/p/w500/31UbzxnWqE33vSaB8ZCo6lekw7B.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Mel Brooks",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

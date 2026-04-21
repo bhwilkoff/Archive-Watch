@@ -4,13 +4,11 @@
   "title": "Red Shoe Diaries",
   "yearStart": 1992,
   "yearEnd": 1992,
-  "overview": "Jake takes out an ad in the newspaper after the suicide of his unfaithful fiancée, in an effort to understand the reasons for the betrayal. By soliciting the secret diaries of other women, he hopes to find some reconciliation with the truth.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/ko7HHjQSMSz0lcYtRSFOX2EWdSj.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/cLVLLUs01kNyZcgDeonL8YaAgO8.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "Showtime"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {
@@ -20,10 +18,10 @@
           "archiveID": "red-shoe-diaries-jakes-story",
           "seasonNumber": 1,
           "episodeNumber": 8,
-          "title": "Auto Erotica",
-          "overview": "After a late night at work, Claudia is ready to burn off some steam, and her new sports car is a perfect release. She gets more action than she bargained for when she has a near-miss accident with a foxy pedestrian. Suddenly he's behind the wheel and pursuing her through the predawn streets of L.A. and the empty highways of the Mojave desert, into the new day and a new sexual awakening.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/vqT8kFVbOFD0gl5y1Ghm9MSI8t6.jpg",
-          "airDate": "1993-05-29",
+          "title": "Red Shoe Diaries, S01E08 - Jake's Story (1992)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ko7HHjQSMSz0lcYtRSFOX2EWdSj.jpg",
+          "airDate": null,
           "year": 1992,
           "runtimeSeconds": null,
           "videoFile": {

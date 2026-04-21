@@ -4,14 +4,12 @@
   "title": "Campeones de la vida",
   "yearStart": 1999,
   "yearEnd": 1999,
-  "overview": "Campeones de la vida is a Mexican telenovela produced by TV Azteca in 2006 starring Gabriel Porras, Ana Seradilla and Luis Ernesto Franco.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "eltrece"
-  ],
-  "creator": "Adrián Suar",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

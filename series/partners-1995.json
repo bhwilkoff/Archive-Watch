@@ -4,14 +4,12 @@
   "title": "Partners",
   "yearStart": 1995,
   "yearEnd": 1995,
-  "overview": "Partners is an American sitcom that aired on Fox from 1995 to 1996.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/f5opuFQD5wdm0SCPJtLs78jIkxx.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "FOX"
-  ],
-  "creator": "Amy Lippman",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

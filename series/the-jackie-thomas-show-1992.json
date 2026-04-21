@@ -4,14 +4,12 @@
   "title": "The Jackie Thomas Show",
   "yearStart": 1992,
   "yearEnd": 1992,
-  "overview": "The Jackie Thomas Show is an American sitcom that aired on the ABC network from December 1992 to March 1993. The series received widespread attention due to its creators Roseanne Arnold, then starring in the fifth season of her top-rated comedy Roseanne, and her husband and Roseanne co-producer Tom Arnold. The Jackie Thomas Show starred Tom Arnold as a misanthropic sitcom actor.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/pP4u7bPR7qcIrDA0RXRUHcTdSCp.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "Tom Arnold",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

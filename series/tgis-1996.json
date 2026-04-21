@@ -4,14 +4,12 @@
   "title": "T.G.I.S",
   "yearStart": 1996,
   "yearEnd": 1996,
-  "overview": "TGIS is a Filipino youth-oriented drama series aired on GMA Network from July 8, 1995 to November, 1999. The series aired every Saturday. It was produced by GMA Network, and VIVA Television. The title is derived from the popular expression \"TGIF.\"",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/aPPbvFuXcjsIafknHdJWPYNM6By.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/qvbF51PVZwOdAY8QjhNGROS6op0.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "GMA Network"
-  ],
-  "creator": "Kit Villanueva Langit",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

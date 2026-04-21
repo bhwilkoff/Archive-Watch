@@ -4,14 +4,12 @@
   "title": "The Louie Show",
   "yearStart": 1996,
   "yearEnd": 1996,
-  "overview": "The Louie Show is an American sitcom television series that aired from January 31 until March 6, 1996.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/i8aGQKowp6cgeDzGJS6QfvqEzLf.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/7mpdNQJ5ypAHmH76ljQW2Jicyzg.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Diane English",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

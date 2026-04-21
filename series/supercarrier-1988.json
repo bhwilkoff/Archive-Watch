@@ -4,13 +4,11 @@
   "title": "Supercarrier",
   "yearStart": 1988,
   "yearEnd": 1988,
-  "overview": "Supercarrier is a 1988 ABC television series aired during the Top Gun trend of the late 1980s. It features US Navy Pilots aboard the fictional aircraft carrier USS Georgetown, and ran for eight episodes before being cancelled.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/n3UWTYIthk5v0VhM5Di6PyLG7og.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

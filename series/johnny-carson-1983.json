@@ -4,14 +4,12 @@
   "title": "Johnny Carson",
   "yearStart": 1983,
   "yearEnd": 1983,
-  "overview": "While working as a staff writer on The Red Skelton Show, local Los Angeles television comedian Carson filled in as host when Skelton was injured during a show rehearsal. As a result of Carson’s performance, CBS created the primetime variety program: The Johnny Carson Show, a traditional potpourri of comedy, music, dance, skits and monologues.\n\nThe short-lived 1955-56 series served as a precursor of what would come later for Carson, planting the seeds for sketches he would perform on the later The Tonight Show Starring Johnny Carson such as \"Mighty Carson Art Players\".",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/2m9dyxjR1TTs0fSPAHfc2ZV1SWl.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/izCCVAaQZbjtN4mraQd1AlsA1Nb.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Johnny Carson",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

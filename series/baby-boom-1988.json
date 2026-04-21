@@ -4,14 +4,12 @@
   "title": "Baby Boom",
   "yearStart": 1988,
   "yearEnd": 1988,
-  "overview": "Baby Boom is an American sitcom series starring Kate Jackson. The series is based on the 1987 film Baby Boom. The pilot premiered September 10, 1988 on NBC, and the series began on November 2, 1988.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/mKstUt6WM07elaYNZANGjMKvJwo.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Nancy Meyers",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

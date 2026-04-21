@@ -4,13 +4,11 @@
   "title": "Good Day LA",
   "yearStart": 1987,
   "yearEnd": 1999,
-  "overview": "Good Day L.A. is a morning talk show airing on KTTV, the Fox Broadcasting Company-owned and operated station in Los Angeles, California. The show airs Monday through Friday mornings from 7:00 AM to 10:00 AM and is simulcast live on myfoxla.com. The show is currently hosted by Steve Edwards and co-hosted by Maria Sansone, with Maria Quiban doing weather and social media reports, Julie Chang covering entertainment, and Rick Dickert covering traffic reports.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/mdhit408BYXjSw8VvhHnmXLPAmS.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "KTTV"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

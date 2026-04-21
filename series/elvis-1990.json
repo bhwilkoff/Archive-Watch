@@ -4,14 +4,12 @@
   "title": "Elvis",
   "yearStart": 1990,
   "yearEnd": 1990,
-  "overview": "An account of the life of Elvis Presley in the early days of his fame in the 1950s.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/c0HgZe97QRarEVFzHR3JI1qNMYx.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/AgRV0h0ZXgeN4C7tYPmCo1ChLAu.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "Priscilla Presley",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

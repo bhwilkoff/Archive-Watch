@@ -4,14 +4,12 @@
   "title": "Boston Common",
   "yearStart": 1996,
   "yearEnd": 1996,
-  "overview": "After moving to Boston from Virginia, to spy on his sister who just started college, Boyd finds himself working for the student union where he raises hell more often than he should.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/l5a70wBkSRc3JSeREDAT868eLCc.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "David Kohan",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

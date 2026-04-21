@@ -4,13 +4,11 @@
   "title": "Evening At Pops",
   "yearStart": 1970,
   "yearEnd": 1970,
-  "overview": "Evening at Pops was an American concert television series produced by WGBH-TV. It was one of the longest-running programs on PBS. The program was a public television version of a variety show, performed by the Boston Pops Orchestra. It was taped at Symphony Hall in Boston, Massachusetts.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "PBS"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

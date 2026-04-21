@@ -4,14 +4,12 @@
   "title": "Rude Awakening",
   "yearStart": 1998,
   "yearEnd": 1998,
-  "overview": "An alcoholic former soap opera actress joins AA and tries to stay sober while dealing with an overbearing family and romantic entanglements.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/cz6ExQrCKgCzmGKwzzUpRiVlMSO.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/sv4PPmKSg9qRU0YlYqIQI0DrmY2.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "Showtime"
-  ],
-  "creator": "Claudia Lonow",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

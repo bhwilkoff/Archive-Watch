@@ -4,13 +4,11 @@
   "title": "The World Tonight",
   "yearStart": 1996,
   "yearEnd": 1996,
-  "overview": "The World Tonight is an English-language newscast of the ABS-CBN News Channel and formerly of ABS-CBN. It is anchored by Tina Monzon-Palma on weekdays, and by Gigi Grande on Saturdays and Ron Cruz on Sundays.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABS-CBN"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

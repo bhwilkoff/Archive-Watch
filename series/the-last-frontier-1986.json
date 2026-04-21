@@ -4,13 +4,11 @@
   "title": "The Last Frontier",
   "yearStart": 1986,
   "yearEnd": 1986,
-  "overview": "Following a whirlwind courtship, a single mother from Los Angeles marries an Australian cattle rancher. He returns to Australia ahead of her and her two children but dies before they arrive, leaving his widow to deal with a debt-ridden ranch and land-grabbing neighbors.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/uGmBUD4SXZWFaupjJYAAKWDNwgm.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/cZXXL9D21Pci5xnku2lE5ahrjOt.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "10"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

@@ -4,14 +4,12 @@
   "title": "Shasta McNasty",
   "yearStart": 1999,
   "yearEnd": 1999,
-  "overview": "Scott, Dennis and Randy are three slacker dudes who also make up the rap/rock band Shasta. Instead of working on their music, they spend most of their time hanging out on Venice Beach trying to score dates, finding new ways to stall the pizza delivery guy, and generally being mediocre.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/lXq61nq3xDFklCQuiWVv3oBToMJ.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "UPN"
-  ],
-  "creator": "Jeff Eastin",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

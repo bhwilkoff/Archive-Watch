@@ -4,13 +4,11 @@
   "title": "Gobingo",
   "yearStart": 1998,
   "yearEnd": 1998,
-  "overview": "GoBingo is an interactive game show on the Philippines GMA television network.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "GMA Network"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

@@ -4,14 +4,12 @@
   "title": "Birdland",
   "yearStart": 1994,
   "yearEnd": 1994,
-  "overview": "Dr. Brian McKenzie, the chief of psychiatry at Riverview Hospital in Oakland, deals with patients while trying to juggle his own problems.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/qtXk2RnbGTUO9LJ0J4gjI6wYTt5.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/qNAp3kTAwyjNWRSkor3ZW5Swz7a.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "Scott Frank",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

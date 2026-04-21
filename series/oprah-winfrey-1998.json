@@ -4,14 +4,12 @@
   "title": "Oprah Winfrey",
   "yearStart": 1998,
   "yearEnd": 1998,
-  "overview": "The Oprah Winfrey Show, often referred to simply as Oprah, is an American syndicated talk show that aired nationally for 25 seasons from 1986 to 2011. Produced and hosted by its namesake, Oprah Winfrey, it remains the highest-rated talk show in American television history.\n\nThe show was highly influential, and many of its topics penetrated into the American pop-cultural consciousness. Winfrey used the show as a platform to teach and inspire, providing viewers with a positive, spiritually uplifting experience by featuring book clubs, compelling interviews, self-improvement segments, and philanthropic forays into world events. The show gained credibility by not trying to profit off the products it endorsed; it had no licensing agreement with retailers when products were promoted, nor did the show make any money from endorsing books for its book club.\n\nOprah is one of the longest-running daytime television talk shows in history. The show received 47 Daytime Emmy Awards before Winfrey decided to stop submitting it for consideration in 2000.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/tY1qqz4dfSreH9rjkW7fqug6ifX.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/intKGqIazYkIgQAvF9H61Dotgiq.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "Syndication"
-  ],
-  "creator": "Oprah Winfrey",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

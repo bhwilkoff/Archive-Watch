@@ -4,14 +4,12 @@
   "title": "This Old House",
   "yearStart": 1986,
   "yearEnd": 1986,
-  "overview": "TV's original home-improvement show, following one whole-house renovation over several episodes.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/eKLaK1pivbX2z9aLev8IG2I9WG.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/aiGmhwOnyk39X8nmniz1MwPD1Ep.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "PBS"
-  ],
-  "creator": "Russell Morash",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

@@ -6,12 +6,10 @@
   "yearEnd": 1989,
   "overview": null,
   "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/378/945596.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/kYqGkJKCpRivQpZ00qWabuGItKg.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "Dick Wolf",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

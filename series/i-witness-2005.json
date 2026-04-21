@@ -4,14 +4,12 @@
   "title": "I-Witness",
   "yearStart": 2005,
   "yearEnd": 2005,
-  "overview": "i-Witness, formerly i-Witness: The GMA Documentaries is a Philippine television documentary show broadcast by GMA Network and GMA News TV. Originally hosted by Vicky Morales, Luchi Cruz-Valdes, Mike Enriquez, Cheche Lazaro and Jessica Soho, it premiered on January 18, 1999. Kara David, Howie Severino, Atom Araullo, Mav Gonzales and John Consulta currently serve as the hosts. It is the longest-running documentary show in the Philippines. The series is streaming online on YouTube.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/w12ITXW4db07E0mILqf9EscFGdH.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "GMA Network"
-  ],
-  "creator": "GMA News and Public Affairs",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

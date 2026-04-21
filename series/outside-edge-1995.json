@@ -4,14 +4,12 @@
   "title": "Outside Edge",
   "yearStart": 1995,
   "yearEnd": 1995,
-  "overview": "Outside Edge is a British sitcom created and written by Richard Harris, based on his eponymous 1979 stage play. Two couples with contrasting attitudes – the uptight and conservative Roger and Miriam Dervish, and the bohemian and adventurous Kevin and Maggie Costello – attend the local Brent Park Cricket Club who meet every Saturday. Other members include lecherous womaniser Dennis Broadley, timid and naive Nigel, snobbish solicitor Alex Harrington, and browbeaten husband and later father Bob Willis, along with a number of others who regularly appear throughout.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/lN3ZRKJSkwWE6WXwCeO7LnQiEV8.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/j2FIa5nyZliwLb9hra3rDaGCWgc.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ITV1"
-  ],
-  "creator": "Richard Harris",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": 3,
@@ -20,10 +18,10 @@
           "archiveID": "outside-edge-1995-s-3-e-7-the-blessing",
           "seasonNumber": 3,
           "episodeNumber": 7,
-          "title": "The Blessing",
-          "overview": "Maggie and Kevin attend the rehearsal for their wedding but they aren't as enthusiastic as organisers Mim and Roger.",
+          "title": "''Outside Edge'' (1995) S3 E7 The Blessing (Last Ep.)/B. Blethyn, R. Daws, J. Lawrence, T. Spall, M. Jayston",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/lN3ZRKJSkwWE6WXwCeO7LnQiEV8.jpg",
-          "airDate": "1996-02-13",
+          "airDate": null,
           "year": 1995,
           "runtimeSeconds": null,
           "videoFile": {

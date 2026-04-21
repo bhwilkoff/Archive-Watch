@@ -4,14 +4,12 @@
   "title": "The Survivors",
   "yearStart": 2019,
   "yearEnd": 2019,
-  "overview": "Eight very different people take part in a course where, during five days of conversations and discussion physical challenges, they are confronted with their greatest fear: life.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/s36i5q2AXdEAviTlLPREtDyrSss.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/aBRZv0c4EbPZcs5BniwXxMzRs4P.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "TV 2"
-  ],
-  "creator": "Ina Bruhn",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

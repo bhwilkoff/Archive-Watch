@@ -4,13 +4,11 @@
   "title": "Topper",
   "yearStart": null,
   "yearEnd": null,
-  "overview": "Topper is an American fantasy sitcom based on the 1937 film of the same name. The series was broadcast on CBS from October 9, 1953 to July 15, 1955, and stars Leo G. Carroll in the title role.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/tIPTvlADElrK6B48a1q6rqUXZ8V.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {
@@ -20,10 +18,10 @@
           "archiveID": "topper-s-01-e-01-topper-meets-the-ghosts-1953-10-09",
           "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "Topper Meets the Ghosts",
-          "overview": "An avalanche does in the Kerbys while skiing, to their bemusement. The Toppers are buying their old haunts.",
+          "title": "Topper S01E01 Topper Meets The Ghosts ( 1953 10 09)",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
-          "airDate": "1953-10-09",
+          "airDate": null,
           "year": null,
           "runtimeSeconds": null,
           "videoFile": {

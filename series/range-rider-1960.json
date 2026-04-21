@@ -4,13 +4,11 @@
   "title": "Range Rider",
   "yearStart": null,
   "yearEnd": null,
-  "overview": "The Range Rider is an American Western television series that aired in syndication from 1951 to 1953. A single lost episode surfaced and was broadcast in 1959. The Range Rider was also broadcast on British television during the 1960s, and in Melbourne, Australia during the 1950s.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

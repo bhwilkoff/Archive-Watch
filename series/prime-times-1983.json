@@ -4,13 +4,11 @@
   "title": "Prime Times",
   "yearStart": 1983,
   "yearEnd": 1983,
-  "overview": "An NBC special featuring clips from old TV shows that aired on April 4, 1983.  Also appearing on that show are Laraine Newman, Marvin Milner, William Shatner and Dr. Demento.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

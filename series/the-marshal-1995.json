@@ -4,14 +4,12 @@
   "title": "The Marshal",
   "yearStart": 1995,
   "yearEnd": 1995,
-  "overview": "The Marshal is an American action-drama television series that aired on ABC for two brief seasons in 1995. The show starred Jeff Fahey as the title character, a United States Marshal charged with pursuing fugitives across the nation. In 1995, the episode \"Hitwoman\" was nominated for an Emmy Award for Outstanding Individual Achievement in Sound Editing for a Series.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/puI6ETr3lavXtJBmXW9IKVSxlgg.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/rMn7b4azRDVqg8zhRlUOVjbzaIl.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "John Mankiewicz",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

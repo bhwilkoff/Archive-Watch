@@ -4,14 +4,12 @@
   "title": "1990",
   "yearStart": 1990,
   "yearEnd": 1990,
-  "overview": "The series is set in a dystopian future in which Britain is under the grip of the Home Office's Department of Public Control (PCD), a tyrannically oppressive bureaucracy riding roughshod over the population's civil liberties. Edward Woodward plays Jim Kyle, a journalist on the last independent newspaper called The Star, who turns renegade and begins to fight the PCD covertly. The officials of the PCD, in turn, try to provide proof of Kyle's subversive activities.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/6Ay4MOQHMkCkb91CfZ3BVFi5Gdq.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/6gqs8WFd7I2Mmg5hdHGaYluftoQ.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "BBC Two"
-  ],
-  "creator": "Wilfred Greatorex",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": 1,
@@ -20,10 +18,10 @@
           "archiveID": "1990-crazy-like-a-fox-s-01-e-03-original-partial-broadcast-with-commercials-fox-49-portland-or",
           "seasonNumber": 1,
           "episodeNumber": 3,
-          "title": "Health Farm",
-          "overview": "\"...no barbed-wire, no strait-jackets, no padded cells. After all, this is 1990\". When the Public Control Department send union leader Charles Wainwright to the United States of America to promote their cause, the plan backfires disastrously when his speech is littered with dissident criticisms of the bureaucratic nightmare the United Kingdom has become under the stewardship. When he returns home, the PCD are quick to repay the compliment by sending him to an Adult Rehabilitation Centre, a place where offenders against the state (political activists, murderers, thieves, etc) are sent for \"correction\" under a combination of drug therapy and severe treatments which change their way of thinking.",
+          "title": "1990 | Crazy Like a Fox S01E03 | Original Partial Broadcast with Commercials | FOX 49 Portland, OR",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/6Ay4MOQHMkCkb91CfZ3BVFi5Gdq.jpg",
-          "airDate": "1977-09-26",
+          "airDate": null,
           "year": 1990,
           "runtimeSeconds": null,
           "videoFile": {

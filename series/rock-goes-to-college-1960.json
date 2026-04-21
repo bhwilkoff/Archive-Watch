@@ -4,14 +4,12 @@
   "title": "Rock Goes to College",
   "yearStart": null,
   "yearEnd": null,
-  "overview": "Rock Goes To College was a BBC series that ran between 1978 and 1981 on British television. A variety of up-coming rock oriented bands were showcased live from small venues and broadcast simultaneously on television and radio during a 40-50 minute live performance.\n\nIt was a follow-on to the mid-1960s BBC series Jazz Goes to College.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/chiAAIrXeGTYGvYKLan7NivtZb8.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "BBC Two"
-  ],
-  "creator": "John Burrowes",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": 1,
@@ -20,10 +18,10 @@
           "archiveID": "rock-goes-to-college-s-01-e-01-boomtown-rats-22-september-1978_202503",
           "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "The Boomtown Rats",
+          "title": "Rock Goes to College S01E01 Boomtown Rats 22 September, 1978",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/chiAAIrXeGTYGvYKLan7NivtZb8.jpg",
-          "airDate": "1978-09-22",
+          "airDate": null,
           "year": null,
           "runtimeSeconds": null,
           "videoFile": {

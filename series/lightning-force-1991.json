@@ -4,7 +4,7 @@
   "title": "Lightning Force",
   "yearStart": 1991,
   "yearEnd": 1991,
-  "overview": "Lightning Force was a short lived action television starring Matthew Walker, Meat Loaf, George Takei and Guylaine St-Onge. The series premiered in 1991 and went off in 1992, in all 22 episodes were produced.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/tLPhT1M1gmvNMeBmwHJ7I9oZzj4.jpg",
   "backdropURL": null,
   "genres": [],
@@ -12,34 +12,16 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": 1,
+      "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "lightning-force-6",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "The Last Nazi",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/tLPhT1M1gmvNMeBmwHJ7I9oZzj4.jpg",
-          "airDate": "1991-10-27",
-          "year": 1991,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Lightning Force - 6.mp4",
-            "format": "h.264",
-            "sizeBytes": 120911586,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/lightning-force-6/Lightning Force - 6.mp4"
-        },
-        {
           "archiveID": "lightning-force-11",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "Deadliest Game",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lightning Force - 11: Deadliest Game",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/tLPhT1M1gmvNMeBmwHJ7I9oZzj4.jpg",
-          "airDate": "1992-01-05",
+          "airDate": null,
           "year": 1991,
           "runtimeSeconds": null,
           "videoFile": {
@@ -49,6 +31,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/lightning-force-11/Lightning Force - 11.mp4"
+        },
+        {
+          "archiveID": "lightning-force-6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lightning Force - 6: The Last Nazi",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/tLPhT1M1gmvNMeBmwHJ7I9oZzj4.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lightning Force - 6.mp4",
+            "format": "h.264",
+            "sizeBytes": 120911586,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lightning-force-6/Lightning Force - 6.mp4"
         }
       ]
     }

@@ -4,14 +4,11 @@
   "title": "Sneak Previews",
   "yearStart": 1991,
   "yearEnd": 1992,
-  "overview": "Sneak Previews was an American film review show, running for over two decades on Public Broadcasting Service. It was created by WTTW, a PBS affiliate in Chicago, Illinois. It premiered on September 4, 1975 as a monthly local-only show called Opening Soon at a Theater Near You, and was renamed in 1977 when it became a biweekly show airing nationally on PBS. By 1979, it was a weekly series airing on over 180 stations, and was the highest rated weekly entertainment series in the history of public broadcasting. It was finally cancelled in 1996.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "PBS",
-    "WTTW"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

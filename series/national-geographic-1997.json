@@ -4,7 +4,7 @@
   "title": "National Geographic",
   "yearStart": 1997,
   "yearEnd": 1997,
-  "overview": "For decades, the National Geographic Society has presented specials on nature, foreign culture, scientific breakthroughs, and things which fall under the general category of \"neat stuff.\" Each special is self-contained.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/rSVOeefFjgRzSO1UD7tqJIPvS2O.jpg",
   "backdropURL": null,
   "genres": [],
@@ -12,16 +12,16 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": 33,
+      "seasonNumber": null,
       "episodes": [
         {
           "archiveID": "AsteroidsDeadlyImpact",
-          "seasonNumber": 33,
-          "episodeNumber": 1,
-          "title": "Asteroids: Deadly Impact",
-          "overview": "Looks at the career of geologist Eugene Shoemaker, and how searching the sky for a cosmic bullet, it led to his discovery, with his wife Carolyn, of the famous Shoemaker-Levy comet and the confirmation of asteroid impact craters on Earth.",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "National Geographic - Asteroids: Deadly Impact",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/rSVOeefFjgRzSO1UD7tqJIPvS2O.jpg",
-          "airDate": "1997-02-25",
+          "airDate": null,
           "year": 1997,
           "runtimeSeconds": null,
           "videoFile": {

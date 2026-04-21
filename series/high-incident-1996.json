@@ -4,14 +4,12 @@
   "title": "High Incident",
   "yearStart": 1996,
   "yearEnd": 1996,
-  "overview": "High Incident is a police drama series produced by DreamWorks Television for the ABC network. The show was created by Steven Spielberg, Michael Pavone, Eric Bogosian and Dave Alan Johnson. It first aired on March 4, 1996, running a total of 32 episodes.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/dZgxxEvVyJCiZKtSHWSNIHLmNe1.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/A3oytcnmoXl7h7CZ6q2S8Q9gfLJ.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "Eric Bogosian",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

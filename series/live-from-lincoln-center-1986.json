@@ -4,13 +4,11 @@
   "title": "Live from Lincoln Center",
   "yearStart": 1986,
   "yearEnd": 1986,
-  "overview": "Since premiering in 1976, the landmark series has sought to democratize the world of the performing arts by making Lincoln Center's historic concerts and events available for public broadcast across the country. And it continues to push the boundaries, both technical and creative, of what is possible in the realm of stage performance capture.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/mUisIH1YjsuDoMjoU0XuTVG4tZC.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/4ZHAzBv1VxCgXPBbnox8yRhomOD.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "PBS"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

@@ -4,14 +4,12 @@
   "title": "Daddy Dearest",
   "yearStart": 1993,
   "yearEnd": 1993,
-  "overview": "A single father's angry and cynical father moves in with him. Hilarity ensues.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/ehIoN6dJpqceh8CoHhCOrwXah5A.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "FOX"
-  ],
-  "creator": "Richard Lewis",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

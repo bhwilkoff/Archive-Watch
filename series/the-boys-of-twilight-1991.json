@@ -4,14 +4,12 @@
   "title": "The Boys of Twilight",
   "yearStart": 1991,
   "yearEnd": 1992,
-  "overview": "The Boys of Twilight is an American televisions series that aired on CBS in 1992. The series follows the adventures of two aging lawmen who attemps to maintain order in Twilight, Utah.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "William Blinn",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

@@ -4,14 +4,12 @@
   "title": "Day One",
   "yearStart": 1993,
   "yearEnd": 1993,
-  "overview": "A group of apartment residents survive an unknown worldwide cataclysm that destroys modern infrastructure.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Jesse Alexander",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

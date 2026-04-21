@@ -4,14 +4,12 @@
   "title": "Covington Cross",
   "yearStart": 1992,
   "yearEnd": 1992,
-  "overview": "Covington Cross is a British/American television series that was broadcast on the ABC in the United States from August 25 to October 31, 1992. The program also aired in the United Kingdom and was scheduled to be broadcast in France. The series was filmed and produced in the UK, by a British production company, but it was ultimately accountable to an American network.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/pD6xJ6z2RWxSXTNNlGJaGe9hkhU.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "Gil Grant",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

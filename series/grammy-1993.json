@@ -4,15 +4,11 @@
   "title": "Grammy",
   "yearStart": 1993,
   "yearEnd": 1999,
-  "overview": "An awards show honoring the achievements of the members of the professional music recording industry. The members of the Recording Academy vote on who they think is most deserving of an award in 108 categories as specified by the academy.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/2itSpL4aBPoJXQ4QVtBFxQyz0j0.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/11QwqK3hUCWkLJclPUPzd6tgtxL.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC",
-    "NBC",
-    "CBS"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

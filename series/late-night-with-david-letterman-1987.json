@@ -4,26 +4,24 @@
   "title": "Late Night with David Letterman",
   "yearStart": 1987,
   "yearEnd": 1987,
-  "overview": "Late Night with David Letterman is a nightly hour-long comedy talk show on NBC that was created and hosted by David Letterman. It premiered in 1982 as the first incarnation of the Late Night franchise and went off the air in 1993, after Letterman left NBC and moved to Late Show on CBS. Late Night with Conan O'Brien then filled the time slot. As of March 2, 2009, the slot has been filled by Late Night with Jimmy Fallon. It will be filled by Seth Meyers in the spring of 2014, after Fallon becomes host of The Tonight Show.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/kSraSPTeNoiR60ti9amNqLvM3Em.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/aAwsbpt43lWZGwsoy8VzAZbgHS7.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Lorne Michaels",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,
       "episodes": [
         {
           "archiveID": "letterman-5th-anniversary-1987_202205",
-          "seasonNumber": 0,
-          "episodeNumber": 1,
-          "title": "10th Anniversary Special",
-          "overview": "Dave remotes from Radio City Music Hall in New York City to reminisce on ten years of 'Late Night with David Letterman' on NBC.\n\nBill Murray stops by to say hi between various collections of clips of his many guests and musical acts over the years plus a live demonstration of \"Stupid Pet Tricks.\"\n\nBob Dylan performs live backed by the \"World's Most Dangerous Band\" led by Paul Shaffer. Sitting in with the band are such greats as Carole King, Chrissie Hynde and Steve Vai.",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Late Night with David Letterman - 5th Anniversary Special",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/kSraSPTeNoiR60ti9amNqLvM3Em.jpg",
-          "airDate": "1992-02-06",
+          "airDate": null,
           "year": 1987,
           "runtimeSeconds": null,
           "videoFile": {

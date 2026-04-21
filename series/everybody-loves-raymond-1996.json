@@ -4,14 +4,12 @@
   "title": "Everybody Loves Raymond",
   "yearStart": 1996,
   "yearEnd": 1996,
-  "overview": "Ray Barone is a successful sportswriter living on Long Island with his wife Debra, daughter Ally, and twin sons, Geoffrey and Michael. Ray's meddling parents, Frank and Marie, and brother, Robert, live directly across the street.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/dcCnVVggEBfNpzHrqzDJqhE6tGP.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/zPyVcPi5vFjjHbZsYYbbIG1I0oL.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Phil Rosenthal",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": 1,
@@ -20,10 +18,10 @@
           "archiveID": "everybody-loves-raymond-s-01-e-01-pilot-theatical-version",
           "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "Pilot",
-          "overview": "Debra is sick and tired of having Raymond's parents and brother show up unannounced. With her birthday coming up, they try avoiding having them over.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/lBXiVjS7UJ83jxEaGgBYi6R9K7c.jpg",
-          "airDate": "1996-09-13",
+          "title": "Everybody Loves Raymond S01E01 Pilot Theatrical Version",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dcCnVVggEBfNpzHrqzDJqhE6tGP.jpg",
+          "airDate": null,
           "year": 1996,
           "runtimeSeconds": null,
           "videoFile": {

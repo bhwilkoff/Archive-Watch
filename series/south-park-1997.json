@@ -4,14 +4,12 @@
   "title": "South Park",
   "yearStart": 1997,
   "yearEnd": 1999,
-  "overview": "Follow the misadventures of four irreverent grade-schoolers in the quiet, dysfunctional town of South Park, Colorado.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/1CGwZCFX2qerXaXQJJUB3qUvxq7.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/3UviYOlhn8EgXMBuiT6MnUuo1w9.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "Comedy Central"
-  ],
-  "creator": "Trey Parker",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

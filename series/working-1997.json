@@ -4,13 +4,11 @@
   "title": "Working",
   "yearStart": 1997,
   "yearEnd": 1997,
-  "overview": "Working is an American situation comedy that aired on NBC from 1997 to 1999. The series was created and executive produced by Michael Davidoff and Bill Rosenthal.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/7ITaI3sN8XV0JgVlbaeMuj0601U.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/mDcgXdhEyOBfkjtEx0qZvF6W700.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

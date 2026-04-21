@@ -4,13 +4,11 @@
   "title": "General Hospital",
   "yearStart": 2024,
   "yearEnd": 2024,
-  "overview": "Jung Ha Yoon is a graduate student who successfully passed the bar exam. However, she is not finished as she wants to be a medical malpractice litigation specialist. She works at a hospital to look to gain experience and there she meets other doctors who work there.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/kzUHYE5tshup6Z2rGIED7pdqWSi.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/xp4lW1XkD6nSQF6Eb1ayOZwmYdt.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "MBC"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

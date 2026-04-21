@@ -4,14 +4,12 @@
   "title": "The Ellen Burstyn Show",
   "yearStart": 1986,
   "yearEnd": 1986,
-  "overview": "Ellen Brewer is a Baltimore college professor living with her overbearing mother Sydney and recently divorced daughter Molly as well as young grandson Nick.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/qI2Edbyrm6lYZ2jt5s4rVoPLmql.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "David Frankel",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,
