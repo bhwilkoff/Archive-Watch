@@ -251,16 +251,18 @@ def build_series(conn, *, dry_run=False):
     for sr in series_rows:
         sr["seasons_count"] = len(seasons_by_series[sr["series_id"]])
 
-    # Drop "series" that are just a single episode AND have no TMDb
-    # match. These are almost always one-off uploads (a single pilot,
-    # a standalone TV movie mis-tagged as tv_episode) — calling them a
-    # "series" confuses the UX and inflates the catalog by ~6k cards.
-    # Singletons with a TMDb match stay (TMDb knows about the show
-    # even if Archive only has one episode).
+    # Require ≥3 Archive episodes. A "series" with 1-2 uploads feels
+    # broken in the UI — user taps Get Smart, sees one episode named
+    # "Get Smart", wonders where the rest of the series is. The answer:
+    # Archive doesn't have the rest. So we stop calling it a series
+    # and let the single upload be a regular item in the main catalog.
+    # Items with TMDb match but only 1-2 Archive eps still get TMDb
+    # metadata via enrich_artwork — they just don't wear the "series"
+    # UI affordance falsely.
     keep_series_ids = set()
     series_rows_filtered = []
     for s in series_rows:
-        if s["episodes_count"] >= 2 or s["tmdb_id"]:
+        if s["episodes_count"] >= 3:
             series_rows_filtered.append(s)
             keep_series_ids.add(s["series_id"])
     dropped = len(series_rows) - len(series_rows_filtered)

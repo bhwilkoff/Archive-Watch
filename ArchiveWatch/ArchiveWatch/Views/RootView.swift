@@ -27,9 +27,14 @@ struct RootView: View {
                     HomeView().attachDestinations()
                 }
             }
-            Tab("Browse", systemImage: "square.grid.3x2.fill", value: Router.Tab.browse) {
+            Tab("Movies", systemImage: "film.fill", value: Router.Tab.browse) {
                 NavigationStack(path: $router.browsePath) {
                     BrowseView().attachDestinations()
+                }
+            }
+            Tab("TV Shows", systemImage: "tv.fill", value: Router.Tab.tvShows) {
+                NavigationStack(path: $router.tvShowsPath) {
+                    TVShowsView().attachDestinations()
                 }
             }
             Tab("Collections", systemImage: "square.stack.3d.up.fill", value: Router.Tab.collections) {
@@ -75,6 +80,7 @@ struct RootView: View {
         switch tab {
         case .home:        router.homePath = NavigationPath()
         case .browse:      router.browsePath = NavigationPath()
+        case .tvShows:     router.tvShowsPath = NavigationPath()
         case .collections: router.collectionsPath = NavigationPath()
         case .search:      router.searchPath = NavigationPath()
         case .surprise:    router.surprisePath = NavigationPath()
