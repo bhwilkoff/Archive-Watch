@@ -162,6 +162,7 @@ struct FilterChipBar: View {
         VStack(alignment: .leading, spacing: 12) {
             categoryRow
             decadeRow
+            genreRow
         }
     }
 
@@ -198,10 +199,45 @@ struct FilterChipBar: View {
         }
     }
 
+    private var genreRow: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 12) {
+                Chip(label: "All Genres", isOn: filter.genre == nil, accent: .accentColor) {
+                    filter.genre = nil
+                }
+                ForEach(topGenres, id: \.self) { g in
+                    let on = filter.genre == g
+                    Chip(label: g, isOn: on, accent: .accentColor) {
+                        filter.genre = on ? nil : g
+                    }
+                }
+            }
+        }
+    }
+
     private var availableDecades: [Int] {
         guard let items = store.catalog?.items else { return [] }
         let ds = Set(items.compactMap { $0.decade })
         return ds.sorted()
+    }
+
+    // Top ~24 genres by frequency across the catalog. Caps the chip row
+    // so it doesn't turn into a wall of TMDb's entire taxonomy (which
+    // includes dozens of rarely-used labels).
+    private var topGenres: [String] {
+        guard let items = store.catalog?.items else { return [] }
+        var counts: [String: Int] = [:]
+        for item in items {
+            for g in item.genres where !g.isEmpty {
+                counts[g, default: 0] += 1
+            }
+        }
+        return counts
+            .sorted { lhs, rhs in
+                lhs.value == rhs.value ? lhs.key < rhs.key : lhs.value > rhs.value
+            }
+            .prefix(24)
+            .map { $0.key }
     }
 }
 
