@@ -26,6 +26,10 @@ struct HomeView: View {
     // subview update, but re-rolls when the user leaves Home and
     // comes back — an invitation to keep wandering.
     @State private var heroSeed: Int = Int.random(in: 0..<1_000_000)
+    // Separate seed per shelf set so shuffle is stable within a
+    // Home lifetime but changes when user leaves + returns. Combined
+    // with the per-shelf id to give each shelf its own permutation.
+    @State private var shelfSeed: UInt64 = UInt64.random(in: 0..<UInt64.max)
 
     private var heroItems: [Catalog.Item] {
         guard let all = store.catalog?.items else { return [] }
@@ -83,16 +87,27 @@ struct HomeView: View {
         var id: String { shelf.id }
     }
 
-    /// Walk shelves in priority order; for each, drop items already shown
-    /// on an earlier shelf and take the next 20 of what remains. Hero
-    /// items also count as "shown" so we don't duplicate from carousel
-    /// into the first shelf.
+    /// Walk shelves in priority order. For each: keep only items with
+    /// real designed artwork (no procedural placeholders on Home —
+    /// they look empty and trigger thumbnail decode errors in the
+    /// console), drop items already shown on an earlier shelf, shuffle
+    /// with a per-shelf seeded RNG so repeat visits don't show the
+    /// same tiles in the same order, and take the first 20.
     private func dedupedShelfPayloads() -> [ShelfPayload] {
         var used: Set<String> = Set(heroItems.map { $0.archiveID })
         var out: [ShelfPayload] = []
         for shelf in homeShelves {
             let raw = store.items(forShelf: shelf.id)
-            let fresh = sortByArtwork(raw).filter { !used.contains($0.archiveID) }
+            var fresh = raw.filter {
+                $0.hasDesignedArtwork && !used.contains($0.archiveID)
+            }
+            // Seeded shuffle: per-shelf (include the id hash) so each
+            // shelf gets a different permutation, but stable across
+            // body recomputes within a single Home lifetime.
+            var rng = SplitMix(
+                seed: shelfSeed &+ UInt64(bitPattern: Int64(shelf.id.hashValue))
+            )
+            fresh.shuffle(using: &rng)
             let taken = Array(fresh.prefix(20))
             guard !taken.isEmpty else { continue }
             for item in taken { used.insert(item.archiveID) }
@@ -101,11 +116,6 @@ struct HomeView: View {
         return out
     }
 
-    private func sortByArtwork(_ items: [Catalog.Item]) -> [Catalog.Item] {
-        let withArt    = items.filter { $0.hasDesignedArtwork }
-        let withoutArt = items.filter { !$0.hasDesignedArtwork }
-        return withArt + withoutArt
-    }
 }
 
 // MARK: - HeroCarousel + HeroBanner
