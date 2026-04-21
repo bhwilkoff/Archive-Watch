@@ -86,10 +86,12 @@ extension View {
     func attachDestinations() -> some View {
         self
             .navigationDestination(for: Catalog.Item.self) { item in
-                // Series cards route to SeriesDetailView (lazy-loads episode
-                // list from /series/{seriesID}.json); everything else keeps
-                // the existing single-item DetailView.
-                if item.contentType == "tv-series" {
+                // Only real series cards (with a seriesID populated by the
+                // exporter) route to SeriesDetailView for the lazy
+                // /series/{seriesID}.json fetch. Individual tv-series-
+                // classified items that fell out of clustering stay on
+                // the regular DetailView and play as single items.
+                if item.contentType == "tv-series" && item.seriesID != nil {
                     SeriesDetailView(seriesCard: item)
                 } else {
                     DetailView(item: item)

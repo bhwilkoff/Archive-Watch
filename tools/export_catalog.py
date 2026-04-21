@@ -547,18 +547,38 @@ def build_series_card(row):
     except (ValueError, TypeError): genres = []
     try: networks = json.loads(row["networks"]) if row["networks"] else []
     except (ValueError, TypeError): networks = []
+    # Catalog.Item requires archiveID to decode — reuse the series slug
+    # there. Most fields are populated with sane defaults so old app
+    # builds that decode tv-series cards as regular Items still work
+    # (they won't render episodes but at least they won't crash the
+    # whole catalog decode with missing-key errors).
     return {
+        "archiveID":        row["series_id"],
         "seriesID":         row["series_id"],
         "title":            row["title"],
+        "year":             row["year_start"],
         "yearStart":        row["year_start"],
         "yearEnd":          row["year_end"],
+        "decade":           (row["year_start"] // 10) * 10 if row["year_start"] else None,
+        "runtimeSeconds":   None,
+        "synopsis":         row["overview"],
         "overview":         row["overview"],
+        "collections":      [],
+        "subjects":         [],
+        "mediatype":        None,
+        "language":         None,
         "posterURL":        poster,
         "backdropURL":      row["backdrop_url"],
         "hasRealArtwork":   has_real,
         "artworkSource":    src,
         "contentType":      "tv-series",
         "genres":           genres,
+        "countries":        [],
+        "cast":             [],
+        "director":         None,
+        "producer":         None,
+        "seriesName":       row["title"],
+        "network":          (networks[0] if networks else None),
         "networks":         networks,
         "creator":          row["creator"],
         "seasonsCount":     row["seasons_count"] or 0,
@@ -566,48 +586,83 @@ def build_series_card(row):
         "tmdbID":           int(row["tmdb_id"]) if row["tmdb_id"] and str(row["tmdb_id"]).isdigit() else None,
         "wikidataQID":      row["wikidata_qid"],
         "imdbID":           row["imdb_id"],
+        "tvmazeID":         None,
+        "videoFile":        None,
+        "downloadURL":      None,
+        "shelves":          [],
+        "enrichmentTier":   "fullyEnriched" if row["tmdb_id"] else "archiveOnly",
         "popularityScore":  row["popularity_score"] or 0,
         "qualityScore":     row["quality_score"] or 0,
     }
 
 
-def build_series_detail(conn, series_row):
+def load_all_episodes(conn):
+    """One-shot fetch of every TV episode with its best source attached,
+    grouped by series_id in Python. Replaces a per-series correlated-
+    view query that cost 1.6s × 6,783 = 3hrs. One-pass costs <5s.
+
+    Returns: {series_id: [episode_row_dict, ...]} already sorted by
+    (season_number, episode_number, title).
+    """
+    # One joined query + a window function to pick the best source per
+    # canonical_id. The VIEW works_with_best_source does the same thing
+    # per-canonical_id via correlated subquery, which prevents SQLite's
+    # planner from caching — doing it in a single pass is orders of
+    # magnitude faster.
+    rows = conn.execute("""
+        WITH best_source AS (
+            SELECT
+                canonical_id, source_type, stream_url, derivative_name,
+                format_hint, file_size, verified_playable,
+                ROW_NUMBER() OVER (
+                    PARTITION BY canonical_id
+                    ORDER BY
+                        CASE WHEN verified_playable = 1 THEN 0 ELSE 1 END,
+                        source_quality DESC, id ASC
+                ) AS rn
+            FROM sources
+        )
+        SELECT te.canonical_id, te.series_id, te.season_number, te.episode_number,
+               te.title AS ep_title, te.overview, te.still_url, te.air_date,
+               w.title AS raw_title, w.year, w.runtime_sec,
+               bs.stream_url, bs.derivative_name, bs.source_type,
+               bs.file_size, bs.format_hint, bs.verified_playable,
+               e.poster_url AS ep_poster
+        FROM tv_episodes te
+        JOIN works w ON w.canonical_id = te.canonical_id
+        LEFT JOIN best_source bs ON bs.canonical_id = te.canonical_id AND bs.rn = 1
+        LEFT JOIN enrichment e ON e.canonical_id = te.canonical_id
+        ORDER BY te.series_id,
+          CASE WHEN te.season_number IS NULL THEN 9999 ELSE te.season_number END,
+          CASE WHEN te.episode_number IS NULL THEN 9999 ELSE te.episode_number END,
+          w.title
+    """).fetchall()
+    grouped = defaultdict(list)
+    for r in rows:
+        grouped[r["series_id"]].append(dict(r))
+    return grouped
+
+
+def build_series_detail(series_row, episodes_by_series_id):
     """Full per-series JSON: series header + seasons[].episodes[]. Episodes
     are grouped by season_number (NULL → 0 bucket). Each episode carries
     its Archive playback URL so the player never needs a second lookup."""
     series_id = series_row["series_id"]
-    # Pull every episode + its best source (for play URL).
-    eps = conn.execute("""
-        SELECT te.canonical_id, te.season_number, te.episode_number,
-               te.title, te.overview, te.still_url, te.air_date,
-               w.title AS raw_title, w.year, w.runtime_sec,
-               wbs.best_stream_url, wbs.best_derivative, wbs.best_source_type,
-               wbs.best_file_size, wbs.best_format, wbs.best_verified_playable,
-               e.poster_url AS ep_poster
-        FROM tv_episodes te
-        JOIN works w ON w.canonical_id = te.canonical_id
-        LEFT JOIN works_with_best_source wbs ON wbs.canonical_id = te.canonical_id
-        LEFT JOIN enrichment e ON e.canonical_id = te.canonical_id
-        WHERE te.series_id = ?
-        ORDER BY
-          CASE WHEN te.season_number IS NULL THEN 9999 ELSE te.season_number END,
-          CASE WHEN te.episode_number IS NULL THEN 9999 ELSE te.episode_number END,
-          w.title
-    """, (series_id,)).fetchall()
+    eps = episodes_by_series_id.get(series_id, [])
 
     seasons = {}
     for e in eps:
         sn = e["season_number"] if e["season_number"] is not None else 0
-        dl = e["best_stream_url"] or ""
+        dl = e.get("stream_url") or ""
         # Reject unplayable folder URLs (same guard as build_download_url).
         if dl and re.match(r"^https?://archive\.org/download/[^/]+/?$", dl):
             dl = ""
-        if e["best_derivative"]:
+        if e.get("derivative_name"):
             video_file = {
-                "name":      e["best_derivative"],
-                "format":    e["best_format"] or "h.264",
-                "sizeBytes": int(e["best_file_size"]) if e["best_file_size"] else None,
-                "tier":      1 if e["best_verified_playable"] == 1 else 2,
+                "name":      e["derivative_name"],
+                "format":    e.get("format_hint") or "h.264",
+                "sizeBytes": int(e["file_size"]) if e.get("file_size") else None,
+                "tier":      1 if e.get("verified_playable") == 1 else 2,
             }
         else:
             video_file = None
@@ -625,12 +680,12 @@ def build_series_detail(conn, series_row):
             "archiveID":        archive_id,
             "seasonNumber":     e["season_number"],
             "episodeNumber":    e["episode_number"],
-            "title":            e["title"] or e["raw_title"],
-            "overview":         e["overview"],
-            "stillURL":         e["still_url"] or e["ep_poster"],
-            "airDate":          e["air_date"],
-            "year":             e["year"],
-            "runtimeSeconds":   e["runtime_sec"],
+            "title":            e.get("ep_title") or e.get("raw_title"),
+            "overview":         e.get("overview"),
+            "stillURL":         e.get("still_url") or e.get("ep_poster"),
+            "airDate":          e.get("air_date"),
+            "year":             e.get("year"),
+            "runtimeSeconds":   e.get("runtime_sec"),
             "videoFile":        video_file,
             "downloadURL":      dl or None,
         }
@@ -684,6 +739,10 @@ def export_tv_series(conn, out_dir_main_catalog, *, write_details=True):
         """)
     }
 
+    # Load ALL episodes once (only when we'll actually write details;
+    # the card-only path doesn't need them and skipping it saves ~5s).
+    episodes_by_series = load_all_episodes(conn) if write_details else {}
+
     cards = []
     series_dir = Path(out_dir_main_catalog).parent / "series"
     if write_details:
@@ -695,7 +754,7 @@ def export_tv_series(conn, out_dir_main_catalog, *, write_details=True):
         card = build_series_card(row)
         cards.append(card)
         if write_details:
-            detail = build_series_detail(conn, row)
+            detail = build_series_detail(row, episodes_by_series)
             out = series_dir / f"{row['series_id']}.json"
             with open(out, "w", encoding="utf-8") as f:
                 json.dump(detail, f, ensure_ascii=False, indent=2)

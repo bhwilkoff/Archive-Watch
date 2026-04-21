@@ -60,12 +60,12 @@ struct HomeView: View {
                 ContinueWatchingRow()
                 CategoryTilesRow()
                 FavoritesShelf()
-                ForEach(homeShelves) { shelf in
-                    let rawItems = store.items(forShelf: shelf.id)
-                    let items = sortByArtwork(rawItems)
-                    if !items.isEmpty {
-                        ShelfRow(shelf: shelf, items: Array(items.prefix(20)))
-                    }
+                // Dedupe across shelves: once a film appears in a shelf
+                // earlier in the page, the next shelf gets the NEXT 20
+                // items instead of resurfacing the same ones. Keeps Home
+                // from looking like five aliases of the same 20 items.
+                ForEach(dedupedShelfPayloads()) { payload in
+                    ShelfRow(shelf: payload.shelf, items: payload.items)
                 }
                 HiddenGemsShelf()
                 DirectorShelvesSection()
@@ -75,6 +75,30 @@ struct HomeView: View {
             .padding(.bottom, 80)
         }
         .background(Color.black.ignoresSafeArea())
+    }
+
+    private struct ShelfPayload: Identifiable {
+        let shelf: Featured.Shelf
+        let items: [Catalog.Item]
+        var id: String { shelf.id }
+    }
+
+    /// Walk shelves in priority order; for each, drop items already shown
+    /// on an earlier shelf and take the next 20 of what remains. Hero
+    /// items also count as "shown" so we don't duplicate from carousel
+    /// into the first shelf.
+    private func dedupedShelfPayloads() -> [ShelfPayload] {
+        var used: Set<String> = Set(heroItems.map { $0.archiveID })
+        var out: [ShelfPayload] = []
+        for shelf in homeShelves {
+            let raw = store.items(forShelf: shelf.id)
+            let fresh = sortByArtwork(raw).filter { !used.contains($0.archiveID) }
+            let taken = Array(fresh.prefix(20))
+            guard !taken.isEmpty else { continue }
+            for item in taken { used.insert(item.archiveID) }
+            out.append(ShelfPayload(shelf: shelf, items: taken))
+        }
+        return out
     }
 
     private func sortByArtwork(_ items: [Catalog.Item]) -> [Catalog.Item] {
