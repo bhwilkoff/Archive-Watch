@@ -40,9 +40,16 @@ struct SeriesDetailView: View {
             }
         }
         .task(id: seriesCard.archiveID) {
+            // Series cards use "series:<slug>" as archiveID to avoid
+            // collisions with Archive identifiers. The actual per-series
+            // JSON lives at /series/<slug>.json — pull the raw slug
+            // from the dedicated seriesID field, with a prefix-strip
+            // fallback for older exports.
+            let slug = seriesCard.seriesID
+                ?? seriesCard.archiveID.replacingOccurrences(of: "series:", with: "")
             isLoading = true
             loadError = false
-            let loaded = await SeriesStore.shared.load(seriesID: seriesCard.archiveID)
+            let loaded = await SeriesStore.shared.load(seriesID: slug)
             if let loaded {
                 series = loaded
                 selectedSeasonIndex = 0

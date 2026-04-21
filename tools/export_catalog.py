@@ -547,13 +547,16 @@ def build_series_card(row):
     except (ValueError, TypeError): genres = []
     try: networks = json.loads(row["networks"]) if row["networks"] else []
     except (ValueError, TypeError): networks = []
-    # Catalog.Item requires archiveID to decode — reuse the series slug
-    # there. Most fields are populated with sane defaults so old app
-    # builds that decode tv-series cards as regular Items still work
-    # (they won't render episodes but at least they won't crash the
-    # whole catalog decode with missing-key errors).
+    # Catalog.Item requires archiveID to decode. Series cards use a
+    # "series:" prefix on their slug to stay in a disjoint namespace
+    # from Archive identifiers — we hit real collisions in the main
+    # catalog (e.g., both a "tormented-1960" Archive feature film
+    # and a "tormented-1960" clustered series existed, crashing the
+    # app's Dictionary(uniqueKeysWithValues:) calls). The raw slug
+    # without prefix stays as `seriesID` so SeriesStore keeps hitting
+    # /series/{slug}.json cleanly.
     return {
-        "archiveID":        row["series_id"],
+        "archiveID":        f"series:{row['series_id']}",
         "seriesID":         row["series_id"],
         "title":            row["title"],
         "year":             row["year_start"],
