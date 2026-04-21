@@ -57,20 +57,24 @@ struct RootView: View {
         .preferredColorScheme(.dark)
     }
 
-    /// Intercept sidebar tab selection so switching tabs also clears
-    /// the departing tab's navigation stack. That way returning to a
-    /// tab via the sidebar always lands on its root view — never
-    /// stranded on a previously-opened DetailView. The user expects
-    /// the sidebar to feel like top-level navigation; keeping push
-    /// state across sidebar hops violates that.
+    /// Sidebar tab selection always lands at that tab's root view.
+    /// Three cases, all handled the same way — reset the incoming
+    /// tab's NavigationPath:
+    ///   • Switching tabs (old != new): clear both paths.
+    ///   • Re-selecting the current tab while on a pushed view
+    ///     (old == new): pop back to that tab's root — matches the
+    ///     standard iOS/tvOS tab-bar convention where tapping the
+    ///     current tab takes you to top.
+    /// On tvOS, the TabView binding setter fires for both cases
+    /// (same-value writes are not suppressed by SwiftUI here).
     private var tabSelection: Binding<Router.Tab> {
         Binding(
             get: { router.tab },
             set: { newTab in
-                let oldTab = router.tab
-                if newTab != oldTab {
-                    resetPath(for: oldTab)
+                if newTab != router.tab {
+                    resetPath(for: router.tab)
                 }
+                resetPath(for: newTab)
                 router.tab = newTab
             }
         )
