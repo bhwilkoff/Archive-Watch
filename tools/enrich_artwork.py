@@ -415,11 +415,11 @@ def enrich_via_wikidata(conn, *, batch_size=80, limit=None):
             cast   = [s for s in b.get("cast",      {}).get("value", "").split("|") if s]
             genres = [s for s in b.get("genres",    {}).get("value", "").split("|") if s]
 
-            # Commons File: URLs need unwrapping — Wikidata returns the
-            # File page, we want the actual image URL via Special:FilePath.
-            if poster and "commons.wikimedia.org" in poster and "/Special:FilePath/" not in poster:
-                # Skip if it's already a direct file URL
-                pass
+            # Wikidata returns Commons URLs with an http:// scheme which
+            # tvOS ATS blocks by default. Rewrite to https:// up front
+            # so we never have to re-scrub later.
+            if poster and poster.startswith("http://"):
+                poster = "https://" + poster[len("http://"):]
 
             conn.execute("""
                 INSERT INTO enrichment (canonical_id, wikidata_qid, imdb_id, tmdb_id,
