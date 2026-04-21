@@ -397,8 +397,8 @@ struct DecadeTilesRow: View {
     @Environment(Router.self) private var router
 
     private var decades: [Int] {
-        guard let items = store.catalog?.items else { return [] }
-        return Set(items.compactMap { $0.decade }).sorted()
+        // Precomputed on AppStore — no per-body scan of 31k items.
+        store.availableDecades
     }
 
     var body: some View {
@@ -424,7 +424,7 @@ struct DecadeTilesRow: View {
     }
 
     private func countFor(_ decade: Int) -> Int {
-        store.catalog?.items.filter { $0.decade == decade }.count ?? 0
+        store.decadeCounts[decade] ?? 0
     }
 }
 

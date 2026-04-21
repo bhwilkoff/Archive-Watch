@@ -251,6 +251,25 @@ def build_series(conn, *, dry_run=False):
     for sr in series_rows:
         sr["seasons_count"] = len(seasons_by_series[sr["series_id"]])
 
+    # Drop "series" that are just a single episode AND have no TMDb
+    # match. These are almost always one-off uploads (a single pilot,
+    # a standalone TV movie mis-tagged as tv_episode) — calling them a
+    # "series" confuses the UX and inflates the catalog by ~6k cards.
+    # Singletons with a TMDb match stay (TMDb knows about the show
+    # even if Archive only has one episode).
+    keep_series_ids = set()
+    series_rows_filtered = []
+    for s in series_rows:
+        if s["episodes_count"] >= 2 or s["tmdb_id"]:
+            series_rows_filtered.append(s)
+            keep_series_ids.add(s["series_id"])
+    dropped = len(series_rows) - len(series_rows_filtered)
+    episode_rows_filtered = [e for e in episode_rows
+                              if e["series_id"] in keep_series_ids]
+    print(f"[tv-cluster] dropped {dropped:,} singleton series (no TMDb match)", flush=True)
+    series_rows = series_rows_filtered
+    episode_rows = episode_rows_filtered
+
     # Stats report
     multi = sum(1 for s in series_rows if s["episodes_count"] > 1)
     singletons = len(series_rows) - multi

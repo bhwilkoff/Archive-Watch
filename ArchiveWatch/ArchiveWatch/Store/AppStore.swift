@@ -4,9 +4,68 @@ import SwiftUI
 @Observable
 final class AppStore {
 
-    var catalog: Catalog?
+    var catalog: Catalog? {
+        didSet { rebuildDerived() }
+    }
     var featured: Featured?
     var loadError: String?
+
+    // Derived structures, rebuilt once per catalog assignment so
+    // downstream views never re-filter 31k items on body recompute.
+    // The old pattern — computed `items(forShelf:)` scanning catalog
+    // items per call — cost 670k iterations per HomeView render (21
+    // shelves × 31k items). Now it's an O(1) dict lookup.
+    private(set) var shelfMembers: [String: [Catalog.Item]] = [:]
+    private(set) var availableDecades: [Int] = []
+    private(set) var decadeCounts: [Int: Int] = [:]
+    private(set) var topGenres: [String] = []
+    /// Everything except tv-series cards — what Browse's grid shows.
+    private(set) var browseableItems: [Catalog.Item] = []
+    /// Just the series cards — for future series-specific entry points.
+    private(set) var seriesCards: [Catalog.Item] = []
+
+    private func rebuildDerived() {
+        guard let items = catalog?.items else {
+            shelfMembers = [:]; availableDecades = []; decadeCounts = [:]
+            topGenres = []; browseableItems = []; seriesCards = []
+            return
+        }
+
+        // Split series cards from everything else — they have different
+        // semantics (no direct playable URL, route to SeriesDetailView).
+        var series: [Catalog.Item] = []
+        var regular: [Catalog.Item] = []
+        var decadeTally: [Int: Int] = [:]
+        var genreCounts: [String: Int] = [:]
+        var shelves: [String: [Catalog.Item]] = [:]
+
+        for it in items {
+            if it.contentType == "tv-series" {
+                series.append(it)
+            } else {
+                regular.append(it)
+            }
+            if let d = it.decade { decadeTally[d, default: 0] += 1 }
+            for g in it.genres where !g.isEmpty {
+                genreCounts[g, default: 0] += 1
+            }
+            for s in it.shelves {
+                shelves[s, default: []].append(it)
+            }
+        }
+
+        self.seriesCards = series
+        self.browseableItems = regular
+        self.decadeCounts = decadeTally
+        self.availableDecades = decadeTally.keys.sorted()
+        self.topGenres = genreCounts
+            .sorted { lhs, rhs in
+                lhs.value == rhs.value ? lhs.key < rhs.key : lhs.value > rhs.value
+            }
+            .prefix(24)
+            .map { $0.key }
+        self.shelfMembers = shelves
+    }
 
     func loadBundledData() async {
         // STEP 1 — synchronous bundle load. Unblocks the UI within a
@@ -43,19 +102,30 @@ final class AppStore {
             }
         }
 
-        // STEP 3 — background refresh from GitHub Pages.
+        // STEP 3 — background refresh from GitHub Pages. Skipped when
+        // the currently-loaded catalog was generated recently (default
+        // 72h window) — no point downloading 77 MB to get the same
+        // thing back. Users still get updates when they relaunch past
+        // the freshness window, or when we publish a new catalog and
+        // the cached copy ages out.
+        let generatedAt = catalog?.generatedAt
         Task { [weak self] in
-            if let fresh = await CatalogRefreshService.shared.refresh() {
-                await MainActor.run { self?.catalog = fresh }
+            let fresh = await CatalogRefreshService.shared.isFresh(generatedAt: generatedAt)
+            guard !fresh else {
+                print("[AppStore] catalog is fresh — skipping remote refresh")
+                return
+            }
+            if let updated = await CatalogRefreshService.shared.refresh() {
+                await MainActor.run { self?.catalog = updated }
             }
         }
     }
 
-    /// Items assigned to the given shelf id. Preserves catalog order,
-    /// which reflects the order the builder emitted them (Archive popularity
-    /// + curator sequence within Editor's Picks).
+    /// Items assigned to the given shelf id. Preserves catalog order.
+    /// Backed by the precomputed `shelfMembers` dict — O(1) lookup
+    /// instead of the old per-call filter over all 31k items.
     func items(forShelf shelfID: String) -> [Catalog.Item] {
-        catalog?.items.filter { $0.shelves.contains(shelfID) } ?? []
+        shelfMembers[shelfID] ?? []
     }
 
     /// Accent color for a category, parsed from `featured.json`.
