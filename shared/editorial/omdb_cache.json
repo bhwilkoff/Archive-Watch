@@ -1,0 +1,6 @@
+{
+  "version": 1,
+  "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
+  "updated_at": "2026-04-21T02:51:18Z",
+  "entries": {}
+}

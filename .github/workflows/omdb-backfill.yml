@@ -1,0 +1,85 @@
+name: OMDb artwork backfill
+
+# Daily 1000-request budget pass against OMDb, targeting catalog items
+# that still show Archive first-frame thumbnails (or no artwork at all)
+# but have IMDb IDs. Free-tier OMDb is 1000 req/day; we cap at 950 to
+# stay clear of clock drift between CI and OMDb's rollover.
+#
+# The script operates on the committed catalogs + a persisted cache —
+# the 240 MB SQLite registry stays local. The cache negative-caches
+# "OMDb has no poster" hits so we never burn quota retrying them.
+
+on:
+  schedule:
+    # 02:17 UTC — well after midnight in every US timezone, and at an
+    # odd minute so we're not colliding with the cron-wave top-of-hour.
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+    inputs:
+      max_calls:
+        description: 'Cap OMDb requests this run (free tier = 1000/day)'
+        required: false
+        default: '950'
+      dry_run:
+        description: 'Compute queue only, no HTTP or writes'
+        required: false
+        default: 'false'
+
+concurrency:
+  # Never run two of these in parallel — they'd race each other on the
+  # same 1000/day OMDb budget AND the same git commit target.
+  group: omdb-backfill
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write    # to commit updated catalogs + cache
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run OMDb backfill
+        env:
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+        run: |
+          python tools/omdb_backfill.py \
+            --max-calls ${{ github.event.inputs.max_calls || '950' }} \
+            ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
+            | tee backfill.log
+
+      - name: Stats summary
+        run: |
+          echo "## OMDb backfill" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -20 backfill.log >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Commit if changed
+        if: github.event.inputs.dry_run != 'true'
+        run: |
+          # No-op if nothing changed. Otherwise commit directly to main —
+          # this workflow's changes are purely additive (cache + poster
+          # URLs) and don't need PR review.
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add shared/editorial/omdb_cache.json \
+                  docs/catalog.json \
+                  ArchiveWatch/ArchiveWatch/catalog.json
+
+          if git diff --cached --quiet; then
+            echo "No catalog changes — skipping commit."
+            exit 0
+          fi
+
+          git commit -m "OMDb artwork backfill (${{ github.run_id }})"
+          git push

@@ -193,18 +193,31 @@ def resolve_shelf_items(conn, shelf):
 
         # Collection membership check piggy-backs on raw_json. SQLite's
         # JSON1 extension is usually present; LIKE fallback if not.
+        # We want shelves to prefer designed art within each shelf, so that
+        # a shelf's limit (say 24) fills with the 24 best-*enriched* items,
+        # not whatever happens to match the collection + sort first. Items
+        # with no designed art still appear in the tail if the shelf isn't
+        # full — never lost silently.
         sql = f"""
             SELECT works.canonical_id
             FROM works
             JOIN sources  ON sources.canonical_id = works.canonical_id
                          AND sources.source_type = 'archive_org'
-            LEFT JOIN engagement ON engagement.source_type = sources.source_type
-                                AND engagement.source_id   = sources.source_id
+            LEFT JOIN engagement  ON engagement.source_type = sources.source_type
+                                 AND engagement.source_id   = sources.source_id
+            LEFT JOIN enrichment  ON enrichment.canonical_id = works.canonical_id
             WHERE sources.raw_json LIKE ?
               AND works.quality_score    >= 40
               AND works.popularity_score >= 25
             GROUP BY works.canonical_id
-            ORDER BY {order_by}
+            ORDER BY
+              CASE
+                WHEN enrichment.poster_url IS NOT NULL
+                 AND enrichment.poster_url != ''
+                 AND enrichment.poster_url NOT LIKE 'https://archive.org/services/img/%'
+                THEN 0 ELSE 1
+              END,
+              {order_by}
             LIMIT ?
         """
         like = f'%"{collection}"%'
@@ -231,18 +244,25 @@ ARTWORK_SOURCE_BY_HOST = {
 
 def artwork_source_for(url):
     """Classify poster_url provenance — the app's hasRealArtwork flag keys
-    off this. TMDb/Commons/Wikidata posters are "real designed art";
-    Archive thumbnails are placeholder-territory."""
+    off this. TMDb/Fanart/OMDb/Commons/Wikidata/AAPB posters are "real
+    designed art"; Archive first-frame thumbnails are placeholder-territory."""
     if not url:
         return "none"
     low = url.lower()
     if "image.tmdb.org" in low:
         return "tmdb"
+    if "fanart.tv" in low:
+        return "fanart"
+    if "m.media-amazon.com" in low or "ia.media-imdb.com" in low:
+        return "omdb"   # OMDb returns IMDb/Amazon-hosted posters
     if "upload.wikimedia.org" in low or "commons.wikimedia.org" in low:
         return "commons"
     if "wikidata.org" in low:
         return "wikidata"
+    if "americanarchive.org" in low:
+        return "aapb"
     if "archive.org" in low:
+        # archive.org/services/img/{id} is the first-frame fallback.
         return "archive"
     return "external"
 
@@ -308,7 +328,7 @@ def collections_from_raw(row):
         return []
 
 
-def build_item(row, shelf_membership):
+def build_item(row, shelf_membership, omdb_cache=None):
     """Translate one works_with_best_source row → Catalog.Item dict."""
     # archiveID: prefer the real Archive.org source_id when we have one.
     # Otherwise fall back to the canonical_id (so the app can use it as
@@ -332,7 +352,16 @@ def build_item(row, shelf_membership):
     # Poster / backdrop / artwork source.
     poster = row["poster_url"]
     src = artwork_source_for(poster)
-    has_real_artwork = src in ("tmdb", "commons", "wikidata", "external")
+    # OMDb cache overlay — if the scheduled backfill has a poster for this
+    # item's IMDb ID AND the DB's current pick is a placeholder, upgrade.
+    # This keeps local re-exports consistent with workflow-accumulated wins.
+    if omdb_cache and row["imdb_id"]:
+        cached = omdb_cache.get(row["imdb_id"])
+        cached_url = cached.get("poster_url") if cached else None
+        if cached_url and src in ("archive", "none"):
+            poster = cached_url
+            src = "omdb"
+    has_real_artwork = src in ("tmdb", "fanart", "omdb", "commons", "wikidata", "aapb", "external")
 
     # Shelves — computed by the caller from featured.json, passed in.
     shelves = shelf_membership.get(row["canonical_id"], [])
@@ -402,16 +431,33 @@ def build_item(row, shelf_membership):
 # Tiered selection — diversity + Editor's Picks override
 # ---------------------------------------------------------------------------
 
+def _selection_rank(item):
+    """Secondary sort key for selection. Puts items with designed artwork
+    first, breaking ties on popularity. Applied everywhere we might have
+    to drop an item — guarantees we never lose a designed-art item to a
+    placeholder-art item inside the same bucket.
+
+    Python sorts ascending; we want art-first + popularity-desc:
+      - `not hasRealArtwork` is False for art items → sorts before True.
+      - `-popularityScore` puts high-pop first inside each group.
+    """
+    return (not bool(item.get("hasRealArtwork")),
+            -(item.get("popularityScore") or 0))
+
+
 def select_tiered(items, *, profile, editors_picks_ids, shelf_required_ids):
-    """Pick up to profile.max_items with diversity across contentType.
+    """Pick up to profile.max_items with diversity across contentType,
+    always preferring items with designed artwork within each bucket.
 
     Order of inclusion:
       1. Editor's Picks — mandatory, score-independent.
-      2. Items referenced by any shelf — mandatory (curator intent).
-      3. Round-robin fill from each contentType bucket by popularity, up to
-         per_type_min per bucket.
-      4. If cap isn't reached, top up with the highest-popularity residue
-         regardless of type.
+      2. Items referenced by any shelf — mandatory (curator intent). If
+         the curator-mandatory set alone exceeds max_items, we still sort
+         art-first + popularity-desc before capping.
+      3. Round-robin fill from each contentType bucket, art-first within
+         each, up to per_type_min per bucket.
+      4. If cap isn't reached, top up with the highest-ranked residue
+         (art-first, then popularity) regardless of type.
     """
     max_items = profile.get("max_items")
     per_type  = profile.get("per_type_min") or 0
@@ -420,7 +466,10 @@ def select_tiered(items, *, profile, editors_picks_ids, shelf_required_ids):
                  if i.get("archiveID") in editors_picks_ids
                  or i.get("archiveID") in shelf_required_ids
                  or any(sid for sid in (i.get("shelves") or []))}
-    picked = list(must_have.values())
+    # Sort must_have by (art-first, popularity) so that if the curator-
+    # mandatory set is already larger than max_items, the items we drop
+    # are the ones without designed art rather than the ones with it.
+    picked = sorted(must_have.values(), key=_selection_rank)
 
     if max_items is None:
         return items  # raw profile: no cap
@@ -436,9 +485,9 @@ def select_tiered(items, *, profile, editors_picks_ids, shelf_required_ids):
     for i in pool:
         by_type[i.get("contentType") or "short-film"].append(i)
     for t in by_type:
-        by_type[t].sort(key=lambda x: (x.get("popularityScore") or 0), reverse=True)
+        by_type[t].sort(key=_selection_rank)
 
-    # Diversity pass: up to per_type from each bucket
+    # Diversity pass: up to per_type from each bucket, art-first within.
     for t, bucket in by_type.items():
         take = min(per_type, len(bucket), remaining)
         picked.extend(bucket[:take])
@@ -447,15 +496,17 @@ def select_tiered(items, *, profile, editors_picks_ids, shelf_required_ids):
         if remaining <= 0:
             break
 
-    # Top-up pass: pop from the strongest-remaining regardless of type
+    # Top-up pass: pop from the strongest-remaining, still art-first.
     if remaining > 0:
         leftover = sorted(
             (i for i in pool if i["archiveID"] not in used_ids),
-            key=lambda x: (x.get("popularityScore") or 0), reverse=True,
+            key=_selection_rank,
         )
         picked.extend(leftover[:remaining])
 
-    # Return in popularity order so the app's first shelf reads are snappy.
+    # Final return order is popularity-desc — what the app expects for
+    # snappy first-screen reads. (The art-preference has already done
+    # its job during the *selection* above; display order is separate.)
     picked.sort(key=lambda x: (x.get("popularityScore") or 0), reverse=True)
     return picked[:max_items]
 
@@ -503,6 +554,19 @@ def main():
     with open(args.featured, "r", encoding="utf-8") as f:
         featured = json.load(f)
 
+    # Load the OMDb backfill cache if present — lets us apply workflow-
+    # accumulated poster wins to newly-exported rows without needing the
+    # live DB to be refreshed. Missing/malformed cache is fine — we just
+    # skip the overlay.
+    omdb_cache = {}
+    cache_path = Path(__file__).resolve().parent.parent / "shared" / "editorial" / "omdb_cache.json"
+    if cache_path.exists():
+        try:
+            omdb_cache = (json.loads(cache_path.read_text(encoding="utf-8"))
+                          .get("entries") or {})
+        except (ValueError, OSError):
+            omdb_cache = {}
+
     # 1. Compute shelf membership: for each shelf, list canonical_ids.
     shelf_ids = {}  # canonical_id -> [shelf_id]
     for shelf in featured.get("shelves", []):
@@ -544,7 +608,7 @@ def main():
     items = []
     dropped_unplayable = dropped_no_artwork = 0
     for row in rows:
-        item = build_item(row, shelf_ids)
+        item = build_item(row, shelf_ids, omdb_cache=omdb_cache)
         if profile.get("require_playable") and not item["downloadURL"]:
             dropped_unplayable += 1
             continue
