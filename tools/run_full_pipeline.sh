@@ -70,12 +70,12 @@ fi
 
 log "[2/5] RESOLVE derivatives (hit /metadata/{id} for every IA source,"
 log "       pick best h.264 MP4, detect audio absence, promote silent flag)"
-run python3 SchemaWork/registry_pipeline.py --resolve-derivatives
+run python3 -u SchemaWork/registry_pipeline.py --resolve-derivatives
 
 # ---- 3. HEAD-verify playability ------------------------------------------
 
 log "[3/5] VERIFY playability (HEAD every stream URL)"
-run python3 SchemaWork/registry_pipeline.py --verify-playable
+run python3 -u SchemaWork/registry_pipeline.py --verify-playable
 
 # ---- 4. Export both tiers -------------------------------------------------
 
