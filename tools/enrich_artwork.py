@@ -281,7 +281,7 @@ WHERE {
 GROUP BY ?film ?iaID
 """
 
-def enrich_via_wikidata(conn, *, batch_size=150, limit=None):
+def enrich_via_wikidata(conn, *, batch_size=80, limit=None):
     """Pass 2: for works with an archive_org source but no TMDb/Wikidata
     enrichment yet, batch-query Wikidata by IA ID."""
     cur = conn.execute("""
@@ -308,9 +308,11 @@ def enrich_via_wikidata(conn, *, batch_size=150, limit=None):
         values = " ".join(f'"{ia}"' for ia in id_to_cid.keys())
         query = WIKIDATA_BATCH_QUERY.replace("%VALUES%", values)
         try:
-            r = session.get(
+            # POST avoids the 414 URI-too-long when long Archive IDs
+            # push a URL-encoded GET past the 8k limit.
+            r = session.post(
                 WIKIDATA_SPARQL,
-                params={"query": query, "format": "json"},
+                data={"query": query, "format": "json"},
                 headers={"User-Agent": USER_AGENT,
                          "Accept": "application/sparql-results+json"},
                 timeout=60,
@@ -402,17 +404,26 @@ def enrich_via_loc(conn, *, limit=None):
         except Exception:
             continue
         # Prefer resources[0].poster (the actual still frame) over image_url
-        # (which is the animated GIF thumbnail).
+        # (which is the animated GIF thumbnail). LoC's fields are
+        # inconsistently list-or-scalar across items — handle both.
+        def _first_str(v):
+            if isinstance(v, list):
+                for x in v:
+                    if isinstance(x, str) and x:
+                        return x
+                return None
+            return v if isinstance(v, str) and v else None
+
         poster = None
         res = d.get("resources")
         if isinstance(res, list) and res:
             first = res[0] if isinstance(res[0], dict) else {}
-            poster = first.get("poster") or first.get("image")
+            poster = _first_str(first.get("poster")) or _first_str(first.get("image"))
         if not poster:
-            poster = d.get("image_url")
+            poster = _first_str(d.get("image_url"))
         if not poster:
             continue
-        # LoC URLs come with leading `//` — normalize to https.
+        # LoC URLs sometimes come with leading `//` — normalize to https.
         if poster.startswith("//"):
             poster = "https:" + poster
         conn.execute("""

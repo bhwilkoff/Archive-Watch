@@ -49,3 +49,5 @@ node_modules/
 credentials.json
 Secrets.xcconfig
 .claude/scheduled_tasks.lock
+video_registry.db
+__pycache__/
