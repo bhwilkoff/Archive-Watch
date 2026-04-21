@@ -4,26 +4,24 @@
   "title": "Nature",
   "yearStart": 1990,
   "yearEnd": 1990,
-  "overview": "Consistently stunning documentaries transport viewers to far-flung locations ranging from the torrid African plains to the chilly splendours of icy Antarctica. The show's primary focus is on animals and ecosystems around the world. A comic book based on the show, meant to be used an as educational tool for kids, was briefly distributed to museums and schools at no cost in the mid-2000s.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/qRg5boKJdJhJKoGJdchVqPGQTEl.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/j6aCSIjK4N7SpkSPBBNv7vbDvJo.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "PBS"
-  ],
-  "creator": "Thomas Lovejoy",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
-      "seasonNumber": 8,
+      "seasonNumber": null,
       "episodes": [
         {
           "archiveID": "nature-8-20",
-          "seasonNumber": 8,
-          "episodeNumber": 20,
-          "title": "Serpents",
-          "overview": "A natural history of the snake includes its significance to man as a symbol of fertility, immortality and death.",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Nature - 8-20: Serpents",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/qRg5boKJdJhJKoGJdchVqPGQTEl.jpg",
-          "airDate": "1990-04-15",
+          "airDate": null,
           "year": 1990,
           "runtimeSeconds": null,
           "videoFile": {

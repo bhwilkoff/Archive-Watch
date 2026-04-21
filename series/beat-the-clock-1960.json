@@ -4,14 +4,11 @@
   "title": "Beat The Clock",
   "yearStart": null,
   "yearEnd": null,
-  "overview": "Beat the Clock is a game show hosted by Bud Collyer that ran on CBS from 1950 to 1958 and ABC from 1958 to 1961.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/1kRtb6RKq2hdgZYM7LxJhWiXmyg.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC",
-    "CBS"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

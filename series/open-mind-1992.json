@@ -4,14 +4,12 @@
   "title": "Open Mind",
   "yearStart": 1992,
   "yearEnd": 1992,
-  "overview": "This public affairs talk show is a thoughtful excursion into the world of ideas across politics, media, technology, the arts, and all realms of civic life. First broadcast in 1956, it explores challenges of the digital age, American politics and emerging issues.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/dDAWHDEfkk4HlAVIgGmmiLUKzWQ.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/R9SaZpFpawdYyJhB692mNtOhbX.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "PBS"
-  ],
-  "creator": "Richard Heffner",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

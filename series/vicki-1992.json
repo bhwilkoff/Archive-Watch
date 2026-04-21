@@ -4,14 +4,12 @@
   "title": "Vicki!",
   "yearStart": 1992,
   "yearEnd": 1992,
-  "overview": "Singer-actress Vicki Lawrence hosted this talk and entertainment show.",
+  "overview": null,
   "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/337/843329.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "Syndication"
-  ],
-  "creator": "Vicki Lawrence",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

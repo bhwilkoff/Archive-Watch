@@ -4,26 +4,24 @@
   "title": "Orleans",
   "yearStart": 2022,
   "yearEnd": 2022,
-  "overview": "Orleans is a short-lived American drama series that aired on CBS from January 7, 1997 through April 10, 1997. It ran for only 8 episodes. The series was said to be inspired by the experiences of creater producer Toni Graphia, who was the daughter of a Louisiana judge.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/2XF2wl11uxpwkGzyYaeANAHGoWN.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Toni Graphia",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
-      "seasonNumber": 1,
+      "seasonNumber": null,
       "episodes": [
         {
           "archiveID": "orleans-1997-luthers-temptation-ep.-5",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Luther's Temptation",
-          "overview": "Mob Boss Vitelli makes Luther an offer; information about Luther's missing daughter in exchange for an aquittal for his son's killer, whom he wants to deal with, himself.  Paulette turns to drugs when she fears she'll lose her casino.",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Orleans (1997)- Luther's Temptation (Ep. 5)",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/2XF2wl11uxpwkGzyYaeANAHGoWN.jpg",
-          "airDate": "1997-03-28",
+          "airDate": null,
           "year": 2022,
           "runtimeSeconds": null,
           "videoFile": {

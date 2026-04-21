@@ -4,13 +4,11 @@
   "title": "Movie Stars",
   "yearStart": 1999,
   "yearEnd": 1999,
-  "overview": "Movie Stars is an American sitcom that aired on The WB from 1999 to 2000. It stars Harry Hamlin and Jennifer Grant as famous Hollywood actors trying to raise their children.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/1W6DJT8vrnKhmM3Ls5qg2rmrGmY.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "The WB"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

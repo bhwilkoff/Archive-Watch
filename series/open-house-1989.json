@@ -4,13 +4,11 @@
   "title": "Open House",
   "yearStart": 1989,
   "yearEnd": 1989,
-  "overview": "Open House is an American sitcom that aired on Fox from August 27, 1989 to July 21, 1990. The series is a spin-off of the Fox series Duet. Despite airing right after the Top 50 hit Married...with Children on Sundays, the series attracted low ratings, thus Fox canceled the show after 24 episodes.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/nGCnHbNtvLCEaEjbO98mgNYdh03.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/zemDcC4AMZn6J16t2XyDN3IntvQ.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "FOX"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

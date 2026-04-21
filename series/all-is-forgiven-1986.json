@@ -4,14 +4,12 @@
   "title": "All Is Forgiven",
   "yearStart": 1986,
   "yearEnd": 1986,
-  "overview": "Paula Russell is the producer of a soap opera called All is Forgiven who just married a donut executive with a teenage daughter.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/jaNWU8sM1Fm87LYDHgmpxEsbAN8.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Howard Gewirtz",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

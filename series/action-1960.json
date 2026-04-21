@@ -4,14 +4,12 @@
   "title": "Action",
   "yearStart": null,
   "yearEnd": null,
-  "overview": "Follow the life of Peter Dragon, an egotistic Hollywood movie producer who has built his career on the three pillars of sleazy show business - prostitution, nepotism and dishonesty.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/xTIohs08xedCORLIgOCDOZSpwVy.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/7xdJgEnnuEObR4aBI2j21UVO97E.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "FOX"
-  ],
-  "creator": "Chris Thompson",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

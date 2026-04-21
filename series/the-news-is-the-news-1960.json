@@ -4,13 +4,11 @@
   "title": "The News Is The News",
   "yearStart": null,
   "yearEnd": null,
-  "overview": "A weekly news satire program.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

@@ -4,13 +4,11 @@
   "title": "Antena 3 Noticias",
   "yearStart": 1990,
   "yearEnd": 1999,
-  "overview": "Antena 3 Noticias is the brand for Spanish broadcaster Antena 3's news programmes.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/3M9QjT0smEJoH9Va1XTiyzrcm2X.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "Antena 3"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

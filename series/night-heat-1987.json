@@ -4,14 +4,12 @@
   "title": "Night Heat",
   "yearStart": 1987,
   "yearEnd": 1987,
-  "overview": "Night Heat was a Canadian police drama series. It starred Allan Royal as journalist Tom Kirkwood, who chronicled the nightly police beat of detectives Kevin O'Brien and Frank Giambone in an unnamed northeastern North American metropolis.  The police crime drama series aired on both CTV in Canada and CBS in the United States from 1985 to 1989. Night Heat was conceived by Sonny Grosso, a former New York City Police Department detective. Grosso served as the show's executive producer along with his partner, Larry Jacobson.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/bY3Ynw8vvgTmYihQkloGUvf6P7L.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/p5OEH2PO0bao064AEeVXJP6YMR4.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CTV"
-  ],
-  "creator": "Sonny Grosso",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

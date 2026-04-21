@@ -4,14 +4,12 @@
   "title": "Easy Street",
   "yearStart": 1986,
   "yearEnd": 1986,
-  "overview": "Easy Street is an American sitcom that aired for 22 episodes on NBC during the 1986-87 television season.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/wAmx5TUwOUEKD2hkzNMS0ZHVMxh.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/ovM4c1nYq2AaVIPSu6uZLdNccKA.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Hugh Wilson",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

@@ -4,14 +4,11 @@
   "title": "The George Gobel Show",
   "yearStart": null,
   "yearEnd": null,
-  "overview": "The George Gobel Show is an American television series hosted George Gobel that aired on NBC from 1954 to 1960.",
+  "overview": null,
   "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS",
-    "NBC"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

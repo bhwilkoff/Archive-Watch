@@ -4,14 +4,12 @@
   "title": "Late Night With Conan O",
   "yearStart": 2019,
   "yearEnd": 2019,
-  "overview": "Stepping into the late-late slot vacated by David Letterman, Conan O'Brien stars in a show that far outdoes its competition in sheer strangeness. Along with the celebrity interviews and musical numbers typical of late-night talk shows, this program make frequent use of odd walk-on characters and frequent \"visits\" from celebrity guests.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/gJZ1rhLLFpatuAeylJoUI82DKC7.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/q9unI9oHyLUNK97RQPYAGjFs4Xu.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Lorne Michaels",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

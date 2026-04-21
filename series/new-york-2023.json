@@ -4,14 +4,12 @@
   "title": "New York",
   "yearStart": 2023,
   "yearEnd": 2023,
-  "overview": "New York News is a newspaper drama which was broadcast in the United States by CBS as part of its 1995 fall lineup.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/twxZGqVfidPiodBqNAEAYSeMTzZ.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/71zXrZS8RcifffebVsIhaZZ46VP.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Michelle Ashford",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

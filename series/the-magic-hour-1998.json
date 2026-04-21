@@ -4,13 +4,11 @@
   "title": "The Magic Hour",
   "yearStart": 1998,
   "yearEnd": 1998,
-  "overview": "The Magic Hour is an American talk show hosted by basketball player Earvin \"Magic\" Johnson. The series aired in syndication from June to September 1998.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/8UpbTCtKFIeMN0TJGLKsPkUo9jp.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/qtjkdVO28fF3fhADjaLKU7LJWtJ.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "Syndication"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

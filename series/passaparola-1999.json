@@ -8,10 +8,8 @@
   "posterURL": "https://image.tmdb.org/t/p/w500/dNLkVKr7tviGLe9kpMTvoTyIsbd.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "Canale 5"
-  ],
-  "creator": "Alvise Borghi",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

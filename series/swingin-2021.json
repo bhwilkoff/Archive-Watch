@@ -4,13 +4,11 @@
   "title": "Swingin",
   "yearStart": 2021,
   "yearEnd": 2021,
-  "overview": "Sketch show exploring the unique British attitude towards sex and relationships.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/t9D2R1dBuKK3WHoyzx8Q6r1R9bv.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "5"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

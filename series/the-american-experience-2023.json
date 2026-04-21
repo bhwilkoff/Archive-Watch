@@ -4,13 +4,11 @@
   "title": "The American Experience",
   "yearStart": 2023,
   "yearEnd": 2023,
-  "overview": "TV's most-watched history series brings to life the compelling stories from our past that inform our understanding of the world today.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/YkcFBVYG6jvvHBRL1BxraAcOxh.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/9VvaU8b9oRDH6yzvzIIOLweCUvk.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "PBS"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {
@@ -20,10 +18,10 @@
           "archiveID": "the-american-experience-hearts-and-hands-s-1-e-12",
           "seasonNumber": 1,
           "episodeNumber": 12,
-          "title": "Hearts and Hands",
-          "overview": "The design and art of quilting yields intimate clues about the lives of 19th century women, who stitched their personal and political stories into these artifacts of history.",
+          "title": "The American Experience: Hearts And Hands (S1E12)",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/YkcFBVYG6jvvHBRL1BxraAcOxh.jpg",
-          "airDate": "1988-12-20",
+          "airDate": null,
           "year": 2023,
           "runtimeSeconds": null,
           "videoFile": {

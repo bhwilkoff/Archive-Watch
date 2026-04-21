@@ -4,13 +4,11 @@
   "title": "THE LENNY HENRY SHOW",
   "yearStart": null,
   "yearEnd": null,
-  "overview": "Sitcom based around the character of wide-boy Brixton pirate radio DJ - the \"crucialll!!!\" Delbert Wilkins, founder of the BBC (Brixton Broadcasting Corporation).  It focus on Delbert's attempts to break into the big time.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/ugHVFDlk3ALH8Kk3ZNT95FtgVsi.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/jp9CWZBICfClkqyXd47DiCvAdkM.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "BBC One"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {
@@ -20,10 +18,10 @@
           "archiveID": "tv-ark-1984-the-lenny-henry-show-s-01-e-01",
           "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "Sonny Sidles Up",
-          "overview": "He may be Brixton's 'Prince of Cool', but how will pirate broadcaster, style-counsellor and fashion model Delbert Wilkins handle the hot potato of an unexpected intrusion into his private life?",
-          "stillURL": "https://image.tmdb.org/t/p/w300/fhRE2Vk2SAYyL8izLoCzFFse2ZT.jpg",
-          "airDate": "1987-10-27",
+          "title": "THE LENNY HENRY SHOW S01E01 (BBC ONE - 4th September 1984)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ugHVFDlk3ALH8Kk3ZNT95FtgVsi.jpg",
+          "airDate": null,
           "year": null,
           "runtimeSeconds": null,
           "videoFile": {

@@ -4,13 +4,11 @@
   "title": "The Children",
   "yearStart": null,
   "yearEnd": null,
-  "overview": "An eight-year-old girl is found murdered on the patio of her home. Any one of the adults who care for her could have killed her, but which one?",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/aaqdhslczuIEEzL9P7uvvQWdVCQ.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/aRYbaJOYxTYJmnOo8s5HGHkseDj.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ITV1"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

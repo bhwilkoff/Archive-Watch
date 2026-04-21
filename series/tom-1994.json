@@ -4,14 +4,12 @@
   "title": "Tom",
   "yearStart": 1994,
   "yearEnd": 1994,
-  "overview": "Tom is an American sitcom which premiered in mid-season 1994 on CBS. Tom was cancelled after eleven episodes.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Tom Arnold",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

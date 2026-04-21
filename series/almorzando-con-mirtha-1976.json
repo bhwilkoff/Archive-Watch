@@ -8,14 +8,8 @@
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "El Nueve",
-    "eltrece",
-    "ATC",
-    "América TV",
-    "Televisión Pública Argentina"
-  ],
-  "creator": "Alejandro Romay",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

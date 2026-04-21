@@ -4,14 +4,12 @@
   "title": "Champs",
   "yearStart": 1996,
   "yearEnd": 1996,
-  "overview": "Champs is an American sitcom that aired from January 9 until August 7, 1996.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "Gary David Goldberg",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

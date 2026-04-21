@@ -4,15 +4,12 @@
   "title": "Something So Right",
   "yearStart": 1996,
   "yearEnd": 1996,
-  "overview": "Carly Davis, a twice-divorced party planner, marries Jack Farrell, a divorced English teacher. They had three children, one from each of their former marriages.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/mK3yoETbtnl41Yha35jRIH6cl2U.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/5Lt9hmGwt0dVj3JFPfnp3pMNJvY.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC",
-    "NBC"
-  ],
-  "creator": "Judd Pillot",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

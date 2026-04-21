@@ -4,26 +4,24 @@
   "title": "Top Of The Pops",
   "yearStart": 1977,
   "yearEnd": 1977,
-  "overview": "The biggest stars, the most iconic performances, the most outrageous outfits – it’s Britain’s number one pop show.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/jjfTTjVYWyD6rGHVbnC44IrsJ7P.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/q8fmM50In8xGVW0iYoENPa71kAA.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "BBC One"
-  ],
-  "creator": "Johnnie Stewart",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
-      "seasonNumber": 14,
+      "seasonNumber": null,
       "episodes": [
         {
           "archiveID": "top-of-the-pops-17th-february-1977-720p",
-          "seasonNumber": 14,
-          "episodeNumber": 6,
-          "title": "10th February 1977",
-          "overview": "A look at Britain's best-selling discs, artists, and news from the Top 30. Including performances from The Detroit Spinners, Boston, Bryan Ferry, and Heatwave. Introduced by Dave Lee Travis.",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Top Of The Pops: 17th February 1977",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/jjfTTjVYWyD6rGHVbnC44IrsJ7P.jpg",
-          "airDate": "1977-02-10",
+          "airDate": null,
           "year": 1977,
           "runtimeSeconds": null,
           "videoFile": {

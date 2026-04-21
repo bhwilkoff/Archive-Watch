@@ -4,13 +4,11 @@
   "title": "Duet",
   "yearStart": 1987,
   "yearEnd": 1987,
-  "overview": "Duet is an American sitcom that aired on Fox from April 19, 1987 to August 20, 1989. The series stars Matthew Laurance as Ben Coleman, Mary Page Keller as Laura Kelly, Chris Lemmon as Richard Phillips, and Alison LaPlaca as Linda Phillips. The series was created by Ruth Bennett and Susan Seeger, and was produced by Paramount Television.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/qZ4cnhqdj9OaUmvW34AKUhtOXc7.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/fFjAnVaBptHDi9CNqtLA1m5BNq9.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "FOX"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

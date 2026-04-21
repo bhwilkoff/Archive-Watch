@@ -6,11 +6,9 @@
   "yearEnd": 1991,
   "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/5nmtQ9jG4jOlv0eIojBINNsCLVJ.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/msP27HHtiGMhRQYaUkLGahptLbO.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "RTL"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

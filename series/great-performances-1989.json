@@ -4,13 +4,11 @@
   "title": "Great Performances",
   "yearStart": 1989,
   "yearEnd": 1989,
-  "overview": "The best in the performing arts from across America and around the world including a diverse programming portfolio of classical music, opera, popular song, musical theater, dance, drama, and performance documentaries.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/1RD6s6KEbX36Cb99pAoWmU8gkwh.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/v3WopDdgHCoNvoBS0V8eVJdurJP.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "PBS"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

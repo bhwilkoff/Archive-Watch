@@ -4,14 +4,12 @@
   "title": "Annie McGuire",
   "yearStart": 1988,
   "yearEnd": 1988,
-  "overview": "Annie McGuire is an American sitcom that aired from October 26 to December 28, 1988. The series stars Mary Tyler Moore and Dennis Arndt as newlyweds who both have kids from previous marriages.",
+  "overview": null,
   "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/467/1167813.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Elliot Shoenman",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,
@@ -43,10 +41,10 @@
           "archiveID": "annie-mc-guire",
           "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "The Hold-Up",
+          "title": "Annie McGuire S1 - E1 The Hold Up",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/467/1167813.jpg",
-          "airDate": "1988-10-26",
+          "airDate": null,
           "year": 1988,
           "runtimeSeconds": null,
           "videoFile": {

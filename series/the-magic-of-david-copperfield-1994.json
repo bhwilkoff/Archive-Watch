@@ -4,13 +4,11 @@
   "title": "The Magic Of David Copperfield",
   "yearStart": 1994,
   "yearEnd": 1994,
-  "overview": "The annual specials of magic featuring the world's leading illusionist. David Copperfield weaves a narrative with exceptional music in each of his stage illusions, often recorded before a live audience.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/ii2p9EBcRFI1uVkKBzXytRy1kTn.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/k5qNk9yKLqRLE0SjYVIRX4ubopJ.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

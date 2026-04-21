@@ -4,14 +4,12 @@
   "title": "STAT",
   "yearStart": 1991,
   "yearEnd": 1991,
-  "overview": "Stat is an American television sitcom that aired from April 16, 1991 to May 21, 1991 on ABC on Tuesday night at 9:30pm Eastern Time.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/qm58X5SQqC6NB0WVjy53m1EtlWC.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/3scIiihEeSXRhqMP7IHYEv7CAgz.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "Chris Hayward",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

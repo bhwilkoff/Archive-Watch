@@ -4,13 +4,11 @@
   "title": "GMA News Live",
   "yearStart": 1994,
   "yearEnd": 1995,
-  "overview": "GMA News Live is a now defunct hourly newscast of GMA Network. It was broadcast in English from 1987 to 1997 while Filipino from 1987 to 2002.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "GMA Network"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

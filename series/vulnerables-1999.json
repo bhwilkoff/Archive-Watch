@@ -6,12 +6,10 @@
   "yearEnd": 1999,
   "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/xr5wRHwO56yQiuz5lLf0C3AoVIf.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/rtA5KMjCbaujyckbIPDVfPdqAXy.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "eltrece"
-  ],
-  "creator": "Adrián Suar",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

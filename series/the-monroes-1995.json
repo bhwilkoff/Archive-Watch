@@ -4,14 +4,12 @@
   "title": "The Monroes",
   "yearStart": 1995,
   "yearEnd": 1995,
-  "overview": "The Monroes is a 26-segment Western television series which originally aired on ABC during the 1966-1967 season. The series centers around the story of five orphans trying to survive as a family on the frontier in the area around, what is now, Grand Teton National Park near Jackson, Wyoming.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/lxyMLztxHacKUSwEFshUkGAkQXp.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/jFDor25hF1OkajMSwG6BvUzMsjn.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "Milt Rosen",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

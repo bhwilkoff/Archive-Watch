@@ -4,19 +4,34 @@
   "title": "Emmerdale",
   "yearStart": null,
   "yearEnd": null,
-  "overview": "The lives of several families in the Yorkshire Dales revolve around a farm and the nearby village. With murders, affairs, lies, deceit, laughter and tears, it's all there in the village.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/szh6mSPgeAqs7Ijp7YHC90oGzkt.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/kkyrixKwSU6fHCUOD9QJj6XKYmi.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ITV1",
-    "ITV Yorkshire"
-  ],
-  "creator": "Kevin Laffan",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,
       "episodes": [
+        {
+          "archiveID": "emmerdale-episode-2478-28-january-1999_202403",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Emmerdale: Episode 2478 (28 January 1999)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/szh6mSPgeAqs7Ijp7YHC90oGzkt.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Emmerdale Episode 2478 (28 January 1999).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 72064592,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/emmerdale-episode-2478-28-january-1999_202403/Emmerdale Episode 2478 (28 January 1999).mp4"
+        },
         {
           "archiveID": "emmerdale-episode-2554-27-july-1999_202403",
           "seasonNumber": null,
@@ -70,29 +85,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/emmerdale-episode-2566-19-august-1999_202403/Emmerdale Episode 2566 (19 August 1999).mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 28,
-      "episodes": [
-        {
-          "archiveID": "emmerdale-episode-2478-28-january-1999_202403",
-          "seasonNumber": 28,
-          "episodeNumber": 1,
-          "title": "5 January 1999",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/szh6mSPgeAqs7Ijp7YHC90oGzkt.jpg",
-          "airDate": "1999-01-05",
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Emmerdale Episode 2478 (28 January 1999).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 72064592,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/emmerdale-episode-2478-28-january-1999_202403/Emmerdale Episode 2478 (28 January 1999).mp4"
         }
       ]
     }

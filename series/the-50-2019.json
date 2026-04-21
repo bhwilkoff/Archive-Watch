@@ -4,13 +4,11 @@
   "title": "The 50",
   "yearStart": 2019,
   "yearEnd": 2019,
-  "overview": "In an unprecedented spectacle we present to you the hottest 50 reality stars in Germany, including Jenny Elvers, Cosimo, Yasin, Cora Schumacher, Georgina Fleur and Matthias Mangiapane - all in one show! In a mysterious castle, ruled by a mischievous lion they fight not for themselves, but for their fans, one of whom will be awarded the prize money. Who will be the ultimate reality champion?",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/AwbcDhblTbQIuNDCdNLhZiPyC2t.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/bWSGmsKwyvdmbmSNxaH9xMO4lI1.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "Prime Video"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

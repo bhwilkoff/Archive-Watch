@@ -6,11 +6,9 @@
   "yearEnd": 1990,
   "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/xDbKw8BJebEPeVxeMbOimFX91tv.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/3thGpmpLjotJcHgRkXSX2CVhvCP.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "Telecinco"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

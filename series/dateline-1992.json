@@ -4,13 +4,11 @@
   "title": "Dateline",
   "yearStart": 1992,
   "yearEnd": 1992,
-  "overview": "Dateline NBC, or simply Dateline, is a weekly American television newsmagazine series. It was previously the network's flagship newsmagazine, but now focuses mainly on true crime stories with only occasional editions that focus on other topics.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/xj9zonhdomfBpEhZQmAON5u3CiB.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/4m8QH2C6hBQQ08EgwaOtOv7ATFh.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

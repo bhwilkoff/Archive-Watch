@@ -4,14 +4,12 @@
   "title": "Grady",
   "yearStart": 1975,
   "yearEnd": 1975,
-  "overview": "Grady is an spin-off of the sitcom, Sanford and Son. In this series, Fred Sanford's widower friend Grady moves out of Watts and moves in with his daughter and her family in Westwood. Executive producer Norman Lear served as a consultant to the show.\n\nRedd Foxx made a special guest appearance as Fred Sanford in the second episode. The series never found a solid audience, and was canceled after just ten episodes. Whitman Mayo returned to Sanford and Son and would go on to star in the revival series The Sanford Arms.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/1T30DqXXeWoJwDpGnOaCNGH3WDg.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Bernie Orenstein",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": 1,
@@ -20,10 +18,10 @@
           "archiveID": "gradys01e03",
           "seasonNumber": 1,
           "episodeNumber": 3,
-          "title": "Merry Birthday, Happy Xmas",
+          "title": "Grady (1975)- S01E03- Merry Birthday, Happy Xmas",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/1T30DqXXeWoJwDpGnOaCNGH3WDg.jpg",
-          "airDate": "1975-12-18",
+          "airDate": null,
           "year": 1975,
           "runtimeSeconds": null,
           "videoFile": {

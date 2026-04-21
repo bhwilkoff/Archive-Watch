@@ -4,14 +4,12 @@
   "title": "Son de diez",
   "yearStart": 1992,
   "yearEnd": 1992,
-  "overview": "The television comedy focuses on the daily life of an Argentine family living in the Federal Capital in the early 90s.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/1yX2iKlHagkjkTdUOh9wjo4MI5.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "eltrece"
-  ],
-  "creator": "Daniel Di Conza",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

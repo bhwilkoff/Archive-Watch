@@ -4,14 +4,12 @@
   "title": "Karen",
   "yearStart": 1987,
   "yearEnd": 1987,
-  "overview": "Karen is one of three NBC sitcoms set in a California apartment complex located at 90 Bristol Court. It stars Debbie Watson in the title role of 16-year-old Karen Scott, and Gina Gillespie as the tomboyish little sister Mimi.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/hsjzTrrrogVjUFoh6USQS2XxbHg.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Bob Mosher",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

@@ -4,14 +4,12 @@
   "title": "Morton & Hayes",
   "yearStart": null,
   "yearEnd": null,
-  "overview": "Morton & Hayes was a short-lived comedy television series, shown Wednesday nights at 8:30 on CBS. Only six episodes were shown, from July 24 to August 28, 1991.\n\nThis series was centered around the \"rediscovered\" work of a fictitious comedy duo.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/se0Y037BZG2AyNFOXpH077kWibr.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/qa1xX8MvirPKb2aHT23vgiGlwk2.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Rob Reiner",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

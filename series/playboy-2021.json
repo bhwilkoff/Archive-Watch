@@ -4,13 +4,11 @@
   "title": "Playboy",
   "yearStart": 2021,
   "yearEnd": 2021,
-  "overview": "Three friends dive into the dark side of the sex industry to find a missing person, facing their own fears and desires along the way.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/7Ewd3BLkE5MshNFxDFAdmDYvXkS.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/zw7jm3EzJmmzoq8LrRC46bgr1Fc.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "GagaOOLala"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

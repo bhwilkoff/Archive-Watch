@@ -4,13 +4,11 @@
   "title": "Strange but True?",
   "yearStart": 1996,
   "yearEnd": 1996,
-  "overview": "Michael Aspel explores supernatural phenomena and unexplained mysteries from ghosts and poltergeists to near death experiences, vampires and aliens.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ITV1"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {
@@ -20,10 +18,10 @@
           "archiveID": "strangebuttrue-s2e4",
           "seasonNumber": 1,
           "episodeNumber": 4,
-          "title": "Psychic Detective Nella Jones; Millboro Past Lives",
+          "title": "Strange but True? - Series 2 – Episode 4 – Miracles (incomplete – 1995)",
           "overview": null,
           "stillURL": null,
-          "airDate": "1994-11-18",
+          "airDate": null,
           "year": 1996,
           "runtimeSeconds": null,
           "videoFile": {

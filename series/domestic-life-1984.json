@@ -4,14 +4,12 @@
   "title": "Domestic Life",
   "yearStart": 1984,
   "yearEnd": 1984,
-  "overview": "Domestic Life is an American sitcom that aired on CBS from January 4, 1984 to September 11, 1984. Film star Steve Martin served as executive producer.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/2hi6cHC9gY8qKpUUHHFx86bqqzw.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Martin Mull",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

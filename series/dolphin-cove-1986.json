@@ -4,14 +4,12 @@
   "title": "Dolphin Cove",
   "yearStart": 1986,
   "yearEnd": 1986,
-  "overview": "Dolphin Cove is an American drama created by Peter Benchley, set in Queensland, Australia that aired on CBS in 1989 for eight episodes.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/fyHzckSWjaQvgKudko6uFbgumOV.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Allan Marcil",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

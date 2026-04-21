@@ -4,13 +4,11 @@
   "title": "Favorite Son",
   "yearStart": 1999,
   "yearEnd": 1999,
-  "overview": "Favorite Son is a miniseries about political intrigue that aired on NBC in 1988 a week before that year's presidential election. It starred Harry Hamlin, Linda Kozlowski, James Whitmore, Robert Loggia, John Mahoney, Ronny Cox, and a pre-Seinfeld Jason Alexander. The miniseries was adapted from the 1987 novel of the same written by Steve Sohmer, who also wrote the teleplay.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/nB7Z1VpDWI1JmC9H3JmENJNMEyU.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/toCtyj4VQQccqBktNBCpcxAXi30.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

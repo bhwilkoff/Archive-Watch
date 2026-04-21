@@ -4,14 +4,12 @@
   "title": "Buddy Faro",
   "yearStart": 1998,
   "yearEnd": 1998,
-  "overview": "Buddy Faro was the best private detective in the business, until he disappeared in 1978 after a case went bad. Twenty years later, he's brought back to Los Angeles by private detective Bob Jones and they reopen Buddy Faro Investigations.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/u1w1OmAzkwH3dN0cG96YUHGKfsl.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Mark Frost",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

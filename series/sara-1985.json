@@ -4,14 +4,12 @@
   "title": "Sara",
   "yearStart": 1985,
   "yearEnd": 1985,
-  "overview": "A newly minted attorney joins the legal aid clinic in San Francisco where her best friend works.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/ySqcek4mf9mM2BdHIXbv4RYHTEP.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/uheqhya7oU7XLPvYgOWCPnY5eRK.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Gary David Goldberg",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

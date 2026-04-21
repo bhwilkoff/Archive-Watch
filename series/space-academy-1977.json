@@ -4,26 +4,24 @@
   "title": "SPACE ACADEMY",
   "yearStart": 1977,
   "yearEnd": 1977,
-  "overview": "Space Academy is a live-action sci-fi children's television program produced by Filmation that originally aired Saturday mornings on the CBS television network, from September 10, 1977, to December 17, 1977. A total of fifteen half-hour episodes were made.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/gnjFJdwvOIGpafwmnReu2AQ763z.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/77xZMq8sAmdqMLZFm2ajgsjnBsi.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Allen Ducovny",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
-      "seasonNumber": 1,
+      "seasonNumber": null,
       "episodes": [
         {
           "archiveID": "space-academy",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Castaways in Time and Space",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "SPACE ACADEMY \"Castaways In Time And Space\"",
           "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w300/4IJfBO5WLv5CR8keURt0qm1xBDx.jpg",
-          "airDate": "1977-09-17",
+          "stillURL": "https://image.tmdb.org/t/p/w500/gnjFJdwvOIGpafwmnReu2AQ763z.jpg",
+          "airDate": null,
           "year": 1977,
           "runtimeSeconds": null,
           "videoFile": {

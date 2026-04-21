@@ -4,14 +4,12 @@
   "title": "Something Wilder",
   "yearStart": 1994,
   "yearEnd": 1994,
-  "overview": "Something Wilder is an American sitcom starring Gene Wilder that ran on NBC from October 1, 1994 until June 13, 1995. The series was created by Lee Kalcheim and Barnet Kellman.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/dd6OCAVO7WRrw68fA76LdHW5Sj8.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Barnet Kellman",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

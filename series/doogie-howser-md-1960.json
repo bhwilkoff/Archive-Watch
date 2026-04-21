@@ -4,14 +4,12 @@
   "title": "Doogie Howser, M.D",
   "yearStart": null,
   "yearEnd": null,
-  "overview": "Doogie Howser is a doctor. He is also a 16-year-old genius who graduated college at age 10 and finished medical school at age 14. But he is still a teenager, with normal teenage friends and problems. But unlike a normal teenager, he is just learning to drive while also consulting on serious medical cases like heart transplants.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/uNGrGq7tJ1GiKUsfnchC07l0Q2M.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/jIXDWBeCUEu0ttzjHBJC4sA8LzR.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "David E. Kelley",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

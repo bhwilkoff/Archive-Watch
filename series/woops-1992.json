@@ -4,13 +4,11 @@
   "title": "Woops!",
   "yearStart": 1992,
   "yearEnd": 1992,
-  "overview": "Woops! is an American post-apocalyptic sitcom that aired on the Fox network from September 27 to December 6, 1992.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/czSOViA92BbMHvVMQq2PvJit9FP.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "FOX"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

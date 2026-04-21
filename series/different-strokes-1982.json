@@ -4,15 +4,12 @@
   "title": "Different Strokes",
   "yearStart": 1982,
   "yearEnd": 1982,
-  "overview": "The series stars Gary Coleman and Todd Bridges as Arnold and Willis Jackson, two African American boys from Harlem who are taken in by a rich white Park Avenue businessman named Phillip Drummond and his daughter Kimberly, for whom their deceased mother previously worked. During the first season and first half of the second season, Charlotte Rae also starred as the Drummonds' housekeeper, Mrs. Garrett.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/3MNIPC2v9a43IJCwEYiiY327rKH.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/Ahau5SbGYBISr1fNCtCqbnxqfsV.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC",
-    "NBC"
-  ],
-  "creator": "Bernie Kukoff",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": 1,
@@ -21,10 +18,10 @@
           "archiveID": "wnew-promos-september-1984-merged",
           "seasonNumber": 1,
           "episodeNumber": 11,
-          "title": "The Club Meeting",
-          "overview": "Willis invites his neighborhood club from Harlem to visit, but things get out of hand when he tries to impress them with his new wealth.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/qbF1diZ4WViMwZpE2cgPstJleFo.jpg",
-          "airDate": "1979-01-12",
+          "title": "Different Strokes Season 4 Episode 11",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3MNIPC2v9a43IJCwEYiiY327rKH.jpg",
+          "airDate": null,
           "year": 1982,
           "runtimeSeconds": null,
           "videoFile": {

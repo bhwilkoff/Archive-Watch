@@ -4,13 +4,11 @@
   "title": "Telediario",
   "yearStart": 1988,
   "yearEnd": 1999,
-  "overview": "Telediario is a flagship television news programme, produced by the Spanish public service broadcaster Televisión Española. Three news programmes a day are broadcast domestically on TVE1 and internationally on TVE Internacional. Special international editions of Telediario are also aired on TVE Internacional every day.\n\nThe term Telediario in Spain has become synonymous with television news, with people saying 'put on the Telediario' when simply referring to news. \"Le quedan dos telediarios\" is a common colloquial Spanish expression to suggest someone's days are numbered, either literally or metaphorically.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "La 1"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

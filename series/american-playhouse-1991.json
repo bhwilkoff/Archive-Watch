@@ -4,13 +4,11 @@
   "title": "American Playhouse",
   "yearStart": 1991,
   "yearEnd": 1991,
-  "overview": "American Playhouse is an anthology television series periodically broadcast by Public Broadcasting Service in the United States.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/34LLeInneWvMyIHcCpDCrkOxDe7.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/6mCtuOIjQlOuXg938DmYZ3dvaiU.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "PBS"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

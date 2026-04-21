@@ -4,14 +4,12 @@
   "title": "Small Wonder",
   "yearStart": 1985,
   "yearEnd": 1985,
-  "overview": "When genius cybernetics engineer Ted Lawson brings home his top-secret invention, a Voice Input Child Identicant or V.I.C.I., life becomes anything but mechanical for the Lawson Family. With his boss and his nosy family living next door, Ted, his wife Joan and their son Jamie must pass Vicki off as a real child. It is easy for Joan, who cannot help doting on her like a daughter, but harder for precocious Jamie, who uses Vicki to do his homework and to ward off Harriet, the annoying redheaded girl next door.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/beaMCxE00CGMSk6MVCcvhZkwqSV.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/pU5NQApUxgBef0a0QgDJor1flH1.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "Syndication"
-  ],
-  "creator": "Howard Leeds",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

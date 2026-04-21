@@ -4,14 +4,12 @@
   "title": "The Hat Squad",
   "yearStart": 1992,
   "yearEnd": 1992,
-  "overview": "The Hat Squad is a crime drama television series that ran for only one season on CBS, during the 1992–1993 season. 13 episodes were made, but only 11 of them aired.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/yubNtXDR3METDunnmKYXLLLN1eg.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/4bfG1it7mLMtbHdVbMEH4bigVh2.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
-  "creator": "Stephen J. Cannell",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

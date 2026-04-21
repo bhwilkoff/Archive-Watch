@@ -4,14 +4,12 @@
   "title": "Stark Raving Mad",
   "yearStart": 1999,
   "yearEnd": 1999,
-  "overview": "A neurotic book editor is paired with an eccentric writer.  The series stars Tony Shalhoub and Neil Patrick Harris.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/6VhRrggGd1VbtBzk5d2nbdhHcJB.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/3TrBAVriSOfWoVa6vcOFBk5989W.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Steven Levitan",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,
@@ -43,10 +41,10 @@
           "archiveID": "stark-raving-mad-s1-e1-pilot",
           "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "Pilot",
-          "overview": "Henry McNeely's boss, Audrey, gives him a promotion he doesn't want: that of editor for flavor-of-the-month horror novelist Ian Stark -- who keeps editors like Henry keeps his backbone. Ian's eccentricities and penchant for practical jokes and spontaneous daredevil stunts -- at the expense of not actually writing a follow-up book -- threaten Henry's anal-retentive, obsessive-compulsive and fraidy-cat ways. Can two single men share a job without driving each other crazy?",
-          "stillURL": "https://image.tmdb.org/t/p/w300/mFZPxsdcT8fu8tILJQKc2fx4LeT.jpg",
-          "airDate": "1999-09-23",
+          "title": "Stark Raving Mad S1 E1 Pilot",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/6VhRrggGd1VbtBzk5d2nbdhHcJB.jpg",
+          "airDate": null,
           "year": 1999,
           "runtimeSeconds": null,
           "videoFile": {

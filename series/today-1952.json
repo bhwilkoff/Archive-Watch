@@ -4,13 +4,11 @@
   "title": "TODAY",
   "yearStart": 1952,
   "yearEnd": 1952,
-  "overview": "Today is a daily American morning television show that airs on NBC. The program debuted on January 14, 1952. It was the first of its genre on American television and in the world, and is the fifth-longest running American television series. Originally a two-hour program on weekdays, it expanded to Sundays in 1987 and Saturdays in 1992. The weekday broadcast expanded to three hours in 2000, and to four hours in 2007.\n\nToday's dominance was virtually unchallenged by the other networks until the late 1980s, when it was overtaken by ABC's Good Morning America. Today retook the Nielsen ratings lead the week of December 11, 1995, and held onto that position for 852 consecutive weeks until the week of April 9, 2012, when it was beaten by Good Morning America yet again. In 2002, Today was ranked #17 on TV Guide's 50 Greatest Television  Shows of All Time.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/prB4hKGu4YOxPknlUseCf3RnrUq.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/siQgEbkDwku6n5XFFN0IG8kjMZh.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

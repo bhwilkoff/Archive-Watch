@@ -4,14 +4,12 @@
   "title": "Hudson Street",
   "yearStart": 1995,
   "yearEnd": 1995,
-  "overview": "Tony Canetti is a divorced detective in Hoboken, New Jersey, who shares custody of his son Mickey with his ex-wife. In between work and raising his son, Tony also starts a romance with an idealistic crime reporter, Melanie.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/lWYuo0EbYTsCM53mINgD7o8Q0ie.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/4ERwLwypyNdkxtjP6shqnKQsMre.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "Randi Mayem Singer",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

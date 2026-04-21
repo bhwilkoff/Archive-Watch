@@ -4,14 +4,12 @@
   "title": "Daniel Boone",
   "yearStart": 1964,
   "yearEnd": 1964,
-  "overview": "Daniel Boone is an American action-adventure television series starring Fess Parker as Daniel Boone that aired from September 24, 1964 to September 10, 1970 on NBC for 165 episodes, and was made by 20th Century Fox Television. Ed Ames co-starred as Mingo, Boone's Cherokee friend, for the first four seasons of the series. Albert Salmi portrayed Boone's companion Yadkin in season one only. Dallas McKennon portrayed innkeeper Cincinnatus. Country Western singer-actor Jimmy Dean was a featured actor as Josh Clements during the 1968–1970 seasons. Actor and former NFL football player Rosey Grier made regular appearances as Gabe Cooper in the 1969 to 1970 season. The show was broadcast \"in living color\" beginning in fall 1965, the second season, and was shot entirely in California and Kanab, Utah.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/lL4XDk4wRELIqciMtjcrD4TQ5m6.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/ocGIgjb53YKuPoLykhxO2orKrlc.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Borden Chase",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

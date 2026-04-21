@@ -4,13 +4,11 @@
   "title": "Good Sports",
   "yearStart": 1991,
   "yearEnd": 1991,
-  "overview": "Two sports anchors—a vain, faded football star and a former Miss America—navigate a love-hate relationship both on-air and off.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/uWerLoEqB0X5dJHfByjqrHcfjM2.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/71SQkPEGwlw6sfghmM7RjOwMLmI.jpg",
+  "backdropURL": null,
   "genres": [],
-  "networks": [
-    "CBS"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {

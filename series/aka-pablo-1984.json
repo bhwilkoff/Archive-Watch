@@ -4,14 +4,12 @@
   "title": "AKA Pablo",
   "yearStart": 1984,
   "yearEnd": 1984,
-  "overview": "a.k.a. Pablo is an American sitcom that aired on ABC from March to April 1984.",
+  "overview": null,
   "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/356/890574.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ABC"
-  ],
-  "creator": "Norman Lear",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

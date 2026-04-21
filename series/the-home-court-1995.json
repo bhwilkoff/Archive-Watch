@@ -4,14 +4,12 @@
   "title": "The Home Court",
   "yearStart": 1995,
   "yearEnd": 1995,
-  "overview": "Sydney J. Solomon is a family-court judge and a divorced mother of four who tries to juggle her home and professional lives.",
+  "overview": null,
   "posterURL": "https://image.tmdb.org/t/p/w500/kf36PWsXvNLvbp4wdQrLa5yyYTK.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Denise Moss",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": null,

@@ -8,10 +8,8 @@
   "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/367/918065.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Scoey Mitchell",
+  "networks": [],
+  "creator": null,
   "seasons": [
     {
       "seasonNumber": 1,

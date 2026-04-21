@@ -4,14 +4,11 @@
   "title": "Sunday Best",
   "yearStart": 1991,
   "yearEnd": 1991,
-  "overview": "Sunday Best was GMTV's original Sunday magazine programme, launched in January 1993. It was originally intended to be a Sunday edition of the regular weekday programme, featuring the regular lifestyle and human interest stories, interviews, and news bulletins.",
+  "overview": null,
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [
-    "ITV1",
-    "GMTV (Good Morning Television)"
-  ],
+  "networks": [],
   "creator": null,
   "seasons": [
     {
