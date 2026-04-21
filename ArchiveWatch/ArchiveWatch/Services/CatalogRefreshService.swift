@@ -31,12 +31,22 @@ actor CatalogRefreshService {
     }
 
     /// Load the freshest catalog available: cache → bundle.
+    /// Kept for backward compat; new callers should use
+    /// `loadDiskCache()` instead and let AppStore handle the bundle
+    /// synchronously so UI paints immediately.
     func loadLatest() -> Catalog? {
         if let cached = tryDecode(url: cacheURL) { return cached }
         if let bundled = Bundle.main.url(forResource: "catalog", withExtension: "json") {
             return tryDecode(url: bundled)
         }
         return nil
+    }
+
+    /// Return the on-disk cache only (no bundle fallback). Used by
+    /// AppStore to layer a fresher catalog over the already-loaded
+    /// bundled one without blocking the UI on the actor hop.
+    func loadDiskCache() -> Catalog? {
+        tryDecode(url: cacheURL)
     }
 
     /// Fetch a fresh copy from GitHub Pages and cache it. Safe to call
