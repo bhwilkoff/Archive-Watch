@@ -4,11 +4,13 @@
   "title": "Trying Times",
   "yearStart": 1987,
   "yearEnd": 1989,
-  "overview": null,
+  "overview": "This half-hour sitcom anthology series that aired on PBS from 1987 to 1989 is about people struggling with the daily routines of life.",
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [],
+  "networks": [
+    "PBS"
+  ],
   "creator": null,
   "seasons": [
     {

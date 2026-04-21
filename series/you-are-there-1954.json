@@ -4,12 +4,14 @@
   "title": "You Are There",
   "yearStart": 1954,
   "yearEnd": 1954,
-  "overview": null,
+  "overview": "You Are There is an American historical educational television and radio series broadcast over the CBS Radio and CBS Television networks.",
   "posterURL": "https://image.tmdb.org/t/p/w500/dXApQQpOLmHUz7p9QmYM6j4OZI1.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [],
-  "creator": null,
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Goodman Ace",
   "seasons": [
     {
       "seasonNumber": null,

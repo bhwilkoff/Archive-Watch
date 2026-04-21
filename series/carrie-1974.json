@@ -4,12 +4,14 @@
   "title": "Carrie",
   "yearStart": 1974,
   "yearEnd": 1974,
-  "overview": null,
+  "overview": "A reimagining of the story of misfit high-schooler Carrie White, who has spent her life in seclusion with her domineering mother. After her father's sudden death, Carrie finds herself contending with the challenges of attending high school, a bullying scandal, and the emergence of mysterious telekinetic powers.",
   "posterURL": "https://image.tmdb.org/t/p/w500/7adGN2fQAhseYYMf6eVWhbI186r.jpg",
-  "backdropURL": null,
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3owSuKbZ6s2v5hhhZS29p8ZQAkd.jpg",
   "genres": [],
-  "networks": [],
-  "creator": null,
+  "networks": [
+    "Prime Video"
+  ],
+  "creator": "Mike Flanagan",
   "seasons": [
     {
       "seasonNumber": 1,
@@ -18,7 +20,7 @@
           "archiveID": "carries-war-s-01-e-01",
           "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "Carrie's War S01E01",
+          "title": "Episode 1",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7adGN2fQAhseYYMf6eVWhbI186r.jpg",
           "airDate": null,

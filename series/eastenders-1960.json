@@ -4,12 +4,14 @@
   "title": "EastEnders",
   "yearStart": null,
   "yearEnd": null,
-  "overview": null,
+  "overview": "The everyday lives of working-class residents of Albert Square, a traditional Victorian square of terrace houses surrounding a park in the East End of London's Walford borough.",
   "posterURL": "https://image.tmdb.org/t/p/w500/z4jgyI5TpoRZiJTNchkVkMrGQyz.jpg",
-  "backdropURL": null,
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4og4Eme2gHcTRaHVpZTSCDd7ZNY.jpg",
   "genres": [],
-  "networks": [],
-  "creator": null,
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Julia Smith",
   "seasons": [
     {
       "seasonNumber": null,

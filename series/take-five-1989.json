@@ -4,12 +4,14 @@
   "title": "Take Five",
   "yearStart": 1989,
   "yearEnd": 1992,
-  "overview": null,
+  "overview": "Take Five is an American sitcom that aired from April 1 until April 8, 1987.",
   "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/563/1408078.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [],
-  "creator": null,
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Babaloo Mandel",
   "seasons": [
     {
       "seasonNumber": null,

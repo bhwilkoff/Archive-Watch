@@ -40,7 +40,13 @@ final class AppStore {
         var shelves: [String: [Catalog.Item]] = [:]
 
         for it in items {
-            if it.contentType == "tv-series" {
+            // A real series card has a seriesID set by the exporter.
+            // Items with contentType == "tv-series" but no seriesID
+            // are individual TV-episode uploads that didn't pass
+            // clustering (singletons, uncertain titles); those belong
+            // in the regular pool so they appear in browse/search as
+            // single playable items rather than empty "series".
+            if it.contentType == "tv-series", it.seriesID != nil {
                 series.append(it)
             } else {
                 regular.append(it)

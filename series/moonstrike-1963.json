@@ -4,11 +4,13 @@
   "title": "Moonstrike",
   "yearStart": 1963,
   "yearEnd": 1963,
-  "overview": null,
+  "overview": "An anthology of self-contained stories about acts of resistance in occupied Europe during the Second World War. Producer Gerard Glaister drew upon his own wartime experiences, having served as a pilot in the RAF.",
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [],
+  "networks": [
+    "BBC One"
+  ],
   "creator": null,
   "seasons": [
     {
@@ -18,10 +20,10 @@
           "archiveID": "moonstrike-s01-ep16",
           "seasonNumber": 1,
           "episodeNumber": 16,
-          "title": "Moonstrike S01 E16",
+          "title": "A Girl Friend",
           "overview": null,
           "stillURL": null,
-          "airDate": null,
+          "airDate": "1963-06-06",
           "year": 1963,
           "runtimeSeconds": null,
           "videoFile": {
@@ -36,10 +38,10 @@
           "archiveID": "moonstrike-s01-ep17",
           "seasonNumber": 1,
           "episodeNumber": 17,
-          "title": "Moonstrike S01 Ep17",
+          "title": "The Biggest Bandit",
           "overview": null,
           "stillURL": null,
-          "airDate": null,
+          "airDate": "1963-06-13",
           "year": 1963,
           "runtimeSeconds": null,
           "videoFile": {
@@ -54,10 +56,10 @@
           "archiveID": "moonstrike-s01-ep22",
           "seasonNumber": 1,
           "episodeNumber": 22,
-          "title": "Moonstrike S01 Ep22",
+          "title": "The Factory",
           "overview": null,
           "stillURL": null,
-          "airDate": null,
+          "airDate": "1963-07-18",
           "year": 1963,
           "runtimeSeconds": null,
           "videoFile": {
