@@ -3,33 +3,53 @@
 enrich_artwork.py — add poster/backdrop/cast/genre metadata to the
 federated video registry, for works the base pipeline couldn't enrich.
 
-Three passes, fastest + highest-quality first:
+Passes, ordered from highest-quality-designed-art to last-resort fallback.
+Each pass COALESCEs into enrichment.poster_url so earlier wins stick.
 
-  1. TMDb /find/{imdb_id}     — for items where Archive's external-identifier
-                                gave us an IMDb ID. Hits ~4 req/sec. Returns
+  1. TMDb /find/{imdb_id}     — the primary designed-art source. Returns
                                 TMDb poster + backdrop + overview + cast +
-                                genres in one call pair. Highest quality.
+                                genres in one call pair.
 
-  2. Wikidata batched SPARQL  — for remaining items with Archive IA IDs.
-                                Queries 200 IA IDs per request (small enough
-                                to complete in ~5 sec each), collects P18
-                                (Commons poster), P57 (director), P161 (cast),
-                                P136 (genre). The original broad query timed
-                                out; batching by known IA IDs avoids that.
+  2. Fanart.tv                — secondary designed-art source keyed on
+                                IMDb ID. Community-curated "movieposter"
+                                artwork — fills gaps for older + cult
+                                films that TMDb missed. Requires
+                                FANART_TV_KEY.
 
-  3. Archive thumbnail URL    — universal fallback:
-                                https://archive.org/services/img/{id}
-                                Low-quality (first frame), but it's something
-                                visual while the app's procedural fallback
-                                would otherwise take over. Tagged with
-                                artwork_source='archive' so hasRealArtwork
-                                stays false in the exporter — the app
-                                still renders a designed procedural poster
-                                when it wants one.
+  3. OMDb                     — third designed-art source keyed on IMDb ID.
+                                Pulls `Poster` which is a high-res
+                                Amazon-hosted poster. Requires OMDB_KEY.
 
-Reads TMDb bearer token from, in priority order:
-    TMDB_BEARER_TOKEN env var
-    Secrets.xcconfig at repo root
+  4. LoC raw_json             — zero-network: extract resources[0].poster
+                                from the sources.raw_json already in the DB
+                                for loc-sourced items.
+
+  5. Wikidata batched SPARQL  — for remaining items with Archive IA IDs.
+                                Queries 80 IA IDs per request, collects P18
+                                (Commons poster), P57 (director), P161
+                                (cast), P136 (genre).
+
+  6. TMDb /search/movie       — title + year fuzzy-match for items lacking
+                                IMDb IDs, guarded by Dice bigram similarity
+                                ≥ 0.82 + ±1y year check.
+
+  7. Wikipedia pageimages     — lead infobox image, good hit rate for older
+                                films with Wikipedia articles.
+
+  8. AAPB thumbnail           — HEAD-verified stills from American Archive
+                                of Public Broadcasting for aapb-sourced
+                                items. Real stills from the program, marked
+                                as designed-ish art (hasRealArtwork=true).
+
+  9. Archive.org thumbnail    — universal last-resort fallback:
+                                services/img/{id}. First-frame grab, tagged
+                                artwork_source='archive' so the app treats
+                                it as non-designed and falls back to its
+                                procedural poster card.
+
+Reads secrets from (priority order):
+    env:    TMDB_BEARER_TOKEN, FANART_TV_KEY, OMDB_KEY
+    file:   Secrets.xcconfig at repo root (same keys)
 
 Zero state beyond the DB; safe to re-run. Uses INSERT OR IGNORE so
 existing enrichment rows survive; updates posters and archive-fallback
@@ -62,6 +82,10 @@ TMDB_IMG_BASE  = "https://image.tmdb.org/t/p/w500"
 TMDB_BDROP_URL = "https://image.tmdb.org/t/p/w1280"
 WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
 WIKIPEDIA_API  = "https://en.wikipedia.org/w/api.php"
+FANART_API     = "https://webservice.fanart.tv/v3/movies"
+OMDB_API       = "https://www.omdbapi.com/"
+AAPB_THUMB_TPL = "https://s3.amazonaws.com/americanarchive.org/thumbnail/{id}.jpg"
+TVMAZE_API     = "https://api.tvmaze.com"
 USER_AGENT = "ArchiveWatch-Enrichment/1.0 (learningischange.com) python-requests"
 
 
@@ -97,21 +121,75 @@ def normalize_title(t):
     return t
 
 
+def extract_series_title(title):
+    """Boil a messy Archive TV episode title down to its series name.
+    Archive TV uploads are noisy — 'Dragnet - Episode #18 The Big Seventeen',
+    'Twilight Zone 1959 S01', 'Green Acres Complete Series', Petticoat
+    Junction "Spur Line To Shady Rest". The series name is always the
+    prefix; we strip the episode/season/series chrome so the TV search
+    APIs can match the show."""
+    if not title: return ""
+    t = str(title)
+    # 1. Quoted episode name — everything after (and including) the first
+    #    quotation mark is episode-level chrome. '"Thriller" Caldera' is
+    #    the one exception where the quote STARTS the title; handle by
+    #    stripping leading+trailing quotes first.
+    t_stripped = t.strip().strip('"').strip("'").strip()
+    if '"' in t_stripped or "'" in t_stripped:
+        # If there's a lingering inner quote, cut at it.
+        for q in ('"', "'"):
+            idx = t_stripped.find(q)
+            if idx > 0:
+                t_stripped = t_stripped[:idx]
+                break
+    t = t_stripped
+    # 2. Cut at episode/part separators.
+    for sep in (" - Episode", " - episode", " Episode #", " episode #",
+                " Episode ", " episode ", " - Ep ", " - ep ",
+                " - ", " — ", " – ", " | ", ": ", "—"):
+        idx = t.find(sep)
+        if idx > 0:
+            t = t[:idx]
+            break
+    # 3. Strip trailing S##E## / S## / Season ## / season ## markers.
+    t = re.sub(r"\s+S\d+(\s*E\d+)?\b.*$", "", t, flags=re.IGNORECASE)
+    t = re.sub(r"\s+Season\s+\d+.*$", "", t, flags=re.IGNORECASE)
+    # 4. Strip "Complete Series/Season", "Collection", "Miniseries" suffixes.
+    t = re.sub(
+        r"\s*[\(\[]?\s*(complete|collection|series|season|miniseries|"
+        r"disc\s*\d+|part\s*\d+|vol(ume)?\s*\d+|\d+\s*episodes?)\b.*$",
+        "", t, flags=re.IGNORECASE,
+    )
+    # 5. Strip ANY (YYYY) parenthetical — whatever follows is episode
+    #    chrome, not series chrome ('The Three Stooges (1950) Colorized').
+    t = re.sub(r"\s*\(\s*\d{4}\s*\).*$", "", t)
+    # 6. Collapse whitespace, drop stray punctuation.
+    t = t.strip(" -.,;:[](){}\u2013\u2014")
+    return re.sub(r"\s+", " ", t).strip()
+
+
 # ---------------------------------------------------------------------------
-# TMDb token
+# Secret loader (env → Secrets.xcconfig → None)
 # ---------------------------------------------------------------------------
 
-def load_tmdb_token():
-    tok = os.environ.get("TMDB_BEARER_TOKEN")
-    if tok:
-        return tok
+def load_secret(name):
+    v = os.environ.get(name)
+    if v:
+        return v.strip()
     secrets = REPO / "Secrets.xcconfig"
     if secrets.exists():
+        # xcconfig strips comments — but a stray // inside a token would
+        # break the file for Xcode anyway, so the naive regex is fine.
+        pat = re.compile(rf"\s*{re.escape(name)}\s*=\s*(\S+)")
         for line in secrets.read_text(encoding="utf-8").splitlines():
-            m = re.match(r"\s*TMDB_BEARER_TOKEN\s*=\s*(\S+)", line)
+            m = pat.match(line)
             if m:
                 return m.group(1).strip()
     return None
+
+
+def load_tmdb_token():
+    return load_secret("TMDB_BEARER_TOKEN")
 
 
 # ---------------------------------------------------------------------------
@@ -640,6 +718,452 @@ def enrich_via_wikipedia(conn, *, limit=None):
 
 
 # ---------------------------------------------------------------------------
+# Pass: Fanart.tv (IMDb-ID → designed movieposter)
+# ---------------------------------------------------------------------------
+# Fanart.tv hosts community-curated artwork. For `movies`, the key fields
+# are `movieposter` (ranked by likes) and `moviebackground`. Coverage is
+# especially good for older + cult titles TMDb has passed over.
+#
+# API shape: GET /v3/movies/{imdb_id}?api_key=KEY
+#   → { "movieposter": [{url, lang, likes}, ...],
+#       "moviebackground": [{url, lang, likes}, ...], ... }
+# A 404 means "no artwork known" — benign.
+#
+# Rate limit: the personal key tier is ~5 req/sec, well within reach.
+
+def fanarttv_lookup(imdb_id, api_key, session):
+    url = f"{FANART_API}/{imdb_id}"
+    r = session.get(
+        url,
+        params={"api_key": api_key},
+        headers={"User-Agent": USER_AGENT},
+        timeout=20,
+    )
+    if r.status_code == 404:
+        return None
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+
+def _best_fanart_url(items, prefer_lang="en"):
+    """Pick the best artwork URL from a Fanart.tv list — prefer English,
+    fall back to any, break ties on `likes`."""
+    if not items:
+        return None
+    eng = [x for x in items if (x.get("lang") or "").lower() in (prefer_lang, "00")]
+    pool = eng or items
+    pool = sorted(pool, key=lambda x: int(x.get("likes") or 0), reverse=True)
+    return pool[0].get("url")
+
+
+def enrich_via_fanarttv(conn, api_key, *, limit=None):
+    """Items with IMDb IDs whose poster is missing or only an Archive
+    first-frame thumbnail → try Fanart.tv for real designed art."""
+    cur = conn.execute("""
+        SELECT e.canonical_id, e.imdb_id
+        FROM enrichment e
+        LEFT JOIN works w ON w.canonical_id = e.canonical_id
+        WHERE e.imdb_id IS NOT NULL
+          AND (e.poster_url IS NULL
+               OR e.poster_url = ''
+               OR e.poster_url LIKE 'https://archive.org/services/img/%')
+        ORDER BY w.popularity_score DESC
+    """)
+    rows = cur.fetchall()
+    if limit:
+        rows = rows[:limit]
+    total = len(rows)
+    if total == 0:
+        print("[fanart] nothing to enrich", flush=True)
+        return 0
+    print(f"[fanart] trying {total:,} items with IMDb IDs but no poster", flush=True)
+
+    session = requests.Session()
+    got = miss = 0
+    for i, (cid, imdb_id) in enumerate(rows, start=1):
+        try:
+            data = fanarttv_lookup(imdb_id, api_key, session)
+        except Exception:
+            data = None
+        poster = _best_fanart_url((data or {}).get("movieposter")) if data else None
+        if poster:
+            # Overwrite only if current is null/empty/archive-thumbnail;
+            # keep earlier higher-quality TMDb/Wikidata/Commons wins.
+            conn.execute("""
+                UPDATE enrichment SET
+                    poster_url = ?
+                WHERE canonical_id = ?
+                  AND (poster_url IS NULL
+                       OR poster_url = ''
+                       OR poster_url LIKE 'https://archive.org/services/img/%')
+            """, (poster, cid))
+            got += 1
+        else:
+            miss += 1
+        if i % 100 == 0:
+            conn.commit()
+            print(f"  [fanart] matched {got:,}, missed {miss:,}  ({i:,}/{total:,})", flush=True)
+        time.sleep(0.22)  # ~4.5 req/sec, under Fanart's personal-key ceiling
+    conn.commit()
+    print(f"[fanart] done: {got:,} matched, {miss:,} missed", flush=True)
+    return got
+
+
+# ---------------------------------------------------------------------------
+# Pass: OMDb (IMDb-ID → Poster)
+# ---------------------------------------------------------------------------
+# OMDb returns a single `Poster` URL per IMDb ID — usually the IMDb /
+# Amazon-hosted promotional image. Historically free tier was 1000
+# req/day; the patreon tier raises that. API responds `"Response": "False"`
+# with an `Error` field when unknown.
+
+def omdb_lookup(imdb_id, api_key, session):
+    r = session.get(
+        OMDB_API,
+        params={"i": imdb_id, "apikey": api_key},
+        headers={"User-Agent": USER_AGENT},
+        timeout=20,
+    )
+    if r.status_code != 200:
+        return None
+    d = r.json()
+    if str(d.get("Response", "")).lower() != "true":
+        return None
+    return d
+
+
+def enrich_via_omdb(conn, api_key, *, limit=None):
+    """Items with IMDb IDs still lacking designed art → ask OMDb. Archive
+    thumbnails count as "still lacking" since OMDb is an upgrade."""
+    cur = conn.execute("""
+        SELECT e.canonical_id, e.imdb_id
+        FROM enrichment e
+        LEFT JOIN works w ON w.canonical_id = e.canonical_id
+        WHERE e.imdb_id IS NOT NULL
+          AND (e.poster_url IS NULL
+               OR e.poster_url = ''
+               OR e.poster_url LIKE 'https://archive.org/services/img/%')
+        ORDER BY w.popularity_score DESC
+    """)
+    rows = cur.fetchall()
+    if limit:
+        rows = rows[:limit]
+    total = len(rows)
+    if total == 0:
+        print("[omdb] nothing to enrich", flush=True)
+        return 0
+    print(f"[omdb] trying {total:,} items with IMDb IDs but no poster", flush=True)
+
+    session = requests.Session()
+    got = miss = 0
+    for i, (cid, imdb_id) in enumerate(rows, start=1):
+        try:
+            data = omdb_lookup(imdb_id, api_key, session)
+        except Exception:
+            data = None
+        poster = None
+        if data:
+            p = data.get("Poster")
+            # OMDb returns "N/A" (literal string) when they have no image
+            if p and p != "N/A":
+                poster = p
+        if poster:
+            # Same overwrite rule as Fanart: only replace null/empty/archive-thumb.
+            conn.execute("""
+                UPDATE enrichment SET
+                    poster_url = ?
+                WHERE canonical_id = ?
+                  AND (poster_url IS NULL
+                       OR poster_url = ''
+                       OR poster_url LIKE 'https://archive.org/services/img/%')
+            """, (poster, cid))
+            got += 1
+        else:
+            miss += 1
+        if i % 100 == 0:
+            conn.commit()
+            print(f"  [omdb] matched {got:,}, missed {miss:,}  ({i:,}/{total:,})", flush=True)
+        # Free tier is 1000/day — we throttle lightly here and rely on
+        # the IMDb-ID pool (~1–3k items) fitting under that daily cap.
+        time.sleep(0.15)
+    conn.commit()
+    print(f"[omdb] done: {got:,} matched, {miss:,} missed", flush=True)
+    return got
+
+
+# ---------------------------------------------------------------------------
+# Pass: TMDb /search/tv  (fuzzy-match TV shows by series title + year)
+# ---------------------------------------------------------------------------
+# All prior TMDb passes key on IMDb ID — but Archive.org rarely surfaces
+# IMDb IDs for TV items, so we skip ~1k classic-TV items despite TMDb
+# having data for every one of them. This pass hits /search/tv with the
+# series title (extracted from the messy Archive episode title) and the
+# year. Match gated by Dice bigram similarity + ±1y year check — same
+# rigor as the movies search pass.
+
+def tmdb_search_tv(token, title, session):
+    """Title-only TMDb TV search. We DON'T pass first_air_date_year —
+    that filters by premiere year, and Archive TV items carry the
+    *episode* year which often lands years after the show started.
+    Year filtering is done client-side with a wide plausibility window."""
+    r = session.get(
+        f"{TMDB_API}/search/tv",
+        headers={"Authorization": f"Bearer {token}", "User-Agent": USER_AGENT},
+        params={"query": title, "include_adult": "false"},
+        timeout=20,
+    )
+    if r.status_code != 200:
+        return []
+    return (r.json().get("results") or [])[:5]
+
+
+# SQL that picks TV-ish works missing designed art. We accept both
+# strict tv_episode/tv_movie and 'unknown'-typed items that happen to
+# live in classic_tv collections (very common — the pipeline's type
+# classifier is conservative, so lots of TV is left as 'unknown').
+_TV_CANDIDATE_SQL = """
+SELECT DISTINCT w.canonical_id, w.title, w.year
+FROM works w
+LEFT JOIN enrichment e ON e.canonical_id = w.canonical_id
+LEFT JOIN sources    s ON s.canonical_id = w.canonical_id
+WHERE w.title IS NOT NULL
+  AND (e.poster_url IS NULL
+       OR e.poster_url = ''
+       OR e.poster_url LIKE 'https://archive.org/services/img/%')
+  AND (w.work_type IN ('tv_episode', 'tv_movie')
+       OR (s.source_type = 'archive_org'
+           AND (s.raw_json LIKE '%classic_tv%'
+                OR s.raw_json LIKE '%"television"%')))
+  AND w.quality_score    >= 30
+  AND w.popularity_score >= 20
+ORDER BY w.popularity_score DESC
+"""
+
+
+def enrich_via_tmdb_tv(conn, token, *, limit=None, similarity_threshold=0.82):
+    rows = conn.execute(_TV_CANDIDATE_SQL).fetchall()
+    if limit:
+        rows = rows[:limit]
+    total = len(rows)
+    if total == 0:
+        print("[tmdb-tv] nothing to enrich", flush=True)
+        return 0
+    print(f"[tmdb-tv] searching {total:,} TV titles (threshold={similarity_threshold})",
+          flush=True)
+
+    session = requests.Session()
+    got = rejected = 0
+    for i, (cid, raw_title, year) in enumerate(rows, start=1):
+        title = extract_series_title(raw_title) or raw_title
+        try:
+            results = tmdb_search_tv(token, title, session)
+        except Exception:
+            results = []
+        pick = None
+        for r in results:
+            cand_title = r.get("name") or r.get("original_name") or ""
+            cand_year  = None
+            if r.get("first_air_date"):
+                m = re.match(r"(\d{4})", str(r["first_air_date"]))
+                if m: cand_year = int(m.group(1))
+            # Year plausibility: the candidate show must have *started* at
+            # or before our year, plus a small slack (≤5y) for Archive
+            # episodes labeled with air year vs. production year, AND no
+            # more than ~30y later (rules out remakes by the same name).
+            if year and cand_year:
+                if cand_year > year + 5:     continue
+                if cand_year < year - 40:    continue
+            sim = dice_similarity(normalize_title(title), normalize_title(cand_title))
+            if sim >= similarity_threshold:
+                pick = r
+                break
+        if pick:
+            poster  = pick.get("poster_path")
+            tmdb_id = pick.get("id")
+            # Upgrade-only: same predicate as Fanart/OMDb — never overwrite
+            # designed art from a higher-quality earlier pass.
+            conn.execute("""
+                INSERT INTO enrichment (canonical_id, tmdb_id, poster_url)
+                VALUES (?, ?, ?)
+                ON CONFLICT(canonical_id) DO UPDATE SET
+                    tmdb_id    = COALESCE(enrichment.tmdb_id, excluded.tmdb_id),
+                    poster_url = CASE
+                        WHEN enrichment.poster_url IS NULL
+                          OR enrichment.poster_url = ''
+                          OR enrichment.poster_url LIKE 'https://archive.org/services/img/%'
+                        THEN excluded.poster_url
+                        ELSE enrichment.poster_url
+                    END
+            """, (
+                cid,
+                str(tmdb_id) if tmdb_id else None,
+                f"{TMDB_IMG_BASE}{poster}" if poster else None,
+            ))
+            got += 1
+        else:
+            rejected += 1
+        if i % 100 == 0:
+            conn.commit()
+            print(f"  [tmdb-tv] matched {got:,}, rejected {rejected:,}  ({i:,}/{total:,})",
+                  flush=True)
+        time.sleep(0.28)
+    conn.commit()
+    print(f"[tmdb-tv] done: {got:,} matched, {rejected:,} rejected", flush=True)
+    return got
+
+
+# ---------------------------------------------------------------------------
+# Pass: TVMaze (no key, strong classic-TV coverage)
+# ---------------------------------------------------------------------------
+# TVMaze is the fallback when TMDb's TV search misses — usually because
+# TMDb simply doesn't carry a very old or regional show. /search/shows
+# takes a free-text query and returns ranked results with image URLs.
+# Rate limit: 20 req / 10s. Throttle 0.55s/req to stay comfortably
+# under.
+
+def tvmaze_search_shows(title, session):
+    r = session.get(
+        f"{TVMAZE_API}/search/shows",
+        params={"q": title},
+        headers={"User-Agent": USER_AGENT},
+        timeout=15,
+    )
+    if r.status_code != 200:
+        return []
+    return r.json()[:5]
+
+
+def enrich_via_tvmaze(conn, *, limit=None, similarity_threshold=0.80):
+    rows = conn.execute(_TV_CANDIDATE_SQL).fetchall()
+    if limit:
+        rows = rows[:limit]
+    total = len(rows)
+    if total == 0:
+        print("[tvmaze] nothing to enrich", flush=True)
+        return 0
+    print(f"[tvmaze] searching {total:,} TV titles", flush=True)
+
+    session = requests.Session()
+    got = rejected = 0
+    for i, (cid, raw_title, year) in enumerate(rows, start=1):
+        title = extract_series_title(raw_title) or raw_title
+        try:
+            results = tvmaze_search_shows(title, session)
+        except Exception:
+            results = []
+        pick = None
+        for entry in results:
+            show = entry.get("show") or {}
+            cand_title = show.get("name") or ""
+            cand_year  = None
+            if show.get("premiered"):
+                m = re.match(r"(\d{4})", str(show["premiered"]))
+                if m: cand_year = int(m.group(1))
+            # Year guard only if both sides carry a year — TVMaze may be
+            # silent on premiered for very old shows.
+            if year and cand_year and abs(cand_year - year) > 2:
+                continue
+            sim = dice_similarity(normalize_title(title), normalize_title(cand_title))
+            if sim >= similarity_threshold:
+                pick = show
+                break
+        if pick:
+            img = (pick.get("image") or {}).get("original")
+            tvmaze_id = pick.get("id")
+            # Store poster into enrichment; also stash the tvmaze_id on the
+            # work itself if the `works.tvmaze_id` column exists (added in
+            # a pipeline migration). Silently skip the ID write if not.
+            if img:
+                conn.execute("""
+                    INSERT INTO enrichment (canonical_id, poster_url)
+                    VALUES (?, ?)
+                    ON CONFLICT(canonical_id) DO UPDATE SET
+                        poster_url = CASE
+                            WHEN enrichment.poster_url IS NULL
+                              OR enrichment.poster_url = ''
+                              OR enrichment.poster_url LIKE 'https://archive.org/services/img/%'
+                            THEN excluded.poster_url
+                            ELSE enrichment.poster_url
+                        END
+                """, (cid, img))
+                got += 1
+            else:
+                rejected += 1
+        else:
+            rejected += 1
+        if i % 100 == 0:
+            conn.commit()
+            print(f"  [tvmaze] matched {got:,}, rejected {rejected:,}  ({i:,}/{total:,})",
+                  flush=True)
+        time.sleep(0.55)
+    conn.commit()
+    print(f"[tvmaze] done: {got:,} matched, {rejected:,} rejected", flush=True)
+    return got
+
+
+# ---------------------------------------------------------------------------
+# Pass: AAPB thumbnail (HEAD-verified)
+# ---------------------------------------------------------------------------
+# AAPB hosts still-frame thumbnails at a predictable S3 path:
+#   https://s3.amazonaws.com/americanarchive.org/thumbnail/{id}.jpg
+# HEAD 200 = present and public. HEAD 403/404 = access-restricted or
+# not thumbnailed; skip those.
+#
+# These are real stills from the program — we mark them as designed art
+# (the exporter's artwork_source_for() promotes them to 'aapb' which
+# maps to hasRealArtwork=true).
+
+def aapb_head(url, session):
+    try:
+        r = session.head(url, timeout=10, allow_redirects=True)
+        return r.status_code == 200 and r.headers.get("Content-Type", "").startswith("image/")
+    except Exception:
+        return False
+
+
+def enrich_via_aapb(conn, *, limit=None):
+    cur = conn.execute("""
+        SELECT s.source_id, s.canonical_id
+        FROM sources s
+        LEFT JOIN enrichment e ON e.canonical_id = s.canonical_id
+        WHERE s.source_type = 'aapb'
+          AND (e.poster_url IS NULL OR e.poster_url = '')
+    """)
+    rows = cur.fetchall()
+    if limit:
+        rows = rows[:limit]
+    total = len(rows)
+    if total == 0:
+        print("[aapb] nothing to enrich", flush=True)
+        return 0
+    print(f"[aapb] HEAD-verifying {total:,} AAPB thumbnail URLs", flush=True)
+
+    session = requests.Session()
+    got = miss = 0
+    for i, (aapb_id, cid) in enumerate(rows, start=1):
+        url = AAPB_THUMB_TPL.format(id=aapb_id)
+        if aapb_head(url, session):
+            conn.execute("""
+                INSERT INTO enrichment (canonical_id, poster_url)
+                VALUES (?, ?)
+                ON CONFLICT(canonical_id) DO UPDATE SET
+                    poster_url = COALESCE(enrichment.poster_url, excluded.poster_url)
+            """, (cid, url))
+            got += 1
+        else:
+            miss += 1
+        if i % 200 == 0:
+            conn.commit()
+            print(f"  [aapb] matched {got:,}, missed {miss:,}  ({i:,}/{total:,})", flush=True)
+        # AAPB is an educational S3 bucket — polite pacing, no published limit.
+        time.sleep(0.05)
+    conn.commit()
+    print(f"[aapb] done: {got:,} matched, {miss:,} missed", flush=True)
+    return got
+
+
+# ---------------------------------------------------------------------------
 # Pass 3: Archive.org thumbnail fallback
 # ---------------------------------------------------------------------------
 
@@ -687,21 +1211,19 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--db", default=str(DEFAULT_DB))
     ap.add_argument("--only", choices=[
-        "tmdb", "tmdb-search", "wikidata", "wikipedia", "loc", "archive",
+        "tmdb", "fanart", "omdb", "tmdb-search", "tmdb-tv", "tvmaze",
+        "wikidata", "wikipedia", "loc", "aapb", "archive",
     ])
     ap.add_argument("--limit", type=int)
     args = ap.parse_args()
 
     conn = sqlite3.connect(args.db)
 
-    # Pass order is high-precision → broad-net → fallback. Each pass
-    # COALESCEs into enrichment.poster_url so earlier wins stick.
+    # Pass order runs highest-quality designed-art → broad-net →
+    # last-resort fallback. Each pass COALESCEs into poster_url so
+    # earlier, higher-quality wins stick.
 
-    # 1. LoC: free, already in raw_json (trivial).
-    if args.only in (None, "loc"):
-        enrich_via_loc(conn, limit=args.limit)
-
-    # 2. TMDb find by IMDb ID: highest quality.
+    # 1. TMDb find by IMDb ID — highest quality designed art.
     if args.only in (None, "tmdb"):
         tok = load_tmdb_token()
         if not tok:
@@ -709,21 +1231,61 @@ def main():
         else:
             enrich_via_tmdb(conn, tok, limit=args.limit)
 
-    # 3. Wikidata batched SPARQL by IA ID.
+    # 2. Fanart.tv — IMDb-keyed designed art, TMDb gap-filler.
+    if args.only in (None, "fanart"):
+        fan = load_secret("FANART_TV_KEY")
+        if not fan:
+            print("[fanart] no FANART_TV_KEY — skipping "
+                  "(register at fanart.tv/get-an-api-key → add to Secrets.xcconfig)",
+                  file=sys.stderr)
+        else:
+            enrich_via_fanarttv(conn, fan, limit=args.limit)
+
+    # 3. OMDb — IMDb-keyed designed art; Amazon-hosted poster.
+    if args.only in (None, "omdb"):
+        omdb = load_secret("OMDB_KEY")
+        if not omdb:
+            print("[omdb] no OMDB_KEY — skipping "
+                  "(register at omdbapi.com/apikey.aspx → add to Secrets.xcconfig)",
+                  file=sys.stderr)
+        else:
+            enrich_via_omdb(conn, omdb, limit=args.limit)
+
+    # 4. LoC raw_json extraction — zero-network.
+    if args.only in (None, "loc"):
+        enrich_via_loc(conn, limit=args.limit)
+
+    # 5. Wikidata batched SPARQL by IA ID — broad-net for items without
+    #    IMDb IDs but registered as films in Wikidata via P724.
     if args.only in (None, "wikidata"):
         enrich_via_wikidata(conn, limit=args.limit)
 
-    # 4. TMDb search by title+year with fuzzy match verification.
+    # 6. TMDb search by title+year with fuzzy match verification.
     if args.only in (None, "tmdb-search"):
         tok = load_tmdb_token()
         if tok:
             enrich_via_tmdb_search(conn, tok, limit=args.limit)
 
-    # 5. Wikipedia pageimages.
+    # 7. Wikipedia pageimages.
     if args.only in (None, "wikipedia"):
         enrich_via_wikipedia(conn, limit=args.limit)
 
-    # 6. Archive.org thumbnail fallback — universal last resort.
+    # 7.5 TMDb /search/tv — fuzzy-match TV shows. IMDb-keyed passes skip
+    #     TV entirely because Archive rarely surfaces TV IMDb IDs.
+    if args.only in (None, "tmdb-tv"):
+        tok = load_tmdb_token()
+        if tok:
+            enrich_via_tmdb_tv(conn, tok, limit=args.limit)
+
+    # 7.75 TVMaze — fills whatever TMDb-TV missed. Free, no key.
+    if args.only in (None, "tvmaze"):
+        enrich_via_tvmaze(conn, limit=args.limit)
+
+    # 8. AAPB thumbnail — real program stills, HEAD-verified.
+    if args.only in (None, "aapb"):
+        enrich_via_aapb(conn, limit=args.limit)
+
+    # 9. Archive.org thumbnail fallback — universal last resort.
     if args.only in (None, "archive"):
         fill_archive_thumbnails(conn, limit=args.limit)
 
