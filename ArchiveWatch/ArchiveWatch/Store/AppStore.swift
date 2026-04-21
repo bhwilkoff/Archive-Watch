@@ -73,10 +73,18 @@ final class AppStore {
         // on the actor hop or a network fetch. Before this refactor,
         // an empty disk cache + slow JSON decode in the actor could
         // leave the spinner up indefinitely.
+        //
+        // IMPORTANT: featured is loaded FIRST so CategoryTilesRow +
+        // accent colors are populated by the time Home first renders.
+        // The catalog assignment triggers rebuildDerived() which can
+        // take 100ms+ on the full catalog; if featured isn't set yet,
+        // Home flashes with no categories during that blocking
+        // rebuild and the user experiences "categories don't show
+        // until catalog loads".
         let bundleStart = Date()
         do {
-            catalog = try CatalogLoader.loadCatalog()
             featured = try CatalogLoader.loadFeatured()
+            catalog = try CatalogLoader.loadCatalog()
             print("[AppStore] bundle loaded in \(String(format: "%.2fs", Date().timeIntervalSince(bundleStart)))")
         } catch CatalogLoader.LoadError.bundleMissing(let name) {
             loadError = "Missing bundled resource: \(name)"

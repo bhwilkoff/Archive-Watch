@@ -14,13 +14,14 @@ import SwiftUI
 final class Router {
 
     enum Tab: String, CaseIterable, Identifiable, Hashable {
-        case home, browse, collections, search, surprise
+        case home, browse, tvShows, collections, search, surprise
         var id: String { rawValue }
 
         var title: String {
             switch self {
             case .home:        return "Home"
-            case .browse:      return "Browse"
+            case .browse:      return "Movies"
+            case .tvShows:     return "TV Shows"
             case .collections: return "Collections"
             case .search:      return "Search"
             case .surprise:    return "Surprise"
@@ -30,7 +31,8 @@ final class Router {
         var icon: String {
             switch self {
             case .home:        return "house.fill"
-            case .browse:      return "square.grid.3x2.fill"
+            case .browse:      return "film.fill"
+            case .tvShows:     return "tv.fill"
             case .collections: return "square.stack.3d.up.fill"
             case .search:      return "magnifyingglass"
             case .surprise:    return "dice.fill"
@@ -46,6 +48,7 @@ final class Router {
     // + back semantics for us.
     var homePath = NavigationPath()
     var browsePath = NavigationPath()
+    var tvShowsPath = NavigationPath()
     var collectionsPath = NavigationPath()
     var searchPath = NavigationPath()
     var surprisePath = NavigationPath()
@@ -57,6 +60,7 @@ final class Router {
         switch tab {
         case .home:        homePath.append(destination)
         case .browse:      browsePath.append(destination)
+        case .tvShows:     tvShowsPath.append(destination)
         case .collections: collectionsPath.append(destination)
         case .search:      searchPath.append(destination)
         case .surprise:    surprisePath.append(destination)
@@ -68,6 +72,7 @@ final class Router {
         switch tab {
         case .home:        if !homePath.isEmpty        { homePath.removeLast() }
         case .browse:      if !browsePath.isEmpty      { browsePath.removeLast() }
+        case .tvShows:     if !tvShowsPath.isEmpty     { tvShowsPath.removeLast() }
         case .collections: if !collectionsPath.isEmpty { collectionsPath.removeLast() }
         case .search:      if !searchPath.isEmpty      { searchPath.removeLast() }
         case .surprise:    if !surprisePath.isEmpty    { surprisePath.removeLast() }
