@@ -7,7 +7,7 @@ Operates on the committed catalogs (not the 240 MB gitignored SQLite),
 so it can run unattended in GitHub Actions. Writes three files:
 
   - shared/editorial/omdb_cache.json       (positive + negative results)
-  - docs/catalog.json                       (full hosted catalog)
+  - catalog.json                            (full hosted catalog, served by GH Pages)
   - ArchiveWatch/ArchiveWatch/catalog.json  (bundled seed catalog)
 
 Cache semantics:
@@ -39,7 +39,7 @@ import requests
 
 REPO = Path(__file__).resolve().parent.parent
 CACHE_PATH    = REPO / "shared" / "editorial" / "omdb_cache.json"
-FULL_CATALOG  = REPO / "docs" / "catalog.json"
+FULL_CATALOG  = REPO / "catalog.json"
 SEED_CATALOG  = REPO / "ArchiveWatch" / "ArchiveWatch" / "catalog.json"
 SECRETS_PATH  = REPO / "Secrets.xcconfig"
 

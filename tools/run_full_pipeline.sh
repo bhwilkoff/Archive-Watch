@@ -11,7 +11,7 @@
 # Final artifacts:
 #   • SchemaWork/video_registry.db            — source of truth DB
 #   • ArchiveWatch/ArchiveWatch/catalog.json  — bundled seed (~5–10 MB)
-#   • docs/catalog.json                       — hosted full catalog
+#   • catalog.json                       — hosted full catalog
 #   • tools/validation_report.txt             — final guardrails result
 #
 # Usage:
@@ -79,8 +79,6 @@ run python3 -u SchemaWork/registry_pipeline.py --verify-playable
 
 # ---- 4. Export both tiers -------------------------------------------------
 
-mkdir -p docs
-
 log "[4a/5] EXPORT seed (bundled, diversity-aware, ~3k items)"
 run python3 tools/export_catalog.py \
     --mode seed \
@@ -89,7 +87,7 @@ run python3 tools/export_catalog.py \
 log "[4b/5] EXPORT full (hosted, ~25k items)"
 run python3 tools/export_catalog.py \
     --mode full \
-    --out docs/catalog.json
+    --out catalog.json
 
 # ---- 5. Validate ----------------------------------------------------------
 
@@ -108,8 +106,8 @@ fi
 if [[ -f ArchiveWatch/ArchiveWatch/catalog.json ]]; then
     log "  seed: $(du -h ArchiveWatch/ArchiveWatch/catalog.json | awk '{print $1}')"
 fi
-if [[ -f docs/catalog.json ]]; then
-    log "  full: $(du -h docs/catalog.json | awk '{print $1}')"
+if [[ -f catalog.json ]]; then
+    log "  full: $(du -h catalog.json | awk '{print $1}')"
 fi
 log "  validation: tools/validation_report.txt"
 log "=========================================="
