@@ -49,6 +49,26 @@ actor CatalogRefreshService {
         tryDecode(url: cacheURL)
     }
 
+    /// Freshness window — if the currently-loaded catalog's
+    /// generatedAt is within this many seconds, don't bother fetching.
+    /// 72 hours = app boots instantly for anyone who rebuilt the app
+    /// this week; the daily rebuild workflow publishes updates that
+    /// will land on subsequent launches after the window expires.
+    private static let refreshFreshnessWindow: TimeInterval = 72 * 3600
+
+    /// Returns true when the given generatedAt (ISO8601) is within
+    /// `refreshFreshnessWindow` of now — a signal to skip the
+    /// expensive remote refresh entirely.
+    func isFresh(generatedAt: String?) -> Bool {
+        guard let s = generatedAt else { return false }
+        let f = ISO8601DateFormatter()
+        f.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        guard let d = f.date(from: s) ?? ISO8601DateFormatter().date(from: s) else {
+            return false
+        }
+        return Date().timeIntervalSince(d) < Self.refreshFreshnessWindow
+    }
+
     /// Fetch a fresh copy from GitHub Pages and cache it. Safe to call
     /// repeatedly; uses If-Modified-Since so we only download on change.
     ///

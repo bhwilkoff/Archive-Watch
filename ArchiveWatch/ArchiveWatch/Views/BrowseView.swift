@@ -31,6 +31,11 @@ struct BrowseView: View {
     @State private var sort: BrowseSort = .popular
     @State private var shuffleSeed = 0
     @State private var filtersShown = false
+    // Memoized filtered/sorted items. Recomputed ONLY when filter,
+    // sort, shuffleSeed, or catalog identity changes — NOT on every
+    // body render. The old computed-property pattern re-filtered
+    // 31,783 items on focus changes and locked the UI solid.
+    @State private var items: [Catalog.Item] = []
     @FocusState private var focusedArchiveID: String?
     // True when the view was pushed with a specific filter (from a
     // collection tile, category tile, or decade tile). In that context
@@ -45,19 +50,29 @@ struct BrowseView: View {
         self.isPreFiltered = !filter.isEmpty
     }
 
-    private var items: [Catalog.Item] {
-        guard let all = store.catalog?.items else { return [] }
-        let filtered = all.filter { it in
+    /// Grid cap when the user hasn't narrowed anything down. Browse's
+    /// LazyVGrid + tvOS focus engine chokes on tens of thousands of
+    /// cells; capping to the top N by popularity keeps navigation
+    /// snappy and still leaves plenty to wander through. Filters
+    /// + search are the natural way to dig deeper.
+    private static let unfilteredGridCap = 500
+    private static let filteredGridCap   = 2000
+
+    private func computeItems() -> [Catalog.Item] {
+        let pool = store.browseableItems
+        let filtered = pool.filter { it in
             if let c = filter.category, it.contentType != c { return false }
             if let d = filter.decade, it.decade != d { return false }
             if let g = filter.genre, !it.genres.contains(g) { return false }
             if let k = filter.collection, !it.collections.contains(k) { return false }
             return true
         }
-        return sorted(filtered)
+        let sorted = sortItems(filtered)
+        let cap = filter.isEmpty ? Self.unfilteredGridCap : Self.filteredGridCap
+        return Array(sorted.prefix(cap))
     }
 
-    private func sorted(_ xs: [Catalog.Item]) -> [Catalog.Item] {
+    private func sortItems(_ xs: [Catalog.Item]) -> [Catalog.Item] {
         switch sort {
         case .popular:      return xs.sorted { ($0.shelves.count, $0.title) > ($1.shelves.count, $1.title) }
         case .alphabetical: return xs.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
@@ -130,13 +145,19 @@ struct BrowseView: View {
         }
         .background(Color.black.ignoresSafeArea())
         .task {
-            // Same pattern as DetailView (playbook §2.5): defer one
-            // run-loop tick for layout to settle, then claim focus on
-            // the first grid item. Without this, tvOS's focus engine
-            // falls back to the sidebar when BrowseView is pushed via
-            // a collection/category/decade tile.
+            // Compute the first page once the view appears so we don't
+            // block the navigation push animation. Then defer a tick
+            // for layout + claim initial focus on the top-left cell.
+            items = computeItems()
             try? await Task.sleep(for: .milliseconds(40))
             focusedArchiveID = items.first?.archiveID
+        }
+        .onChange(of: filter) { _, _ in items = computeItems() }
+        .onChange(of: sort) { _, _ in items = computeItems() }
+        .onChange(of: shuffleSeed) { _, _ in items = computeItems() }
+        // When the background catalog refresh lands, swap in new items.
+        .onChange(of: store.catalog?.items.count ?? 0) { _, _ in
+            items = computeItems()
         }
     }
 
@@ -205,7 +226,7 @@ struct FilterChipBar: View {
                 Chip(label: "All Genres", isOn: filter.genre == nil, accent: .accentColor) {
                     filter.genre = nil
                 }
-                ForEach(topGenres, id: \.self) { g in
+                ForEach(store.topGenres, id: \.self) { g in
                     let on = filter.genre == g
                     Chip(label: g, isOn: on, accent: .accentColor) {
                         filter.genre = on ? nil : g
@@ -215,30 +236,10 @@ struct FilterChipBar: View {
         }
     }
 
-    private var availableDecades: [Int] {
-        guard let items = store.catalog?.items else { return [] }
-        let ds = Set(items.compactMap { $0.decade })
-        return ds.sorted()
-    }
-
-    // Top ~24 genres by frequency across the catalog. Caps the chip row
-    // so it doesn't turn into a wall of TMDb's entire taxonomy (which
-    // includes dozens of rarely-used labels).
-    private var topGenres: [String] {
-        guard let items = store.catalog?.items else { return [] }
-        var counts: [String: Int] = [:]
-        for item in items {
-            for g in item.genres where !g.isEmpty {
-                counts[g, default: 0] += 1
-            }
-        }
-        return counts
-            .sorted { lhs, rhs in
-                lhs.value == rhs.value ? lhs.key < rhs.key : lhs.value > rhs.value
-            }
-            .prefix(24)
-            .map { $0.key }
-    }
+    // Both `availableDecades` and `topGenres` now come from AppStore's
+    // precomputed lists (rebuilt once per catalog assignment), not a
+    // per-body scan of 31k items.
+    private var availableDecades: [Int] { store.availableDecades }
 }
 
 struct Chip: View {
