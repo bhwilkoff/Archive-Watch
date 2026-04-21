@@ -12,7 +12,7 @@ import ImageIO
 actor ImageLoader {
     static let shared = ImageLoader()
 
-    enum Failure: Error { case decode, invalidURL }
+    enum Failure: Error { case decode, invalidURL, notAnImage, httpError(Int) }
 
     private let cache = NSCache<NSURL, UIImage>()
     private var inFlight: [URL: Task<UIImage, Error>] = [:]
@@ -39,8 +39,39 @@ actor ImageLoader {
         if let task = inFlight[url] { return try await task.value }
 
         let task = Task<UIImage, Error> {
-            let (data, _) = try await session.data(from: url)
+            // Upgrade plain HTTP to HTTPS — tvOS ATS blocks plain HTTP
+            // by default. Historical catalog data has Commons URLs
+            // with http:// that we now rewrite transparently; the
+            // enrichment pipeline has been corrected to emit https://
+            // going forward.
+            var fetchURL = url
+            if var comps = URLComponents(url: url, resolvingAgainstBaseURL: false),
+               comps.scheme == "http" {
+                comps.scheme = "https"
+                fetchURL = comps.url ?? url
+            }
+
+            let (data, response) = try await session.data(from: fetchURL)
             try Task.checkCancellation()
+
+            // Validate BEFORE handing the bytes to ImageIO — non-image
+            // responses (404 HTML pages, redirects, timeouts with
+            // partial data) trigger the confusing
+            // "CGImageSourceCreateThumbnailAtIndex -50" errors in the
+            // console because ImageIO can't decode HTML as a JPEG.
+            // Rejecting them here keeps the logs clean and turns the
+            // failure into a clean placeholder instead of a log-spammy
+            // decode attempt.
+            if let http = response as? HTTPURLResponse {
+                guard (200..<300).contains(http.statusCode) else {
+                    throw Failure.httpError(http.statusCode)
+                }
+                let ct = http.value(forHTTPHeaderField: "Content-Type") ?? ""
+                if !ct.lowercased().hasPrefix("image/") {
+                    throw Failure.notAnImage
+                }
+            }
+
             let image = try await Self.decode(data: data, targetSize: targetSize, scale: scale)
             let cost = Int(image.size.width * image.size.height * image.scale * image.scale * 4)
             cache.setObject(image, forKey: url as NSURL, cost: cost)
