@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B7AC53E22F93BA0500F50803 /* featured.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E12F93BA0500F50803 /* featured.json */; };
-		B7AC53E42F93BA0500F50803 /* catalog.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E32F93BA0500F50803 /* catalog.json */; };
 		B7AC53E62F93BA0500F50803 /* collections.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E52F93BA0500F50803 /* collections.json */; };
 /* End PBXBuildFile section */
 
@@ -16,7 +15,6 @@
 		B7AC53CD2F93BA0300F50803 /* ArchiveWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArchiveWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AC53E02F93BA0500F50803 /* AppVersion.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = AppVersion.xcconfig; path = ../AppVersion.xcconfig; sourceTree = "<group>"; };
 		B7AC53E12F93BA0500F50803 /* featured.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = featured.json; path = ../featured.json; sourceTree = "<group>"; };
-		B7AC53E32F93BA0500F50803 /* catalog.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = catalog.json; path = ../catalog.json; sourceTree = "<group>"; };
 		B7AC53E52F93BA0500F50803 /* collections.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = collections.json; path = ../docs/taxonomy/collections.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,7 +42,6 @@
 			children = (
 				B7AC53E02F93BA0500F50803 /* AppVersion.xcconfig */,
 				B7AC53E12F93BA0500F50803 /* featured.json */,
-				B7AC53E32F93BA0500F50803 /* catalog.json */,
 				B7AC53E52F93BA0500F50803 /* collections.json */,
 				B7AC53CF2F93BA0300F50803 /* ArchiveWatch */,
 				B7AC53CE2F93BA0300F50803 /* Products */,
@@ -124,7 +121,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7AC53E22F93BA0500F50803 /* featured.json in Resources */,
-				B7AC53E42F93BA0500F50803 /* catalog.json in Resources */,
 				B7AC53E62F93BA0500F50803 /* collections.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,6 +41,11 @@ actor CatalogRefreshService {
 
     /// Fetch a fresh copy from GitHub Pages and cache it. Safe to call
     /// repeatedly; uses If-Modified-Since so we only download on change.
+    ///
+    /// Regression guard: if the fetched catalog has fewer than 50% of
+    /// the currently-loaded items, we reject the fetch. That protects
+    /// against a broken CI run or a rollback publishing a catastrophically
+    /// smaller catalog that would wipe the rich cache the user already has.
     @discardableResult
     func refresh() async -> Catalog? {
         var request = URLRequest(url: remoteURL)
@@ -59,6 +64,18 @@ actor CatalogRefreshService {
             if http.statusCode == 304 { return tryDecode(url: cacheURL) }
             guard http.statusCode == 200 else { return nil }
             let decoded = try JSONDecoder().decode(Catalog.self, from: data)
+
+            let currentCount = loadLatest()?.items.count ?? 0
+            let fetchedCount = decoded.items.count
+            if currentCount > 0, fetchedCount < currentCount / 2 {
+                // Refuse to cache a catalog that looks like a regression.
+                // Surfacing this via print so Xcode console shows it during
+                // development; the app keeps the better cached/bundled copy.
+                print("[CatalogRefresh] refusing fetched catalog: \(fetchedCount) items "
+                      + "< 50% of current \(currentCount). Keeping current.")
+                return nil
+            }
+
             try? data.write(to: cacheURL, options: .atomic)
             return decoded
         } catch {

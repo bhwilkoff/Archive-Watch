@@ -67,6 +67,8 @@ struct HomeView: View {
                         ShelfRow(shelf: shelf, items: Array(items.prefix(20)))
                     }
                 }
+                HiddenGemsShelf()
+                DirectorShelvesSection()
                 DecadeTilesRow()
                     .padding(.bottom, 32)
             }
