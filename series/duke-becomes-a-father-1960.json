@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "duke-becomes-a-father-1960",
+  "title": "Duke Becomes A Father",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep30_Duke_Becomes_A_Father",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep30_Duke_Becomes_A_Father",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Duke Becomes A Father",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep30_Duke_Becomes_A_Father",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH30_Duke_Becomes_A_Father.mp4",
+            "format": "h.264",
+            "sizeBytes": 147162615,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep30_Duke_Becomes_A_Father/BH30_Duke_Becomes_A_Father.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

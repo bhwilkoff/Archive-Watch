@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-falklands-war-1982",
+  "title": "The Falklands War",
+  "yearStart": 1982,
+  "yearEnd": 1982,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/thefalklandswar-part2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "thefalklandswar-part2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Falklands War (1982)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/thefalklandswar-part2",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Falklands War – Part 3.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 252631217,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thefalklandswar-part2/The Falklands War – Part 3.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

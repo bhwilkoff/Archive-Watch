@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-three-stooges-dopey-dicks-1950",
+  "title": "The Three Stooges Dopey Dicks",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-three-stooges-dopey-dicks-1950-colorized-enhanced",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-three-stooges-dopey-dicks-1950-colorized-enhanced",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Three Stooges Dopey Dicks (1950) Colorized Enhanced",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-three-stooges-dopey-dicks-1950-colorized-enhanced",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Three Stooges - Dopey Dicks (1950) Colorized Enhanced.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 92197242,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-three-stooges-dopey-dicks-1950-colorized-enhanced/The Three Stooges - Dopey Dicks (1950) Colorized Enhanced.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

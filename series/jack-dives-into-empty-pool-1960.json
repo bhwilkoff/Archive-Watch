@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jack-dives-into-empty-pool-1960",
+  "title": "Jack Dives Into Empty Pool",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/JackDivesIntoEmptyPool",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JackDivesIntoEmptyPool",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Dives Into Empty Pool",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackDivesIntoEmptyPool",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1485,
+          "videoFile": {
+            "name": "JackBenny-JackDivesIntoEmptyPool.mp4",
+            "format": "h.264",
+            "sizeBytes": 140866511,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackDivesIntoEmptyPool/JackBenny-JackDivesIntoEmptyPool.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

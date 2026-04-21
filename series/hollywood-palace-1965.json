@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "seriesID": "hollywood-palace-1965",
+  "title": "Hollywood Palace",
+  "yearStart": 1965,
+  "yearEnd": 1969,
+  "overview": "The Hollywood Palace is an hour-long American television variety show that was broadcast weekly on ABC from January 4, 1964 to February 7, 1970. Originally titled The Saturday Night Hollywood Palace, it began as a mid-season replacement for The Jerry Lewis Show, another variety show which had lasted only three months. It was staged in Hollywood at the former Hollywood Playhouse on Vine Street, which was renamed The Hollywood Palace during the show's duration and is today known as Avalon Hollywood. A little-known starlet named Raquel Welch was cast during the first season as the \"Billboard Girl\", who placed the names of the acts on a placard.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "HollywoodPalace2October1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Hollywood Palace'' - 2 October 1965",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HollywoodPalace2October1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 369313852,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalace2October1965/HollywoodPalace2October1965.mp4"
+        },
+        {
+          "archiveID": "hollywoodpalace",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Hollywood Palace'' - 18 October 1969",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "hollywoodpalace.mp4",
+            "format": "h.264",
+            "sizeBytes": 368993884,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hollywoodpalace/hollywoodpalace.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalace040266",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace - April 02, 1966",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E27-Hollywood_Palace-2_April_1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 311309137,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalace040266/S3E27-Hollywood_Palace-2_April_1966.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalace041065",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace - April 10, 1965",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E28-Hollywood_Palace-10_April_1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 253275886,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalace041065/S2E28-Hollywood_Palace-10_April_1965.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalace121264",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace - December 12, 1964",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E12-Hollywood_Palace-12_December_1964.mp4",
+            "format": "h.264",
+            "sizeBytes": 219690238,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalace121264/S2E12-Hollywood_Palace-12_December_1964.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalace021266",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace - February 12, 1966",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E20-Hollywood_Palace-12_February_1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 253315795,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalace021266/S3E20-Hollywood_Palace-12_February_1966.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalace020665",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace - February 6, 1965",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E18-Hollywood_Palace-6_February_1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 203388785,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalace020665/S2E18-Hollywood_Palace-6_February_1965.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalace032765",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace - March 27, 1965",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E26-Hollywood_Palace-27_March_1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 293332596,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalace032765/S2E26-Hollywood_Palace-27_March_1965.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalace050666",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace - May 7, 1966",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E32-Hollywood_Palace-7_May_1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 211426985,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalace050666/S3E32-Hollywood_Palace-7_May_1966.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalace111365",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace - November 13, 1965",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E08-Hollywood_Palace-13_November_1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 237690644,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalace111365/S3E08-Hollywood_Palace-13_November_1965.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalace100265",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace - October 2, 1965",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E3-Hollywood_Palace-2_October_1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 274523214,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalace100265/S3E3-Hollywood_Palace-2_October_1965.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalace091766",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Palace - September 17, 1966",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S4E01-Hollywood_Palace-17_September_1966.mp4",
+            "format": "h.264",
+            "sizeBytes": 244440026,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalace091766/S4E01-Hollywood_Palace-17_September_1966.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12
+}

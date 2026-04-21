@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "re-created-ghoulardi-shows-1966",
+  "title": "Re-Created Ghoulardi shows",
+  "yearStart": 1966,
+  "yearEnd": 1966,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Ghoulardi",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Ghoulardi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Re-Created Ghoulardi shows",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ghoulardi",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ghoulardi, The Hypnotic Eye.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1295738004,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ghoulardi/Ghoulardi, The Hypnotic Eye.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

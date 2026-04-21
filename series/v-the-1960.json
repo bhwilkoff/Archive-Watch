@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "v-the-1960",
+  "title": "V The",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/v-the-series-1984-85-s-01e-01-liberation-day-hevc",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "v-the-series-1984-85-s-01e-01-liberation-day-hevc",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "V The Series (1984-1985) Complete Series HD",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/v-the-series-1984-85-s-01e-01-liberation-day-hevc",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "V The Series (1984-85) s01e18 The Secret Underground.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 266954338,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/v-the-series-1984-85-s-01e-01-liberation-day-hevc/V The Series (1984-85) s01e18 The Secret Underground.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

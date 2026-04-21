@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "scooby-doo-where-are-you-original-1969-intro-1969",
+  "title": "Scooby Doo Where Are You (original 1969 Intro",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/scooby-doo_20210808",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "scooby-doo_20210808",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Scooby Doo Where Are You (original 1969 Intro)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/scooby-doo_20210808",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Scooby Doo (original 1969 intro).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 3890589,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/scooby-doo_20210808/Scooby Doo (original 1969 intro).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

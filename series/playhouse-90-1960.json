@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "seriesID": "playhouse-90-1960",
+  "title": "Playhouse 90",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Playhouse 90 is an American television anthology series that was telecast on CBS from 1956 to 1960 for a total of 133 episodes. It originated from CBS Television City in Los Angeles, California. Since live anthology drama series of the mid-1950s were usually hour-long shows, the title highlighted the network's intention to present something unusual, a weekly series of hour-and-a-half dramas rather than 60-minute plays. Playhouse 90 began as a pitch by Frank Stanton—the formidable, forward-thinking right-hand man to CBS chairman William S. Paley—during a brainstorming session for program ideas. The project was ultimately developed by Hubbell Robinson, a CBS vice president who received no screen credit on Playhouse 90 but is often described as its creator.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qdnbXlILnzKfLi3FDzwSQ8y8Aqe.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Hubbell Robinson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Playhouse90-ThePlotToKillStalinPart2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Playhouse 90 - The Plot To Kill Stalin Part 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playhouse90-ThePlotToKillStalin9-25-58Part2_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 191871969,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Playhouse90-ThePlotToKillStalinPart2/Playhouse90-ThePlotToKillStalin9-25-58Part2_512kb.mp4"
+        },
+        {
+          "archiveID": "playhouse-90-requiem-for-a-heavyweight-playhouse-90-live-theater-colorized-576p-sd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Playhouse 90 – Requiem for a Heavyweight (colorized) (1962, mystery, imdb score: 8.3)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "playhouse 90-requiem for a heavyweight-playhouse 90 live theater-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 505907428,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playhouse-90-requiem-for-a-heavyweight-playhouse-90-live-theater-colorized-576p-sd/playhouse 90-requiem for a heavyweight-playhouse 90 live theater-colorized-576p-sd.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "Plathouse90-ThePlotToKillStalinPart1",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "The Plot to Kill Stalin",
+          "overview": "In late 1952, an aging and increasingly paranoid Stalin puts in motion a purge against his doctors, with anti-Semitic overtones. His lackeys, including Khrushchev, Molotov and Beria, fear it will spread to the Politburo, and plan to strike first.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+          "airDate": "1958-09-25",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playhouse90-ThePlotToKillStalin9-25-58Part1.mp4",
+            "format": "h.264",
+            "sizeBytes": 248139995,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Plathouse90-ThePlotToKillStalinPart1/Playhouse90-ThePlotToKillStalin9-25-58Part1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

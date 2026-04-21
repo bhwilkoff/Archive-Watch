@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "baby-makes-five-1983",
+  "title": "Baby Makes Five",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": "Baby Makes Five is an American comedy television series starring Peter Scolari. The series premiered April 1, 1983 on ABC.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/379/948744.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "baby-makes-five-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Baby Makes Five - Peter Scolari, Brandy Gold",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/379/948744.jpg",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Baby Makes Five - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1096116049,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/baby-makes-five-1.1/Baby Makes Five - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

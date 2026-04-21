@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "you-are-there-1954",
+  "title": "You Are There",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": "You Are There is an American historical educational television and radio series broadcast over the CBS Radio and CBS Television networks.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dXApQQpOLmHUz7p9QmYM6j4OZI1.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Goodman Ace",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "you-are-there-dec-7th-1941",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "You Are There - Dec. 7th 1941, 1954 - 16mm film",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dXApQQpOLmHUz7p9QmYM6j4OZI1.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "YouAreThere-Dec7th1941.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 454929991,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/you-are-there-dec-7th-1941/YouAreThere-Dec7th1941.mp4"
+        },
+        {
+          "archiveID": "you-are-there-joan-of-arc",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "You Are There - Joan of Arc, 1954 - 16mm film",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dXApQQpOLmHUz7p9QmYM6j4OZI1.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "YouAreThere-JoanOfArc.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 444338330,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/you-are-there-joan-of-arc/YouAreThere-JoanOfArc.mp4"
+        },
+        {
+          "archiveID": "you-are-there-wright-brothers",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "You Are There - The Wright Brothers, 1954 - 16mm film",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dXApQQpOLmHUz7p9QmYM6j4OZI1.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "YouAreThere-WrightBrothers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 332052648,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/you-are-there-wright-brothers/YouAreThere-WrightBrothers.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

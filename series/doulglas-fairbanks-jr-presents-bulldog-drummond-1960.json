@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "doulglas-fairbanks-jr-presents-bulldog-drummond-1960",
+  "title": "DOULGLAS FAIRBANKS JR presents Bulldog Drummond",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DoulglasFairbanksJrPresentsBulldogDrummond",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DoulglasFairbanksJrPresentsBulldogDrummond",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "DOULGLAS FAIRBANKS JR presents Bulldog Drummond",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DoulglasFairbanksJrPresentsBulldogDrummond",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1546,
+          "videoFile": {
+            "name": "BulldogDrummondPilot_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 112241403,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DoulglasFairbanksJrPresentsBulldogDrummond/BulldogDrummondPilot_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

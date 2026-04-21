@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "stranded-telephone-time-1957",
+  "title": "Stranded (Telephone Time",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Stranded--Telephone_Time",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Stranded--Telephone_Time",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Stranded (Telephone Time)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Stranded--Telephone_Time",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1290,
+          "videoFile": {
+            "name": "Stranded--Telephone_Time.mp4",
+            "format": "h.264",
+            "sizeBytes": 134339211,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Stranded--Telephone_Time/Stranded--Telephone_Time.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

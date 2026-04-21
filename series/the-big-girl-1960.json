@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "the-big-girl-1960",
+  "title": "The Big Girl",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "For three months, overweight participants will live in a camp and undergo physical and psychological tests. Their mentors and assistants on the path to a new life will be sports coach Eteri Tutberidze, women's rugby team coach Kirill Kosharin, nutritionist and nutritionist Dr. Regina and psychologist Anetta Orlova.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/n7BcVoWxSW0FMRSrh8efJwazLjS.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/nSCUNL90E2MaYU49MMnDixhKb9B.jpg",
+  "genres": [],
+  "networks": [
+    "Premier",
+    "Friday!"
+  ],
+  "creator": "Борис Волков",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dragnet_The_Big_Girl",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Girl",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/n7BcVoWxSW0FMRSrh8efJwazLjS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S03E31_The_Big_Girl.mp4",
+            "format": "h.264",
+            "sizeBytes": 157402568,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dragnet_The_Big_Girl/S03E31_The_Big_Girl.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

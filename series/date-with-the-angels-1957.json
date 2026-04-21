@@ -1,0 +1,339 @@
+{
+  "version": 1,
+  "seriesID": "date-with-the-angels-1957",
+  "title": "Date with the Angels",
+  "yearStart": 1957,
+  "yearEnd": 1958,
+  "overview": "Date with the Angels is an American sitcom that aired on ABC from May 10, 1957 to January 29, 1958. The series, which stars Betty White and Bill Williams, began as a late season replacement for The Ray Anthony Show for the same sponsor, Chrysler's Plymouth division. Tom Kennedy was the show's announcer and spokesman for Plymouth.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/eRfm7BwgmLitMQHN0vvQg8W387l.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Don Fedderson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DateWithTheAngels-1950sFamilySitcom-ChristmasEpisode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Date with the Angels - 1950s Family Sitcom - Christmas Episode",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1575,
+          "videoFile": {
+            "name": "DateWithTheAngels-Christmas.mp4",
+            "format": "h.264",
+            "sizeBytes": 160440646,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-1950sFamilySitcom-ChristmasEpisode/DateWithTheAngels-Christmas.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-TheTreeInTheParkway",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Date with the Angels - The Tree in the Parkway",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1568,
+          "videoFile": {
+            "name": "DateWithTheAngels-TreeInTheParkway.mp4",
+            "format": "h.264",
+            "sizeBytes": 163190211,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheTreeInTheParkway/DateWithTheAngels-TreeInTheParkway.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "DateWithTheAngels-HighFever",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "High Fever",
+          "overview": "Gus is running a fever, but the only doctor Vicki can get to make a housecall is a pediatrician.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1957-05-24",
+          "year": 1957,
+          "runtimeSeconds": 1530,
+          "videoFile": {
+            "name": "DateWithTheAngels-HighFever.mp4",
+            "format": "h.264",
+            "sizeBytes": 159593098,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-HighFever/DateWithTheAngels-HighFever.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-TheWheel",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Wheel",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1957-05-31",
+          "year": 1957,
+          "runtimeSeconds": 1561,
+          "videoFile": {
+            "name": "DateWithTheAngels-TheWheel.mp4",
+            "format": "h.264",
+            "sizeBytes": 161955565,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheWheel/DateWithTheAngels-TheWheel.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-TheFeud",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Feud",
+          "overview": "Vicki and Gus attempt to settle a dispute between feuding neighbors.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1957-06-14",
+          "year": 1957,
+          "runtimeSeconds": 1553,
+          "videoFile": {
+            "name": "DateWithTheAngels-TheFeud.mp4",
+            "format": "h.264",
+            "sizeBytes": 161740156,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheFeud/DateWithTheAngels-TheFeud.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-ShallWeDance",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Shall We Dance?",
+          "overview": "Eccentric neighbour Mr. Finlay introduces modern dance to the neighbourhoodâ€”which will never be the same.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1957-06-21",
+          "year": 1957,
+          "runtimeSeconds": 1571,
+          "videoFile": {
+            "name": "DateWithTheAngels-ShallWeDance.mp4",
+            "format": "h.264",
+            "sizeBytes": 163721540,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-ShallWeDance/DateWithTheAngels-ShallWeDance.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-TheBlueTie",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Blue Tie",
+          "overview": "Despite Gus's disapproval, Vicki reluctantly fills in as a bridal consultant at the department store.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1957-07-12",
+          "year": 1957,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "DateWithTheAngels-TheBlueTie.mp4",
+            "format": "h.264",
+            "sizeBytes": 162172649,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheBlueTie/DateWithTheAngels-TheBlueTie.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-TheSurprise",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Surprise",
+          "overview": "Gus rashly plans a surprise birthday party for Vicki.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1957-07-26",
+          "year": 1957,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "DateWithTheAngels-TheSurprise.mp4",
+            "format": "h.264",
+            "sizeBytes": 161759657,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheSurprise/DateWithTheAngels-TheSurprise.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-PikesPique",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Pike's Pique",
+          "overview": "This episode features a missing trained dog, a nutty fortune teller, and an atmospheric oceanfront carnival.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1957-08-02",
+          "year": 1957,
+          "runtimeSeconds": 1572,
+          "videoFile": {
+            "name": "DateWithTheAngels-PikesPique.mp4",
+            "format": "h.264",
+            "sizeBytes": 163125044,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-PikesPique/DateWithTheAngels-PikesPique.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-ReturnOfTheWheel",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Return of the Wheel",
+          "overview": "Vicki's destructive nephew Wheeler pays a return visit.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1957-09-06",
+          "year": 1957,
+          "runtimeSeconds": 1571,
+          "videoFile": {
+            "name": "DateWithTheAngels-ReturnOfTheWheel.mp4",
+            "format": "h.264",
+            "sizeBytes": 163775298,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-ReturnOfTheWheel/DateWithTheAngels-ReturnOfTheWheel.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-TheGorilla",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Gorilla",
+          "overview": "Practical jokes escalate among Gus and his co-workers.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1957-09-13",
+          "year": 1957,
+          "runtimeSeconds": 1574,
+          "videoFile": {
+            "name": "DateWithTheAngels-TheGorilla.mp4",
+            "format": "h.264",
+            "sizeBytes": 163649580,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheGorilla/DateWithTheAngels-TheGorilla.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-EverybodysBaby",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Everybody's Baby",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1957-09-20",
+          "year": 1957,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "DateWithTheAngels-EverybodysBaby1950s.mp4",
+            "format": "h.264",
+            "sizeBytes": 162246689,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-EverybodysBaby/DateWithTheAngels-EverybodysBaby1950s.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-CateredParty",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Catered Party",
+          "overview": "Gus is hosting a backyard party for his clients, and Vicki is worried that their earthy hired maid may upset the stuffy guests.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1957-09-27",
+          "year": 1957,
+          "runtimeSeconds": 1566,
+          "videoFile": {
+            "name": "DateWithTheAngels-CateredParty.mp4",
+            "format": "h.264",
+            "sizeBytes": 163338036,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-CateredParty/DateWithTheAngels-CateredParty.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-ChipOffTheOldBlock",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Chip Off the Old Block",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1957-12-06",
+          "year": 1957,
+          "runtimeSeconds": 1571,
+          "videoFile": {
+            "name": "DateWithTheAngelsChipOffTheOldBlock.mp4",
+            "format": "h.264",
+            "sizeBytes": 163209744,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-ChipOffTheOldBlock/DateWithTheAngelsChipOffTheOldBlock.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-TheTrain",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "The Train",
+          "overview": "It's the men against the women when a casual remark sparks a fight on a cross-country train ride between the Angels and the Clemsons.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1958-01-08",
+          "year": 1958,
+          "runtimeSeconds": 1577,
+          "videoFile": {
+            "name": "DateWithTheAngels-TheTrain.mp4",
+            "format": "h.264",
+            "sizeBytes": 163999995,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-TheTrain/DateWithTheAngels-TheTrain.mp4"
+        },
+        {
+          "archiveID": "DateWithTheAngels-DoubleTrouble",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Double Trouble",
+          "overview": "While on vacation, the Angels stay at a hotel where a a lounge singer who looks and sounds exactly like Vickie has a fight with her gangster-type boyfriend.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1958-01-15",
+          "year": 1958,
+          "runtimeSeconds": 1581,
+          "videoFile": {
+            "name": "DateWithTheAngels-DoubleTrouble.mp4",
+            "format": "h.264",
+            "sizeBytes": 165408285,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-DoubleTrouble/DateWithTheAngels-DoubleTrouble.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "DateWithTheAngels-ADayAtTheTrack",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "A Day at the Track",
+          "overview": "Vickie gets under the skin of the horse owner who invites her and Gus to the race track. He chooses his wagers after serious consideration of the horses' track records, while Vickie makes her bets based on whatever name strikes her fancy. She keeps winning and her host loses every time.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uHBIsYFfJIuqmZxNtCl3SJR1DrG.jpg",
+          "airDate": "1957-12-27",
+          "year": 1957,
+          "runtimeSeconds": 1575,
+          "videoFile": {
+            "name": "DateWithTheAngels-AdayAtTheTrack.mp4",
+            "format": "h.264",
+            "sizeBytes": 163358782,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels-ADayAtTheTrack/DateWithTheAngels-AdayAtTheTrack.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 17
+}

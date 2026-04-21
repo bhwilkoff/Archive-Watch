@@ -1,0 +1,962 @@
+{
+  "version": 1,
+  "seriesID": "playboy-after-dark-1968",
+  "title": "Playboy After Dark",
+  "yearStart": 1968,
+  "yearEnd": 1970,
+  "overview": "Playboy After Dark is an American television show hosted by Hugh Hefner. It aired in syndication through Screen Gems from 1969 to 1970 and was taped at CBS Television City in Los Angeles.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "playboy-after-dark-s01e01-1968-07-23",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Johnny Mathis, Mort Sahl; The Chambers Brothers",
+          "overview": "Show #1 (taped 23-Jul-68) Guests: --Johnny Mathis - \"\"59th Street Bridge Song\"\" --Mort Sahl--The Chambers Brothers - \"\"I Wish That It Would Rain\"\" (and possibly \"\"Good Lovin'\"\") --Bill Russell--Corbett Monica--Nadia Christen - sings \"\"Take It Easy and Free Again\"\" (in French)   Aired 10-Oct-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-07-23",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E01 - Johnny Mathis, Mort Sahl, Chambers Brothers, Bill Russell - 1968-07-23.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 524898128,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e01-1968-07-23/Playboy After Dark - S01E01 - Johnny Mathis, Mort Sahl, Chambers Brothers, Bill Russell - 1968-07-23.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e02-1968-07-24",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Roman Polanski; Sharon Tate; Della Reese; Don Adams",
+          "overview": "Show #2 (taped 24-Jul-68) Guests: --Roman Polanski (director of \"\"Rosemary's Baby')--Sharon Tate (actress, wife of Roman Polanski) --Della Reese sings \"\"No Experience Necessary,\"\" \"\"I Gotta Be Me\"\" and \"\"Don't Build Your World Around A Man\"\" --Vic Damone - \"\"Come Back To Me and A Place For Us (Theme From \"\"Romeo & Juliet\"\")\"\"--Don Adams (comedian, from \"\"Get Smart\"\")--Bill Dana (comedian)--Jackie Gayle (comedian) --The Collectors - \"\"One Act Play\"\" and \"\"Lydia Purple\"\"    Aired 07-Feb-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pmAired 22-Feb-1969 on WOR-9, New York City, Saturday 11:30pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-07-24",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E02 - Roman Polanski, Sharon Tate, Della Reese, Don Adams - 1968-07-24.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 525819780,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e02-1968-07-24/Playboy After Dark - S01E02 - Roman Polanski, Sharon Tate, Della Reese, Don Adams - 1968-07-24.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e03-1968-08-08",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Bill Cosby; Bill Medley; Iron Butterfly; Kaye Stevens",
+          "overview": "Show #3 (taped 8-Aug-68)Guests: --Bill Cosby--Bill Medley - \"\"Brown Eyed Woman\"\" and \"\"Let The Good Times Roll\"\"--Iron Butterfly - \"\"In A Gadda Da Vida\"\"--Kaye Stevens - \"\"I Want To Be Happy\"\" and \"\"That's Life\"\"--The Blossoms--Shel Silverstein - \"\"The Unicorn\"\" --Reverend Malcom Boyd   Aired 31-Jan-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pmAired 8-Mar-1969 on WOR-9, New York City, Saturday 11:30pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-08-08",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E03 - Bill Cosby, Bill Medley, Iron Butterfly - 1968-08-08.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 522789341,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e03-1968-08-08/Playboy After Dark - S01E03 - Bill Cosby, Bill Medley, Iron Butterfly - 1968-08-08.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e04-1968-08-09",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Tony Bennett; Steppenwolf; George Plimpton",
+          "overview": "Show #4 (taped 9-Aug-68)Guests:    --Tony Bennett - \"\"Yesterday I Heard the Rain\"\"--Steppenwolf - \"\"Berry Rides Again,\"\" \"\"Sookie Sookie\"\" and \"\"Born To Be Wild\"\"--Milt Kamen (comedian)--Morgana King (singer) - \"\"I Know How It Feels to Be Lonely\"\" and medley (\"\"Let It All Hang Out\"\"/\"\"Bill Bailey Won't You Please Come Home\"\")--George Plimpton (writer-editor, author of \"\"Paper Lion\"\")--Irwin Corey (comedian, a.k.a. Professor Irwin Corey) Aired 2-Feb-1969 on WOR-9, NYC, Saturday 11:30pmAired 14-Feb-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-08-09",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E04 - Tony Bennett, Steppenwolf, George Plimpton - 1968-08-09.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 538875236,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e04-1968-08-09/Playboy After Dark - S01E04 - Tony Bennett, Steppenwolf, George Plimpton - 1968-08-09.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e05-1968-08-29",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Buddy Rich, James Cotton Blues Band, Joe Williams",
+          "overview": "Show #5 (taped 29-Aug-68) Guests: --Buddy Rich--James Cotton Blues Band--Joe Williams--Sue Raney--Pat McCormick--Ray HastingsAired 12-Apr-1969 on WOR-9, NYC, Saturday 11:30pmAired 25-Apr-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-08-29",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E05 - James Cotton Blue Band, Buddy Rich, Ray Hastings, Pat Mccormick - 1968-08-29.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 535532115,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e05-1968-08-29/Playboy After Dark - S01E05 - James Cotton Blue Band, Buddy Rich, Ray Hastings, Pat Mccormick - 1968-08-29.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e06-1968-08-30",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Otto Preminger; Harry Nilsson; Norm Crosby; Rich Little",
+          "overview": "Show #6 (taped 30-Aug-68)Guests: --Norm Crosby--Rich Little--Otto Preminger (director of the film \"\"Skidoo\"\") --Harry Nilsson - performs \"\"Together,\"\" \"\"Good Old Desk\"\" and \"\"Cast And Crew\"\" (sings the \"\"Skidoo\"\" credits) --The Pair Extraordinaire - \"\"(Sittin' On) The Dock of the Bay\"\"--Carol Channing (interviewed on phone)--The Brothers Castro - medley including \"\"Maria\"\" & \"\"Guantanamera\"\"   Aired 15-Feb-1969 on WOR-9, NYC, Saturday 11:30pmAired 14-Mar-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-08-30",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E06 - Rich Little, Nilsson, Otto Preminger, Norm Crosby - 1968-08-30.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 561293561,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e06-1968-08-30/Playboy After Dark - S01E06 - Rich Little, Nilsson, Otto Preminger, Norm Crosby - 1968-08-30.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e07-1968-09-09",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Bob Newhart; Bill Cosby; O.C. Smith; Pickle Brothers",
+          "overview": "Show #7 (taped 9-Sep-68)Guests: --Bob Newhart (comedian)--O.C. Smith - \"\"Little Green Apples\"\" --Bill Cosby--Gary LeMel--The Pickle Brothers--Rod Piazza Group (rock group with  Rod \"\"Gingerman\"\" Piazza) - \"\"She's A Woman\"\" --George ChakosAired 29-Mar-1969 on WOR-9, NYC, Saturday 11:30pmAired 24-Oct-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-09-09",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E07 - George Chakos, Gary Le Mel, Bob Newhart, O.C. Smith - 1968-09-09.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 534994804,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e07-1968-09-09/Playboy After Dark - S01E07 - George Chakos, Gary Le Mel, Bob Newhart, O.C. Smith - 1968-09-09.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e08-1968-09-13",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Jim Webb; Gloria Loring; the Checkmates",
+          "overview": "Show #8 (taped 13-Sep-68) Guests: --The Checkmates - \"\"She's Looking Good\"\" & \"\"Sunny\"\"--Gloria Loring \"\"It's Too Late\"\"--Jimmy Webb (singer-composer)  - \"\"One of the Nicer Things\"\"--Harry Blackstone Jr. (magician)--Hendra and Ullett (British comedians) Aired 15-Mar-1969 on WOR-9, New York City, Saturday 11:30pmAired 18-Jul-69 (Repeat?), KTLA-5, Los Angeles, CA, Friday 9:00pm)",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-09-13",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E08 - Harry Blackstone Jr, Jimmy Webb, Gloria Loring - 1968-09-13.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 539177002,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e08-1968-09-13/Playboy After Dark - S01E08 - Harry Blackstone Jr, Jimmy Webb, Gloria Loring - 1968-09-13.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e09-1968-09-28",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Byrds; Marvin Gaye; Pat Henry; The Committee",
+          "overview": "Show #9 (taped 28-Sep-68)Guests:--Pete Barbuti (comedian)--The Committee--Pat Henry (comedian)--Sally Marr (Lenny Bruce's mother) - talks about her son, with clips of Lenny on \"\"Playboy's Penthouse\"\"--Marvin Gaye - \"\"Chained\"\" and \"\"By The Time I Get To Phoenix\"\"--The Byrds - \"\"You Ain't Goin' Nowhere\"\" and \"\"This Wheel's On Fire\"\"Aired 30-May-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pmAired 5-Jul-1969 on WOR-9, New York City, Saturday 11:30pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-09-28",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E09 - Pete Barbutti, The Byrds, The Commitee, Marvin Gaye - 1968-09-28.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 526352026,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e09-1968-09-28/Playboy After Dark - S01E09 - Pete Barbutti, The Byrds, The Commitee, Marvin Gaye - 1968-09-28.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e10-1968-09-29",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Tommy Smothers; Buffy St. Marie; Louis Nye; John Stewart",
+          "overview": "Show #10 (taped 29-Sep-68)    Guests:    --Tommy Smothers   --Buffy St. Marie   --Louis Nye   --John Stewart   --Dr. William Schultz   --The Buddy Miles Express\n\nAired 21-Feb-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm   Aired 05-Apr-1969 on WOR-9, NYC, Saturday 11:30pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-09-29",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E10 - Dr William Schultz, Tommy Smothers, Louis Nye, Buffy Ford - 1968-09-29.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 528817112,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e10-1968-09-29/Playboy After Dark - S01E10 - Dr William Schultz, Tommy Smothers, Louis Nye, Buffy Ford - 1968-09-29.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e11-1968-10-15",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Pete Seeger; Bill Cosby; Carmen McRae; Jack E. Leonard",
+          "overview": "Show #11 (taped 15-Oct-68)   Guests:    --Pete Seeger   --Bill Cosby   --Jack E. Leonard   --Carmen McRae   --Teddy Neely\n\nAired 9-May-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm   (REPEAT: 28-Nov-1969, KTLA-5)",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-10-15",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E11 - Aaron & Freddie, Jack E. Leonard, Teddy Neeley, Pete Seeger - 1968-10-15.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 528188382,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e11-1968-10-15/Playboy After Dark - S01E11 - Aaron & Freddie, Jack E. Leonard, Teddy Neeley, Pete Seeger - 1968-10-15.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e12-1968-10-16",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Bill Cosby; Jackie DeShannon; Marty Ingels; Taj Mahal",
+          "overview": "Show #12 (taped 16-Oct-68)   Guests:    --Bill Cosby   --Jackie DeShannon - \"\"I Got The Reason\"\" and \"\"Hollywood\"\"    --Jim Brown   --Louis Belson   --Marty Ingels   --Taj Mahal   --Jeremy Vernon\n\nAired 11-Apr-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-10-16",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E12 - Bill Cosby, Jackie DeShannon, Taj Mahal, Jim Brown - 1968-10-16.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 562022223,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e12-1968-10-16/Playboy After Dark - S01E12 - Bill Cosby, Jackie DeShannon, Taj Mahal, Jim Brown - 1968-10-16.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e13-1968-10-22",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Rowan & Martin; Stu Gilliam, Paul Hampton; Clara Ward Singers",
+          "overview": "Show #13 (taped 22-Oct-68) --Rowan & Martin--Stu Gilliam--Cathy Carlson - \"\"Hurts So Bad\"\" and 1 other song--Paul Hampton - \"\"The Oklahoma City Times\"\" & other song--The Clara Ward Singers - \"\"Dem Bones,\"\" \"\"Down By The Riverside\"\" & 1 other song    Aired 18-Jan-1969 on WOR-9, NYC, Sat. 11:30pm - WOR debutAired 24-Jan-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm - KTLA debut",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-10-22",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E13 - Cathy Carlson, Stu Gilliam, Paul Hampton, Rowan & Martin - 1968-10-22.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 529350048,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e13-1968-10-22/Playboy After Dark - S01E13 - Cathy Carlson, Stu Gilliam, Paul Hampton, Rowan & Martin - 1968-10-22.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e14-1968-10-23",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Don Adams; Deep Purple; Brenton Wood; Lynn Kellogg",
+          "overview": "Guests:    --Don Adams   --Jackie Gayle   --David Hemmings   --Gayle Hunnicut   --Deep Purple - \"\"Hush\"\" and 1 other song (instrumental song)   --Lynn Kellogg - \"\"Old Man River\"\"    --Brenton Wood - \"\"Gimme Little Sign\"\" and 1 other song\n\nAired 14-Nov-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-10-23",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E14 - Deep Purple, Brenton Wood, Don Adams, Jackie Gayle - 1968-10-23.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 561949697,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e14-1968-10-23/Playboy After Dark - S01E14 - Deep Purple, Brenton Wood, Don Adams, Jackie Gayle - 1968-10-23.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e15-1968-11-10",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Gore Vidal; Three Dog Night; Pat Collins; John Hartford",
+          "overview": "Show #15 (taped 10-Nov-68)   Guests:    --Pat Collins   --Gore Vidal    --John Hartford - \"\"Natural To Be Gone\"\" and 1 other song    --Three Dog Night - \"\"Nobody\"\" and \"\"Find Someone To Love\"\"\n\nAdditional guest?    --Morgana King\n\nAired 28-Mar-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-11-10",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E15 - Gore Vidal, Three Dog Night, Morgana King, Mort Sahl - 1968-11-10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 534207618,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e15-1968-11-10/Playboy After Dark - S01E15 - Gore Vidal, Three Dog Night, Morgana King, Mort Sahl - 1968-11-10.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e16-1968-11-11",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Joan Baez; Don Adams; Tommy Smothers; Avante-Garde",
+          "overview": "Show #16 (taped 11-Nov-68)Guests: --Don Adams--Larry Hankin--David Hemmings--Gayle Hunnicott--Tommy Smothers--Joan Baez - \"\"Hickory Wind\"\" and 1 other song --Avant-Garde featuring Chuck Woolery - \"\"Naturally Stoned\"\" and \"\"Follow Me\"\" (correct song title?)   Aired 1-Mar-1969 on WOR-9, New York City, Saturday 11:30pmAired 4-Apr-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-11-11",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E16 - Joan Baez, Avant-Garde, Tommy Smothers, Don Adams - 1968-11-11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 550288692,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e16-1968-11-11/Playboy After Dark - S01E16 - Joan Baez, Avant-Garde, Tommy Smothers, Don Adams - 1968-11-11.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e17-1968-11-25",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "James Brown; Three Dog Night; Bill Cosby; Soupy Sales",
+          "overview": "Show #17 (taped 25-Nov-68)Guests: --Bill Cosby--Jack Carter--Soupy Sales--Clay Tyson--James Brown - \"\"I Rule The World\"\" and \"\"Say It Loud I'm Black and I'm Proud\"\" --Three Dog Night - \"\"Celebrate\"\" and \"\"Love Me So Hard\"\" --Marva Whitney - \"\"Who Can I Turn To\"\" and \"\"Your Love\"\"    Aired 2-May-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pmAired 14-Jun-1969 on WOR-9, New York City, Saturday 11:30pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-11-25",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E17 - James Brown, Jack Carter, Three Dog Night, Soupy Sales - 1968-11-25.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 525471556,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e17-1968-11-25/Playboy After Dark - S01E17 - James Brown, Jack Carter, Three Dog Night, Soupy Sales - 1968-11-25.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e18-1968-11-26",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Don Rickles; Bill Cosby, Doug McClure; Kelly Garrett",
+          "overview": "Show #18 (taped 26-Nov-68)Guests: --Melvin Belli (attorney) --The Checkmates Ltd. performs \"\"Sittin' On The Dock Of The Bay\"\" and 1 other song --The Collage (rock group) - \"\"Any Day's A Sunday Afternoon\"\" and \"\"Rock and Roll Music\"\" --Bill Cosby (comedian) --Bob Fuller --Kelly Garrett sings \"\"Love's The Only Answer\"\" and 1 other song --Shecky Greene--Doug McClure--Don Rickles   Aired 21-Mar-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pmAired 17-May-1969 on WOR-9, New York City, Saturday 11:30pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-11-26",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E18 - Shecky Greene, Don Rickles, Melvin Belli, The Checkmates LTD - 1968-11-26.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 519079876,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e18-1968-11-26/Playboy After Dark - S01E18 - Shecky Greene, Don Rickles, Melvin Belli, The Checkmates LTD - 1968-11-26.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e19-1968-12-10",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Lou Rawls; Shelley Berman; David Steinberg; Buddy Miles Express",
+          "overview": "Show #19 (taped 10-Dec-68)    --Shelley Berman   --Buddy Miles Express - \"\"I Got You Babe\"\"    --Lou Rawls - \"\"Don't Tease Me\"\" + 1 other song    --Joanie Sommers - \"\"Tell Me All The Things\"\" and \"\"I Feel Fine\"\"    --David Steinberg   --Times Square Two\n\nAired 18-Apr-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-12-10",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E19 - Shelly Berman, Lou Rawls, Buddy Miles Express, Joanie Sommers, David Steinberg, The Times Square Two - 1968-12-10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 526184318,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e19-1968-12-10/Playboy After Dark - S01E19 - Shelly Berman, Lou Rawls, Buddy Miles Express, Joanie Sommers, David Steinberg, The Times Square Two - 1968-12-10.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e20-1968-12-11",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Nitty Gritty Dirt Band; Lou Rawls; Pat Morita; Frankie Randall",
+          "overview": "Show #20 (taped 11-Dec-68)   --Shelley Berman   --Pat Morita   --The Nitty Gritty Dirt Band - \"\"Washington at Valley Forge\"\" and \"\"Alligator Man\"\"    --Frankie Randall - \"\"For Once In My Life\"\" and \"\"Please Don't Talk About Me When I'm Gone\"\"    --Lou Rawls - \"\"Your Red Wagon\"\"   --Second City (comedy troupe)\n\nAired 28-Jun-1969 on WOR-9, NYC, Saturday 11:30pm   Aired 1-Aug-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-12-11",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E20 - Shelly Berman, Pat Morita, Nitty Gritty Dirt Band, Frankie Randall, Lou Rawls, The Second City - 1968-12-11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 527336613,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e20-1968-12-11/Playboy After Dark - S01E20 - Shelly Berman, Pat Morita, Nitty Gritty Dirt Band, Frankie Randall, Lou Rawls, The Second City - 1968-12-11.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e21-1968-12-17",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Grass Roots, Rich Little; Billy Eckstine; Paul Mazursky",
+          "overview": "Show #21 (taped 17-Dec-68)\n\n--Sammy Bow   --Bobby Doyle sings \"\"Blowin' In The Wind\"\" and a medley.   --Billy Eckstine - \"\"Loves Sweet Love\"\" and \"\"You'd Better Believe\"\"    --The Grass Roots - \"\"Bella Linda\"\" and \"\"Midnight Confessions\"\"    --Rich Little   --Paul Mazursky   --Larry Tucker\n\nAired 31-May-1969 on WOR-9, New York City, Saturday 11:30pm   Aired 31-Oct-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-12-17",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E21 - The Grass Roots, Rich Little, Billy Eckstine, Paul Mazursky - 1968-12-17.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 527821867,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e21-1968-12-17/Playboy After Dark - S01E21 - The Grass Roots, Rich Little, Billy Eckstine, Paul Mazursky - 1968-12-17.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e22-1968-12-19",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Sammy Davis Jr.; Anthony Newley; Jerry Lewis; Bill Cosby; Peter Lawford",
+          "overview": "Show #22 (taped 19-Dec-68)\n\n--Checkmates Ltd. - \"\"Hey Jude\"\"   --Bill Cosby   --Sammy Davis Jr. - \"\"I've Gotta Be Me,\"\" \"\"Who Can I Turn To?\"\" \"\"The Joker Is Me,\"\" \"\"What Kind Of Fool Am I,\"\" \"\"Once In My Lifetime\"\" and \"\"The More I See You\"\"   --Peter Lawford   --Jerry Lewis   --Larry Neiman   --Anthony Newley\n\nAired 7-Mar-1969 on KTLA-5, Los Angeles, CA, Fri. 9:00pm   Aired 9-Aug-69 on WOR-9, NYC, Saturday 11:30pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-12-19",
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E22 - Sammy Davis Jr, Anthony Newley, Jerry Lewis, Bill Cosby, Peter Lawford, Checkmates Ltd - 1968-12-19.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 537252962,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e22-1968-12-19/Playboy After Dark - S01E22 - Sammy Davis Jr, Anthony Newley, Jerry Lewis, Bill Cosby, Peter Lawford, Checkmates Ltd - 1968-12-19.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e23-1969-01-18",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Grateful Dead; Sid Caesar; Noel Harrison; Sidney Omarr",
+          "overview": "Show #23 (taped 18-Jan-69)Guest:--Sid Caesar--Elias & Shaw--The Grateful Dead - \"\"St. Stephen,\"\" \"\"Mountains of the Moon\"\" and \"\"Turn on Your Lovelight\"\"--Brendan Hanlon - \"\"Hide Your Dreams From Sight\"\" and \"\"The Shadow Of Your Smile\"\"--Noel Harrison - \"\"The Great Electric Experiment Is Over\"\" and \"\"The Last You'll See Of Me\"\"--Sidney (Sydney) Omarr   Aired 22-Mar-1969 on WOR-9, NYC, Saturday 11:30pmAired 23-May-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-01-18",
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E23 - The Grateful Dead, Sid Caesar, Noel Harrison, Sidney Omarr - 1969-01-18.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 502208548,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e23-1969-01-18/Playboy After Dark - S01E23 - The Grateful Dead, Sid Caesar, Noel Harrison, Sidney Omarr - 1969-01-18.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e24-1969-01-20",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Canned Heat; Shari Lewis; Buddy Greco; Max Lerner; Johnny Janis",
+          "overview": "Show #24 (taped 20-Jan-69)\n\n--Canned Heat - \"\"On The Road Again\"\" + 1 other song    --Colvin & Wilder   --Buddy Greco   --Johnny Janis - \"\"Love Is Like Candy\"\"    --Shari Lewis   --Max Lerner - \"\"Hello Young Lovers,\"\" \"\"Don't Let The Sun Catch You Crying\"\" and \"\"I Can't Take    My Eyes Off Of You\"\"\n\nAired 16-May-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-01-20",
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E24 - Canned Heat, Shari Lewis, Buddy Greco, Max Lerner, Johnny Janis - 1969-01-20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 500124612,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e24-1969-01-20/Playboy After Dark - S01E24 - Canned Heat, Shari Lewis, Buddy Greco, Max Lerner, Johnny Janis - 1969-01-20.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e25-1969-01-25",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Michael Caine; Meredith MacRae; Sir Douglas Quintet; Mort Sahl",
+          "overview": "Show #25 (taped 25-Jan-69)\n\n--Dr. George R. Bach    --Michael Caine   --Meredith MacRae sings \"\"Goin' Out Of My Head\"\"   --Greg Mullavey   --Sir Douglas Quintet - \"\"Mendocino\"\" and \"\"She's About A Mover\"\"    --Mort Sahl   --Sammy Shore   --The Clara Ward Singers - \"\"Joshua Fit The Battle Of Jericho\"\" and \"\"Swing Low, Sweet Chariot\"\"\n\nAired 19-Jul-1969 on WOR-9, New York City, Saturday 11:30pm   Aired 15-Aug-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-01-25",
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E25 - Michael Caine, Meredith MacRae, Sir Douglas Quintet, Mort Sahl, Sammy Shore, The Clara Ward Singers - 1969-01-25.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 529767503,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e25-1969-01-25/Playboy After Dark - S01E25 - Michael Caine, Meredith MacRae, Sir Douglas Quintet, Mort Sahl, Sammy Shore, The Clara Ward Singers - 1969-01-25.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e26-1969-01-26",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Steppenwolf; Joey Bishop; Joe Williams; Joanne Vent; Skiles & Henderson",
+          "overview": "Show #26 (taped 26-Jan-69)\n\n--Joey Bishop   --Skiles & Henderson   --Steppenwolf - \"\"Chicken Wolf\"\" and \"\"Don't Cry\"\"    --Joe Williams   --Joanne Vent - \"\"I Love You More Than You'll Ever Know\"\" + 1 other song\n\nAired 7-Nov-1969 on KTLA-5, Los Angeles, CA, Friday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-01-26",
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E26 - Steppenwolf, Joey Bishop, Joe Williams, Joanne Vent, Skiles & Henderson - 1969-01-26.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 535782430,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e26-1969-01-26/Playboy After Dark - S01E26 - Steppenwolf, Joey Bishop, Joe Williams, Joanne Vent, Skiles & Henderson - 1969-01-26.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "playboy-after-dark-s02e01-1969-10-22",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Sid Caesar; Linda Ronstadt; Joe Cocker & the Grease Band; Mort Sahl",
+          "overview": "Show #27(taped 22-Oct-69)Guests: --Sid Caesar--Joe Cocker & The Grease Band --Billy Eckstine--Linda Ronstadt - \"\"Walking Down the Line\"\" and \"\"Living Like A Fool\"\"--Mort Sahl   Aired 7-Apr-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-10-22",
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E01 - Sid Caesar, Billy Eckstine, Linda Ronstadt, Joe Cocker & the Grease Band, Mort Sahl - 1969-10-22.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 513739371,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e01-1969-10-22/Playboy After Dark - S02E01 - Sid Caesar, Billy Eckstine, Linda Ronstadt, Joe Cocker & the Grease Band, Mort Sahl - 1969-10-22.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e02-1969-10-23",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Scoey Mitchell; Sweetwater; Bill Cosby; Bill Medley; Hugh O'Brian",
+          "overview": "Show #28 (taped 23-Oct-69) Guests: --Angeline Butler - \"\"You Make Me So Very Happy\"\" and \"\"Where Are You\"\"--Bill Cosby--Bill Medley - \"\"Soul Man\"\" and \"\"For Once In My Life\"\" --Scoey Mitchell--Hugh O'Brian (actor, performs magic tricks) --SweetwaterAired 31-Mar-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-10-23",
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E02 - Scoey Mitchell, Sweetwater, Bill Cosby, Bill Medley, Hugh O'Brian - 1969-10-23.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 521851080,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e02-1969-10-23/Playboy After Dark - S02E02 - Scoey Mitchell, Sweetwater, Bill Cosby, Bill Medley, Hugh O'Brian - 1969-10-23.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e03-1969-11-05",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Carla Thomas; Don Adams; Bill Dana; The Checkmates; Amazing Kreskin",
+          "overview": "Show #29 (taped 05-Nov-69)Guests: --Don Adams--The Amazing Kreskin--The Checkmates - \"\"Sweet Caroline\"\" and \"\"Proud Mary\"\" --Bill Dana--Biff Rose - \"\"The Japanese Transistor\"\" and \"\"Molly\"\" --Carla Thomas - \"\"Where Do I Go,\"\" \"\"Abraham, Martin, and John\"\" and \"\"Sittin' On The Dock Of The Bay\"\"   Aired 10-Mar-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-11-05",
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E03 - Don Adams, Checkmates LTD, Bil Dana, Kreskin, Biff Rose, Carla Thomas - 1969-11-05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 519600389,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e03-1969-11-05/Playboy After Dark - S02E03 - Don Adams, Checkmates LTD, Bil Dana, Kreskin, Biff Rose, Carla Thomas - 1969-11-05.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e04-1969-11-20",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Sonny & Cher; Vic Damone; Canned Heat; Larry Storch; Dick Shawn",
+          "overview": "Show #30 (taped 20-Nov-69)Guests:--Canned Heat - perform 2 songs--Vic Damone (singer)--Dick Shawn (comedian)--Sonny & Cher - \"\"For Once In My Life\"\" and \"\"Can't Take My Eyes Off Of You\"\" --Larry Storch (comedian)   Aired 27-Jan-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-11-20",
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E04 - Vic Damone, Canned Heat, Dick Shawn, Sonny & Cher, Larry Storch - 1969-11-20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 514097580,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e04-1969-11-20/Playboy After Dark - S02E04 - Vic Damone, Canned Heat, Dick Shawn, Sonny & Cher, Larry Storch - 1969-11-20.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e05-1969-11-20",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Tony Bennett; Mitch Miller; Joe Williams; George Kirby; Moe Koffman",
+          "overview": "Show #31 (taped 20-Nov-69) Guests: --Tony Bennett - \"\"Because of You,\"\" \"\"Blue Velvet\"\" and \"\"Rags to Riches\"\"--George Kirby--Moe Koffman--Mitch Miller--Joe Williams - \"\"The Song Is You\"\"    Aired 10-Feb-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-11-20",
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E05 - Tony Bennett, Mitch Miller, Joe Williams, George Kirby, Moe Koffman - 1969-11-20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 513853887,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e05-1969-11-20/Playboy After Dark - S02E05 - Tony Bennett, Mitch Miller, Joe Williams, George Kirby, Moe Koffman - 1969-11-20.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e06-1969-12-03",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Lou Rawls; Tony Randall; Grand Funk Railroad; Cannonball Adderly Quintet",
+          "overview": "Show #32 (taped 03-Dec-69) Guests: --Cannonball Adderly Quintet - \"\"Hamba Nami\"\" & \"\"The Country Preacher\"\"--Grand Funk Railroad - \"\"Mr. Limousine Driver\"\" and \"\"Please Don`t Worry\"\" --Tony Randall (actor)--Lou Rawls - \"\"Dead End Street,\"\" \"\"Make the World Go Away\"\" & \"\"My Baby Loves Me\"\"--Art Metrano (comic magician)    Aired 24-Feb-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-12-03",
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E06 - Lou Rawls, Tony Randall, Grand Funk Railroad, Cannonball Adderly Quintet - 1969-12-03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 426697597,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e06-1969-12-03/Playboy After Dark - S02E06 - Lou Rawls, Tony Randall, Grand Funk Railroad, Cannonball Adderly Quintet - 1969-12-03.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e07-1969-12-03",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Ike & Tina Turner Revue; Patty Duke; Rex Reed; Louis Nye; Doug Kershaw",
+          "overview": "Show #33 (taped 03-Dec-69) Guests:--Patty Duke (actress)--Doug Kershaw (Cajun fiddler)--Louis Nye - \"\"Hello, Sam's Delicatessen\"\" --Rex Reed--Ike & Tina Turner Revue - \"\"Get Together\"\" & \"\"Higher and Higher\"\"    Aired 3-Feb-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-12-03",
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E07 - Ike & Tina Turner Revue, Patty Duke, Rex Reed, Louis Nye, Doug Kershaw - 1969-12-03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 536730590,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e07-1969-12-03/Playboy After Dark - S02E07 - Ike & Tina Turner Revue, Patty Duke, Rex Reed, Louis Nye, Doug Kershaw - 1969-12-03.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e08-1969-12-17",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Steve Allen; O.C. Smith; Nitty Gritty Dirt Band; The Blossoms",
+          "overview": "Show #34 (taped 17-Dec-69) Guests:--Steve Allen--The Blossoms - \"\"You've Lost That Loving Feeling\"\" --Clair and McMahon (comedians) --O.C. Smith - \"\"The Learning Tree\"\" and 1 other song--Nitty Gritty Dirt Band - \"\"Some of Shelley's Blues\"\" and 1 other song    Aired 3-Mar-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-12-17",
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E08 - Steve Allen, O.C. Smith, Nitty Gritty Dirt Band, The Blossoms - 1969-12-17.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 510380206,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e08-1969-12-17/Playboy After Dark - S02E08 - Steve Allen, O.C. Smith, Nitty Gritty Dirt Band, The Blossoms - 1969-12-17.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e09-1969-12-17",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Steppenwolf; John Hartford; Gig Young; Dolores Hall; McCall & Brill",
+          "overview": "Show #35 (taped 17-Dec-69)  Guests:--Dolores Hall - \"\"Something\"\" and \"\"Just Because Of You\"\"--John Hartford--Mitzi McCall & Charlie Brill (comedy team)--Steppenwolf - \"\"Berry Rides Again,\"\" \"\"Monster\"\" & \"\"From Here To There Eventually\"\"  --Gig Young   Aired 17-Mar-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-12-17",
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E09 - Steppenwolf, John Hartford, Gig Young, Dolores Hall, McCall & Brill - 1969-12-17.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 430776180,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e09-1969-12-17/Playboy After Dark - S02E09 - Steppenwolf, John Hartford, Gig Young, Dolores Hall, McCall & Brill - 1969-12-17.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e10-1970-01-07",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "James Brown; Norm Crosby; Chambers Brothers; Jack Jones",
+          "overview": "Show #36 (taped 07-Jan-70) Guests:--Vicki Anderson (singer)--James Brown - \"\"Georgia\"\" and \"\"By the Time I Get To Phoenix\"\"--The Chambers Brothers--Norm Crosby (comedian) --Jack Jones (singer)    Aired 24-Mar-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-01-07",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E10 - James Brown, Norm Crosby, Chambers Brothers, Jack Jones - 1970-01-07.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 516128318,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e10-1970-01-07/Playboy After Dark - S02E10 - James Brown, Norm Crosby, Chambers Brothers, Jack Jones - 1970-01-07.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e11-1970-01-08",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Don Adams; Lesley Gore; Fleetwood Mac; Arte Johnson",
+          "overview": "Show #37 (taped 8-Jan-70)Guests: --Don Adams--Fleetwood Mac - \"\"Rattlesnake Shake\"\" --Lesley Gore - \"\"Hello Young Lovers\"\" and \"\"Didn't We?\"\"--Arte Johnson (comedian)--Tommy Leonetti    Aired 17-Feb-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-01-08",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E11 - Don Adams, Lesley Gore, Fleetwood Mac, Arte Johnson - 1970-01-08.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 518943326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e11-1970-01-08/Playboy After Dark - S02E11 - Don Adams, Lesley Gore, Fleetwood Mac, Arte Johnson - 1970-01-08.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e12-1970-02-18",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Milton Berle; Barrie Chase; Jo Anne Worley; Tommy Joe White",
+          "overview": "Show #38 (taped 18-Feb-70)\n\n--Milton Berle   --Barrie Chase   --Muscatel   --Tommy Joe White   --Jo Anne Worley\n\nAired 14-Apr-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-02-18",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E12 - Milton Berle, Barrie Chase, Jo Anne Worley, Tommy Joe White - 1970-02-18.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 515433434,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e12-1970-02-18/Playboy After Dark - S02E12 - Milton Berle, Barrie Chase, Jo Anne Worley, Tommy Joe White - 1970-02-18.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e13-1970-02-20",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Smokey Robinson & the Miracles; Marty Ingels; Noel Harrison",
+          "overview": "Show #39 (taped 20-Feb-70) Guests:--Vic Damone (singer)--Noel Harrison (actor-singer)--Lloyd Haynes--Marty Ingels (comedian)--Smokey Robinson and The Miracles - medley of 'sad songs': \"\"Yesterlove,\"\" \"\"My Girl Has Gone,\"\" \"\"Love I Saw In You Was Just A Mirage\"\" and \"\"Tracks of My Tears\"\"--Evie Sands (singer)   Aired 21-Apr-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-02-20",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E13 - Smokey Robinson & The Miracles, Marty Ingels, Noel Harrison - 1970-02-20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 518819050,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e13-1970-02-20/Playboy After Dark - S02E13 - Smokey Robinson & The Miracles, Marty Ingels, Noel Harrison - 1970-02-20.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e14-1970-03-03",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Robert Goulet; Rich Little; Shari Lewis; Frankie Randall",
+          "overview": "Show #40 (taped 03-Mar-70) Guests: --Marilyn and Alan Bergman--Robert Goulet--Michael Legrand--Shari Lewis--Rich Little--Frankie Randall   Aired 5-May-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-03-03",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E14 - Robert Goulet, Rich Little, Shari Lewis, Frankie Randall - 1970-03-03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 512855819,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e14-1970-03-03/Playboy After Dark - S02E14 - Robert Goulet, Rich Little, Shari Lewis, Frankie Randall - 1970-03-03.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e15-1970-03-18",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Johnny Mathis; Modern Jazz Quartet; John Stewart",
+          "overview": "Show #41 (taped 18-Mar-70) Guests include: --Johnny Mathis--Modern Jazz Quartet--John Stewart   Aired 28-Apr-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-03-18",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E15 - Johnny Mathis, Modern Jazz Quartet, John Stewart - 1970-03-18.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 513737529,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e15-1970-03-18/Playboy After Dark - S02E15 - Johnny Mathis, Modern Jazz Quartet, John Stewart - 1970-03-18.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e16-1970-03-19",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Bill Cosby; The Grass Roots; Edie Adams; Robert Clary",
+          "overview": "Show #42 (taped 19-Mar-70)\n\n--Edie Adams - \"\"Everybody's Talking\"\"    --Bill Cosby   --Robert Clary    --The Grass Roots - \"\"Walkin' Through The Country\"\" and \"\"Dancing in the Streets\"\" (with a few lines from \"\"Fingertips\"\" added)   --Les McCann Ltd.   --Frankie Randall\n\nAired 12-May-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-03-19",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E16 - Bill Cosby, The Grass Roots, Edie Adams, Robert Clary - 1970-03-19.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 512955988,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e16-1970-03-19/Playboy After Dark - S02E16 - Bill Cosby, The Grass Roots, Edie Adams, Robert Clary - 1970-03-19.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e17-1970-03-20",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Sarah Vaughan; Trini Lopez; R.B. Greaves; Jackie Gayle",
+          "overview": "Show #43 (taped 20-Mar-70)\n\n--Jackie Gayle   --R.B. Greaves - \"\"Always Something There To Remind Me\"\" and \"\"Danny Boy\"\"    --The Jet Bunnies\n\n--Trini Lopez - \"\"Get Together,\"\" \"\"Raindrops Keep Falling On My Head\"\" and \"\"Let The Sunshine In\"\"   --Frankie Randall   --Sarah Vaughan\n\nAired 19-May-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-03-20",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E17 - Sarah Vaughan, Trini Lopez, R.B. Greaves, Jackie Gayle - 1970-03-20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 512923342,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e17-1970-03-20/Playboy After Dark - S02E17 - Sarah Vaughan, Trini Lopez, R.B. Greaves, Jackie Gayle - 1970-03-20.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e18-1970-04-01",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Carmen McRae; The Dillards; John Gary",
+          "overview": "Show #44 (taped 01-Apr-70)\n\n--The Dillards - \"\"Hey Boys\"\"   --John Gary   --Carmen McRae\n\nAired 26-May-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-01",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E18 - Carmen McRae, The Dillards, John Gary, Stu Gilliam, Dr. David Reuben, and Allan Sues - 1970-04-01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 424256847,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e18-1970-04-01/Playboy After Dark - S02E18 - Carmen McRae, The Dillards, John Gary, Stu Gilliam, Dr. David Reuben, and Allan Sues - 1970-04-01.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e19-1970-04-02",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Sonny Charles",
+          "overview": "Show #45 (taped April 2, 1970)\n\nGuests include:    --Sonny Charles",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-02",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E19 - Sandy Baron, Sonny Charles, Lola Falana, Don Ho, Pat Paulson - 1970-04-02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 511348563,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e19-1970-04-02/Playboy After Dark - S02E19 - Sandy Baron, Sonny Charles, Lola Falana, Don Ho, Pat Paulson - 1970-04-02.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e20-1970-04-15",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "B. B. King; Mel Torme; McCall & Brill; Barbara McNair",
+          "overview": "Show #46 (taped 15-Apr-70)\n\n--Pete Barbutti   --B. B. King - \"\"So Excited\"\" and \"\"The Thrill Is Gone\"\"   --Mitzi McCall & Charlie Brill (comedy team)   --Barbara McNair   --Mel Torme\n\nAired 14-Jul-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-15",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E20 - B. B. King, Mel Torme, McCall & Brill, Barbara McNair - 1970-04-15.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 586763819,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e20-1970-04-15/Playboy After Dark - S02E20 - B. B. King, Mel Torme, McCall & Brill, Barbara McNair - 1970-04-15.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e21-1970-04-16",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Linda Ronstadt; Country Joe & the Fish; Woodstock highlights",
+          "overview": "Show #47 (taped 16-Apr-70)\n\nGuests include:    --Country Joe & the Fish   --Linda Ronstadt   Plus, Woodstock highlights\n\nAired 9-Jun-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-16",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E21 - Linda Ronstadt, Country Joe & The Fish, Woodstock Highlights - 1970-04-16.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 516093118,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e21-1970-04-16/Playboy After Dark - S02E21 - Linda Ronstadt, Country Joe & The Fish, Woodstock Highlights - 1970-04-16.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e22-1970-04-20",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Billy Preston; Sammy Davis Jr.; Bill Medley; Moms Mabley",
+          "overview": "Show #48 (taped 20-Apr-70)\n\n--Sammy Davis Jr.    --Moms Mabley    --Bill Medley - \"\"Hold On, I'm Coming\"\"   --Billy Preston - possibly \"\"Everything Must Rust\"\"\n\nAired 21-Jul-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-20",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E22 - Billy Preston, Sammy Davis Jr,  Bill Medley, Moms Mabley - 1970-04-20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 515524076,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e22-1970-04-20/Playboy After Dark - S02E22 - Billy Preston, Sammy Davis Jr,  Bill Medley, Moms Mabley - 1970-04-20.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e23-1970-04-29",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "George Carlin; Lou Rawls; Spanky Wilson; Bossa Rio",
+          "overview": "Show #50 -- 1970 (taped 30-Apr-70)\n\n--Bossa Rio (a Bossa Nova group)   --George Carlin   --Lou Rawls - \"\"You've Made Me So Very Happy\"\"   --Spanky Wilson - \"\"Alfie\"\"\n\nAired 25-Aug-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-30",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E23 - Buddy Miles Band, Fran Jeffries, Rich Little, Vic Damone, Bruce Belland & Dave Somerville - 1970-04-29.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 518036824,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e23-1970-04-29/Playboy After Dark - S02E23 - Buddy Miles Band, Fran Jeffries, Rich Little, Vic Damone, Bruce Belland & Dave Somerville - 1970-04-29.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e24-1970-04-30",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "Buddy Miles Band",
+          "overview": "Show #49 (taped 29-Apr-70)\n\nGuests include:    --The Buddy Miles Express   other guests unknown",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-29",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E24 - George Carlin, Lou Rawls, Spanky Wilson, Bossa Rio - 1970-04-30.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 520466096,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e24-1970-04-30/Playboy After Dark - S02E24 - George Carlin, Lou Rawls, Spanky Wilson, Bossa Rio - 1970-04-30.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e25-1970-05-14",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "Frankie Lane; Marty Allen; The Cowsills; Sue Raney",
+          "overview": "Show #51 (taped 14-May-70)\n\n--The Cowsills - \"\"Where Is Love?\"\" \"\"Two By Two\"\" and \"\"Poor Boy\"\" (some sources list the last song as \"\"Ticket To Sunshine\"\" or \"\"One Way Ticket to Happy\"\")    --Nanci Roberts appears with her husband Bob Cowsill. Hugh Hefner inverviews her and the Cowsills.\n\nOther guests:    --Marty Allen (comedian)    --Frankie Laine   --Sue Raney - \"\"Games People Play\"\" and 1 other song\n\nAired 11-Aug-70, KTLA-5, Los Angeles, Tuesday 9:00pm",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-05-14",
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E25 - Frankie Lane, Marty Allen, The Cowsills, Sue Raney - 1970-05-14.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 518247809,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e25-1970-05-14/Playboy After Dark - S02E25 - Frankie Lane, Marty Allen, The Cowsills, Sue Raney - 1970-05-14.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e26-1970-05-31",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Buddy Rich; Al Frazier",
+          "overview": "Show #52\n\n--Al Frazier   --Buddy Rich   Other guests unknown.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E26 - Buddy Rich, Hal Frazier, Chita Rivera, Don Adams, Carol Burnett, Charles Strouse, Jack Cassidy - 1970-05-31.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 495478482,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e26-1970-05-31/Playboy After Dark - S02E26 - Buddy Rich, Hal Frazier, Chita Rivera, Don Adams, Carol Burnett, Charles Strouse, Jack Cassidy - 1970-05-31.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 52
+}

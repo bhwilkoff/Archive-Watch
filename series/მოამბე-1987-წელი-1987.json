@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "მოამბე-1987-წელი-1987",
+  "title": "Მოამბე 1987 Წელი",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1987_20220626",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1987_20220626",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Მოამბე 1987 Წელი",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1987_20220626",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "მოამბე 1987 წელი.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 103388572,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1987_20220626/მოამბე 1987 წელი.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

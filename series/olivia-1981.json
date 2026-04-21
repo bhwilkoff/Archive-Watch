@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "olivia-1981",
+  "title": "Olivia",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Disney+"
+  ],
+  "creator": "David Troncoso",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "olivia-198x",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Olivia - Olivia Newton John",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Olivia - 198x.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1782697872,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/olivia-198x/Olivia - 198x.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

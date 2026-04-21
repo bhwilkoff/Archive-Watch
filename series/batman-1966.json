@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "seriesID": "batman-1966",
+  "title": "BATMAN",
+  "yearStart": 1966,
+  "yearEnd": 1966,
+  "overview": "Wealthy entrepreneur Bruce Wayne and his ward Dick Grayson lead a double life: they are actually crime fighting duo Batman and Robin. A secret Batpole in the Wayne mansion leads to the Batcave, where Police Commissioner Gordon often calls with the latest emergency threatening Gotham City. Racing to the scene of the crime in the Batmobile, Batman and Robin must (with the help of their trusty Bat-utility-belt) thwart the efforts of a variety of master criminals, including The Riddler, The Joker, Catwoman, and The Penguin.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1ZEJuuDh0Zpi5ELM3Zev0GBhQ3R.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/yGKZsVJ8avlUpk6pvKzakgQ7TV9.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "William Dozier",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "batman-66",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BATMAN - Catwoman's Cameo (1966)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1ZEJuuDh0Zpi5ELM3Zev0GBhQ3R.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "7951e37f8975ed82346c945423da5009-360p_Segment_0_x264_004.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 11165186,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/batman-66/7951e37f8975ed82346c945423da5009-360p_Segment_0_x264_004.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "batman31",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Enter Batgirl, Exit Penguin",
+          "overview": "\"Enter Batgirl, Exit Penguin\", is the first episode of Season 3 of the Batman television series', first aired on ABC September 14, 1967 as its ninety-fifth episode. It guest starred Burgess Meredith as The Penguin, and also was the first appearance of Yvonne Craig as Police Commissioner Gordon's daughter, Barbara Gordon, a.k.a. Batgirl.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/1SuvlnPLCuNPkpeyEI0lp5Bb9iL.jpg",
+          "airDate": "1967-09-14",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "de2a201ec0cb6c4c643c16d83f8ce45d-360p.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 73009444,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/batman31/de2a201ec0cb6c4c643c16d83f8ce45d-360p.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

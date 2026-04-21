@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "fragment-from-1956",
+  "title": "Fragment from",
+  "yearStart": 1956,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FragmentOfBigBeat",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FragmentFromtheRobertQ.LewisShow1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fragment from \"The Robert Q. Lewis Show\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FragmentFromtheRobertQ.LewisShow1956",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 826,
+          "videoFile": {
+            "name": "RobertQLewisFragment1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 79966433,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FragmentFromtheRobertQ.LewisShow1956/RobertQLewisFragment1956.mp4"
+        },
+        {
+          "archiveID": "StudioParty1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fragment from ''Studio Party''",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/StudioParty1958",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1036,
+          "videoFile": {
+            "name": "fragmentofStudioPartycirca1958.mp4",
+            "format": "h.264",
+            "sizeBytes": 107623064,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioParty1958/fragmentofStudioPartycirca1958.mp4"
+        },
+        {
+          "archiveID": "FragmentOfBigBeat",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fragment from ''The Big Beat''",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FragmentOfBigBeat",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1348,
+          "videoFile": {
+            "name": "bigbeat.mp4",
+            "format": "h.264",
+            "sizeBytes": 140055259,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FragmentOfBigBeat/bigbeat.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

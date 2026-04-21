@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "chuck-berry-live-at-the-roxy-1982",
+  "title": "Chuck Berry Live At The Roxy",
+  "yearStart": 1982,
+  "yearEnd": 1982,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/chuck-berry-live-at-the-roxy-1982",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "chuck-berry-live-at-the-roxy-1982",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Chuck Berry Live At The Roxy - Chuck Berry",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/chuck-berry-live-at-the-roxy-1982",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Chuck Berry Live at the Roxy - 1982.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1785504513,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/chuck-berry-live-at-the-roxy-1982/Chuck Berry Live at the Roxy - 1982.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

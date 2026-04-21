@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "beverly-hills-75th-diamond-jubilee-1989",
+  "title": "Beverly Hills 75th Diamond Jubilee",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/beverly-hills-75th-diamond-jubilee-1989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "beverly-hills-75th-diamond-jubilee-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Beverly Hills 75th Diamond Jubilee - Merv Griffin",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/beverly-hills-75th-diamond-jubilee-1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Beverly Hills 75th Diamond Jubilee - 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 407198369,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/beverly-hills-75th-diamond-jubilee-1989/Beverly Hills 75th Diamond Jubilee - 1989.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

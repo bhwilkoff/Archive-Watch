@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-story-of-wine-1976",
+  "title": "The Story Of Wine",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-story-of-wine-1976",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-story-of-wine-1976",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Story Of Wine - Baron Philippe de Rothschild",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-story-of-wine-1976",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Story of Wine - 1976.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 915667074,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-story-of-wine-1976/The Story of Wine - 1976.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

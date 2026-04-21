@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-invisible-man-1984",
+  "title": "The Invisible Man",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "Dr. Daniel Westin creates a formula to be used for matter transformation. To test the formula he uses it on himself. Before he can return to normal he discovers the government wants to use his formula for wrong, so he destroys it. Being unable to become visible again, he and his wife become agents for KLAE fighting crime.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/czlCDmB5k5pTKs0z0Z3GWZo6QYh.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lBVxQx0ObCGYevMAgFwnV9ajDK8.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Harve Bennett",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-invisible-man-1984_202505",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Invisible Man - Complete Series 1984",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/czlCDmB5k5pTKs0z0Z3GWZo6QYh.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Invisible Man S01E02 - The Unveiling of the Stranger.mp4",
+            "format": "h.264",
+            "sizeBytes": 168971810,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-1984_202505/The Invisible Man S01E02 - The Unveiling of the Stranger.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

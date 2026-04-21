@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "payne-1999",
+  "title": "Payne",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": "Payne is an American television series, patterned after the British program Fawlty Towers. It starred American actor John Larroquette, who portrayed assistant district attorney Dan Fielding on the American television program Night Court. Larroquette was also an executive producer for the series.\n\nPayne was a mid-season replacement on CBS and aired in March and April 1999. The show also starred JoBeth Williams, Julie Benz and Rick Batalla. Despite fairly positive reception, and receiving the blessing of John Cleese, who agreed to take a recurring role if the show was renewed, Payne was quickly cancelled. Nine episodes were filmed; eight were aired. The show is not available on DVD.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7VLQ0FObk27CQTalHQWcmUuRQ45.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/31vJMpnOBKLKuOTjfjRPrRNCTSM.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "payne-1999",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Payne (1999) ft Julie Benz",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7VLQ0FObk27CQTalHQWcmUuRQ45.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Remembering some of the cast from this classic tv show 🤣Payne 1999🤣.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 81937154,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/payne-1999/Remembering some of the cast from this classic tv show 🤣Payne 1999🤣.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

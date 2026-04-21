@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-late-show-starring-ross-shafer-1988",
+  "title": "The Late Show Starring Ross Shafer",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-late-show-starring-ross-shafer-treasure-hunters-198x",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-late-show-starring-ross-shafer-treasure-hunters-198x",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Late Show Starring Ross Shafer - Ross Shafer",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-late-show-starring-ross-shafer-treasure-hunters-198x",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Late Show Starring Ross Shafer - Treasure Hunters - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1124224808,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-late-show-starring-ross-shafer-treasure-hunters-198x/The Late Show Starring Ross Shafer - Treasure Hunters - 1988.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

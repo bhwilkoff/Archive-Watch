@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "topper-1960",
+  "title": "Topper",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Topper is an American fantasy sitcom based on the 1937 film of the same name. The series was broadcast on CBS from October 9, 1953 to July 15, 1955, and stars Leo G. Carroll in the title role.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tIPTvlADElrK6B48a1q6rqUXZ8V.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "topper-s-01-e-01-topper-meets-the-ghosts-1953-10-09",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Topper Meets the Ghosts",
+          "overview": "An avalanche does in the Kerbys while skiing, to their bemusement. The Toppers are buying their old haunts.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": "1953-10-09",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Topper - S01E01 - Topper Meets The Ghosts (1953-10-09).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1383073377,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/topper-s-01-e-01-topper-meets-the-ghosts-1953-10-09/Topper - S01E01 - Topper Meets The Ghosts (1953-10-09).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

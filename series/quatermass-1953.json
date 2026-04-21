@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "quatermass-1953",
+  "title": "Quatermass",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": "Professor Bernard Quatermass of the British Experimental Rocket Group is sought to examine strange meteorite showers. His investigations lead to his uncovering a conspiracy involving alien infiltration at the highest levels of the British Government. As even some of Quatermass's closest colleagues fall victim to the alien influence, he is forced to use his own unsafe rocket prototype, which recently caused a nuclear disaster at an Australian testing range, to prevent the aliens from taking over mankind.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9dV59VWbfbkTPrkkrnRg5bnAO9c.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bmfc3EEKIVCq6JZKvJFC7RbHGhU.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Nigel Kneale",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "quatermass-s-05-the-quatermass-experiment-2005",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Quatermass - The Complete Collection",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9dV59VWbfbkTPrkkrnRg5bnAO9c.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Quatermass S05 - The Quatermass Experiment 2005.mp4",
+            "format": "h.264",
+            "sizeBytes": 556189363,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/quatermass-s-05-the-quatermass-experiment-2005/Quatermass S05 - The Quatermass Experiment 2005.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "malhac_a_o_1997_capi_tulo_49-1960",
+  "title": "Malhac_a_o_1997_Capi_tulo_49",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Malhac_a_o_1997_Capi_tulo_49",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Malhac_a_o_1997_Capi_tulo_49",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Malhac_a_o_1997_Capi_tulo_49",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Malhac_a_o_1997_Capi_tulo_49",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Malhac_a_o_1997_Capi_tulo_49.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 226191549,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Malhac_a_o_1997_Capi_tulo_49/Malhac_a_o_1997_Capi_tulo_49.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-horseman-riding-by-1978-ep08-1914-call-to-arms-1978",
+  "title": "A Horseman Riding By (1978 Ep08) 1914 Call To Arms",
+  "yearStart": 1978,
+  "yearEnd": 1978,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/a-horseman-riding-by-1978-ep-08-1914-call-to-arms",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "a-horseman-riding-by-1978-ep-08-1914-call-to-arms",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "A Horseman Riding By (1978 Ep08) 1914 Call To Arms",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/a-horseman-riding-by-1978-ep-08-1914-call-to-arms",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": 3040,
+          "videoFile": {
+            "name": "A Horseman Riding By (1978 Ep08) 1914 - Call to Arms.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 159029670,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/a-horseman-riding-by-1978-ep-08-1914-call-to-arms/A Horseman Riding By (1978 Ep08) 1914 - Call to Arms.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

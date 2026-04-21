@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "breaking-away-1960",
+  "title": "Breaking Away",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Breaking Away is a 1980 American comedy-drama television series that was based on the 1979 film of the same name. It was created by Steve Tesich, who wrote the original film, and the film's director Peter Yates served as Executive Producer.\n\nAs a prequel, the series was set during the year prior to the events of the film. Shaun Cassidy took over the role of Dave Stohler, a young man mad about bicycle racing and all things Italian. Barbara Barrie, Jackie Earle Haley and John Ashton reprised their roles from the film. The television series was set in Bloomington, Indiana, but was actually shot in Athens, Georgia.\n\nThe show was caught up in the 1980 Screen Actors Guild Strike and did not begin production until that fall. While heavily promoted by ABC, it was overlooked by TV audiences once it got on the air and suffered low ratings. It was cancelled after eight episodes were filmed, though only seven episodes aired during its original run. ABC showed reruns of the show during the summer of 1981, and it was also rerun by the Arts & Entertainment cable channel during 1985–1987.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/2JRJVesVyy5PG0cxTaqfPFER5jv.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "breaking-away-s-01-e-01-the-cutters",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Breaking Away S01 1980",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2JRJVesVyy5PG0cxTaqfPFER5jv.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Breaking Away S01E03 - Knowing Her.mp4",
+            "format": "h.264",
+            "sizeBytes": 325247225,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/breaking-away-s-01-e-01-the-cutters/Breaking Away S01E03 - Knowing Her.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

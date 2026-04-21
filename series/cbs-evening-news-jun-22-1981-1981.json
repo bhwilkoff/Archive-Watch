@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cbs-evening-news-jun-22-1981-1981",
+  "title": "CBS Evening News Jun 22, 1981",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/cbs-19810622",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cbs-19810622",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CBS Evening News Jun 22, 1981",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/cbs-19810622",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CBS晚间新闻 19810622.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 111433541,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cbs-19810622/CBS晚间新闻 19810622.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

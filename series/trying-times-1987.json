@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "trying-times-1987",
+  "title": "Trying Times",
+  "yearStart": 1987,
+  "yearEnd": 1989,
+  "overview": "This half-hour sitcom anthology series that aired on PBS from 1987 to 1989 is about people struggling with the daily routines of life.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "trying-times-2-5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Trying Times - 2-5: The Boss",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Trying Times - 2-5.mp4",
+            "format": "h.264",
+            "sizeBytes": 160368909,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/trying-times-2-5/Trying Times - 2-5.mp4"
+        },
+        {
+          "archiveID": "trying-times-2-6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Trying Times - 2-6: A Good Life",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Trying Times - 2-6.mp4",
+            "format": "h.264",
+            "sizeBytes": 150562594,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/trying-times-2-6/Trying Times - 2-6.mp4"
+        },
+        {
+          "archiveID": "trying-times-1.3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Trying Times - Rosanna Arquette, Teri Garr, Candice Bergen",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Trying Times - 1.4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 856755107,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/trying-times-1.3/Trying Times - 1.4.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

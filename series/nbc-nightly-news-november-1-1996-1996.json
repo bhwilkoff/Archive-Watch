@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "nbc-nightly-news-november-1-1996-1996",
+  "title": "NBC Nightly News November 1, 1996",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/nbc-19961101",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "nbc-19961101",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "NBC Nightly News November 1, 1996",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/nbc-19961101",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NBC晚间新闻 19961101.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 197732797,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nbc-19961101/NBC晚间新闻 19961101.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

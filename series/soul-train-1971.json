@@ -1,0 +1,460 @@
+{
+  "version": 1,
+  "seriesID": "soul-train-1971",
+  "title": "Soul Train",
+  "yearStart": 1971,
+  "yearEnd": 1979,
+  "overview": "Soul Train is an American musical variety show that aired in syndication from 1971 to 2006. In its 35-year history, the show primarily featured performances by R&B, soul, and hip hop artists, although funk, jazz, disco, and gospel artists have also appeared. The series was created by Don Cornelius, who also served as its first host and executive producer.\n\nProduction was suspended following the 2005–06 season, with a rerun package airing for two years after that. As a nod to Soul Train's longevity, the show's opening sequence contained a claim that it was the \"longest-running first-run, nationally syndicated program in television history,\" with over 1,100 episodes produced from the show's debut through the 2005-06 season.\n\nDespite the production hiatus, Soul Train will continue to hold this honor until at least 2016, if and when its nearest competitor, Entertainment Tonight, completes its 35th season.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/AeGl8tp921q1ZGoKf0DebLYm5De.jpg",
+  "genres": [],
+  "networks": [
+    "Centric"
+  ],
+  "creator": "Don Cornelius",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "soul-train-season-3-episodes-12-and-13",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Soul Train ( Season 3, Episodes 12 & 13)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 3, Episodes 12 and 13).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 702133973,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-3-episodes-12-and-13/Soul Train (Season 3, Episodes 12 and 13).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episodes-1-7-and-10-nhk-airing",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Soul Train (Season 1, Episodes 1, 7, And 10)(NHK Airing)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episodes 1, 7, and 10)(NHK Airing).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1460896184,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episodes-1-7-and-10-nhk-airing/Soul Train (Season 1, Episodes 1, 7, and 10)(NHK Airing).ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "soul-train-season-1-episode-1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Soul Train (Season 1, Episode 1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 1).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 655265500,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-1/Soul Train (Season 1, Episode 1).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-4-episode-1-wgn-airing",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Gladys Knight & the Pips/Eddie Kendricks/The Honey Cone/Bobby Hutton",
+          "overview": "Gladys Knight & the Pips, Eddie Kendricks, The Honey Cone, Bobby Hutton",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-10-02",
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 4, Episode 1)(WGN Airing).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 288572869,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-4-episode-1-wgn-airing/Soul Train (Season 4, Episode 1)(WGN Airing).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-3-episode-3-part-1",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Chairmen of the Board/Rufus Thomas/Laura Lee",
+          "overview": "Chairmen of the Board, Rufus Thomas, Laura Lee",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-10-16",
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 3, Episode 3)(Part 2).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 182041517,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-3-episode-3-part-1/Soul Train (Season 3, Episode 3)(Part 2).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-5-restored",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Bill Withers/Al Green/Viola Wills",
+          "overview": "Bill Withers, Al Green, Viola Wills",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-10-30",
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 5)(Restored).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 637116978,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-5-restored/Soul Train (Season 2, Episode 5)(Restored).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-5",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Soul Train (Season 2, Episode 5)(Centric Airing)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 5).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 440475098,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-5/Soul Train (Season 2, Episode 5).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episode-7-partially-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Martha & the Vandellas/ The Intruders/ G.C. Cameron",
+          "overview": "Martha Reeves & The Vandellas - \"Dancing In The Street\", \"Love Makes Me Do Foolish Things\" and \"Bless You.\" The Intruders - \"I Bet He Don't Love You (Like I Love You)\" & \"Cowboys To Girls.\" G.C. Cameron - \"Act Like A Shotgun.\"\n\nEnglish",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-11-13",
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 7).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 662488252,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-7-partially-full-episode/Soul Train (Season 1, Episode 7).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episode-10-partially-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Jr. Walker & the All Stars/Bobby Womack/Thelma Houston",
+          "overview": "Jr. Walker & the All Stars, Bobby Womack, Thelma Houston",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-12-04",
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 10)(Restored).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 552174768,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-10-partially-full-episode/Soul Train (Season 1, Episode 10)(Restored).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episode-11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Jean Knight/The Delfonics/Maurice Jackson/Ralfi Pagan",
+          "overview": "Jean Knight, The Delfonics, Maurice Jackson, Ralfi Pagan",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-12-11",
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 11).mp4",
+            "format": "h.264",
+            "sizeBytes": 88800835,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-11/Soul Train (Season 1, Episode 11).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-12-partially-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Chi-Lites/Joe Tex/The Originals",
+          "overview": "The Chi-Lites, Joe Tex, The Originals",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-12-18",
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 12)(Partially Full Episode).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 254829682,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-12-partially-full-episode/Soul Train (Season 2, Episode 12)(Partially Full Episode).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-4-episode-13-nhk-airing",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Gene Chandler/Simtec & Wylie/The Free Movement",
+          "overview": "Gene Chandler, Simtec & Wylie, The Free Movement",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1971-12-25",
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 4, Episode 13)(NHK Airing).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 210968554,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-4-episode-13-nhk-airing/Soul Train (Season 4, Episode 13)(NHK Airing).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-16",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Soul Train (Season 2, Episode 16)(Partially Full Episode)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 16).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 401891415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-16/Soul Train (Season 2, Episode 16).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-19",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Soul Train (Season 2, Episode 19)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 19).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 469468812,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-19/Soul Train (Season 2, Episode 19).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-19-nhk-airing",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Soul Train (Season 2, Episode 19)(NHK Airing)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 19)(NHK Airing).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 124470868,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-19-nhk-airing/Soul Train (Season 2, Episode 19)(NHK Airing).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-21",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Soul Train (Season 2, Episode 21)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 21).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665940920,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-21/Soul Train (Season 2, Episode 21).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episode-22-restored",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Soul Train (Season 1, Episode 22)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 22)(Restored).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 506805807,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-22-restored/Soul Train (Season 1, Episode 22)(Restored).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-2-episode-22-partially-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Soul Train (Season 2, Episode 22)(Partially Full Episode)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 2, Episode 22)(Partially Full Episode).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 551340365,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-2-episode-22-partially-full-episode/Soul Train (Season 2, Episode 22)(Partially Full Episode).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-8-episode-25",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Soul Train (Season 8, Episode 25)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 8, Episode 25).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 645112963,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-8-episode-25/Soul Train (Season 8, Episode 25).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episode-26-restored",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Soul Train (Season 1, Episode 26)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 26)(Restored).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 472900068,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-26-restored/Soul Train (Season 1, Episode 26)(Restored).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-3-episode-26-my-q-2-airing",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Wilson Pickett/ Curtis Mayfield/ War",
+          "overview": "Curtis Mayfield - \"We Got To Have Peace\" & \"Get Down.\" War - \"All Day Music\" & \"Slippin' Into Darkness.\" Wilson Pickett (performing live) - \"Fire and Water,\" \"I'm In Love\" and \"Don't Knock My Love.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1972-03-25",
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 3, Episode 26)(MyQ2 Airing).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 143956002,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-3-episode-26-my-q-2-airing/Soul Train (Season 3, Episode 26)(MyQ2 Airing).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-1-episode-30",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Ike & Tina Turner/ Jerry Butler/ Brenda Lee Eager",
+          "overview": "Ike & Tina Turner - \"I Want To Take You Higher,\" \"Feels Good\" and \"Proud Mary\" --Jerry Butler and Brenda Lee Eager \"Close to You\" --Jerry Butler \"I Only Have Eyes for You\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": "1972-04-22",
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 30)(Almost Full Episode).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 514437489,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-30/Soul Train (Season 1, Episode 30)(Almost Full Episode).ia.mp4"
+        },
+        {
+          "archiveID": "soul-train-season-4-episode-30-my-q-2-airing",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Soul Train (Season 4, Episode 30)(MyQ2 Airing)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 4, Episode 30)(MyQ2 Airing).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 200406544,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-4-episode-30-my-q-2-airing/Soul Train (Season 4, Episode 30)(MyQ2 Airing).mp4"
+        },
+        {
+          "archiveID": "soul-train-season-6-episode-34-my-q-2-airing",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Soul Train (Season 6, Episode 34)(MyQ2 Airing)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 6, Episode 34)(MyQ2 Airing).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 237659314,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-6-episode-34-my-q-2-airing/Soul Train (Season 6, Episode 34)(MyQ2 Airing).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 24
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jed-buys-stock-1960",
+  "title": "Jed Buys Stock",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep05_Jed_Buys_Stock",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep05_Jed_Buys_Stock",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jed Buys Stock",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep05_Jed_Buys_Stock",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH05_Jed_Buys_Stock.mp4",
+            "format": "h.264",
+            "sizeBytes": 148502035,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep05_Jed_Buys_Stock/BH05_Jed_Buys_Stock.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-cousteau-odyssey-dvd-isos-1977",
+  "title": "The Cousteau Odyssey DVD ISOs",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/CousteauOdysseyISOs",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CousteauOdysseyISOs",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Cousteau Odyssey DVD ISOs",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CousteauOdysseyISOs",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Cousteau.Odyssey.S01E01.Calypsos.Search.for.the.Britannic.1977.The.Cousteau.Odyssey.S01E02.Diving.for.Roman.Plunder.1978.DVD.mp4",
+            "format": "h.264",
+            "sizeBytes": 645919843,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CousteauOdysseyISOs/The.Cousteau.Odyssey.S01E01.Calypsos.Search.for.the.Britannic.1977.The.Cousteau.Odyssey.S01E02.Diving.for.Roman.Plunder.1978.DVD.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

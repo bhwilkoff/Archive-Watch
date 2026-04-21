@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-a-team-s-04-e-20-the-little-town-with-an-accent-1986",
+  "title": "The A Team S 04 E 20 The Little Town With An Accent",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-a-team-s-04-e-21-the-little-town-with-an-accent",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-a-team-s-04-e-21-the-little-town-with-an-accent",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The A Team S 04 E 20 The Little Town With An Accent",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-a-team-s-04-e-21-the-little-town-with-an-accent",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The A-Team S04E21 The Little Town with an Accent.mp4",
+            "format": "h.264",
+            "sizeBytes": 276681068,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-a-team-s-04-e-21-the-little-town-with-an-accent/The A-Team S04E21 The Little Town with an Accent.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

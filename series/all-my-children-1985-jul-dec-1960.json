@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "all-my-children-1985-jul-dec-1960",
+  "title": "ALL MY CHILDREN 1985 Jul-Dec",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AllMyChildren1985Jul-dec",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AllMyChildren1985Jul-dec",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ALL MY CHILDREN 1985 Jul-Dec",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AllMyChildren1985Jul-dec",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AMc85-11-25To29062b-115ricola2727fullJuliaInHomecomingQueenContest.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 163198367,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AllMyChildren1985Jul-dec/AMc85-11-25To29062b-115ricola2727fullJuliaInHomecomingQueenContest.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

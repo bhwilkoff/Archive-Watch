@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "seriesID": "saturday-night-live--november-51988-2018",
+  "title": "Saturday Night Live- November 5,1988",
+  "yearStart": 2018,
+  "yearEnd": 2018,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SaturdayNightLiveNovember51988S14E4",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 14,
+      "episodes": [
+        {
+          "archiveID": "lic:366e39758b59",
+          "seasonNumber": 14,
+          "episodeNumber": 4,
+          "title": "Saturday Night Live- November 5,1988 ( S14 E4)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SaturdayNightLiveNovember51988S14E4",
+          "airDate": null,
+          "year": 2018,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

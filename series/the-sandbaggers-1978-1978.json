@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-sandbaggers-1978-1978",
+  "title": "The Sandbaggers (1978",
+  "yearStart": 1978,
+  "yearEnd": 1978,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-sandbaggers-1978-80",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-sandbaggers-1978-80",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Sandbaggers (1978 - 80) Complete Series",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-sandbaggers-1978-80",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sandbaggers, The (1978 - 80)/01 Series 1 (1978)/S01E07 Special Relationship.mp4",
+            "format": "h.264",
+            "sizeBytes": 311488282,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-sandbaggers-1978-80/Sandbaggers, The (1978 - 80)/01 Series 1 (1978)/S01E07 Special Relationship.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

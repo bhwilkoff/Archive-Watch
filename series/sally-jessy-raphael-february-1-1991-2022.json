@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sally-jessy-raphael-february-1-1991-2022",
+  "title": "Sally Jessy Raphael (February 1, 1991",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sally-jessy-raphael-february-1-1991",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sally-jessy-raphael-february-1-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sally Jessy Raphael (February 1, 1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sally-jessy-raphael-february-1-1991",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sally Jessy Raphael (February 1, 1991).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1749246797,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sally-jessy-raphael-february-1-1991/Sally Jessy Raphael (February 1, 1991).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

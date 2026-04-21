@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "american-bandstand--december-10-1983-partial-2019",
+  "title": "American Bandstand- December 10, 1983 (partial",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/americanbandstanddecember101983partialconvertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "americanbandstanddecember101983partialconvertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "American Bandstand- December 10, 1983 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/americanbandstanddecember101983partialconvertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "American Bandstand- December 10, 1983 (partial) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 160212891,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/americanbandstanddecember101983partialconvertvideoonline.com/American Bandstand- December 10, 1983 (partial) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

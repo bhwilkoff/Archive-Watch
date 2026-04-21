@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "i-led-three-lives-1960",
+  "title": "I Led Three Lives",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "I Led Three Lives is an American drama series which was syndicated by Ziv Television Programs from October 1, 1953 to January 1, 1956. The series stars Richard Carlson. The show was a companion piece of sorts to the radio drama I Was a Communist for the FBI, which dealt with a similar subject and was also syndicated by Ziv from 1952 to 1954.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/y9dv0qKA6HPSZZlojjMdd2z0uLY.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ILedThreeLivesArmyInfiltration",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Army Infiltration",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/y9dv0qKA6HPSZZlojjMdd2z0uLY.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1566,
+          "videoFile": {
+            "name": "ILedThreeLives.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 121449674,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ILedThreeLivesArmyInfiltration/ILedThreeLives.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

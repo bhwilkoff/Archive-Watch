@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "perversions-of-science-hbo-tv-1997",
+  "title": "Perversions Of Science HBO TV",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/perversions.of.-science.-s-01-e-10-the-peoples-choice-ntsc.-dvd",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "perversions.of.-science.-s-01-e-10-the-peoples-choice-ntsc.-dvd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Perversions Of Science HBO TV Series 1997 DVD Rip",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/perversions.of.-science.-s-01-e-10-the-peoples-choice-ntsc.-dvd",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Perversions.of.Science.S01E04_The Exile_.NTSC.DVD.mp4",
+            "format": "h.264",
+            "sizeBytes": 169914331,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/perversions.of.-science.-s-01-e-10-the-peoples-choice-ntsc.-dvd/Perversions.of.Science.S01E04_The Exile_.NTSC.DVD.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

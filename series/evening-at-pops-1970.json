@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "evening-at-pops-1970",
+  "title": "Evening At Pops",
+  "yearStart": 1970,
+  "yearEnd": 1970,
+  "overview": "Evening at Pops was an American concert television series produced by WGBH-TV. It was one of the longest-running programs on PBS. The program was a public television version of a variety show, performed by the Boston Pops Orchestra. It was taped at Symphony Hall in Boston, Massachusetts.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "evening-at-pops-sammy-davis-jr.-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Evening At Pops - John Williams, Boston Pops Orchestra",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Evening at Pops - Tony Bennett Nell Carter George Benson - 1987.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1755210568,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/evening-at-pops-sammy-davis-jr.-1990/Evening at Pops - Tony Bennett Nell Carter George Benson - 1987.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

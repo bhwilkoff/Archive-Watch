@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "free-ride-1960",
+  "title": "Free Ride",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Free Ride is a Fox partially improvised sitcom starring Josh Dean as \"Nate Stahlings\", a recent college graduate re-adjusting to life at home with his parents in Johnson City, Missouri. The pilot episode aired on March 1, 2006.\n\nFox canceled the series after just 6 episodes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9aUGqpyHaF4W7QqDSWIRPzKRCgB.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/yFzavYwPDBIM9uzVJp5ZcBLoetm.jpg",
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FollowThatMan-RalphBellamy-4-28-FreeRide",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Free Ride",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9aUGqpyHaF4W7QqDSWIRPzKRCgB.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FollowThatMan-RalphBellamy-4-28-FreeRide.mp4",
+            "format": "h.264",
+            "sizeBytes": 147628529,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FollowThatMan-RalphBellamy-4-28-FreeRide/FollowThatMan-RalphBellamy-4-28-FreeRide.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

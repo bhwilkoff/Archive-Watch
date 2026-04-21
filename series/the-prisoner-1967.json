@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "seriesID": "the-prisoner-1967",
+  "title": "The Prisoner",
+  "yearStart": 1967,
+  "yearEnd": 1967,
+  "overview": "After resigning, a secret agent is abducted and taken to what looks like an idyllic village, but is really a bizarre Kafkaesque prison. His warders demand information. He gives them nothing, but only tries to escape.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1FtqAlj6jsBk25PKwL2NrgzdFSo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/dieT9MczvZXpCLrIAjs3vKYWKa7.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Patrick McGoohan",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-prisoner-complete-series-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Prisoner - Complete Series 1967",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1FtqAlj6jsBk25PKwL2NrgzdFSo.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Prisoner S01E13 - Living in Harmony.mp4",
+            "format": "h.264",
+            "sizeBytes": 288086549,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner-complete-series-1967/The Prisoner S01E13 - Living in Harmony.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the.prisoner.s01.e12.a.change.of.mind",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "A Change of Mind",
+          "overview": "After a brawl Number 6 is declared \"unmutual\" and is made to think that he has undergone \"instant social conversion.\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/l5CzdLCDXG2Oqya7oFyTSZxzYnX.jpg",
+          "airDate": "1967-12-15",
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Prisoner.S01E12.A.Change.Of.Mind.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 484627268,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.prisoner.s01.e12.a.change.of.mind/The.Prisoner.S01E12.A.Change.Of.Mind.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

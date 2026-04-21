@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-big-count-1960",
+  "title": "The Big Count",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1960TheBigCountTheStoryOfTheUSCensus",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1960TheBigCountTheStoryOfTheUSCensus",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Count: The Story Of The U.S. Census",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1960TheBigCountTheStoryOfTheUSCensus",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1960 the Big Count The Story of the US Census.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 128476680,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1960TheBigCountTheStoryOfTheUSCensus/1960 the Big Count The Story of the US Census.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-adventures-of-the-scarlet-pimpernel-1955",
+  "title": "The Adventures of the Scarlet Pimpernel",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": "The second collection of short stories written by Baroness Orczy about the gallant English hero, the Scarlet Pimpernel and his League.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/8Ursq4oLL5kTvMxLIuBWi9hqWhs.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/vJmAIyQQioTOFZehObO5mKUzT43.jpg",
+  "genres": [],
+  "networks": [
+    "Associated Television"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-scarlet-pimpernel-s-01-e-01-the-hostage",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Hostage",
+          "overview": "The Scarlet Pimpernel rescues a Baroness from Chauvelin, but she is reluctant to leave because Chauvelin has her son. The Scarlet Pimpernel must rescue the boy and not give away his identity as Sir Percy Blakeney.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/8Ursq4oLL5kTvMxLIuBWi9hqWhs.jpg",
+          "airDate": "1955-09-28",
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel - S01E01 - The Hostage.mp4",
+            "format": "h.264",
+            "sizeBytes": 158173020,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel-s-01-e-01-the-hostage/The Scarlet Pimpernel - S01E01 - The Hostage.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

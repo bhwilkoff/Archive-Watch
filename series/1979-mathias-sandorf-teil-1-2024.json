@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1979-mathias-sandorf-teil-1-2024",
+  "title": "1979. Mathias Sandorf (Teil 1",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1979.-mathias-sandorf-teil-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1979.-mathias-sandorf-teil-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1979. Mathias Sandorf (Teil 1)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1979.-mathias-sandorf-teil-1",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1979. Mathias Sandorf (Teil 1).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 510988132,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1979.-mathias-sandorf-teil-1/1979. Mathias Sandorf (Teil 1).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

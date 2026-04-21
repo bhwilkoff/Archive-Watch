@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "joe-90-most-special-agent-1968",
+  "title": "Joe 90 Most Special Agent",
+  "yearStart": 1968,
+  "yearEnd": 1968,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Joe90Complete",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Joe90Complete",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Joe 90 Most Special Agent (complete)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Joe90Complete",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Joe 90 -01- The Most Special Agent.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 157775253,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe 90 -01- The Most Special Agent.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "telecupón-1997",
+  "title": "Telecupón",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/telecupon-1997-09-26",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "telecupon-1997-10-10",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Telecupón - 10 de octubre, 1997",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/telecupon-1997-10-10",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Telecupón (10-10-1997) (resubido).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 31488103,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/telecupon-1997-10-10/Telecupón (10-10-1997) (resubido).ia.mp4"
+        },
+        {
+          "archiveID": "telecupon-1997-11-14",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Telecupón - 14 de noviembre, 1997",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/telecupon-1997-11-14",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Telecupón (14-11-1997) (resubido).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 61581371,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/telecupon-1997-11-14/Telecupón (14-11-1997) (resubido).ia.mp4"
+        },
+        {
+          "archiveID": "telecupon-1997-09-26",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Telecupón - 26 de septiembre, 1997",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/telecupon-1997-09-26",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Telecupón (26-9-1997) (resubido).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 77849113,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/telecupon-1997-09-26/Telecupón (26-9-1997) (resubido).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

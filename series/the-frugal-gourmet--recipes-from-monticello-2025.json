@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-frugal-gourmet--recipes-from-monticello-2025",
+  "title": "The Frugal Gourmet- Recipes From Monticello",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-frugal-gourmet-recipes-from-monticello-episode-late-january-1988",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-frugal-gourmet-recipes-from-monticello-episode-late-january-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Frugal Gourmet- Recipes From Monticello episode (Late January 1988)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-frugal-gourmet-recipes-from-monticello-episode-late-january-1988",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Frugal Gourmet- Recipes from Monticello episode (late January 1988).mp4",
+            "format": "h.264",
+            "sizeBytes": 154954147,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-frugal-gourmet-recipes-from-monticello-episode-late-january-1988/The Frugal Gourmet- Recipes from Monticello episode (late January 1988).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

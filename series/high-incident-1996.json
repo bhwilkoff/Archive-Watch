@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "high-incident-1996",
+  "title": "High Incident",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": "High Incident is a police drama series produced by DreamWorks Television for the ABC network. The show was created by Steven Spielberg, Michael Pavone, Eric Bogosian and Dave Alan Johnson. It first aired on March 4, 1996, running a total of 32 episodes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dZgxxEvVyJCiZKtSHWSNIHLmNe1.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/A3oytcnmoXl7h7CZ6q2S8Q9gfLJ.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Eric Bogosian",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "high-incident-1.07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "High Incident - Cole Hauser, Wendy Davis, Lindsay Frost",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dZgxxEvVyJCiZKtSHWSNIHLmNe1.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "High Incident - 2.04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1057850318,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/high-incident-1.07/High Incident - 2.04.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

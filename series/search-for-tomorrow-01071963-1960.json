@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "search-for-tomorrow-01071963-1960",
+  "title": "Search For Tomorrow 01/07/1963",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Search010763",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Search010763",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Search For Tomorrow 01/07/1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Search010763",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Search010763.mp4",
+            "format": "h.264",
+            "sizeBytes": 81996421,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Search010763/Search010763.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

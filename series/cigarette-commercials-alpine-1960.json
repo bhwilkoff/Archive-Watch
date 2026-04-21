@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cigarette-commercials-alpine-1960",
+  "title": "Cigarette Commercials Alpine",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Cigarette_Commercials_Alpine",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cigarette_Commercials_Alpine",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cigarette Commercials Alpine",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Cigarette_Commercials_Alpine",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Commercial_Alpine_Cigarettes_1967_w_young_Roy_Schieder_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4347151,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cigarette_Commercials_Alpine/Commercial_Alpine_Cigarettes_1967_w_young_Roy_Schieder_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

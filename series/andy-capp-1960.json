@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "andy-capp-1960",
+  "title": "Andy Capp",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Andy Capp is a British sitcom based on the cartoon Andy Capp. It starred James Bolam and ran for one series in 1988. It was written by Keith Waterhouse. Unusually, for a sitcom, there was no studio audience during the filming of Andy Capp. It was made for the ITV network by Thames Television.\n\nAndy Capp is a slothful man from Hartlepool, whose life consists of drinking, sleeping, watching TV, betting, going to the pub and occasionally playing football. His wife, Flo, is constantly annoyed by her lazy husband and frequently uses a rolling pin as a weapon.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ubfXgkWqerFUiuEz7oSyy6PlpCo.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Reg Smythe",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "andy-capp-s-01-e-01-new-leaf",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Andy Capp S01 1988",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ubfXgkWqerFUiuEz7oSyy6PlpCo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Andy Capp - S01E03 - Flo's New Frock.mp4",
+            "format": "h.264",
+            "sizeBytes": 145654813,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/andy-capp-s-01-e-01-new-leaf/Andy Capp - S01E03 - Flo's New Frock.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

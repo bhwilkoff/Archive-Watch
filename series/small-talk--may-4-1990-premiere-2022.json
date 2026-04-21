@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "small-talk--may-4-1990-premiere-2022",
+  "title": "Small Talk- May 4, 1990 (Premiere",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/small-talk-may-4-1990-premiere",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "small-talk-may-4-1990-premiere",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Small Talk- May 4, 1990 (Premiere)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/small-talk-may-4-1990-premiere",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Small Talk- May 4, 1990 (Premiere).mp4",
+            "format": "h.264",
+            "sizeBytes": 132219238,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/small-talk-may-4-1990-premiere/Small Talk- May 4, 1990 (Premiere).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

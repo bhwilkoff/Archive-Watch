@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "degrassi-talks-on-sexuality-1992",
+  "title": "Degrassi Talks On Sexuality",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/degrassi-talks-on-sexuality_202208",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "degrassi-talks-on-sexuality_202208",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Degrassi Talks On Sexuality",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-talks-on-sexuality_202208",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Talks On Sexuality.mp4",
+            "format": "h.264",
+            "sizeBytes": 136642003,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-talks-on-sexuality_202208/Degrassi Talks On Sexuality.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

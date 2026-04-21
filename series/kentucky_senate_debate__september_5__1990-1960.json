@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "kentucky_senate_debate__september_5__1990-1960",
+  "title": "Kentucky_Senate_Debate__September_5__1990",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Kentucky_Senate_Debate__September_5__1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Kentucky_Senate_Debate__September_5__1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kentucky_Senate_Debate__September_5__1990",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Kentucky_Senate_Debate__September_5__1990",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Kentucky_Senate_Debate__September_5__1990.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 189033062,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Kentucky_Senate_Debate__September_5__1990/Kentucky_Senate_Debate__September_5__1990.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

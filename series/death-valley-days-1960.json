@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "seriesID": "death-valley-days-1960",
+  "title": "Death Valley Days",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Death Valley Days is an American radio and television anthology series featuring true stories of the old American West, particularly the Death Valley area. Created in 1930 by Ruth Woodman, the program was broadcast on radio until 1945 and continued from 1952 to 1970 as a syndicated television series, with reruns continuing through August 1, 1975.\n\nThe series was sponsored by the Pacific Coast Borax Company and hosted by Stanley Andrews, Ronald Reagan, Robert Taylor, and Dale Robertson. With the passing of Dale Robertson in 2013, all the former Death Valley Days hosts are now deceased.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/miogG5V6KSOV6ijH9mE4OOXFlF1.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/cMlK8DxAJDrBxnOFhjALs0BwgxN.jpg",
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Death_Valley_Days_-_Sego_Lillies",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Sego Lilies",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/mqTuAmJUX0PW8BiFpoOqra9BPU1.jpg",
+          "airDate": "1953-04-28",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Death_Valley_Days_-_Sego_Lillies.mp4",
+            "format": "h.264",
+            "sizeBytes": 151700987,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Death_Valley_Days_-_Sego_Lillies/Death_Valley_Days_-_Sego_Lillies.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "DeathValleyDays-LittleWashington",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Little Washington",
+          "overview": "The tale of a society belle of Washington, D.C. who is transplanted to Carson City, Nevada, then known as \"Little Washington\".",
+          "stillURL": "https://image.tmdb.org/t/p/w300/gxORbpgf20VVcUHQi3MBmUMWaJE.jpg",
+          "airDate": "1953-10-01",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DeathValleyDays-LittleWashington.mp4",
+            "format": "h.264",
+            "sizeBytes": 152687920,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DeathValleyDays-LittleWashington/DeathValleyDays-LittleWashington.mp4"
+        },
+        {
+          "archiveID": "DeathValleyDays-DearTeacher",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Dear Teacher",
+          "overview": "New schoolteacher arrives, keeps unruly students in line with her sweet demeanor and sharpshooting skills. One vindictive female student and some town busybodies try to get her run out of town.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/jao11G4Np4Z7Nd6LFYqRBMsHS4N.jpg",
+          "airDate": "1953-11-24",
+          "year": null,
+          "runtimeSeconds": 1562,
+          "videoFile": {
+            "name": "Death_Valley_Days_-_Dear_Teacher.mp4",
+            "format": "h.264",
+            "sizeBytes": 152614165,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DeathValleyDays-DearTeacher/Death_Valley_Days_-_Dear_Teacher.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

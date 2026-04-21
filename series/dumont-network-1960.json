@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dumont-network-1960",
+  "title": "DuMont Network",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Okay_Mother",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Okay_Mother",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "DuMont Network episode of 'Okay, Mother'",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Okay_Mother",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OkayMother1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 164808400,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Okay_Mother/OkayMother1950.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

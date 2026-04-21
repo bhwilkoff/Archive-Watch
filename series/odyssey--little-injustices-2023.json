@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "odyssey--little-injustices-2023",
+  "title": "Odyssey- Little Injustices",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/odyssey-little-injustices-laura-nader-looks-at-law-s-2-e-6",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "odyssey-little-injustices-laura-nader-looks-at-law-s-2-e-6",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Odyssey- Little Injustices: Laura Nader Looks At Law (S2E6)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/odyssey-little-injustices-laura-nader-looks-at-law-s-2-e-6",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Odyssey- Little Injustices Laura Nader Looks At Law (S2E6).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1028590310,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/odyssey-little-injustices-laura-nader-looks-at-law-s-2-e-6/Odyssey- Little Injustices Laura Nader Looks At Law (S2E6).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

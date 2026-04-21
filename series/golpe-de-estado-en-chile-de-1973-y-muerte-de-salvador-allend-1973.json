@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "golpe-de-estado-en-chile-de-1973-y-muerte-de-salvador-allend-1973",
+  "title": "Golpe De Estado En Chile De 1973 Y Muerte De Salvador Allende Miguel De La Quadra Salcedo",
+  "yearStart": 1973,
+  "yearEnd": 1973,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/httpswww.youtube.comwatchvqjjztfdlalu",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "httpswww.youtube.comwatchvqjjztfdlalu",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Golpe De Estado En Chile De 1973 Y Muerte De Salvador Allende Miguel De La Quadra Salcedo",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/httpswww.youtube.comwatchvqjjztfdlalu",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Golpe de Estado en Chile de 1973 y Muerte de Salvador Allende - Miguel de la Quadra-Salcedo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 239287481,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/httpswww.youtube.comwatchvqjjztfdlalu/Golpe de Estado en Chile de 1973 y Muerte de Salvador Allende - Miguel de la Quadra-Salcedo.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

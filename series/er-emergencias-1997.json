@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "er-emergencias-1997",
+  "title": "ER Emergencias",
+  "yearStart": 1997,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ER-04",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ER-04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ER Emergencias - Temporada 4 - (AUDIO LATINO)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ER-04",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "01 - Emboscada.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 697789892,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ER-04/01 - Emboscada.ia.mp4"
+        },
+        {
+          "archiveID": "ER-06",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ER Emergencias - Temporada 6 - (AUDIO LATINO)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ER-06",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "21 - Triste es la ausencia y dulce la despedida.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 306274676,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ER-06/21 - Triste es la ausencia y dulce la despedida.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

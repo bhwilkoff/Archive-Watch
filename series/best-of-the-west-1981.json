@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "best-of-the-west-1981",
+  "title": "Best Of The West",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": "An unwitting city slicker is made the marshal of a lawless town in this absurdist Western that pokes gentle but clever fun at the genre's stock plots and characters. Best of the West is an American sitcom that aired on ABC from September 1981 through August 1982.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9Mf9uVkuW1mYukJUMP5yMwQOJsn.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lng0KzYHNnmcp8JkxgTopXYCcKi.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "best-of-the-west-1.03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Best Of The West - Carlene Watkins, Joel Higgins",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9Mf9uVkuW1mYukJUMP5yMwQOJsn.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Best of the West - 1.03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 739579393,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/best-of-the-west-1.03/Best of the West - 1.03.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

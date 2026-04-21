@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "programa-rá-tim-bum-episódio-raro-06-02-1990-1990",
+  "title": "Programa Rá Tim Bum Episódio Raro 06-02-1990",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/programa-ra-tim-bum-episodio-raro-06-02-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "programa-ra-tim-bum-episodio-raro-06-02-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Programa Rá Tim Bum Episódio Raro 06-02-1990",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/programa-ra-tim-bum-episodio-raro-06-02-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Programa Rá-Tim-Bum - Episódio Raro - 06_02_1990.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 423970424,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/programa-ra-tim-bum-episodio-raro-06-02-1990/Programa Rá-Tim-Bum - Episódio Raro - 06_02_1990.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

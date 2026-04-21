@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "13-east-1989",
+  "title": "13 East",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/367/918065.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Scoey Mitchell",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "13-east-2.1",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "13 East - Diana Bellamy, Jan Cobler, Rose Jackson",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/367/918065.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "13 East - 2.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 713420709,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/13-east-2.1/13 East - 2.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "voltron-1998",
+  "title": "Voltron",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/voltron_the_third_dimension-ep1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "voltron_the_third_dimension-ep1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Voltron: The Third Dimension Ep 1\"Escape from Bastille-12\" (1998)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/voltron_the_third_dimension-ep1",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "voltron_the_third_dimension_-_episode_01___57c318920b75e.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 104564462,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/voltron_the_third_dimension-ep1/voltron_the_third_dimension_-_episode_01___57c318920b75e.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

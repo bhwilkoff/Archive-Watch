@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "seriesID": "shotgun-slade-1960",
+  "title": "Shotgun Slade",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "Shotgun Slade is an American western television series starring Scott Brady that aired seventy-eight episodes in syndication from October 24, 1959, until 1961. Created by Frank Gruber, the stories were written by John Berardino, Charissa Hughes, and Martin Berkeley. The series was filmed in Hollywood by Revue Studios.\n\nThe pilot for Shotgun Slade aired earlier in 1959 on CBS's Schlitz Playhouse.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/85iX9xvjGg2lrRAii1vWmR6ckJo.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": "Frank Gruber",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ShotgunsladeAflowerforjenny",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "A Flower for Jenny",
+          "overview": "Slade serves as bodyguard to primadonna performer Jenny DuPree, who is receiving death threats and a dwindling number of roses from an assassin who bills himself as her \"ultimate admirer.\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/85iX9xvjGg2lrRAii1vWmR6ckJo.jpg",
+          "airDate": "1960-04-29",
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "shotgunslade_aflowerforjenny.mp4",
+            "format": "h.264",
+            "sizeBytes": 160957315,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ShotgunsladeAflowerforjenny/shotgunslade_aflowerforjenny.mp4"
+        },
+        {
+          "archiveID": "ShotgunSlade-CrossedGuns",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Crossed Guns",
+          "overview": "A hook-handed gunslinger nursing a grudge lures Slade to Grover's Bend for a showdown with his fast-drawing young protégé, Billy.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/85iX9xvjGg2lrRAii1vWmR6ckJo.jpg",
+          "airDate": "1960-05-13",
+          "year": null,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "ShotgunSlade-CrossedGuns.mp4",
+            "format": "h.264",
+            "sizeBytes": 156340973,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ShotgunSlade-CrossedGuns/ShotgunSlade-CrossedGuns.mp4"
+        },
+        {
+          "archiveID": "ShotgunSlade-TheSpanishBox",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "The Spanish Box",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/85iX9xvjGg2lrRAii1vWmR6ckJo.jpg",
+          "airDate": "1960-05-21",
+          "year": null,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "ShotgunSlade-TheSpanishBox.mp4",
+            "format": "h.264",
+            "sizeBytes": 156917658,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ShotgunSlade-TheSpanishBox/ShotgunSlade-TheSpanishBox.mp4"
+        },
+        {
+          "archiveID": "ShotgunSlade-RingOfDeath",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Ring of Death",
+          "overview": "An unscrupulous young woman devises a cruel plan to cash in on her fiance's recent cattle sale. Scott Brady, Bethel Leslie, H.M. Wynant, Richard Crane.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/85iX9xvjGg2lrRAii1vWmR6ckJo.jpg",
+          "airDate": "1960-06-03",
+          "year": 1960,
+          "runtimeSeconds": 1549,
+          "videoFile": {
+            "name": "ringofdeath.mp4",
+            "format": "h.264",
+            "sizeBytes": 158066531,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ShotgunSlade-RingOfDeath/ringofdeath.mp4"
+        },
+        {
+          "archiveID": "ShotgunSlade-FlowerOnBootHill",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "A Flower on Boot Hill",
+          "overview": "Two escaped convicts, a grieving woman, and a widowed doctor who faithfully lays flowers on his wife's grave are among the seemingly incongruous elements factoring into Slade's investigation of a baffling bank robbery.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/85iX9xvjGg2lrRAii1vWmR6ckJo.jpg",
+          "airDate": "1960-06-11",
+          "year": null,
+          "runtimeSeconds": 1553,
+          "videoFile": {
+            "name": "ShotgunSlade-FlowerOnBootHill.mp4",
+            "format": "h.264",
+            "sizeBytes": 156328985,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ShotgunSlade-FlowerOnBootHill/ShotgunSlade-FlowerOnBootHill.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

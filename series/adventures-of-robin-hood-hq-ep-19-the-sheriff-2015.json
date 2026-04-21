@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "adventures-of-robin-hood-hq-ep-19-the-sheriff-2015",
+  "title": "Adventures Of Robin Hood (HQ) ep 19 The Sheriff",
+  "yearStart": 2015,
+  "yearEnd": 2015,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AdventuresOfRobinHoodep19TheSheriffsBoots",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "AdventuresOfRobinHoodep19TheSheriffsBoots",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Adventures Of Robin Hood (HQ) ep 19 The Sheriff's Boots",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AdventuresOfRobinHoodep19TheSheriffsBoots",
+          "airDate": null,
+          "year": 2015,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Adventures of Robin Hood (ep 19 The Sheriff's Boots).mp4",
+            "format": "h.264",
+            "sizeBytes": 159477178,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AdventuresOfRobinHoodep19TheSheriffsBoots/Adventures of Robin Hood (ep 19 The Sheriff's Boots).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

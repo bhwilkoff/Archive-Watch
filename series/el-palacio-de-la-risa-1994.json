@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "el-palacio-de-la-risa-1994",
+  "title": "El Palacio de la Risa",
+  "yearStart": 1994,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/el-palacio-de-la-risa-1994-1080p",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "el-palacio-de-la-risa-1994-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "El Palacio de la Risa (1994) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/el-palacio-de-la-risa-1994-1080p",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "14. Programa 14 [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1873024868,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/el-palacio-de-la-risa-1994-1080p/14. Programa 14 [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "el-palacio-de-la-risa-1996-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "El Palacio de la Risa (1996) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/el-palacio-de-la-risa-1996-1080p",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "030. Programa 30 - Eusebio Poncela, Virginia Innocenti (08-11-96) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1861852462,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/el-palacio-de-la-risa-1996-1080p/030. Programa 30 - Eusebio Poncela, Virginia Innocenti (08-11-96) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "el-palacio-de-la-risa-horacio-massaccesi-1995-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "El Palacio de la Risa - Horacio Massaccesi (1995) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/el-palacio-de-la-risa-horacio-massaccesi-1995-1080p",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "El Palacio de la Risa - Horacio Massaccesi (1995) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1907138127,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/el-palacio-de-la-risa-horacio-massaccesi-1995-1080p/El Palacio de la Risa - Horacio Massaccesi (1995) [1080p].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

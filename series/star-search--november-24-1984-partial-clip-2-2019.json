@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "star-search--november-24-1984-partial-clip-2-2019",
+  "title": "Star Search- November 24, 1984 (partial clip # 2",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/starsearchnovember241984partialclip2convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "starsearchnovember241984partialclip2convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Star Search- November 24, 1984 (partial clip # 2)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/starsearchnovember241984partialclip2convertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Star Search- November 24, 1984 (partial clip #2) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 71285939,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/starsearchnovember241984partialclip2convertvideoonline.com/Star Search- November 24, 1984 (partial clip #2) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

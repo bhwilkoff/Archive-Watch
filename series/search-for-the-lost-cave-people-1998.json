@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "search-for-the-lost-cave-people-1998",
+  "title": "Search for the Lost Cave People",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SearchfortheLostCavePeople",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SearchfortheLostCavePeople",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Search for the Lost Cave People",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SearchfortheLostCavePeople",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S25E07.Search.for.the.Lost.Cave.People.1998.VHSRip.AAC2.0.x264-astro.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1061149444,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SearchfortheLostCavePeople/NOVA.S25E07.Search.for.the.Lost.Cave.People.1998.VHSRip.AAC2.0.x264-astro.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "bring-em-back-alive-1982",
+  "title": "Bring Em Back Alive",
+  "yearStart": 1982,
+  "yearEnd": 1982,
+  "overview": "Bring 'Em Back Alive is an adventure television series starring Bruce Boxleitner, Cindy Morgan and Ron O'Neal. The series was shown in the United States from September 1982 to May 1983. Set in Singapore, it was one of several shows like Tales of the Gold Monkey to try to capture the success of Raiders of the Lost Ark. In reality, Frank Buck was a real big game trapper who was very famous in the 1930s. He wrote a book entitled Bring 'Em Back Alive. He appeared in several movies including a 1932 adaptation of the book and is remembered by serial fans as the star of Jungle Menace. It lasted only 17 episodes before being cancelled because of low ratings, due to being scheduled against ABC's Top 30 hits Happy Days and Laverne and Shirley.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/bszv5S8CcTr67Pso1hQTB4SzWcE.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bZ47ENdCF8JR0khtq2oevPGUoq9.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "George Schenck",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bring-em-back-alive-complete-series-1982",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bring Em Back Alive - Complete Series 1982",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/bszv5S8CcTr67Pso1hQTB4SzWcE.jpg",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bring Em Back Alive S01E01 - Seven Keys to Singapore_ Part 1.aw.mp4",
+            "format": "h.264",
+            "sizeBytes": 275346095,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bring-em-back-alive-complete-series-1982/Bring Em Back Alive S01E01 - Seven Keys to Singapore_ Part 1.aw.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

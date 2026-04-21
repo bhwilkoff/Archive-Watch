@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "buried-treasure-1960",
+  "title": "Buried Treasure",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Disowned by his father, Jugo Yama has run away from home to the island of Nanae. He begins to live by himself, only to discover his room is haunted by the ghost of Nanana Ryugajo. She was murdered ten years ago, and her killer must be found before she can rest in peace. Before her death, Nanana collected things from all over the world and hid them throughout the island. Using the mysterious powers of these hidden items, they should be able to find the culprit. As Jugo begins his hunt for her collection, however, he discovers he's not the only person searching.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/qGYn9NrX7176XT5ll2fmJWFI6qZ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/xOCt7AWQLwYu6FLJKt7r6miFAXf.jpg",
+  "genres": [],
+  "networks": [
+    "Fuji TV"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cisco_Kid_-_Buried_Treasure",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Buried Treasure",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/qGYn9NrX7176XT5ll2fmJWFI6qZ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cisco_Kid_-_Buried_Treasure.mp4",
+            "format": "h.264",
+            "sizeBytes": 147156920,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cisco_Kid_-_Buried_Treasure/Cisco_Kid_-_Buried_Treasure.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

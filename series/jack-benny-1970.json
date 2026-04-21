@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "seriesID": "jack-benny-1970",
+  "title": "Jack Benny",
+  "yearStart": 1970,
+  "yearEnd": 1974,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/JackBenny-JackAtTheSupermarket",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JackBenny-DonInvitesGangOverForDinner",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny - Don Invites Gang Over for Dinner",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBenny-DonInvitesGangOverForDinner",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1545,
+          "videoFile": {
+            "name": "JackBennyProgram-DonInvitesGangOverForDinner.mp4",
+            "format": "h.264",
+            "sizeBytes": 146432981,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBenny-DonInvitesGangOverForDinner/JackBennyProgram-DonInvitesGangOverForDinner.mp4"
+        },
+        {
+          "archiveID": "JackBenny-FrankieAvalonAsGuest",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny - Frankie Avalon as Guest",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBenny-FrankieAvalonAsGuest",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1763,
+          "videoFile": {
+            "name": "JackBennyProgram-FrankieAvalonAsGuest.mp4",
+            "format": "h.264",
+            "sizeBytes": 169835751,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBenny-FrankieAvalonAsGuest/JackBennyProgram-FrankieAvalonAsGuest.mp4"
+        },
+        {
+          "archiveID": "JackBenny-GoldieFieldsAndGlide",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny - Goldie, Fields and Glide",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBenny-GoldieFieldsAndGlide",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1531,
+          "videoFile": {
+            "name": "JackBenny-GoldieFieldsAndGlide.mp4",
+            "format": "h.264",
+            "sizeBytes": 144942184,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBenny-GoldieFieldsAndGlide/JackBenny-GoldieFieldsAndGlide.mp4"
+        },
+        {
+          "archiveID": "JackBenny-JackWritesASong",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny - Jack Writes a Song",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBenny-JackWritesASong",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1482,
+          "videoFile": {
+            "name": "JackBenny-JackWritesASong.mp4",
+            "format": "h.264",
+            "sizeBytes": 141198310,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBenny-JackWritesASong/JackBenny-JackWritesASong.mp4"
+        },
+        {
+          "archiveID": "JackBenny-JackAtTheSupermarket",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny - Jack at the Supermarket",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBenny-JackAtTheSupermarket",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1555,
+          "videoFile": {
+            "name": "JackBennyProgram-JackAtTheSupermarket.mp4",
+            "format": "h.264",
+            "sizeBytes": 146568694,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBenny-JackAtTheSupermarket/JackBennyProgram-JackAtTheSupermarket.mp4"
+        },
+        {
+          "archiveID": "JackBennys20thAnniversaryTVSpecial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny's 20th Anniversary TV Special",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBennys20thAnniversaryTVSpecial",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "JackBennys20thAnniversaryTvSpecial.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 265792568,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBennys20thAnniversaryTVSpecial/JackBennys20thAnniversaryTvSpecial.ogv"
+        },
+        {
+          "archiveID": "JackBennysSecondFarewellSpecial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny's Second Farewell Special",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBennysSecondFarewellSpecial",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jack Benny's Second Farewell Special.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 266986681,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBennysSecondFarewellSpecial/Jack Benny's Second Farewell Special.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

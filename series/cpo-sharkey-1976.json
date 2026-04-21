@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "cpo-sharkey-1976",
+  "title": "C.P.O. Sharkey",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": "C.P.O. Sharkey is an American sitcom which aired from 1976 to 1978 on NBC.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/6NTqMMGVxmFHM09SxKiea8tELr7.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/cP1tmk0S9a3BuT1BdPJXpnC722J.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cposharkeyseasonone",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "C.P.O. Sharkey (Season One)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/6NTqMMGVxmFHM09SxKiea8tELr7.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E10- Sharkey Boogies on Down.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 135588503,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E10- Sharkey Boogies on Down.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

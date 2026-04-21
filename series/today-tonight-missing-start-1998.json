@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "today-tonight-missing-start-1998",
+  "title": "Today Tonight (missing start",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/todaytonight-19981104",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "todaytonight-19981104",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Today Tonight (missing start - 04/11/1998)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/todaytonight-19981104",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "18 - Today Tonight (1st segment).mp4",
+            "format": "h.264",
+            "sizeBytes": 33304079,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/todaytonight-19981104/18 - Today Tonight (1st segment).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "strumpet-city-1980-2022",
+  "title": "Strumpet City 1980",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/strumpet-city-1980-episode-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "strumpet-city-1980-episode-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Strumpet City 1980",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/strumpet-city-1980-episode-1",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Strumpet City 1980 Episode 4.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 946676847,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/strumpet-city-1980-episode-1/Strumpet City 1980 Episode 4.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

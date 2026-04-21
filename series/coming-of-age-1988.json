@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "coming-of-age-1988",
+  "title": "Coming Of Age",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": "Coming of Age is a situation comedy that aired briefly on the CBS television network in the United States for three runs in 1988 and 1989.\n\nComing of Age features Paul Dooley and Phyllis Newman as a couple, Dick and Ginny Hale, living in a fictional retirement community, The Dunes, in Arizona. Retirement had not really been their, or at least, Dick's, idea – a former airline pilot, he had been forced to retire by a Federal Aviation Administration rule which requires all U.S. commercial pilots to retire by age 60. Dick hated almost everything about his retirement, including his surroundings. He was appalled by the hot climate, the thin walls separating the Hale's apartment from those of their neighbors Alan Young and Glynis Johns and, apparently, mostly by the contented attitude that most of the other residents expressed.\n\nThis program was first aired as a midseason replacement in March 1988; although in was apparently not well received and was pulled after only three episodes were aired, it was nonetheless added to the CBS 1988 fall lineup. There, it failed again, and was quickly pulled. The airing of some more episodes in June and July 1989 was apparently a \"run-off\", an attempt to recoup at least some of the investment in the show by using it as filler during the traditionally low-rated summer months.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Emily Marshall",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "coming-of-age-1988-sitcom",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Coming Of Age (1988) Sitcom",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Season 2 (1988–89) - 2 of 12 eps/Coming of Age s02e07 Pauline et Rouge (1989) - (Alan Young TV Series) - July 1989 Sep 2, 2015.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 167613149,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/coming-of-age-1988-sitcom/Season 2 (1988–89) - 2 of 12 eps/Coming of Age s02e07 Pauline et Rouge (1989) - (Alan Young TV Series) - July 1989 Sep 2, 2015.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

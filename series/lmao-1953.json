@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "lmao-1953",
+  "title": "LMAO",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": "The up-and-coming comedians of OF hit the stage for a night of live comedy. Each episode features a new city, new comedians, and new exclusive content you'll only see on OFTV.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "OF.TV",
+    "OF.TV"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "HappyHappy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "LMAO: ''The Trouble with Father'' - Leave it to Stu (1953)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1753,
+          "videoFile": {
+            "name": "Chickens.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 176346897,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HappyHappy/Chickens.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

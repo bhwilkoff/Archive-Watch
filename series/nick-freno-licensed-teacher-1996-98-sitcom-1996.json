@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "nick-freno-licensed-teacher-1996-98-sitcom-1996",
+  "title": "Nick Freno Licensed Teacher (1996-98) sitcom",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/nick-freno-licensed-teacher-1996-98-sitcom",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "nick-freno-licensed-teacher-1996-98-sitcom",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Nick Freno Licensed Teacher (1996-98) sitcom",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/nick-freno-licensed-teacher-1996-98-sitcom",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WGN-TV - Brotherly Love and Nick Freno promos (1997).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1514661,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nick-freno-licensed-teacher-1996-98-sitcom/WGN-TV - Brotherly Love and Nick Freno promos (1997).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

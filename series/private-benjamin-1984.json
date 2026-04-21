@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "private-benjamin-1984",
+  "title": "Private Benjamin",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "Private Benjamin is an American sitcom based on the movie of the same name. The show aired on CBS from April 6, 1981, to January 10, 1983. Eileen Brennan, who reprised her role from the film, won an Emmy and Golden Globe Award for her work on the series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/c2KBYuVIC81zzZwISx2Z2RA767k.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "private-benjamin-2.03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Private Benjamin - Lorna Patterson",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c2KBYuVIC81zzZwISx2Z2RA767k.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Private Benjamin - 2.03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 710853021,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/private-benjamin-2.03/Private Benjamin - 2.03.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

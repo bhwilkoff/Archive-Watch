@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "seriesID": "doctor-who-1963",
+  "title": "Doctor Who",
+  "yearStart": 1963,
+  "yearEnd": 1968,
+  "overview": "The adventures of The Doctor, a time-traveling humanoid alien known as a Time Lord. He explores the universe in his TARDIS, a sentient time-traveling spaceship. Its exterior appears as a blue British police box, which was a common sight in Britain in 1963 when the series first aired. Along with a succession of companions, The Doctor faces a variety of foes while working to save civilizations, help ordinary people, and right many wrongs.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/xinqAmYrZ1TEwowcQhgTkZVtVE0.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/8VWgyQjExeMgeg6Qzv6agduMU1A.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One",
+    "BBC Television"
+  ],
+  "creator": "C. E. Webber",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "doctor-who-1963-s-1e-1-colorzied-serial-720p-hd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Doctor Who (Season 1 - first 13 episodes) (restored, colorized) (BBC sci-fi, 1963)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/w8enSKCf6Zm0topeQ2XPccDqsqp.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "doctor who-1963-s1e10-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 156722664,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/doctor-who-1963-s-1e-1-colorzied-serial-720p-hd/doctor who-1963-s1e10-colorized serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "doctor-who-the-underwater-menace-1967-surviving-prints",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Doctor Who - The Underwater Menace (1967; Surviving Prints)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xinqAmYrZ1TEwowcQhgTkZVtVE0.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 491623044,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/doctor-who-the-underwater-menace-1967-surviving-prints/Episode 2.ia.mp4"
+        },
+        {
+          "archiveID": "doctor-who-the-web-of-fear",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Doctor Who - The Web of Fear (1968; 2021 SPECIAL edition)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xinqAmYrZ1TEwowcQhgTkZVtVE0.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 3 [ANIMATED].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 516035474,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/doctor-who-the-web-of-fear/Episode 3 [ANIMATED].ia.mp4"
+        },
+        {
+          "archiveID": "doctorwho_s03_v2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Doctor Who S03 (1965-1966)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/w8enSKCf6Zm0topeQ2XPccDqsqp.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "season 3 doctor 1/Doctor Who - S03E02 (019) - Mission to the Unknown - Parts 1-1/Doctor Who - S03E02 (019) Bonus - Mission to the Unknown Reunion.mp4",
+            "format": "h.264",
+            "sizeBytes": 442947947,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/doctorwho_s03_v2/season 3 doctor 1/Doctor Who - S03E02 (019) - Mission to the Unknown - Parts 1-1/Doctor Who - S03E02 (019) Bonus - Mission to the Unknown Reunion.mp4"
+        },
+        {
+          "archiveID": "doctorwho_s04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Doctor Who S04 (1966-1967)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/w8enSKCf6Zm0topeQ2XPccDqsqp.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "season 4 doctor 1,2/Doctor Who - S04E04 (031) - The Highlanders - Parts 1-4/Doctor Who - S04E04 (031) Bonus - Interview with actor Michael Elwyn.mp4",
+            "format": "h.264",
+            "sizeBytes": 310015895,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/doctorwho_s04/season 4 doctor 1,2/Doctor Who - S04E04 (031) - The Highlanders - Parts 1-4/Doctor Who - S04E04 (031) Bonus - Interview with actor Michael Elwyn.mp4"
+        },
+        {
+          "archiveID": "celestial-toymaker-4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Doctor Who: Celestial Toymaker part 4 colorized",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xinqAmYrZ1TEwowcQhgTkZVtVE0.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Celestial Toymaker 4.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 54825322,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/celestial-toymaker-4/Celestial Toymaker 4.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "iPod-Doctor-Who-1963-S1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "An Unearthly Child",
+          "overview": "After discussing a strange pupil, Susan Foreman, teachers Ian and Barbara follow her to a junkyard. They meet her grandfather, the Doctor, and force their way inside a police box with frightening results.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/geJKM80SjYZIG5XNwonRHIkKBrF.jpg",
+          "airDate": "1963-11-23",
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Season 1 (Colorized)/Doctor Who - S01E02 - The Cave of Skulls.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 79592944,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/iPod-Doctor-Who-1963-S1/Season 1 (Colorized)/Doctor Who - S01E02 - The Cave of Skulls.mp4"
+        },
+        {
+          "archiveID": "the-daleks-master-plan-episodes-2-5-10",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Cave of Skulls",
+          "overview": "The enigmatic Doctor, afraid that schoolteachers Ian Chesterton and Barbara Wright will reveal his secrets to the people of 20th century Earth, has taken them and his granddaughter Susan back to the dawn of human history. There, the four travellers are dragged into the savage politics of a tribe of cavemen who have lost the secret of making fire…",
+          "stillURL": "https://image.tmdb.org/t/p/w300/svg8CUTdkVVNqaJKWp6vd999ahO.jpg",
+          "airDate": "1963-11-30",
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 2 - Day of Armageddeon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 478818077,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-daleks-master-plan-episodes-2-5-10/Episode 2 - Day of Armageddeon.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "doctor-who-the-enemy-of-the-world",
+          "seasonNumber": 5,
+          "episodeNumber": 17,
+          "title": "The Enemy of the World (1)",
+          "overview": "After the Doctor is attacked by a group of mysterious gunmen, he discovers he is the physical double of the famous scientist Salamander. ",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lgFk8gj2Hp2SsT3qSeVF171QmPG.jpg",
+          "airDate": "1967-12-23",
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 5.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 482336507,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/doctor-who-the-enemy-of-the-world/Episode 5.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9
+}

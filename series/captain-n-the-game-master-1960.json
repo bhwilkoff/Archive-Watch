@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "seriesID": "captain-n-the-game-master-1960",
+  "title": "Captain N: The Game Master",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "A teenager from Earth, is brought to another universe known as Videoland to defeat the evil villainess, Mother Brain, as foretold in an Ancient Prophecy.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/uvPvl5KAzHoWXSKPsTRP1sHpCo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/1YsxIqvO28j7WV3XR55D2gAyNaf.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "captain-n-the-game-master-extras-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Captain N: The Game Master - Extras - MKV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uvPvl5KAzHoWXSKPsTRP1sHpCo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Captain N The Game Master - x02 - Exploring Videoland - The Palace of Power.mp4",
+            "format": "h.264",
+            "sizeBytes": 11722506,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/captain-n-the-game-master-extras-mkv/Captain N The Game Master - x02 - Exploring Videoland - The Palace of Power.mp4"
+        },
+        {
+          "archiveID": "captain-n-the-game-master-season-1-restored",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Captain N: The Game Master - Season 1 - Episodes 1-6 Restored",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uvPvl5KAzHoWXSKPsTRP1sHpCo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Captain N The Game Master - S01E04 - Videolympics - Restored.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 251019031,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/captain-n-the-game-master-season-1-restored/Captain N The Game Master - S01E04 - Videolympics - Restored.mp4"
+        },
+        {
+          "archiveID": "captain-n-the-game-master-season-2-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Captain N: The Game Master - Season 2 - AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uvPvl5KAzHoWXSKPsTRP1sHpCo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Captain N The Game Master - S02E10 - The Trojan Dragon.mp4",
+            "format": "h.264",
+            "sizeBytes": 135479601,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/captain-n-the-game-master-season-2-avi/Captain N The Game Master - S02E10 - The Trojan Dragon.mp4"
+        },
+        {
+          "archiveID": "captain-n-the-game-master-season-2-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Captain N: The Game Master - Season 2 - MKV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uvPvl5KAzHoWXSKPsTRP1sHpCo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Captain N The Game Master - S02E08 - The Feud of Faxanadu.mp4",
+            "format": "h.264",
+            "sizeBytes": 135218050,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/captain-n-the-game-master-season-2-mkv/Captain N The Game Master - S02E08 - The Feud of Faxanadu.mp4"
+        },
+        {
+          "archiveID": "captain-n-the-game-master-season-3-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Captain N: The Game Master - Season 3 - AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uvPvl5KAzHoWXSKPsTRP1sHpCo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Captain N The Game Master - S03E03 - Return to Castlevania .mp4",
+            "format": "h.264",
+            "sizeBytes": 68864332,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/captain-n-the-game-master-season-3-avi/Captain N The Game Master - S03E03 - Return to Castlevania .mp4"
+        },
+        {
+          "archiveID": "captain-n-the-game-master-season-3-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Captain N: The Game Master - Season 3 - MKV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uvPvl5KAzHoWXSKPsTRP1sHpCo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Captain N The Game Master - S03E03 - Return to Castlevania.mp4",
+            "format": "h.264",
+            "sizeBytes": 65464928,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/captain-n-the-game-master-season-3-mkv/Captain N The Game Master - S03E03 - Return to Castlevania.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

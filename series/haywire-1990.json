@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "haywire-1990",
+  "title": "Haywire",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "Haywire is a sketch comedy television series which was aired by Fox Broadcasting Company as part of its 1990-91 lineup. Haywire included segments such as:\n\n\"Mind Your Manners with Billy Quan\", which described etiquette for kung fu practitioners, which was originally a sketch from the Seattle based sketch comedy show, \"Almost Live!\"; \"The Persuaders\", in which cast members attempted to persuade people on the street to do unusual, zany things; and \"Thrillseekers\", in which the introduction to the old Chuck Connors show was used to introduce people who had boring jobs or who were in very mundane, nonthreatening situations.\n\nOther features included commercial spoofs and showing scenes from both old black-and-white films and shots of people on the street with redubbed and presumably funnier dialogue. Between each segment a Bill Plympton animation would run.\n\nThe program was cancelled in January 1991.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "haywire-carol-leifer-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Haywire - Carol Leifer",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Haywire - Carol Leifer - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 195883797,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/haywire-carol-leifer-1990/Haywire - Carol Leifer - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

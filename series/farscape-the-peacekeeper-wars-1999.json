@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "farscape-the-peacekeeper-wars-1999",
+  "title": "Farscape The Peacekeeper Wars",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": "When a full-scale war is engaged by the evil Scarran Empire, the Peacekeeper Alliance has but one hope: reassemble human astronaut John Crichton.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/q05dyu0Wqo0fbkp5cEPfjf6wbb0.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/u8IkArFjwdZMfWVzr1P9ePXUNQ9.jpg",
+  "genres": [],
+  "networks": [
+    "Syfy"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "farscape-the-peacekeeper-wars",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Farscape The Peacekeeper Wars",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/q05dyu0Wqo0fbkp5cEPfjf6wbb0.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Farscape S05E02 The Peacekeeper Wars (2).mp4",
+            "format": "h.264",
+            "sizeBytes": 543887371,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-the-peacekeeper-wars/Farscape S05E02 The Peacekeeper Wars (2).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

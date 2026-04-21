@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-5th-annual-american-comedy-awards-2020",
+  "title": "The 5th Annual American Comedy Awards",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the5thannualcomedyawards1991pt.1convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the5thannualcomedyawards1991pt.1convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The 5th Annual American Comedy Awards (1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the5thannualcomedyawards1991pt.1convertvideoonline.com",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The 5th Annual Comedy Awards (1991, pt. 1) (convert-video-online.com).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1218868866,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the5thannualcomedyawards1991pt.1convertvideoonline.com/The 5th Annual Comedy Awards (1991, pt. 1) (convert-video-online.com).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

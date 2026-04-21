@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "planet-of-the-apes-1974-tv-2024",
+  "title": "Planet Of The Apes [1974] TV",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/planet-of-the-apes-1974-TV-HD",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Planet Of The Apes [1974] TV Series HD",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/planet-of-the-apes-1974-TV-HD",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E10 - The Interrogation (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 289638622,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet of the Apes [1974] E10 - The Interrogation (Ai Upscale)-v2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

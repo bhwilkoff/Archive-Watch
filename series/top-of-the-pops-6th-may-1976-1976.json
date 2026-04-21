@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "top-of-the-pops-6th-may-1976-1976",
+  "title": "Top Of The Pops (6th May 1976",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/top-of-the-pops-6th-may-1976-in-high-definition",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "top-of-the-pops-6th-may-1976-in-high-definition",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Top Of The Pops (6th May 1976)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/top-of-the-pops-6th-may-1976-in-high-definition",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Top of the Pops ( 6th May 1976 ) In High Definition.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 403565766,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/top-of-the-pops-6th-may-1976-in-high-definition/Top of the Pops ( 6th May 1976 ) In High Definition.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

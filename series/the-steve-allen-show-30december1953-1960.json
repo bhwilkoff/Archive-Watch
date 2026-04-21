@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-steve-allen-show-30december1953-1960",
+  "title": "The Steve Allen show (30/December/1953",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheSteveAllenShow30december1953",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheSteveAllenShow30december1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Steve Allen show (30/December/1953)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheSteveAllenShow30december1953",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2367,
+          "videoFile": {
+            "name": "Steve_Allen_show_12_30_1953.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 315245573,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheSteveAllenShow30december1953/Steve_Allen_show_12_30_1953.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

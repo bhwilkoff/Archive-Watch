@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "rick-and-the-maid-of-honor-ozzie-harriet-1962",
+  "title": "Rick and the Maid of Honor (Ozzie & Harriet",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Rick_and_the_Maid_of_Honor--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Rick_and_the_Maid_of_Honor--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Rick and the Maid of Honor (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Rick_and_the_Maid_of_Honor--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1377,
+          "videoFile": {
+            "name": "Rick_and_the_Maid_of_Honor--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 143031635,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Rick_and_the_Maid_of_Honor--Ozzie-Harriet/Rick_and_the_Maid_of_Honor--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

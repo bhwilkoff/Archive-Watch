@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jeannie-ep-4-survival-course-1973",
+  "title": "Jeannie EP 4 Survival Course",
+  "yearStart": 1973,
+  "yearEnd": 1973,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/jeannie-cartoon-series-e-04",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "jeannie-cartoon-series-e-04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Jeannie EP 4 Survival Course (1973)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jeannie-cartoon-series-e-04",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jeannie   Cartoon Series E04 Survival Course_ 360p.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 59329750,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jeannie-cartoon-series-e-04/Jeannie   Cartoon Series E04 Survival Course_ 360p.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

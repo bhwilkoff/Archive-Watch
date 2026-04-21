@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "duet--apart-s2e1-1960",
+  "title": "Duet- Apart (S2E1",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DuetApartS2E1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "DuetApartS2E1",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Duet- Apart (S2E1)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DuetApartS2E1",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Duet-Apart-_S2E1_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 105108757,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DuetApartS2E1/Duet-Apart-_S2E1_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "time-for-murder-1985",
+  "title": "Time For Murder",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": "Time for Murder is a 1985 British anthology crime series produced by Granada Television, featuring six standalone, hour-long mystery episodes with twists, dark humour, and macabre elements, starring popular actors like Charles Dance and Claire Bloom. Each episode presents a different story, such as a tutor becoming a murder suspect or a writer's spa vacation turning sinister, all united by the theme that 'there is always a time for murder'.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/2w8t51nf3RXYPytwIj9XnvGa5BO.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ITV Granada"
+  ],
+  "creator": "Pieter Rogers",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "time-for-murder-e-5-dust-to-dust-1985-patricia-hodge",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Dust to Dust",
+          "overview": "An English, female thuggee operates out of her country house.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/2w8t51nf3RXYPytwIj9XnvGa5BO.jpg",
+          "airDate": "1985-12-07",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Time For Murder E5 Dust To Dust 1985 Patricia Hodge.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 431329787,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/time-for-murder-e-5-dust-to-dust-1985-patricia-hodge/Time For Murder E5 Dust To Dust 1985 Patricia Hodge.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

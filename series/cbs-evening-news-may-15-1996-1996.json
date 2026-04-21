@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cbs-evening-news-may-15-1996-1996",
+  "title": "CBS Evening News May 15, 1996",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/cbs-19960515",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cbs-19960515",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CBS Evening News May 15, 1996",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/cbs-19960515",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CBS晚间新闻 19960515.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 199725825,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cbs-19960515/CBS晚间新闻 19960515.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

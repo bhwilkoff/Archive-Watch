@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-story-of-english-1986",
+  "title": "The Story Of English",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/nnx7rLETc6UuQFXxDg7CvCqlnI6.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-story-of-english-1.1-an-english-speaking-world-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Story Of English - Robert MacNeil",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nnx7rLETc6UuQFXxDg7CvCqlnI6.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Story of English - 1.5 - Pioneers O Pioneers - 1986.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2123723396,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-story-of-english-1.1-an-english-speaking-world-1986/The Story of English - 1.5 - Pioneers O Pioneers - 1986.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "doctor-who---the-celestial-toymaker-1966",
+  "title": "Doctor Who - The Celestial Toymaker",
+  "yearStart": 1966,
+  "yearEnd": 1966,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/episode-4-the-final-test",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "episode-4-the-final-test",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Doctor Who - The Celestial Toymaker: Episode 4 - The Final Test",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/episode-4-the-final-test",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 4 - The Final Test.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 468670706,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/episode-4-the-final-test/Episode 4 - The Final Test.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

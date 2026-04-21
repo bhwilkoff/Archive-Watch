@@ -434,7 +434,9 @@ struct PlayerScreen: View {
                 let record = WatchProgress(
                     archiveID: archiveID,
                     positionSeconds: position,
-                    durationSeconds: (duration?.isFinite == true) ? (duration ?? 0) : 0
+                    durationSeconds: (duration?.isFinite == true) ? (duration ?? 0) : 0,
+                    seriesID: nil,
+                    episodeTitle: nil,
                 )
                 modelContext.insert(record)
             }

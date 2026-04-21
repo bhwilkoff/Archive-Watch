@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "seriesID": "hollywood-without-makeup-1963",
+  "title": "Hollywood Without Makeup",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": "Armaan Mistry is a brilliant ex-cop, who can solve the toughest of cases with no qualms. Just one problem: he has extreme OCD.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7f6E0EcFcWNWgsUXrKo379iSo4S.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/grReOkIuYCrBsdi4LYGvAUXsJ5M.jpg",
+  "genres": [
+    "Documentary"
+  ],
+  "networks": [
+    "JioHotstar"
+  ],
+  "creator": "Andy Breckman",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Hollywood_Without_Makeup",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood Without Makeup",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8z8o9VtdTQq9ZHs0qG2lBMjBmmt.jpg",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "Hollywood_Without_Makeup_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 209931685,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Hollywood_Without_Makeup/Hollywood_Without_Makeup_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

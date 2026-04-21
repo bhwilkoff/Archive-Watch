@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "lizzie-dripping-1973",
+  "title": "Lizzie Dripping",
+  "yearStart": 1973,
+  "yearEnd": 1975,
+  "overview": "Lizzie Dripping was a British television children's programme produced by the BBC in 1973 and 1975. It was written by Helen Cresswell and set in the country village of Little Hemlock, where a young girl, Penelope, with a vivid imagination encounters a local witch whom only she can see and hear. This singular ability is further complicated by the fact that Penelope has established a reputation for being an imaginative liar, making it even more difficult for her to convince others that her witch is real.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/xjgMASrTtJs7X18zhwogt2vYtyC.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3s2PRWA6n7IhNeMynlFzkBYNxtE.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Helen Cresswell",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lizzie-dripping-series-1-avi-xvid",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lizzie Dripping - Series 1 - AVI XviD",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xjgMASrTtJs7X18zhwogt2vYtyC.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01EP02 Lizzie Dripping's Black Sunday.mp4",
+            "format": "h.264",
+            "sizeBytes": 124341226,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lizzie-dripping-series-1-avi-xvid/S01EP02 Lizzie Dripping's Black Sunday.mp4"
+        },
+        {
+          "archiveID": "lizzie-dripping-series-1-dvd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lizzie Dripping - Series 1 - DVD",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xjgMASrTtJs7X18zhwogt2vYtyC.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "VIDEO_TS/VTS_02_3.mp4",
+            "format": "h.264",
+            "sizeBytes": 132675784,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lizzie-dripping-series-1-dvd/VIDEO_TS/VTS_02_3.mp4"
+        },
+        {
+          "archiveID": "lizzie-dripping-series-2-avi-xvid",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lizzie Dripping - Series 2 - AVI XviD",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xjgMASrTtJs7X18zhwogt2vYtyC.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2EP03 Lizzie Dripping Tries a Spell.mp4",
+            "format": "h.264",
+            "sizeBytes": 153868554,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-avi-xvid/S2EP03 Lizzie Dripping Tries a Spell.mp4"
+        },
+        {
+          "archiveID": "lizzie-dripping-series-2-dvd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lizzie Dripping - Series 2 - DVD",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xjgMASrTtJs7X18zhwogt2vYtyC.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "VIDEO_TS/VTS_02_2.mp4",
+            "format": "h.264",
+            "sizeBytes": 123714942,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-dvd/VIDEO_TS/VTS_02_2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

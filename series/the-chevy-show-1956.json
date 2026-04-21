@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "the-chevy-show-1956",
+  "title": "The Chevy Show",
+  "yearStart": 1956,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/c43KibsMqs5Y156HLgQudPT7LQf.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheChevyShow-10April1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Chevy Show'' - 10 April 1956",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c43KibsMqs5Y156HLgQudPT7LQf.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 3565,
+          "videoFile": {
+            "name": "DinahShoreChevyShow10April1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 372744661,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChevyShow-10April1956/DinahShoreChevyShow10April1956.mp4"
+        },
+        {
+          "archiveID": "TheChevyShowStateFairU.S.A.",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Chevy Show'' - State Fair U.S.A.",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c43KibsMqs5Y156HLgQudPT7LQf.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chevy Show - State Fair U.S.A..mp4",
+            "format": "h.264",
+            "sizeBytes": 371429587,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChevyShowStateFairU.S.A./The Chevy Show - State Fair U.S.A..mp4"
+        },
+        {
+          "archiveID": "TheChevyShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Chevy Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c43KibsMqs5Y156HLgQudPT7LQf.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 3533,
+          "videoFile": {
+            "name": "TheChevyShow.mp4",
+            "format": "h.264",
+            "sizeBytes": 367965160,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChevyShow/TheChevyShow.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

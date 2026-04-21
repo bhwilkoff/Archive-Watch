@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "classic-crap-1973",
+  "title": "Classic Crap",
+  "yearStart": 1973,
+  "yearEnd": 1973,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Jeice_Murdered_My_Family",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Jeice_Murdered_My_Family",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Crap: 'Dusty's Trail' - Duel for Daphne",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Jeice_Murdered_My_Family",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dusty_10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136663043,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Jeice_Murdered_My_Family/Dusty_10.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "seriesID": "failed-tv-pilot-1950",
+  "title": "Failed TV Pilot",
+  "yearStart": 1950,
+  "yearEnd": 1954,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Meet_The_OBriens",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "TV Movie"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Lets_Join_Joanie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Failed TV Pilot: \"Let's Join Joanie\" (1950)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9wd8Dez1jtR1rDELxL6zQZhiXEu.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1920,
+          "videoFile": {
+            "name": "Lets_Join_Joanie.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 195320446,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Lets_Join_Joanie/Lets_Join_Joanie.ia.mp4"
+        },
+        {
+          "archiveID": "Meet_The_OBriens",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Failed TV Pilot: \"Meet The O'Briens\" (1954)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Meet_The_OBriens",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Meet_The_OBriens.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 143534197,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Meet_The_OBriens/Meet_The_OBriens.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

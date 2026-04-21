@@ -1,0 +1,306 @@
+{
+  "version": 1,
+  "seriesID": "club-connect-1991",
+  "title": "Club Connect",
+  "yearStart": 1991,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/club-connect-s-05-e-06-radio-jobs",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "club-connect-teen-film-makers-media-and-messages-s04e04",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "Club Connect - Teen Film Makers - Media And Messages (S04E04)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-teen-film-makers-media-and-messages-s04e04",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S04E04 - Teen Film Makers - Media and Messages.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 169552593,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-teen-film-makers-media-and-messages-s04e04/Club Connect - S04E04 - Teen Film Makers - Media and Messages.ia.mp4"
+        },
+        {
+          "archiveID": "club-connect-family-show-i-s04e05",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "Club Connect - Family Show I (S04E05)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-family-show-i-s04e05",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S04E05 - Family Show I.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 877022560,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-family-show-i-s04e05/Club Connect - S04E05 - Family Show I.ia.mp4"
+        },
+        {
+          "archiveID": "club-connect-friendship-s04e07",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Club Connect - Friendship (S04E07)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-friendship-s04e07",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S04E07 - Friendship.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 876810054,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-friendship-s04e07/Club Connect - S04E07 - Friendship.ia.mp4"
+        },
+        {
+          "archiveID": "club-connect-teen-activism-s04e16",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "Club Connect - Teen Activism (S04E16)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-teen-activism-s04e16",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S04E16 - Teen Activism.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 886329420,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-teen-activism-s04e16/Club Connect - S04E16 - Teen Activism.ia.mp4"
+        },
+        {
+          "archiveID": "club-connect-dealing-with-disabilities-s04e17",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "Club Connect - Dealing With Disabilities (S04E17)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-dealing-with-disabilities-s04e17",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S04E17 - Dealing with Disabilities.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 877260316,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-dealing-with-disabilities-s04e17/Club Connect - S04E17 - Dealing with Disabilities.ia.mp4"
+        },
+        {
+          "archiveID": "club-connect-consumerism-i-s04e18",
+          "seasonNumber": 4,
+          "episodeNumber": 18,
+          "title": "Club Connect - Consumerism I (S04E18)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-consumerism-i-s04e18",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S04E18 - Consumerism I.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 887024269,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-consumerism-i-s04e18/Club Connect - S04E18 - Consumerism I.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "club-connect-supermarket-fitnesss-s05e04",
+          "seasonNumber": 5,
+          "episodeNumber": 4,
+          "title": "Club Connect - Supermarket Fitness (S05E04)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-supermarket-fitnesss-s05e04",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S05E04 - Supermarket Fitness.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 876397466,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-supermarket-fitnesss-s05e04/Club Connect - S05E04 - Supermarket Fitness.ia.mp4"
+        },
+        {
+          "archiveID": "club-connect-the-jailbirds-go-ethnic-s05e05",
+          "seasonNumber": 5,
+          "episodeNumber": 5,
+          "title": "Club Connect - The Jailbirds Go Ethnic (S05E05)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-the-jailbirds-go-ethnic-s05e05",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S05E05 - The Jailbirds Go Ethnic.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 881742129,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-the-jailbirds-go-ethnic-s05e05/Club Connect - S05E05 - The Jailbirds Go Ethnic.ia.mp4"
+        },
+        {
+          "archiveID": "club-connect-s-05-e-06-radio-jobs",
+          "seasonNumber": 5,
+          "episodeNumber": 6,
+          "title": "Club Connect - Radio Jobs (S05E06)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-s-05-e-06-radio-jobs",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S05E06 - Radio Jobs.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 877809582,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-s-05-e-06-radio-jobs/Club Connect - S05E06 - Radio Jobs.ia.mp4"
+        },
+        {
+          "archiveID": "club-connect-coping-with-tragedy-s05e13",
+          "seasonNumber": 5,
+          "episodeNumber": 13,
+          "title": "Club Connect - Coping With Tragedy (S05E13)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-coping-with-tragedy-s05e13",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S05E13 - Coping with Tragedy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 899863126,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-coping-with-tragedy-s05e13/Club Connect - S05E13 - Coping with Tragedy.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "club-connect-the-wall-is-gone-germany-s06e01",
+          "seasonNumber": 6,
+          "episodeNumber": 1,
+          "title": "Club Connect - The Wall Is Gone - Germany (S06E01)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-the-wall-is-gone-germany-s06e01",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S06E01 - The Wall is Gone - Germany.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 899916353,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-the-wall-is-gone-germany-s06e01/Club Connect - S06E01 - The Wall is Gone - Germany.ia.mp4"
+        },
+        {
+          "archiveID": "club-connect-aids-fighters-s06e06",
+          "seasonNumber": 6,
+          "episodeNumber": 6,
+          "title": "Club Connect - AIDS Fighters (S06E06)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-aids-fighters-s06e06",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S06E06 - AIDS Fighters.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 902167217,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-aids-fighters-s06e06/Club Connect - S06E06 - AIDS Fighters.ia.mp4"
+        },
+        {
+          "archiveID": "club-connect-enviromental-aliens-s06e07",
+          "seasonNumber": 6,
+          "episodeNumber": 7,
+          "title": "Club Connect - Environmental Aliens (S06E07)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-enviromental-aliens-s06e07",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S06E07 - Environmental Aliens.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 878948508,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-enviromental-aliens-s06e07/Club Connect - S06E07 - Environmental Aliens.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 9,
+      "episodes": [
+        {
+          "archiveID": "club-connect-the-image-show-s09e05",
+          "seasonNumber": 9,
+          "episodeNumber": 5,
+          "title": "Club Connect - The Image Show (S09E05)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-the-image-show-s09e05",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S09E05 - The Image Show.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 898516661,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-the-image-show-s09e05/Club Connect - S09E05 - The Image Show.ia.mp4"
+        },
+        {
+          "archiveID": "club-connect-mixed-messages-and-the-media-s09e11",
+          "seasonNumber": 9,
+          "episodeNumber": 11,
+          "title": "Club Connect - Mixed Messages in The Media (S09E11)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-connect-mixed-messages-and-the-media-s09e11",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club Connect - S09E11 - Mixed Messages and the Media.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 886557419,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-connect-mixed-messages-and-the-media-s09e11/Club Connect - S09E11 - Mixed Messages and the Media.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "one-world-1999",
+  "title": "One World",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": "A former pro ballplayer and his sculptor wife start a family in an unorthodox way, adopting six teenagers of various ethnic and racial backgrounds.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fVzkQ8A9SprWw9YoK7Rks1jI1u0.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Robert Tarlow",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "211-band-on-the-run",
+          "seasonNumber": 1,
+          "episodeNumber": 211,
+          "title": "Band on the Run",
+          "overview": "Gator Joe sees Ben's Band Perform and tells him what great Performance he did, However, Gator Joe decides to get more International talent like M2M to Perform and Marci fires Ben from the Warehouse at the Dinner Table, but things don't turn out good when She tells Him that he's not Invited back, but M2M gives Ben Advice on how to be a better Performer and returns with a whole New Look who wows the Whole Warehouse Audience. Also, Sui likes a Jock she dated and tries to get more of his Attention but ends in carnage as Jane makes the squad for Football.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fVzkQ8A9SprWw9YoK7Rks1jI1u0.jpg",
+          "airDate": "1999-11-27",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "211__Band_on_the_Run.mp4",
+            "format": "h.264",
+            "sizeBytes": 118861629,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/211-band-on-the-run/211__Band_on_the_Run.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

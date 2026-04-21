@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "promo_lawrence_welk__hollywood_palace_abc_1964-1960",
+  "title": "Promo_Lawrence_Welk__Hollywood_Palace_ABC_1964",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Promo_Lawrence_Welk__Hollywood_Palace_ABC_1964",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Promo_Lawrence_Welk__Hollywood_Palace_ABC_1964",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Promo_Lawrence_Welk__Hollywood_Palace_ABC_1964",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Promo_Lawrence_Welk__Hollywood_Palace_ABC_1964",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Promo_Lawrence_Welk__Hollywood_Palace_ABC_1964.mp4",
+            "format": "h.264",
+            "sizeBytes": 5342893,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Promo_Lawrence_Welk__Hollywood_Palace_ABC_1964/Promo_Lawrence_Welk__Hollywood_Palace_ABC_1964.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

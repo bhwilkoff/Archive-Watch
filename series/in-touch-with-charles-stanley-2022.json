@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "in-touch-with-charles-stanley-2022",
+  "title": "In Touch With Charles Stanley",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": "In Touch with Dr. Charles Stanley is a television series sponsored by In Touch Ministries in Atlanta, Georgia and hosted by Charles Stanley. The series airs on the Trinity Broadcasting Network and began airing in 1990. On one episode dated September 11, 2011, it hosted a 10th anniversary remembrance of the terrorist attacks on the September 11 attacks, which featured stories of those who survived the attack.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Trinity Broadcasting Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "in-touch-with-charles-stanley-jesus-prince-of-peace-1984",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "In Touch With Charles Stanley: Jesus, Prince Of Peace (1984)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "In Touch with Charles Stanley- Jesus Prince of Peace (1984).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2037020119,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/in-touch-with-charles-stanley-jesus-prince-of-peace-1984/In Touch with Charles Stanley- Jesus Prince of Peace (1984).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

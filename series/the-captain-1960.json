@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-captain-1960",
+  "title": "The Captain",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "A compelling narrative revealing the man behind the icon - Derek Jeter. Amidst a time of great change in New York City, Derek Jeter’s arrival to the New York Yankees returned a struggling franchise to its traditional perch amongst baseball’s elite. As Derek forged a Hall of Fame worthy career, his second home molded him as a man.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/oa3mIWCFiPdd1rpRvtnuvKpsThI.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/vd9a3aU6M0kYU9njsARFbBKxe8w.jpg",
+  "genres": [],
+  "networks": [
+    "ESPN"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OSB-19_The_Captains_Guests",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Captain's Guests",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oa3mIWCFiPdd1rpRvtnuvKpsThI.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OSB-19_The_Captains_Guests.mp4",
+            "format": "h.264",
+            "sizeBytes": 152856429,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-19_The_Captains_Guests/OSB-19_The_Captains_Guests.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

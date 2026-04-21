@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "dundee-and-the-culhane-1967",
+  "title": "Dundee and the Culhane",
+  "yearStart": 1967,
+  "yearEnd": 1967,
+  "overview": "Dundee and the Culhane is an American Western television series starring John Mills and Sean Garrison that aired on the CBS television network from September 7 to December 13, 1967.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fEzh8tWzK0M9Yeh1dqjfzpl8iQW.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Sam Rolfe",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dundee and the Culhane (1967) - Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fEzh8tWzK0M9Yeh1dqjfzpl8iQW.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E13 - The  Catch a Thief Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 280231188,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E13 - The  Catch a Thief Brief.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

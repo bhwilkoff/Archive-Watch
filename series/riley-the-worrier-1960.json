@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "riley-the-worrier-1960",
+  "title": "Riley The Worrier",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/life_of_riley_-_2x13_-_riley_the_worrier",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "life_of_riley_-_2x13_-_riley_the_worrier",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Riley The Worrier",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_2x13_-_riley_the_worrier",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_2x13_-_riley_the_worrier_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 127960279,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_2x13_-_riley_the_worrier/life_of_riley_-_2x13_-_riley_the_worrier_agk.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "seriesID": "studio-one-1960",
+  "title": "Studio One",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "An American radio–television anthology series, created in 1947 by Canadian director Fletcher Markle, who came to CBS from the CBC. Studio One, presented by Westinghouse, was one of the first of the anthology TV programs. The episodes were often abridged remakes of movies from years gone by and many future well-known television and movie actors appeared in the productions.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/sWaYMwzkJrhc4ZrgAvJhE4Nl5Pz.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Fletcher Markle",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "studio-one-the-night-america-trembled-1957-colorized-movie-576p-sd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One – The Night America Trembled (restored, colorized) (1957, drama, imdb score: 6.6)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "studio one-the night america trembled-1957-colorized movie-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 344413095,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-the-night-america-trembled-1957-colorized-movie-576p-sd/studio one-the night america trembled-1957-colorized movie-576p-sd.mp4"
+        },
+        {
+          "archiveID": "StudioOneLittleWomenJosStory-LelaSwift",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One: Little Women: Jo's story - Lela Swift",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3078,
+          "videoFile": {
+            "name": "Studio_one_littleWomen_12_25_1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 296947101,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOneLittleWomenJosStory-LelaSwift/Studio_one_littleWomen_12_25_1950.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "StudioOne-ABoltOfLightning",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "A Bolt of Lightning",
+          "overview": "The story of James Otis, a Boston attorney and American patriot who contested the right of British troops to search colonists' homes during The Revolutionary War.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1951-11-12",
+          "year": null,
+          "runtimeSeconds": 3552,
+          "videoFile": {
+            "name": "StudioOne-ABoltOfLightning.mp4",
+            "format": "h.264",
+            "sizeBytes": 354559017,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOne-ABoltOfLightning/StudioOne-ABoltOfLightning.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "StudioOne-SentenceOfDeath",
+          "seasonNumber": 5,
+          "episodeNumber": 46,
+          "title": "Sentence of Death",
+          "overview": "A woman witnesses a murder during a store robbery but claims the accused man is not the killer. After he is convicted and weeks away from his execution date, she sees the real killer, but the police are reluctant to reopen the case.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1953-08-17",
+          "year": null,
+          "runtimeSeconds": 3006,
+          "videoFile": {
+            "name": "StudioOne-SentenceOfDeath.mp4",
+            "format": "h.264",
+            "sizeBytes": 309478592,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOne-SentenceOfDeath/StudioOne-SentenceOfDeath.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "StudioOne-ConfessionsOfANervousMan",
+          "seasonNumber": 6,
+          "episodeNumber": 11,
+          "title": "Confessions of a Nervous Man",
+          "overview": "The story about how the success of Axelrod's play \"\"The Seven Year Itch\"\" affected him",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1953-11-30",
+          "year": null,
+          "runtimeSeconds": 3044,
+          "videoFile": {
+            "name": "StudioOne-ConfessionsOfANervousMan.mp4",
+            "format": "h.264",
+            "sizeBytes": 301139672,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOne-ConfessionsOfANervousMan/StudioOne-ConfessionsOfANervousMan.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "StudioOne-TwelveAngryMen",
+          "seasonNumber": 7,
+          "episodeNumber": 1,
+          "title": "Twelve Angry Men",
+          "overview": "A jury must reach a verdict concerning a teenaged boy accused of murder.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1954-09-20",
+          "year": null,
+          "runtimeSeconds": 3041,
+          "videoFile": {
+            "name": "StudioOne-TwelveAngryMen.mp4",
+            "format": "h.264",
+            "sizeBytes": 289251407,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOne-TwelveAngryMen/StudioOne-TwelveAngryMen.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

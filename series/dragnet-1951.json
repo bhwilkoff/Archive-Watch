@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "seriesID": "dragnet-1951",
+  "title": "Dragnet",
+  "yearStart": 1951,
+  "yearEnd": 1956,
+  "overview": "Follows the cases of a dedicated Los Angeles police detective, Sergeant Joe Friday, and his partners. The show takes its name from the police term \"dragnet\", meaning a system of coordinated measures for apprehending criminals or suspects.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/66Qqh7rJTCOSZgJkVAJa3wfUMMI.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Jack Webb",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dragnet1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dragnet ( 1951)",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/11/29790.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dragnet/Season 7/Dragnet (1951) - S07E28 - The Big War.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154902685,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dragnet1951/Dragnet/Season 7/Dragnet (1951) - S07E28 - The Big War.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "DragnetS01E05TheBigCast",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Big Cast",
+          "overview": "The police interrogate a suspect whom they believe to have murdered more than a dozen men.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1952-02-14",
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dragnet S01E05 The Big Cast - Watch Crime Series Online.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 109670841,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetS01E05TheBigCast/Dragnet S01E05 The Big Cast - Watch Crime Series Online.ogv"
+        },
+        {
+          "archiveID": "DragnetEpisode18TheBigSeventeenwcommercials",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Dragnet - Episode # 18 The Big Seventeen w/commercials",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1860,
+          "videoFile": {
+            "name": "dragnet_bigseventeen.mp4",
+            "format": "h.264",
+            "sizeBytes": 180811422,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetEpisode18TheBigSeventeenwcommercials/dragnet_bigseventeen.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "Dragnet-TheBigTrunk1954",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "The Big Trunk",
+          "overview": "Three men are taken into custody for the murder of a former vaudeville actress who owned a large steamer trunk. The three men maintain innocence.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1954-01-07",
+          "year": 1954,
+          "runtimeSeconds": 1609,
+          "videoFile": {
+            "name": "Dragnet_Big_Trunk_01_07_54.mp4",
+            "format": "h.264",
+            "sizeBytes": 155794731,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dragnet-TheBigTrunk1954/Dragnet_Big_Trunk_01_07_54.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "Dragnet-TheBigDeal1956",
+          "seasonNumber": 5,
+          "episodeNumber": 34,
+          "title": "The Big Deal",
+          "overview": "Friday and Smith are investigating a rash of car thefts. The stolen cars are being sold with forged pink slips.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1956-04-27",
+          "year": 1956,
+          "runtimeSeconds": 1577,
+          "videoFile": {
+            "name": "Dragnet_Big_deal_04_26_56.mp4",
+            "format": "h.264",
+            "sizeBytes": 155840810,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dragnet-TheBigDeal1956/Dragnet_Big_deal_04_26_56.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "david-gets-a-raise-ozzie-harriet-1960",
+  "title": "David Gets a Raise (Ozzie & Harriet",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/David_Gets_a_Raise--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "David_Gets_a_Raise--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "David Gets a Raise (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/David_Gets_a_Raise--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1268,
+          "videoFile": {
+            "name": "David_Gets_a_Raise--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 132034277,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/David_Gets_a_Raise--Ozzie-Harriet/David_Gets_a_Raise--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

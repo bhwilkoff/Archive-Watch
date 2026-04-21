@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "nypd-1967",
+  "title": "N.Y.P.D",
+  "yearStart": 1967,
+  "yearEnd": 1967,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/gTO9tWBpmkHYcK4MDtndGbP48kn.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "David Susskind",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "N.Y.P.D (1967) - Full Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gTO9tWBpmkHYcK4MDtndGbP48kn.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E16 - The Attacker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 700671516,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD (49 of 49)/S02E16 - The Attacker.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

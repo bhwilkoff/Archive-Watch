@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "hard-copy-march-13-1992-2025",
+  "title": "Hard Copy (March 13, 1992",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hard-copy-march-13-1992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hard-copy-march-13-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hard Copy (March 13, 1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hard-copy-march-13-1992",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hard Copy (March 13, 1992).mp4",
+            "format": "h.264",
+            "sizeBytes": 134299206,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hard-copy-march-13-1992/Hard Copy (March 13, 1992).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

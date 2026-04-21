@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tatort-406-1999",
+  "title": "Tatort (406",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/2873921-50246712",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "2873921-50246712",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tatort (406): Restrisiko (1999)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/2873921-50246712",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2873921_50246712.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2981272418,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/2873921-50246712/2873921_50246712.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

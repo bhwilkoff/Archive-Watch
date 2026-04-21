@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-cube-root-of-evil-1960",
+  "title": "The Cube Root of Evil",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FollowThatMan-RalphBellamy-5-08-TheCubeRootofEvil",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FollowThatMan-RalphBellamy-5-08-TheCubeRootofEvil",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Cube Root of Evil",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FollowThatMan-RalphBellamy-5-08-TheCubeRootofEvil",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FollowThatMan-RalphBellamy-5-08-TheCubeRootofEvil.mp4",
+            "format": "h.264",
+            "sizeBytes": 150182362,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FollowThatMan-RalphBellamy-5-08-TheCubeRootofEvil/FollowThatMan-RalphBellamy-5-08-TheCubeRootofEvil.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

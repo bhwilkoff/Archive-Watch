@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "seriesID": "garfield-and-friends-1989",
+  "title": "Garfield and Friends",
+  "yearStart": 1989,
+  "yearEnd": 1994,
+  "overview": "The animated stories of Garfield the cat, Odie the dog, their owner Jon and the trouble they get into. And also Orson the Pig and his adventures on a farm with his fellow farm animals.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pE6l6I1ICKOu4pDUXxkl87TTLZx.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4qcNKcng7HYlKJJ0DFYIH52gWNF.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Jim Davis",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "036mysticmanorflopgoestheweaselthelegendoflongjondvdripxvidphz",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Garfield and Friends Season 2 (1989)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pE6l6I1ICKOu4pDUXxkl87TTLZx.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "017 - The Sludge Monster, Fortune Kooky, Heatwave Holiday DVDRip XviD [PhZ].mp4",
+            "format": "h.264",
+            "sizeBytes": 148794356,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/036mysticmanorflopgoestheweaselthelegendoflongjondvdripxvidphz/017 - The Sludge Monster, Fortune Kooky, Heatwave Holiday DVDRip XviD [PhZ].mp4"
+        },
+        {
+          "archiveID": "056mistakeswillhappenthewelldwellerthewisemandvdripxvidphz",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Garfield and Friends Season 3 (1990)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pE6l6I1ICKOu4pDUXxkl87TTLZx.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "050 - Count Lasagna, Mystery Guest, Rodent Rampage DVDRip XviD [PhZ].mp4",
+            "format": "h.264",
+            "sizeBytes": 150010498,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/056mistakeswillhappenthewelldwellerthewisemandvdripxvidphz/050 - Count Lasagna, Mystery Guest, Rodent Rampage DVDRip XviD [PhZ].mp4"
+        },
+        {
+          "archiveID": "068bouncingbabybluestheuglyducklinglearninglessonsdvdripxvidphz",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Garfield and Friends Season 4 (1991)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pE6l6I1ICKOu4pDUXxkl87TTLZx.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "062 - Frankenstein Feline, Weatherman Wade, Fill-in Feline DVDRip XviD [PhZ].mp4",
+            "format": "h.264",
+            "sizeBytes": 148556244,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/068bouncingbabybluestheuglyducklinglearninglessonsdvdripxvidphz/062 - Frankenstein Feline, Weatherman Wade, Fill-in Feline DVDRip XviD [PhZ].mp4"
+        },
+        {
+          "archiveID": "088ghostofachanceroygetssackedrevengeofthelivinglunchdvdripxvidphz",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Garfield and Friends Season 5 (1992)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pE6l6I1ICKOu4pDUXxkl87TTLZx.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "079 - The First Annual Garfield Watchers Test, Stark Raven Mad, The Record Breaker DVDRip XviD [PhZ].mp4",
+            "format": "h.264",
+            "sizeBytes": 148429613,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/088ghostofachanceroygetssackedrevengeofthelivinglunchdvdripxvidphz/079 - The First Annual Garfield Watchers Test, Stark Raven Mad, The Record Breaker DVDRip XviD [PhZ].mp4"
+        },
+        {
+          "archiveID": "098dr.jekyllandmr.mousepaydaymaydayhowtodrivehumanscrazydvdripxvidphz",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Garfield and Friends Season 6 (1993)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pE6l6I1ICKOu4pDUXxkl87TTLZx.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "098 - Dr. Jekyll and Mr. Mouse, Payday Mayday, How to Drive Humans Crazy DVDRip XviD [PhZ].mp4",
+            "format": "h.264",
+            "sizeBytes": 148747178,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/098dr.jekyllandmr.mousepaydaymaydayhowtodrivehumanscrazydvdripxvidphz/098 - Dr. Jekyll and Mr. Mouse, Payday Mayday, How to Drive Humans Crazy DVDRip XviD [PhZ].mp4"
+        },
+        {
+          "archiveID": "116thoroughlymixedupmousetheoldmanofthemountainfoodfighterdvdripxvidphz",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Garfield and Friends Season 7 (1994)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pE6l6I1ICKOu4pDUXxkl87TTLZx.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "115 - The Suburban Jungle, The Thing in the Box, The Feline Philosopher DVDRip XviD [PhZ].mp4",
+            "format": "h.264",
+            "sizeBytes": 149005086,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/116thoroughlymixedupmousetheoldmanofthemountainfoodfighterdvdripxvidphz/115 - The Suburban Jungle, The Thing in the Box, The Feline Philosopher DVDRip XviD [PhZ].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "cartoon-network-premiere-1992",
+  "title": "Cartoon Network Premiere",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/PremiereCartoonNetworkOctober11992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PremiereCartoonNetworkOctober11992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cartoon Network Premiere",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/PremiereCartoonNetworkOctober11992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Premiere Cartoon Network (October 1 1992).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 22873435,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PremiereCartoonNetworkOctober11992/Premiere Cartoon Network (October 1 1992).ogv"
+        },
+        {
+          "archiveID": "CartoonNetworkPremiere",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cartoon Network Premiere: October 1, 1992",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CartoonNetworkPremiere",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cartoon Network Premiere October 1, 1992.mp4",
+            "format": "h.264",
+            "sizeBytes": 31856889,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CartoonNetworkPremiere/Cartoon Network Premiere October 1, 1992.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

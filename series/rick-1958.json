@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "rick-1958",
+  "title": "Rick",
+  "yearStart": 1958,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Ricks_Chemistry_Grade--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Ricks_Chemistry_Grade--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Rick's Chemistry Grade (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ricks_Chemistry_Grade--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1647,
+          "videoFile": {
+            "name": "Ricks_Chemistry_Grade--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 171075825,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ricks_Chemistry_Grade--Ozzie-Harriet/Ricks_Chemistry_Grade--Ozzie-Harriet.mp4"
+        },
+        {
+          "archiveID": "Ricks_Scientific_Date--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Rick's Scientific Date (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ricks_Scientific_Date--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1756,
+          "videoFile": {
+            "name": "Ricks_Scientific_Date--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 182770455,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ricks_Scientific_Date--Ozzie-Harriet/Ricks_Scientific_Date--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

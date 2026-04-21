@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "valiant-lady-1953",
+  "title": "Valiant Lady",
+  "yearStart": 1953,
+  "yearEnd": 1955,
+  "overview": "Valiant Lady is an American soap opera which ran daily on CBS radio and television from October 12, 1953 to August 16, 1957 at 12:00 PM. The show's title was taken from a 1930s radio soap opera about a young woman struggling through life but is otherwise very different. Like many early soap operas, the show was broadcast live from CBS studios in New York City.\n\nThe series was created by Adrian Spies; the head writer was Charles Elwyn.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ValiantLady1955-Upgraded",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Valiant Lady'' - Misc 1955 episode (upgrade)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 865,
+          "videoFile": {
+            "name": "valiantlady1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 90001212,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ValiantLady1955-Upgraded/valiantlady1955.mp4"
+        },
+        {
+          "archiveID": "Valiant_Lady",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Valiant Lady' - 8/December/1953",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Valiant_Lady.mp4",
+            "format": "h.264",
+            "sizeBytes": 66166327,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Valiant_Lady/Valiant_Lady.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

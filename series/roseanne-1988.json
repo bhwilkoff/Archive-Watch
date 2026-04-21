@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "roseanne-1988",
+  "title": "Roseanne",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": "A working-class family struggles to get by on a limited income in the fictional town of Lanford, Illinois.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4UARHgxTm7xwhcEHiVDwF0Gv4j0.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/hwCKVqEAoPQK91I3ewx64N1zLhS.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Matt Williams",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "roseanne_202507",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Roseanne complete series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4UARHgxTm7xwhcEHiVDwF0Gv4j0.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Season 7/19 The Clip Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 271386161,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/roseanne_202507/Season 7/19 The Clip Show.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

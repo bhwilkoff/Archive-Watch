@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "seriesID": "heritage-1960",
+  "title": "Heritage",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Chefs from across the country tell their personal stories.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "heritage-civilization-and-the-jews-1984-11-12",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Heritage: Civilization and the Jews November 12, 1984",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Heritage Civilization and the Jews 1984-11-12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1106991624,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/heritage-civilization-and-the-jews-1984-11-12/Heritage Civilization and the Jews 1984-11-12.mp4"
+        },
+        {
+          "archiveID": "heritage-civilization-and-the-jews-1984-11-19",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Heritage: Civilization and the Jews November 19, 1984",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Heritage Civilization and the Jews 1984-11-19.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1138061302,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/heritage-civilization-and-the-jews-1984-11-19/Heritage Civilization and the Jews 1984-11-19.mp4"
+        },
+        {
+          "archiveID": "heritage-civilization-and-the-jews-1984-11-26",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Heritage: Civilization and the Jews November 26, 1984",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Heritage Civilization and the Jews 1984-11-26.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1134172877,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/heritage-civilization-and-the-jews-1984-11-26/Heritage Civilization and the Jews 1984-11-26.mp4"
+        },
+        {
+          "archiveID": "heritage-civilization-and-the-jews-1984-11-05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Heritage: Civilization and the Jews November 5, 1984",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Heritage Civilization and the Jews 1984-11-05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1180135608,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/heritage-civilization-and-the-jews-1984-11-05/Heritage Civilization and the Jews 1984-11-05.mp4"
+        },
+        {
+          "archiveID": "heritage-civilization-and-the-jews-1984-10-15",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Heritage: Civilization and the Jews October 15, 1984",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Heritage Civilization and the Jews 1984-10-15.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1144068819,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/heritage-civilization-and-the-jews-1984-10-15/Heritage Civilization and the Jews 1984-10-15.mp4"
+        },
+        {
+          "archiveID": "heritage-civilization-and-the-jews-1984-10-22",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Heritage: Civilization and the Jews October 22, 1984",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Heritage Civilization and the Jews 1984-10-22.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1113795816,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/heritage-civilization-and-the-jews-1984-10-22/Heritage Civilization and the Jews 1984-10-22.mp4"
+        },
+        {
+          "archiveID": "heritage-civilization-and-the-jews-1984-10-29",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Heritage: Civilization and the Jews October 29, 1984",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Heritage Civilization and the Jews 1984-10-29.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1129043882,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/heritage-civilization-and-the-jews-1984-10-29/Heritage Civilization and the Jews 1984-10-29.mp4"
+        },
+        {
+          "archiveID": "heritage-civilization-and-the-jews-1984-10-08",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Heritage: Civilization and the Jews October 8, 1984",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Heritage Civilization and the Jews 1984-10-08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1124985635,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/heritage-civilization-and-the-jews-1984-10-08/Heritage Civilization and the Jews 1984-10-08.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

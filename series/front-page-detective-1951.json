@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "seriesID": "front-page-detective-1951",
+  "title": "Front Page Detective",
+  "yearStart": 1951,
+  "yearEnd": 1952,
+  "overview": "Front Page Detective is an American crime drama series which aired on the DuMont Television Network on Fridays at 9:30pm ET from July 6, 1951 to September 19, 1952, with a few more episodes shown in 1953. The program was then in broadcast syndication for several years thereafter.\n\nIt chronicles the stories of David Chase a newspaper columnist who helps police solve especially difficult mysteries. The title derived from a popular mystery magazine of the same name.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "DuMont Television Network"
+  ],
+  "creator": "Gene Levitt",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "FrontPageDetective-AlibiForSuicide1951",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Alibi for Suicide",
+          "overview": "Don Lawton needs to spend the night with David and Sharon to establish an alibi. He needs the alibi because he says someone is going to die and he knows he will be a suspect. He is serious enough to hold them at gunpoint.",
+          "stillURL": null,
+          "airDate": "1951-07-20",
+          "year": 1951,
+          "runtimeSeconds": 1551,
+          "videoFile": {
+            "name": "Front_Page_Detective_Alibi_suicide_1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 156002374,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontPageDetective-AlibiForSuicide1951/Front_Page_Detective_Alibi_suicide_1951.mp4"
+        },
+        {
+          "archiveID": "Front_Page_Detective--Death_of_a_Hero",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Death of a Hero",
+          "overview": "Chase tries to convince a hero-worshiping youth that the life of a flamboyant gangster isn't as much fun as it appears.",
+          "stillURL": null,
+          "airDate": "1951-08-31",
+          "year": 1951,
+          "runtimeSeconds": 1567,
+          "videoFile": {
+            "name": "FrontPageDetective109_Death_of_a_Hero.mp4",
+            "format": "h.264",
+            "sizeBytes": 146794903,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Front_Page_Detective--Death_of_a_Hero/FrontPageDetective109_Death_of_a_Hero.mp4"
+        },
+        {
+          "archiveID": "Front_Page_Detective--Gold_Venom",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Gold Venom",
+          "overview": "Dave is trying to deliver a golden cobra to a museum but several people try to get it for themselves.",
+          "stillURL": null,
+          "airDate": "1951-09-07",
+          "year": 1951,
+          "runtimeSeconds": 1572,
+          "videoFile": {
+            "name": "FrontPageDetective110_Gold_Venom.mp4",
+            "format": "h.264",
+            "sizeBytes": 146515126,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Front_Page_Detective--Gold_Venom/FrontPageDetective110_Gold_Venom.mp4"
+        },
+        {
+          "archiveID": "Front_Page_Detective--Echo_from_the_Dead",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Echo from the Dead",
+          "overview": "David Chase tries to find the real murderer before a family exacts vengeance upon the man's wife.",
+          "stillURL": null,
+          "airDate": "1951-09-28",
+          "year": 1951,
+          "runtimeSeconds": 1556,
+          "videoFile": {
+            "name": "FrontPageDetective113_Echo_from_the_Dead.mp4",
+            "format": "h.264",
+            "sizeBytes": 145826955,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Front_Page_Detective--Echo_from_the_Dead/FrontPageDetective113_Echo_from_the_Dead.mp4"
+        },
+        {
+          "archiveID": "Front_Page_Detective--The_Deadly_Curio",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Deadly Curio",
+          "overview": "David Chase learns of a jade figurine that seems to bring death to those who possess it. The intrepid reporter seeks to find the reason behind the cursed object.",
+          "stillURL": null,
+          "airDate": "1951-11-09",
+          "year": 1951,
+          "runtimeSeconds": 1572,
+          "videoFile": {
+            "name": "FrontPageDetective119_Deadly_Curio.mp4",
+            "format": "h.264",
+            "sizeBytes": 147388346,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Front_Page_Detective--The_Deadly_Curio/FrontPageDetective119_Deadly_Curio.mp4"
+        },
+        {
+          "archiveID": "Front_Page_Detective--The_Murderer_Is_Anonymous",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "The Murderer Is Anonymous",
+          "overview": "A debutante, a fight promoter, and a producer are all suspects in a threatened murder. The potential victim is David.",
+          "stillURL": null,
+          "airDate": "1951-12-21",
+          "year": 1951,
+          "runtimeSeconds": 1490,
+          "videoFile": {
+            "name": "FrontPageDetective125_The_Murderer_Is_Anonymous.mp4",
+            "format": "h.264",
+            "sizeBytes": 138971420,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Front_Page_Detective--The_Murderer_Is_Anonymous/FrontPageDetective125_The_Murderer_Is_Anonymous.mp4"
+        },
+        {
+          "archiveID": "Front_Page_Detective--Galahad",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Galahad",
+          "overview": "David Chase investigates a blackmail scheme perpetrated by a former newspaper photographer",
+          "stillURL": null,
+          "airDate": "1952-02-08",
+          "year": 1952,
+          "runtimeSeconds": 1180,
+          "videoFile": {
+            "name": "FrontPageDetective134_Galahad.mp4",
+            "format": "h.264",
+            "sizeBytes": 110702087,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Front_Page_Detective--Galahad/FrontPageDetective134_Galahad.mp4"
+        },
+        {
+          "archiveID": "Front_Page_Detective--You_Kill_Me",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "You Kill Me",
+          "overview": "While on vacation David reads in the newspaper that he has been killed. He must now masquerade as his brother in order to solve his own murder.",
+          "stillURL": null,
+          "airDate": "1952-02-15",
+          "year": 1951,
+          "runtimeSeconds": 1579,
+          "videoFile": {
+            "name": "FrontPageDetective135_You_Kill_Me.mp4",
+            "format": "h.264",
+            "sizeBytes": 148022637,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Front_Page_Detective--You_Kill_Me/FrontPageDetective135_You_Kill_Me.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

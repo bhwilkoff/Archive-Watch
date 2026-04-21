@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "seriesID": "last-of-the-summer-wine-1973",
+  "title": "Last of the Summer Wine",
+  "yearStart": 1973,
+  "yearEnd": 1979,
+  "overview": "Unencumbered by wives, jobs or any other responsibilities, three senior citizens who've never really grown up explore their world in the Yorkshire Dales. They spend their days speculating about their fellow townsfolk and thinking up adventures not usually favored by the elderly.  Last of the Summer Wine premiered as an episode of Comedy Playhouse in 1973. The show ran for 295 episodes until 2010. It is the longest running comedy Britain has produced and the longest running sitcom in the world.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/88jpREzaBTjadaJ71JbihhL9A1k.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Roy Clarke",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "last-of-the-summer-wine-s-1-e-02-short-back-and-palais-glide",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Last of the Summer Wine (Series 1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Last of the Summer Wine S1E02 - Short Back and Palais Glide.mp4",
+            "format": "h.264",
+            "sizeBytes": 176081788,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/last-of-the-summer-wine-s-1-e-02-short-back-and-palais-glide/Last of the Summer Wine S1E02 - Short Back and Palais Glide.mp4"
+        },
+        {
+          "archiveID": "Last-of-the-Summer-Wine-Series-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Last of the Summer Wine (Series 2)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ballad for Wind Instruments and Canoe S02Ep06.mp4",
+            "format": "h.264",
+            "sizeBytes": 173553492,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Last-of-the-Summer-Wine-Series-2/Ballad for Wind Instruments and Canoe S02Ep06.mp4"
+        },
+        {
+          "archiveID": "last-of-the-summer-wine-series-3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Last of the Summer Wine (Series 3)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Man from Owestry S03Ep01.mp4",
+            "format": "h.264",
+            "sizeBytes": 172847937,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/last-of-the-summer-wine-series-3/The Man from Owestry S03Ep01.mp4"
+        },
+        {
+          "archiveID": "last-of-the-sumnmer-wine-series-4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Last of the Summer Wine (Series 4)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A Merry Heatwave S04Ep07.mp4",
+            "format": "h.264",
+            "sizeBytes": 207011076,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/last-of-the-sumnmer-wine-series-4/A Merry Heatwave S04Ep07.mp4"
+        },
+        {
+          "archiveID": "Last-of-the-Summer-Wine-Series-5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Last of the Summer Wine (Series 5)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vjI4WdHda9ckCo5YIYVhc8rl6SR.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "And a Dewhurst Up a Fir Tree Christmas Special 1979.S00Ep02.mp4",
+            "format": "h.264",
+            "sizeBytes": 178332918,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Last-of-the-Summer-Wine-Series-5/And a Dewhurst Up a Fir Tree Christmas Special 1979.S00Ep02.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

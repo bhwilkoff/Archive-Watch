@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "seriesID": "star-search-2019",
+  "title": "Star Search",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": "Star Search is a television show that was produced from 1983–95, hosted by Ed McMahon, and created by Alfred Masini. A relaunch was produced in 2003–04. The show was originally filmed at the old Earl Carroll Theatre, at 6230 Sunset Blvd. in Hollywood and later at the Disney Hollywood Studios in Orlando, Florida.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/eMiNCJaox1nT7B2QVKsELpRJSBU.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/8g2td1FCrMGg8XvmnR1VyzR7DxP.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": "Al Masini",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lic:4fed24d59db2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Star Search ' 91 Finals (May 18, 1991)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eMiNCJaox1nT7B2QVKsELpRJSBU.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        },
+        {
+          "archiveID": "lic:f99435f6ee7a",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Star Search '88 Spokesmodel Competition Compilation",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eMiNCJaox1nT7B2QVKsELpRJSBU.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        },
+        {
+          "archiveID": "starsearch89variousfootagept.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Star Search '89 various footage",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eMiNCJaox1nT7B2QVKsELpRJSBU.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Star-Search-_89-various-footage-_pt.-1_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 215666804,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/starsearch89variousfootagept.1/Star-Search-_89-various-footage-_pt.-1_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

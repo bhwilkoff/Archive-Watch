@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "naked-hollywood-1991",
+  "title": "Naked Hollywood",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Naked Hollywood is a 6 part TV series directed by Margy Kinmonth. The film includes Arnold Schwarzenegger, James Caan, Barry Diller, Joe Roth, Sydney Pollack, Oliver Stone, James Brooks, Nora Ephron, Terry Gilliam and many more. The film won a British Academy Film Award for Best Factual Series.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/277/694616.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "naked-hollywood-4-million-dollars-is-cheap-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Naked Hollywood - 1991",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/277/694616.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Naked Hollywood - 4 Million Dollars is Cheap - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1137731565,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/naked-hollywood-4-million-dollars-is-cheap-1991/Naked Hollywood - 4 Million Dollars is Cheap - 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

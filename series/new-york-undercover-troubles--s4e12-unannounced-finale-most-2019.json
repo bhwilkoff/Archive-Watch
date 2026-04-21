@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "new-york-undercover-troubles--s4e12-unannounced-finale-most-2019",
+  "title": "New York Undercover Troubles- (S4E12, Unannounced Finale, most",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/NewYorkUndercoverTroublesS4E12UnannouncedFinaleMost",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "NewYorkUndercoverTroublesS4E12UnannouncedFinaleMost",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "New York Undercover Troubles- (S4E12, Unannounced Finale, most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/NewYorkUndercoverTroublesS4E12UnannouncedFinaleMost",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "New-York-Undercover-Troubles-_S4E12_-Unannounced-finale_-most_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 196352348,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/NewYorkUndercoverTroublesS4E12UnannouncedFinaleMost/New-York-Undercover-Troubles-_S4E12_-Unannounced-finale_-most_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "daniel-boone-1964",
+  "title": "Daniel Boone",
+  "yearStart": 1964,
+  "yearEnd": 1964,
+  "overview": "Daniel Boone is an American action-adventure television series starring Fess Parker as Daniel Boone that aired from September 24, 1964 to September 10, 1970 on NBC for 165 episodes, and was made by 20th Century Fox Television. Ed Ames co-starred as Mingo, Boone's Cherokee friend, for the first four seasons of the series. Albert Salmi portrayed Boone's companion Yadkin in season one only. Dallas McKennon portrayed innkeeper Cincinnatus. Country Western singer-actor Jimmy Dean was a featured actor as Josh Clements during the 1968–1970 seasons. Actor and former NFL football player Rosey Grier made regular appearances as Gabe Cooper in the 1969 to 1970 season. The show was broadcast \"in living color\" beginning in fall 1965, the second season, and was shot entirely in California and Kanab, Utah.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lL4XDk4wRELIqciMtjcrD4TQ5m6.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/ocGIgjb53YKuPoLykhxO2orKrlc.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Borden Chase",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "daniel-boone-the-sound-of-wings-s-01-ep.-s-07-1964",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Daniel Boone - The Sound of Wings S 01 Ep. S 07",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lL4XDk4wRELIqciMtjcrD4TQ5m6.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Daniel Boone - The Sound of Wings S01 - Ep. S07 1964.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 3929204334,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/daniel-boone-the-sound-of-wings-s-01-ep.-s-07-1964/Daniel Boone - The Sound of Wings S01 - Ep. S07 1964.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

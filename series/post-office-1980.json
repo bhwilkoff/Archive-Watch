@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "post-office-1980",
+  "title": "Post Office",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/post-office-frieze-on-four",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "post-office-frieze-on-four",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Post Office - Frieze On Four",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/post-office-frieze-on-four",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Post Office - Frieze on Four.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 89883780,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/post-office-frieze-on-four/Post Office - Frieze on Four.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-corridor-people-1966",
+  "title": "The Corridor People",
+  "yearStart": 1966,
+  "yearEnd": 1966,
+  "overview": "The Corridor People is a British television series produced by Granada Television for the ITV network in 1966, devised and written by Edward Boyd.\n\nA surreal black-and-white detective series, The Corridor People pitched security agent Kronk against exotic villainess Syrie Van Epp over the course of four episodes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/maF3OuQQpSDg0BrX5wXV1IzJC67.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bop3UTMkLRZslk7wyNVyN79XSOy.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Edward Boyd",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-corridor-people-s-01-e-04-victim-as-black",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Corridor People - Complete Series 1966",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/maF3OuQQpSDg0BrX5wXV1IzJC67.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Corridor People S01E04 - Victim as Black.mp4",
+            "format": "h.264",
+            "sizeBytes": 266464843,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-corridor-people-s-01-e-04-victim-as-black/The Corridor People S01E04 - Victim as Black.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

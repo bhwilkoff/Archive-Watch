@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "performance-bond-1960",
+  "title": "Performance Bond",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Cisco_Kid_-_Preformance_Bond",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cisco_Kid_-_Preformance_Bond",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Performance Bond",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Cisco_Kid_-_Preformance_Bond",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cisco_Kid_-_Preformance_Bond.mp4",
+            "format": "h.264",
+            "sizeBytes": 149513536,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cisco_Kid_-_Preformance_Bond/Cisco_Kid_-_Preformance_Bond.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

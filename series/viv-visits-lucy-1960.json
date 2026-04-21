@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "viv-visits-lucy-1960",
+  "title": "Viv Visits Lucy",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TLS_Viv_Visits_Lucy",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TLS_Viv_Visits_Lucy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Viv Visits Lucy",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TLS_Viv_Visits_Lucy",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TLS_Viv_Visits_Lucy.mp4",
+            "format": "h.264",
+            "sizeBytes": 146888764,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TLS_Viv_Visits_Lucy/TLS_Viv_Visits_Lucy.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "philco-television-playhouse-2024",
+  "title": "Philco Television Playhouse",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/philco-television-playhouse-heres-father-1954",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "philco-television-playhouse-ernie-barger-is-50-1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Philco Television Playhouse - Ernie Barger Is 50 (1953)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/philco-television-playhouse-ernie-barger-is-50-1953",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Philco Television Playhouse - Ernie Barger is 50 (1953).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 367250338,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/philco-television-playhouse-ernie-barger-is-50-1953/Philco Television Playhouse - Ernie Barger is 50 (1953).mp4"
+        },
+        {
+          "archiveID": "philco-television-playhouse-heres-father-1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Philco Television Playhouse - Here's Father (1954)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/philco-television-playhouse-heres-father-1954",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Philco Television Playhouse - Heres Father (1954).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 332516964,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/philco-television-playhouse-heres-father-1954/Philco Television Playhouse - Heres Father (1954).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

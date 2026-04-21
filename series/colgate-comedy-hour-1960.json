@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "seriesID": "colgate-comedy-hour-1960",
+  "title": "Colgate Comedy Hour",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Colgate Comedy Hour is an American comedy-musical variety series that aired live on the NBC network from 1950 to 1955. The show starred many notable comedians and entertainers of the era, including Eddie Cantor, Dean Martin and Jerry Lewis, Fred Allen, Donald O'Connor, Bud Abbott and Lou Costello, Bob Hope, Jimmy Durante, Ray Bolger, Gordon MacRae, Ben Blue, Robert Paige, Tony Curtis, Burt Lancaster, Broadway dancer Wayne Lamb and Spike Jones and His City Slickers.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4QrmsUEZgIjzr64MpHprZYEChUN.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Fred Hamilton",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theColgateComedyHour-21February1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Colgate Comedy Hour'' - 21 February 1954",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3483,
+          "videoFile": {
+            "name": "ColgateComedyHour21February1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 361042531,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theColgateComedyHour-21February1954/ColgateComedyHour21February1954.mp4"
+        },
+        {
+          "archiveID": "ColgateComedyHour",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Colgate Comedy Hour",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "COLGATE_COMEDY_HOUR.mp4",
+            "format": "h.264",
+            "sizeBytes": 344877697,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ColgateComedyHour/COLGATE_COMEDY_HOUR.mp4"
+        },
+        {
+          "archiveID": "ColgateComedyHour-April29th1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Colgate Comedy Hour - April 29th, 1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3563,
+          "videoFile": {
+            "name": "TheColgateComedyHour-April29th1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 351276786,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ColgateComedyHour-April29th1951/TheColgateComedyHour-April29th1951.mp4"
+        },
+        {
+          "archiveID": "ColgateComedyHour-September17th1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Colgate Comedy Hour - September 17th, 1950",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3025,
+          "videoFile": {
+            "name": "TheColgateComedyHour-MartinLewis-September17th1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 298692194,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ColgateComedyHour-September17th1950/TheColgateComedyHour-MartinLewis-September17th1950.mp4"
+        },
+        {
+          "archiveID": "ColgateComedyHourJimmyDuranteAndFrankSinatra",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Colgate Comedy Hour: Jimmy Durante and Frank Sinatra",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3122,
+          "videoFile": {
+            "name": "ColgateComedyHour-jimmyDuranteAndSinatra.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 300834146,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ColgateComedyHourJimmyDuranteAndFrankSinatra/ColgateComedyHour-jimmyDuranteAndSinatra.ia.mp4"
+        },
+        {
+          "archiveID": "ColgateComedyHourMartinAndLewisLastAppearance",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Colgate Comedy Hour: Martin and Lewis Last Appearance",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3151,
+          "videoFile": {
+            "name": "ColgateComedyHour-lastMartinAndLewis.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303374453,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ColgateComedyHourMartinAndLewisLastAppearance/ColgateComedyHour-lastMartinAndLewis.ia.mp4"
+        },
+        {
+          "archiveID": "TheColgateComedyHour-February4th1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Colgate Comedy Hour - February 4th, 1951",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3560,
+          "videoFile": {
+            "name": "TheColgateComedyHour-February4th1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 350136555,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheColgateComedyHour-February4th1951/TheColgateComedyHour-February4th1951.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ColgateComedyHourEddieCantor",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Eddie Cantor",
+          "overview": "Eddie Cantor returns as host with Al Goodman and his Orchestra. Cantor does a sketch with his character 'Maxi the Taxi', and performs 'Dinah' in a production number.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/oWvIOn94vgsrius8HYTreQgJtjp.jpg",
+          "airDate": "1950-10-08",
+          "year": null,
+          "runtimeSeconds": 3541,
+          "videoFile": {
+            "name": "ColgateComedyHour-eddieCantor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 359564287,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ColgateComedyHourEddieCantor/ColgateComedyHour-eddieCantor.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "baby-talk--security-s2e3-1960",
+  "title": "Baby Talk- Security (S2E3",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BabyTalkSecurityS2E3",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "BabyTalkSecurityS2E3",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Baby Talk- Security (S2E3)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BabyTalkSecurityS2E3",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Baby Talk- Security (S2E3).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 101999083,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BabyTalkSecurityS2E3/Baby Talk- Security (S2E3).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

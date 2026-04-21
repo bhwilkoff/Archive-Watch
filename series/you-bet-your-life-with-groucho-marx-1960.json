@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "you-bet-your-life-with-groucho-marx-1960",
+  "title": "You Bet Your Life with Groucho Marx",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/You_Bet_Your_Life_Clock",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "You_Bet_Your_Life_Clock",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''You Bet Your Life with Groucho Marx'' - Secret Word Clock",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/You_Bet_Your_Life_Clock",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "YouBet_Your_Life_Clock.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 171493901,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/You_Bet_Your_Life_Clock/YouBet_Your_Life_Clock.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

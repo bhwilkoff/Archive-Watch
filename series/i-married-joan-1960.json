@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "seriesID": "i-married-joan-1960",
+  "title": "I Married Joan",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "I Married Joan is an American sitcom that aired on NBC from 1952 to 1955. It starred veteran vaudeville, film, and radio comedienne-comedy actress Joan Davis as the manic, scatterbrained wife of a mild-mannered community judge, the Honorable Bradley Stevens.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/88djbJFtcbzPC3VrfusydHuEcGE.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "I_Married_Joan--Joan_the_Matchmaker",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "I Married Joan: Joan, the Matchmaker",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan314_Joan_the_Matchmaker.mp4",
+            "format": "h.264",
+            "sizeBytes": 143932405,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Joan_the_Matchmaker/IMarriedJoan314_Joan_the_Matchmaker.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "I_Married_Joan_EP61_Home_Movies",
+          "seasonNumber": 1,
+          "episodeNumber": 61,
+          "title": "Home Movies",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1954-12-08",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "I_Married_Joan_EP61_Home_Movies.mp4",
+            "format": "h.264",
+            "sizeBytes": 148095036,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan_EP61_Home_Movies/I_Married_Joan_EP61_Home_Movies.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "I_Married_Joan--The_Milkman_Cometh",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "The Milkman Cometh",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1954-04-28",
+          "year": null,
+          "runtimeSeconds": 1540,
+          "videoFile": {
+            "name": "IMarriedJoan229_The_Milkman_Cometh.mp4",
+            "format": "h.264",
+            "sizeBytes": 144296242,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--The_Milkman_Cometh/IMarriedJoan229_The_Milkman_Cometh.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "I_Married_Joan--The_Letter",
+          "seasonNumber": 3,
+          "episodeNumber": 21,
+          "title": "The Letter",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1955-02-16",
+          "year": null,
+          "runtimeSeconds": 1466,
+          "videoFile": {
+            "name": "IMarriedJoan321_The_Letter.mp4",
+            "format": "h.264",
+            "sizeBytes": 137138787,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--The_Letter/IMarriedJoan321_The_Letter.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

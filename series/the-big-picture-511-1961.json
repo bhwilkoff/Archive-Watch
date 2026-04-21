@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-big-picture-511-1961",
+  "title": "The Big Picture #511",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheBigPicture511ArmyDigestNumberEight1961",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheBigPicture511ArmyDigestNumberEight1961",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture #511: Army Digest #8",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheBigPicture511ArmyDigestNumberEight1961",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Big Picture 511 - Army Digest Number Eight 1961.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 126047919,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBigPicture511ArmyDigestNumberEight1961/The Big Picture 511 - Army Digest Number Eight 1961.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

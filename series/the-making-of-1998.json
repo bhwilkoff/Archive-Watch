@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-making-of-1998",
+  "title": "The Making of",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-making-of-the-first-snow-of-winter-1998_202509",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-making-of-the-first-snow-of-winter-1998_202509",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Making of 'The First Snow Of Winter' (1998)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-making-of-the-first-snow-of-winter-1998_202509",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Making Of 'The First Snow of Winter' (1998).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 57056120,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-making-of-the-first-snow-of-winter-1998_202509/The Making Of 'The First Snow of Winter' (1998).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

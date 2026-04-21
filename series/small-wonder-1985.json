@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "small-wonder-1985",
+  "title": "Small Wonder",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": "When genius cybernetics engineer Ted Lawson brings home his top-secret invention, a Voice Input Child Identicant or V.I.C.I., life becomes anything but mechanical for the Lawson Family. With his boss and his nosy family living next door, Ted, his wife Joan and their son Jamie must pass Vicki off as a real child. It is easy for Joan, who cannot help doting on her like a daughter, but harder for precocious Jamie, who uses Vicki to do his homework and to ward off Harriet, the annoying redheaded girl next door.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/beaMCxE00CGMSk6MVCcvhZkwqSV.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/pU5NQApUxgBef0a0QgDJor1flH1.jpg",
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": "Howard Leeds",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "small-wonder-2.11",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Small Wonder - Tiffany Brissette, Marla Pennington",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/beaMCxE00CGMSk6MVCcvhZkwqSV.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Small Wonder - 2.11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 655031474,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/small-wonder-2.11/Small Wonder - 2.11.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

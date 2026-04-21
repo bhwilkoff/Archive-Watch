@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-country-show-1960",
+  "title": "The Country Show",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheCountryShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheCountryShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Country Show'' - ??",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheCountryShow",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1571,
+          "videoFile": {
+            "name": "The Country Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 163448986,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheCountryShow/The Country Show.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

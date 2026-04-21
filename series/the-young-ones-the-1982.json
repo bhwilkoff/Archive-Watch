@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-young-ones-the-1982",
+  "title": "The Young Ones The",
+  "yearStart": 1982,
+  "yearEnd": 1982,
+  "overview": "The misadventures of four lunatic students who live in a shared student house. There's Rick, the overblown political one addicted to Cliff Richard, Vyvyan the experimental scientific one/part-time anarchist, Neil the worried hippy, and Mike the ladies' man (at least he is in his mind).",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9BQCGkKkVUxw6zF1P2BF1gHSMXB.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/nCGsDvCvDaY2IU2Qf7TgUO2UNNp.jpg",
+  "genres": [],
+  "networks": [
+    "BBC Two"
+  ],
+  "creator": "Ben Elton",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-young-ones-s-01-ep-04-bomb",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Young Ones The Complete Series ( PAL) ( Full UK DVD Discs)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9BQCGkKkVUxw6zF1P2BF1gHSMXB.jpg",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Young Ones - S01EP04 Bomb.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 345091407,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-young-ones-s-01-ep-04-bomb/The Young Ones - S01EP04 Bomb.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

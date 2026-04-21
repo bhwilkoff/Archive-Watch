@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "seriesID": "fifties-television-1960",
+  "title": "Fifties Television",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Stu Erwin Show is an American sitcom which aired on ABC for five seasons from 1950 to 1955.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lsNL3TCj1Y6PpRuU2vEb5HftluM.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/b2KYaAwckpMxLzPWiFe2t4JOeyK.jpg",
+  "genres": [
+    "American television sitcom",
+    "drama television series"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "The_Trouble_With_Father",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fifties Television: ''The Trouble with Father'' - Many Happy Returns",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lsNL3TCj1Y6PpRuU2vEb5HftluM.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1751,
+          "videoFile": {
+            "name": "Many_Happy_Returns.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 175736928,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The_Trouble_With_Father/Many_Happy_Returns.ia.mp4"
+        },
+        {
+          "archiveID": "Spooks_Trouble_With_Father",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fifties Television: ''The Trouble with Father'' - Spooks",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Spooks_Trouble_With_Father",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "Spooks.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151817913,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Spooks_Trouble_With_Father/Spooks.ia.mp4"
+        },
+        {
+          "archiveID": "Jeice_Loves_Classic-TV",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fifties Television: ''The Trouble with Father'' - Teacher's Pet",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Jeice_Loves_Classic-TV",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1535,
+          "videoFile": {
+            "name": "Teachers_Pet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154625224,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Jeice_Loves_Classic-TV/Teachers_Pet.ia.mp4"
+        },
+        {
+          "archiveID": "The_Big_Game_Father_",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fifties Television: ''The Trouble with Father'' - The Big Game",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/The_Big_Game_Father_",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "The_Big_Game.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156980623,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The_Big_Game_Father_/The_Big_Game.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

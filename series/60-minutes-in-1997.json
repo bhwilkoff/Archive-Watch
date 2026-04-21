@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "60-minutes-in-1997",
+  "title": "60 Minutes (in",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/60minutes-incomplete-19971005",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "60minutes-incomplete-19971005",
+          "seasonNumber": 1,
+          "episodeNumber": 60,
+          "title": "60 Minutes (incomplete - 05/10/1997)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/60minutes-incomplete-19971005",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "05 - 60 Minutes (3rd segment).mp4",
+            "format": "h.264",
+            "sizeBytes": 72174165,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/60minutes-incomplete-19971005/05 - 60 Minutes (3rd segment).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

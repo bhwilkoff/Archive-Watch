@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "carol-channing-guests-1960",
+  "title": "Carol Channing Guests",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Red_Skelton_CarolChanningGuest",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Red_Skelton_CarolChanningGuest",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Carol Channing Guests",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Red_Skelton_CarolChanningGuest",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "red01CarolChaning.mp4",
+            "format": "h.264",
+            "sizeBytes": 173439212,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Red_Skelton_CarolChanningGuest/red01CarolChaning.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

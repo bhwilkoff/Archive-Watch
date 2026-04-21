@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-krofft-supershow-1976",
+  "title": "The Krofft Supershow",
+  "yearStart": 1976,
+  "yearEnd": 1977,
+  "overview": "The Krofft Supershow is a Saturday morning children's variety show, produced by Sid and Marty Krofft. It aired for two seasons from September 11, 1976 to September 2, 1978 on ABC",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kN2LM746IjyaON329aLbNYR1j4H.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Marty Krofft",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "kroftsupershow77",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode #1.1",
+          "overview": "The Wonderbug gang visits a ghost town; Dr. Shrinker monkeys around with Shrinkies; and Electra Woman and Dyna Girl meet The Sorcerer. Kaptain Kool and the Kongs introduce themselves in a song, sing \"Get Dancin',\" and star in a few skits.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kN2LM746IjyaON329aLbNYR1j4H.jpg",
+          "airDate": "1976-09-11",
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "k.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180363641,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/kroftsupershow77/k.mp4"
+        },
+        {
+          "archiveID": "krofft-supershow-ep-8",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode #1.8",
+          "overview": "Wonderbug meets Bigfoot; the Shrinkies eat berries which make them invisible; an evil Dyna Girl battles Electra Woman, and the Lost Saucer returns to Fi and Fum's home planet.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kN2LM746IjyaON329aLbNYR1j4H.jpg",
+          "airDate": "1976-10-30",
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1EP3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 355189732,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/krofft-supershow-ep-8/S1EP3.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

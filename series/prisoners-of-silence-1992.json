@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "prisoners-of-silence-1992",
+  "title": "Prisoners of Silence",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/PrisonersofSilence",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PrisonersofSilence",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Prisoners of Silence",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/PrisonersofSilence",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Frontline.S11E17.Prisoners.of.Silence.1993.VHSRip.AAC2.0.x264-rattera.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 722661191,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PrisonersofSilence/Frontline.S11E17.Prisoners.of.Silence.1993.VHSRip.AAC2.0.x264-rattera.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

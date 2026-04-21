@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "shasta-mcnasty-2000",
+  "title": "Shasta McNasty",
+  "yearStart": 2000,
+  "yearEnd": 2000,
+  "overview": "Scott, Dennis and Randy are three slacker dudes who also make up the rap/rock band Shasta. Instead of working on their music, they spend most of their time hanging out on Venice Beach trying to score dates, finding new ways to stall the pizza delivery guy, and generally being mediocre.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lXq61nq3xDFklCQuiWVv3oBToMJ.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "UPN"
+  ],
+  "creator": "Jeff Eastin",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "shasta_mcnasty",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Shasta McNasty (1999) [Complete Series]",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lXq61nq3xDFklCQuiWVv3oBToMJ.jpg",
+          "airDate": null,
+          "year": 2000,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shasta Mcnasty S01E17.mp4",
+            "format": "h.264",
+            "sizeBytes": 136679303,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shasta_mcnasty/Shasta Mcnasty S01E17.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

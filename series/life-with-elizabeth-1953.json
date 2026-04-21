@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "seriesID": "life-with-elizabeth-1953",
+  "title": "Life with Elizabeth",
+  "yearStart": 1953,
+  "yearEnd": 1954,
+  "overview": "Elizabeth and Alvin are a married couple who live an ordinary suburban life, but inevitably managed to get into predicaments. At the end of most predicaments, Alvin, in variable degrees of frustration, would say, \"I shall leave you now, Elizabeth\" and would walk out of sight. The announcer would say, \"Elizabeth, aren't you ashamed?\" She would slowly nod, but then, with a slightly devilish grin, would vigorously shake her head to indicate she wasn't.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tfcw5Ty27nPqtaNRBOCidZU8Cp3.jpg",
+  "genres": [
+    "sitcom"
+  ],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": "George Tibbles",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Life_with_Elizabeth",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc1.mp4",
+            "format": "h.264",
+            "sizeBytes": 151056646,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Life_with_Elizabeth/LifeWithElizabethMisc1.mp4"
+        },
+        {
+          "archiveID": "lifeWithElizabeth-MiscEpisodeNo.10",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 10",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1503,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc10.mp4",
+            "format": "h.264",
+            "sizeBytes": 155884601,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lifeWithElizabeth-MiscEpisodeNo.10/LifeWithElizabethMisc10.mp4"
+        },
+        {
+          "archiveID": "lifeWithElizabeth-MiscEpisodeNo.11",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 11",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1556,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc11.mp4",
+            "format": "h.264",
+            "sizeBytes": 161351965,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lifeWithElizabeth-MiscEpisodeNo.11/LifeWithElizabethMisc11.mp4"
+        },
+        {
+          "archiveID": "lifeWithElizabeth-MiscEpisodeNo.12",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 12",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1541,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc12.mp4",
+            "format": "h.264",
+            "sizeBytes": 160056780,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lifeWithElizabeth-MiscEpisodeNo.12/LifeWithElizabethMisc12.mp4"
+        },
+        {
+          "archiveID": "lifeWithElizabeth-MiscEpisodeNo.13",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 13",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1504,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc13.mp4",
+            "format": "h.264",
+            "sizeBytes": 156474587,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lifeWithElizabeth-MiscEpisodeNo.13/LifeWithElizabethMisc13.mp4"
+        },
+        {
+          "archiveID": "lifeWithElizabeth-MiscEpisodeNo.14",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 14",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1545,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc14.mp4",
+            "format": "h.264",
+            "sizeBytes": 160832642,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lifeWithElizabeth-MiscEpisodeNo.14/LifeWithElizabethMisc14.mp4"
+        },
+        {
+          "archiveID": "lifeWithElizabeth-MiscEpisodeNo.15",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 15",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1547,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc15.mp4",
+            "format": "h.264",
+            "sizeBytes": 160947235,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lifeWithElizabeth-MiscEpisodeNo.15/LifeWithElizabethMisc15.mp4"
+        },
+        {
+          "archiveID": "lifeWithElizabeth-MiscEpisodeNo.16",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 16",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1533,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc16.mp4",
+            "format": "h.264",
+            "sizeBytes": 159631178,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lifeWithElizabeth-MiscEpisodeNo.16/LifeWithElizabethMisc16.mp4"
+        },
+        {
+          "archiveID": "Life_With_Elizabeth_2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc2.mp4",
+            "format": "h.264",
+            "sizeBytes": 154782994,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Life_With_Elizabeth_2/LifeWithElizabethMisc2.mp4"
+        },
+        {
+          "archiveID": "Life_With_Elizabeth_3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc3.mp4",
+            "format": "h.264",
+            "sizeBytes": 150420430,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Life_With_Elizabeth_3/LifeWithElizabethMisc3.mp4"
+        },
+        {
+          "archiveID": "Life_With_Elizabeth_5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc4.mp4",
+            "format": "h.264",
+            "sizeBytes": 152391234,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Life_With_Elizabeth_5/LifeWithElizabethMisc4.mp4"
+        },
+        {
+          "archiveID": "Life_With_Elizabeth_6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 5",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc5.mp4",
+            "format": "h.264",
+            "sizeBytes": 155328139,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Life_With_Elizabeth_6/LifeWithElizabethMisc5.mp4"
+        },
+        {
+          "archiveID": "Betty_White_6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 6",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1537,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc6.mp4",
+            "format": "h.264",
+            "sizeBytes": 154276486,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Betty_White_6/LifeWithElizabethMisc6.mp4"
+        },
+        {
+          "archiveID": "lifeWithElizabeth-MiscEpisodeNo.71954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 7 (1954)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc7.mp4",
+            "format": "h.264",
+            "sizeBytes": 162211300,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lifeWithElizabeth-MiscEpisodeNo.71954/LifeWithElizabethMisc7.mp4"
+        },
+        {
+          "archiveID": "lifeWithElizabeth-MiscEpisodeNo.8",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 8",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc8.mp4",
+            "format": "h.264",
+            "sizeBytes": 160730442,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lifeWithElizabeth-MiscEpisodeNo.8/LifeWithElizabethMisc8.mp4"
+        },
+        {
+          "archiveID": "lifeWithElizabeth-MiscEpisodeNo.9",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Life with Elizabeth'' - Misc episode No. 9",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gX9S53W9t3x7piVYkhWPrpBEjMo.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1485,
+          "videoFile": {
+            "name": "LifeWithElizabethMisc9.mp4",
+            "format": "h.264",
+            "sizeBytes": 154542920,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lifeWithElizabeth-MiscEpisodeNo.9/LifeWithElizabethMisc9.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 16
+}

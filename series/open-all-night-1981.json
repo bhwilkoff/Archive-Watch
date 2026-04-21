@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "open-all-night-1981",
+  "title": "Open All Night",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": "Open All Night is a situation comedy on ABC. It premiered on November 28, 1981, and ran until March 5, 1982. The show centered on Gordon Feester and his oddball family who lived and worked in a convenience store. It was somewhat based on the British series Open All Hours. Jay Tarses was co-creator, writer, and director of the show.\n\nCassandra Peterson made a guest appearance on one episode. David Letterman also made a guest appearance, and made a sly reference to his daytime talk show, which was canceled a year before.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7mIoSpdixINWB1bxFjLKfSMtkYr.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Jay Tarses",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "open-all-night-1.2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Open All Night - George Dzundza, Bubba Smith",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7mIoSpdixINWB1bxFjLKfSMtkYr.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Open All Night - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 139299199,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/open-all-night-1.2/Open All Night - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

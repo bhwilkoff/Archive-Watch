@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-after-school-special-please-dont-hit-me-mom-1981",
+  "title": "ABC After School Special Please Dont Hit Me Mom",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ABCAfterSchoolSpecialPleaseDontHitMeMom",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ABCAfterSchoolSpecialPleaseDontHitMeMom",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC After School Special Please Dont Hit Me Mom",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ABCAfterSchoolSpecialPleaseDontHitMeMom",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC after school special- Please Dont Hit Me Mom.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 212365184,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ABCAfterSchoolSpecialPleaseDontHitMeMom/ABC after school special- Please Dont Hit Me Mom.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

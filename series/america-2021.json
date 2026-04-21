@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "america-2021",
+  "title": "America",
+  "yearStart": 2021,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/americas-funniest-people-november-24-1991-most",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "americas-century-blowing-the-fortune-ep.-5-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "America's Century (1989)- Blowing The Fortune (Ep. 5)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/americas-century-blowing-the-fortune-ep.-5-1989",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "America's Century- Blowing The Fortune (Ep. 5, 1989).mp4",
+            "format": "h.264",
+            "sizeBytes": 337349037,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/americas-century-blowing-the-fortune-ep.-5-1989/America's Century- Blowing The Fortune (Ep. 5, 1989).mp4"
+        },
+        {
+          "archiveID": "americas-funniest-people-november-24-1991-most",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "America's Funniest People- November 24, 1991 (most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/americas-funniest-people-november-24-1991-most",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "America's Funniest People- November 24, 1991 (most).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 636370573,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/americas-funniest-people-november-24-1991-most/America's Funniest People- November 24, 1991 (most).ia.mp4"
+        },
+        {
+          "archiveID": "americas-most-wanted-september-3-1989-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "America's Most Wanted- September 3, 1989 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/americas-most-wanted-september-3-1989-partial",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "America's Most Wanted- September 3, 1989 (partial).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321274246,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/americas-most-wanted-september-3-1989-partial/America's Most Wanted- September 3, 1989 (partial).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

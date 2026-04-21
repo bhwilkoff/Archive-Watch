@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "twenty-one-1957",
+  "title": "Twenty One",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": "Twenty One is an American game show which aired in the late 1950s. While it included the most popular contestant of the quiz show era, it became notorious for being a rigged quiz show which nearly caused the demise of the entire genre in the wake of United States Senate investigations. The 1994 movie Quiz Show is based on these events. A new version aired in 2000 with Maury Povich hosting, lasting about five months on NBC.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/600/1500841.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Jack Barry",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "twentyOne-8july1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Twenty One'' - 8/July/1957",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/600/1500841.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1726,
+          "videoFile": {
+            "name": "TwentyOne8July1957.mp4",
+            "format": "h.264",
+            "sizeBytes": 178242767,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/twentyOne-8july1957/TwentyOne8July1957.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

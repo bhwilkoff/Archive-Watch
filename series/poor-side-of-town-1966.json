@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "poor-side-of-town-1966",
+  "title": "Poor Side Of Town",
+  "yearStart": 1966,
+  "yearEnd": 1966,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/poor-side-of-town-johnny-rivers-1966",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "poor-side-of-town-johnny-rivers-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Poor Side Of Town' + Interview w Johnny Rivers • AB Dancers October 8 1966",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/poor-side-of-town-johnny-rivers-1966",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "'Poor Side of Town' & Interview w Johnny Rivers • AB Dancers October 8 1966 720p.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 355571406,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/poor-side-of-town-johnny-rivers-1966/'Poor Side of Town' & Interview w Johnny Rivers • AB Dancers October 8 1966 720p.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

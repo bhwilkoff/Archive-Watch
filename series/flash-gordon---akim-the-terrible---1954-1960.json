@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "flash-gordon---akim-the-terrible---1954-1960",
+  "title": "Flash Gordon - Akim the Terrible - 1954",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FlashGordon-AkimTheTerrible-1954-Ep1x05",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FlashGordon-AkimTheTerrible-1954-Ep1x05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flash Gordon - Akim the Terrible - 1954 - Ep 1x05",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FlashGordon-AkimTheTerrible-1954-Ep1x05",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1528,
+          "videoFile": {
+            "name": "FlashGordon105-AkimTheTerrible.mp4",
+            "format": "h.264",
+            "sizeBytes": 146944376,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FlashGordon-AkimTheTerrible-1954-Ep1x05/FlashGordon105-AkimTheTerrible.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

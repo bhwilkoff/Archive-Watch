@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "gene-autry-show-tv-1950-colorized-1950",
+  "title": "Gene Autry Show TV 1950 colorized",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/gene-autry-show-tv-1950-s01e02-gold-dust-charlie",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "gene-autry-show-tv-1950-s01e02-gold-dust-charlie",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Gene Autry Show TV 1950 colorized s01e02 Gold Dust Charlie",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/gene-autry-show-tv-1950-s01e02-gold-dust-charlie",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Gene Autry Show TV 1950 colorized s01e02 Gold Dust Charlie.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 288807567,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gene-autry-show-tv-1950-s01e02-gold-dust-charlie/Gene Autry Show TV 1950 colorized s01e02 Gold Dust Charlie.mp4"
+        },
+        {
+          "archiveID": "gene-autry-show-tv-1950-s01e09-the-posse",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Gene Autry Show TV 1950 colorized s01e09 The Posse",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/gene-autry-show-tv-1950-s01e09-the-posse",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Gene Autry Show TV 1950 colorized s01e09 The Posse.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 346816783,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gene-autry-show-tv-1950-s01e09-the-posse/Gene Autry Show TV 1950 colorized s01e09 The Posse.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

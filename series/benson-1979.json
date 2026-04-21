@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "seriesID": "benson-1979",
+  "title": "Benson",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": "A butler deals with life at the governor's mansion.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pXQIwDfMMDF6GVJdgLm68Exm5wo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/hs0q37NVgFkN8AMtXhKbtw3w4gR.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Susan Harris",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "benson-complete-tv-series-ctv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Benson (Complete TV Series) (CTV)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pXQIwDfMMDF6GVJdgLm68Exm5wo.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Benson - S02E21.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 642905697,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/benson-complete-tv-series-ctv/Benson - S02E21.ia.mp4"
+        },
+        {
+          "archiveID": "benson-s-01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Benson - Season 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pXQIwDfMMDF6GVJdgLm68Exm5wo.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Benson.S01.Extras.DVDRip.XviD-DIMENSION.mp4",
+            "format": "h.264",
+            "sizeBytes": 181814081,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/benson-s-01/Benson.S01.Extras.DVDRip.XviD-DIMENSION.mp4"
+        },
+        {
+          "archiveID": "benson-s-02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Benson - Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pXQIwDfMMDF6GVJdgLm68Exm5wo.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "214_Rivals.mp4",
+            "format": "h.264",
+            "sizeBytes": 132327620,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/benson-s-02/214_Rivals.mp4"
+        },
+        {
+          "archiveID": "benson-s-03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Benson - Season 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pXQIwDfMMDF6GVJdgLm68Exm5wo.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "301_Benson_s_Appointment.mp4",
+            "format": "h.264",
+            "sizeBytes": 129971932,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/benson-s-03/301_Benson_s_Appointment.mp4"
+        },
+        {
+          "archiveID": "benson-s-04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Benson - Season 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pXQIwDfMMDF6GVJdgLm68Exm5wo.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "413_Close_Encounters_On_The_Third_Hole.mp4",
+            "format": "h.264",
+            "sizeBytes": 129496587,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/benson-s-04/413_Close_Encounters_On_The_Third_Hole.mp4"
+        },
+        {
+          "archiveID": "benson-s-05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Benson - Season 5",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pXQIwDfMMDF6GVJdgLm68Exm5wo.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "508_You_Cant_Give_It_Away.mp4",
+            "format": "h.264",
+            "sizeBytes": 134254922,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/benson-s-05/508_You_Cant_Give_It_Away.mp4"
+        },
+        {
+          "archiveID": "benson-s-06",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Benson - Season 6",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pXQIwDfMMDF6GVJdgLm68Exm5wo.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "624_Jung_At_Heart.mp4",
+            "format": "h.264",
+            "sizeBytes": 137491663,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/benson-s-06/624_Jung_At_Heart.mp4"
+        },
+        {
+          "archiveID": "benson-s-07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Benson - Season 7",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pXQIwDfMMDF6GVJdgLm68Exm5wo.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "704_The_Stranger.mp4",
+            "format": "h.264",
+            "sizeBytes": 128369841,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/benson-s-07/704_The_Stranger.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

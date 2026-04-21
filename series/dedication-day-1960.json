@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dedication-day-1960",
+  "title": "Dedication Day",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DedicationDay-Nbc-washington-May221958colorVideotape",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DedicationDay-Nbc-washington-May221958colorVideotape",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dedication Day - NBC-Washington - May 22, 1958 (Color Videotape)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DedicationDay-Nbc-washington-May221958colorVideotape",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "Dedication_WRC_Washington_05_22_1958.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 229193592,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DedicationDay-Nbc-washington-May221958colorVideotape/Dedication_WRC_Washington_05_22_1958.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

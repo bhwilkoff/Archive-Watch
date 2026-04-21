@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "beyond-tomorrow-1960",
+  "title": "Beyond Tomorrow",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Beyond Tomorrow is an Australian television series produced by Beyond Television Productions. It began airing in 1981 as Towards 2000, then in 1985 was renamed Beyond 2000, a name the show kept until its cancellation in 1999. It then started airing again in 2005 with the name Beyond Tomorrow.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC TV"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BeyondTomorrow-WeirdnessBadMovie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Beyond Tomorrow - Weirdness Bad Movie",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 7209,
+          "videoFile": {
+            "name": "WRBM_Beyond Tomorrow_WS_AF_fixed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3667866932,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BeyondTomorrow-WeirdnessBadMovie/WRBM_Beyond Tomorrow_WS_AF_fixed.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

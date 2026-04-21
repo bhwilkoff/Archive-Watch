@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "1951-1951",
+  "title": "1951",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1951EpisodeOftheAlanYoungShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1951-RollerDerby-TheRedDevilsVsTheJets",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1951 - Roller Derby - the Red Devils vs the Jets",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1951-RollerDerby-TheRedDevilsVsTheJets",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1706,
+          "videoFile": {
+            "name": "1951-RollerDerby-TheRedDevilsVsTheJets.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 130198044,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1951-RollerDerby-TheRedDevilsVsTheJets/1951-RollerDerby-TheRedDevilsVsTheJets.ogv"
+        },
+        {
+          "archiveID": "1951-RollerDerby-TheWesternersVsThePan-jets",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1951 - Roller Derby - the Westerners vs the Pan-Jets",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1951-RollerDerby-TheWesternersVsThePan-jets",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1240,
+          "videoFile": {
+            "name": "1951-RollerDerby-TheWesternersVsThePan-jets.mp4",
+            "format": "h.264",
+            "sizeBytes": 128836203,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1951-RollerDerby-TheWesternersVsThePan-jets/1951-RollerDerby-TheWesternersVsThePan-jets.mp4"
+        },
+        {
+          "archiveID": "1951EpisodeOftheAlanYoungShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1951 Episode of ''The Alan Young Show''",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1951EpisodeOftheAlanYoungShow",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1641,
+          "videoFile": {
+            "name": "AlanYoungShow1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 169664584,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1951EpisodeOftheAlanYoungShow/AlanYoungShow1951.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

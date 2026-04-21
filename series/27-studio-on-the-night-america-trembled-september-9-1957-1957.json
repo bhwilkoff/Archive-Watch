@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "27-studio-on-the-night-america-trembled-september-9-1957-1957",
+  "title": "27 Studio On The Night America Trembled September 9, 1957",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/27StudioOnTheNightAmericaTrembledSeptember91957",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "27StudioOnTheNightAmericaTrembledSeptember91957",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "27 Studio On The Night America Trembled September 9, 1957",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/27StudioOnTheNightAmericaTrembledSeptember91957",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "27 Studio On The Night AmericaTrembled  September 9, 1957.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 256337826,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/27StudioOnTheNightAmericaTrembledSeptember91957/27 Studio On The Night AmericaTrembled  September 9, 1957.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

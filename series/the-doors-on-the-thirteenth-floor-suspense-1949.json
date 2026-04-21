@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-doors-on-the-thirteenth-floor-suspense-1949",
+  "title": "The Doors on the Thirteenth Floor (Suspense",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Suspense--Doors_on_the_13th_Floor",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Suspense--Doors_on_the_13th_Floor",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Doors on the Thirteenth Floor (Suspense)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Suspense--Doors_on_the_13th_Floor",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1768,
+          "videoFile": {
+            "name": "Suspense--Doors_on_the_13th_Floor.mp4",
+            "format": "h.264",
+            "sizeBytes": 183300129,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Doors_on_the_13th_Floor/Suspense--Doors_on_the_13th_Floor.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

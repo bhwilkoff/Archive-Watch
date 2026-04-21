@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "take-a-good-look-1960",
+  "title": "Take A Good Look",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "Take a Good Look is an American television game show created by and starring Ernie Kovacs, which aired from 1959-61 on ABC's Thursday-night block at 10:30 PM Eastern.\n\nSeason 1 consisted of 39 episodes, from October 22, 1959 to July 21, 1960. Season 2 was far shorter, airing just 14 episodes between October 27, 1960 and February 9, 1961. 20 episodes were repackaged for syndication in September 1978.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TakeAGoodLook21July1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Take A Good Look'' - 21 July 1960",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1565,
+          "videoFile": {
+            "name": "Take a Good Look - 21 July  1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 162669116,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TakeAGoodLook21July1960/Take a Good Look - 21 July  1960.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

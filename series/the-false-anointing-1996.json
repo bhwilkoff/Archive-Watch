@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-false-anointing-1996",
+  "title": "The False Anointing",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-false-anointing-1996",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-false-anointing-1996",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The False Anointing (1996)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-false-anointing-1996",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The False Anointing (1996).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 226329755,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-false-anointing-1996/The False Anointing (1996).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

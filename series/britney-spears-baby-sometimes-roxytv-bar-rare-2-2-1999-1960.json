@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "britney-spears-baby-sometimes-roxytv-bar-rare-2-2-1999-1960",
+  "title": "Britney Spears Baby Sometimes Roxytv Bar Rare ( 2 2 1999",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/britney-spears-baby-sometimes-roxytv-bar-rare-2-2-1999",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "britney-spears-baby-sometimes-roxytv-bar-rare-2-2-1999",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Britney Spears Baby Sometimes Roxytv Bar Rare ( 2 2 1999)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/britney-spears-baby-sometimes-roxytv-bar-rare-2-2-1999",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Britney Spears Baby-Sometimes Roxytv  Bar Rare  (2-2-1999).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 135992832,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/britney-spears-baby-sometimes-roxytv-bar-rare-2-2-1999/Britney Spears Baby-Sometimes Roxytv  Bar Rare  (2-2-1999).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-wanderer-1960",
+  "title": "The Wanderer",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Wanderer is a television series of British origin, first transmitted in 1994 and comprising 13 episodes.\n\nEvery episode brings a new adventure, and the story of long-ago brothers Adam and Zachary, Princess Beatrice, and Lady Clare slowly unfolds as the present-day Adam searches for the original Zachary's grave, a magic stone, and a lost book of power.\n\nThe show was created by Tom Gabbay, who also served as Executive Producer of the series, which was filmed on locations in Austria, Germany, Spain, and England, including Helmsley Castle and the Yorkshire Moors, by FingerTip Films for Yorkshire Television, ZDF, Antena 3, and SkyTV. In the United States, The Wanderer was transmitted primarily in first-run syndication.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/hhjeUASHyACBSPMG3uvVYyLNQy7.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/hB4zPlMONGpc5Xdi7AUSI1DgeTn.jpg",
+  "genres": [],
+  "networks": [
+    "Sky One"
+  ],
+  "creator": "Roy Clarke",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_30_The_Wanderer",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Wanderer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/hhjeUASHyACBSPMG3uvVYyLNQy7.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_30_The_Wanderer.mp4",
+            "format": "h.264",
+            "sizeBytes": 146810313,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_30_The_Wanderer/Robin_Hood_30_The_Wanderer.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

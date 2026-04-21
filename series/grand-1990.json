@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "grand-1990",
+  "title": "Grand",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "In the piano-making town of Grand, Pennsylvania, Janice Pasetti keeps house for factory owner Harris Weldon, his newlywed niece and her husband, while raising her teenage daughter.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/8zQo2mot9ozuDd6ZqxcC3Y69OT9.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/fCpzrUbUntTyv2w80v4lynhZqqt.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Michael J. Leeson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "grand-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grand - Sara Rue, Pamela Reed, Bonnie Hunt",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8zQo2mot9ozuDd6ZqxcC3Y69OT9.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grand - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 719454160,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grand-1.1/Grand - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

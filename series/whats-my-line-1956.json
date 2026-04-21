@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "whats-my-line-1956",
+  "title": "Whats My Line?",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": "Four panelists must determine guests' occupations - and, in the case of famous guests, while blindfolded, their identity - by asking only \"yes\" or \"no\" questions.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/A9T7xSQFnlxFgZkqC4lmHYPXhq4.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/kuxGPrAiyvIRjysEK97Bzr9248j.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "WhatsMyLine9September1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Whats My Line?'' - 9 September 1956",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/A9T7xSQFnlxFgZkqC4lmHYPXhq4.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1756,
+          "videoFile": {
+            "name": "WhatsMyLine 9September1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 182370554,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/WhatsMyLine9September1956/WhatsMyLine 9September1956.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

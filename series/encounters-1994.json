@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "encounters-1994",
+  "title": "Encounters",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/encounters-07",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "encounters-04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Encounters - 04: The Earthquake Sensitive",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/encounters-04",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Encounters - 04.mp4",
+            "format": "h.264",
+            "sizeBytes": 261988901,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/encounters-04/Encounters - 04.mp4"
+        },
+        {
+          "archiveID": "encounters-06",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Encounters - 06: Mars Formations",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/encounters-06",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Encounters - 06.mp4",
+            "format": "h.264",
+            "sizeBytes": 266849508,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/encounters-06/Encounters - 06.mp4"
+        },
+        {
+          "archiveID": "encounters-07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Encounters - 07: Bigfoot",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/encounters-07",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Encounters - 07.mp4",
+            "format": "h.264",
+            "sizeBytes": 269285413,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/encounters-07/Encounters - 07.mp4"
+        },
+        {
+          "archiveID": "encounters-08",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Encounters - 08: Mars Wants Marilyn",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/encounters-08",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Encounters - 08.mp4",
+            "format": "h.264",
+            "sizeBytes": 266739736,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/encounters-08/Encounters - 08.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

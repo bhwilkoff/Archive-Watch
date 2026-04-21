@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "passaparola-1999",
+  "title": "Passaparola",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/dNLkVKr7tviGLe9kpMTvoTyIsbd.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Canale 5"
+  ],
+  "creator": "Alvise Borghi",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "passaparola-1999-01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Passaparola - Gennaio 1999",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dNLkVKr7tviGLe9kpMTvoTyIsbd.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Passaparola Canale 5 - 1^ partecipazione, gennaio 1999.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 359911529,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/passaparola-1999-01/Passaparola Canale 5 - 1^ partecipazione, gennaio 1999.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "marblehead-manor-1987",
+  "title": "Marblehead Manor",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": "Marblehead Manor is an American television sitcom that originally ran from 1987 to 1988 in first run syndication. It stars British comic actor Paxton Whitehead, American actor Phil Morris, Canadian actress Linda Thorson, American actor and screenwriter Bob Fraser and Michael Richards. The series was a Dames-Fraser Production in association with Paramount Television.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/569/1423032.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "marblehead-manor-1.01_202205",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Marblehead Manor - Dyana Ortelli, Humberto Ortiz",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/569/1423032.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Marblehead Manor - 1.01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 652707330,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/marblehead-manor-1.01_202205/Marblehead Manor - 1.01.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

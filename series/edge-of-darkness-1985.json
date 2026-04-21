@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "edge-of-darkness-1985",
+  "title": "Edge Of Darkness",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": "Environmental activist Emma Craven is murdered in front of her father, local police inspector Ronald Craven. Investigating the death leads him through a haunting revelation of the murkiness of British nuclear policy of the 1980s.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/2etMft3bSdXC6xqhEWSXVb0IjLv.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/2VhhbaXuzbOAaurZNEyBNknkgdK.jpg",
+  "genres": [],
+  "networks": [
+    "BBC Two"
+  ],
+  "creator": "Troy Kennedy Martin",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "edge-of-darkness-1985-pt-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Edge Of Darkness - Joanne Whalley",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2etMft3bSdXC6xqhEWSXVb0IjLv.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Edge of Darkness - 1985 - Pt 2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 4284346661,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/edge-of-darkness-1985-pt-1/Edge of Darkness - 1985 - Pt 2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

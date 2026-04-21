@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "falling-for-a-dancer-1998-2022",
+  "title": "Falling For A Dancer 1998",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/falling-for-a-dancer-1998-episode-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "falling-for-a-dancer-1998-episode-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Falling For A Dancer 1998",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/falling-for-a-dancer-1998-episode-1",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Falling For a Dancer 1998 Episode 4.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 248658170,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/falling-for-a-dancer-1998-episode-1/Falling For a Dancer 1998 Episode 4.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

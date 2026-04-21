@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-dick-van-dyke-show-the-1961",
+  "title": "The Dick Van Dyke Show (The",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": "The Dick Van Dyke Show centers around the work and home life of television comedy writer Rob Petrie. The plots generally revolve around problems at work, where Rob got into various comedic jams with fellow writers Buddy Sorrell, Sally Rogers and producer Mel Cooley.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/w2Tcx36ybQEczP5zkUhPwaehgeL.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/1t4m2WWx581A8jEwp2LG6cCjzrY.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Carl Reiner",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-dick-van-dyke-show-the-complete-series-1961-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Dick Van Dyke Show (The Complete Series) [1961 - 1966]",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/w2Tcx36ybQEczP5zkUhPwaehgeL.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dick Van Dyke Show (The Complete Series) [1961 - 1966]/Season 1/S01E20 - A Word a Day.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 499794647,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-the-complete-series-1961-1966/The Dick Van Dyke Show (The Complete Series) [1961 - 1966]/Season 1/S01E20 - A Word a Day.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "seriesID": "stump-the-stars-1963",
+  "title": "Stump the Stars",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "stumpthestars",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stump the Stars'' - Julie London vs. Fabian",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1733,
+          "videoFile": {
+            "name": "stumpthestars.mp4",
+            "format": "h.264",
+            "sizeBytes": 180258997,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/stumpthestars/stumpthestars.mp4"
+        },
+        {
+          "archiveID": "StumpTheStars-DeanJonesVs.RogerSmith",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Stump The Stars - Dean Jones vs. Roger Smith",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1292,
+          "videoFile": {
+            "name": "StumpTheStars9September1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 133479430,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StumpTheStars-DeanJonesVs.RogerSmith/StumpTheStars9September1963.mp4"
+        },
+        {
+          "archiveID": "StumpTheStars-NinaFochVs.MichaelLandon",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Stump The Stars - Nina Foch vs. Michael Landon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "StumpTheStars25February1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 155718476,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StumpTheStars-NinaFochVs.MichaelLandon/StumpTheStars25February1963.mp4"
+        },
+        {
+          "archiveID": "StumpTheStars-EdBegleyVs.JeanneCrain",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Stump the Stars - Ed Begley vs. Jeanne Crain",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "StumpTheStars19August1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 156714701,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StumpTheStars-EdBegleyVs.JeanneCrain/StumpTheStars19August1963.mp4"
+        },
+        {
+          "archiveID": "StumpTheStars-NickAdamsVs.PaulaPrentiss",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Stump the Stars - Nick Adams vs. Paula Prentiss",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1525,
+          "videoFile": {
+            "name": "StumptheStars27May1963.mp4",
+            "format": "h.264",
+            "sizeBytes": 157444483,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StumpTheStars-NickAdamsVs.PaulaPrentiss/StumptheStars27May1963.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "remember-wenn-1996-98-1960",
+  "title": "Remember WENN (1996-98",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/remember-wenn",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "remember-wenn",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Remember WENN (1996-98)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/remember-wenn",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Remember WENN - The Importance of Being Betty.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302568696,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/remember-wenn/Remember WENN - The Importance of Being Betty.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

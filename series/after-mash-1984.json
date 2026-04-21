@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "after-mash-1984",
+  "title": "After MASH",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "AfterMASH is an American situation comedy that aired on CBS from September 26, 1983, to December 11, 1984. A spin-off of the series M*A*S*H, the show takes place immediately following the end of the Korean War and chronicles the adventures of three characters from the original series: Colonel Potter, Klinger and Father Mulcahy. M*A*S*H supporting cast-member Kellye Nakahara joined them, albeit off-camera, as the voice of the hospital's public address system. Rosalind Chao rounded out the starring cast as Soon-Lee Klinger, a Korean refugee whom Klinger met, fell in love with and married in the M*A*S*H series finale \"Goodbye, Farewell and Amen.\"\n\nAfterMASH premiered in the fall of 1983 in the same Monday night 9:00 P.M. EST. time slot as its predecessor M*A*S*H. It finished 10th out of all network shows for the 1983-1984 season according to Nielsen Media Research television ratings. For its second season CBS moved the show to Tuesday nights at 8:00 EST., opposite NBC's top ten hit The A-Team, and launched a marketing campaign featuring illustrations by Sanford Kossin of Max Klinger in a nurse's uniform, shaving off Mr. T's signature mohawk, theorizing that AfterMASH would take a large portion of The A-Team's audience. The theory, however, was proven wrong. In fact, the exact opposite occurred, as AfterMASH's ratings plummeted to near the bottom of the television rankings and the show was canceled nine episodes into its second season, while The A-Team continued until 1987, with 97 episodes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kwE6aJel1v3xtwm4oxXylnpaogm.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/eBasjvxahDTbHg474Cy0sQO3XfS.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Larry Gelbart",
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "AfterMASH19830209WetFeet",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Wet Feet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kwE6aJel1v3xtwm4oxXylnpaogm.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "After MASH 1983 02 09 Wet Feet.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 102209569,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AfterMASH19830209WetFeet/After MASH 1983 02 09 Wet Feet.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

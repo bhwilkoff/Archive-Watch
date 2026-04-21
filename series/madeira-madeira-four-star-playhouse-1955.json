@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "madeira-madeira-four-star-playhouse-1955",
+  "title": "Madeira, Madeira (Four Star Playhouse",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Madeira_Madeira--Four_Star",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Madeira_Madeira--Four_Star",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Madeira, Madeira (Four Star Playhouse)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Madeira_Madeira--Four_Star",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1483,
+          "videoFile": {
+            "name": "Madeira_Madeira--Four_Star.mp4",
+            "format": "h.264",
+            "sizeBytes": 153990221,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Madeira_Madeira--Four_Star/Madeira_Madeira--Four_Star.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

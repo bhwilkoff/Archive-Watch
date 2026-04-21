@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "studio-one-the-trial-of-john-peter-zenger-1960",
+  "title": "Studio One: The Trial of John Peter Zenger",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/StudioOneTheTrialOfJohnPeterZengerPaulNickell",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "StudioOneTheTrialOfJohnPeterZengerPaulNickell",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One: The Trial of John Peter Zenger - Paul Nickell",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/StudioOneTheTrialOfJohnPeterZengerPaulNickell",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3560,
+          "videoFile": {
+            "name": "Studio_One_John_Peter_Zenger_01_12_1953_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 248638496,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOneTheTrialOfJohnPeterZengerPaulNickell/Studio_One_John_Peter_Zenger_01_12_1953_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

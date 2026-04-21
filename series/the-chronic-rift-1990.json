@@ -1,0 +1,489 @@
+{
+  "version": 1,
+  "seriesID": "the-chronic-rift-1990",
+  "title": "The Chronic Rift",
+  "yearStart": 1990,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/thechronicriftepisode52iconhighlightspart2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheChronicRiftEpisode11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Chronic Rift: Episode 11 - The Effect of Special Effects",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode11",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift Episode 11.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 130828408,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode11/The Chronic Rift Episode 11.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode12",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Chronic Rift: Episode 12 - What is Horror?",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode12",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift Episode 12.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 131064138,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode12/The Chronic Rift Episode 12.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode16",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Chronic Rift: Episode 16 - Doctor Who",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode16",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 16.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 130486365,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode16/The Chronic Rift - Episode 16.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode17",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Chronic Rift: Episode 17 - Play-by-Mail Games",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode17",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 17.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 130009150,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode17/The Chronic Rift - Episode 17.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode20",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Chronic Rift: Episode 20 - Science Fiction and Fantasy in the Classroom",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode20",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 20.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 131101389,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode20/The Chronic Rift - Episode 20.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode21",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Chronic Rift: Episode 21 - 1990 Roundtable Awards",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode21",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 21.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 131551511,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode21/The Chronic Rift - Episode 21.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode23",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Chronic Rift: Episode 23 - Beauty and the Beast",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode23",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 23.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 130092126,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode23/The Chronic Rift - Episode 23.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode24",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The Chronic Rift: Episode 24 - Ursula K. LeGuin",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode24",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 24.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 127306469,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode24/The Chronic Rift - Episode 24.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode25",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "The Chronic Rift: Episode 25 - Japanese Animation",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode25",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 25.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 131951692,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode25/The Chronic Rift - Episode 25.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode26",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Chronic Rift: Episode 26 - How to Get Your Fantasy & Science Fiction Published",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode26",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 26.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 130114357,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode26/The Chronic Rift - Episode 26.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode28",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "The Chronic Rift: Episode 28 - Blake's 7",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode28",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 28.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 129960723,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode28/The Chronic Rift - Episode 28.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode30",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "The Chronic Rift: Episode 30 - Star Trek's 25th Anniversary",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode30",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 30.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 133620804,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode30/The Chronic Rift - Episode 30.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode31",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "The Chronic Rift: Episode 31 - Attack of the B Movies!",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode31",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 31.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 129727287,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode31/The Chronic Rift - Episode 31.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode32",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "The Chronic Rift: Episode 32 - Anne McCaffrey",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode32",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 32.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 132314948,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode32/The Chronic Rift - Episode 32.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode33",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "The Chronic Rift: Episode 33 - Time Paradoxes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode33",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 33.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 128709804,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode33/The Chronic Rift - Episode 33.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode37",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "The Chronic Rift: Episode 37 - War in Science Fiction",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode37",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 37.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 129711479,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode37/The Chronic Rift - Episode 37.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode41",
+          "seasonNumber": 1,
+          "episodeNumber": 41,
+          "title": "The Chronic Rift: Episode 41 - Organized Religion in Science Fiction",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode41",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 41.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 142798134,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode41/The Chronic Rift - Episode 41.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode42",
+          "seasonNumber": 1,
+          "episodeNumber": 42,
+          "title": "The Chronic Rift: Episode 42 - Jules Verne & H.G. Wells",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode42",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 42.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 129183025,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode42/The Chronic Rift - Episode 42.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode44",
+          "seasonNumber": 1,
+          "episodeNumber": 44,
+          "title": "The Chronic Rift: Episode 44 - The Prisoner",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode44",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 44.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 127044958,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode44/The Chronic Rift - Episode 44.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode45",
+          "seasonNumber": 1,
+          "episodeNumber": 45,
+          "title": "The Chronic Rift: Episode 45 - Orson Scott Card",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode45",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 45.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 129270182,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode45/The Chronic Rift - Episode 45.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode47",
+          "seasonNumber": 1,
+          "episodeNumber": 47,
+          "title": "The Chronic Rift: Episode 47 - The 1991 Roundtable Awards",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode47",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 47.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 129310940,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode47/The Chronic Rift - Episode 47.ogv"
+        },
+        {
+          "archiveID": "TheChronicRiftEpisode48",
+          "seasonNumber": 1,
+          "episodeNumber": 48,
+          "title": "The Chronic Rift: Episode 48 - The Hitchhiker's Guide to the Galaxy",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChronicRiftEpisode48",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift - Episode 48.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 129134810,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChronicRiftEpisode48/The Chronic Rift - Episode 48.ogv"
+        },
+        {
+          "archiveID": "thechronicriftepisode49tvshowsofkennethjohnson",
+          "seasonNumber": 1,
+          "episodeNumber": 49,
+          "title": "The Chronic Rift Episode 49 TV Shows Of Kenneth Johnson",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/thechronicriftepisode49tvshowsofkennethjohnson",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift Episode 49 TV Shows of Kenneth Johnson.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 72613815,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thechronicriftepisode49tvshowsofkennethjohnson/The Chronic Rift Episode 49 TV Shows of Kenneth Johnson.mp4"
+        },
+        {
+          "archiveID": "thechronicriftepisode50europeancomics",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "The Chronic Rift Episode 50 European Comics",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/thechronicriftepisode50europeancomics",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift Episode 50 European Comics.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 68160895,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thechronicriftepisode50europeancomics/The Chronic Rift Episode 50 European Comics.mp4"
+        },
+        {
+          "archiveID": "thechronicriftepisode51iconhighlightspart1",
+          "seasonNumber": 1,
+          "episodeNumber": 51,
+          "title": "The Chronic Rift Episode 51 I Con Highlights Part 1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/thechronicriftepisode51iconhighlightspart1",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift Episode 51 I-Con Highlights Part 1.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 70418912,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thechronicriftepisode51iconhighlightspart1/The Chronic Rift Episode 51 I-Con Highlights Part 1.mp4"
+        },
+        {
+          "archiveID": "thechronicriftepisode52iconhighlightspart2",
+          "seasonNumber": 1,
+          "episodeNumber": 52,
+          "title": "The Chronic Rift Episode 52 Icon Highlights Part 2",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/thechronicriftepisode52iconhighlightspart2",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chronic Rift Episode 52 Icon Highlights Part 2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 58437013,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thechronicriftepisode52iconhighlightspart2/The Chronic Rift Episode 52 Icon Highlights Part 2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 26
+}

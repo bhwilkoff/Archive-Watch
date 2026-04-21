@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bird-brain-1974",
+  "title": "Bird Brain",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Horizonbirdbrain1974",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Horizonbirdbrain1974",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bird Brain - The Mystery of Bird Navigation (1974)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Horizonbirdbrain1974",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Horizon.S1974E02.Bird.Brain.The.Mystery.of.Bird.Navigation.VHSrip.x264.AAC-ASTRO.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 120193831,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Horizonbirdbrain1974/Horizon.S1974E02.Bird.Brain.The.Mystery.of.Bird.Navigation.VHSrip.x264.AAC-ASTRO.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

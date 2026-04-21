@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "turn-of-the-screw-1989-amy-irving-divx-1960",
+  "title": "Turn Of The Screw (1989 Amy Irving) divx",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TurnOfTheScrew1989AmyIrving",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TurnOfTheScrew1989AmyIrving",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Turn Of The Screw (1989 Amy Irving) divx",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TurnOfTheScrew1989AmyIrving",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Turn of the Screw (1989 Amy Irving).mp4",
+            "format": "h.264",
+            "sizeBytes": 348007381,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TurnOfTheScrew1989AmyIrving/Turn of the Screw (1989 Amy Irving).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

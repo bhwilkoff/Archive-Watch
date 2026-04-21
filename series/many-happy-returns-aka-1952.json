@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "many-happy-returns-aka-1952",
+  "title": "Many Happy Returns (aka",
+  "yearStart": 1952,
+  "yearEnd": 1952,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TOT_Many_Happy_Returns",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TOT_Many_Happy_Returns",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Many Happy Returns (aka: Invaders at Ground Zero)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TOT_Many_Happy_Returns",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TOT_Many_Happy_Returns.mp4",
+            "format": "h.264",
+            "sizeBytes": 168676266,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TOT_Many_Happy_Returns/TOT_Many_Happy_Returns.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

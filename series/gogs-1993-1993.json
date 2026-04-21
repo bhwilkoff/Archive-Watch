@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "gogs-1993-1993",
+  "title": "Gogs (1993",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/gogs-1993-98-hd",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "gogs-1993-98-hd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Gogs (1993 - 98) Complete Series HD",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/gogs-1993-98-hd",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Gogs! (1993 - 98)/03 Gogwana (1998)/Gogwana (1998).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 343715925,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gogs-1993-98-hd/Gogs! (1993 - 98)/03 Gogwana (1998)/Gogwana (1998).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

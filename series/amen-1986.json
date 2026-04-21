@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "seriesID": "amen-1986",
+  "title": "Amen",
+  "yearStart": 1986,
+  "yearEnd": 1990,
+  "overview": "Amen is an American television sitcom produced by Carson Productions that ran from September 27, 1986 to May 11, 1991 on NBC. Set in Sherman Hemsley's real-life hometown of Philadelphia, Amen stars Hemsley as the deacon of a church and was part of a wave of successful sitcoms on NBC in the 1980s which featured entirely or almost-entirely black casts. Others included The Cosby Show, A Different World, and 227.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Ed. Weinberger",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "amen-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Amen - Anna Maria Horsford, Clifton Davis, Sherman Hemsley",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amen - 4.14.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 723424806,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amen-1.01/Amen - 4.14.ia.mp4"
+        },
+        {
+          "archiveID": "amen-season-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Amen: Season 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amen.S01E16.Yes.Sir.Thats.Our.Baby.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 146497973,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amen-season-1/Amen.S01E16.Yes.Sir.Thats.Our.Baby.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
+        },
+        {
+          "archiveID": "amen-season-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Amen: Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amen.S02E09.Thelmas.Birthday.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 144658287,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amen-season-2/Amen.S02E09.Thelmas.Birthday.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
+        },
+        {
+          "archiveID": "amen-season-3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Amen: Season 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amen.S03E14.The.Psychic.Pt.1.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 131767227,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amen-season-3/Amen.S03E14.The.Psychic.Pt.1.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
+        },
+        {
+          "archiveID": "amen-season-4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Amen: Season 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amen.S04E07.Dont.Rain.on.My.Shower.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 139998766,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amen-season-4/Amen.S04E07.Dont.Rain.on.My.Shower.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
+        },
+        {
+          "archiveID": "amen-season-5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Amen: Season 5",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/apEoBrwwcRGrjE3I4B7uAQheRjQ.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amen.S05E06.Miracle.on.134th.Street.Pt.2.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 147035711,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amen-season-5/Amen.S05E06.Miracle.on.134th.Street.Pt.2.640p.TUBI.WEB-DL.AAC2.0.H.264.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

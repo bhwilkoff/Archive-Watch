@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "prime-time-pets-1990",
+  "title": "Prime Time Pets",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/prime-time-pets-dancing-chimp-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "prime-time-pets-dancing-chimp-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Prime Time Pets - Wil Shriner",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/prime-time-pets-dancing-chimp-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Prime Time Pets - Dancing Chimp - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 722669578,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/prime-time-pets-dancing-chimp-1990/Prime Time Pets - Dancing Chimp - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

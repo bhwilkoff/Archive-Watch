@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-tower-wire-service-1956",
+  "title": "The Tower (Wire Service",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/The_Tower--Wire_Service",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "The_Tower--Wire_Service",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Tower (Wire Service)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/The_Tower--Wire_Service",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 3063,
+          "videoFile": {
+            "name": "The_Tower--Wire_Service.mp4",
+            "format": "h.264",
+            "sizeBytes": 317254103,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The_Tower--Wire_Service/The_Tower--Wire_Service.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

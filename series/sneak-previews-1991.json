@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "seriesID": "sneak-previews-1991",
+  "title": "Sneak Previews",
+  "yearStart": 1991,
+  "yearEnd": 1992,
+  "overview": "Sneak Previews was an American film review show, running for over two decades on Public Broadcasting Service. It was created by WTTW, a PBS affiliate in Chicago, Illinois. It premiered on September 4, 1975 as a monthly local-only show called Opening Soon at a Theater Near You, and was renamed in 1977 when it became a biweekly show airing nationally on PBS. By 1979, it was a weekly series airing on over 180 stations, and was the highest rated weekly entertainment series in the history of public broadcasting. It was finally cancelled in 1996.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "PBS",
+    "WTTW"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sneak-previews-classic-movies-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sneak Previews - Michael Medved, Jeffrey Lyons",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sneak Previews - Classic Movies - 1992.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 772614974,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sneak-previews-classic-movies-1992/Sneak Previews - Classic Movies - 1992.ia.mp4"
+        },
+        {
+          "archiveID": "SneakPreviews29thStreetReview",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sneak Previews: 29th Street review (1991)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sneak Previews 29th Street review.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 19924776,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SneakPreviews29thStreetReview/Sneak Previews 29th Street review.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

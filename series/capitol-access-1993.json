@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "capitol-access-1993",
+  "title": "Capitol Access",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/CapitolAccess1993",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CapitolAccess1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Capitol Access - Minneapolis Public TV - Featuring Barb Tilsen & Gayla Ellis",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CapitolAccess1993",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Barb&Gayla.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 129149269,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CapitolAccess1993/Barb&Gayla.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

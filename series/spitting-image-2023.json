@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "spitting-image-2023",
+  "title": "Spitting Image",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": "Spitting Image is an award winning British satirical puppet show, created by Peter Fluck, Roger Law and Martin Lambie-Nairn. The series was produced by Spitting Image Productions for Central Independent Television over 18 series which aired on the ITV from 1984 to 1996. The series was nominated and won numerous awards during its run including 10 BAFTA Awards, including one for editing in 1989, and even won two Emmy Awards in 1985 and 1986 in the Popular Arts Category.\n\nThe series featured puppet caricatures of celebrities famous during the 1980s and 1990s, including British Prime Minister Margaret Thatcher and fellow Tory politicians, American president Ronald Reagan, and the British Royal Family. The Series was the first to caricature the Queen mother.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3t6nGVtQfuT12AfdpNDOLyZsuFe.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/22BTwoc0JGcOdQdbHCRkk9axRZU.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "spitting-image-the-ronnie-and-nancy-show-special-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Spitting Image: The Ronnie And Nancy Show Special (1987)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3t6nGVtQfuT12AfdpNDOLyZsuFe.jpg",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Spitting Image The Ronnie and Nancy Show special (1987).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 792379561,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/spitting-image-the-ronnie-and-nancy-show-special-1987/Spitting Image The Ronnie and Nancy Show special (1987).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

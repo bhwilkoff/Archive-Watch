@@ -1,0 +1,275 @@
+{
+  "version": 1,
+  "seriesID": "grange-hill-1960",
+  "title": "Grange Hill",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Children's drama series following the lives of students and teachers at Grange Hill comprehensive school.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/aA7628zqsHEKTqBGiYjzLDYzSUU.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Phil Redmond",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 1 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill, Season 1_S01E04_Episode 4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 248611923,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-1/Grange Hill, Season 1_S01E04_Episode 4.ia.mp4"
+        },
+        {
+          "archiveID": "grange-hill-series-10",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 10 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill - Season 10_S10E12_Episode 12.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 241670355,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-10/Grange Hill - Season 10_S10E12_Episode 12.ia.mp4"
+        },
+        {
+          "archiveID": "grange-hill-series-11",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 11 (uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill - Season 11_S11E20_Episode 20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 233114957,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-11/Grange Hill - Season 11_S11E20_Episode 20.ia.mp4"
+        },
+        {
+          "archiveID": "grange-hill-series-12",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 12 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill - Season 12_S12E13_Episode 13.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 201060236,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-12/Grange Hill - Season 12_S12E13_Episode 13.ia.mp4"
+        },
+        {
+          "archiveID": "grange-hill-series-13",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 13 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill - Season 13_S13E12_Episode 12.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 223377657,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-13/Grange Hill - Season 13_S13E12_Episode 12.ia.mp4"
+        },
+        {
+          "archiveID": "grange-hill-series-14",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 14 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill - Season 14_S14E01_Episode 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 224439438,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-14/Grange Hill - Season 14_S14E01_Episode 1.ia.mp4"
+        },
+        {
+          "archiveID": "grange-hill-series-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 2 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill, Season 2_S02E17_Episode 17.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 338887939,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-2/Grange Hill, Season 2_S02E17_Episode 17.ia.mp4"
+        },
+        {
+          "archiveID": "grange-hill-series-3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 3 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill - Season 3_S03E15_Episode 15.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 334621008,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-3/Grange Hill - Season 3_S03E15_Episode 15.ia.mp4"
+        },
+        {
+          "archiveID": "grange-hill-season-4-s-04-e-09-episode-9",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 4 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill - Season 4_S04E09_Episode 9.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1343082879,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-season-4-s-04-e-09-episode-9/Grange Hill - Season 4_S04E09_Episode 9.ia.mp4"
+        },
+        {
+          "archiveID": "grange-hill-series-5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 5 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill - Season 5_S05E06_Sports Trials.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 396263166,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-5/Grange Hill - Season 5_S05E06_Sports Trials.ia.mp4"
+        },
+        {
+          "archiveID": "grange-hill-series-6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 6 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill - Season 6_S06E06_Field Trip.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 361306697,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-6/Grange Hill - Season 6_S06E06_Field Trip.ia.mp4"
+        },
+        {
+          "archiveID": "grange-hill-series-7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 7 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill - Season 7_S07E16_Episode 16.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 393323833,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-7/Grange Hill - Season 7_S07E16_Episode 16.ia.mp4"
+        },
+        {
+          "archiveID": "grange-hill-series-8",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 8 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill - Christmas Special 1985.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 305682931,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-8/Grange Hill - Christmas Special 1985.ia.mp4"
+        },
+        {
+          "archiveID": "grange-hill-series-9",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 9 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill - Season 9_S09E18_Episode 18.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 334743649,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-9/Grange Hill - Season 9_S09E18_Episode 18.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 14
+}

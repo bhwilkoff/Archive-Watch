@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "stories-of-christmas-love-with-leo-buscaglia-2023",
+  "title": "Stories Of Christmas Love With Leo Buscaglia",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/stories-of-christmas-love-with-leo-buscaglia-1987",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "stories-of-christmas-love-with-leo-buscaglia-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Stories Of Christmas Love With Leo Buscaglia (1987)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/stories-of-christmas-love-with-leo-buscaglia-1987",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Stories of Christmas Love with Leo Buscaglia (1987).mp4",
+            "format": "h.264",
+            "sizeBytes": 291604609,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/stories-of-christmas-love-with-leo-buscaglia-1987/Stories of Christmas Love with Leo Buscaglia (1987).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

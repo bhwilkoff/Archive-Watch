@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wayne-garth-1993",
+  "title": "Wayne & Garth",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/wayne-and-garths-saturday-night-live-music-a-go-go-1993",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "wayne-and-garths-saturday-night-live-music-a-go-go-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wayne & Garth's Saturday Night Live Music A Go-Go - Mike Myers, Dana Garvey",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/wayne-and-garths-saturday-night-live-music-a-go-go-1993",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wayne and Garth's Saturday Night Live Music a Go-Go - 1993.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2804982925,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wayne-and-garths-saturday-night-live-music-a-go-go-1993/Wayne and Garth's Saturday Night Live Music a Go-Go - 1993.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

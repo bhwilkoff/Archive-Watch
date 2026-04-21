@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "vision-usa-no-64-1977",
+  "title": "Vision USA, No 64",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/306-v-64",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "306-v-64",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Vision USA, No 64",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/306-v-64",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "306-v-64.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 421752627,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/306-v-64/306-v-64.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

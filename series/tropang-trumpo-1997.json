@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "tropang-trumpo-1997",
+  "title": "Tropang Trumpo",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": "Tropang Trumpo was a Filipino gag show, produced by the TV5, then known as ABC5, and aired from 1994 to 1999.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "TV5"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tropang-trumpo-480-x-854",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tropang Trumpo",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tropang Trumpo ( 480 X 854 ).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 235407727,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tropang-trumpo-480-x-854/Tropang Trumpo ( 480 X 854 ).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

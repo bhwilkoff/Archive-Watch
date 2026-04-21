@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cher-raquel-welch-i-1960",
+  "title": "Cher & Raquel Welch I",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/cher-raquel-welch-im-a-woman",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cher-raquel-welch-im-a-woman",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cher & Raquel Welch I'm A Woman",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/cher-raquel-welch-im-a-woman",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cher & Raquel Welch I'm a Woman.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28681925,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cher-raquel-welch-im-a-woman/Cher & Raquel Welch I'm a Woman.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

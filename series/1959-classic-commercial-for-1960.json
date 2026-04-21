@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1959-classic-commercial-for-1960",
+  "title": "1959 Classic Commercial for",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1959ClassicCommercialForauntJemimaPancakesWithBananas",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1959ClassicCommercialForauntJemimaPancakesWithBananas",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1959 Classic Commercial for \"Aunt Jemima Pancakes\" with Bananas",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1959ClassicCommercialForauntJemimaPancakesWithBananas",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 81,
+          "videoFile": {
+            "name": "AuntJemimaBanana.mp4",
+            "format": "h.264",
+            "sizeBytes": 7833440,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1959ClassicCommercialForauntJemimaPancakesWithBananas/AuntJemimaBanana.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

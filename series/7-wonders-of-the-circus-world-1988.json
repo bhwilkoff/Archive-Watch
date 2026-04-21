@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "7-wonders-of-the-circus-world-1988",
+  "title": "7 Wonders Of The Circus World",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/7-wonders-of-the-circus-world-1988",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "7-wonders-of-the-circus-world-1988",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "7 Wonders Of The Circus World - Harry Anderson",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/7-wonders-of-the-circus-world-1988",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "7 Wonders of the Circus World - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1133500798,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/7-wonders-of-the-circus-world-1988/7 Wonders of the Circus World - 1988.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "santa-barbara--july-5-1989-partial-1960",
+  "title": "Santa Barbara- July 5, 1989 (partial",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SantaBarbaraJuly51988partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SantaBarbaraJuly51988partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Santa Barbara- July 5, 1989 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SantaBarbaraJuly51988partial",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Santa Barbara- July 5, 1989 (partial).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 112265817,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SantaBarbaraJuly51988partial/Santa Barbara- July 5, 1989 (partial).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

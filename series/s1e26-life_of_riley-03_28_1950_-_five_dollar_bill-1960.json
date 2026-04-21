@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "s1e26-life_of_riley-03_28_1950_-_five_dollar_bill-1960",
+  "title": "S1E26-Life_Of_Riley-03_28_1950_-_Five_Dollar_Bill",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/S1E26-Life_Of_Riley-03_28_1950_-_Five_Dollar_Bill",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "S1E26-Life_Of_Riley-03_28_1950_-_Five_Dollar_Bill",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "S1E26-Life_Of_Riley-03_28_1950_-_Five_Dollar_Bill.",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/S1E26-Life_Of_Riley-03_28_1950_-_Five_Dollar_Bill",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E26-Life_Of_Riley-03_28_1950-Five_Dollar_Bill.mp4",
+            "format": "h.264",
+            "sizeBytes": 129574511,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E26-Life_Of_Riley-03_28_1950_-_Five_Dollar_Bill/S1E26-Life_Of_Riley-03_28_1950-Five_Dollar_Bill.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "motown-30-1990",
+  "title": "Motown 30",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/motown-30-whats-going-on-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "motown-30-whats-going-on-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Motown 30: What's Goin' On! - Whoopi Goldberg",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/motown-30-whats-going-on-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Motown 30 - Whats Going On - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2913633602,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/motown-30-whats-going-on-1990/Motown 30 - Whats Going On - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

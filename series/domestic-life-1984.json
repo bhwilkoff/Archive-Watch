@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "domestic-life-1984",
+  "title": "Domestic Life",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "Domestic Life is an American sitcom that aired on CBS from January 4, 1984 to September 11, 1984. Film star Steve Martin served as executive producer.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/2hi6cHC9gY8qKpUUHHFx86bqqzw.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Martin Mull",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "domestic-life-1.2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Domestic Life - Martin Mull, Megan Follows",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2hi6cHC9gY8qKpUUHHFx86bqqzw.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Domestic Life - 1.2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 735476672,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/domestic-life-1.2/Domestic Life - 1.2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

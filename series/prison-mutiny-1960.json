@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "prison-mutiny-1960",
+  "title": "Prison Mutiny",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/PrisonMutiny-WeirdnessBadMovie",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PrisonMutiny-WeirdnessBadMovie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Prison Mutiny - Weirdness Bad movie",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/PrisonMutiny-WeirdnessBadMovie",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 7086,
+          "videoFile": {
+            "name": "WRBM_Prison Mutiny_WS_AF_fixed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3627669361,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PrisonMutiny-WeirdnessBadMovie/WRBM_Prison Mutiny_WS_AF_fixed.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

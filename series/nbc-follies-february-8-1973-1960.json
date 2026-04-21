@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "nbc-follies-february-8-1973-1960",
+  "title": "NBC Follies (February 8, 1973",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/NBCFolliesFebruary81973",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "NBCFolliesFebruary81973",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "NBC Follies (February 8, 1973)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/NBCFolliesFebruary81973",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NBC-Follies-_February-8_-1973_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 223208816,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/NBCFolliesFebruary81973/NBC-Follies-_February-8_-1973_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

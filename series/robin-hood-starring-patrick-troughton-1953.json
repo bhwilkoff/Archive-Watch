@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "robin-hood-starring-patrick-troughton-1953",
+  "title": "Robin Hood starring Patrick Troughton",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/robin-hood-starring-patrick-troughton",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "robin-hood-starring-patrick-troughton",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Robin Hood starring Patrick Troughton - Live TV from 1953",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/robin-hood-starring-patrick-troughton",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin Hood starring Patrick Troughton - BBC 1953 - The Abbot of St Marys - TV - Rare.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28897721,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/robin-hood-starring-patrick-troughton/Robin Hood starring Patrick Troughton - BBC 1953 - The Abbot of St Marys - TV - Rare.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

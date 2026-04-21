@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "i-led-3-lives-1953",
+  "title": "I Led 3 Lives",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": "Herbert Philbrick was a young professional and pacifist in 1939 Boston. He joined an anti-war group and quickly found himself caught up in the secret world of underground communist activity. He agreed to spy on the Communists for the FBI, and spent the next 9 years of his life as a Communist, FBI spy, and Communist counter-spy, since they had asked him to follow other comrades to test their loyalty. Hence the 3 lives; and his family, co-workers, and church never knew. This TV show is based on the TRUE story of how Philbrick (played ably by Richard Carlson) could never relax, but had to sneak to secret cell meetings and meet FBI agents in clandestine places to make info drops, never knowing when he might be found out, and if he would live to see the next rendezvous.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ILed3Lives-ParcelsForPoland1953",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Parcels for Poland",
+          "overview": "The reds have a treacherous plot : they arrange a phony charitable organization that ostensibly allows people in America to donate to the relief of their destitute family members in Poland according to a menu of gift packages. They're wildly overcharged, so the communists get rich and a list those to persecute behind the iron curtain.",
+          "stillURL": null,
+          "airDate": "1953-12-13",
+          "year": 1953,
+          "runtimeSeconds": 1582,
+          "videoFile": {
+            "name": "I_LED_3_LIVES-Parcels_For_Poland.mp4",
+            "format": "h.264",
+            "sizeBytes": 153325888,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ILed3Lives-ParcelsForPoland1953/I_LED_3_LIVES-Parcels_For_Poland.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

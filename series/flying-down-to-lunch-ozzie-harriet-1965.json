@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "flying-down-to-lunch-ozzie-harriet-1965",
+  "title": "Flying Down to Lunch (Ozzie & Harriet",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Flying_Down_to_Lunch--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Flying_Down_to_Lunch--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flying Down to Lunch (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Flying_Down_to_Lunch--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1277,
+          "videoFile": {
+            "name": "Flying_Down_to_Lunch--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 132736557,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Flying_Down_to_Lunch--Ozzie-Harriet/Flying_Down_to_Lunch--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

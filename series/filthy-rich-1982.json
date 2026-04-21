@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "filthy-rich-1982",
+  "title": "Filthy Rich",
+  "yearStart": 1982,
+  "yearEnd": 1982,
+  "overview": "Filthy Rich is an American sitcom that aired on CBS from August 1982 to July 1983. Starring Dixie Carter and Delta Burke, the series satirized prime-time soap operas such as Dallas and Dynasty.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rHjXZARdwSDWdZnWKMF7GBzGyjl.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/hLxI167vhHkssirgPwMCQE6a6XA.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Linda Bloodworth-Thomason",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "filthy-rich-1.3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Filthy Rich - Dixie Carter, Delta Burke",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rHjXZARdwSDWdZnWKMF7GBzGyjl.jpg",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Filthy Rich - 1.3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 733736627,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/filthy-rich-1.3/Filthy Rich - 1.3.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

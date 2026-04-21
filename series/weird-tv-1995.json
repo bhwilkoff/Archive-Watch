@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "weird-tv-1995",
+  "title": "Weird TV",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": "Weird TV or Weird Television was a programme that aired in 1995 on Canadian late-night TV; KCOP, Channel 13 in Los Angeles; and KTZZ, Channel 22 in Seattle.\n\nThe \"host\" of the show was Chuck Cirino, who is also one of the show's executive producers along with Todd Stevens and Arthur Maturo.\n\nCirino was the one constant of every show. He pops up in his landcruiser for a few seconds, setting up new segments of the show in his own eccentric way. He is known as the \"comfort zone\" of the show, as the subtitles during these segments tell you.\n\nAlso included in the program were clips Cirino had filmed from the Burning Man festival.\n\nSegments include:\n\n⁕Weird America, a segment of the show in which the crew flies out to unusual events all across the country. For example, \"Car Hunt\", where a full-sized, remote-controlled car is let loose in the Nevada desert and is hunted down with high-powered weapons, \"just like big game\", according to Cirino.\n\n⁕Shadoevision, a continuing science-fiction thriller hosted by Shadoe Stevens.\n\n⁕The Dr. Ruehl show, where noted \"phenomenologist\" Dr. Franklin Ruehl talks about viewers of the latest cases of strange phenomena.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/qFyEdeFksSpop9zsisT0jFYa61A.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "weird-tv-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Weird TV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/qFyEdeFksSpop9zsisT0jFYa61A.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WeirdTV 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 913547365,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/weird-tv-2/WeirdTV 2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

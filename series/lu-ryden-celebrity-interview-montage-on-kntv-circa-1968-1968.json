@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lu-ryden-celebrity-interview-montage-on-kntv-circa-1968-1968",
+  "title": "Lu Ryden celebrity interview montage on KNTV, circa 1968",
+  "yearStart": 1968,
+  "yearEnd": 1968,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hsj2023-17_kntv_ryden_interviewmontage",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hsj2023-17_kntv_ryden_interviewmontage",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lu Ryden celebrity interview montage on KNTV, circa 1968",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hsj2023-17_kntv_ryden_interviewmontage",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "hsj2023-17_kntv_ryden_interviewmontage.mp4",
+            "format": "h.264",
+            "sizeBytes": 6679083,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hsj2023-17_kntv_ryden_interviewmontage/hsj2023-17_kntv_ryden_interviewmontage.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

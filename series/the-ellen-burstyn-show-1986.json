@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-ellen-burstyn-show-1986",
+  "title": "The Ellen Burstyn Show",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "Ellen Brewer is a Baltimore college professor living with her overbearing mother Sydney and recently divorced daughter Molly as well as young grandson Nick.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/qI2Edbyrm6lYZ2jt5s4rVoPLmql.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "David Frankel",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-ellen-burstyn-show-1.02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Ellen Burstyn Show - Ellen Burstyn",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/qI2Edbyrm6lYZ2jt5s4rVoPLmql.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Ellen Burstyn Show - 1.04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 724755516,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-ellen-burstyn-show-1.02/The Ellen Burstyn Show - 1.04.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

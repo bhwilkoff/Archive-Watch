@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "american-dreamer--the-fabulous-baker-girls-ep-11-2021",
+  "title": "American Dreamer- The Fabulous Baker Girls (Ep. 11",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/american-dreamer-the-fabulous-baker-girls-12-1-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "american-dreamer-the-fabulous-baker-girls-12-1-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "American Dreamer- The Fabulous Baker Girls (Ep. 11)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/american-dreamer-the-fabulous-baker-girls-12-1-1990",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "American Dreamer- The Fabulous Baker Girls, 12 1 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1678846511,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/american-dreamer-the-fabulous-baker-girls-12-1-1990/American Dreamer- The Fabulous Baker Girls, 12 1 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

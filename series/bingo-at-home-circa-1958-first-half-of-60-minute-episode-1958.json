@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bingo-at-home-circa-1958-first-half-of-60-minute-episode-1958",
+  "title": "Bingo At Home (circa 1958) (first half of 60-minute episode",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BingoAtHomecirca1958firstHalfOf60-minuteEpisode",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BingoAtHomecirca1958firstHalfOf60-minuteEpisode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bingo At Home (circa 1958) (first half of 60-minute episode)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BingoAtHomecirca1958firstHalfOf60-minuteEpisode",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1906,
+          "videoFile": {
+            "name": "BingoAtHome1958.mp4",
+            "format": "h.264",
+            "sizeBytes": 197560546,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BingoAtHomecirca1958firstHalfOf60-minuteEpisode/BingoAtHome1958.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

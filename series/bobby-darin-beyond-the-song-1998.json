@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bobby-darin-beyond-the-song-1998",
+  "title": "Bobby Darin Beyond The Song",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bobby-darin-beyond-the-song-1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bobby-darin-beyond-the-song-1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bobby Darin Beyond The Song - Keith Olbermann",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bobby-darin-beyond-the-song-1998",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bobby Darin Beyond the Song - 1998.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1364049935,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bobby-darin-beyond-the-song-1998/Bobby Darin Beyond the Song - 1998.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

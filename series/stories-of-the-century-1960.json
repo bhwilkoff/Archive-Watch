@@ -1,0 +1,296 @@
+{
+  "version": 1,
+  "seriesID": "stories-of-the-century-1960",
+  "title": "Stories of the Century",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Stories of the Century is a 39-episode Western television series starring Jim Davis that ran in syndication through Republic Pictures between January 23, 1954, and March 11, 1955.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/6w3dt4e7NW89dvLGph7DZRXapax.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "StoriesOfTheCentury_97",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "STORIES OF THE CENTURY",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1679,
+          "videoFile": {
+            "name": "Title9continued.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152590862,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury_97/Title9continued.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "StoriesOfTheCentury-BelleStarr",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Belle Starr",
+          "overview": "Railroad Detective Matt Clark and his assistant Frankie Adams investigate the stealing of a herd of horses belonging to the U. S. Cavalry. They learn that the leader of the outlaws is a woman named Belle Starr.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rjgBcr1y73xC5USOY7A63cKMyGZ.jpg",
+          "airDate": "1954-01-23",
+          "year": null,
+          "runtimeSeconds": 1596,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x01-BelleStar.mp4",
+            "format": "h.264",
+            "sizeBytes": 157402758,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-BelleStarr/StoriesOfTheCentury-1x01-BelleStar.mp4"
+        },
+        {
+          "archiveID": "StoriesOfTheCentury-BillyTheKid",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Billy The Kid",
+          "overview": "Matt and Frankie set out on the trail of cattle rustlers led by one of the\n\nWest's youngest and most notorious outlaws.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/eU97ES21U29sLXHkiEu9REFfrWV.jpg",
+          "airDate": "1954-01-30",
+          "year": null,
+          "runtimeSeconds": 1593,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x02-BillyTheKid.mp4",
+            "format": "h.264",
+            "sizeBytes": 156315611,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-BillyTheKid/StoriesOfTheCentury-1x02-BillyTheKid.mp4"
+        },
+        {
+          "archiveID": "StoriesOfTheCentury-FrankAndJesseJames",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Frank And Jesse James",
+          "overview": "Railroad detectives Matt Clark and Frankie Adams pursue the vengeful James brothers, Frank and Jesse, who declare war on the law after their young half-brother is killed in a police ambush.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-02-07",
+          "year": null,
+          "runtimeSeconds": 1594,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x03-FrankAndJesseJames.mp4",
+            "format": "h.264",
+            "sizeBytes": 156631068,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-FrankAndJesseJames/StoriesOfTheCentury-1x03-FrankAndJesseJames.mp4"
+        },
+        {
+          "archiveID": "StoriesOfTheCentury-Geronimo_426",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Geronimo",
+          "overview": "Railroad detectives Matt Clark and Frankie Adams go after Apache chief Geronimo, who has been identified by Joe Burns, the night watchman of the railroad yards, as the leader of a band of freight-car robbers.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-02-14",
+          "year": null,
+          "runtimeSeconds": 1575,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x04-Geronimo.mp4",
+            "format": "h.264",
+            "sizeBytes": 154504713,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-Geronimo_426/StoriesOfTheCentury-1x04-Geronimo.mp4"
+        },
+        {
+          "archiveID": "StoriesOfTheCentury-QuantrillAndHisRaiders",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Quantrill And His Raiders",
+          "overview": "The U.S. Army calls on Matt Clark (Jim Davis) to help subdue an Indian uprising led by Sioux chief Crazy Horse. Frankie: Mary Castle.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-02-21",
+          "year": null,
+          "runtimeSeconds": 1595,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x05-QuantrillAndHisRaiders.mp4",
+            "format": "h.264",
+            "sizeBytes": 156600191,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-QuantrillAndHisRaiders/StoriesOfTheCentury-1x05-QuantrillAndHisRaiders.mp4"
+        },
+        {
+          "archiveID": "StoriesOfTheCentury-CattleKate",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Cattle Kate",
+          "overview": "Matt and Frankie head to Sweetwater, Wyoming where major cattle ranches are suffering heavy losses. A woman nicknamed Cattle Kate becomes the focus due the number of livestock she sells despite her small operation.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-02-28",
+          "year": null,
+          "runtimeSeconds": 1591,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x06-CattleKate.mp4",
+            "format": "h.264",
+            "sizeBytes": 156683145,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-CattleKate/StoriesOfTheCentury-1x06-CattleKate.mp4"
+        },
+        {
+          "archiveID": "StoriesOfTheCentury-SamBass",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Sam Bass",
+          "overview": "Henry Plummer is elected sheriff of Bannack, Mont., on a law-enforcement ticket---but then he promptly turns to crime. Matt: Jim Davis. Frankie: Mary Castle.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-03-04",
+          "year": null,
+          "runtimeSeconds": 1547,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x07-SamBass.mp4",
+            "format": "h.264",
+            "sizeBytes": 151751475,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-SamBass/StoriesOfTheCentury-1x07-SamBass.mp4"
+        },
+        {
+          "archiveID": "StoriesOfTheCentury-JohnnyRingo",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Johnny Ringo",
+          "overview": "Matt (Jim Davis) and Frankie join a circus to trap an escaped killer. Frankie: Mary Castle.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-03-11",
+          "year": null,
+          "runtimeSeconds": 1587,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x08-JohnnyRingo.mp4",
+            "format": "h.264",
+            "sizeBytes": 155933648,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-JohnnyRingo/StoriesOfTheCentury-1x08-JohnnyRingo.mp4"
+        },
+        {
+          "archiveID": "StoriesOfTheCentury-TheDaltonGang",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Dalton Gang",
+          "overview": "Psychopathic killer Harry Tracy's senseless brutality disgusts even the members of his own gang. Matt: Jim Davis.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-03-18",
+          "year": null,
+          "runtimeSeconds": 1597,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x09-TheDaltonGang.mp4",
+            "format": "h.264",
+            "sizeBytes": 156480637,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-TheDaltonGang/StoriesOfTheCentury-1x09-TheDaltonGang.mp4"
+        },
+        {
+          "archiveID": "StoriesOfTheCentury-DocHolliday",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Doc. Holliday",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-03-25",
+          "year": null,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x10-DocHolliday.mp4",
+            "format": "h.264",
+            "sizeBytes": 153302026,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-DocHolliday/StoriesOfTheCentury-1x10-DocHolliday.mp4"
+        },
+        {
+          "archiveID": "StoriesOfTheCentury-TheYoungerBrothers",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Younger Brothers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-04-02",
+          "year": null,
+          "runtimeSeconds": 1581,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x11-TheYoungerBrothers.mp4",
+            "format": "h.264",
+            "sizeBytes": 155897297,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-TheYoungerBrothers/StoriesOfTheCentury-1x11-TheYoungerBrothers.mp4"
+        },
+        {
+          "archiveID": "StoriesOfTheCentury-JohnWesleyHardin",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "John Wesley Hardin",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-04-09",
+          "year": null,
+          "runtimeSeconds": 1598,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x12-JohnWesleyHardin.mp4",
+            "format": "h.264",
+            "sizeBytes": 156714597,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-JohnWesleyHardin/StoriesOfTheCentury-1x12-JohnWesleyHardin.mp4"
+        },
+        {
+          "archiveID": "StoriesOfTheCentury-JoaquinMurietta",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Joaquin Murietta",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-04-16",
+          "year": null,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x13-JoaquinMurietta.mp4",
+            "format": "h.264",
+            "sizeBytes": 153749509,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-JoaquinMurietta/StoriesOfTheCentury-1x13-JoaquinMurietta.mp4"
+        },
+        {
+          "archiveID": "StoriesOfTheCentury-TiburcioVasquez",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Tiburcio Vasquez",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-04-23",
+          "year": null,
+          "runtimeSeconds": 1580,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-01x14-TiburcioVasquez.mp4",
+            "format": "h.264",
+            "sizeBytes": 154767322,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-TiburcioVasquez/StoriesOfTheCentury-01x14-TiburcioVasquez.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15
+}

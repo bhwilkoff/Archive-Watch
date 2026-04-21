@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "costume-dance-ozzie-harriet-1959",
+  "title": "Costume Dance (Ozzie & Harriet",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Costume_Dance--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Costume_Dance--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Costume Dance (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Costume_Dance--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1515,
+          "videoFile": {
+            "name": "Costume_Dance--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 157144103,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Costume_Dance--Ozzie-Harriet/Costume_Dance--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

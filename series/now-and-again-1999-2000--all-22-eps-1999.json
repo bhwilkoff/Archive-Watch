@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "now-and-again-1999-2000--all-22-eps-1999",
+  "title": "Now And Again (1999-2000) -all 22 eps",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/now-and-again-1999-2000",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "now-and-again-1999-2000",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Now And Again (1999-2000) -all 22 eps - H.Matarazzo",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/now-and-again-1999-2000",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "now_and_again_season_1_-_episode_17   Boy Wonder ___blurrier.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 227402591,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/now-and-again-1999-2000/now_and_again_season_1_-_episode_17   Boy Wonder ___blurrier.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

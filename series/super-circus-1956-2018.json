@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "super-circus-1956-2018",
+  "title": "Super Circus 1956",
+  "yearStart": 2018,
+  "yearEnd": 2018,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SuperCircus1956",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SuperCircus1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Super Circus 1956",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SuperCircus1956",
+          "airDate": null,
+          "year": 2018,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Super_Circus_1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 183987599,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SuperCircus1956/Super_Circus_1956.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "flambards-1979-01-26-1979",
+  "title": "Flambards (1979-01-26",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/flambards-1979-01-26-s-1-e-01-by-alan-plater-christina",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "flambards-1979-01-26-s-1-e-01-by-alan-plater-christina",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Flambards (1979-01-26 S01E01 by Alan Plater) CHRISTINA",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/flambards-1979-01-26-s-1-e-01-by-alan-plater-christina",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": 3112,
+          "videoFile": {
+            "name": "Flambards (1979-01-26 S1E01 by Alan Plater) CHRISTINA.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 225892181,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flambards-1979-01-26-s-1-e-01-by-alan-plater-christina/Flambards (1979-01-26 S1E01 by Alan Plater) CHRISTINA.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

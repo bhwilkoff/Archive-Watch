@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-rodney-king-beating-1992",
+  "title": "The Rodney King Beating",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/rodney-king-case-day-24-1992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "rodney-king-case-day-24-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Rodney King Beating - Day 24",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/rodney-king-case-day-24-1992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Rodney King Case - Day 24 - 1992.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1061363021,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/rodney-king-case-day-24-1992/Rodney King Case - Day 24 - 1992.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

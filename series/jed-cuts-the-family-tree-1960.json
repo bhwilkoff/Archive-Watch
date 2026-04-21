@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jed-cuts-the-family-tree-1960",
+  "title": "Jed Cuts The Family Tree",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep26_Jed_Cuts_The_Family_Tree",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep26_Jed_Cuts_The_Family_Tree",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jed Cuts The Family Tree",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep26_Jed_Cuts_The_Family_Tree",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH26_Jed_Cuts_The_Family_tree.mp4",
+            "format": "h.264",
+            "sizeBytes": 145900346,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep26_Jed_Cuts_The_Family_Tree/BH26_Jed_Cuts_The_Family_tree.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

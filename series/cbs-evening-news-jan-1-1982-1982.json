@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cbs-evening-news-jan-1-1982-1982",
+  "title": "CBS Evening News Jan 1, 1982",
+  "yearStart": 1982,
+  "yearEnd": 1982,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/cbs-19820101",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cbs-19820101",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CBS Evening News Jan 1, 1982",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/cbs-19820101",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CBS晚间新闻 19820101.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 148075278,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cbs-19820101/CBS晚间新闻 19820101.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

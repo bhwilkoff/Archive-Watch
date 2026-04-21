@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "dream-team-1999",
+  "title": "Dream Team",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": "On and off pitch battles of of the fictional Harchester United Football Club.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/io9rdX5RcnTZeGbA7cRjkCkkOFC.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/fWkeaZVZ28Bk3lskvpPVoO2mRZF.jpg",
+  "genres": [],
+  "networks": [
+    "Sky One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dream-team-1.05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dream Team - Traci Bingham, Angie Everhart, Eva Halina",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/io9rdX5RcnTZeGbA7cRjkCkkOFC.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dream Team - 1.05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1348439838,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dream-team-1.05/Dream Team - 1.05.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

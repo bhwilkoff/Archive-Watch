@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-fitness-fad-cbc-edmonton-extra-special-1983-1982",
+  "title": "The Fitness Fad CBC Edmonton Extra special 1983",
+  "yearStart": 1982,
+  "yearEnd": 1982,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Edmonton.Extra.TheFitnessFad.1983",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Edmonton.Extra.TheFitnessFad.1983",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Fitness Fad CBC Edmonton Extra special 1983",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Edmonton.Extra.TheFitnessFad.1983",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Fitness Fad.1983.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 163894999,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Edmonton.Extra.TheFitnessFad.1983/The Fitness Fad.1983.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "alive-from-off-center-1985",
+  "title": "Alive From Off Center",
+  "yearStart": 1985,
+  "yearEnd": 1991,
+  "overview": "An avant-garde omnibus that features works by off-the-wall artists in many different disciplines.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/glVgjhj8OHyYFLYL8a5W3STkvVo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/aGsbldsqVDz01CjkExeIWDizYPB.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "alive-from-off-center-ann-magnuson-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alive From Off Center - Ann Magnuson",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/glVgjhj8OHyYFLYL8a5W3STkvVo.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alive From Off Center - Ann Magnuson - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 805059095,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alive-from-off-center-ann-magnuson-1988/Alive From Off Center - Ann Magnuson - 1988.ia.mp4"
+        },
+        {
+          "archiveID": "alive-from-off-center-episode-1985",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alive From Off Center, episode 1985",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/glVgjhj8OHyYFLYL8a5W3STkvVo.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AliveFromOffCenter-Episode-1985.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 308222818,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alive-from-off-center-episode-1985/AliveFromOffCenter-Episode-1985.mp4"
+        },
+        {
+          "archiveID": "alive-from-off-center-episode-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alive From Off Center, episode 1991",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/glVgjhj8OHyYFLYL8a5W3STkvVo.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AliveFromOffCenter-Episode-1991.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 341020877,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alive-from-off-center-episode-1991/AliveFromOffCenter-Episode-1991.mp4"
+        },
+        {
+          "archiveID": "alive-from-off-center-my-dinner-with-the-devil-snake",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alive from Off Center - My Dinner with the Devil Snake [and more]",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/glVgjhj8OHyYFLYL8a5W3STkvVo.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alive from Off Center - [My Dinner with the Devil Snake].mp4",
+            "format": "h.264",
+            "sizeBytes": 163218673,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alive-from-off-center-my-dinner-with-the-devil-snake/Alive from Off Center - [My Dinner with the Devil Snake].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

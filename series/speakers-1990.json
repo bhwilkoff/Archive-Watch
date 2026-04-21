@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "speakers-1990",
+  "title": "Speakers",
+  "yearStart": 1990,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SpeakersCorner1991Recording1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SpeakersCornerOctober1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Speakers' Corner - October 1990 - Full Episode",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SpeakersCornerOctober1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Citytv Speakers Corner October 1990-OQU79g7dy_E.mp4",
+            "format": "h.264",
+            "sizeBytes": 174191973,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SpeakersCornerOctober1990/Citytv Speakers Corner October 1990-OQU79g7dy_E.mp4"
+        },
+        {
+          "archiveID": "SpeakersCorner1991Recording1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Speakers' Corner 1991 (Recording 1)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SpeakersCorner1991Recording1",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Speakers' Corner 1991 (Recording 1).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 48555847,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SpeakersCorner1991Recording1/Speakers' Corner 1991 (Recording 1).ogv"
+        },
+        {
+          "archiveID": "SpeakersCorner1991Recording2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Speakers' Corner 1991 (Recording 2)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SpeakersCorner1991Recording2",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Speakers' Corner 1991 (Recording 2).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 45461974,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SpeakersCorner1991Recording2/Speakers' Corner 1991 (Recording 2).ogv"
+        },
+        {
+          "archiveID": "SpeakersCorner1991Recording3Short",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Speakers' Corner 1991 (Recording 3 - Short)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SpeakersCorner1991Recording3Short",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Speakers' Corner 1991 (Recording 3 - short).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 9690122,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SpeakersCorner1991Recording3Short/Speakers' Corner 1991 (Recording 3 - short).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

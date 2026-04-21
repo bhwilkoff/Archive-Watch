@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "carrott-del-sol-1960",
+  "title": "Carrott Del Sol",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/carrott-del-sol-1981",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "carrott-del-sol-1981",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Carrott Del Sol ( 1981)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/carrott-del-sol-1981",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "extras/Carrott Del Sol (1981).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 316142962,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/carrott-del-sol-1981/extras/Carrott Del Sol (1981).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

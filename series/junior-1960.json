@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "junior-1960",
+  "title": "Junior",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Teen rebel Logan discovers growing up is harder than she ever thought.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fBjWHaLmqPZ7gBiLwfpym70oZYa.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/zSq2p7ae6oLt1oZYKFBRCdWltfP.jpg",
+  "genres": [],
+  "networks": [
+    "Blackpills"
+  ],
+  "creator": "Zoe Cassavetes",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "life_of_riley_-_2x18_-_juniors_couble_date",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Junior's Double Date",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fBjWHaLmqPZ7gBiLwfpym70oZYa.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_2x18_-_juniors_couble_date_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 130898211,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_2x18_-_juniors_couble_date/life_of_riley_-_2x18_-_juniors_couble_date_agk.mp4"
+        },
+        {
+          "archiveID": "life_of_riley_-_3x01_-_juniors_secret",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Junior's Secret",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fBjWHaLmqPZ7gBiLwfpym70oZYa.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_3x01_-_juniors_secret_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 128997484,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_3x01_-_juniors_secret/life_of_riley_-_3x01_-_juniors_secret_agk.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

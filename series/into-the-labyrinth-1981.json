@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "into-the-labyrinth-1981",
+  "title": "Into the Labyrinth",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": "Into the Labyrinth is a British children's television series produced by HTV for the ITV network between 1980 and 1982. Three series, each consisting of seven 25-minute episodes, were produced and directed by Peter Graham Scott. The series was created by Scott along with Bob Baker, who had previously written several stories for Doctor Who.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/oALGgkrctrE95uecg12NLukjFts.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "into-the-labyrinth-Complete-series-1980",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Into the Labyrinth - Complete Series 1980",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oALGgkrctrE95uecg12NLukjFts.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Iinto the Labyrinth S01E03 - Robin.mp4",
+            "format": "h.264",
+            "sizeBytes": 148578990,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/into-the-labyrinth-Complete-series-1980/Iinto the Labyrinth S01E03 - Robin.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

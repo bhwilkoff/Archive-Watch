@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "captain-gallant-of-the-foreign-legion-1955",
+  "title": "Captain Gallant of the Foreign Legion",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": "Captain Gallant of the Foreign Legion was a half-hour black-and-white television series about the French Foreign Legion starring Buster Crabbe in the title role. Crabbe's real-life son Cullen Crabbe played the Legion mascot, with cowboy sidekick Fuzzy Knight playing himself as Legion comedy relief. The series premiered on NBC on 13 February 1955 and ended its first run with the 65th episode shown on 7 December 1957. It was shown for many years in syndication on American television under the title Foreign Legionnaire.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/346/867406.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Captain-Gallant_S1E36_The-Boy-Who-Found-Christmas",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "The Little Boy Who Found Christmas",
+          "overview": "For Christmas this year, Capt. Gallant has promised Cuffy a trip to America. However, all of the Legions' gifts are stolen from the caravan, and it looks like the captain won't be able to let Cuffy go on his promised trip. Cuffy runs away to try to find the missing presents, and in the process he learns what Christmas is really about.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/346/867406.jpg",
+          "airDate": "1955-12-25",
+          "year": 1955,
+          "runtimeSeconds": 1744,
+          "videoFile": {
+            "name": "Captain-Gallant_S1E36_The-Boy-Who-Found-Christmas.mp4",
+            "format": "h.264",
+            "sizeBytes": 171084614,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Captain-Gallant_S1E36_The-Boy-Who-Found-Christmas/Captain-Gallant_S1E36_The-Boy-Who-Found-Christmas.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

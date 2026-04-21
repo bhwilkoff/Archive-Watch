@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-flash-1990",
+  "title": "The Flash",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "When a bolt of lightning crashes through a police crime lab, a mix of electrically charged substances bathes chemist Barry Allen, transforming him into the fastest man alive--The Flash.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fi1GEdCbyWRDHpyJcB25YYK7fh4.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4yqH859U1oklGm4O5mFhrmtabKL.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Danny Bilson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-flash-1990-complete-tv-series-thegoodone",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Flash Complete TV Series (1990)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fi1GEdCbyWRDHpyJcB25YYK7fh4.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Flash S01E01 Pilot.mp4",
+            "format": "h.264",
+            "sizeBytes": 565497072,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-flash-1990-complete-tv-series-thegoodone/The Flash S01E01 Pilot.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

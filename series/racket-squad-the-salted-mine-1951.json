@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "racket-squad-the-salted-mine-1951",
+  "title": "Racket Squad The Salted Mine",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/RacketSquadTheSaltedMine1951",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RacketSquadTheSaltedMine1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Racket Squad The Salted Mine (1951)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/RacketSquadTheSaltedMine1951",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1493,
+          "videoFile": {
+            "name": "RacketSquad-TheSaltedMine.mp4",
+            "format": "h.264",
+            "sizeBytes": 145114578,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheSaltedMine1951/RacketSquad-TheSaltedMine.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

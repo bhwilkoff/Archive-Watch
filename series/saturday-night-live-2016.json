@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "saturday-night-live-2016",
+  "title": "Saturday Night Live",
+  "yearStart": 2016,
+  "yearEnd": 2016,
+  "overview": "The Arabic version of the popular, late-night comedy sketch show features celebrity guests, parodies, and a variety of laugh-out-loud antics.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/u20OnP4ebCKb0ZTsYSGPdkt2i2B.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/9NNlLwOICFhzUsv9CwkKqidFdek.jpg",
+  "genres": [],
+  "networks": [
+    "OSN"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 41,
+      "episodes": [
+        {
+          "archiveID": "saturday-night-live-s-41-e-12-larry-david_202501",
+          "seasonNumber": 41,
+          "episodeNumber": 12,
+          "title": "Saturday Night Live S41E12 Larry David, 1975",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u20OnP4ebCKb0ZTsYSGPdkt2i2B.jpg",
+          "airDate": null,
+          "year": 2016,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S41E12 Larry David.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 529529347,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-41-e-12-larry-david_202501/Saturday Night Live S41E12 Larry David.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

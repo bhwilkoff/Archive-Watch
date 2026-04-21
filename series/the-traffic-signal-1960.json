@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-traffic-signal-1960",
+  "title": "The Traffic Signal",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OZZIE_AND_HARRIET_The_Traffic_Signal",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OZZIE_AND_HARRIET_The_Traffic_Signal",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Traffic Signal",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OZZIE_AND_HARRIET_The_Traffic_Signal",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OZZIE_AND_HARRIET_The_Traffic_Signal.mp4",
+            "format": "h.264",
+            "sizeBytes": 134070169,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OZZIE_AND_HARRIET_The_Traffic_Signal/OZZIE_AND_HARRIET_The_Traffic_Signal.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

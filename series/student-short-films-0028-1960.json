@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "student-short-films-0028-1960",
+  "title": "Student Short Films 0028",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/StudentShortFilms0028",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "StudentShortFilms0028",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Student Short Films 0028",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/StudentShortFilms0028",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1752,
+          "videoFile": {
+            "name": "SsfEpisode28_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 126168640,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudentShortFilms0028/SsfEpisode28_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

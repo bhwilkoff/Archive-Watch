@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-jack-benny-show-from-november-04-1951-1960",
+  "title": "The Jack Benny Show from November 04 1951",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Jack_Benny_11_04_1951",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Jack_Benny_11_04_1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Jack Benny Show from November 04 1951",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Jack_Benny_11_04_1951",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "JackBennyProgram-2x01.DorothyShay.mp4",
+            "format": "h.264",
+            "sizeBytes": 136914580,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Jack_Benny_11_04_1951/JackBennyProgram-2x01.DorothyShay.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

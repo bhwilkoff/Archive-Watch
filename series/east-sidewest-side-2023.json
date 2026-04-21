@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "east-sidewest-side-2023",
+  "title": "East Side/West Side",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/east-side-west-side-s-1-e-01-the-sinner",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "East Side/West Side (Complete) (1963)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/east-side-west-side-s-1-e-01-the-sinner",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "East Side:West Side - S1E10 No Hiding Place.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 543891977,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East Side:West Side - S1E10 No Hiding Place.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

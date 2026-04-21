@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "the-south-bank-show-1987",
+  "title": "The South Bank Show",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": "The South Bank Show is a television arts magazine show produced by ITV between 1978 and 2010. A new series began on Sky Arts from 27 May 2012. Presented by Melvyn Bragg, the show aims to bring both high art and popular culture to a mass audience.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/QBT2EAFORGpvrCY2sVLbrSj8tS.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/5eLxISVlLlyAnQFXCh5Wye7njlV.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1",
+    "Sky Arts"
+  ],
+  "creator": "Melvyn Bragg",
+  "seasons": [
+    {
+      "seasonNumber": 11,
+      "episodes": [
+        {
+          "archiveID": "south-bank-show-andy-warhol-1987",
+          "seasonNumber": 11,
+          "episodeNumber": 4,
+          "title": "Andy Warhol",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/QBT2EAFORGpvrCY2sVLbrSj8tS.jpg",
+          "airDate": "1987-10-25",
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "South Bank Show - Andy Warhol - 1987.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1549439300,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/south-bank-show-andy-warhol-1987/South Bank Show - Andy Warhol - 1987.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

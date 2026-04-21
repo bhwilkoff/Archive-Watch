@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "seriesID": "the-ed-wynn-show-1949",
+  "title": "The Ed Wynn Show",
+  "yearStart": 1949,
+  "yearEnd": 1950,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheEdWynnShow13October1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Ed Wynn Show'' - 13 October 1949",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1797,
+          "videoFile": {
+            "name": "TheEdWynnShow13October1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 185902280,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheEdWynnShow13October1949/TheEdWynnShow13October1949.mp4"
+        },
+        {
+          "archiveID": "TheEdWynnShow14January1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Ed Wynn Show'' - 14 January 1950",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1755,
+          "videoFile": {
+            "name": "EdwynnShow-14January1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 182796395,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheEdWynnShow14January1950/EdwynnShow-14January1950.mp4"
+        },
+        {
+          "archiveID": "EdWynn20October1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Ed Wynn Show'' - 20 October 1949",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1769,
+          "videoFile": {
+            "name": "EdWynn20October1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 184022326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/EdWynn20October1949/EdWynn20October1949.mp4"
+        },
+        {
+          "archiveID": "TheEdWynnShow24November1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Ed Wynn Show'' - 24 November 1949",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1725,
+          "videoFile": {
+            "name": "The Ed Wynn Show - 24 November 1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 179665836,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheEdWynnShow24November1949/The Ed Wynn Show - 24 November 1949.mp4"
+        },
+        {
+          "archiveID": "EdWynn25February1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Ed Wynn Show'' - 25 February 1950",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1906,
+          "videoFile": {
+            "name": "Edwynn25February1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 197956424,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/EdWynn25February1950/Edwynn25February1950.mp4"
+        },
+        {
+          "archiveID": "TheEdWynnShow6October1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Ed Wynn Show'' - 6 October 1949",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1782,
+          "videoFile": {
+            "name": "TheEdWynnShow6October1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 184291920,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheEdWynnShow6October1949/TheEdWynnShow6October1949.mp4"
+        },
+        {
+          "archiveID": "TheEdWynnShow9December1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Ed Wynn Show'' - 9 December 1949",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1516,
+          "videoFile": {
+            "name": "TheEdWynnShow-9December1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 156966997,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheEdWynnShow9December1949/TheEdWynnShow-9December1949.mp4"
+        },
+        {
+          "archiveID": "theEdWynnShow-Outtakes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Ed Wynn Show'' - Outtakes",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 168,
+          "videoFile": {
+            "name": "EdWynnOuttakes.mp4",
+            "format": "h.264",
+            "sizeBytes": 17400891,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theEdWynnShow-Outtakes/EdWynnOuttakes.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

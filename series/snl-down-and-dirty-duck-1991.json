@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "snl-down-and-dirty-duck-1991",
+  "title": "SNL & Down and dirty Duck",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/snl-september-28-1991-michael-jordan-publiv-enemy-down-and-dirty-duck-1974",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "snl-september-28-1991-michael-jordan-publiv-enemy-down-and-dirty-duck-1974",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "SNL & Down and dirty Duck",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/snl-september-28-1991-michael-jordan-publiv-enemy-down-and-dirty-duck-1974",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "SNL  (September 28, 1991( ~ Michael Jordan ~ Publiv Enemy ~ Down and Dirty Duck (1974).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2568843740,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/snl-september-28-1991-michael-jordan-publiv-enemy-down-and-dirty-duck-1974/SNL  (September 28, 1991( ~ Michael Jordan ~ Publiv Enemy ~ Down and Dirty Duck (1974).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

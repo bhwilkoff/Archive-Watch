@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "eerie-indiana-1991",
+  "title": "Eerie, Indiana",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Teenage weirdness investigator Marshall Teller adventures through his new small-town home with his friends, geeky Simon Holmes and mysterious Dash X.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/sr8CmrtnPTJSYtNyMxvWHRaweSN.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/9vhz9uJyvsiHHQj521zVkudol2R.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Jose Rivera",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "eerie-indiana-1x-18-zombies-in-p.-j.s",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eerie, Indiana",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sr8CmrtnPTJSYtNyMxvWHRaweSN.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eerie Indiana - 1x02 - The Retainer.mp4",
+            "format": "h.264",
+            "sizeBytes": 144282383,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eerie-indiana-1x-18-zombies-in-p.-j.s/Eerie Indiana - 1x02 - The Retainer.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "55-02-20-the-jack-benny-program-s-05e-11-jack-1955",
+  "title": "55 02 20 The Jack Benny Program S 05e 11 Jack",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/550220TheJackBennyProgramS05e11JacksLunchCounter",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "550220TheJackBennyProgramS05e11JacksLunchCounter",
+          "seasonNumber": 1,
+          "episodeNumber": 55,
+          "title": "55 02 20 The Jack Benny Program S 05e 11 Jack's Lunch Counter",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/550220TheJackBennyProgramS05e11JacksLunchCounter",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "55-02-20  The Jack Benny Program  s05e11  Jack's Lunch Counter.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 139463615,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/550220TheJackBennyProgramS05e11JacksLunchCounter/55-02-20  The Jack Benny Program  s05e11  Jack's Lunch Counter.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

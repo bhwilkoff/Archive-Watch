@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "you-asked-for-it-1950",
+  "title": "You Asked For It",
+  "yearStart": 1950,
+  "yearEnd": 1957,
+  "overview": "You Asked for It was a popular human interest show created and hosted by Art Baker. Initially titled The Art Baker Show, the program originally aired on American television between 1950 and 1959. Later versions of the series were seen in 1972, 1981, and 2000.\n\nOn the show, viewers were asked to send in postcards describing something that they wanted to see on television, such as the reenactment of William Tell shooting an apple off his son's head.\n\nThe show was originally broadcast live, so some of the riskier propositions took on added elements of danger and suspense. A segment where animal trainer and stuntman, Reed Parham wrestled a huge, deadly anaconda, for example, nearly became disastrous until assistants interceded with guns drawn, visibly unnerving host Art Baker.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "DuMont Television Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "you_asked_for_it",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"You Asked For It\"",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1443,
+          "videoFile": {
+            "name": "you_asked_for_it.mp4",
+            "format": "h.264",
+            "sizeBytes": 138455090,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/you_asked_for_it/you_asked_for_it.mp4"
+        },
+        {
+          "archiveID": "YouAskedForIt_BelaLugosi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "You Asked For It - BelaLugosi",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 600,
+          "videoFile": {
+            "name": "DUMONT_YouAskedForIt_Lugosi_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 37257800,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YouAskedForIt_BelaLugosi/DUMONT_YouAskedForIt_Lugosi_512kb.mp4"
+        },
+        {
+          "archiveID": "YouAskedForItCanOfMolassesSketch",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "You Asked For It - Can of molasses sketch",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 376,
+          "videoFile": {
+            "name": "You Asked for It - Can of molasses sketch.mp4",
+            "format": "h.264",
+            "sizeBytes": 39097204,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YouAskedForItCanOfMolassesSketch/You Asked for It - Can of molasses sketch.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

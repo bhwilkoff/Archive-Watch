@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "land-of-the-lost-1974",
+  "title": "Land Of The Lost",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": "Rick Marshall and his children Will and Holly are on a weekend expedition rafting down a river when an enormous earthquake diverts them to an eclectic alien world inhabited by dinosaurs, chimpanzee-like cavemen called Pakuni, and aggressive, humanoid lizard creatures called Sleestak.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4AvO1tZUsoupwSQ0Aetr93JJJIf.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/kJB50LyeILumAAhSJetPtpiHLmD.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Marty Krofft",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "land-of-the-lost_202107",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Sleestak God",
+          "overview": "While searching the Lost City, Will and Holly are captured by lizard-men which are known as Sleestak.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/4AvO1tZUsoupwSQ0Aetr93JJJIf.jpg",
+          "airDate": "1974-09-14",
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "land-of-the-lost-season-1-episode-2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 80103315,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/land-of-the-lost_202107/land-of-the-lost-season-1-episode-2.mp4"
+        },
+        {
+          "archiveID": "land-of-the-lost-downstream",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Downstream",
+          "overview": "The Marshalls attempt to escape the Land of the Lost by river and wind up trapped in a cave with a daffy Confederate miner.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/4AvO1tZUsoupwSQ0Aetr93JJJIf.jpg",
+          "airDate": "1974-09-28",
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Land of the Lost (1974) S01 E04 • Downstream_ 360p.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 55845896,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/land-of-the-lost-downstream/Land of the Lost (1974) S01 E04 • Downstream_ 360p.mp4"
+        },
+        {
+          "archiveID": "land-of-the-lost-1974-s-01-e-05-o-tag-team-360p",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Tag-Team",
+          "overview": "While fleeing from the jaws of dinosaurs, the Marshalls and the Pakuni are forced to work together.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/4AvO1tZUsoupwSQ0Aetr93JJJIf.jpg",
+          "airDate": "1974-10-05",
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Land of the Lost (1974) S01 E05 • Tag Team_ 360p.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 75585222,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/land-of-the-lost-1974-s-01-e-05-o-tag-team-360p/Land of the Lost (1974) S01 E05 • Tag Team_ 360p.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

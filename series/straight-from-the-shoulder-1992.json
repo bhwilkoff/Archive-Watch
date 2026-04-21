@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "straight-from-the-shoulder-1992",
+  "title": "Straight From The Shoulder",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "Straight from the Shoulder was a late night public affairs program of MBC-11 and GMA Network produced by the Manila Broadcasting Company. It was hosted by Louie Beltran until his death. A radio edition also aired on DZRH.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "GMA Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "StraightFromTheShoulderMDS1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Straight From The Shoulder - Miriam Defensor Santiago Post-Election 1992 Interview",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Straight from the Shoulder - Miriam Defensor Santiago post-Election 1992 interview 1.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 35164882,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StraightFromTheShoulderMDS1992/Straight from the Shoulder - Miriam Defensor Santiago post-Election 1992 interview 1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "seriesID": "computers-in-control-1984",
+  "title": "Computers in Control",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Computers.in.Control.S01E01",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Computers.in.Control.S01E01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Computers in Control S01E01 - Introducing the Robot",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Computers.in.Control.S01E01",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Computers.in.Control.S01E01.mp4",
+            "format": "h.264",
+            "sizeBytes": 153691473,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Computers.in.Control.S01E01/Computers.in.Control.S01E01.mp4"
+        },
+        {
+          "archiveID": "Computers.in.Control.S01E02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Computers in Control S01E02 - Making Sense of the Real World",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Computers.in.Control.S01E02",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Computers.in.Control.S01E02.mp4",
+            "format": "h.264",
+            "sizeBytes": 154043760,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Computers.in.Control.S01E02/Computers.in.Control.S01E02.mp4"
+        },
+        {
+          "archiveID": "Computers.in.Control.S01E03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Computers in Control S01E03 - Marking Things Move",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Computers.in.Control.S01E03",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Computers.in.Control.S01E03.mp4",
+            "format": "h.264",
+            "sizeBytes": 152989930,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Computers.in.Control.S01E03/Computers.in.Control.S01E03.mp4"
+        },
+        {
+          "archiveID": "Computers.in.Control.S01E04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Computers in Control S01E04 - Getting it Together",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Computers.in.Control.S01E04",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Computers.in.Control.S01E04.mp4",
+            "format": "h.264",
+            "sizeBytes": 151834836,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Computers.in.Control.S01E04/Computers.in.Control.S01E04.mp4"
+        },
+        {
+          "archiveID": "Computers.in.Control.S01E05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Computers in Control S01E05 - Recognising the Obvious",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Computers.in.Control.S01E05",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Computers.in.Control.S01E05.mp4",
+            "format": "h.264",
+            "sizeBytes": 153052539,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Computers.in.Control.S01E05/Computers.in.Control.S01E05.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

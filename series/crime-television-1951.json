@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "crime-television-1951",
+  "title": "Crime Television",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1950sTvmartinKanePrivateEyehotelConGame1951",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1950sTvmartinKanePrivateEyehotelConGame1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Crime Television: 'Martin Kane, Private Eye' (Hotel Con Game, 1951)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1950sTvmartinKanePrivateEyehotelConGame1951",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1647,
+          "videoFile": {
+            "name": "Hotel_Con-Game.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 165763259,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1950sTvmartinKanePrivateEyehotelConGame1951/Hotel_Con-Game.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

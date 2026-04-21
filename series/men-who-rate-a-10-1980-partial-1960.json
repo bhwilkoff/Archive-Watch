@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "men-who-rate-a-10-1980-partial-1960",
+  "title": "Men Who Rate a 10 (1980, partial",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MenWhoRateA101980Partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MenWhoRateA101980Partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Men Who Rate a 10 (1980, partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MenWhoRateA101980Partial",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Men-Who-Rate-a-10-_1980_-partial_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 77750850,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MenWhoRateA101980Partial/Men-Who-Rate-a-10-_1980_-partial_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

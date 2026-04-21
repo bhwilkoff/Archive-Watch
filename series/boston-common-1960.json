@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "boston-common-1960",
+  "title": "Boston Common",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "After moving to Boston from Virginia, to spy on his sister who just started college, Boyd finds himself working for the student union where he raises hell more often than he should.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/l5a70wBkSRc3JSeREDAT868eLCc.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "David Kohan",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "boston-common-tv-series-season-1-of-2-1996-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Boston Common - TV Series - Season 1 of 2 - 1996 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/l5a70wBkSRc3JSeREDAT868eLCc.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Boston Common - S01E10 - A Streetcar Named Desire.mp4",
+            "format": "h.264",
+            "sizeBytes": 140054017,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/boston-common-tv-series-season-1-of-2-1996-xvid-avi/Boston Common - S01E10 - A Streetcar Named Desire.mp4"
+        },
+        {
+          "archiveID": "boston-common-tv-series-season-2-of-2-1997-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Boston Common - TV Series - Season 2 of 2 - 1997 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/l5a70wBkSRc3JSeREDAT868eLCc.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Boston Common - S02E09 - Coming Clean.mp4",
+            "format": "h.264",
+            "sizeBytes": 138135038,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/boston-common-tv-series-season-2-of-2-1997-xvid-avi/Boston Common - S02E09 - Coming Clean.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

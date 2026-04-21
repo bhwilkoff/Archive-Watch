@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ou-m101-maths-foundation-course-1978-1996-open-university-1960",
+  "title": "OU M101 (Maths Foundation Course) (1978-1996) (OPEN UNIVERSITY",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OUBBCM101Ep6Of32Block2Unit1ClassifyingCubicsMathsFoundationCourse",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OUBBCM101Ep6Of32Block2Unit1ClassifyingCubicsMathsFoundationCourse",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "OU M101 (Maths Foundation Course) (1978-1996) (OPEN UNIVERSITY)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OUBBCM101Ep6Of32Block2Unit1ClassifyingCubicsMathsFoundationCourse",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "M101 Ep 30 of 32 Block 6 Unit 4 Equivalence Relations (Maths Foundation Course).mp4",
+            "format": "h.264",
+            "sizeBytes": 153919969,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OUBBCM101Ep6Of32Block2Unit1ClassifyingCubicsMathsFoundationCourse/M101 Ep 30 of 32 Block 6 Unit 4 Equivalence Relations (Maths Foundation Course).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

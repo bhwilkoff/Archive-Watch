@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "benny-hinn-1996",
+  "title": "Benny Hinn",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/benny-hinn-possessed-by-devils",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "benny-hinn-possessed-by-devils",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Benny Hinn - Possessed By Devils! (1996)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/benny-hinn-possessed-by-devils",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Benny Hinn - Possessed by Devils.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 265092487,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/benny-hinn-possessed-by-devils/Benny Hinn - Possessed by Devils.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

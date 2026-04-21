@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bc-lj-godzilla-v-smog-monster-1979",
+  "title": "BC & LJ Godzilla V Smog Monster",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BCLJGodzillaVSmogMonster",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BCLJGodzillaVSmogMonster",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BC & LJ Godzilla V Smog Monster",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BCLJGodzillaVSmogMonster",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BcljGodzillaVSmogMonster.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 600873272,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BCLJGodzillaVSmogMonster/BcljGodzillaVSmogMonster.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

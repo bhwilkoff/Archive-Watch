@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "austin-city-limits--february-25-1989-s14e5-2023",
+  "title": "Austin City Limits- February 25, 1989 (S14E5",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/austin-city-limits-february-25-1989-s-14-e-5",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 14,
+      "episodes": [
+        {
+          "archiveID": "austin-city-limits-february-25-1989-s-14-e-5",
+          "seasonNumber": 14,
+          "episodeNumber": 5,
+          "title": "Austin City Limits- February 25, 1989 (S14E5)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/austin-city-limits-february-25-1989-s-14-e-5",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Austin City Limits- February 25, 1989 (S14E5).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1056566972,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/austin-city-limits-february-25-1989-s-14-e-5/Austin City Limits- February 25, 1989 (S14E5).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

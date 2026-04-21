@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "banacek-1972",
+  "title": "Banacek",
+  "yearStart": 1972,
+  "yearEnd": 1972,
+  "overview": "Banacek is an American detective TV series starring George Peppard that aired on the NBC network from 1972 to 1974. The series was part of the rotating NBC Wednesday Mystery Movie anthology. It alternated in its time slot with several other shows but was the only one to last beyond its first season.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/5Z98mt03uftItoIS91mu0ITxevF.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/wtYUaMLKIr3eoR5UAbf3C1MiZF6.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Anthony Wilson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "banacek-complete-series-1972",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Banacek - Complete Series 1972",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/5Z98mt03uftItoIS91mu0ITxevF.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Banacek S01E00 - Detour to Nowhere.mp4",
+            "format": "h.264",
+            "sizeBytes": 550754347,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek S01E00 - Detour to Nowhere.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

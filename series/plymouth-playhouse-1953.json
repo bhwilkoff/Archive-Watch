@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "plymouth-playhouse-1953",
+  "title": "Plymouth Playhouse",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/PlymouthPlayhouse-ATaleOfTwoCities1953",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PlymouthPlayhouse-ATaleOfTwoCities1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Plymouth Playhouse - A Tale of Two Cities (1953)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/PlymouthPlayhouse-ATaleOfTwoCities1953",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2_Tale_Of_Two_Cities_05_10_1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 164849330,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PlymouthPlayhouse-ATaleOfTwoCities1953/2_Tale_Of_Two_Cities_05_10_1953.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

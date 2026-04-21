@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "land-of-the-lost-portuguese-dub-full-1974",
+  "title": "Land of the Lost Portuguese Dub Full",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/LOTLPortDub",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LOTLPortDub",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Land of the Lost Portuguese Dub Full Series (O Elo Perdido)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LOTLPortDub",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "O Elo perdido Episódio 28 - O musico.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 143673397,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LOTLPortDub/O Elo perdido Episódio 28 - O musico.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

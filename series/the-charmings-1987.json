@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-charmings-1987",
+  "title": "The Charmings",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": "The Charmings is an American fantasy sitcom that aired from March 1987 to February 1988 on ABC. Based on the fairy tale Snow White, it chronicles Snow White and Prince Charming after they are transported in time from the Enchanted Forest to the 20th Century Los Angeles suburbs.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/m8cov0dTwnU4UrcC5WEYsbyAIXd.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/c44G5GTmPTZbrJxZfSNBq46r4DJ.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Prudence Fraser",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "charmings-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Charmings - Carol Huston, Christopher Rich",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/m8cov0dTwnU4UrcC5WEYsbyAIXd.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Charmings - 2.05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 763938386,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/charmings-1.01/Charmings - 2.05.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

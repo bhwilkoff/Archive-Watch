@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-super-girl-1979-english-subtitles-1960",
+  "title": "The Super Girl 1979 (English Subtitles",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/47_20230622",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "47_20230622",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Super Girl 1979 (English Subtitles)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/47_20230622",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "43 - トルコ嬢殺人事件.mp4",
+            "format": "h.264",
+            "sizeBytes": 266918239,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/47_20230622/43 - トルコ嬢殺人事件.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

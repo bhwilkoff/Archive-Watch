@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "shag-1985-documentary-on-the-1930s-50s-dance-fad-2022",
+  "title": "Shag (1985 documentary on the 1930s-50s dance fad",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/shag-1985-documentary-on-southern-dance",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "shag-1985-documentary-on-southern-dance",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Shag (1985 documentary on the 1930s-50s dance fad)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/shag-1985-documentary-on-southern-dance",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shag (1985 documentary on southern dance).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 506070373,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shag-1985-documentary-on-southern-dance/Shag (1985 documentary on southern dance).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "woodstock-return-to-the-planet-of-the-60s-1989",
+  "title": "Woodstock: Return To The Planet Of The 60s",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/woodstock-return-to-the-planet-of-the-60s-1989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "woodstock-return-to-the-planet-of-the-60s-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Woodstock: Return To The Planet Of The 60s - Howard Hesseman",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/woodstock-return-to-the-planet-of-the-60s-1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Woodstock Return to the Planet of the 60s- 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1090304228,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/woodstock-return-to-the-planet-of-the-60s-1989/Woodstock Return to the Planet of the 60s- 1989.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

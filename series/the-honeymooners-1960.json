@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-honeymooners-1960",
+  "title": "The Honeymooners",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "A bus driver and his sewer worker friend struggle to strike it rich while their wives look on with weary patience. One of the most influential situation comedy television series in American history.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/vBXD45yVIjvucXAwes8vu7SqgSy.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/7dM4JldwctiayHJNBiXYYKhdXYP.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Jackie Gleason",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-honeymooners-DVD",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Honeymooners S01 Original 39 Episodes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vBXD45yVIjvucXAwes8vu7SqgSy.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Honeymooners S01E06.mp4",
+            "format": "h.264",
+            "sizeBytes": 152593018,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-honeymooners-DVD/The Honeymooners S01E06.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

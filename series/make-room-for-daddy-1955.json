@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "seriesID": "make-room-for-daddy-1955",
+  "title": "Make Room for Daddy",
+  "yearStart": 1955,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/dontyellatyourchildren",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "atriptowisconsin",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Make Room for Daddy'' - A Trip to Wisconsin",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109171.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1759,
+          "videoFile": {
+            "name": "atriptowisconsin.mp4",
+            "format": "h.264",
+            "sizeBytes": 182984910,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/atriptowisconsin/atriptowisconsin.mp4"
+        },
+        {
+          "archiveID": "dontyellatyourchildren",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Make Room for Daddy'' - Don't Yell at Your Children",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/dontyellatyourchildren",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1762,
+          "videoFile": {
+            "name": "dontyellatyourchildren.mp4",
+            "format": "h.264",
+            "sizeBytes": 183418299,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dontyellatyourchildren/dontyellatyourchildren.mp4"
+        },
+        {
+          "archiveID": "rustygetsahaircut",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Make Room for Daddy'' - Rusty Gets a Haircut",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109171.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1764,
+          "videoFile": {
+            "name": "rustygetsahaircut.mp4",
+            "format": "h.264",
+            "sizeBytes": 183564249,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/rustygetsahaircut/rustygetsahaircut.mp4"
+        },
+        {
+          "archiveID": "MakeRoomForDaddy-ChildrensGoverness1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Make Room For Daddy - Children's Governess (1955)",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109171.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1774,
+          "videoFile": {
+            "name": "Make_room_Childrens_governess_02_01_55.mp4",
+            "format": "h.264",
+            "sizeBytes": 173657513,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MakeRoomForDaddy-ChildrensGoverness1955/Make_room_Childrens_governess_02_01_55.mp4"
+        },
+        {
+          "archiveID": "MakeRoomForDaddy-TheLittleLeague1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Make Room For Daddy - The Little League (1955)",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109171.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1764,
+          "videoFile": {
+            "name": "Make_room_Little_league_09_20_55.mp4",
+            "format": "h.264",
+            "sizeBytes": 171894519,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MakeRoomForDaddy-TheLittleLeague1955/Make_room_Little_league_09_20_55.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

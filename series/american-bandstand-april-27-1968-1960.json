@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "american-bandstand-april-27-1968-1960",
+  "title": "American Bandstand (April 27, 1968",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AmericanBandstandApril271968",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AmericanBandstandApril271968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "American Bandstand (April 27, 1968)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AmericanBandstandApril271968",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "American-Bandstand-April-27_-1968.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 197760130,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AmericanBandstandApril271968/American-Bandstand-April-27_-1968.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "seriesID": "almost-live-1989",
+  "title": "Almost Live!",
+  "yearStart": 1989,
+  "yearEnd": 1998,
+  "overview": "Almost Live! was a local sketch comedy television show in Seattle, Washington, USA, produced and broadcast by NBC affiliate KING-TV from 1984 to 1999. A re-packaged version of the show also aired on Comedy Central from 1992 to 1993, and episodes aired on WGRZ-TV in the late 1990s. The show was broadcast on Saturday nights at 11:30, pushing Saturday Night Live back to midnight. The show is now aired in reruns by the Seattle NBC affiliate following Saturday Night Live.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/sG2p1mdPu4myw5SHBJGZ1XaKK3A.jpg",
+  "genres": [],
+  "networks": [
+    "KING-TV"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AlmostLiveS7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Live! - Season 7",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "7x11 - Dec 15, 1990.mp4",
+            "format": "h.264",
+            "sizeBytes": 141605000,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlmostLiveS7/7x11 - Dec 15, 1990.mp4"
+        },
+        {
+          "archiveID": "AlmostLiveS10",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Live! Season 10",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "10x06-Mormon Mission Triathlon.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 103175295,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlmostLiveS10/10x06-Mormon Mission Triathlon.ogv"
+        },
+        {
+          "archiveID": "AlmostLiveS11",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Live! Season 11",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "11x16-Mr. Itch.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 100478267,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlmostLiveS11/11x16-Mr. Itch.ogv"
+        },
+        {
+          "archiveID": "AlmostLiveS12",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Live! Season 12",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "12x24-Earthquake '96 Update.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 104266208,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlmostLiveS12/12x24-Earthquake '96 Update.ogv"
+        },
+        {
+          "archiveID": "AlmostLiveS13",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Live! Season 13",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "13x14-Clinton Inauguration.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 101831107,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlmostLiveS13/13x14-Clinton Inauguration.ogv"
+        },
+        {
+          "archiveID": "AlmostLiveS14",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Live! Season 14",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "14x01-The Town, It Is A-Changin'.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 104005578,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlmostLiveS14/14x01-The Town, It Is A-Changin'.ogv"
+        },
+        {
+          "archiveID": "AlmostLiveS15",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Live! Season 15",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "15x05-RENTon, the Musical.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 100886905,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlmostLiveS15/15x05-RENTon, the Musical.ogv"
+        },
+        {
+          "archiveID": "AlmostLiveS6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Live! Season 6",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "6x26-Random Personality PSA.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148565930,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlmostLiveS6/6x26-Random Personality PSA.ia.mp4"
+        },
+        {
+          "archiveID": "AlmostLiveS8",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Live! Season 8",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "8x08-Husky Beaver Highlights.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 108550150,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlmostLiveS8/8x08-Husky Beaver Highlights.ogv"
+        },
+        {
+          "archiveID": "AlmostLiveS9",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Live! Season 9",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "9x03-Helium Week In Review.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 105181728,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlmostLiveS9/9x03-Helium Week In Review.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 10
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "guys-like-us-november-16-1998-the-lying-down-game-1998",
+  "title": "Guys Like Us (November 16, 1998) The Lying Down Game",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/guys-like-us-november-16-1998-the-lying-down-game",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "guys-like-us-november-16-1998-the-lying-down-game",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Guys Like Us (November 16, 1998) The Lying Down Game",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/guys-like-us-november-16-1998-the-lying-down-game",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Y2Mate.is - Guys Like Us - The Lying Down Game-gS5VUBNWdno-480p-1654303268561.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 96372359,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/guys-like-us-november-16-1998-the-lying-down-game/Y2Mate.is - Guys Like Us - The Lying Down Game-gS5VUBNWdno-480p-1654303268561.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

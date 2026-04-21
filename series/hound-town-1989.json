@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "hound-town-1989",
+  "title": "Hound Town",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hound-town",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hound-town",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hound Town",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hound-town",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hound Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 130605057,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hound-town/Hound Town.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "frekuencia-pirata-tve-2-1991",
+  "title": "Frekuencia pirata (TVE 2",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/frekuencia-pirata-1991-11-28",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "frekuencia-pirata-1991-11-28",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Frekuencia pirata (TVE 2) - 28 de noviembre, 1991",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/frekuencia-pirata-1991-11-28",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TVE 2   Fragmento de Frekuencia pirata 28 11 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 106060663,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/frekuencia-pirata-1991-11-28/TVE 2   Fragmento de Frekuencia pirata 28 11 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

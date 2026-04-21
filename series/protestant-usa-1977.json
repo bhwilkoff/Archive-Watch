@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "protestant-usa-1977",
+  "title": "Protestant USA",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/thelongsearchprotestantspiritusareel2_202105",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "thelongsearchprotestantspiritusareel2_202105",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Protestant USA (1977)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/thelongsearchprotestantspiritusareel2_202105",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "thelongsearchprotestantspiritusareel2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 181409993,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thelongsearchprotestantspiritusareel2_202105/thelongsearchprotestantspiritusareel2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

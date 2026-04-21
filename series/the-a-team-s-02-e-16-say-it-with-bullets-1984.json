@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-a-team-s-02-e-16-say-it-with-bullets-1984",
+  "title": "The A Team S 02 E 16 Say It With Bullets",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-a-team-s-02-e-16-say-it-with-bullets",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-a-team-s-02-e-16-say-it-with-bullets",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The A Team S 02 E 16 Say It With Bullets",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-a-team-s-02-e-16-say-it-with-bullets",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The A-Team S02E16 Say It with Bullets.mp4",
+            "format": "h.264",
+            "sizeBytes": 271148120,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-a-team-s-02-e-16-say-it-with-bullets/The A-Team S02E16 Say It with Bullets.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

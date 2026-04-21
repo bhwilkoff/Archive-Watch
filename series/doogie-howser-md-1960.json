@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "doogie-howser-md-1960",
+  "title": "Doogie Howser, M.D",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Doogie Howser is a doctor. He is also a 16-year-old genius who graduated college at age 10 and finished medical school at age 14. But he is still a teenager, with normal teenage friends and problems. But unlike a normal teenager, he is just learning to drive while also consulting on serious medical cases like heart transplants.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/uNGrGq7tJ1GiKUsfnchC07l0Q2M.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/jIXDWBeCUEu0ttzjHBJC4sA8LzR.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "David E. Kelley",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "doogie-howser-m.d.-interviews-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Doogie Howser, M.D. - Interviews - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uNGrGq7tJ1GiKUsfnchC07l0Q2M.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Doogie Howser, M.D. - S04 - Kathryn Lane Interview.mp4",
+            "format": "h.264",
+            "sizeBytes": 113562823,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/doogie-howser-m.d.-interviews-xvid-avi/Doogie Howser, M.D. - S04 - Kathryn Lane Interview.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

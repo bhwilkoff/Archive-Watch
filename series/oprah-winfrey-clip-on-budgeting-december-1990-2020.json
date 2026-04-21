@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "oprah-winfrey-clip-on-budgeting-december-1990-2020",
+  "title": "Oprah Winfrey Clip On Budgeting (December 1990",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/oprahwinfreycliponbudgetingdecember1990convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "oprahwinfreycliponbudgetingdecember1990convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Oprah Winfrey Clip On Budgeting (December 1990)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/oprahwinfreycliponbudgetingdecember1990convertvideoonline.com",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Oprah Winfrey clip on budgeting (December 1990) (convert-video-online.com).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 153344344,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oprahwinfreycliponbudgetingdecember1990convertvideoonline.com/Oprah Winfrey clip on budgeting (December 1990) (convert-video-online.com).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

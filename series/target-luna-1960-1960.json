@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "target-luna-1960-1960",
+  "title": "Target Luna 1960",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/target-luna-Complete-Series-1960",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "target-luna-Complete-Series-1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Target Luna 1960",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/target-luna-Complete-Series-1960",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Target Luna -- 03 - Pathfinders To Mars - E03 - The Hostage.mp4",
+            "format": "h.264",
+            "sizeBytes": 153700680,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/target-luna-Complete-Series-1960/Target Luna -- 03 - Pathfinders To Mars - E03 - The Hostage.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

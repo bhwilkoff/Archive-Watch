@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "mystery-and-imagination-various-episodes-1960",
+  "title": "Mystery and Imagination – Various Episodes",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/mystery-and-imagination-the-open-door-colorized-1966-suspense-imdb-score-7.4",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mystery-and-imagination-the-open-door-colorized-1966-suspense-imdb-score-7.4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mystery and Imagination – Various Episodes - in color(1966-1970, British TV series, suspense)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/mystery-and-imagination-the-open-door-colorized-1966-suspense-imdb-score-7.4",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mystery and Imagination - The Curse of the Mummy (1970, horror).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 211603215,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mystery-and-imagination-the-open-door-colorized-1966-suspense-imdb-score-7.4/Mystery and Imagination - The Curse of the Mummy (1970, horror).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

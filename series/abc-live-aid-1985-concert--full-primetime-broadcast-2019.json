@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-live-aid-1985-concert--full-primetime-broadcast-2019",
+  "title": "ABC Live Aid 1985 concert- full primetime broadcast",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/abcliveaid1985concertpt.1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "abcliveaid1985concertpt.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC Live Aid 1985 concert- full primetime broadcast",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/abcliveaid1985concertpt.1",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC-Live-Aid-1985-concert-_pt.-1_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 209230312,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/abcliveaid1985concertpt.1/ABC-Live-Aid-1985-concert-_pt.-1_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

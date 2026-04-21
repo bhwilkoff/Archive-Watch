@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-clampetts-and-the-dodgers-1960",
+  "title": "The Clampetts And The Dodgers",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep29_The_Clampetts_And_The_Dodgers",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep29_The_Clampetts_And_The_Dodgers",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Clampetts And The Dodgers",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep29_The_Clampetts_And_The_Dodgers",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH29_The_Clampetts_And_The_Dodgers.mp4",
+            "format": "h.264",
+            "sizeBytes": 148729117,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep29_The_Clampetts_And_The_Dodgers/BH29_The_Clampetts_And_The_Dodgers.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

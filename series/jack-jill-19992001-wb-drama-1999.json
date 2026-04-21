@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jack-jill-19992001-wb-drama-1999",
+  "title": "Jack & Jill (1999–2001) WB drama",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/jack-jill-1999-2001-wb-drama",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "jack-jill-1999-2001-wb-drama",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack & Jill (1999–2001) WB drama",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jack-jill-1999-2001-wb-drama",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "JJS1E04  --- Welcome to the Working Week    --Ivan Sergei, Amanda Peet, Sarah Paulson, Jaime Pressly, Justin Kirk, and Simon Rex.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 534465934,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jack-jill-1999-2001-wb-drama/JJS1E04  --- Welcome to the Working Week    --Ivan Sergei, Amanda Peet, Sarah Paulson, Jaime Pressly, Justin Kirk, and Simon Rex.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

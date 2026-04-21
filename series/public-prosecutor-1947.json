@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "seriesID": "public-prosecutor-1947",
+  "title": "Public Prosecutor",
+  "yearStart": 1947,
+  "yearEnd": 1948,
+  "overview": "Public Prosecutor is a 26-episodes American television series produced in 1947–1948, and first aired in 1951.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/8cJPayLNNCXlxaQDQcd1FRScTZ.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "DuMont Television Network"
+  ],
+  "creator": "Lew Landers",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Public_Prosecutor--Devils_Heart",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Public Prosecutor: The Case of the Devil's Heart",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8cJPayLNNCXlxaQDQcd1FRScTZ.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 1042,
+          "videoFile": {
+            "name": "PublicProsecutor--Devils_Heart.mp4",
+            "format": "h.264",
+            "sizeBytes": 108534872,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Prosecutor--Devils_Heart/PublicProsecutor--Devils_Heart.mp4"
+        },
+        {
+          "archiveID": "Public_Prosecutor--Missing_Hour",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Public Prosecutor: The Case of the Missing Hour",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8cJPayLNNCXlxaQDQcd1FRScTZ.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 1050,
+          "videoFile": {
+            "name": "PublicProsecutor--Missing_Hour.mp4",
+            "format": "h.264",
+            "sizeBytes": 109176174,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Prosecutor--Missing_Hour/PublicProsecutor--Missing_Hour.mp4"
+        },
+        {
+          "archiveID": "Public_Prosecutor--Shattered_Mirror",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Public Prosecutor: The Case of the Shattered Mirror",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8cJPayLNNCXlxaQDQcd1FRScTZ.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 1047,
+          "videoFile": {
+            "name": "PublicProsecutor--Shattered_Mirror.mp4",
+            "format": "h.264",
+            "sizeBytes": 109020652,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Prosecutor--Shattered_Mirror/PublicProsecutor--Shattered_Mirror.mp4"
+        },
+        {
+          "archiveID": "Public_Prosecutor--Strange_Suicide",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Public Prosecutor: The Case of the Strange Suicide",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8cJPayLNNCXlxaQDQcd1FRScTZ.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 1045,
+          "videoFile": {
+            "name": "PublicProsecutor--Strange_Suicide.mp4",
+            "format": "h.264",
+            "sizeBytes": 108671835,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Prosecutor--Strange_Suicide/PublicProsecutor--Strange_Suicide.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Public_Prosecutor--Missing_Bullets",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Case of the Missing Bullets",
+          "overview": "The Case of the Missing Bullets",
+          "stillURL": "https://image.tmdb.org/t/p/w500/8cJPayLNNCXlxaQDQcd1FRScTZ.jpg",
+          "airDate": "1947-01-01",
+          "year": 1947,
+          "runtimeSeconds": 1020,
+          "videoFile": {
+            "name": "PublicProsecutor--Missing_Bullets.mp4",
+            "format": "h.264",
+            "sizeBytes": 106130773,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Prosecutor--Missing_Bullets/PublicProsecutor--Missing_Bullets.mp4"
+        },
+        {
+          "archiveID": "PublicProsecutor-CaseOfTheComic-stripMurder1948",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Case of the Comic Strip Murder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8cJPayLNNCXlxaQDQcd1FRScTZ.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 1036,
+          "videoFile": {
+            "name": "Public_prosecutor_Comic_strip_murder_1948.mp4",
+            "format": "h.264",
+            "sizeBytes": 103890665,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicProsecutor-CaseOfTheComic-stripMurder1948/Public_prosecutor_Comic_strip_murder_1948.mp4"
+        },
+        {
+          "archiveID": "Public_Prosecutor--Dead_Mans_Voice",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Case of the Dead Man's Voice",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8cJPayLNNCXlxaQDQcd1FRScTZ.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 1044,
+          "videoFile": {
+            "name": "PublicProsecutor--Dead_Mans_Voice.mp4",
+            "format": "h.264",
+            "sizeBytes": 108501197,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Prosecutor--Dead_Mans_Voice/PublicProsecutor--Dead_Mans_Voice.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

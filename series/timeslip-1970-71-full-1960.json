@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "timeslip-1970-71-full-1960",
+  "title": "TIMESLIP (1970-71) (Full",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/timeslip-1970-71",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "timeslip-1970-71",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TIMESLIP (1970-71) (Full Series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/timeslip-1970-71",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TIMESLIP (1970-1971)/201.Timeslip...The Time of the Ice Box.mp4",
+            "format": "h.264",
+            "sizeBytes": 147422153,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/timeslip-1970-71/TIMESLIP (1970-1971)/201.Timeslip...The Time of the Ice Box.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

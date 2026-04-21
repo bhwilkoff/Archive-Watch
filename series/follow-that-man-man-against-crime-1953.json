@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "follow-that-man-man-against-crime-1953",
+  "title": "Follow that Man (Man against Crime",
+  "yearStart": 1953,
+  "yearEnd": 1954,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Follow_that_Man--No_Place_To_Hide",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Follow_that_Man--No_Place_To_Hide",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Follow that Man (Man against Crime): No Place To Hide",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Follow_that_Man--No_Place_To_Hide",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "FollowThatMan_537--No_Place_To_Hide.mp4",
+            "format": "h.264",
+            "sizeBytes": 161979768,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Follow_that_Man--No_Place_To_Hide/FollowThatMan_537--No_Place_To_Hide.mp4"
+        },
+        {
+          "archiveID": "Follow_that_Man--Thirty_Dimes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Follow that Man (Man against Crime): Thirty Dimes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Follow_that_Man--Thirty_Dimes",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1525,
+          "videoFile": {
+            "name": "FollowThatMan_507--Thirty_Dimes.mp4",
+            "format": "h.264",
+            "sizeBytes": 158309244,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Follow_that_Man--Thirty_Dimes/FollowThatMan_507--Thirty_Dimes.mp4"
+        },
+        {
+          "archiveID": "Follow_that_Man--Will_o_the_Wisp",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Follow that Man (Man against Crime): Will o' the Wisp",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Follow_that_Man--Will_o_the_Wisp",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1534,
+          "videoFile": {
+            "name": "FollowThatMan522--Will_o_the_Wisp.mp4",
+            "format": "h.264",
+            "sizeBytes": 159166411,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Follow_that_Man--Will_o_the_Wisp/FollowThatMan522--Will_o_the_Wisp.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

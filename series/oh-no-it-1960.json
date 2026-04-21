@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "oh-no-it-1960",
+  "title": "OH NO IT",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/oh-no-its-selwyn-froggitt-1974-78",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "oh-no-its-selwyn-froggitt-1974-78",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "OH NO IT'S SELWYN FROGGITT (1974-78) (Full Series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/oh-no-its-selwyn-froggitt-1974-78",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OH NO IT SELWYN FROGGITT (74-78)/307.Oh No Its Selwyn Froggitt...Around The Houses.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120745506,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-no-its-selwyn-froggitt-1974-78/OH NO IT SELWYN FROGGITT (74-78)/307.Oh No Its Selwyn Froggitt...Around The Houses.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

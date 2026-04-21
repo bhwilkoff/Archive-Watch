@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "not-on-your-nellie-1974",
+  "title": "Not on Your Nellie",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": "Not On Your Nellie is a British sitcom that ran from 1974-75. It starred veteran actress Hylda Baker as Nellie Pickersgill, a Bolton woman who moves to London to help run her ailing father's Chelsea pub. 17 episodes of the series were produced by London Weekend Television for the ITV network.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/153/382880.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Not on Your Nellie - Complete Series 1974",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/153/382880.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Not on Your Nellie S02E05 The Lady with the Lamp.mp4",
+            "format": "h.264",
+            "sizeBytes": 147893332,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not on Your Nellie S02E05 The Lady with the Lamp.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

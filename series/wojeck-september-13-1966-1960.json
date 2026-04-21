@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wojeck-september-13-1966-1960",
+  "title": "Wojeck September 13, 1966",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/wojeck-1966-09-13-the-last-man-in-the-world",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "wojeck-1966-09-13-the-last-man-in-the-world",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wojeck September 13, 1966: The Last Man In The World",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/wojeck-1966-09-13-the-last-man-in-the-world",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wojeck 1966-09-13 - The Last Man in the World.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 481439925,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wojeck-1966-09-13-the-last-man-in-the-world/Wojeck 1966-09-13 - The Last Man in the World.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "wonderbug-1960",
+  "title": "Wonderbug",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Wonderbug is a segment of the first and second season of the American television series The Krofft Supershow, from 1976 to 1978. It was shot in Hollywood, Los Angeles, California. The show was rerun as part of ABC's Sunday morning series.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Ken Spears",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "wonderbug-full-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wonderbug - Full Series! (1976 -1977)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wonderbug (1976-1977)_ 360p.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 797186625,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wonderbug-full-series/Wonderbug (1976-1977)_ 360p.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

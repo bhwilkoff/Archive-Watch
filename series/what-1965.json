@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "what-1965",
+  "title": "What",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/whatsMyLine",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "whatsMyLine",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"What's My Line\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/whatsMyLine",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Whats_my_line_Oct_5_1952.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 165372630,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/whatsMyLine/Whats_my_line_Oct_5_1952.ia.mp4"
+        },
+        {
+          "archiveID": "WhatsMyLine24January1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''What's My Line'' - 24 January 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/WhatsMyLine24January1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1724,
+          "videoFile": {
+            "name": "WhatsMyLine-24January1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 179321121,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/WhatsMyLine24January1965/WhatsMyLine-24January1965.mp4"
+        },
+        {
+          "archiveID": "whatsmyline31October1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''What's My Line'' - 31 October 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/whatsmyline31October1965",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1758,
+          "videoFile": {
+            "name": "whatsmyline31October1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 183324901,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/whatsmyline31October1965/whatsmyline31October1965.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

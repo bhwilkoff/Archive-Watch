@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "live-with-regis-and-kathie-lee-august-3-1993-2025",
+  "title": "Live With Regis and Kathie Lee (August 3, 1993",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/live-with-regis-and-kathie-lee-august-3-1993",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "live-with-regis-and-kathie-lee-august-3-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Live With Regis and Kathie Lee (August 3, 1993)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/live-with-regis-and-kathie-lee-august-3-1993",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Live with Regis and Kathie Lee (August 3, 1993).mp4",
+            "format": "h.264",
+            "sizeBytes": 268660782,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/live-with-regis-and-kathie-lee-august-3-1993/Live with Regis and Kathie Lee (August 3, 1993).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

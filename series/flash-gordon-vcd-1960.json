@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "flash-gordon-vcd-1960",
+  "title": "Flash Gordon VCD",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Flash_Gordon_VCD-001",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Flash_Gordon_VCD-001",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flash Gordon VCD",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Flash_Gordon_VCD-001",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flash_Gordon_Subworld_Revenge-VCD.mp4",
+            "format": "h.264",
+            "sizeBytes": 150512583,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Flash_Gordon_VCD-001/Flash_Gordon_Subworld_Revenge-VCD.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

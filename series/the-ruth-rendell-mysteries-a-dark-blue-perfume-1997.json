@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-ruth-rendell-mysteries-a-dark-blue-perfume-1997",
+  "title": "The Ruth Rendell Mysteries A Dark Blue Perfume",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-ruth-rendell-mysteries-a-dark-blue-perfume",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-ruth-rendell-mysteries-a-dark-blue-perfume",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Ruth Rendell Mysteries A Dark Blue Perfume",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-ruth-rendell-mysteries-a-dark-blue-perfume",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Ruth Rendell Mysteries  A Dark Blue Perfume.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 132853376,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-ruth-rendell-mysteries-a-dark-blue-perfume/The Ruth Rendell Mysteries  A Dark Blue Perfume.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

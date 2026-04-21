@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "nightmare-cafe-1992",
+  "title": "Nightmare Cafe",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "Nightmare Cafe is a short-lived American telefantasy program which aired on NBC for an abridged first season from January to April 1992. While the overall tone of the program was that of a mystical fantasy, it frequently incorporated elements of dark humor, horror, and even outright comedy. A total of six episodes were produced before low ratings led to its cancellation. The series has subsequently been shown on the Sci Fi Channel as part of their Series Collection. The series began showing on NBC Universal's horror and suspense-themed cable channel, Chiller in March 2009.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/j0XcMZVR5bOJwT8ijrdGG8vmisg.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/uhQzKafFVbB9WjoIXvWfnOUblYR.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Wes Craven",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "nightmare-cafe_202309",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Nightmare Cafe - TV Series - Complete",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/j0XcMZVR5bOJwT8ijrdGG8vmisg.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E06 - Aliens Ate My Lunch.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 270263503,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nightmare-cafe_202309/S01E06 - Aliens Ate My Lunch.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

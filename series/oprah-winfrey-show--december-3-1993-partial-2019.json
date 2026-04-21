@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "oprah-winfrey-show--december-3-1993-partial-2019",
+  "title": "Oprah Winfrey Show- December 3, 1993 (partial",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/oprahwinfreyshowdecember31993partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "oprahwinfreyshowdecember31993partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Oprah Winfrey Show- December 3, 1993 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/oprahwinfreyshowdecember31993partial",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Oprah Winfrey Show- December 3 1993 (partial).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 122049524,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oprahwinfreyshowdecember31993partial/Oprah Winfrey Show- December 3 1993 (partial).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

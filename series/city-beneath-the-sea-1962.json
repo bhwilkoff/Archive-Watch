@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "city-beneath-the-sea-1962",
+  "title": "City Beneath The Sea",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/aKn1UuW9NsEvHU6wDCCA37RHq0m.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "city-beneath-the-sea-1962",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "City Beneath The Sea - Complete Series 1962",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/aKn1UuW9NsEvHU6wDCCA37RHq0m.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "City Beneath The Sea - 01 - City Beneath The Sea - E05 -Power to Destroy .mp4",
+            "format": "h.264",
+            "sizeBytes": 155304396,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/city-beneath-the-sea-1962/City Beneath The Sea - 01 - City Beneath The Sea - E05 -Power to Destroy .mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

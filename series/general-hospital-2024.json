@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "general-hospital-2024",
+  "title": "General Hospital",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": "Jung Ha Yoon is a graduate student who successfully passed the bar exam. However, she is not finished as she wants to be a medical malpractice litigation specialist. She works at a hospital to look to gain experience and there she meets other doctors who work there.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kzUHYE5tshup6Z2rGIED7pdqWSi.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/xp4lW1XkD6nSQF6Eb1ayOZwmYdt.jpg",
+  "genres": [],
+  "networks": [
+    "MBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "general-hospital-luke-and-laura-scenes-december-1980",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "General Hospital: various \"Luke And Laura\" Scenes (December 1980)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kzUHYE5tshup6Z2rGIED7pdqWSi.jpg",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "General Hospital Luke and Laura scenes (December 1980).mp4",
+            "format": "h.264",
+            "sizeBytes": 984370811,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/general-hospital-luke-and-laura-scenes-december-1980/General Hospital Luke and Laura scenes (December 1980).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

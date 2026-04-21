@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "all-my-children--june-14-1991-second-half-2024",
+  "title": "All My Children- June 14, 1991 (second Half",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/all-my-children-june-14-1991-second-half",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "all-my-children-june-14-1991-second-half",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "All My Children- June 14, 1991 (second Half)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/all-my-children-june-14-1991-second-half",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "All My Children- June 14, 1991 (second half).mp4",
+            "format": "h.264",
+            "sizeBytes": 110230443,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/all-my-children-june-14-1991-second-half/All My Children- June 14, 1991 (second half).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

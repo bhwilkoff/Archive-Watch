@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "seriesID": "1973-la-isla-misteriosa-y-el-capitán-nemo-2023",
+  "title": "1973. La isla misteriosa y el Capitán Nemo",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-2-los-naufragos-del-aire",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-1-la-evasion",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1973. La isla misteriosa y el Capitán Nemo - Episodio 1 - La evasión",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-1-la-evasion",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1973. La isla misteriosa y el Capitán Nemo - Episodio 1 - La evasión.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 458948561,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-1-la-evasion/1973. La isla misteriosa y el Capitán Nemo - Episodio 1 - La evasión.mp4"
+        },
+        {
+          "archiveID": "1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-2-los-naufragos-del-aire",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1973. La isla misteriosa y el Capitán Nemo - Episodio 2 - Los náufragos del aire",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-2-los-naufragos-del-aire",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1973. La isla misteriosa y el Capitán Nemo - Episodio 2 - Los náufragos del aire.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 458833121,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-2-los-naufragos-del-aire/1973. La isla misteriosa y el Capitán Nemo - Episodio 2 - Los náufragos del aire.mp4"
+        },
+        {
+          "archiveID": "1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-3-territorio-prohibido",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1973. La isla misteriosa y el Capitán Nemo - Episodio 3 - Territorio prohibido",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-3-territorio-prohibido",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1973. La isla misteriosa y el Capitán Nemo - Episodio 3 - Territorio prohibido.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 457371623,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-3-territorio-prohibido/1973. La isla misteriosa y el Capitán Nemo - Episodio 3 - Territorio prohibido.mp4"
+        },
+        {
+          "archiveID": "1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-4-el-abandonado",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1973. La isla misteriosa y el Capitán Nemo - Episodio 4 - El abandonado",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-4-el-abandonado",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1973. La isla misteriosa y el Capitán Nemo - Episodio 4 - El abandonado.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 457682865,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-4-el-abandonado/1973. La isla misteriosa y el Capitán Nemo - Episodio 4 - El abandonado.mp4"
+        },
+        {
+          "archiveID": "1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-5-la-bandera-negra",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1973. La isla misteriosa y el Capitán Nemo - Episodio 5 - La bandera negra",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-5-la-bandera-negra",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1973. La isla misteriosa y el Capitán Nemo - Episodio 5 - La bandera negra.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 458479554,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-5-la-bandera-negra/1973. La isla misteriosa y el Capitán Nemo - Episodio 5 - La bandera negra.mp4"
+        },
+        {
+          "archiveID": "1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-6-el-secreto-de-la-isla",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1973. La isla misteriosa y el Capitán Nemo - Episodio 6 - El secreto de la isla",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-6-el-secreto-de-la-isla",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1973. La isla misteriosa y el Capitán Nemo - Episodio 6 - El secreto de la isla.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 459219384,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1973.-la-isla-misteriosa-y-el-capitan-nemo-episodio-6-el-secreto-de-la-isla/1973. La isla misteriosa y el Capitán Nemo - Episodio 6 - El secreto de la isla.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

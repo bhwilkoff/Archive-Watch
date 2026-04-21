@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "tom-1994",
+  "title": "Tom",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": "Tom is an American sitcom which premiered in mid-season 1994 on CBS. Tom was cancelled after eleven episodes.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Tom Arnold",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tom-1.9",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tom - Tom Arnold, Alison LaPlaca",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tom - 1.9.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 729044940,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tom-1.9/Tom - 1.9.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "little-men-199899-period-drama-1998",
+  "title": "Little Men (1998–99) period drama",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/little-men-1998-99-drama",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "little-men-1998-99-drama",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Little Men (1998–99) period drama",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/little-men-1998-99-drama",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "little men episode 15.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 244221466,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/little-men-1998-99-drama/little men episode 15.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

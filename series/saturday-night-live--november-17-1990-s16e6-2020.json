@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "saturday-night-live--november-17-1990-s16e6-2020",
+  "title": "Saturday Night Live- November 17, 1990 (S16E6",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/saturdaynightlivenovember171990s16e6convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 16,
+      "episodes": [
+        {
+          "archiveID": "saturdaynightlivenovember171990s16e6convertvideoonline.com",
+          "seasonNumber": 16,
+          "episodeNumber": 6,
+          "title": "Saturday Night Live- November 17, 1990 (S16E6)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/saturdaynightlivenovember171990s16e6convertvideoonline.com",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live- November 17, 1990 (S16E6) (convert-video-online.com).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1298981158,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturdaynightlivenovember171990s16e6convertvideoonline.com/Saturday Night Live- November 17, 1990 (S16E6) (convert-video-online.com).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

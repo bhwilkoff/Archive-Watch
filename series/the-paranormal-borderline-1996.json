@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-paranormal-borderline-1996",
+  "title": "The Paranormal Borderline",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-paranormal-borderline-soul-sisters-1996",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Paranormal Borderline - Jonathan Frakes",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Paranormal Borderline - Soul Sisters - 1996.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1401467106,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-paranormal-borderline-soul-sisters-1996/The Paranormal Borderline - Soul Sisters - 1996.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

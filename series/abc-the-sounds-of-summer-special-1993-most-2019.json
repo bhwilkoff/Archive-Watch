@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-the-sounds-of-summer-special-1993-most-2019",
+  "title": "ABC The Sounds Of Summer Special (1993, most",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/abcthesoundsofsummerspecial1993mostconvertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "abcthesoundsofsummerspecial1993mostconvertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC The Sounds Of Summer Special (1993, most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/abcthesoundsofsummerspecial1993mostconvertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC The Sounds Of Summer special (1993, most) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 280126610,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/abcthesoundsofsummerspecial1993mostconvertvideoonline.com/ABC The Sounds Of Summer special (1993, most) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

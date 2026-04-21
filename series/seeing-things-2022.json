@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "seriesID": "seeing-things-2022",
+  "title": "Seeing Things",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/seeing-things-season-1-1981",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "seeing-things-season-1-1981",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Seeing Things: Season 1 [1981]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/seeing-things-season-1-1981",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "03 - A Charming Sight.mp4",
+            "format": "h.264",
+            "sizeBytes": 319832963,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/seeing-things-season-1-1981/03 - A Charming Sight.mp4"
+        },
+        {
+          "archiveID": "08-in-the-eyes-of-the-law",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Seeing Things: Season 2 [1982]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/08-in-the-eyes-of-the-law",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "08 - In The Eyes Of The Law.mp4",
+            "format": "h.264",
+            "sizeBytes": 313680114,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/08-in-the-eyes-of-the-law/08 - In The Eyes Of The Law.mp4"
+        },
+        {
+          "archiveID": "01-seeing-r.-e.-d",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Seeing Things: Season 3 [1984]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/01-seeing-r.-e.-d",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "01 - Seeing R.E.D.mp4",
+            "format": "h.264",
+            "sizeBytes": 461183133,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-seeing-r.-e.-d/01 - Seeing R.E.D.mp4"
+        },
+        {
+          "archiveID": "07-ill-be-seeing-you",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Seeing Things: Season 4 [1985]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/07-ill-be-seeing-you",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "03 - You Can't Believe Your Eyes.mp4",
+            "format": "h.264",
+            "sizeBytes": 280413335,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/07-ill-be-seeing-you/03 - You Can't Believe Your Eyes.mp4"
+        },
+        {
+          "archiveID": "seeing-things-season-5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Seeing Things: Season 5 [1986]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/seeing-things-season-5",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "04 - The Eyes of Ra.mp4",
+            "format": "h.264",
+            "sizeBytes": 279553349,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/seeing-things-season-5/04 - The Eyes of Ra.mp4"
+        },
+        {
+          "archiveID": "03-spectacle-of-india",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Seeing Things: Season 6 [1987]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/03-spectacle-of-india",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "08 - A Vision in White.mp4",
+            "format": "h.264",
+            "sizeBytes": 290655678,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/03-spectacle-of-india/08 - A Vision in White.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "seriesID": "down-you-go-1960",
+  "title": "Down You Go",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Down You Go is an American television game show originally broadcast on the DuMont Television Network. The Emmy Award-nominated series ran from 1951–1956 as a prime time series hosted by Dr. Bergen Evans. The program aired in eleven different timeslots during its five-year run.\n\nDown You Go is one of only six series — along with The Arthur Murray Party; Pantomime Quiz; Tom Corbett, Space Cadet; The Ernie Kovacs Show; and The Original Amateur Hour — shown on all four major television networks of the Golden Age of Television: ABC, NBC, CBS, and DuMont.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC",
+    "ABC",
+    "CBS",
+    "DuMont Television Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DownYouGo",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Down You Go",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DownYouGo9-26-51Dumont.mp4",
+            "format": "h.264",
+            "sizeBytes": 151362841,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DownYouGo/DownYouGo9-26-51Dumont.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

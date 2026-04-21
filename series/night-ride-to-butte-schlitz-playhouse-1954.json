@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "night-ride-to-butte-schlitz-playhouse-1954",
+  "title": "Night Ride to Butte (Schlitz Playhouse",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Night_Ride_to_Butte--Schlitz",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Night_Ride_to_Butte--Schlitz",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Night Ride to Butte (Schlitz Playhouse)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Night_Ride_to_Butte--Schlitz",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1545,
+          "videoFile": {
+            "name": "Night_Ride_to_Butte--Schlitz.mp4",
+            "format": "h.264",
+            "sizeBytes": 160370820,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Night_Ride_to_Butte--Schlitz/Night_Ride_to_Butte--Schlitz.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

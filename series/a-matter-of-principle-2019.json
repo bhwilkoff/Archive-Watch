@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-matter-of-principle-2019",
+  "title": "A Matter Of Principle",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": "The events revolve around a member of parliament representing one of the electoral districts in Upper Egypt who was able to achieve great successes, but he dies. The people nominate his daughter, a graduate of the Faculty of Law, to replace him, but she encounters many problems.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "amatterofprinciple1983convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Matter Of Principle (1983)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A Matter Of Principle (1983) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 247587537,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/amatterofprinciple1983convertvideoonline.com/A Matter Of Principle (1983) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

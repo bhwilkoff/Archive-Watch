@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "bat-masterson-1960",
+  "title": "Bat Masterson",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Bat Masterson is an American Western television series which showed a fictionalized account of the life of real-life marshal/gambler/dandy Bat Masterson. The title character was played by Gene Barry and the half-hour black-and-white shows ran on NBC from 1958 to 1961. The series was produced by Ziv Television Productions, the company responsible for such hit series as Sea Hunt and Highway Patrol.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/8OxFU939AMas2yV7fohnYf74dEX.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3D4K2LdT3MiRlcgsnKlZT9K6CRB.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Bat_Masterson_-_Stampede_At_Tent_City",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Stampede at Tent City",
+          "overview": "Bat encounters a group of wranglers who are stealing horses. A old flame of Bat's asks him to rescue her current beau, accused of murder and shackled to a tree by a lynch mob led by the slain man's brother who leads the wranglers.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/8OxFU939AMas2yV7fohnYf74dEX.jpg",
+          "airDate": "1958-10-29",
+          "year": null,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "Bat_Masterson_-_Stampede_At_Tent_City.mp4",
+            "format": "h.264",
+            "sizeBytes": 152353138,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bat_Masterson_-_Stampede_At_Tent_City/Bat_Masterson_-_Stampede_At_Tent_City.mp4"
+        },
+        {
+          "archiveID": "BatMasterson-TheFighter",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Fighter",
+          "overview": "Bat arrives in Silverton, Colorado and gets involved with a crooked fight promoter.  He saves the day for a young bareknuckle fighter.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/8OxFU939AMas2yV7fohnYf74dEX.jpg",
+          "airDate": "1958-11-05",
+          "year": null,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "Bat_Masterson_-_The_Fighter.mp4",
+            "format": "h.264",
+            "sizeBytes": 161799778,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BatMasterson-TheFighter/Bat_Masterson_-_The_Fighter.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "the-betty-white-show-1958-1958",
+  "title": "The Betty White Show (1958",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheBettyWhiteShow1958SeriesMiscEpisode1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheBettyWhiteShow1958SeriesMiscEpisode1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Betty White Show (1958 series, misc episode 1)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheBettyWhiteShow1958SeriesMiscEpisode1",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1042,
+          "videoFile": {
+            "name": "TheBettyWhiteShowPrimteimeEp1.mp4",
+            "format": "h.264",
+            "sizeBytes": 107030885,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBettyWhiteShow1958SeriesMiscEpisode1/TheBettyWhiteShowPrimteimeEp1.mp4"
+        },
+        {
+          "archiveID": "TheBettyWhiteShow1958SeriesMiscEpisode2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Betty White Show (1958 series, misc episode 2)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheBettyWhiteShow1958SeriesMiscEpisode2",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1386,
+          "videoFile": {
+            "name": "TheBettyWhiteShowPrimetimeEp2.mp4",
+            "format": "h.264",
+            "sizeBytes": 142648256,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBettyWhiteShow1958SeriesMiscEpisode2/TheBettyWhiteShowPrimetimeEp2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

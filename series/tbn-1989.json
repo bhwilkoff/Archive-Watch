@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "seriesID": "tbn-1989",
+  "title": "TBN",
+  "yearStart": 1989,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/praise-the-lord-2.28.1989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tbn-praise-the-lord-12.17.1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TBN: Praise The Lord (12/17/1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tbn-praise-the-lord-12.17.1992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TBN _ Praise the Lord (12.17.1992).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 397331590,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tbn-praise-the-lord-12.17.1992/TBN _ Praise the Lord (12.17.1992).mp4"
+        },
+        {
+          "archiveID": "praise-the-lord-december-2-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TBN: Praise The Lord (12/2/1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/praise-the-lord-december-2-1992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Praise the Lord December 2, 1992.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 757784390,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/praise-the-lord-december-2-1992/Praise the Lord December 2, 1992.mp4"
+        },
+        {
+          "archiveID": "praise-the-lord-february-25-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TBN: Praise The Lord (2/25/1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/praise-the-lord-february-25-1992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Praise the Lord February 25, 1992.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 549117193,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/praise-the-lord-february-25-1992/Praise the Lord February 25, 1992.mp4"
+        },
+        {
+          "archiveID": "praise-the-lord-2.28.1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TBN: Praise The Lord (2/28/1989)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/praise-the-lord-2.28.1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Praise the Lord (2.28.1989).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 378684400,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/praise-the-lord-2.28.1989/Praise the Lord (2.28.1989).mp4"
+        },
+        {
+          "archiveID": "praise-the-lord-april-28-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TBN: Praise The Lord (4/28/1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/praise-the-lord-april-28-1992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Praise the Lord April 28, 1992.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 760705748,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/praise-the-lord-april-28-1992/Praise the Lord April 28, 1992.mp4"
+        },
+        {
+          "archiveID": "praise-the-lord-april-30-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TBN: Praise The Lord (4/30/1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/praise-the-lord-april-30-1992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Praise the Lord April 30, 1992.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 701129077,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/praise-the-lord-april-30-1992/Praise the Lord April 30, 1992.mp4"
+        },
+        {
+          "archiveID": "tbn-praise-the-lord-9.-3.1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TBN: Praise The Lord (9/3/1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tbn-praise-the-lord-9.-3.1991",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TBN Praise the Lord (9. 3.1991).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 698785826,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tbn-praise-the-lord-9.-3.1991/TBN Praise the Lord (9. 3.1991).mp4"
+        },
+        {
+          "archiveID": "praise-the-lord-february-3-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TBN: Praise The Lord (February 3, 1993)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/praise-the-lord-february-3-1993",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Praise the Lord February 3, 1993.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 853489621,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/praise-the-lord-february-3-1993/Praise the Lord February 3, 1993.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

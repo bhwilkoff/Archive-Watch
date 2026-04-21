@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "man-in-the-house-suspense-1949",
+  "title": "Man in the House (Suspense",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Suspense--Man_in_the_House",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Suspense--Man_in_the_House",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man in the House (Suspense)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Suspense--Man_in_the_House",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1446,
+          "videoFile": {
+            "name": "Suspense--Man_in_the_House.mp4",
+            "format": "h.264",
+            "sizeBytes": 149968787,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Man_in_the_House/Suspense--Man_in_the_House.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

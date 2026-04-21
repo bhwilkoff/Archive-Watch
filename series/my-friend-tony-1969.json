@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "my-friend-tony-1969",
+  "title": "My Friend Tony",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": "My Friend Tony is an American crime drama that aired on NBC in 1969. The pilot originally aired as \"My Pal Tony\" on The Danny Thomas Hour on March 4, 1968.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Warren Duff",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MyFriendTony1969ComputerMurderEp.12",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "My Friend Tony (1969)- Computer Murder (Ep. 12)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "My-Friend-Tony-_1969_-Computer-Murder-_Ep.-12_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 228828854,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyFriendTony1969ComputerMurderEp.12/My-Friend-Tony-_1969_-Computer-Murder-_Ep.-12_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

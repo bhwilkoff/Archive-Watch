@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "love-of-love-1953",
+  "title": "Love Of Love",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/LoveOfLove22May1953",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LoveOfLove22May1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Love Of Love'' - 22 May 1953 (improved version)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LoveOfLove22May1953",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 865,
+          "videoFile": {
+            "name": "LoveOfLove22May1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 90254904,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LoveOfLove22May1953/LoveOfLove22May1953.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

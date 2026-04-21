@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-boys-paper-route-1960",
+  "title": "The Boys Paper Route",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OZZIE_AND_HARRIET_The_Boys_paper_Route",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OZZIE_AND_HARRIET_The_Boys_paper_Route",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Boys Paper Route",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OZZIE_AND_HARRIET_The_Boys_paper_Route",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OZZIE_AND_HARRIET_The_Boys_paper_Route.mp4",
+            "format": "h.264",
+            "sizeBytes": 156347316,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OZZIE_AND_HARRIET_The_Boys_paper_Route/OZZIE_AND_HARRIET_The_Boys_paper_Route.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "amos-2014",
+  "title": "Amos",
+  "yearStart": 2014,
+  "yearEnd": 2014,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AmosnAndyMissingPersonsBeureauFebruary41944",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AmosnAndyMissingPersonsBeureauFebruary41944",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Amos 'n' Andy Missing Persons Beureau ( February 4, 1944)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AmosnAndyMissingPersonsBeureauFebruary41944",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Amos 'n' Andy - Missing Persons Beureau (February 4, 1944).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 114152410,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AmosnAndyMissingPersonsBeureauFebruary41944/Amos 'n' Andy - Missing Persons Beureau (February 4, 1944).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

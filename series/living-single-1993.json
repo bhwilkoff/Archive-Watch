@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "living-single-1993",
+  "title": "Living Single",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "Living Single is an American television sitcom that aired for five seasons on the Fox network from August 22, 1993, to January 1, 1998. The show centered on the lives of six friends who share personal and professional experiences while living in a Brooklyn brownstone.\n\nThroughout its run, Living Single became one of the most popular African-American sitcoms of its era, ranking among the top five in African-American ratings in all five seasons. The series was produced by Yvette Lee Bowser's company, Sister Lee, in association with Warner Bros. Television. In contrast to the popularity of NBC's \"Must See TV\" on Thursday nights in the 1990s, many African American and Latino viewers flocked to Fox's Thursday night line-up of Martin, Living Single, and New York Undercover. In fact, these were the three highest-rated series among black households for the 1996–1997 season.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/mgttYgspalxaLVrjJ9rxzDG9owO.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/F0aJ6CVPJhIMwBtvHQpMC9FPvm.jpg",
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": "Yvette Lee Bowser",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "living-single-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Living Single (1993)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mgttYgspalxaLVrjJ9rxzDG9owO.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Living Single eps 01-10/Living Single - S01 E01 - Judging by the Cove - facebook.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 66796754,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/living-single-1993/Living Single eps 01-10/Living Single - S01 E01 - Judging by the Cove - facebook.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

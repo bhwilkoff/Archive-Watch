@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bob-hope-and-other-young-comedians-1992",
+  "title": "Bob Hope And Other Young Comedians",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bob-hope-and-other-young-comedians-1992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bob-hope-and-other-young-comedians-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope And Other Young Comedians - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hope-and-other-young-comedians-1992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hope and Other Young Comedians - 1992.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1422502319,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hope-and-other-young-comedians-1992/Bob Hope and Other Young Comedians - 1992.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

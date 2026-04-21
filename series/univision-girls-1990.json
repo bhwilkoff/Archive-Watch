@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "univision-girls-1990",
+  "title": "Univision Girls",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/univision-girl-dance-it",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "univision-girl-dance-it",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Univision Girls - Remember Them?",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/univision-girl-dance-it",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Univision Girl - Noel It.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 6516617,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/univision-girl-dance-it/Univision Girl - Noel It.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

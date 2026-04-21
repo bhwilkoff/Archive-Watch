@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sherlock-holmes-1954-55-1960",
+  "title": "Sherlock Holmes 1954-55",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SherlockHolmes1954-55",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SherlockHolmes1954-55",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sherlock Holmes 1954-55",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SherlockHolmes1954-55",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S24.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 188252871,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SherlockHolmes1954-55/S24.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

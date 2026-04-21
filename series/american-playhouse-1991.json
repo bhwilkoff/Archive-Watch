@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "american-playhouse-1991",
+  "title": "American Playhouse",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "American Playhouse is an anthology television series periodically broadcast by Public Broadcasting Service in the United States.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/34LLeInneWvMyIHcCpDCrkOxDe7.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/6mCtuOIjQlOuXg938DmYZ3dvaiU.jpg",
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "american-playhouse-a-marriage",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "American Playhouse: A Marriage",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/34LLeInneWvMyIHcCpDCrkOxDe7.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "American Playhouse - A Marriage.mp4",
+            "format": "h.264",
+            "sizeBytes": 511347387,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/american-playhouse-a-marriage/American Playhouse - A Marriage.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

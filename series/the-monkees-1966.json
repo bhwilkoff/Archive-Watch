@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-monkees-1966",
+  "title": "The Monkees",
+  "yearStart": 1966,
+  "yearEnd": 1966,
+  "overview": "Micky, Mike, Peter, and Davy are four young men in mid-1960s LA, members of a struggling country-folk-rock band looking for their big break amid madcap encounters with a variety of people straight out of TV and movie central casting, with full knowledge that their existence is part of a weekly television series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kNhWFmfVGkNfF3o3kdKUKgvdnaN.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/8LkGGqYuoqq64jpZmpEtOoapTys.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Bert Schneider",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-monkees-1966-unaired-pilot-episode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Monkees ( 1966) Unaired Pilot Episode",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kNhWFmfVGkNfF3o3kdKUKgvdnaN.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Monkees (1966) unaired pilot episode.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 95981974,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-monkees-1966-unaired-pilot-episode/The Monkees (1966) unaired pilot episode.mp4"
+        },
+        {
+          "archiveID": "themonkees.series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Monkees complete series including head",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kNhWFmfVGkNfF3o3kdKUKgvdnaN.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "the-monkees complete-series/Head (1968).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1869442352,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/themonkees.series/the-monkees complete-series/Head (1968).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

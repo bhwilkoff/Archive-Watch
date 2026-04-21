@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-tuba-incident-1960",
+  "title": "The Tuba Incident",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OZZIE_AND_HARRIET_ep_The_Tuba_incident",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OZZIE_AND_HARRIET_ep_The_Tuba_incident",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Tuba Incident",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OZZIE_AND_HARRIET_ep_The_Tuba_incident",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OZZIE_AND_HARRIET_ep_The_Tuba_incident.mp4",
+            "format": "h.264",
+            "sizeBytes": 130011417,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OZZIE_AND_HARRIET_ep_The_Tuba_incident/OZZIE_AND_HARRIET_ep_The_Tuba_incident.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "late-night-with-conan-o-2020",
+  "title": "Late Night With Conan O",
+  "yearStart": 2020,
+  "yearEnd": 2024,
+  "overview": "Stepping into the late-late slot vacated by David Letterman, Conan O'Brien stars in a show that far outdoes its competition in sheer strangeness. Along with the celebrity interviews and musical numbers typical of late-night talk shows, this program make frequent use of odd walk-on characters and frequent \"visits\" from celebrity guests.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/gJZ1rhLLFpatuAeylJoUI82DKC7.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/q9unI9oHyLUNK97RQPYAGjFs4Xu.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Lorne Michaels",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "latenightwithconanobrienapril161999aconvertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Late Night With Conan O' Brien (April 16, 1999)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gJZ1rhLLFpatuAeylJoUI82DKC7.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Late Night with Conan O'Brien (April 16, 1999)a (convert-video-online.com).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 491589433,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/latenightwithconanobrienapril161999aconvertvideoonline.com/Late Night with Conan O'Brien (April 16, 1999)a (convert-video-online.com).ia.mp4"
+        },
+        {
+          "archiveID": "late-night-with-conan-o-brien-july-18-1995",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Late Night With Conan O' Brien (July 18, 1995)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gJZ1rhLLFpatuAeylJoUI82DKC7.jpg",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Late Night with Conan O'Brien (July 18, 1995).mp4",
+            "format": "h.264",
+            "sizeBytes": 246986702,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/late-night-with-conan-o-brien-july-18-1995/Late Night with Conan O'Brien (July 18, 1995).mp4"
+        },
+        {
+          "archiveID": "late-night-with-conan-o-brien-april-23-1997-most",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Late Night With Conan O' Brien- April 23, 1997 (most)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gJZ1rhLLFpatuAeylJoUI82DKC7.jpg",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Late Night With Conan O'Brien- April 23, 1997 (most).mp4",
+            "format": "h.264",
+            "sizeBytes": 208123561,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/late-night-with-conan-o-brien-april-23-1997-most/Late Night With Conan O'Brien- April 23, 1997 (most).mp4"
+        },
+        {
+          "archiveID": "late-night-with-conan-o-brien-may-6-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Late Night With Conan O'Brien (May 6, 1994)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gJZ1rhLLFpatuAeylJoUI82DKC7.jpg",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Late Night with Conan O'Brien (May 6, 1994).mp4",
+            "format": "h.264",
+            "sizeBytes": 336655959,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/late-night-with-conan-o-brien-may-6-1994/Late Night with Conan O'Brien (May 6, 1994).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

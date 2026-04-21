@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dc-true-love-edition-1960",
+  "title": "DC True Love Edition",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/dctl_4K",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dctl_4K",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "DC True Love Edition - Digital Version (4K",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/dctl_4K",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "6x23-24 All Good Things...Must Come To An End (4K).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 12013578738,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dctl_4K/6x23-24 All Good Things...Must Come To An End (4K).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

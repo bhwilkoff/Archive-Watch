@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "condolman01_02-1960",
+  "title": "condolman01_02",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/condolman01_02",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "condolman01_02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "condolman01_02",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/condolman01_02",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1491,
+          "videoFile": {
+            "name": "CondormanEp02.mp4",
+            "format": "h.264",
+            "sizeBytes": 148595366,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/condolman01_02/CondormanEp02.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

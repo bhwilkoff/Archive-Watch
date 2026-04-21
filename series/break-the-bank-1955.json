@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "seriesID": "break-the-bank-1955",
+  "title": "Break the Bank",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": "Break the Bank is an American quiz show which aired variously on Mutual Radio and ABC, CBS and NBC television from 1945 to 1957.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC",
+    "NBC",
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BreakTheBank1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Break the Bank'' - Misc 1955 episode",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1652,
+          "videoFile": {
+            "name": "breakthebank1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 172230003,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BreakTheBank1955/breakthebank1955.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

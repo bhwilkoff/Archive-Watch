@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-cavanaughs--a-chorus-malign-s1e10-2021",
+  "title": "The Cavanaughs- A Chorus Malign (S1E10",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-cavanaughs-a-chorus-malign-s-1-e-10",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-cavanaughs-a-chorus-malign-s-1-e-10",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Cavanaughs- A Chorus Malign (S1E10)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-cavanaughs-a-chorus-malign-s-1-e-10",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Cavanaughs- A Chorus Malign (S1E10).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 743400313,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-cavanaughs-a-chorus-malign-s-1-e-10/The Cavanaughs- A Chorus Malign (S1E10).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

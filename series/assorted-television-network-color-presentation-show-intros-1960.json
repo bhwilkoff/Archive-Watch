@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "assorted-television-network-color-presentation-show-intros-1960",
+  "title": "Assorted Television Network Color Presentation Show Intros",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AssortedTelevisionNetworkColorPresentationShowIntros",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AssortedTelevisionNetworkColorPresentationShowIntros",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Assorted Television Network Color Presentation Show Intros",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AssortedTelevisionNetworkColorPresentationShowIntros",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AssortedTelevisionNetworkColorPresentationShowIntrosFrom1960s.mp4",
+            "format": "h.264",
+            "sizeBytes": 3986435,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AssortedTelevisionNetworkColorPresentationShowIntros/AssortedTelevisionNetworkColorPresentationShowIntrosFrom1960s.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

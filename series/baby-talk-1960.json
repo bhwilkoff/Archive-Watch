@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "baby-talk-1960",
+  "title": "Baby Talk",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Baby Talk is an American sitcom that aired on ABC from March 8, 1991 until May 8, 1992 as part of ABC's TGIF lineup. The show was loosely based on the popular Look Who's Talking movies and was adapted for television by Ed Weinberger. Amy Heckerling created original characters for the series while using key creative and script elements from Look Who's Talking, which she had written and directed. Weinberger served as executive producer during the first season, and was replaced by Saul Turteltaub and Bernie Orenstein in the second season.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/8MTwhCqTtPcVLthCRN4t33HEzlx.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lJJrrNwlfKwl19MB2X8h4jDtUHD.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Amy Heckerling",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "baby-talk-episode-2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Star is Newborn",
+          "overview": "Maggie's new client Bill, is a big time advertiser for baby-food.  He offers Mickey a chance to be in the spotlight of a few commercials for baby food.  This means extra income for both mother and son.\n\nWhen Joe meets Bill, he senses that Bill wants sexual favors in exchange for his helping Maggie and Mickey.  Maggie brushes off that idea until Bill threatens to end Mickey's career if Maggie won't let Bill put the moves on her.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/8MTwhCqTtPcVLthCRN4t33HEzlx.jpg",
+          "airDate": "1991-03-15",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Baby Talk Episode 2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 662466207,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/baby-talk-episode-2/Baby Talk Episode 2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

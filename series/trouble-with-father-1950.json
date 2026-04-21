@@ -1,0 +1,201 @@
+{
+  "version": 1,
+  "seriesID": "trouble-with-father-1950",
+  "title": "Trouble With Father",
+  "yearStart": 1950,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/You_Cannot_Do_That",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "King_Kai_Loves_Classic_TV",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Trouble with Father\" - Father Gets Into the Act (1950)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/King_Kai_Loves_Classic_TV",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1584,
+          "videoFile": {
+            "name": "Father_Gets-In-The_Act.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153792488,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/King_Kai_Loves_Classic_TV/Father_Gets-In-The_Act.ia.mp4"
+        },
+        {
+          "archiveID": "You_Cannot_Do_That",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Trouble with Father'' - Pearl Necklace (1955)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/You_Cannot_Do_That",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "Pearl_Necklace.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157286176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/You_Cannot_Do_That/Pearl_Necklace.ia.mp4"
+        },
+        {
+          "archiveID": "trouble-with-father-barbecue",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Trouble With Father - Barbecue",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/trouble-with-father-barbecue",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1513,
+          "videoFile": {
+            "name": "Trouble with Father -Barbecue.mp4",
+            "format": "h.264",
+            "sizeBytes": 160696796,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/trouble-with-father-barbecue/Trouble with Father -Barbecue.mp4"
+        },
+        {
+          "archiveID": "trouble-with-father-father-picks-a-queen",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Trouble With Father - Father Picks a Queen",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/trouble-with-father-father-picks-a-queen",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1759,
+          "videoFile": {
+            "name": "Trouble with Father - Father Picks a Queen.mp4",
+            "format": "h.264",
+            "sizeBytes": 173729642,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/trouble-with-father-father-picks-a-queen/Trouble with Father - Father Picks a Queen.mp4"
+        },
+        {
+          "archiveID": "trouble-with-father-jackies-first-date",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Trouble With Father - Jackie's First Date",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/trouble-with-father-jackies-first-date",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1581,
+          "videoFile": {
+            "name": "Trouble with Father - Jackie's First Date.mp4",
+            "format": "h.264",
+            "sizeBytes": 156081183,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/trouble-with-father-jackies-first-date/Trouble with Father - Jackie's First Date.mp4"
+        },
+        {
+          "archiveID": "trouble-with-father-one-of-the-boys",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Trouble With Father - One of The Boys",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/trouble-with-father-one-of-the-boys",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1562,
+          "videoFile": {
+            "name": "Trouble with Father - One of the Boys.mp4",
+            "format": "h.264",
+            "sizeBytes": 153876061,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/trouble-with-father-one-of-the-boys/Trouble with Father - One of the Boys.mp4"
+        },
+        {
+          "archiveID": "trouble-with-father-stus-holiday",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Trouble With Father - Stu's Holiday",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/trouble-with-father-stus-holiday",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1584,
+          "videoFile": {
+            "name": "Trouble with Father - Stu's Holiday.mp4",
+            "format": "h.264",
+            "sizeBytes": 155906685,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/trouble-with-father-stus-holiday/Trouble with Father - Stu's Holiday.mp4"
+        },
+        {
+          "archiveID": "Trouble_with_Father_Hate_the_Love_Seat",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Trouble with Father: Hate the Love Seat",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Trouble_with_Father_Hate_the_Love_Seat",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1766,
+          "videoFile": {
+            "name": "Hate_the_Love_Seat.mp4",
+            "format": "h.264",
+            "sizeBytes": 183806145,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Trouble_with_Father_Hate_the_Love_Seat/Hate_the_Love_Seat.mp4"
+        },
+        {
+          "archiveID": "Trouble_with_Father_In_a_Pickle",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Trouble with Father: In a Pickle",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Trouble_with_Father_In_a_Pickle",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1564,
+          "videoFile": {
+            "name": "In_a_Pickle.mp4",
+            "format": "h.264",
+            "sizeBytes": 163488040,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Trouble_with_Father_In_a_Pickle/In_a_Pickle.mp4"
+        },
+        {
+          "archiveID": "Trouble_with_Father_4-20",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Trouble with Father: The French Influence",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Trouble_with_Father_4-20",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "TroubleWithFather_French_Influence.mp4",
+            "format": "h.264",
+            "sizeBytes": 162068950,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Trouble_with_Father_4-20/TroubleWithFather_French_Influence.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 10
+}

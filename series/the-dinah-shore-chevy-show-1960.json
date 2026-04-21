@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "the-dinah-shore-chevy-show-1960",
+  "title": "The Dinah Shore Chevy Show",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "The Dinah Shore Chevy Show is an American variety series hosted by Dinah Shore, and broadcast on NBC from October 1956 to June 1963. The series was sponsored by the Chevrolet Motor Division of General Motors and its theme song, sung by Shore, was \"See the U.S.A. in Your Chevrolet\", which continued to be used in Chevrolet advertising for several more years after the cancellation of the show.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tvxMaRSoX7gX7LEDfsHUlWDqf5T.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheDinahShoreShow20March1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 20 March 1960",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3562,
+          "videoFile": {
+            "name": "The Dinah Shore Show - 20 March 1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 370980480,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreShow20March1960/The Dinah Shore Show - 20 March 1960.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreChevyShow24April1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 24 April 1960",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3544,
+          "videoFile": {
+            "name": "The Dinah Shore Chevy Show - 24 April  1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 369313017,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow24April1960/The Dinah Shore Chevy Show - 24 April  1960.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreChevyShow24January1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 24 January 1960",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3549,
+          "videoFile": {
+            "name": "The Dinah Shore Chevy Show - 24 January 1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 369859231,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow24January1960/The Dinah Shore Chevy Show - 24 January 1960.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreChevyShow11December1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' 11 December 1960",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dinah Shore Chevy Show - 11 December 1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 375327291,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow11December1960/The Dinah Shore Chevy Show - 11 December 1960.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

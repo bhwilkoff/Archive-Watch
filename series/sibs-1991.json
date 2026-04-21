@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "sibs-1991",
+  "title": "Sibs",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/gUyvdPx5DCKIspZttDvyLl0h55N.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Heide Perlman",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sibs-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sibs (1991) sitcom ft Jami Gertz and Margaret Colin",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gUyvdPx5DCKIspZttDvyLl0h55N.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "sibs (1991) ep.08PROMO -Audie's Great Guy- Open and teaser promos -4_15_1992 ABC Sitcom.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 9593295,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sibs-1991/sibs (1991) ep.08PROMO -Audie's Great Guy- Open and teaser promos -4_15_1992 ABC Sitcom.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

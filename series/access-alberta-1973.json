@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "access-alberta-1973",
+  "title": "Access Alberta",
+  "yearStart": 1973,
+  "yearEnd": 1974,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Access.Alberta.GunnHomeforUnemployableMen1973",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Access.Alberta.GunnHomeforUnemployableMen1973",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Access Alberta - Gunn Home for Unemployable Men 1973",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Access.Alberta.GunnHomeforUnemployableMen1973",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1973.Gunn.Home.for.Unemployable.Men.ACCESS.Alberta.combined.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 434069293,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Access.Alberta.GunnHomeforUnemployableMen1973/1973.Gunn.Home.for.Unemployable.Men.ACCESS.Alberta.combined.mp4"
+        },
+        {
+          "archiveID": "Access.Alberta.SkaroShrineLacSte.Anne.1973",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Access Alberta - Skaro Shrine at Lac Ste. Anne, 1974",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Access.Alberta.SkaroShrineLacSte.Anne.1973",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1974.Skaro.The.Shrine.Lac.St.Anne.Access.Alberta.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 82716543,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Access.Alberta.SkaroShrineLacSte.Anne.1973/1974.Skaro.The.Shrine.Lac.St.Anne.Access.Alberta.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "our-kids-and-the-best-of-everything-special-1987-partial-2022",
+  "title": "Our Kids And the Best Of Everything Special (1987, partial",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/our-kids-and-the-best-of-everything-special-1987-partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "our-kids-and-the-best-of-everything-special-1987-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Our Kids And the Best Of Everything Special (1987, partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/our-kids-and-the-best-of-everything-special-1987-partial",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Our Kids and the Best of Everything special (1987, partial).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1314022026,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/our-kids-and-the-best-of-everything-special-1987-partial/Our Kids and the Best of Everything special (1987, partial).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-arthur-murray-party-1954",
+  "title": "The Arthur Murray Party",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": "The Arthur Murray Party is an American television variety show which ran from July 1950 until September 1960. The show was hosted by famous dancers Arthur and Kathryn Murray, and was basically one long advertisement for their chain of dance studios. Each week the couple performed a mystery dance, and the viewer who correctly identified the dance would receive two free lessons at a local studio.\n\nThe Arthur Murray Party is notable for being one of the few TV series—the others were Down You Go; The Ernie Kovacs Show; Pantomime Quiz; Tom Corbett, Space Cadet; and The Original Amateur Hour—broadcast on all four major commercial networks in the 1950s during the Golden Age of Television. It may, in fact, be the only series which had a run on all four networks at least twice.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Party1950s",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Arthur Murray Party'' - 15 February 1954",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 866,
+          "videoFile": {
+            "name": "ArthurMurrayPartyJohnnieRay.mp4",
+            "format": "h.264",
+            "sizeBytes": 90636716,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Party1950s/ArthurMurrayPartyJohnnieRay.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

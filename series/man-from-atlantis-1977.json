@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "man-from-atlantis-1977",
+  "title": "Man From Atlantis",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": "Atlantis survivor Mark Harris breathes underwater, withstands extreme depth pressures and wields superhuman strength.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7Gs6U8s0wTcf4DpS2nK4kM4q17W.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/dv2gfbwAPCAUgSSsAyMPZ2dta1R.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Mayo Simon",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man From Atlantis - Complete Series 1977",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7Gs6U8s0wTcf4DpS2nK4kM4q17W.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Man from Atlantis S00E01 - Man from Atlantis.mp4",
+            "format": "h.264",
+            "sizeBytes": 543968101,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man from Atlantis S00E01 - Man from Atlantis.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

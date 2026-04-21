@@ -86,7 +86,14 @@ extension View {
     func attachDestinations() -> some View {
         self
             .navigationDestination(for: Catalog.Item.self) { item in
-                DetailView(item: item)
+                // Series cards route to SeriesDetailView (lazy-loads episode
+                // list from /series/{seriesID}.json); everything else keeps
+                // the existing single-item DetailView.
+                if item.contentType == "tv-series" {
+                    SeriesDetailView(seriesCard: item)
+                } else {
+                    DetailView(item: item)
+                }
             }
             .navigationDestination(for: BrowseFilter.self) { filter in
                 BrowseView(filter: filter)

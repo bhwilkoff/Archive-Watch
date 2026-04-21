@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "boomeride-tv-australia-1965-1960",
+  "title": "Boomeride (TV Australia, 1965",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/02-boomeride-crawl-baby-crawl-onj",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "02-boomeride-crawl-baby-crawl-onj",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Boomeride (TV Australia, 1965)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/02-boomeride-crawl-baby-crawl-onj",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "02 Boomeride - Crawl Baby Crawl - ONJ.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 84657531,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/02-boomeride-crawl-baby-crawl-onj/02 Boomeride - Crawl Baby Crawl - ONJ.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

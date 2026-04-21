@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jason-of-star-command-ch-2-1978",
+  "title": "Jason of Star Command CH 2",
+  "yearStart": 1978,
+  "yearEnd": 1978,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/jason-of-star-command_202107",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "jason-of-star-command_202107",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jason of Star Command CH 2 \"Prisoner of Dragos",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jason-of-star-command_202107",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jason of Star Command Ch02 Prisoner of Dragos.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 29178950,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jason-of-star-command_202107/Jason of Star Command Ch02 Prisoner of Dragos.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

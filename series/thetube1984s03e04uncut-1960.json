@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "thetube1984s03e04uncut-1960",
+  "title": "The.Tube.1984.S03E04.uncut",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the.-tube.-1984.-s-03-e-04.uncut",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "the.-tube.-1984.-s-03-e-04.uncut",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "The.Tube.1984.S03E04.uncut",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the.-tube.-1984.-s-03-e-04.uncut",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Tube.1984.S03E04.uncut.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 311029085,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-tube.-1984.-s-03-e-04.uncut/The.Tube.1984.S03E04.uncut.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

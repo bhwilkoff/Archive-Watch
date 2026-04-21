@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "seriesID": "disney-family-album-1985",
+  "title": "Disney Family Album",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": "Disney Family Album is a half hour documentary series on the Disney Channel that aired during the 1980s. It was narrated by Buddy Ebsen. The series looked at the artists and performers that help create Disney's movies and parks.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/uxk7VHruK0WWOWigzUZ9T5mqA5A.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Disney Channel"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "disney-family-album-18-true-life-adventures",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Disney Family Album: True Life Adventures",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uxk7VHruK0WWOWigzUZ9T5mqA5A.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Disney Family Album - 18 - True-Life Adventures.mp4",
+            "format": "h.264",
+            "sizeBytes": 177279165,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/disney-family-album-18-true-life-adventures/Disney Family Album - 18 - True-Life Adventures.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "disney-family-album-14-the-golden-horseshoe-revue",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Golden Horseshoe Revue",
+          "overview": "Behind the stage show at Frontierland in Disneyland.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uxk7VHruK0WWOWigzUZ9T5mqA5A.jpg",
+          "airDate": "1985-07-14",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Disney Family Album - 14 - The Golden Horseshoe Revue.mp4",
+            "format": "h.264",
+            "sizeBytes": 179572096,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/disney-family-album-14-the-golden-horseshoe-revue/Disney Family Album - 14 - The Golden Horseshoe Revue.mp4"
+        },
+        {
+          "archiveID": "disney-family-album-17-marc-davis",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Marc Davis",
+          "overview": "Long-time Disney animator and Imagineer.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uxk7VHruK0WWOWigzUZ9T5mqA5A.jpg",
+          "airDate": "1985-10-17",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Disney Family Album - 17 - Marc Davis.mp4",
+            "format": "h.264",
+            "sizeBytes": 177741111,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/disney-family-album-17-marc-davis/Disney Family Album - 17 - Marc Davis.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

@@ -1,0 +1,434 @@
+{
+  "version": 1,
+  "seriesID": "racket-squad-1960",
+  "title": "Racket Squad",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Racket Squad is an American TV crime drama series starring Reed Hadley as Captain John Braddock, a fictional detective working for the San Francisco, California Police Department.\n\nThe show aired in syndication for a season before being picked up by CBS for three seasons. The series was filmed at Hal Roach Studios in Culver City, California, and was sponsored by cigarette manufacturer Philip Morris, hence there was a pack of the sponsor's brand on Braddock's desk at the beginning and end of the episode, as well as occasional scenes of him or other characters \"lighting up\".",
+  "posterURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RacketSquadHisBrothersKeeper",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Racket Squad: His Brother's Keeper",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1577,
+          "videoFile": {
+            "name": "RacketSquad-hisBrothersKeeper.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154618945,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadHisBrothersKeeper/RacketSquad-hisBrothersKeeper.ia.mp4"
+        },
+        {
+          "archiveID": "RacketSquadTheFamilyTree",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Racket Squad: The Family Tree",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1483,
+          "videoFile": {
+            "name": "RacketSquad-familyTree.mp4",
+            "format": "h.264",
+            "sizeBytes": 146723264,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheFamilyTree/RacketSquad-familyTree.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "RacketSquadTheCaseOfTheTwoLittleCountryGirls",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Case of the Two Little Country Girls",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1951-06-28",
+          "year": null,
+          "runtimeSeconds": 1569,
+          "videoFile": {
+            "name": "RacketSquad-theCaseOfTheTwoLittleCountryGirls.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152415871,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheCaseOfTheTwoLittleCountryGirls/RacketSquad-theCaseOfTheTwoLittleCountryGirls.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "RacketSquadKiteHigh",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Kite High",
+          "overview": "A private Las Vegas casino operator alters his customers' checks before they are deposited.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1951-09-06",
+          "year": null,
+          "runtimeSeconds": 1553,
+          "videoFile": {
+            "name": "RacketSquad-kiteHigh.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152883823,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadKiteHigh/RacketSquad-kiteHigh.ia.mp4"
+        },
+        {
+          "archiveID": "RacketSquad-RaccoonHunt",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "The Raccoon Hunt",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1951-10-04",
+          "year": null,
+          "runtimeSeconds": 1386,
+          "videoFile": {
+            "name": "RacketSquad-RaccoonHunt2x05.mp4",
+            "format": "h.264",
+            "sizeBytes": 140785768,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquad-RaccoonHunt/RacketSquad-RaccoonHunt2x05.mp4"
+        },
+        {
+          "archiveID": "RacketSquadTheBillOfSaleRacket",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "The Bill of Sale Racket",
+          "overview": "A young couple who own a gas station get taken in by an escrow scam that resells their station and leaves them with nothing.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1951-11-29",
+          "year": null,
+          "runtimeSeconds": 1544,
+          "videoFile": {
+            "name": "RacketSquad-theBillOfSaleRacket.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151456199,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheBillOfSaleRacket/RacketSquad-theBillOfSaleRacket.ia.mp4"
+        },
+        {
+          "archiveID": "RacketSquadTheKnockOut",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "The Knockout",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1951-12-27",
+          "year": null,
+          "runtimeSeconds": 1616,
+          "videoFile": {
+            "name": "RacketSquad-theKnockout.mp4",
+            "format": "h.264",
+            "sizeBytes": 157741968,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheKnockOut/RacketSquad-theKnockout.mp4"
+        },
+        {
+          "archiveID": "RacketSquadAccidentallyOnPurpose",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Accidentally on Purpose",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1952-01-03",
+          "year": null,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "RacketSquad-accidentallyOnPurpose.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155788143,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadAccidentallyOnPurpose/RacketSquad-accidentallyOnPurpose.ia.mp4"
+        },
+        {
+          "archiveID": "RacketSquadDesperateMoney",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Desperate Money",
+          "overview": "Captain Braddock investigates a ruthless loanshark harassing an immigrant tailor.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1952-01-24",
+          "year": null,
+          "runtimeSeconds": 1568,
+          "videoFile": {
+            "name": "RacketSquad-desperateMoney.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154301227,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadDesperateMoney/RacketSquad-desperateMoney.ia.mp4"
+        },
+        {
+          "archiveID": "RacketSquadTheCaseOfTheHearseChaser",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "The Case of the Hearse Chasers",
+          "overview": "Capt. Braddock tries to locate a pair of swindlers who are trying to fleece a recently widowed lady out of three thousand dollars for a worthless portrait of her late husband.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1952-02-28",
+          "year": null,
+          "runtimeSeconds": 1757,
+          "videoFile": {
+            "name": "RacketSquad-theHearseChaser.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 196238127,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheCaseOfTheHearseChaser/RacketSquad-theHearseChaser.ia.mp4"
+        },
+        {
+          "archiveID": "RacketSquadTheHomeWreckers",
+          "seasonNumber": 2,
+          "episodeNumber": 28,
+          "title": "The Home Wreckers",
+          "overview": "A phony lawyer takes advantage of bickering couples by encouraging divorce and then charging exorbitant fees to arrange things.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1952-03-13",
+          "year": null,
+          "runtimeSeconds": 1466,
+          "videoFile": {
+            "name": "racketsquad-thehomewreckers.mp4",
+            "format": "h.264",
+            "sizeBytes": 145011981,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheHomeWreckers/racketsquad-thehomewreckers.mp4"
+        },
+        {
+          "archiveID": "RacketSquadTheCaseOfTheMatchmaker",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "The Case of the Matchmaker",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1952-03-20",
+          "year": null,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "RacketSquad-theCaseOfTheMatchmaker.mp4",
+            "format": "h.264",
+            "sizeBytes": 151696922,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheCaseOfTheMatchmaker/RacketSquad-theCaseOfTheMatchmaker.mp4"
+        },
+        {
+          "archiveID": "RacketSquadTheSoftTouch",
+          "seasonNumber": 2,
+          "episodeNumber": 35,
+          "title": "The Soft Touch",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1952-05-01",
+          "year": null,
+          "runtimeSeconds": 1420,
+          "videoFile": {
+            "name": "RacketSquad-theSoftTouch.mp4",
+            "format": "h.264",
+            "sizeBytes": 141015240,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheSoftTouch/RacketSquad-theSoftTouch.mp4"
+        },
+        {
+          "archiveID": "RacketSquadTheLongShot",
+          "seasonNumber": 2,
+          "episodeNumber": 44,
+          "title": "The Long Shot",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1952-07-03",
+          "year": null,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "RacketSquad-theLongShot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158827516,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheLongShot/RacketSquad-theLongShot.ia.mp4"
+        },
+        {
+          "archiveID": "RacketSquadAnyoneCanBeASucker",
+          "seasonNumber": 2,
+          "episodeNumber": 46,
+          "title": "Anyone Can Be a Sucker",
+          "overview": "A small time crook squeals on a gangster who runs a gambling ring.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1952-07-31",
+          "year": null,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "RacketSquad-anyoneCanBeASucker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151994002,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadAnyoneCanBeASucker/RacketSquad-anyoneCanBeASucker.ia.mp4"
+        },
+        {
+          "archiveID": "RacketSquadTheStrangeCaseOfJamesDoyle",
+          "seasonNumber": 2,
+          "episodeNumber": 47,
+          "title": "The Strange Case of James Doyle",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1952-08-07",
+          "year": null,
+          "runtimeSeconds": 1561,
+          "videoFile": {
+            "name": "RacketSquad-theStrangeCaseOfJamesDoyle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152231181,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheStrangeCaseOfJamesDoyle/RacketSquad-theStrangeCaseOfJamesDoyle.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "RacketSquadTheElephantInStockings",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "The Elephant in Stockings",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1952-12-11",
+          "year": null,
+          "runtimeSeconds": 1434,
+          "videoFile": {
+            "name": "Racketsquad-theElephantInStockings.mp4",
+            "format": "h.264",
+            "sizeBytes": 141727369,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheElephantInStockings/Racketsquad-theElephantInStockings.mp4"
+        },
+        {
+          "archiveID": "RacketSquad-TheChristmasCaper",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "The Christmas Caper",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1952-12-25",
+          "year": null,
+          "runtimeSeconds": 1555,
+          "videoFile": {
+            "name": "RacketSquad-TheChristmasCaper.mp4",
+            "format": "h.264",
+            "sizeBytes": 148300844,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquad-TheChristmasCaper/RacketSquad-TheChristmasCaper.mp4"
+        },
+        {
+          "archiveID": "RacketSquadTheSystem",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "The System",
+          "overview": "Using his smokin' hot daughter as bait, a con man sells a system for betting on horses to a man who has the hots for the daughter.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1953-01-01",
+          "year": null,
+          "runtimeSeconds": 1574,
+          "videoFile": {
+            "name": "RacketSquad-theSystem.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154761109,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheSystem/RacketSquad-theSystem.ia.mp4"
+        },
+        {
+          "archiveID": "RacketSquadTheCaseOfTheDancingLady",
+          "seasonNumber": 3,
+          "episodeNumber": 18,
+          "title": "The Case of the Dancing Lady",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1953-02-12",
+          "year": null,
+          "runtimeSeconds": 1485,
+          "videoFile": {
+            "name": "RacketSquad-theDancingLady.mp4",
+            "format": "h.264",
+            "sizeBytes": 148023406,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTheCaseOfTheDancingLady/RacketSquad-theDancingLady.mp4"
+        },
+        {
+          "archiveID": "RacketSquadTakeALittleLeaveALittle",
+          "seasonNumber": 3,
+          "episodeNumber": 25,
+          "title": "Take a Little, Leave a Little",
+          "overview": "Several businessmen get conned into participating in a phony oil deal.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1953-07-02",
+          "year": null,
+          "runtimeSeconds": 1573,
+          "videoFile": {
+            "name": "RacketSquad-takeALittleLeaveALittle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155087800,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadTakeALittleLeaveALittle/RacketSquad-takeALittleLeaveALittle.ia.mp4"
+        },
+        {
+          "archiveID": "RacketSquadSaleValue",
+          "seasonNumber": 3,
+          "episodeNumber": 28,
+          "title": "Sale Value",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEgnOB56M9PSjG7Ar7Wr7K4lLoF.jpg",
+          "airDate": "1953-07-20",
+          "year": null,
+          "runtimeSeconds": 1608,
+          "videoFile": {
+            "name": "RacketSquad-salesValue.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 180354840,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RacketSquadSaleValue/RacketSquad-salesValue.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 22
+}

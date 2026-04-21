@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "instant-recall-1990",
+  "title": "Instant Recall",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/instant-recall-1939-worlds-fair-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "instant-recall-1939-worlds-fair-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Instant Recall - John Palmer",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/instant-recall-1939-worlds-fair-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Instant Recall - Endless Summer - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 678594393,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/instant-recall-1939-worlds-fair-1990/Instant Recall - Endless Summer - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

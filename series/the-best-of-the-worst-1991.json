@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-best-of-the-worst-1991",
+  "title": "The Best Of The Worst",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Best of the Worst is a show aired by Fox Broadcasting Company as a part of its 1991-92 schedule.\n\nBest of the Worst, hosted by Greg Kinnear, was a lighthearted celebration of the worst elements of life — the worst movies, the worst places to get married, the worst museums, the worst airline food, and the worst Elvis impersonators being only a few of the \"worst\" examples. There was even a special correspondent reporting from Japan, David Spector, apparently to prove that North America had no monopoly on life's worst things.\n\nApparently one of the worst aspects of this program was its Nielsen ratings as it was cancelled at midseason. It finished dead last out of 98 shows and only averaged a 4.42 rating.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-best-of-the-worst-medical-devices-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Best Of The Worst - Greg Kinnear",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Best of the Worst  - Medical Devices - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 714284561,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-best-of-the-worst-medical-devices-1991/The Best of the Worst  - Medical Devices - 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

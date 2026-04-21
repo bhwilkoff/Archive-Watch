@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "studio-one-miracle-in-the-rain-2024",
+  "title": "Studio One Miracle In The Rain",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/studio-one-miracle-in-the-rain-1950",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "studio-one-miracle-in-the-rain-1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One Miracle In The Rain (1950)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/studio-one-miracle-in-the-rain-1950",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio One Miracle in the Rain (1950).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 298167271,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-miracle-in-the-rain-1950/Studio One Miracle in the Rain (1950).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

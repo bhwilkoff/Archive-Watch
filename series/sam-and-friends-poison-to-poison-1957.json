@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sam-and-friends-poison-to-poison-1957",
+  "title": "Sam And Friends Poison To Poison",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sam-and-friends-poison-to-poison",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sam-and-friends-poison-to-poison",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sam And Friends Poison To Poison",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sam-and-friends-poison-to-poison",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "sam and friends poison to poison.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 10877868,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sam-and-friends-poison-to-poison/sam and friends poison to poison.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

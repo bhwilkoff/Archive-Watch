@@ -1,0 +1,381 @@
+{
+  "version": 1,
+  "seriesID": "for-all-practical-purposes-1985",
+  "title": "For All Practical Purposes",
+  "yearStart": 1985,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/for-all-practical-purposes-02",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "for-all-practical-purposes-02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 02: Moving Picture Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-02",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 02.mp4",
+            "format": "h.264",
+            "sizeBytes": 165582164,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-02/For All Practical Purposes - 02.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 03: Creating a Code",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-03",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 03.mp4",
+            "format": "h.264",
+            "sizeBytes": 172810271,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-03/For All Practical Purposes - 03.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 05: Rules of the Game",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-05",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 05.mp4",
+            "format": "h.264",
+            "sizeBytes": 166837176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-05/For All Practical Purposes - 05.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-06",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 06: Computer Science - Overview",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-06",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 06.mp4",
+            "format": "h.264",
+            "sizeBytes": 168093534,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-06/For All Practical Purposes - 06.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 07: It Started in Greece",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-07",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 07.mp4",
+            "format": "h.264",
+            "sizeBytes": 167098407,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-07/For All Practical Purposes - 07.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-08",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 08: Stand Up Conic",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-08",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 08.mp4",
+            "format": "h.264",
+            "sizeBytes": 165881233,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-08/For All Practical Purposes - 08.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-09",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 09: It Grows and Grows",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-09",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 09.mp4",
+            "format": "h.264",
+            "sizeBytes": 166110450,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-09/For All Practical Purposes - 09.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-10",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 10: How Big is Too Big",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-10",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 10.mp4",
+            "format": "h.264",
+            "sizeBytes": 166705762,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-10/For All Practical Purposes - 10.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-11",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 11: On Size and Shape - Overview",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-11",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 11.mp4",
+            "format": "h.264",
+            "sizeBytes": 166493442,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-11/For All Practical Purposes - 11.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-14",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 14: More Equal than Others",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-14",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 14.mp4",
+            "format": "h.264",
+            "sizeBytes": 167611015,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-14/For All Practical Purposes - 14.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-15",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 15: The Impossible Dream",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-15",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 15.mp4",
+            "format": "h.264",
+            "sizeBytes": 166673256,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-15/For All Practical Purposes - 15.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-16",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 16: Social Choice - Overview",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-16",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 16.mp4",
+            "format": "h.264",
+            "sizeBytes": 165366384,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-16/For All Practical Purposes - 16.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-17",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 17: Confident Conclusions",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-17",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 17.mp4",
+            "format": "h.264",
+            "sizeBytes": 165999176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-17/For All Practical Purposes - 17.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-18",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 18: Place Your Bets",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-18",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 18.mp4",
+            "format": "h.264",
+            "sizeBytes": 166524855,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-18/For All Practical Purposes - 18.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-19",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 19: Picture This",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-19",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 19.mp4",
+            "format": "h.264",
+            "sizeBytes": 166438239,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-19/For All Practical Purposes - 19.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-20",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 20: Behind the Headlines",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-20",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 20.mp4",
+            "format": "h.264",
+            "sizeBytes": 167651549,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-20/For All Practical Purposes - 20.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-21",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 21: Statistics - Overview",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-21",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 21.mp4",
+            "format": "h.264",
+            "sizeBytes": 165501345,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-21/For All Practical Purposes - 21.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-22",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 22: Juicy Problems",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-22",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 22.mp4",
+            "format": "h.264",
+            "sizeBytes": 167087691,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-22/For All Practical Purposes - 22.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-23",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 23: Juggling Machines",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-23",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 23.mp4",
+            "format": "h.264",
+            "sizeBytes": 166339370,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-23/For All Practical Purposes - 23.mp4"
+        },
+        {
+          "archiveID": "for-all-practical-purposes-25",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "For All Practical Purposes - 25: Street Smarts",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/for-all-practical-purposes-25",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "For All Practical Purposes - 25.mp4",
+            "format": "h.264",
+            "sizeBytes": 167229903,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/for-all-practical-purposes-25/For All Practical Purposes - 25.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 20
+}

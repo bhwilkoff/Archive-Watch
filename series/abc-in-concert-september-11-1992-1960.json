@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-in-concert-september-11-1992-1960",
+  "title": "ABC In Concert (September 11, 1992",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ABCInConcertSeptember111992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ABCInConcertSeptember111992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC In Concert (September 11, 1992)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ABCInConcertSeptember111992",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC-In-Concert-_September-11_-1992_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 183324787,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ABCInConcertSeptember111992/ABC-In-Concert-_September-11_-1992_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "mr-robinson-crusoe_weirdness-bad-movie-1960",
+  "title": "Mr. Robinson Crusoe_Weirdness Bad Movie",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/v9o0gtCiEfJaFjzbyDEnusezzES.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure",
+    "Comedy"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Mr.RobinsonCrusoe_weirdnessBadMovie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. Robinson Crusoe_Weirdness Bad Movie",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v9o0gtCiEfJaFjzbyDEnusezzES.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 6493,
+          "videoFile": {
+            "name": "Mr.RobinsonCrusoe_wrbm_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 522208630,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.RobinsonCrusoe_weirdnessBadMovie/Mr.RobinsonCrusoe_wrbm_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

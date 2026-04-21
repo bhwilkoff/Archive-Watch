@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-professionals-1977",
+  "title": "The Professionals",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": "The lives of Bodie and Doyle, top agents for Britain's CI5 (Criminal Intelligence 5), and their controller, George Cowley. \n\nThe mandate of CI5 was to fight terrorism and similar high-profile crimes. Cowley, a hard ex-MI5 operative, hand-picked each of his men. Bodie is a cynical ex-SAS paratrooper and mercenary whose nature ran to controlled violence, while his partner, Doyle, comes to CI5 from the regular police force, and is more of an open minded liberal. Their relationship is often contentious, but they are the top men in their field, and the ones to whom Cowley always assigned to the toughest cases.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dcWbH33uUGk8pKmIgqX3hRkBNeN.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/wYUVlnKgWCLIelFd8XSaSnKEltB.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Brian Clemens",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-professionals-complete-series-1977",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Professionals - Complete Series 1977",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dcWbH33uUGk8pKmIgqX3hRkBNeN.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Professionals   5x08   The Untouchables.mp4",
+            "format": "h.264",
+            "sizeBytes": 300288003,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The Professionals   5x08   The Untouchables.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

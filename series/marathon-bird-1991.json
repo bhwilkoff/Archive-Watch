@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "marathon-bird-1991",
+  "title": "Marathon Bird",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MarathonBirdYouTube",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MarathonBirdYouTube",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Marathon Bird",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MarathonBirdYouTube",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Nature S09E19 The Marathon Bird (YouTube).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 245100218,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MarathonBirdYouTube/Nature S09E19 The Marathon Bird (YouTube).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

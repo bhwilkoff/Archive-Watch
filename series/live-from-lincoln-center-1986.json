@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "live-from-lincoln-center-1986",
+  "title": "Live from Lincoln Center",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "Since premiering in 1976, the landmark series has sought to democratize the world of the performing arts by making Lincoln Center's historic concerts and events available for public broadcast across the country. And it continues to push the boundaries, both technical and creative, of what is possible in the realm of stage performance capture.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/mUisIH1YjsuDoMjoU0XuTVG4tZC.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4ZHAzBv1VxCgXPBbnox8yRhomOD.jpg",
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "candide-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Live from Lincoln Center - Hugh Downs",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mUisIH1YjsuDoMjoU0XuTVG4tZC.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "24th Mostly Mozart Festival - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3565212177,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/candide-1/24th Mostly Mozart Festival - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

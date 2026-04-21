@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "eye-witness-1948",
+  "title": "Eye Witness",
+  "yearStart": 1948,
+  "yearEnd": 1948,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "EyeWitnessStoryOfTelevision02261948",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye Witness",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye_witness_Story_of_Television_02_26_1948.mp4",
+            "format": "h.264",
+            "sizeBytes": 176175638,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/EyeWitnessStoryOfTelevision02261948/Eye_witness_Story_of_Television_02_26_1948.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

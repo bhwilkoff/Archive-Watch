@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "seriesID": "stories-of-the-century-1954",
+  "title": "Stories of the Century",
+  "yearStart": 1954,
+  "yearEnd": 1955,
+  "overview": "Stories of the Century is a 39-episode Western television series starring Jim Davis that ran in syndication through Republic Pictures between January 23, 1954, and March 11, 1955.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/6w3dt4e7NW89dvLGph7DZRXapax.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "StoriesOfTheCentury1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "STORIES OF THE CENTURY (1954)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1826,
+          "videoFile": {
+            "name": "FrankAndJesse.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152729392,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury1954/FrankAndJesse.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Stories_of_the_Century_CattleKate",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Cattle Kate",
+          "overview": "Matt and Frankie head to Sweetwater, Wyoming where major cattle ranches are suffering heavy losses. A woman nicknamed Cattle Kate becomes the focus due the number of livestock she sells despite her small operation.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-02-28",
+          "year": 1954,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "cattlekate.mp4",
+            "format": "h.264",
+            "sizeBytes": 158028831,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Stories_of_the_Century_CattleKate/cattlekate.mp4"
+        },
+        {
+          "archiveID": "ChiefCrazyHorse",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Chief Crazy Horse",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-04-30",
+          "year": 1955,
+          "runtimeSeconds": 1550,
+          "videoFile": {
+            "name": "chief crazy horse-3.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 117092095,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ChiefCrazyHorse/chief crazy horse-3.ogv"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Jackslade",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Jack Slade",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1955-03-04",
+          "year": 1955,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "jackslade-5.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 119724412,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Jackslade/jackslade-5.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

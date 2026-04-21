@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "johnny-cash-1981",
+  "title": "Johnny Cash",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": "The Johnny Cash Show was an American television music variety show hosted by Johnny Cash. The Screen Gems 58-episode series ran from June 7, 1969 to March 31, 1971 on ABC; it was taped at the Ryman Auditorium in Nashville, Tennessee. The show reached No. 17 in the Nielsen ratings in 1970.\n\nCash opened each show, and its regulars included members of his touring troupe, June Carter Cash and the Carter Family, The Statler Brothers, Carl Perkins, and The Tennessee Three, with Australian-born musical director-arranger-conductor Bill Walker. The Statler Brothers performed brief comic interludes.\n\nIt featured many folk-country musicians, such as Joni Mitchell, Bob Dylan, Linda Ronstadt, Kris Kristofferson, Mickey Newbury, Neil Young, Gordon Lightfoot, Merle Haggard, James Taylor and Tammy Wynette. It also featured other musicians such as jazz great Louis Armstrong, who died eight months after appearing on the show.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/xxFcb2jvHByVGJ35i9JyM6HToe7.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/pX5Zxgw6oqoJHddz7JUlHewgxzO.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "johnny-cash-live-in-london-1981",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Johnny Cash - Live In London",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xxFcb2jvHByVGJ35i9JyM6HToe7.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Johnny Cash Live in London - 1981.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1354712093,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/johnny-cash-live-in-london-1981/Johnny Cash Live in London - 1981.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

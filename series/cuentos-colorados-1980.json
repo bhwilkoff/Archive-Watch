@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cuentos-colorados-1980",
+  "title": "Cuentos Colorados",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/cuentos-colorados-1980",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cuentos-colorados-1980",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cuentos Colorados - Adalberto Martinez",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/cuentos-colorados-1980",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cuentos Colorados - 1980.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2489720607,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cuentos-colorados-1980/Cuentos Colorados - 1980.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

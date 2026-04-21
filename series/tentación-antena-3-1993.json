@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tentación-antena-3-1993",
+  "title": "Tentación (Antena 3",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tentacion-1993-11-05",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tentacion-1993-11-05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tentación (Antena 3) - 5 de noviembre, 1993",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tentacion-1993-11-05",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Antena 3 -  Tentación  (5-11-1993).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 189994134,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tentacion-1993-11-05/Antena 3 -  Tentación  (5-11-1993).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

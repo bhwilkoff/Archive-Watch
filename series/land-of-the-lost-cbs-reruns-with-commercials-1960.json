@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "land-of-the-lost-cbs-reruns-with-commercials-1960",
+  "title": "Land Of The Lost CBS Reruns with Commercials",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/LOTLCBS80s",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LOTLCBS80s",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Land Of The Lost CBS Reruns with Commercials.",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LOTLCBS80s",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2; November 23 1985 - Split Personality.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 139954847,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LOTLCBS80s/2; November 23 1985 - Split Personality.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "so-you-want-to-be-a-doctor-1991",
+  "title": "So you want to be a doctor?",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SoYouWanttobeaDoctor",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SoYouWanttobeaDoctor",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "So you want to be a doctor?",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SoYouWanttobeaDoctor",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S18E12.So.You.Want.to.be.a.Doctor.1991.VHSRip.AAC2.0.x264-astro.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1487604650,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SoYouWanttobeaDoctor/NOVA.S18E12.So.You.Want.to.be.a.Doctor.1991.VHSRip.AAC2.0.x264-astro.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

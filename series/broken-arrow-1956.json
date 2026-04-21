@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "broken-arrow-1956",
+  "title": "Broken Arrow",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": "Broken Arrow is a Western series which ran on ABC-TV in prime time from 1956 through 1958 on Tuesdays at 9 p.m. Eastern time. Repeat episodes were shown by ABC on Sunday afternoons during the 1959–60 season. Selected repeats were then shown once again in prime time during the summer of 1960.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/80/202355.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/itV07LzxTuhaoXqoP8UCERzNh4k.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "brokenarrows1e12theraiders",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Raiders",
+          "overview": "Area commodity providers conduct raids which turn deadly disguised as Aravaipa Apaches to foment conflict and draw military into the area and so gain profit from the increased presence of troops.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/80/202355.jpg",
+          "airDate": "1956-12-25",
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Broken Arrow s1e12 The Raiders.mp4",
+            "format": "h.264",
+            "sizeBytes": 169098049,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brokenarrows1e12theraiders/Broken Arrow s1e12 The Raiders.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

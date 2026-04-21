@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "thetube1985s04e09uncut-1960",
+  "title": "The.Tube.1985.S04E09.uncut",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the.-tube.-1985.-s-04-e-09.uncut",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "the.-tube.-1985.-s-04-e-09.uncut",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "The.Tube.1985.S04E09.uncut",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the.-tube.-1985.-s-04-e-09.uncut",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Tube.1985.S04E09.uncut.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 263143685,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-tube.-1985.-s-04-e-09.uncut/The.Tube.1985.S04E09.uncut.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

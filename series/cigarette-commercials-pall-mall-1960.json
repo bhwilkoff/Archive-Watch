@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cigarette-commercials-pall-mall-1960",
+  "title": "Cigarette Commercials Pall Mall",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Cigarette_Commercials_Pall_Mall",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cigarette_Commercials_Pall_Mall",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cigarette Commercials Pall Mall",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Cigarette_Commercials_Pall_Mall",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Commercial_Pall_Mall_Cigarettes_w_Make_Room_For_Daddy_opening_1954_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 8016824,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cigarette_Commercials_Pall_Mall/Commercial_Pall_Mall_Cigarettes_w_Make_Room_For_Daddy_opening_1954_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

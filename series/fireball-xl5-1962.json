@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "seriesID": "fireball-xl5-1962",
+  "title": "Fireball XL5",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": "Fireball XL5 is a science fiction-themed children's television show following the missions of spaceship Fireball XL5, commanded by Colonel Steve Zodiac of the World Space Patrol. The show was produced in 1962 by husband and wife team Gerry and Sylvia Anderson through their company APF, in association with ATV for ITC Entertainment. While developing his new show, Anderson thought a brand of motor oil—Castrol XL—had an interesting sound. A phonetic change created the name \"Fireball XL\", with the \"-5\" added as the title seemed a bit flat without the numeral.\n\nThe show featured the Andersons' Supermarionation, a form of puppetry first introduced in Four Feather Falls and Supercar and used again in their subsequent productions such as Stingray and Captain Scarlet. Thirty-nine black and white half-hour episodes of Fireball XL5 were made on 35mm film: all future Anderson series were produced in colour.\n\nSeveral Anderson series have been shown in syndication in the US, but Fireball XL5 is the only Anderson series to have run on a US network. NBC ran the series in its Saturday morning children's block from 1963 through to September 1965.\n\nA similar programme often confused with Fireball XL5 is Space Patrol, produced by Gerry Anderson's ex business partner and co-founder of AP Films, Arthur Provis due to a number of similarities and settings.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/73TKMnAn7ZAQD9WyRi1cEKGaiSD.jpg",
+  "genres": [],
+  "networks": [
+    "Associated Television"
+  ],
+  "creator": "Sylvia Anderson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FireballXL51x01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fireball XL5 - 1x01 - Planet 46",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fireball XL5 Ep-01 Planet 46.mp4",
+            "format": "h.264",
+            "sizeBytes": 155880130,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FireballXL51x01/Fireball XL5 Ep-01 Planet 46.mp4"
+        },
+        {
+          "archiveID": "FireballXL51x02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fireball XL5 - 1x02 - The Doomed Planet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fireball XL5 Ep-02 The Doomed Planet.mp4",
+            "format": "h.264",
+            "sizeBytes": 145007891,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FireballXL51x02/Fireball XL5 Ep-02 The Doomed Planet.mp4"
+        },
+        {
+          "archiveID": "FireballXL5.complete",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fireball XL5. (Complete Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rBv16DzgKuzvx13KweU2nltONXU.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Fireball XL5 - 25. The Forbidden Planet.mp4",
+            "format": "h.264",
+            "sizeBytes": 157312329,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FireballXL5.complete/Fireball XL5 - 25. The Forbidden Planet.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "FireballXL51x03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Space Immigrants",
+          "overview": "Venus and Prof. Matic are about to set off in the Mayflower 3 to colonise the nearby planet, New Earth. But the Advance Scout has been kidnapped by two evil midgets who plan to hold the new immigrants captive.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/zxmJ7XjMFgcwmuugQAGcwHwN0Dz.jpg",
+          "airDate": "1962-11-11",
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Space Immigrants XL5.mp4",
+            "format": "h.264",
+            "sizeBytes": 147892282,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FireballXL51x03/Space Immigrants XL5.mp4"
+        },
+        {
+          "archiveID": "FireballXL51x04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Plant Man From Space",
+          "overview": "After a blackout at Space City, a missile gets through the radar blackout, and is heading towards Space City with a dangerous cargo...",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ibbaZptdOZX8ewMxHZWNUzPdxmf.jpg",
+          "airDate": "1962-11-18",
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Plant Man from Space XL5.mp4",
+            "format": "h.264",
+            "sizeBytes": 155400154,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FireballXL51x04/Plant Man from Space XL5.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

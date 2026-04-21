@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "musikladen-1960",
+  "title": "Musikladen",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Der Musikladen was a West German music television programme that ran from December 13, 1972 to November 29, 1984. The show continued the 1960s Beat-Club under a new name, and in turn was replaced by Extratour.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/5SU5Jh6DAhyy84RcOS5HgtJRzKX.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Das Erste"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "musikladen-beat-club-studio-emmylou-harris-the-hot-band-march-26-1977",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Musikladen - Beat Club Studio - Emmylou Harris & The Hot Band - March 26, 1977",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/5SU5Jh6DAhyy84RcOS5HgtJRzKX.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Musikladen - Beat Club Studio - Emmylou Harris & The Hot Band - March 26, 1977.mp4",
+            "format": "h.264",
+            "sizeBytes": 241330101,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/musikladen-beat-club-studio-emmylou-harris-the-hot-band-march-26-1977/Musikladen - Beat Club Studio - Emmylou Harris & The Hot Band - March 26, 1977.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

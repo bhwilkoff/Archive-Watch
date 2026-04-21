@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "seriesID": "alan-watts-1960",
+  "title": "Alan Watts",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AlanWatts-Pain-Kqed-1959",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AlanWatts-Death-Kqed-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alan Watts - Death - KQED - 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanWatts-Death-Kqed-1959",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AlanWattsDeath1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 168468320,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanWatts-Death-Kqed-1959/AlanWattsDeath1959.mp4"
+        },
+        {
+          "archiveID": "AlanWatts-LawAndOrder-Kqed-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alan Watts - Law and Order - KQED - 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanWatts-LawAndOrder-Kqed-1959",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AlanWattsLawAndOrder1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 170058039,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanWatts-LawAndOrder-Kqed-1959/AlanWattsLawAndOrder1959.mp4"
+        },
+        {
+          "archiveID": "AlanWatts-ManAndNature-Kqed-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alan Watts - Man and Nature - KQED - 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanWatts-ManAndNature-Kqed-1959",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AlanWattsManAndNature1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 173815165,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanWatts-ManAndNature-Kqed-1959/AlanWattsManAndNature1959.mp4"
+        },
+        {
+          "archiveID": "AlanWatts-Omnipotence-Kqed-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alan Watts - Omnipotence - KQED - 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanWatts-Omnipotence-Kqed-1959",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AlanWattsOmnipotence1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 168283852,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanWatts-Omnipotence-Kqed-1959/AlanWattsOmnipotence1959.mp4"
+        },
+        {
+          "archiveID": "AlanWatts-OnBeingVague-Kqed-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alan Watts - On Being Vague - KQED - 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanWatts-OnBeingVague-Kqed-1959",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AlanWattsOnBeingVague1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 175127692,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanWatts-OnBeingVague-Kqed-1959/AlanWattsOnBeingVague1959.mp4"
+        },
+        {
+          "archiveID": "AlanWatts-Pain-Kqed-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alan Watts - Pain - KQED - 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanWatts-Pain-Kqed-1959",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AlanWattsPain1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 174979669,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanWatts-Pain-Kqed-1959/AlanWattsPain1959.mp4"
+        },
+        {
+          "archiveID": "AlanWatts-Recollection-Kqed-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alan Watts - Recollection - KQED - 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanWatts-Recollection-Kqed-1959",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AlanWattsRecollection1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 170009980,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanWatts-Recollection-Kqed-1959/AlanWattsRecollection1959.mp4"
+        },
+        {
+          "archiveID": "AlanWatts-TheLifeOfZen-Kqed-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alan Watts - The Life of Zen - KQED - 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanWatts-TheLifeOfZen-Kqed-1959",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AlanWatts-theLifeOfZen1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 173750603,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanWatts-TheLifeOfZen-Kqed-1959/AlanWatts-theLifeOfZen1960.mp4"
+        },
+        {
+          "archiveID": "AlanWatts-TheSilentMind-Kqed-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alan Watts - The Silent Mind - KQED - 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanWatts-TheSilentMind-Kqed-1959",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AlanWatts-theSilentMind1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 176737997,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanWatts-TheSilentMind-Kqed-1959/AlanWatts-theSilentMind1959.mp4"
+        },
+        {
+          "archiveID": "AlanWatts-TheVoid-Kqed-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alan Watts - The Void - KQED - 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanWatts-TheVoid-Kqed-1959",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AlanWattsTheVoid1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 177132550,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanWatts-TheVoid-Kqed-1959/AlanWattsTheVoid1959.mp4"
+        },
+        {
+          "archiveID": "AlanWatts-ThingsAndThinks-Kqed-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alan Watts - Things and Thinks - KQED - 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanWatts-ThingsAndThinks-Kqed-1959",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AlanWattsThingsAndThinks1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 168353804,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanWatts-ThingsAndThinks-Kqed-1959/AlanWattsThingsAndThinks1959.mp4"
+        },
+        {
+          "archiveID": "AlanWatts-Time-Kqed-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alan Watts - Time - KQED - 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlanWatts-Time-Kqed-1959",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AlanWattsTime1959..ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 91054915,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlanWatts-Time-Kqed-1959/AlanWattsTime1959..ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12
+}

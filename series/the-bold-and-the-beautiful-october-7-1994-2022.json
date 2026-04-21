@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-bold-and-the-beautiful-october-7-1994-2022",
+  "title": "The Bold And The Beautiful (October 7, 1994",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-bold-and-the-beautiful-october-7-1994",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-bold-and-the-beautiful-october-7-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Bold And The Beautiful (October 7, 1994)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-bold-and-the-beautiful-october-7-1994",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Bold and the Beautiful (October 7, 1994).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 245612589,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-bold-and-the-beautiful-october-7-1994/The Bold and the Beautiful (October 7, 1994).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

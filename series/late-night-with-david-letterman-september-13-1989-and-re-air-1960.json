@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "late-night-with-david-letterman-september-13-1989-and-re-air-1960",
+  "title": "Late Night With David Letterman September 13, 1989 and re-aired October 16, 1990",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/late-night-with-david-letterman-1989-09-13",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "late-night-with-david-letterman-1989-09-13",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Late Night With David Letterman September 13, 1989 and re-aired October 16, 1990",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/late-night-with-david-letterman-1989-09-13",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Late Night with David Letterman 1989-09-13.mp4",
+            "format": "h.264",
+            "sizeBytes": 358722177,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/late-night-with-david-letterman-1989-09-13/Late Night with David Letterman 1989-09-13.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

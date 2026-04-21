@@ -1,0 +1,262 @@
+{
+  "version": 1,
+  "seriesID": "the-third-man-1960",
+  "title": "The Third Man",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/zHftr1XNpE4aaltbUvhzzdEwWbv.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-third-man-disc-1-01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "One Kind Word",
+          "overview": "When Harry rescues a pretty woman from an attempted suicide, he is recognized as a post-war black-marketeer from Vienna. British intelligence asks his assistance to bring to justice another black-marketeer who uses children to explode land mines, thereby enabling him to cross behind the Iron Curtain with contraband.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+          "airDate": "1959-10-02",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 1 01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 830524773,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-1-01/The Third Man - Disc 1 01.ia.mp4"
+        },
+        {
+          "archiveID": "the-third-man-disc-1-02",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Death of an Overlord",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+          "airDate": "1959-10-16",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 1 02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 848205032,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-1-02/The Third Man - Disc 1 02.ia.mp4"
+        },
+        {
+          "archiveID": "the-third-man-disc-1-03",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Indispensable Man",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+          "airDate": "1959-10-30",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 1 03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 834841080,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-1-03/The Third Man - Disc 1 03.ia.mp4"
+        },
+        {
+          "archiveID": "the-third-man-disc-1-04",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Sparks from a Dead Fire",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+          "airDate": "1959-11-06",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 1 04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 839983753,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-1-04/The Third Man - Disc 1 04.ia.mp4"
+        },
+        {
+          "archiveID": "the-third-man-disc-1-05",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Three Dancing Turtles",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+          "airDate": "1959-11-13",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 1 05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 830243779,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-1-05/The Third Man - Disc 1 05.ia.mp4"
+        },
+        {
+          "archiveID": "the-third-man-disc-1-06",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "A Question of Price",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+          "airDate": "1959-11-27",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 1 06.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 830197927,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-1-06/The Third Man - Disc 1 06.ia.mp4"
+        },
+        {
+          "archiveID": "the-third-man-disc-1-07",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Barcelona Passage",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+          "airDate": "1959-12-18",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 1 07.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 822090436,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-1-07/The Third Man - Disc 1 07.ia.mp4"
+        },
+        {
+          "archiveID": "the-third-man-disc-1-08",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Listen for the Sound of a Witch",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+          "airDate": "1960-01-01",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 1 08.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 838194430,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-1-08/The Third Man - Disc 1 08.ia.mp4"
+        },
+        {
+          "archiveID": "the-third-man-disc-2-2",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Third Medallion",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+          "airDate": "1960-01-29",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 2_2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 828520960,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-2-2/The Third Man - Disc 2_2.ia.mp4"
+        },
+        {
+          "archiveID": "the-third-man-disc-2-3",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Angry Young Man",
+          "overview": "Harry investigates the supposed suicide of a friend and he suspects murder. The man had a son who hated him, an employee who may have been leaching off of him, and a new wife played by Hazel Court.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+          "airDate": "1960-02-05",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 2_3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 823534941,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-2-3/The Third Man - Disc 2_3.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the-third-man-disc-2-6",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "A Question of Libel",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+          "airDate": "1962-07-02",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 2_6.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 832106735,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-2-6/The Third Man - Disc 2_6.ia.mp4"
+        },
+        {
+          "archiveID": "the-third-man-disc-2-7",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Mischka",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+          "airDate": "1962-07-09",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 2_7.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 875180368,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-2-7/The Third Man - Disc 2_7.ia.mp4"
+        },
+        {
+          "archiveID": "the-third-man-disc-2-8",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "The Cross of Candos",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i4YhNRkvZ34wj3hIiwkt4K3Bmbk.jpg",
+          "airDate": "1962-07-16",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Third Man - Disc 2_8.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 828959121,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-third-man-disc-2-8/The Third Man - Disc 2_8.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13
+}

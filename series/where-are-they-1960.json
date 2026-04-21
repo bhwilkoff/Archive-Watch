@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "where-are-they-1960",
+  "title": "Where Are They?",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Where Are They Now? was a television series on VH1 that featured past celebrities and updated on their current professional and personal status. Each episode was dedicated to another genre.\n\nThough not always in sequence, some episodes were a continuation of the motif of episodes from the past. Those episodes sometimes had Roman numerals in their title to signify their sequel status.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "VH1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OSB-73_Where_Are_They",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Where Are They?",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OSB-73_Where_Are_They.mp4",
+            "format": "h.264",
+            "sizeBytes": 154179353,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-73_Where_Are_They/OSB-73_Where_Are_They.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "robert-redford-sydney-pollack-1990",
+  "title": "Robert Redford & Sydney Pollack",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/robert-redford-sydney-pollack-the-men...-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "robert-redford-sydney-pollack-the-men...-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Robert Redford & Sydney Pollack - Dick Cavett",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/robert-redford-sydney-pollack-the-men...-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robert Redford & Sydney Pollack - The Men... - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1472729667,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/robert-redford-sydney-pollack-the-men...-1990/Robert Redford & Sydney Pollack - The Men... - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

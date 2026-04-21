@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-legend-of-the-beverly-hillbillies-1993",
+  "title": "The Legend Of The Beverly Hillbillies",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/legend-of-the-beverly-hillbillies-1993",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "legend-of-the-beverly-hillbillies-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Legend Of The Beverly Hillbillies - Mac Davis",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/legend-of-the-beverly-hillbillies-1993",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Legend of the Beverly Hillbillies - 1993.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1407425153,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/legend-of-the-beverly-hillbillies-1993/Legend of the Beverly Hillbillies - 1993.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "roots-1977-1977",
+  "title": "Roots (1977",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/roots-1977-complete-original",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "roots-1977-complete-original",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Roots (1977 miniseries)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/roots-1977-complete-original",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Roots (1977) 1080p H.264 EP 6 (moviesbyrizzo upload).mp4",
+            "format": "h.264",
+            "sizeBytes": 567057749,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/roots-1977-complete-original/Roots (1977) 1080p H.264 EP 6 (moviesbyrizzo upload).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

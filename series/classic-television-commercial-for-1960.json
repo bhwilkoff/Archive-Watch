@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "classic-television-commercial-for-1960",
+  "title": "Classic Television Commercial for",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ClassicTelevisionCommercialForkodakStarmiteCameraad2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ClassicTelevisionCommercialForblueCheerad3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Television Commercial for ''Blue Cheer'' (Ad 3)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ClassicTelevisionCommercialForblueCheerad3",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 63,
+          "videoFile": {
+            "name": "BlueCheer3_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4481848,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClassicTelevisionCommercialForblueCheerad3/BlueCheer3_512kb.mp4"
+        },
+        {
+          "archiveID": "ClassicTelevisionCommercialForkodakStarmiteCameraad2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Television Commercial for ''Kodak Starmite Camera'' (Ad 2)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ClassicTelevisionCommercialForkodakStarmiteCameraad2",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 78,
+          "videoFile": {
+            "name": "KodakStarmite2_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 5612911,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClassicTelevisionCommercialForkodakStarmiteCameraad2/KodakStarmite2_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

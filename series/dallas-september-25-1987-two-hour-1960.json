@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dallas-september-25-1987-two-hour-1960",
+  "title": "Dallas September 25, 1987 Two-Hour",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/dallas-1987-09-25-season-11-episode-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dallas-1987-09-25-season-11-episode-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dallas September 25, 1987 Two-Hour Season 11 Premiere",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/dallas-1987-09-25-season-11-episode-1",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dallas 1987-09-25 Season 11 Episode 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 688722466,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dallas-1987-09-25-season-11-episode-1/Dallas 1987-09-25 Season 11 Episode 1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

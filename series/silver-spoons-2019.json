@@ -1,0 +1,275 @@
+{
+  "version": 1,
+  "seriesID": "silver-spoons-2019",
+  "title": "Silver Spoons",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": "Wealthy, young-at-heart business owner Edward Stratton III is stunned to discover his brief marriage several years ago produced a son, Richard Bluedhorn-Stratton, now 12 and standing in Edward's living room, wanting to live with the father he never knew. Although Edward's first impulse is to send Ricky to boarding school, he soon relents and let his son move in with him and Kate, his love-struck secretary.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4hUElOjWavce33FkD1z2tXXDNa1.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Ben Starr",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "SilverSpoonsSeason5Episode1TheBeachHousePart1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Pilot",
+          "overview": "Edward Stratton III is the epitome of the overgrown child. His lawyer Leonard Rollins has just informed him that his business manager Lou says he is broke and Edward is more interested in playing a game of PacMan. The Stratton mansion looks more like an arcade with video games lining the walls and a scale model train in the middle of the room that actually goes all over the property. Edward is totally taken by surprise when a blonde 12 year old boy arrives and introduces himself as Edward's son Ricky. Edward had been married to Ricky's mother Evelyn for seven days and until that moment he had no clue that he was a father. We meet Edward's assistant Kate Summers during a thoughtful moment of her mentioning that perhaps Edward should hold off on a charity donation until his finances were back in shape. After discovering and proving that Lou had really embezzled Edward's money, Ricky tries to convince his father to let him move in with him instead of making him return to military school.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/5Ghmv1l3zluy67iUSIgbMTc0ESv.jpg",
+          "airDate": "1982-09-25",
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 1 The Beach House Part 1.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 67002095,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode1TheBeachHousePart1/Silver Spoons Season 5 Episode 1 The Beach House Part 1.ogv"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason5Episode1TheBeachHousePart2",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Silver Spoons Season 5 Episode 1 The Beach House Part 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 1 The Beach House part 2.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 34882939,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode1TheBeachHousePart2/Silver Spoons Season 5 Episode 1 The Beach House part 2.ogv"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason5Episode7RickyMovesOutPart1",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Great Computer Caper",
+          "overview": "Ricky is interviewed by a school reporter and goes on the run after hacking into a top secret government file.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/xacC9E9mNDLvRU4ejWLhsyTwFz0.jpg",
+          "airDate": "1982-11-06",
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 7 Ricky Moves Out Part 1 -.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 54367763,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode7RickyMovesOutPart1/Silver Spoons Season 5 Episode 7 Ricky Moves Out Part 1 -.ogv"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason5Episode7RickyMovesOutPart2",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Silver Spoons Season 5 Episode 7 Ricky Moves Out Part 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 7 Ricky Moves Out Part 2.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 42572881,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode7RickyMovesOutPart2/Silver Spoons Season 5 Episode 7 Ricky Moves Out Part 2.ogv"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason5Episode10TheTrianglePart1",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Silver Spoons Season 5 Episode 10 The Triangle Part 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 10 The Triangle Part 1.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 58557042,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode10TheTrianglePart1/Silver Spoons Season 5 Episode 10 The Triangle Part 1.ogv"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason5Episode10TheTrianglePart2",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Father Nature",
+          "overview": "Ricky convinces Edward to take him camping so he can earn his badger paws.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/jQiR7cYJIFl4wOvB5ctMYDUwzdv.jpg",
+          "airDate": "1982-11-27",
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 10 The Triangle Part 2.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 38760593,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode10TheTrianglePart2/Silver Spoons Season 5 Episode 10 The Triangle Part 2.ogv"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason5Episode13RumorAreFlyingPart21",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Best Christmas Ever",
+          "overview": "Edward and Ricky play Santa to a family living in a cave on their property.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/l7MRPo2AuvboeTn7c1jNAqvNIcd.jpg",
+          "airDate": "1982-12-18",
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 13 Rumor are Flying Part 2[1].ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 48114713,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode13RumorAreFlyingPart21/Silver Spoons Season 5 Episode 13 Rumor are Flying Part 2[1].ogv"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason5Episode13RumorsAreFlyingPart1",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Rumors are Flying",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": "1987-02-02",
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 5 Episode 13 Rumors are Flying Part 1.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 50444914,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason5Episode13RumorsAreFlyingPart1/Silver Spoons Season 5 Episode 13 Rumors are Flying Part 1.ogv"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason4Episode20RickySingsPart16",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Silver Spoons Season 4 Episode 20 Ricky Sings Part 1[ 6]",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 4 Episode 20 Ricky Sings Part 1[6].mp4",
+            "format": "h.264",
+            "sizeBytes": 80129132,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode20RickySingsPart16/Silver Spoons Season 4 Episode 20 Ricky Sings Part 1[6].mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason4Episode20RickySingsPart2",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Empire Strikes Out",
+          "overview": "Edward II tries to get Kate to move to California so Edward will marry someone to expand the family fortune.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/6R0ePTxvNXKUmrOeIjhrIeoWADV.jpg",
+          "airDate": "1983-02-26",
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 4 Episode 20 Ricky Sings Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 67098274,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode20RickySingsPart2/Silver Spoons Season 4 Episode 20 Ricky Sings Part 2.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason4Episode23RickAt16Part1",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Silver Spoons Season 4 Episode 23 Rick At 16 Part 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 4 Episode 23 Rick at 16 Part 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 91117056,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode23RickAt16Part1/Silver Spoons Season 4 Episode 23 Rick at 16 Part 1.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason4Episode23RickAt16Part2",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Silver Spoons Season 4 Episode 23 Rick At 16 Part 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 4 Episode 23 Rick at 16 Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 56596331,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode23RickAt16Part2/Silver Spoons Season 4 Episode 23 Rick at 16 Part 2.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason4Episode24SecondBestPart1",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Silver Spoons Season 4 Episode 24 Second Best Part 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 4 Episode 24 Second Best Part 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 85772799,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode24SecondBestPart1/Silver Spoons Season 4 Episode 24 Second Best Part 1.mp4"
+        },
+        {
+          "archiveID": "SilverSpoonsSeason4Episode24SecondBestPart2",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Silver Spoons Season 4 Episode 24 Second Best Part 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u0R3oUbGITld0kfvdnfxr8rtqAD.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Silver Spoons Season 4 Episode 24 Second Best Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 61882415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SilverSpoonsSeason4Episode24SecondBestPart2/Silver Spoons Season 4 Episode 24 Second Best Part 2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 14
+}

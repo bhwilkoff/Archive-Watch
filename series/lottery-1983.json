@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "lottery-1983",
+  "title": "Lottery!",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": "Lottery! is an American drama series that premiered on ABC on September 9, 1983. The series aired for one season of 17 episodes and starred Ben Murphy as Patrick Sean Flaherty, and Marshall Colt as Eric Rush. Lottery! centered around ordinary people who have won the lottery--all of a sudden becoming millionaires--and how it changes their lives.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dhHngBb5DqY3K3f3SUDOVuXZUo4.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/SVLI0eIhQgu57v86rL4wAGvmgY.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Rick Rosner",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lottery_202105",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lottery!",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dhHngBb5DqY3K3f3SUDOVuXZUo4.jpg",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "05 - Phoenix.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145362467,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lottery_202105/05 - Phoenix.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

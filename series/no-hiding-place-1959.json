@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "no-hiding-place-1959",
+  "title": "No Hiding Place",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": "No Hiding Place is a British television series that was produced at Wembley Studios by Associated-Rediffusion for the ITV network between 16 September 1959 and 22 June 1967.\n\nIt was the sequel to the series Murder Bag and Crime Sheet, all starring Raymond Francis as Detective Superintendent, later Detective Chief Superintendent Tom Lockhart.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/mBWBngqaVMExKvj82eADPFW0AzT.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/kqFqhX1vkSBYQbTuQr0jK9sDU6T.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "NoHidingPlaceTheWidower",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "The Widower",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/mBWBngqaVMExKvj82eADPFW0AzT.jpg",
+          "airDate": "1961-03-10",
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NO HIDING PLACE. 50s TV complete episode.mp4",
+            "format": "h.264",
+            "sizeBytes": 267372041,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/NoHidingPlaceTheWidower/NO HIDING PLACE. 50s TV complete episode.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

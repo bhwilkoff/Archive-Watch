@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-best-of-oprah-winfrey-august-29-1991-2019",
+  "title": "The Best of Oprah Winfrey (August 29, 1991",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/thebestofoprahwinfreyaugust291991rerun",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "thebestofoprahwinfreyaugust291991rerun",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Best of Oprah Winfrey (August 29, 1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/thebestofoprahwinfreyaugust291991rerun",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The-Best-of-Oprah-Winfrey-_August-29_-1991-rerun_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 190824599,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thebestofoprahwinfreyaugust291991rerun/The-Best-of-Oprah-Winfrey-_August-29_-1991-rerun_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

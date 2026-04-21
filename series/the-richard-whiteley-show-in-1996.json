@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-richard-whiteley-show-in-1996",
+  "title": "The Richard Whiteley Show (in",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/2022-12-7-19-33-47",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "2022-12-7-19-33-47",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Richard Whiteley Show (incomplete) (1/1/1996)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/2022-12-7-19-33-47",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2022_12_7_19_33_47.mp4",
+            "format": "h.264",
+            "sizeBytes": 177888642,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/2022-12-7-19-33-47/2022_12_7_19_33_47.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1956-1956",
+  "title": "1956",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Super-Circus_1956",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Super-Circus_1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1956 Episode of \"Super Circus\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Super-Circus_1956",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "SuperCircus1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 183316868,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Super-Circus_1956/SuperCircus1956.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "classic-doctor-who-2022",
+  "title": "Classic Doctor Who",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/classic-doctor-who-s01-26-1963",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "classic-doctor-who-s01-26-1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Doctor Who S01-26 (1963)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/classic-doctor-who-s01-26-1963",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E02 - An Unearthly Child (2).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 140906731,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/classic-doctor-who-s01-26-1963/S01E02 - An Unearthly Child (2).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

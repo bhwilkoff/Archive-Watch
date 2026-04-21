@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "mann-machine-1992",
+  "title": "Mann & Machine",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "Mann & Machine is an American science fiction/police drama series that aired for nine episodes on NBC from April 5, 1992 to July 14, 1992.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/cgbKZVs1MlhGY7i4q3uKurb9b6x.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/8R1lZAs6kTHQCWSkFeO8b24XkBI.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Dick Wolf",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mann-machine-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mann & Machine - Yancy Butler, S. Epatha Merkerson",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/cgbKZVs1MlhGY7i4q3uKurb9b6x.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mann & Machine - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1453210991,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mann-machine-1.1/Mann & Machine - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

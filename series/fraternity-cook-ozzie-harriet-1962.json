@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "fraternity-cook-ozzie-harriet-1962",
+  "title": "Fraternity Cook (Ozzie & Harriet",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Fraternity_Cook--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Fraternity_Cook--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fraternity Cook (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Fraternity_Cook--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "Fraternity_Cook--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 157838183,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Fraternity_Cook--Ozzie-Harriet/Fraternity_Cook--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

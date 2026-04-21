@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1983-wxyz-channel-7-detroit-michigan-sign-off-with-anthem-1983",
+  "title": "1983 WXYZ Channel 7 Detroit Michigan Sign Off With Anthem",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1983-wxyz-channel-7-detroit-michigan-sign-off-with-anthem",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1983-wxyz-channel-7-detroit-michigan-sign-off-with-anthem",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1983 WXYZ Channel 7 Detroit Michigan Sign Off With Anthem",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1983-wxyz-channel-7-detroit-michigan-sign-off-with-anthem",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1983 WXYZ Channel 7 Detroit Michigan Sign off with Anthem_360P.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 7003981,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1983-wxyz-channel-7-detroit-michigan-sign-off-with-anthem/1983 WXYZ Channel 7 Detroit Michigan Sign off with Anthem_360P.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

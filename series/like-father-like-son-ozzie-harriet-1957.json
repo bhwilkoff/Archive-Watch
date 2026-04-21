@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "like-father-like-son-ozzie-harriet-1957",
+  "title": "Like Father, Like Son (Ozzie & Harriet",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Like_Father_Like_Son--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Like_Father_Like_Son--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Like Father, Like Son (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Like_Father_Like_Son--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1251,
+          "videoFile": {
+            "name": "Like_Father_Like_Son--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 129598686,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Like_Father_Like_Son--Ozzie-Harriet/Like_Father_Like_Son--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

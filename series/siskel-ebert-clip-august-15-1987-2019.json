@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "siskel-ebert-clip-august-15-1987-2019",
+  "title": "Siskel & Ebert Clip (August 15, 1987",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/siskelebertclipaugust151987convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "siskelebertclipaugust151987convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Siskel & Ebert Clip (August 15, 1987)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/siskelebertclipaugust151987convertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Siskel & Ebert clip (August 15, 1987) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 28593959,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/siskelebertclipaugust151987convertvideoonline.com/Siskel & Ebert clip (August 15, 1987) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

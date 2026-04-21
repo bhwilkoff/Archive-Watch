@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "madtv--march-8-1997-2020",
+  "title": "MadTV- March 8, 1997",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/madtvmarch81997s2e15mostconvertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "madtvmarch81997s2e15mostconvertvideoonline.com",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "MadTV- March 8, 1997 ( S2E15, most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/madtvmarch81997s2e15mostconvertvideoonline.com",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MadTV- March 8, 1997 (S2E15, most) (convert-video-online.com).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 628437804,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/madtvmarch81997s2e15mostconvertvideoonline.com/MadTV- March 8, 1997 (S2E15, most) (convert-video-online.com).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

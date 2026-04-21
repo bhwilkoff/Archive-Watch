@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "davis-rules-1991",
+  "title": "Davis Rules",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Dwight Davis, a widower and grade-school principal, is raising three sons with help from his wacky father Gunny...\n\nDavis Rules is an American sitcom broadcast on ABC in 1991 and on CBS in 1992. The series was produced by Carsey-Werner Productions.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/bt7PVhZGSPcD7FJ0BlYqEVk4TAE.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/p5QCzpgvv524jcvm57ivPNunAmA.jpg",
+  "genres": [],
+  "networks": [
+    "CBS",
+    "ABC"
+  ],
+  "creator": "Norma Safford Vela",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "davis-rules-1.02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Davis Rules - Randy Quaid, Jonathan Winters",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/bt7PVhZGSPcD7FJ0BlYqEVk4TAE.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Davis Rules - 1.02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 710065007,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/davis-rules-1.02/Davis Rules - 1.02.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "mi-bella-genio-i-dream-of-jeannie-t1-1965",
+  "title": "Mi Bella Genio (I Dream of Jeannie) T1",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bella-genio",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bella-genio",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mi Bella Genio (I Dream of Jeannie) T1 - Esp-Lat",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bella-genio",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MBG-T1-E04-Jeannie y la trampa matrimonial.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 245550246,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bella-genio/MBG-T1-E04-Jeannie y la trampa matrimonial.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

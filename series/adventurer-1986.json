@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "adventurer-1986",
+  "title": "Adventurer",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "Jack Vincent, an aristocrat forced by circumstances to become a smuggler, is caught and transported on the IIMS Success to a penal colony on Norfolk Island, off the New Zealand coast. Unhappily for Vincent, the ship's captain is none other than his brother-in-law, Lt.Harry Anderson. The two men have quarreled violently in the past over Anderson's treatment of Vincent's sister, and now Anderson subjects him to particularly harsh and humiliating treatment. Vincent stages a successful mutiny, casting Anderson and those loyal to him adrift, and plans to sail to America. When the Success is shipwrecked, Vincent is one of three survivors; but Anderson also survives the storm, and vows to pursue Vincent until he sees him hanged at Execution Dock. So begins a fight for survival for Vincent and his crew, complete with hostile natives, unscrupulous sea-traders, crazed prophets and buried treasure.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/maPjTMFVd9c7z0rR6HYjBeVWxVv.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/emySaTifeQzIGelvKTz6oWvD060.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Richard Carpenter",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "adventurer-complete-series-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Adventurer - Complete Series 1986",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/maPjTMFVd9c7z0rR6HYjBeVWxVv.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Adventurer_ S01E11 - Utu - Pt-1.mp4",
+            "format": "h.264",
+            "sizeBytes": 147598441,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/adventurer-complete-series-1986/Adventurer_ S01E11 - Utu - Pt-1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

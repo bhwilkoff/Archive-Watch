@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tracking-the-rainbow-serpent-in-1993",
+  "title": "Tracking the Rainbow Serpent (in",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/trackingtherainbowserpent-incomplete",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "trackingtherainbowserpent-incomplete",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tracking the Rainbow Serpent (incomplete - 1993)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/trackingtherainbowserpent-incomplete",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "18 - Tracking the Rainbow Serpent (incomplete).mp4",
+            "format": "h.264",
+            "sizeBytes": 30176304,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/trackingtherainbowserpent-incomplete/18 - Tracking the Rainbow Serpent (incomplete).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-frightened-witness-cavalcade-of-america-1957",
+  "title": "The Frightened Witness (Cavalcade of America",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Frightened_Witness_Cavalcade",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Frightened_Witness_Cavalcade",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Frightened Witness (Cavalcade of America)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Frightened_Witness_Cavalcade",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1469,
+          "videoFile": {
+            "name": "Frightened_Witness.mp4",
+            "format": "h.264",
+            "sizeBytes": 152346026,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Frightened_Witness_Cavalcade/Frightened_Witness.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

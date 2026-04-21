@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "excerpts-from-1952-television-2014",
+  "title": "Excerpts from 1952 Television",
+  "yearStart": 2014,
+  "yearEnd": 2014,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1952TVclips",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1952TVclips",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Excerpts from 1952 Television",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1952TVclips",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 1436,
+          "videoFile": {
+            "name": "1952TVclips.mp4",
+            "format": "h.264",
+            "sizeBytes": 148949237,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1952TVclips/1952TVclips.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

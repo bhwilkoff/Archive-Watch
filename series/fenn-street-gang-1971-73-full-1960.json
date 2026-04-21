@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "fenn-street-gang-1971-73-full-1960",
+  "title": "FENN STREET GANG (1971-73) (Full",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/fenn-street-gang-1971-73",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "fenn-street-gang-1971-73",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "FENN STREET GANG (1971-73) (Full Series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/fenn-street-gang-1971-73",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FENN ST GANG (1971-73)/106.Fenn Street Gang... Distant Hoizons.mp4",
+            "format": "h.264",
+            "sizeBytes": 145676687,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fenn-street-gang-1971-73/FENN ST GANG (1971-73)/106.Fenn Street Gang... Distant Hoizons.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "seriesID": "the-gorilla-1960",
+  "title": "The Gorilla",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "\"Confucius said: if you set on a path of revenge, dig up two graves for you and your enemy.\" Hoi Chiu grew up in an orphanage that is sponsored by \"Uncle Rain\", who is also Hoi Chiu's pen pal and guardian. While Hoi Chiu approaches the family Kiu that ruined her family, making her an orphan and plots to take revenge, she falls in love with the second son of the family, Kiu Lap. She doesn't realize though that Kiu Lap is, in fact, her long-time pen pal, \"Uncle Rain\". Kiu Lap also falls in love with her but isn't aware of her plan.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/A0ORgwQEDCGNwK44eNsZ1sMF9Vl.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/gPHT8fWjiTl4a9YkRUyDr7q4kn9.jpg",
+  "genres": [
+    "comedy horror film",
+    "crime film"
+  ],
+  "networks": [
+    "TVB Jade"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheGorilla-WeirdnessBadMovie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Gorilla - Weirdness Bad Movie",
+          "overview": null,
+          "stillURL": "http://commons.wikimedia.org/wiki/Special:FilePath/The%20Gorilla%20%281939%29%201.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 7083,
+          "videoFile": {
+            "name": "WRBM_Gorilla_WS_AF_fixed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3666377929,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheGorilla-WeirdnessBadMovie/WRBM_Gorilla_WS_AF_fixed.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

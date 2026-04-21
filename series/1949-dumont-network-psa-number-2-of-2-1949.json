@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1949-dumont-network-psa-number-2-of-2-1949",
+  "title": "1949 DuMont Network PSA (Number 2 of 2",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/PSA-4-DuMont",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PSA-4-DuMont",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1949 DuMont Network PSA (Number 2 of 2)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/PSA-4-DuMont",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 69,
+          "videoFile": {
+            "name": "PSA-4-DuMont.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 6759032,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PSA-4-DuMont/PSA-4-DuMont.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

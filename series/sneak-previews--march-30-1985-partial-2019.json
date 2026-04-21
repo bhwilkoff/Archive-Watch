@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sneak-previews--march-30-1985-partial-2019",
+  "title": "Sneak Previews- March 30, 1985 (partial",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sneakpreviewsmarch301985partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sneakpreviewsmarch301985partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sneak Previews- March 30, 1985 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sneakpreviewsmarch301985partial",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sneak-Previews-March-30_-1985-_partial_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 76252887,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sneakpreviewsmarch301985partial/Sneak-Previews-March-30_-1985-_partial_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "polizeiruf-110-148-1991",
+  "title": "Polizeiruf 110 (148",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/c8f1b546-bb06-472f-a740-557a9b5fb98d_hd1080-avc1080",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "c8f1b546-bb06-472f-a740-557a9b5fb98d_hd1080-avc1080",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Polizeiruf 110 (148): Der Riß (1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/c8f1b546-bb06-472f-a740-557a9b5fb98d_hd1080-avc1080",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "c8f1b546-bb06-472f-a740-557a9b5fb98d_hd1080-avc1080.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1871822312,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/c8f1b546-bb06-472f-a740-557a9b5fb98d_hd1080-avc1080/c8f1b546-bb06-472f-a740-557a9b5fb98d_hd1080-avc1080.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

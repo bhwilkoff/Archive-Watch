@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "david-picks-a-pie-ozzie-harriet-1965",
+  "title": "David Picks a Pie (Ozzie & Harriet",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/David_Picks_a_Pie--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "David_Picks_a_Pie--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "David Picks a Pie (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/David_Picks_a_Pie--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1504,
+          "videoFile": {
+            "name": "David_Picks_a_Pie--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 156592754,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/David_Picks_a_Pie--Ozzie-Harriet/David_Picks_a_Pie--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

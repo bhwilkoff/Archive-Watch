@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dial-999-1959",
+  "title": "Dial 999",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": "Robert Beatty stars as Detective Inspector Mike Maguire, a Royal Canadian Mounted Policeman posted to New Scotland Yard, in this 1950s series depicting London's fight against crime.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ajRAnIVdBgzQ2o1uz4Rm1m1ki1I.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/86cHxrhCmF5BITSijKjgVIcswl4.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dial999FiftyThousandHands",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Dial 999\" - 50,000 Hands",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ajRAnIVdBgzQ2o1uz4Rm1m1ki1I.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dial 999 - 50,000 Hands (1959) - Robert Beatty, William Hartnell & Patrick Troughton.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 111725697,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dial999FiftyThousandHands/Dial 999 - 50,000 Hands (1959) - Robert Beatty, William Hartnell & Patrick Troughton.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

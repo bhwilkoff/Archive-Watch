@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-struggle-for-democracy-march-19-1989-1960",
+  "title": "The Struggle For Democracy March 19, 1989",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-struggle-for-democracy-1989-03-19-a-soldiers-duty",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-struggle-for-democracy-1989-03-19-a-soldiers-duty",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Struggle For Democracy March 19, 1989 Episode 9: A Soldier's Duty",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-struggle-for-democracy-1989-03-19-a-soldiers-duty",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Struggle for Democracy 1989-03-19 A Soldier's Duty.mp4",
+            "format": "h.264",
+            "sizeBytes": 310114894,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-struggle-for-democracy-1989-03-19-a-soldiers-duty/The Struggle for Democracy 1989-03-19 A Soldier's Duty.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

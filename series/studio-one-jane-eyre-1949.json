@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "studio-one-jane-eyre-1949",
+  "title": "Studio One Jane Eyre",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/StudioOneJaneEyre",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "StudioOneJaneEyre",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One Jane Eyre",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/StudioOneJaneEyre",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "JaneEyre49.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 338818791,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOneJaneEyre/JaneEyre49.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

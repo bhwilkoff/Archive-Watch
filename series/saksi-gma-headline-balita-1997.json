@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "saksi-gma-headline-balita-1997",
+  "title": "Saksi: GMA Headline Balita",
+  "yearStart": 1997,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SaksiBisigBayan",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SaksiBisigBayan",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Saksi: GMA Headline Balita - Bisig Bayan compilation (1997)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SaksiBisigBayan",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saksi Bisig-Bayan.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 390215052,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SaksiBisigBayan/Saksi Bisig-Bayan.ia.mp4"
+        },
+        {
+          "archiveID": "joey-torres-at-culinary-school-graduation-featured-on-gma-news-c.-2000-240-x-320",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Saksi: GMA Headline Balita - Huling Hirit - July 02, 1999",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/joey-torres-at-culinary-school-graduation-featured-on-gma-news-c.-2000-240-x-320",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Joey Torres at Culinary School Graduation Featured on GMA News C. 2000 ( 240 X 320 ).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 7291878,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/joey-torres-at-culinary-school-graduation-featured-on-gma-news-c.-2000-240-x-320/Joey Torres at Culinary School Graduation Featured on GMA News C. 2000 ( 240 X 320 ).ia.mp4"
+        },
+        {
+          "archiveID": "SaksiPrinceCharlesMalacanang1997",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Saksi: GMA Headline Balita - Prince Charles Malacañang Royal Visitor",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SaksiPrinceCharlesMalacanang1997",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Malacañang royal visitor.mp4",
+            "format": "h.264",
+            "sizeBytes": 14931241,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SaksiPrinceCharlesMalacanang1997/Malacañang royal visitor.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

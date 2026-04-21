@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "this-just-in-1993",
+  "title": "This Just In",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/this-just-in-1.1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "this-just-in-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "This Just In - Carol Huston, Peter Keleghan",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/this-just-in-1.1",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "This Just In - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 703846355,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/this-just-in-1.1/This Just In - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

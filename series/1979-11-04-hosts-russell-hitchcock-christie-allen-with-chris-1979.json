@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1979-11-04-hosts-russell-hitchcock-christie-allen-with-chris-1979",
+  "title": "1979 11 04 Hosts Russell Hitchcock & Christie Allen With Christie Allen, Jo Jo Zep & The Falcons, The Aliens, The Radiators, Air Supply",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1979-11-04-hosts-russell-hitchcock-christie-allen-with-christie-allen-jo-jo-zep-",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1979-11-04-hosts-russell-hitchcock-christie-allen-with-christie-allen-jo-jo-zep-",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1979 11 04 Hosts Russell Hitchcock & Christie Allen With Christie Allen, Jo Jo Zep & The Falcons, The Aliens, The Radiators, Air Supply",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1979-11-04-hosts-russell-hitchcock-christie-allen-with-christie-allen-jo-jo-zep-",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1979-11-04 Hosts Russell Hitchcock & Christie Allen with Christie Allen, Jo Jo Zep & The Falcons, The Aliens, The Radiators, Air Supply.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1250474292,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1979-11-04-hosts-russell-hitchcock-christie-allen-with-christie-allen-jo-jo-zep-/1979-11-04 Hosts Russell Hitchcock & Christie Allen with Christie Allen, Jo Jo Zep & The Falcons, The Aliens, The Radiators, Air Supply.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

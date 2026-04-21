@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-best-of-bubble-gang-2009",
+  "title": "The Best of Bubble Gang",
+  "yearStart": 2009,
+  "yearEnd": 2009,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheBestOfBubbleGang2009Compilation",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheBestOfBubbleGang2009Compilation",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Best of Bubble Gang",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheBestOfBubbleGang2009Compilation",
+          "airDate": null,
+          "year": 2009,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bubblegang-1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 662059801,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBestOfBubbleGang2009Compilation/Bubblegang-1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

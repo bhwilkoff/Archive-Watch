@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "seriesID": "colonel-march-1956",
+  "title": "Colonel March",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": "Colonel March of The Department of Queer Complaints investigates unusual cases, locked-room murders, and mysteries concerning the supernatural.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/qu5vRYxV6tptrt96URhpuCxw5hU.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/mEgixgbkY87KFM6pNjfmuJKaXqE.jpg",
+  "genres": [
+    "drama television series"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "John Dickson Carr",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Colonel_March_Silver_Curtain",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Silver Curtain",
+          "overview": "Behind the \"silver curtain\" spray from a fountain, a man is found dead with a knife in his back. Colonel March is called in to investigate.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/qu5vRYxV6tptrt96URhpuCxw5hU.jpg",
+          "airDate": "1956-07-10",
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Colonel_March_Silver_Curtain.mp4",
+            "format": "h.264",
+            "sizeBytes": 151135969,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Colonel_March_Silver_Curtain/Colonel_March_Silver_Curtain.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

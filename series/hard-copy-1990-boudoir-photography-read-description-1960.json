@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "hard-copy-1990-boudoir-photography-read-description-1960",
+  "title": "Hard Copy 1990 Boudoir Photography (read description",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hard-copy-1990-boudoir-photography-there-are-edits",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hard-copy-1990-boudoir-photography-there-are-edits",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hard Copy 1990 Boudoir Photography (read description)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hard-copy-1990-boudoir-photography-there-are-edits",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hard Copy 1990 Boudoir Photography (there are edits).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 63896248,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hard-copy-1990-boudoir-photography-there-are-edits/Hard Copy 1990 Boudoir Photography (there are edits).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

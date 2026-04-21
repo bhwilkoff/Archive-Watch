@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-beachcombers-december-12-1990-1960",
+  "title": "The Beachcombers December 12, 1990",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-beachcombers-1990-12-12",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-beachcombers-1990-12-12",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Beachcombers December 12, 1990: Sunset",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-beachcombers-1990-12-12",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Beachcombers 1990-12-12.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 957574615,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-beachcombers-1990-12-12/The Beachcombers 1990-12-12.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

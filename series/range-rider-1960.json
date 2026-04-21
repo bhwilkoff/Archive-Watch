@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "range-rider-1960",
+  "title": "Range Rider",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Range Rider is an American Western television series that aired in syndication from 1951 to 1953. A single lost episode surfaced and was broadcast in 1959. The Range Rider was also broadcast on British television during the 1960s, and in Melbourne, Australia during the 1950s.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RangeRiderOutlawPistols",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Range Rider'' - Outlaw Pistols",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1487,
+          "videoFile": {
+            "name": "Range Rider - Outlaw Pistols.mp4",
+            "format": "h.264",
+            "sizeBytes": 154843658,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRiderOutlawPistols/Range Rider - Outlaw Pistols.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "thetube1986s04e14uncut-1960",
+  "title": "The.Tube.1986.S04E14.uncut",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the.-tube.-1986.-s-04-e-14.uncut",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "the.-tube.-1986.-s-04-e-14.uncut",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "The.Tube.1986.S04E14.uncut",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the.-tube.-1986.-s-04-e-14.uncut",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Tube.1986.S04E14.uncut.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 782483291,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-tube.-1986.-s-04-e-14.uncut/The.Tube.1986.S04E14.uncut.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

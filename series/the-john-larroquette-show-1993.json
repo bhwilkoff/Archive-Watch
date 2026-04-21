@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-john-larroquette-show-1993",
+  "title": "The John Larroquette Show",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "The John Larroquette Show is an American television sitcom .The show was a vehicle for John Larroquette following his run as Dan Fielding on Night Court. The series takes place in a seedy bus terminal in St. Louis, Missouri and originally focused on the somewhat broken people who worked the night shift, and in particular, the lead character's battle with alcoholism.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4PQmSvqPbLI4lqmwHxZh8W5A1ob.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/mSArbafbUEMOEV4hG1K2W1UAUT0.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Don Reo",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "john-larroquette-show-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The John Larroquette Show - John Larroquette, Alison La Placa",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4PQmSvqPbLI4lqmwHxZh8W5A1ob.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "John Larroquette Show - 1.01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 199871582,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/john-larroquette-show-1.01/John Larroquette Show - 1.01.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

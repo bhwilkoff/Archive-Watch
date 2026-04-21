@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1971-feb-09-england-is-a-fag-country-according-archie-bunker-1971",
+  "title": "1971 FEB 09 England Is A Fag Country; According Archie Bunker",
+  "yearStart": 1971,
+  "yearEnd": 1971,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1971FEB09_England_Fag_Country_According_Archie_Bunker",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1971FEB09_England_Fag_Country_According_Archie_Bunker",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1971 FEB 09 England Is A Fag Country; According Archie Bunker",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1971FEB09_England_Fag_Country_According_Archie_Bunker",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1971 FEB 09 England Is A Fag Country; According Archie Bunker.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 9983724,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1971FEB09_England_Fag_Country_According_Archie_Bunker/1971 FEB 09 England Is A Fag Country; According Archie Bunker.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

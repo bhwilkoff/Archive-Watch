@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "easy-does-it-january-12-1994-2025",
+  "title": "Easy Does It (January 12, 1994",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/easy-does-it-january-12-1994",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "easy-does-it-january-12-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Easy Does It (January 12, 1994)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/easy-does-it-january-12-1994",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Easy Does It (January 12, 1994).mp4",
+            "format": "h.264",
+            "sizeBytes": 126598918,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/easy-does-it-january-12-1994/Easy Does It (January 12, 1994).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

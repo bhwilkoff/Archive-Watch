@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "alaska-rain-forest-1993",
+  "title": "Alaska Rain Forest",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AlaskaRainForestTheTongass",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AlaskaRainForestTheTongass",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alaska Rain Forest : The Tongass",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlaskaRainForestTheTongass",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alaska.Rain.Forest.The.Tongass.1993.DVDRip.DD2.0.x264-rattera.mp4",
+            "format": "h.264",
+            "sizeBytes": 160728132,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlaskaRainForestTheTongass/Alaska.Rain.Forest.The.Tongass.1993.DVDRip.DD2.0.x264-rattera.mp4"
+        },
+        {
+          "archiveID": "AlaskanRainForestTongassISO",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alaska Rain Forest : The Tongass DVD ISO",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlaskanRainForestTongassISO",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alaskan.Rain.Forest.The.Tongass.1993.mp4",
+            "format": "h.264",
+            "sizeBytes": 164798720,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlaskanRainForestTongassISO/Alaskan.Rain.Forest.The.Tongass.1993.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

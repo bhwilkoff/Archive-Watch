@@ -1,0 +1,275 @@
+{
+  "version": 1,
+  "seriesID": "antena-3-noticias-1990",
+  "title": "Antena 3 Noticias",
+  "yearStart": 1990,
+  "yearEnd": 1999,
+  "overview": "Antena 3 Noticias is the brand for Spanish broadcaster Antena 3's news programmes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3M9QjT0smEJoH9Va1XTiyzrcm2X.jpg",
+  "genres": [],
+  "networks": [
+    "Antena 3"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "antena-3-noticias-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias (1990)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Noticias A3 1990 Luis Herrero.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 89986148,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-noticias-1990/Noticias A3 1990 Luis Herrero.ia.mp4"
+        },
+        {
+          "archiveID": "antena-3-noticias-1999-06-10",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias - 10 de junio, 1999",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ANTENA 3   Antena 3 Noticias Noche 10 06 1999.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 183144312,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-noticias-1999-06-10/ANTENA 3   Antena 3 Noticias Noche 10 06 1999.ia.mp4"
+        },
+        {
+          "archiveID": "antena-3-noticias-1993-12-13",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias - 13 de diciembre, 1993",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ANTENA 3   Antena 3 Noticias Noche 13 12 1993.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 35078969,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-noticias-1993-12-13/ANTENA 3   Antena 3 Noticias Noche 13 12 1993.ia.mp4"
+        },
+        {
+          "archiveID": "antena-3-noticias-1994-01-13",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias - 13 de enero, 1994",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Noticiario de Antena 3 con José Maria Carrascal (1994)..ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 187644125,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-noticias-1994-01-13/Noticiario de Antena 3 con José Maria Carrascal (1994)..ia.mp4"
+        },
+        {
+          "archiveID": "antena-3-noticias-1991-02-14",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias - 14 de febrero, 1991",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Las noticias de medianoche Antena3 Jose Maria Carrascal 14 02 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 91186417,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-noticias-1991-02-14/Las noticias de medianoche Antena3 Jose Maria Carrascal 14 02 1991.ia.mp4"
+        },
+        {
+          "archiveID": "antena-3-antena-3-noticias-1996-11-14",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias - 14 de noviembre, 1996",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ANTENA 3   Noticias de la mañana 14 11 1996 2de3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 51397500,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-antena-3-noticias-1996-11-14/ANTENA 3   Noticias de la mañana 14 11 1996 2de3.ia.mp4"
+        },
+        {
+          "archiveID": "antena-3-noticias-1995-03-16",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias - 16 de marzo, 1995",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ANTENA 3   Antena 3 Noticias Noche 16 03 1995.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 100309811,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-noticias-1995-03-16/ANTENA 3   Antena 3 Noticias Noche 16 03 1995.ia.mp4"
+        },
+        {
+          "archiveID": "antena-3-noticias-1999-10-18",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias - 18 de octubre, 1999",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Antena 3 Noticias Madrugada - Fragmento (18-10-1999).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 84466840,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-noticias-1999-10-18/Antena 3 Noticias Madrugada - Fragmento (18-10-1999).ia.mp4"
+        },
+        {
+          "archiveID": "antena-3-noticias-1994-04-19",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias - 19 de abril, 1994",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ANTENA 3   Antena 3 Noticias 1 19 04 1994.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 17862067,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-noticias-1994-04-19/ANTENA 3   Antena 3 Noticias 1 19 04 1994.ia.mp4"
+        },
+        {
+          "archiveID": "antena-3-noticias-1991-12-02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias - 2 de diciembre, 1991",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2 12 1991 Noticias Jose Maria Carrascal.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 111776875,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-noticias-1991-12-02/2 12 1991 Noticias Jose Maria Carrascal.ia.mp4"
+        },
+        {
+          "archiveID": "antena-3-noticias-1999-10-20",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias - 20 de octubre, 1999",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ANTENA 3   Antena 3 Noticias 2 20 10 1999.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 142694496,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-noticias-1999-10-20/ANTENA 3   Antena 3 Noticias 2 20 10 1999.ia.mp4"
+        },
+        {
+          "archiveID": "antena-3-noticias-1998-03-03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias - 3 de marzo, 1998",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Antena 3 noticias 03-03-1998.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 32885426,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-noticias-1998-03-03/Antena 3 noticias 03-03-1998.ia.mp4"
+        },
+        {
+          "archiveID": "antena-3-noche-1996-10-03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias - 3 de octubre, 1996",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ANTENA 3   Antena 3 Noticias Noche 03 10 1996.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 76837460,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-noche-1996-10-03/ANTENA 3   Antena 3 Noticias Noche 03 10 1996.ia.mp4"
+        },
+        {
+          "archiveID": "antena-3-noticias-1996-02-06",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Antena 3 Noticias - 6 de febrero, 1996",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rW5b6du7IGpa36VQNtnpg2hgrEa.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ANTENA 3   Antena 3 Noticias 2 06 02 1996.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 191852512,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/antena-3-noticias-1996-02-06/ANTENA 3   Antena 3 Noticias 2 06 02 1996.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 14
+}

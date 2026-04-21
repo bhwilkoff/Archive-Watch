@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-big-dance-1959",
+  "title": "The Big Dance",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FMM_The_Big_Dance",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FMM_The_Big_Dance",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Dance",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FMM_The_Big_Dance",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FMM_The_Big_Dance.mp4",
+            "format": "h.264",
+            "sizeBytes": 155853615,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FMM_The_Big_Dance/FMM_The_Big_Dance.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

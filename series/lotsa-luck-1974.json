@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "lotsa-luck-1974",
+  "title": "Lotsa Luck",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": "Lotsa Luck is an American sitcom that aired during the 1973-74 television season. The series stars Dom DeLuise as bachelor Stanley Belmont who lives with his bossy mother, his sister Olive and her unemployed husband, Arthur. Jack Knight stars as Stanley's best friend, Bummy.\n\nLotsa Luck is based on the British London Weekend Television series On the Buses.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rOWkU3ROHfYOu1iBjwYw1MvLwIy.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Carl Reiner",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lotsa-luck",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lotsa Luck (1973) - TV Series - Complete",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rOWkU3ROHfYOu1iBjwYw1MvLwIy.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "s01e22 - Get Off My Back.mp4",
+            "format": "h.264",
+            "sizeBytes": 159296743,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lotsa-luck/s01e22 - Get Off My Back.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

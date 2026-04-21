@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "towards-computing-era-කමපයටර-යගයක-කර-1985",
+  "title": "Towards Computing Era (කොම්පියුටර යුගයක් කරා",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TowardsComputingEra-SriLanka",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "computerized-banking-in-sri-lanka-1985-slrc-prgm-har-v-7s-mfmu",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Towards Computing Era (කොම්පියුටර යුගයක් කරා) - Computerized Banking in Sri Lanka 1985 Sri Lanka",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/computerized-banking-in-sri-lanka-1985-slrc-prgm-har-v-7s-mfmu",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Computerized Banking in Sri Lanka 1985 SLRC Prgm-HArV7s-MFMU.mp4",
+            "format": "h.264",
+            "sizeBytes": 122067415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/computerized-banking-in-sri-lanka-1985-slrc-prgm-har-v-7s-mfmu/Computerized Banking in Sri Lanka 1985 SLRC Prgm-HArV7s-MFMU.mp4"
+        },
+        {
+          "archiveID": "TowardsComputingEra-SriLanka",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Towards Computing Era (කොම්පියුටර යුගයක් කරා) - Sri Lanka",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TowardsComputingEra-SriLanka",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Towards Computing Era” (Sri Lanka) - In the Bank EP3.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 92821619,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TowardsComputingEra-SriLanka/Towards Computing Era” (Sri Lanka) - In the Bank EP3.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

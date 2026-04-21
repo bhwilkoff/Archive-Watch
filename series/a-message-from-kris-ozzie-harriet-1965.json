@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-message-from-kris-ozzie-harriet-1965",
+  "title": "A Message from Kris (Ozzie & Harriet",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Message_from_Kris--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Message_from_Kris--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Message from Kris (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Message_from_Kris--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1366,
+          "videoFile": {
+            "name": "Message_from_Kris--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 141822701,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Message_from_Kris--Ozzie-Harriet/Message_from_Kris--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

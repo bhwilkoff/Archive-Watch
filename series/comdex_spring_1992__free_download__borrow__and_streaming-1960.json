@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "comdex_spring_1992__free_download__borrow__and_streaming-1960",
+  "title": "Comdex_Spring_1992__Free_Download__Borrow__and_Streaming",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Comdex_Spring_1992__Free_Download__Borrow__and_Streaming",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Comdex_Spring_1992__Free_Download__Borrow__and_Streaming",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Comdex_Spring_1992__Free_Download__Borrow__and_Streaming",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Comdex_Spring_1992__Free_Download__Borrow__and_Streaming",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Comdex_Spring_1992__Free_Download__Borrow__and_Streaming.mp4",
+            "format": "h.264",
+            "sizeBytes": 148071255,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Comdex_Spring_1992__Free_Download__Borrow__and_Streaming/Comdex_Spring_1992__Free_Download__Borrow__and_Streaming.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

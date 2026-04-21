@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "trial-by-battle-1960",
+  "title": "Trial By Battle",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Robin_Hood_27_Trial_By_Battle",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_27_Trial_By_Battle",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Trial By Battle",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Robin_Hood_27_Trial_By_Battle",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_27_Trial_By_Battle.mp4",
+            "format": "h.264",
+            "sizeBytes": 152987316,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_27_Trial_By_Battle/Robin_Hood_27_Trial_By_Battle.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

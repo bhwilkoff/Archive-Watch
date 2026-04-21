@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "buffalo-bill-jr-lucky-horseshoe-1960",
+  "title": "Buffalo Bill Jr Lucky Horseshoe",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BuffaloBillJrLuckyHorseshoe",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BuffaloBillJrLuckyHorseshoe",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Buffalo Bill Jr Lucky Horseshoe",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BuffaloBillJrLuckyHorseshoe",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Buffalo Bill Jr - Lucky Horseshoe.mp4",
+            "format": "h.264",
+            "sizeBytes": 153032375,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BuffaloBillJrLuckyHorseshoe/Buffalo Bill Jr - Lucky Horseshoe.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

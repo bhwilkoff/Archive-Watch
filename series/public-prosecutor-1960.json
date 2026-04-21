@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "public-prosecutor-1960",
+  "title": "Public Prosecutor",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "District attorney Kazimierz Proch with policeman Witold Kielak tries to figure out what happened with his family.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/qvfnqXjXQE62JDz8mIvwfPVywN6.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/5iDSw1dCoWNDMGBBpRLV0BvfVXt.jpg",
+  "genres": [],
+  "networks": [
+    "TVP2"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PublicProsecutor-CaseOfTheManWhoWasntThere",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Public Prosecutor - Case Of The Man Who Wasnt There",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/qvfnqXjXQE62JDz8mIvwfPVywN6.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PublicProsecutor1951dumont_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 76352354,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicProsecutor-CaseOfTheManWhoWasntThere/PublicProsecutor1951dumont_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

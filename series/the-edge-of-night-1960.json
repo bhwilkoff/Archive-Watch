@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "the-edge-of-night-1960",
+  "title": "The Edge of Night",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "The Edge of Night was an American television mystery series/soap opera produced by Procter & Gamble. It debuted on CBS on April 2, 1956, and ran as a live broadcast on that network until November 28, 1975; the series then moved to ABC, where it aired from December 1, 1975, until December 28, 1984. There were 7,420 episodes, with some 1,800 available for syndication.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/AtVT2HucEZKQGETkoJaJ4Q8Vqp7.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/9rdQb2mBDy4h316Z2ORTeEMHh4p.jpg",
+  "genres": [],
+  "networks": [
+    "CBS",
+    "ABC"
+  ],
+  "creator": "Irving Vendig",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheEdgeOfNight15August1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Edge of Night'' - 15 August 1960 (incomplete)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/AtVT2HucEZKQGETkoJaJ4Q8Vqp7.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1454,
+          "videoFile": {
+            "name": "edgeofnight15august1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 151442275,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheEdgeOfNight15August1960/edgeofnight15august1960.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "filming-othelo-by-orson-welles-1974",
+  "title": "FILMING OTHELO by Orson Welles",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/yRZj5fHA4ecOiQ0FwVFYnXJjz7t.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Documentary",
+    "TV Movie"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FilmingOtheloByOrsonWelles",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "FILMING OTHELO by Orson Welles",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yRZj5fHA4ecOiQ0FwVFYnXJjz7t.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 5040,
+          "videoFile": {
+            "name": "Filming.Othello.1979.-.Orson.Welles.by.ecnerwal.mp4",
+            "format": "h.264",
+            "sizeBytes": 516972995,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FilmingOtheloByOrsonWelles/Filming.Othello.1979.-.Orson.Welles.by.ecnerwal.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "almost-grown-1988",
+  "title": "Almost Grown",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": "Almost Grown is an American television drama series about a couple, whose lives are explored during three time periods of their lives. The series was well received by critics, but aired for only 10 episodes between 27 November 1988 and 20 February 1989 due to low ratings. The series is notable for being co-created by David Chase, who would later go on to create the critically and commercially successful HBO original series The Sopranos. Many themes appearing in Almost Grown were later explored in The Sopranos.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/qKTJNoMNKYK68rC48FV3myTUmqQ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/8I26dxDzhRq02vjkaEvChgMWvEZ.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "David Chase",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "almost-grown-1.02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Grown - Eve Gordon, Ocean Hellman",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/qKTJNoMNKYK68rC48FV3myTUmqQ.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Almost Grown - 1.09.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 398365963,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/almost-grown-1.02/Almost Grown - 1.09.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

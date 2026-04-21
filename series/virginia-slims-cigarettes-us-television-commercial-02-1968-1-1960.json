@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "virginia-slims-cigarettes-us-television-commercial-02-1968-1-1960",
+  "title": "Virginia Slims Cigarettes U.S. Television Commercial 02 / 1968-1971",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/VirginiaSlimsCigarettesU.s.TelevisionCommercial0219681971",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "VirginiaSlimsCigarettesU.s.TelevisionCommercial0219681971",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Virginia Slims Cigarettes U.S. Television Commercial 02 / 1968-1971",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/VirginiaSlimsCigarettesU.s.TelevisionCommercial0219681971",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "VirginiaSlims_02.mp4",
+            "format": "h.264",
+            "sizeBytes": 5776808,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/VirginiaSlimsCigarettesU.s.TelevisionCommercial0219681971/VirginiaSlims_02.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

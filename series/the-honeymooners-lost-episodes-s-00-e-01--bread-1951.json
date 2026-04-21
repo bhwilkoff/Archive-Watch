@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-honeymooners-lost-episodes-s-00-e-01--bread-1951",
+  "title": "The Honeymooners Lost Episodes S 00 E 01- Bread",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-honeymooners-lost-episodes-s-01-e-106-i-remember-mau-au",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-honeymooners-lost-episodes-s-01-e-106-i-remember-mau-au",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Honeymooners Lost Episodes S 00 E 01- Bread",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-honeymooners-lost-episodes-s-01-e-106-i-remember-mau-au",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Honeymooners/S01/The Honeymooners_ Lost Episodes_S01E82_One Big Happy Family.trim01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1738320075,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-honeymooners-lost-episodes-s-01-e-106-i-remember-mau-au/The Honeymooners/S01/The Honeymooners_ Lost Episodes_S01E82_One Big Happy Family.trim01.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

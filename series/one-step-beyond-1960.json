@@ -1,0 +1,1676 @@
+{
+  "version": 1,
+  "seriesID": "one-step-beyond-1960",
+  "title": "One Step Beyond",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "Alcoa Presents: One Step Beyond is an American anthology series created by Merwin Gerard. The original series ran for three seasons on ABC from January 1959 to July 1961.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/rYWPWFUF3N8zIEzyH2git8hbXWy.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "one-step-beyond-season-3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "One Step Beyond - Season 3 (1960 - 1961)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "One Step Beyond - s03e29 - The Prisoner.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 381633939,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-3/One Step Beyond - s03e29 - The Prisoner.ia.mp4"
+        },
+        {
+          "archiveID": "OSB-TheBridePossessed",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "One Step Beyond - The Bride Possessed",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The_Bride_Possessed.mp4",
+            "format": "h.264",
+            "sizeBytes": 147231342,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-TheBridePossessed/The_Bride_Possessed.mp4"
+        },
+        {
+          "archiveID": "OSB-77_The_Last_Round",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "One Step Beyond : The Last Round",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OSB-77_The_Last_Round.mp4",
+            "format": "h.264",
+            "sizeBytes": 149366342,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-77_The_Last_Round/OSB-77_The_Last_Round.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "S1E1THEBRIDEPOSSESSED",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Bride Possessed",
+          "overview": "Matt Conroy is startled when on their honeymoon his wide-eyed, Louisiana-drawling wife Sally suddenly becomes a determined and demanding woman with no accent who denies even knowing him.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/acXfQSNKjcwv6f8LcxH1CDZImzm.jpg",
+          "airDate": "1959-01-20",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E1 - THE BRIDE POSSESSED.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 114301390,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E1THEBRIDEPOSSESSED/S1E1 - THE BRIDE POSSESSED.ogv"
+        },
+        {
+          "archiveID": "S1E2NightOfApril14",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Night of April 14th",
+          "overview": "A young Englishwoman is suddenly wracked by dreams of drowning in the ocean. She is stunned when her fiancée tells her that he has prepared a surprise honeymoon trip for them--they're sailing to New York on the passenger liner Titanic.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/n3womWGRt0AYES9xx3G3BwqWgQy.jpg",
+          "airDate": "1959-01-27",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E2 - Night of April 14.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 118099102,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E2NightOfApril14/S1E2 - Night of April 14.ogv"
+        },
+        {
+          "archiveID": "S1E3EMERGENCYONLY",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Emergency Only",
+          "overview": "A set of circumstances outside the norm.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/kNedXcR77TH0dpXzu8IOx6Bj3NK.jpg",
+          "airDate": "1959-02-03",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E3 -  EMERGENCY ONLY.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 113009905,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E3EMERGENCYONLY/S1E3 -  EMERGENCY ONLY.ogv"
+        },
+        {
+          "archiveID": "S1E4THEDARKROOM",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Dark Room",
+          "overview": "A female photojournalist on assignment in France takes an apartment and begins to work with a somewhat mysterious male model. Thngs come to a head when she has a brush with the supernatural that could well mean her death.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/nE5tD9vnVBq6NE7iMon5t5OMlzz.jpg",
+          "airDate": "1959-02-10",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E4 - THE DARK ROOM.mp4",
+            "format": "h.264",
+            "sizeBytes": 155397416,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E4THEDARKROOM/S1E4 - THE DARK ROOM.mp4"
+        },
+        {
+          "archiveID": "S1E512HOURSTOLIVE",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Twelve Hours to Live",
+          "overview": "Even a broken clock is right twice a day.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/57H1Uk8PGxjFBWJCUsqEnXEwPf9.jpg",
+          "airDate": "1959-02-17",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E5 - 12 HOURS TO LIVE.mp4",
+            "format": "h.264",
+            "sizeBytes": 152001339,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E512HOURSTOLIVE/S1E5 - 12 HOURS TO LIVE.mp4"
+        },
+        {
+          "archiveID": "S1E6Epilogue_201804",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Epilogue",
+          "overview": "A recovering alcoholic returns to his family from an extended stay in rehabilitation. His sobriety is put to the test, as are his beliefs in the supernatural, when his son is trapped in a cave-in.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lfQahyXIaO5z46Gim3ziq6TKll4.jpg",
+          "airDate": "1959-02-24",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E6 - Epilogue.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 111866187,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E6Epilogue_201804/S1E6 - Epilogue.ogv"
+        },
+        {
+          "archiveID": "S1E8PREMONITION",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Premonition",
+          "overview": "Forewarned is forearmed.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ca85g0R6nR8cfxWrGswRtbuyccs.jpg",
+          "airDate": "1959-03-10",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E8 - PREMONITION.mp4",
+            "format": "h.264",
+            "sizeBytes": 158744300,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E8PREMONITION/S1E8 - PREMONITION.mp4"
+        },
+        {
+          "archiveID": "S1E9THEDEADPARTOFTHEHOUSE_201804",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Dead Part of the House",
+          "overview": "A young girl moves into a new house with her father and aunt, and before long, she makes friends with the ghosts of three girls who reside in an upstairs nursery -- though the adults assume that her new \"friends\" are her three new dolls.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2uOMJATAgOwwlcxSKLoEKkceauW.jpg",
+          "airDate": "1959-03-17",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E9 - THE DEAD PART OF THE HOUSE.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 114013512,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E9THEDEADPARTOFTHEHOUSE_201804/S1E9 - THE DEAD PART OF THE HOUSE.ogv"
+        },
+        {
+          "archiveID": "S1E10THEVISION",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Vision",
+          "overview": "In the trenches in WWI, soldiers as usual are dying like flies as expected. All of a sudden the French troops drop their arms and walk very serenely away from the front. Hearing of this the generals bring them up on charges of dissertion, a capital crime. Tremaine is the advocate for their case. They don't seem to want to defend themselves for their inexplicable behavior, not in a way that makes sense. While waiting for the fateful morn, he seeks out a bottle of something special that they request as a last toast. Beckoned to the cottage of a little French boy's family, they are set upon by a German who recounts similar stories of walking away from the front all at the same time on the German side. Rushing back to HQ, Tremaine succeeds in staying the sentence at the last moment, as the officers confirm the veracity of the stories, a mystical event.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/xq2EDgIPLbjqRkcyPamAuytOrSz.jpg",
+          "airDate": "1959-03-24",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E10 - THE VISION.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 116581461,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E10THEVISION/S1E10 - THE VISION.ogv"
+        },
+        {
+          "archiveID": "S1E11THEDEVILSLAUGHTER",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Devil's Laughter",
+          "overview": "The condemned man's not for hanging.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7pMpnoCi26k18nraxvgeo800Fsa.jpg",
+          "airDate": "1959-03-31",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E11 - THE DEVIL'S LAUGHTER.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 107758055,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E11THEDEVILSLAUGHTER/S1E11 - THE DEVIL'S LAUGHTER.ogv"
+        },
+        {
+          "archiveID": "S1E12THERETURNOFMITCHELLCAMPION",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Return of Mitchell Campion",
+          "overview": "A man is known by everyone on a Caribbean island he has never visited before. Soon he too remembers, but he was in the hospital at the time of the supposed visit...",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4jewF5DcKuF1Rl82U7tZnTqeMpu.jpg",
+          "airDate": "1959-04-07",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E12 - THE RETURN OF MITCHELL CAMPION.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 111720433,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E12THERETURNOFMITCHELLCAMPION/S1E12 - THE RETURN OF MITCHELL CAMPION.ogv"
+        },
+        {
+          "archiveID": "S1E14THESECRET",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Secret",
+          "overview": "Is she, or is she not, unfaithful?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/uthxP6F2PH5PvfmguXtx9wMa7EL.jpg",
+          "airDate": "1959-04-21",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E14 - THE SECRET.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 110729258,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E14THESECRET/S1E14 - THE SECRET.ogv"
+        },
+        {
+          "archiveID": "S1E15THEAERIALIST",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Aerialist",
+          "overview": "An argument between two trapeze artists results in an accident in which one is paralyzed. The other is torn by guilt and depression, until supernatural forces began to change his world.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9FM1aAbfRnXYGCI8CSCzcLQKtBs.jpg",
+          "airDate": "1959-04-28",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E15 - THE AERIALIST.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 108545971,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E15THEAERIALIST/S1E15 - THE AERIALIST.ogv"
+        },
+        {
+          "archiveID": "S1E16THEBURNINGGIRL_201804",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Burning Girl",
+          "overview": "Everywhere she goes, you need a fire hose.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/sMlu6d3HvM6TvT95M1hLSvKROPZ.jpg",
+          "airDate": "1959-05-05",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E16 - THE BURNING GIRL.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 117936091,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E16THEBURNINGGIRL_201804/S1E16 - THE BURNING GIRL.ogv"
+        },
+        {
+          "archiveID": "S1E17THEHAUNTEDUBOAT",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Haunted U-Boat",
+          "overview": "While on patrol during WWII, a German U-boat attempts to evade detection from the sonar of the American and British ships.  But their location is repeatedly betrayed by the noise of a rhythmic banging sound caused by someone . . . or something . . . on board the submarine.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7ket1aIK8yrj0Sh0kQjGkkm8wk3.jpg",
+          "airDate": "1959-05-12",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E17 - THE HAUNTED U-BOAT.mp4",
+            "format": "h.264",
+            "sizeBytes": 158583663,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E17THEHAUNTEDUBOAT/S1E17 - THE HAUNTED U-BOAT.mp4"
+        },
+        {
+          "archiveID": "S1E18IMAGEOFDEATH",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "The Image of Death",
+          "overview": "\"\"Let her paint an inch thick...\"\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4heYbYvnpQdyW3EsdBxxbindWMf.jpg",
+          "airDate": "1959-05-19",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E18 - IMAGE OF DEATH.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 112522246,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E18IMAGEOFDEATH/S1E18 - IMAGE OF DEATH.ogv"
+        },
+        {
+          "archiveID": "S1E19THECAPTAINSGUESTS",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Captain's Guests",
+          "overview": "The Captain and Mr. & Mrs. Courtney.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/sSHYJMpmtnUMbY0kKmu482YK2vP.jpg",
+          "airDate": "1959-05-26",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E19 - THE CAPTAIN'S GUESTS.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 113649838,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E19THECAPTAINSGUESTS/S1E19 - THE CAPTAIN'S GUESTS.ogv"
+        },
+        {
+          "archiveID": "S1E20Echo",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Echo",
+          "overview": "A man is found innocent of his wife's murder. Her brother arrives from New Zealand and precipitates the real culprit's capture.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/o2wBT0II1Li6HnPLwNWQ26hN9Pm.jpg",
+          "airDate": "1959-06-02",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E20 - Echo.mp4",
+            "format": "h.264",
+            "sizeBytes": 158788779,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E20Echo/S1E20 - Echo.mp4"
+        },
+        {
+          "archiveID": "S1E21FrontRunner",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Front Runner",
+          "overview": "A jockey plays foul, and finally is brought up short.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rhr6AXWYLPXbnGtbvvPYTnXQqu6.jpg",
+          "airDate": "1959-06-09",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E21 - front runner.mp4",
+            "format": "h.264",
+            "sizeBytes": 158648933,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E21FrontRunner/S1E21 - front runner.mp4"
+        },
+        {
+          "archiveID": "S1E22THERIDDLE",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Riddle",
+          "overview": "An irrational hatred in an American tourist on the Bombay-Calcutta Mail is considered in terms of metempsychosis.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iGGkp7xWB4Hk5Qtj7fyuSsyP2kK.jpg",
+          "airDate": "1959-06-16",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E22 - THE RIDDLE.mp4",
+            "format": "h.264",
+            "sizeBytes": 156986176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E22THERIDDLE/S1E22 - THE RIDDLE.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "S2E1Delusion",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Delusion",
+          "overview": "A man with a rare blood type is asked to save a young lady's life by donating blood.  He refuses, claiming that each time he has given blood to someone in the past, he became psychically connected to them.  After relenting and saving the young lady's life, he foresees her death and becomes obsessed with protecting her.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/xMeJW8xgu1BgfRJ8UIbZAFxolAC.jpg",
+          "airDate": "1959-09-15",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E1 - Delusion.mp4",
+            "format": "h.264",
+            "sizeBytes": 155650285,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E1Delusion/S2E1 - Delusion.mp4"
+        },
+        {
+          "archiveID": "S2E2ORDEALONLOCUSTSTREET",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Ordeal on Locust Street",
+          "overview": "A turn-of-the-century English family hides a dark secret: a son who was born part human and part aquatic creature.  A discredited doctor attempts to use his controversial \"\"mind force\"\" (a powerful hypnotic technique) to physically transform the unfortunate young man.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/igfDrCOzHfkl0Q1VTUWLS8pYOcz.jpg",
+          "airDate": "1959-09-22",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E2 - ORDEAL ON LOCUST STREET.mp4",
+            "format": "h.264",
+            "sizeBytes": 158852246,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E2ORDEALONLOCUSTSTREET/S2E2 - ORDEAL ON LOCUST STREET.mp4"
+        },
+        {
+          "archiveID": "S2E3Brainwave",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Brainwave",
+          "overview": "During WWII, a drunken pharmacist's mate must operate on the injured captain of his ship.  The chief medical officer on a near-by ship assists the terrified young man perform the operation by providing instructions over the ship's radio.  But at a crucial moment in the operation, the young man needs much more than this . . . and he receives it from an unearthly source . . .",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rGgKCJyYpfQYzWbOaoNEajTR3fc.jpg",
+          "airDate": "1959-10-06",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E3 - Brainwave.mp4",
+            "format": "h.264",
+            "sizeBytes": 161832707,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E3Brainwave/S2E3 - Brainwave.mp4"
+        },
+        {
+          "archiveID": "S2E4Doomsday",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Doomsday",
+          "overview": "A Scottish earl executes his son's lover for being a suspected witch, and with her last words the doomed young women places a curse on the earl's family.  Hundreds of years later, the current earl of the family lives in fear of this curse â€“ because every elder son in the past has been a victim of it . . . and his time is approaching . . .",
+          "stillURL": "https://image.tmdb.org/t/p/w300/5b195h8xB96mNENgfgLIVieYsvK.jpg",
+          "airDate": "1959-10-13",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E4 - Doomsday.mp4",
+            "format": "h.264",
+            "sizeBytes": 159944438,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E4Doomsday/S2E4 - Doomsday.mp4"
+        },
+        {
+          "archiveID": "S2E5NIGHTOFTHEKILL",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Night of the Kill",
+          "overview": "Under cover of darkness.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/erjombBlLhYEAYWimNircwbCY72.jpg",
+          "airDate": "1959-10-20",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E5 -  NIGHT OF THE KILL.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 102546069,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E5NIGHTOFTHEKILL/S2E5 -  NIGHT OF THE KILL.ogv"
+        },
+        {
+          "archiveID": "S2E6TheInheritance",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Inheritance",
+          "overview": "A wealthy but cruel woman torments her gigolo boyfriend and her timid maid.  But a demoniacally possessed diamond necklace inflicts a horrible punishment on the women who try to wear it.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/hpbbpHxkJbDPxmn4VY9GyIyo0H3.jpg",
+          "airDate": "1959-10-27",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E6 - The Inheritance.mp4",
+            "format": "h.264",
+            "sizeBytes": 159812960,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E6TheInheritance/S2E6 - The Inheritance.mp4"
+        },
+        {
+          "archiveID": "S2E7THEOPENWINDOW_201804",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The Open Window",
+          "overview": "On a hot summer night, a disillusioned artist sits by the open window of his New York apartment and witnesses an attempted suicide by a young woman in the adjacent building.  He rushes next door to save her . . . but he finds the apartment empty!  Later, when the exact same vision is repeated, he begins to doubt his sanity.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/yzBweXlnEoyMMNxGhb0Nc0jyRXq.jpg",
+          "airDate": "1959-11-03",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E7 - THE OPEN WINDOW.mp4",
+            "format": "h.264",
+            "sizeBytes": 158911592,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E7THEOPENWINDOW_201804/S2E7 - THE OPEN WINDOW.mp4"
+        },
+        {
+          "archiveID": "S2E8MESSAGEFROMCLARA",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Message from Clara",
+          "overview": "An English instructor teaching immigrants finds herself writing at the blackboard in a language she doesn't understand. It turns out to be a warning against one of her students.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/m2HUEYyY3eJZNRBOGnvoxV3y5tF.jpg",
+          "airDate": "1959-11-10",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E8 - MESSAGE FROM CLARA.mp4",
+            "format": "h.264",
+            "sizeBytes": 153352818,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E8MESSAGEFROMCLARA/S2E8 - MESSAGE FROM CLARA.mp4"
+        },
+        {
+          "archiveID": "S2E9ForkedLightning",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Forked Lightning",
+          "overview": "Investigation of a double premonition: two strangers who knew death would find them at the end of the day.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lSio2UWdUF7WPxMDJdjMkshoLlg.jpg",
+          "airDate": "1959-11-17",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E9 - Forked Lightning.mp4",
+            "format": "h.264",
+            "sizeBytes": 156649487,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E9ForkedLightning/S2E9 - Forked Lightning.mp4"
+        },
+        {
+          "archiveID": "S2E10REUNION",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Reunion",
+          "overview": "World War II fliers' gathering takes an unusual turn.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+          "airDate": "1959-11-24",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E10 - REUNION.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 115901715,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E10REUNION/S2E10 - REUNION.ogv"
+        },
+        {
+          "archiveID": "S2E11DEADRINGER",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Dead Ringer",
+          "overview": "A turn-of-the-century newlywed claims that her evil twin sister is responsible for a series of fires set in orphanages. When her husband has the claim investigated, he learns that his wife's sister died years ago -- in a fire at the orphanage where the sisters lived . . .",
+          "stillURL": "https://image.tmdb.org/t/p/w300/yoT1BlLc6TeJknkpK5QKS6t4GWW.jpg",
+          "airDate": "1959-12-01",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E11 - DEAD RINGER.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 115299091,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E11DEADRINGER/S2E11 - DEAD RINGER.ogv"
+        },
+        {
+          "archiveID": "S2E12STONECUTTER",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "The Stone Cutter",
+          "overview": "A tombstone carver has a very strange revelation.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/8a9tyBcM2QiStKALVCNszW0mrLU.jpg",
+          "airDate": "1959-12-08",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E12 - STONE CUTTER.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 111797898,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E12STONECUTTER/S2E12 - STONE CUTTER.ogv"
+        },
+        {
+          "archiveID": "S2E13FATHERIMAGE",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Father Image",
+          "overview": "Daniel Gardner's father has left him some property, including an old boarded-up burlesque house.  No-one can understand why he never sold the place, until an accident causes Dan to go back in time and discover the reason.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3bKVqQyFOspJRM5ac7LijRy7jcv.jpg",
+          "airDate": "1959-12-15",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E13 - FATHER IMAGE.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 88001449,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E13FATHERIMAGE/S2E13 - FATHER IMAGE.ogv"
+        },
+        {
+          "archiveID": "S2E14MAKEMENOTAWITCH",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Make Me Not a Witch",
+          "overview": "A young girl living on a farm acquires the ability to read people's minds. Her gift proves instrumental in the rescue of two children.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/gleCLIvRiFvi9yI5M6r2Y3hKLgh.jpg",
+          "airDate": "1959-12-22",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E14 - MAKE ME NOT A WITCH.mp4",
+            "format": "h.264",
+            "sizeBytes": 155060924,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E14MAKEMENOTAWITCH/S2E14 - MAKE ME NOT A WITCH.mp4"
+        },
+        {
+          "archiveID": "S2E15THEHAND_201804",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "The Hand",
+          "overview": "\"\"These five kings.\"\" (D. Thomas)",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rQFCdSmf6fnEp2D1VEIWJnVsqRW.jpg",
+          "airDate": "1959-12-29",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E15 - THE HAND.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 112847790,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E15THEHAND_201804/S2E15 - THE HAND.ogv"
+        },
+        {
+          "archiveID": "S2E17EARTHQUAKE",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Earthquake",
+          "overview": "The bellhop who foretold The Great San Francisco Earthquake of 1906.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7UC9eaGSefpflXGfcd7b6E7CN4W.jpg",
+          "airDate": "1960-01-12",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E17 - EARTHQUAKE.mp4",
+            "format": "h.264",
+            "sizeBytes": 148416603,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E17EARTHQUAKE/S2E17 - EARTHQUAKE.mp4"
+        },
+        {
+          "archiveID": "S2E18FORESTSOFTHENIGHT",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "The Forests of the Night",
+          "overview": "A Chinese fortune leads to an Ovidian transformation.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/pkOkPBufycTglbvFHEE30HNd9bL.jpg",
+          "airDate": "1960-01-19",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E18 -  FORESTS OF THE NIGHT.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 103457409,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E18FORESTSOFTHENIGHT/S2E18 -  FORESTS OF THE NIGHT.ogv"
+        },
+        {
+          "archiveID": "S2E19CALLFROMTOMORROW",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Call from Tomorrow",
+          "overview": "Don't call us, we'll call you.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4sbJ55yroHoCdbOrbb1TIFfD9cp.jpg",
+          "airDate": "1960-01-26",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E19 - CALL FROM TOMORROW.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 111518656,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E19CALLFROMTOMORROW/S2E19 - CALL FROM TOMORROW.ogv"
+        },
+        {
+          "archiveID": "S2E22THELOVERS",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "The Lovers",
+          "overview": "Ghosts are smitten with a smooch.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/mh1dUdZXzlWgbXbBuUGLTDxRsXH.jpg",
+          "airDate": "1960-02-16",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E22 - THE LOVERS.mp4",
+            "format": "h.264",
+            "sizeBytes": 156182092,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E22THELOVERS/S2E22 - THE LOVERS.mp4"
+        },
+        {
+          "archiveID": "S2E23VanishingPoint",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Vanishing Point",
+          "overview": "Mrs. Fred Graham entered her house one day and was never seen again. When her husband asks the police to help him find his missing wife, he's accused of murdering her.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/43trJyparLbDbx3h5Eo9wERPwBZ.jpg",
+          "airDate": "1960-02-23",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E23 - Vanishing Point.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 116249531,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E23VanishingPoint/S2E23 - Vanishing Point.ogv"
+        },
+        {
+          "archiveID": "S2E24THEMASK_201804",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "The Mask",
+          "overview": "\"\"It seemed as if an enormous giant, or a Titan, had sculptured his own likeness on the precipice.\"\"\n\nHawthorne, \"\"The Great Stone Face\"\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iOZcqD6H82GBp5ZJ2u84sOsTRHY.jpg",
+          "airDate": "1960-03-01",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E24 - THE MASK.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 112193380,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E24THEMASK_201804/S2E24 - THE MASK.ogv"
+        },
+        {
+          "archiveID": "S2E25THEHAUNTING",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "The Haunting",
+          "overview": "The bridegroom kills the best man.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4AaSX7dRF5C5lGx8hCG4YmO4ieK.jpg",
+          "airDate": "1960-03-08",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E25 - THE HAUNTING.mp4",
+            "format": "h.264",
+            "sizeBytes": 153395964,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E25THEHAUNTING/S2E25 - THE HAUNTING.mp4"
+        },
+        {
+          "archiveID": "S2E26THEEXPLORER",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "The Explorer",
+          "overview": "An archaeological team becomes lost in the desert, but they encounter a young explorer who possesses life-saving knowledge of the region's ancient history. However, months later the leader of the expedition discovers that the young man he met in the dessert could not possibly be who he claimed to be . . . or could he?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/t2iy3GsI8BgWVBVwqJyjb46Zd8L.jpg",
+          "airDate": "1960-03-15",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E26 - THE EXPLORER.mp4",
+            "format": "h.264",
+            "sizeBytes": 153838397,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E26THEEXPLORER/S2E26 - THE EXPLORER.mp4"
+        },
+        {
+          "archiveID": "S2E27THECLOWN_201804",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "The Clown",
+          "overview": "A mute carnival clown witnesses the abusive relationship between a beautiful young lady and her cruel husband.  After fleeing from her husband, the young lady seeks refuge in the clown's trailer.  The husband burst in, commits an act of violence, and then flees â€“ only to find the spectral presence of the clown haunting his every step.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4gn8pDS6VC4yP40iHwsOHnLha6R.jpg",
+          "airDate": "1960-03-22",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E27 - THE CLOWN.mp4",
+            "format": "h.264",
+            "sizeBytes": 159325839,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E27THECLOWN_201804/S2E27 - THE CLOWN.mp4"
+        },
+        {
+          "archiveID": "S2E28ISAWYOUTOMORROW",
+          "seasonNumber": 2,
+          "episodeNumber": 28,
+          "title": "I Saw You Tomorrow",
+          "overview": "\"\"There is no new thing under the sun.\"\"\n\nProverbs",
+          "stillURL": "https://image.tmdb.org/t/p/w300/zoJEYi6v49aiJKmiGmGZ3BxeQvt.jpg",
+          "airDate": "1960-04-05",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E28 - I SAW YOU TOMORROW.mp4",
+            "format": "h.264",
+            "sizeBytes": 159437066,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E28ISAWYOUTOMORROW/S2E28 - I SAW YOU TOMORROW.mp4"
+        },
+        {
+          "archiveID": "S2E29ENCOUNTER",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "Encounter",
+          "overview": "Without a plane, a pilot appears.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/i3Vtk9xPVaVtTp7vbM9fKowfLTy.jpg",
+          "airDate": "1960-04-12",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E29 - ENCOUNTER.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 109051532,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E29ENCOUNTER/S2E29 - ENCOUNTER.ogv"
+        },
+        {
+          "archiveID": "S2E30THEPETERHURKOSSTORYPT1",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "The Peter Hurkos Story (1)",
+          "overview": "Peter Hurkos, a resistance fighter in Denmark during World War II, awakens from a coma and discovers that he not only has psychic powers, but that he can see the good or evil in someone simply by touching them. Soon he is using his powers to help track down a crazed killer.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/bfG6hJ7kPPNjRYAI7WQayeGFpx.jpg",
+          "airDate": "1960-04-19",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E30 - THE PETER HURKOS STORY, PT 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 160234142,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E30THEPETERHURKOSSTORYPT1/S2E30 - THE PETER HURKOS STORY, PT 1.mp4"
+        },
+        {
+          "archiveID": "S2E31THEPETERHURKOSSTORYPT2",
+          "seasonNumber": 2,
+          "episodeNumber": 31,
+          "title": "The Peter Hurkos Story (2)",
+          "overview": "Following his experiences Hurkos begins to work with parapsychologist Dr Lindsteom and the police and is credited with assisting in the capture of real-life serial killers. Hurkos himself finally appears on screen.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/l71dL8oSGt4xjhXR6QSAr5sBJG4.jpg",
+          "airDate": "1960-04-26",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E31 - THE PETER HURKOS STORY, PT 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 159677941,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E31THEPETERHURKOSSTORYPT2/S2E31 - THE PETER HURKOS STORY, PT 2.mp4"
+        },
+        {
+          "archiveID": "S2E32Delia",
+          "seasonNumber": 2,
+          "episodeNumber": 32,
+          "title": "Delia",
+          "overview": "While vacationing at a tropical resort, a cynical and unhappy young man meets a beautiful young lady who speaks cryptically about the many times they've met before.  The two fall instantly in love -- but the next day he cannot find her . . . and the other resort guests claim he spent the evening alone.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/pdsuO9fPKCUOQ9CPJSk4hNpy9LM.jpg",
+          "airDate": "1960-05-03",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E32 - Delia.mp4",
+            "format": "h.264",
+            "sizeBytes": 156380469,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E32Delia/S2E32 - Delia.mp4"
+        },
+        {
+          "archiveID": "S2E33THEVISITOR",
+          "seasonNumber": 2,
+          "episodeNumber": 33,
+          "title": "The Visitor",
+          "overview": "A man returns to his past.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4KUrfvxcJkDNcOAd76t31KKCdSp.jpg",
+          "airDate": "1960-05-10",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E33 - THE VISITOR.mp4",
+            "format": "h.264",
+            "sizeBytes": 141482766,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E33THEVISITOR/S2E33 - THE VISITOR.mp4"
+        },
+        {
+          "archiveID": "S2E34Gypsy",
+          "seasonNumber": 2,
+          "episodeNumber": 34,
+          "title": "Gypsy",
+          "overview": "A prisoner's encounter with the supernatural is recounted.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4SXIaO5RBS2AF9sCidMrvE0bXC5.jpg",
+          "airDate": "1960-05-17",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E34 - Gypsy.mp4",
+            "format": "h.264",
+            "sizeBytes": 154792752,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E34Gypsy/S2E34 - Gypsy.mp4"
+        },
+        {
+          "archiveID": "S2E35CONTACT",
+          "seasonNumber": 2,
+          "episodeNumber": 35,
+          "title": "Contact",
+          "overview": "A hands-on approach.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/52OlrYAZO5nViPp8f7XeBL4WlbQ.jpg",
+          "airDate": "1960-05-24",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E35 - CONTACT.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 97797505,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E35CONTACT/S2E35 - CONTACT.ogv"
+        },
+        {
+          "archiveID": "S2E36THELONELYROOM",
+          "seasonNumber": 2,
+          "episodeNumber": 36,
+          "title": "The Lonely Room",
+          "overview": "Young Henri Lamont, shy and desperate for a girlfriend, is staggered to find that when he goes into a certain room and looks out of the window he sees himself walking down the street with a beautiful young girl and decides to investigate how this could have come about.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/meY1ex390qvUSsy0wCqy0URF9oF.jpg",
+          "airDate": "1960-05-31",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E36 - THE LONELY ROOM.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 91980625,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E36THELONELYROOM/S2E36 - THE LONELY ROOM.ogv"
+        },
+        {
+          "archiveID": "S2E37HOUSEOFTHEDEAD",
+          "seasonNumber": 2,
+          "episodeNumber": 37,
+          "title": "House of the Dead",
+          "overview": "A British army officer stationed in Hong Kong frantically searches  for his missing Oriental wife before his scheduled return to the US. In desperation he seeks the help of an old Chinese man . . . who writes a cryptic message on paper and tells him to look for his wife in the \"\"House of the Dead\"\" . . .",
+          "stillURL": "https://image.tmdb.org/t/p/w300/wVlPLd60uAdhwHk8v4OLpbSNsQQ.jpg",
+          "airDate": "1960-06-07",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E37 - HOUSE OF THE DEAD.mp4",
+            "format": "h.264",
+            "sizeBytes": 156975580,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E37HOUSEOFTHEDEAD/S2E37 - HOUSE OF THE DEAD.mp4"
+        },
+        {
+          "archiveID": "S2E38GOODBYEGRANDPA_201804",
+          "seasonNumber": 2,
+          "episodeNumber": 38,
+          "title": "Goodbye Grandpa",
+          "overview": "An old railroad man keeps his promise.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7Y26RhUTs3mC5eSopmp2Lt6rl9j.jpg",
+          "airDate": "1960-06-14",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E38 - GOODBYE GRANDPA.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 111027466,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E38GOODBYEGRANDPA_201804/S2E38 - GOODBYE GRANDPA.ogv"
+        },
+        {
+          "archiveID": "S2E39THESTORM",
+          "seasonNumber": 2,
+          "episodeNumber": 39,
+          "title": "The Storm",
+          "overview": "no sooner out the hermit-dorm   I found the calm that follows storm\n\nBeckett",
+          "stillURL": "https://image.tmdb.org/t/p/w300/t1IhLLyTpU6HPIo3JorhSIxqjIB.jpg",
+          "airDate": "1960-06-21",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S2E39 - THE STORM.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 100962058,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E39THESTORM/S2E39 - THE STORM.ogv"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "S3E1TIDALWAVE",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Tidal Wave",
+          "overview": "As a tidal wave approaches the Hawaiian Islands, the wheelchair-bound wife of a Naval engineer desperately tries to find someone to help her evacuate the doomed area.  Nothing can save the poor young women â€“ accept perhaps the strange and illusive phenomenon known as . . . telepathy.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/wpPzrn93yQ2FBXHX09w6xQvrR8b.jpg",
+          "airDate": "1960-08-30",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E1 - TIDAL WAVE.mp4",
+            "format": "h.264",
+            "sizeBytes": 157418784,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E1TIDALWAVE/S3E1 - TIDAL WAVE.mp4"
+        },
+        {
+          "archiveID": "S3E2ANNIVERSARYOFAMURDER",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Anniversary of a Murder",
+          "overview": "In the midst of an adulterous relationship, a successful business man and his mistress are driving home one night when they accidentally cause the death of young bicyclists on a lonely road.  They desperately try to cover up the tragedy . . . but the dead man has other ideas . . .",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9aRUpP8DTw4Vl6MbdlktzTwTPG1.jpg",
+          "airDate": "1960-09-27",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E2  - ANNIVERSARY OF A MURDER.mp4",
+            "format": "h.264",
+            "sizeBytes": 159502305,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E2ANNIVERSARYOFAMURDER/S3E2  - ANNIVERSARY OF A MURDER.mp4"
+        },
+        {
+          "archiveID": "S3E3DEATHWALTZ",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "The Death Waltz",
+          "overview": "The Merry Widow?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/sizh15Rj7IKlAqKfwmowQYnSTuU.jpg",
+          "airDate": "1960-10-04",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E3 - DEATH WALTZ.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 96782439,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E3DEATHWALTZ/S3E3 - DEATH WALTZ.ogv"
+        },
+        {
+          "archiveID": "S3E4THERETURN",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "The Return",
+          "overview": "These were the swift to harry...",
+          "stillURL": "https://image.tmdb.org/t/p/w300/xGYIQWleZFpPRhQWFcZ3gvrqO9A.jpg",
+          "airDate": "1960-10-11",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E4 -  THE RETURN.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 92726489,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E4THERETURN/S3E4 -  THE RETURN.ogv"
+        },
+        {
+          "archiveID": "S3E5IFYOUSEESALLY",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "If You See Sally",
+          "overview": "Her brother dies, and she is blamed, so she departs.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/q9hSH65IbxdC7iSTm2ZuAoJcY8b.jpg",
+          "airDate": "1960-10-18",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E5 - IF YOU SEE SALLY.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 95928676,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E5IFYOUSEESALLY/S3E5 - IF YOU SEE SALLY.ogv"
+        },
+        {
+          "archiveID": "S3E6MOMENTOFHATE_201804",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Moment of Hate",
+          "overview": "A woman believes she has the power to cause death by wishing it, and is placed under a psychiatrist's care.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/fOGG8vTwddXiVxUUHHOrUXjmsaT.jpg",
+          "airDate": "1960-10-25",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E6 - MOMENT OF HATE.mp4",
+            "format": "h.264",
+            "sizeBytes": 156063631,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E6MOMENTOFHATE_201804/S3E6 - MOMENT OF HATE.mp4"
+        },
+        {
+          "archiveID": "S3E7TOKNOWTHEEND",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "To Know the End",
+          "overview": "...is to cure the suspense; a woman envisions her husband transformed.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/AozVQZ5vcGu6p1d8z7KXPBxGtuL.jpg",
+          "airDate": "1960-11-01",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E7 - TO KNOW THE END.mp4",
+            "format": "h.264",
+            "sizeBytes": 159432669,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E7TOKNOWTHEEND/S3E7 - TO KNOW THE END.mp4"
+        },
+        {
+          "archiveID": "S3E8THETRAP",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "The Trap",
+          "overview": "Just before he falls asleep, a man is suddenly aware that there is another life that seems to be in direct conflict with his own. He is astounded to discover that he has stumbled upon what seems to be a parallel universe--one in which he also exists. but in not quite the same way he does in this one.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rApPQc9UuXX7lUCktT5AgLB0eB4.jpg",
+          "airDate": "1960-11-15",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E8 - THE TRAP.mp4",
+            "format": "h.264",
+            "sizeBytes": 155449986,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E8THETRAP/S3E8 - THE TRAP.mp4"
+        },
+        {
+          "archiveID": "S3E9THEVOICE",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "The Voice",
+          "overview": "Heard melodies are sweet, but those unheard   Are sweeter.\n\nKeats",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7il4oZwc1UpqGKfu6OSalHyGvUp.jpg",
+          "airDate": "1960-11-22",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E9 -  THE VOICE.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 86985551,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E9THEVOICE/S3E9 -  THE VOICE.ogv"
+        },
+        {
+          "archiveID": "S3E10THEPROMISE",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "The Promise",
+          "overview": "But I have promises to keep,   And miles to go before I sleep.\n\nFrost",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4jUa39r1OYxmxYQTK74aWcKh6Ey.jpg",
+          "airDate": "1960-11-29",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E10 - THE PROMISE.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 88901121,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E10THEPROMISE/S3E10 - THE PROMISE.ogv"
+        },
+        {
+          "archiveID": "S3E11TONIGHTAT1217",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Tonight at 12:17",
+          "overview": "An expectant mother envisions a plane crash with startling clarity.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7a2MyCPuzdmx138JciwrK2MMjV2.jpg",
+          "airDate": "1960-12-06",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E11 - TONIGHT AT 12-17.mp4",
+            "format": "h.264",
+            "sizeBytes": 155857034,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E11TONIGHTAT1217/S3E11 - TONIGHT AT 12-17.mp4"
+        },
+        {
+          "archiveID": "S3E12WHEREARETHEY",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Where Are They?",
+          "overview": "Stones fall on Chico, California; a man goes to Washington, D.C with effervescent tablets that turn water into fuel for automobiles.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/1vOTgLWQraGHWygzpEUWautY8Zm.jpg",
+          "airDate": "1960-12-13",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E12 - WHERE ARE THEY.mp4",
+            "format": "h.264",
+            "sizeBytes": 155961781,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E12WHEREARETHEY/S3E12 - WHERE ARE THEY.mp4"
+        },
+        {
+          "archiveID": "S3E13LEGACYOFLOVE",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Legacy of Love",
+          "overview": "A romance of past and present.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/yE0cOxQW1w8Iqk1D48qrb4Kltfr.jpg",
+          "airDate": "1960-12-20",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E13 - LEGACY OF LOVE.mp4",
+            "format": "h.264",
+            "sizeBytes": 156583864,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E13LEGACYOFLOVE/S3E13 - LEGACY OF LOVE.mp4"
+        },
+        {
+          "archiveID": "S3E14RENDEZVOUS",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Rendezvous",
+          "overview": "A wife is notified that her husband, a Marine, has been lost at sea. However, she refuses to believe that he is dead and knows that he will return to her. Soon afterwards she is walking alone through a park when a would-be mugger approaches her, but he is scared off by the sudden appearance of what looks to be some sort of spirit.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/umaIPtce4Cu9wQLpl61bnJFDypN.jpg",
+          "airDate": "1960-12-27",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E14 - RENDEZVOUS.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 105727130,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E14RENDEZVOUS/S3E14 - RENDEZVOUS.ogv"
+        },
+        {
+          "archiveID": "S3E15TheExecutioner",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "The Executioner",
+          "overview": "A Confederate soldier lost behind Union lines is framed for spying. His dog saves him even after death.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3u0DUkhoS3IZbx5zARRGtI0ADBA.jpg",
+          "airDate": "1961-01-03",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E15 - The Executioner.mp4",
+            "format": "h.264",
+            "sizeBytes": 155436389,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E15TheExecutioner/S3E15 - The Executioner.mp4"
+        },
+        {
+          "archiveID": "S3E16THELASTROUND",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "The Last Round",
+          "overview": "A former heavyweight champion appears to save a boxing match during the blitz.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/yMXqfvLWT8n8iDgRws7Vt1k2gJv.jpg",
+          "airDate": "1961-01-10",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E16 - THE LAST ROUND.mp4",
+            "format": "h.264",
+            "sizeBytes": 156055344,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E16THELASTROUND/S3E16 - THE LAST ROUND.mp4"
+        },
+        {
+          "archiveID": "S3E17DEADMANSTALE",
+          "seasonNumber": 3,
+          "episodeNumber": 17,
+          "title": "Dead Man's Tale",
+          "overview": "A reporter makes a find in the Yukon.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9RVQ4P1fnzW6ccwSQ9yIWZk8Knd.jpg",
+          "airDate": "1961-01-17",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E17 - DEAD MAN'S TALE.mp4",
+            "format": "h.264",
+            "sizeBytes": 155680469,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E17DEADMANSTALE/S3E17 - DEAD MAN'S TALE.mp4"
+        },
+        {
+          "archiveID": "S3E18THESACREDMUSHROOM_201804",
+          "seasonNumber": 3,
+          "episodeNumber": 18,
+          "title": "The Sacred Mushroom",
+          "overview": "Andrija Puharich's expedition in search of the sacred mushroom, with the help of a brujo, and ESP tests before and after.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/yKM46DHUtl1wdqDiiEyj3JlSbLL.jpg",
+          "airDate": "1961-01-24",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E18 - THE SACRED MUSHROOM.mp4",
+            "format": "h.264",
+            "sizeBytes": 156095835,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E18THESACREDMUSHROOM_201804/S3E18 - THE SACRED MUSHROOM.mp4"
+        },
+        {
+          "archiveID": "S3E19THEGIFT",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "The Gift",
+          "overview": "Neither shadow of turning.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/qtErsnXvqnUXCIht9BL8EJODzcj.jpg",
+          "airDate": "1961-01-31",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E19 -  THE GIFT.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 100069395,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E19THEGIFT/S3E19 -  THE GIFT.ogv"
+        },
+        {
+          "archiveID": "S3E20PERSONSUNKNOWN_201804",
+          "seasonNumber": 3,
+          "episodeNumber": 20,
+          "title": "Person Unknown",
+          "overview": "In Mexico, an escaped convict hides out in a monastery. Unfortunately, it is on the night when the ghost of an Aztec warrior is said to roam the halls. When a murder is discovered later that night, he must prove that he not only didn't commit the murder, but that it was in fact committed by the ghostly warrior.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iaetasKwzDutJdAHGIaYRLVlYU.jpg",
+          "airDate": "1961-02-07",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E20 - PERSONS UNKNOWN.mp4",
+            "format": "h.264",
+            "sizeBytes": 158256849,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E20PERSONSUNKNOWN_201804/S3E20 - PERSONS UNKNOWN.mp4"
+        },
+        {
+          "archiveID": "S3E21NIGHTOFDECISION",
+          "seasonNumber": 3,
+          "episodeNumber": 21,
+          "title": "Night of Decision",
+          "overview": "General Washington doubts, but is saved.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/fny5KlNY2leZUT6Br6kZ4shkB5c.jpg",
+          "airDate": "1961-02-21",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E21 - NIGHT OF DECISION.mp4",
+            "format": "h.264",
+            "sizeBytes": 158267149,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E21NIGHTOFDECISION/S3E21 - NIGHT OF DECISION.mp4"
+        },
+        {
+          "archiveID": "S3E22THESTRANGER",
+          "seasonNumber": 3,
+          "episodeNumber": 22,
+          "title": "The Stranger",
+          "overview": "In a disaster, he comforts the survivors, and afterward is found to have died in prison some time before.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/eRXK7t34qXAIJDdgeqZc8zb3Ckg.jpg",
+          "airDate": "1961-02-28",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E22 - THE STRANGER.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 114471257,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E22THESTRANGER/S3E22 - THE STRANGER.ogv"
+        },
+        {
+          "archiveID": "S3E23JUSTICE",
+          "seasonNumber": 3,
+          "episodeNumber": 23,
+          "title": "Justice",
+          "overview": "Its long arm finally resolves an eyewitness and an alibi.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/f1vwSo8iXUkVAZ7ONM8CwuzIgGf.jpg",
+          "airDate": "1961-03-07",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E23 -  JUSTICE.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 115765008,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E23JUSTICE/S3E23 -  JUSTICE.ogv"
+        },
+        {
+          "archiveID": "S3E24THEFACE",
+          "seasonNumber": 3,
+          "episodeNumber": 24,
+          "title": "The Face",
+          "overview": "Persistence of evil vision.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/uxiVzqj0EiWllTPHv3aFkgPf1gF.jpg",
+          "airDate": "1961-03-14",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E24 - THE FACE.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 109424477,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E24THEFACE/S3E24 - THE FACE.ogv"
+        },
+        {
+          "archiveID": "S3E25THEROOMUPSTAIRS",
+          "seasonNumber": 3,
+          "episodeNumber": 25,
+          "title": "The Room Upstairs",
+          "overview": "A Londoner hears a child crying for help.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/fW1KlSjtPxFT7EPAuLavNElHd2K.jpg",
+          "airDate": "1961-03-21",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E25 -  THE ROOM UPSTAIRS.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 113541583,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E25THEROOMUPSTAIRS/S3E25 -  THE ROOM UPSTAIRS.ogv"
+        },
+        {
+          "archiveID": "S3E26SIGNALRECEIVED",
+          "seasonNumber": 3,
+          "episodeNumber": 26,
+          "title": "Signal Received",
+          "overview": "On HMS Hood, \"\"England expects every man will do his duty.\"\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/wMDkwEziVihmbwxr5fk6msCnQQA.jpg",
+          "airDate": "1961-04-04",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E26 - SIGNAL RECEIVED.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 115787063,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E26SIGNALRECEIVED/S3E26 - SIGNAL RECEIVED.ogv"
+        },
+        {
+          "archiveID": "S3E27THECONFESSION",
+          "seasonNumber": 3,
+          "episodeNumber": 27,
+          "title": "The Confession",
+          "overview": "The prosecution rests badly after an innocent man gets it.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4xNJTagdC34L28lEj7QopkH0l2B.jpg",
+          "airDate": "1961-04-11",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E27 - THE CONFESSION.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 95525342,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E27THECONFESSION/S3E27 - THE CONFESSION.ogv"
+        },
+        {
+          "archiveID": "S3E28THEAVENGERS",
+          "seasonNumber": 3,
+          "episodeNumber": 28,
+          "title": "The Avengers",
+          "overview": "How the past determines the future.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/gOwGzMJqxiHAAvBjzkejVucnCsC.jpg",
+          "airDate": "1961-04-25",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E28 - THE AVENGERS.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 96057985,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E28THEAVENGERS/S3E28 - THE AVENGERS.ogv"
+        },
+        {
+          "archiveID": "S3E29THEPRISONER",
+          "seasonNumber": 3,
+          "episodeNumber": 29,
+          "title": "The Prisoner",
+          "overview": "The survivor of a concentration camp receives a visit from a German officer who is dead.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/vNPdX6eWFH4bTQPL64dZmYQ65Gl.jpg",
+          "airDate": "1961-05-02",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E29 -  THE PRISONER.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 94501487,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E29THEPRISONER/S3E29 -  THE PRISONER.ogv"
+        },
+        {
+          "archiveID": "S3E30BLOODFLOWER",
+          "seasonNumber": 3,
+          "episodeNumber": 30,
+          "title": "Blood Flower",
+          "overview": "Flores, flores para los muertos.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/yONPI2DH1W1d1XfcOy60FjHuUiX.jpg",
+          "airDate": "1961-05-16",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E30 - BLOOD FLOWER.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 95697842,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E30BLOODFLOWER/S3E30 - BLOOD FLOWER.ogv"
+        },
+        {
+          "archiveID": "S3E31THESORCERER_201804",
+          "seasonNumber": 3,
+          "episodeNumber": 31,
+          "title": "The Sorcerer",
+          "overview": "An army officer is acquitted of a murder he insists he committed.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4CzVNuJywhY37E4ww0WXV33LNm8.jpg",
+          "airDate": "1961-05-23",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E31 - THE SORCERER.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 109411743,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E31THESORCERER_201804/S3E31 - THE SORCERER.ogv"
+        },
+        {
+          "archiveID": "S3E32THEVILLA",
+          "seasonNumber": 3,
+          "episodeNumber": 32,
+          "title": "The Villa",
+          "overview": "A room with a view.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3mYa46cgcMPZItxNnn2s1uRgm8H.jpg",
+          "airDate": "1961-06-06",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E32 - THE VILLA.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 96776975,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E32THEVILLA/S3E32 - THE VILLA.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 91
+}

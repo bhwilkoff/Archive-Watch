@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "especial-informativo-1991",
+  "title": "Especial Informativo",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/guerra-en-el-golfo-1991-02-24",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "guerra-en-el-golfo-1991-02-24",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Especial Informativo - Guerra en el Golfo (Telemadrid) - 24 de febrero, 1991",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/guerra-en-el-golfo-1991-02-24",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TELEMADRID   Especial informativo 24 02 1991 Guerra en el Golfo.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 36834688,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/guerra-en-el-golfo-1991-02-24/TELEMADRID   Especial informativo 24 02 1991 Guerra en el Golfo.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

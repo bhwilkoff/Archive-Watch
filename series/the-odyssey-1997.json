@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "seriesID": "the-odyssey-1997",
+  "title": "The Odyssey",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": "The Odyssey is a Canadian-produced half-hour adventure-fantasy television series for children, originally broadcast 1992-94 on CBC Television. It starred Illya Woloshyn as Jay Ziegler, Ashleigh Aston Moore as Donna/Alpha, Tony Sampson as Keith/Flash, Andrea Nemeth as Medea/Sierra Jones, Mark Hildreth as Finger, Ryan Reynolds as Macro, Janet Hodgkinson as Val Ziegler, and Devon Sawa as Yudo.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/2m4MtdIuOr7G1ZCWw9GXDghnmzv.jpg",
+  "genres": [],
+  "networks": [
+    "CBC Television"
+  ],
+  "creator": "Warren Easton",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-odyssey-1997-part-1-of-2-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Odyssey - 1997 - Part 1 of 2 - AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Odyssey - 1997 - Part 1 of 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 518413637,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-odyssey-1997-part-1-of-2-avi/The Odyssey - 1997 - Part 1 of 2.mp4"
+        },
+        {
+          "archiveID": "the-odyssey-1997-part-1-of-2-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Odyssey - 1997 - Part 1 of 2 - MKV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Odyssey - 1997 - Part 1 of 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 1084937700,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-odyssey-1997-part-1-of-2-mkv/The Odyssey - 1997 - Part 1 of 2.mp4"
+        },
+        {
+          "archiveID": "the-odyssey-1997-part-2-of-2-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Odyssey - 1997 - Part 2 of 2 - AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Odyssey - 1997 - Part 2 of 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 524454681,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-odyssey-1997-part-2-of-2-avi/The Odyssey - 1997 - Part 2 of 2.mp4"
+        },
+        {
+          "archiveID": "the-odyssey-1997-part-2-of-2-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Odyssey - 1997 - Part 2 of 2 - MKV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Odyssey - 1997 - Part 2 of 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 1084424502,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-odyssey-1997-part-2-of-2-mkv/The Odyssey - 1997 - Part 2 of 2.mp4"
+        },
+        {
+          "archiveID": "the-odyssey-1997-the-making-of-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Odyssey - 1997 - The Making Of - AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Odyssey - 1997 - The Making Of.mp4",
+            "format": "h.264",
+            "sizeBytes": 115948434,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-odyssey-1997-the-making-of-avi/The Odyssey - 1997 - The Making Of.mp4"
+        },
+        {
+          "archiveID": "the-odyssey-1997-the-making-of-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Odyssey - 1997 - The Making Of - MKV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Odyssey - 1997 - The Making Of.mp4",
+            "format": "h.264",
+            "sizeBytes": 120104626,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-odyssey-1997-the-making-of-mkv/The Odyssey - 1997 - The Making Of.mp4"
+        },
+        {
+          "archiveID": "the-odyssey-1997-trailer-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Odyssey - 1997 - Trailer - AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ixeOYFcCj6YjKrliC13pxGFNTK2.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Odyssey - 1997 - Trailer.mp4",
+            "format": "h.264",
+            "sizeBytes": 25088989,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-odyssey-1997-trailer-avi/The Odyssey - 1997 - Trailer.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

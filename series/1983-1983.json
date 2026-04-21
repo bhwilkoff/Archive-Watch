@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1983-1983",
+  "title": "1983",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/auf-wiedersehen-pet-complete-series-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "auf-wiedersehen-pet-complete-series-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "(1983 - 84) AUF WIEDERSEHEN PET COMPLETE SERIES 1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/auf-wiedersehen-pet-complete-series-1",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AUF WIEDERSEHEN PET COMPLETE SERIES 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 3550818571,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/auf-wiedersehen-pet-complete-series-1/AUF WIEDERSEHEN PET COMPLETE SERIES 1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

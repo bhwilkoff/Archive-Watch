@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "fantasy-island-1998",
+  "title": "Fantasy Island",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": "A magical island hosted by Mr Roarke and Tattoo where weekly guests learn valuable life lessons in their pursuit of fulfilling their dreams. Not all dreams are fulfilled as expected.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ppxhytiPrgojE4eb6Tw0EonDzeP.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/yTJFf7N9ohXjssZQyZ1cSMNopix.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Gene Levitt",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "fantasy-island-1.07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fantasy Island - Malcolm McDowell, Fyvush Finkel",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ppxhytiPrgojE4eb6Tw0EonDzeP.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fantasy Island - 1.07.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1381301333,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fantasy-island-1.07/Fantasy Island - 1.07.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

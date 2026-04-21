@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "archie-bunker-1979",
+  "title": "Archie Bunker",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/archie-bunkers-place-complete-series",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "archie-bunkers-place-complete-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Archie Bunker's Place (Complete TV Series) (CTV)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/archie-bunkers-place-complete-series",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Archie Bunker's Place - S01E12.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 627082303,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/archie-bunkers-place-complete-series/Archie Bunker's Place - S01E12.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

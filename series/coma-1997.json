@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "coma-1997",
+  "title": "Coma",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": "Lee Ting-hong joins Guangji Hospital, where he meets the chairwoman's daughter, Xue Baoqi. They initially misunderstand each other but eventually become a couple. As they witness patients, and even acquaintances, die mysteriously, they investigate and discover that the events are related to the hospital's director, Tang Zhiyang, and the chief surgeon, Guo Weicheng.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/u60b1XresXJ1L0VvibcuPCdDLlV.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/v2Yl6COHfSJElZbZrlHVSn613hS.jpg",
+  "genres": [],
+  "networks": [
+    "ATV"
+  ],
+  "creator": "Ga-Ho Lau",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "NOVAComa",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Coma",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/u60b1XresXJ1L0VvibcuPCdDLlV.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S24E11.Coma.1997.VHSRip.AAC2.0.x264-rattera.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1379382486,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/NOVAComa/NOVA.S24E11.Coma.1997.VHSRip.AAC2.0.x264-rattera.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

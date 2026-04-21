@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "entertainment-this-week-in-1989",
+  "title": "Entertainment This Week (in",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/entertainmentthisweek-198906",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "entertainmentthisweek-198906",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Entertainment This Week (incomplete - 06/1989)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/entertainmentthisweek-198906",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "25 - Entertainment This Week (3rd segment).mp4",
+            "format": "h.264",
+            "sizeBytes": 70840805,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/entertainmentthisweek-198906/25 - Entertainment This Week (3rd segment).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

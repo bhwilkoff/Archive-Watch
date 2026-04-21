@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "rousseau-le-devin-du-village-1962-1962",
+  "title": "Rousseau = Le Devin Du Village 1962",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/RousseauLeDevinDuVillage",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RousseauLeDevinDuVillage",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Rousseau = Le Devin Du Village 1962",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/RousseauLeDevinDuVillage",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Rousseau = Le devin du village.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 171481296,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RousseauLeDevinDuVillage/Rousseau = Le devin du village.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

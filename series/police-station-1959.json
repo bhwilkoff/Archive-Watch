@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "police-station-1959",
+  "title": "Police Station",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": "Police Station is an American TV series that aired in syndication in 1959. Stories were taken from actual files.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/gcuNAStyerPydB5b31SgIjS9sY1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "documentary film",
+    "newsreel"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Police_Station_1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Police Station",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gcuNAStyerPydB5b31SgIjS9sY1.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1740,
+          "videoFile": {
+            "name": "Police_station_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 124819058,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Police_Station_1959/Police_station_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

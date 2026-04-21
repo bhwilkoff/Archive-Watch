@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "rock-roll-1995",
+  "title": "Rock & Roll",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": "This 10-part documentary mini-series traces the history and evolution of rock and roll music, from its rhythm and blues, country, gospel and jazz roots in the early 1950s, through the advent of folk rock, soul, psychadelia, heavy metal, glam, funk, punk, and reggae, to the emergence of rap in the early 1990s.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pVcPxEA4chFeTEYStwJi3u3hlY9.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "rock-roll-episode-02-in-the-groove",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Rock & Roll (1995)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pVcPxEA4chFeTEYStwJi3u3hlY9.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Rock & Roll Episode 04 Respect.mp4",
+            "format": "h.264",
+            "sizeBytes": 351638737,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/rock-roll-episode-02-in-the-groove/Rock & Roll Episode 04 Respect.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

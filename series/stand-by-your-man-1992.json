@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "stand-by-your-man-1992",
+  "title": "Stand By Your Man",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "Stand by Your Man is an American sitcom that aired on Fox from April 5, 1992, until May 17, 1992. The series was created by Nancy Steen and Neil Thompson, who also wrote some of the episodes. It is notable for being Melissa Gilbert's return to series television after the conclusion of Little House on the Prairie nine years earlier, and the first lead sitcom role for Rosie O'Donnell, who was then on the verge of breaking into major fame.\n\nThe series was created as an American adaptation of the popular British sitcom Birds of a Feather, which was still in production at the time.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9w0qdjvjzolblltfT02zpENkuf5.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": "Neil Thompson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "stand-by-your-man-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Stand By Your Man - Rosie O'Donnell, Melissa Gilbert",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9w0qdjvjzolblltfT02zpENkuf5.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Stand By Your Man - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 167992925,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/stand-by-your-man-1.1/Stand By Your Man - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

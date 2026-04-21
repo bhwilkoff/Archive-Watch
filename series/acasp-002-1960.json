@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "acasp-002-1960",
+  "title": "ACASP 002",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/acasp-002",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "acasp-002",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ACASP 002",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/acasp-002",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ACASP_002.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 628748244,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/acasp-002/ACASP_002.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

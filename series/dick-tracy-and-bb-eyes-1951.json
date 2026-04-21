@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dick-tracy-and-bb-eyes-1951",
+  "title": "Dick Tracy and BB-Eyes",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DickTracyAndBb-eyes1951",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DickTracyAndBb-eyes1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dick Tracy and BB-Eyes (1951)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DickTracyAndBb-eyes1951",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1533,
+          "videoFile": {
+            "name": "Dick_Tracy_BB_Eyes_II_09_26_1951.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198769827,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DickTracyAndBb-eyes1951/Dick_Tracy_BB_Eyes_II_09_26_1951.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

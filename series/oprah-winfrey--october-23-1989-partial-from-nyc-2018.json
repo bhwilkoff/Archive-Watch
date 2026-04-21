@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "seriesID": "oprah-winfrey--october-23-1989-partial-from-nyc-2018",
+  "title": "Oprah Winfrey- October 23, 1989 (partial, From NYC",
+  "yearStart": 2018,
+  "yearEnd": 2018,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OprahWinfreyOctober231989partialFromNYC",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lic:15496f7e09d5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Oprah Winfrey- October 23, 1989 (partial, From NYC)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OprahWinfreyOctober231989partialFromNYC",
+          "airDate": null,
+          "year": 2018,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

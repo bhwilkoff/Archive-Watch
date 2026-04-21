@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jed-gets-the-misery-1960",
+  "title": "Jed Gets The Misery",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bBeverly_Hillbillies_Ep37__Jed_Gets_The_Misery",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bBeverly_Hillbillies_Ep37__Jed_Gets_The_Misery",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jed Gets The Misery",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bBeverly_Hillbillies_Ep37__Jed_Gets_The_Misery",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Beverly_Hillbillies_Ep37__Jed_Gets_The_Misery.mp4",
+            "format": "h.264",
+            "sizeBytes": 149822887,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bBeverly_Hillbillies_Ep37__Jed_Gets_The_Misery/Beverly_Hillbillies_Ep37__Jed_Gets_The_Misery.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

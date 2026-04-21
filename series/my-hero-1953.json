@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "seriesID": "my-hero-1953",
+  "title": "My Hero",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MyHero-ArabianNights",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''My Hero'' - Arabian Nights",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1464,
+          "videoFile": {
+            "name": "myhero-arabiannights.mp4",
+            "format": "h.264",
+            "sizeBytes": 152420850,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyHero-ArabianNights/myhero-arabiannights.mp4"
+        },
+        {
+          "archiveID": "MyHero-BumForaDay",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''My Hero'' - Bum for a Day",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1458,
+          "videoFile": {
+            "name": "myhero-bumforaday.mp4",
+            "format": "h.264",
+            "sizeBytes": 151829044,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyHero-BumForaDay/myhero-bumforaday.mp4"
+        },
+        {
+          "archiveID": "MyHero-ElToro",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''My Hero'' - El Toro",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "myhero-eltoro.mp4",
+            "format": "h.264",
+            "sizeBytes": 157887572,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyHero-ElToro/myhero-eltoro.mp4"
+        },
+        {
+          "archiveID": "MyHero-Jailbreak",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''My Hero'' - Jailbreak",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1478,
+          "videoFile": {
+            "name": "myherojailbreak.mp4",
+            "format": "h.264",
+            "sizeBytes": 154116808,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyHero-Jailbreak/myherojailbreak.mp4"
+        },
+        {
+          "archiveID": "MyHero-JimmyValentine",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''My Hero'' - Jimmy Valentine",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1462,
+          "videoFile": {
+            "name": "myhero-jimmyvalentine.mp4",
+            "format": "h.264",
+            "sizeBytes": 152012466,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyHero-JimmyValentine/myhero-jimmyvalentine.mp4"
+        },
+        {
+          "archiveID": "MyHero-SaltWaterDaffy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''My Hero'' - Salt Water Daffy",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1477,
+          "videoFile": {
+            "name": "myherosaltwaterdaffy.mp4",
+            "format": "h.264",
+            "sizeBytes": 153985009,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyHero-SaltWaterDaffy/myherosaltwaterdaffy.mp4"
+        },
+        {
+          "archiveID": "MyHero-TheBicycle",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''My Hero'' - The Bicycle",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1449,
+          "videoFile": {
+            "name": "myhero-thebicycle.mp4",
+            "format": "h.264",
+            "sizeBytes": 151032749,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyHero-TheBicycle/myhero-thebicycle.mp4"
+        },
+        {
+          "archiveID": "MyHero-TheBigCrush",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''My Hero'' - The Big Crush",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1778,
+          "videoFile": {
+            "name": "myhero-thebigcrush.mp4",
+            "format": "h.264",
+            "sizeBytes": 184766290,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyHero-TheBigCrush/myhero-thebigcrush.mp4"
+        },
+        {
+          "archiveID": "TheCaterer",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''My Hero'' - The Catering Story",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1483,
+          "videoFile": {
+            "name": "myherocaterer.mp4",
+            "format": "h.264",
+            "sizeBytes": 154479161,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheCaterer/myherocaterer.mp4"
+        },
+        {
+          "archiveID": "MyHero-TheDuel",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''My Hero'' - The Duel",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "myheroduel.mp4",
+            "format": "h.264",
+            "sizeBytes": 151311263,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyHero-TheDuel/myheroduel.mp4"
+        },
+        {
+          "archiveID": "MyHero-FishingStory",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''My Hero'' - The Fishing Story",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1483,
+          "videoFile": {
+            "name": "myhero-thefishingstory.mp4",
+            "format": "h.264",
+            "sizeBytes": 154138119,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyHero-FishingStory/myhero-thefishingstory.mp4"
+        },
+        {
+          "archiveID": "MyHero-TheTiger",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''My Hero'' - The Tiger",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1477,
+          "videoFile": {
+            "name": "myhero-thetiger.mp4",
+            "format": "h.264",
+            "sizeBytes": 153757596,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyHero-TheTiger/myhero-thetiger.mp4"
+        },
+        {
+          "archiveID": "MyHero-WheelOfFortune",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''My Hero'' - Wheel of Fortune",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1464,
+          "videoFile": {
+            "name": "MyHero-wheeloffortune.mp4",
+            "format": "h.264",
+            "sizeBytes": 152323348,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyHero-WheelOfFortune/MyHero-wheeloffortune.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13
+}

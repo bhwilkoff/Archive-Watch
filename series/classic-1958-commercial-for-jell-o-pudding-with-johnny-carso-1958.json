@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "classic-1958-commercial-for-jell-o-pudding-with-johnny-carso-1958",
+  "title": "Classic 1958 Commercial for Jell-O Pudding with Johnny Carson",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1958_Chicken_Butt",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1958_Chicken_Butt",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic 1958 Commercial for Jell-O Pudding with Johnny Carson",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1958_Chicken_Butt",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 63,
+          "videoFile": {
+            "name": "Pudding_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4655661,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1958_Chicken_Butt/Pudding_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

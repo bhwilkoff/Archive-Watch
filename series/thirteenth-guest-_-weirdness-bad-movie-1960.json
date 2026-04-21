@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "thirteenth-guest-_-weirdness-bad-movie-1960",
+  "title": "Thirteenth Guest _ Weirdness Bad Movie",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ThirteenthGuest_WeirdnessBadMovie_945",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ThirteenthGuest_WeirdnessBadMovie_945",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Thirteenth Guest _ Weirdness Bad Movie",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ThirteenthGuest_WeirdnessBadMovie_945",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 5931,
+          "videoFile": {
+            "name": "WRBM_13th Guest_WS_AF_07_fixed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3730742957,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThirteenthGuest_WeirdnessBadMovie_945/WRBM_13th Guest_WS_AF_07_fixed.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

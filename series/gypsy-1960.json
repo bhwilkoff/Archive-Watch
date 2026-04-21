@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "gypsy-1960",
+  "title": "Gypsy",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The journey of Jean Holloway – a therapist who begins to develop dangerous and intimate relationships with the people in her patients' lives.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9dtm1ExRh6ihPGYIaAxEygOnl6G.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/wrbaPpqAeHHPiYDcSwYTDPXBsiE.jpg",
+  "genres": [],
+  "networks": [
+    "Netflix"
+  ],
+  "creator": "Lisa Rubin",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OSB-56_Gypsy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Gypsy",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9dtm1ExRh6ihPGYIaAxEygOnl6G.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OSB-56_Gypsy.mp4",
+            "format": "h.264",
+            "sizeBytes": 151437417,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-56_Gypsy/OSB-56_Gypsy.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

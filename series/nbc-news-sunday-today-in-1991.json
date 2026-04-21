@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "nbc-news-sunday-today-in-1991",
+  "title": "NBC News Sunday Today (in",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/nbcnewssundaytoday-19910310",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "nbcnewssundaytoday-19910310",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "NBC News Sunday Today (incomplete – 10/03/1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/nbcnewssundaytoday-19910310",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "22 - NBC News Sunday Today - March 10, 1991 (1st segment).mp4",
+            "format": "h.264",
+            "sizeBytes": 42542053,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nbcnewssundaytoday-19910310/22 - NBC News Sunday Today - March 10, 1991 (1st segment).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

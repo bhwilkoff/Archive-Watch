@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "annie-oakley-1960",
+  "title": "Annie Oakley",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Annie Oakley was an American Western television series that fictionalized the life of famous sharpshooter Annie Oakley. It ran from January 1954 to February 1957 in syndication, for a total of 81 black and white episodes, each 25 minutes long. ABC showed reruns on Saturday and Sunday daytime from 1959 to 1960 and from 1964 to 1965.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/ovUZ1545CqMw5LnQZoars7RxDzM.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "AnnieOakley-AnnieTrustsAConvict",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Annie Trusts a Convict",
+          "overview": "An old school friend of Annie's breaks out of jail with two other inmates to go search for the treasure at the mission. She believed his innocence when he was convicted, and still believes him. Now she must help him capture the two inmates who want the treasure.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
+          "airDate": "1954-01-16",
+          "year": null,
+          "runtimeSeconds": 1484,
+          "videoFile": {
+            "name": "AnnieOakley-AnnieTrustsAConvict.mp4",
+            "format": "h.264",
+            "sizeBytes": 147492282,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AnnieOakley-AnnieTrustsAConvict/AnnieOakley-AnnieTrustsAConvict.mp4"
+        },
+        {
+          "archiveID": "AnnieOakley-Gunplay",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Gunplay",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
+          "airDate": "1954-01-23",
+          "year": null,
+          "runtimeSeconds": 1486,
+          "videoFile": {
+            "name": "AnnieOakley-Gunplay.mp4",
+            "format": "h.264",
+            "sizeBytes": 148193453,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AnnieOakley-Gunplay/AnnieOakley-Gunplay.mp4"
+        },
+        {
+          "archiveID": "AnnieOakley-TheDudeStagecoach",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Dude Stagecoach",
+          "overview": "While awaiting word from the mine to see if they found gold, Annie discovers a beloved stagecoach is now being driven by a woman, the daughter of the owner who is now threatening to sell the stage and pocket the money. Annie suspects there's more going on with the mine when they return and announce that there is no gold. Now, she must get to the bottom of things before it's too late for the town.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
+          "airDate": "1954-01-30",
+          "year": null,
+          "runtimeSeconds": 1494,
+          "videoFile": {
+            "name": "AnnieOakley-TheDudeStagecoach.mp4",
+            "format": "h.264",
+            "sizeBytes": 141784591,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AnnieOakley-TheDudeStagecoach/AnnieOakley-TheDudeStagecoach.mp4"
+        },
+        {
+          "archiveID": "AnnieOakley-AnnieFindsStrangeTreasure",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Annie Finds Strange Treasure",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4VdzIUm8bYpQHM1eyzXEyZRhfgd.jpg",
+          "airDate": "1954-03-06",
+          "year": null,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "AnnieOakley-AnnieFindsStrangeTreasure.mp4",
+            "format": "h.264",
+            "sizeBytes": 147979013,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AnnieOakley-AnnieFindsStrangeTreasure/AnnieOakley-AnnieFindsStrangeTreasure.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

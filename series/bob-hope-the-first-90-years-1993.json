@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bob-hope-the-first-90-years-1993",
+  "title": "Bob Hope: The First 90 Years",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bob-hope-the-first-90-years-1993a",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bob-hope-the-first-90-years-1993a",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope: The First 90 Years - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hope-the-first-90-years-1993a",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hope The First 90 Years - 1993b.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1598168562,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hope-the-first-90-years-1993a/Bob Hope The First 90 Years - 1993b.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

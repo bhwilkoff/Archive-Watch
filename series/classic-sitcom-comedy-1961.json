@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "classic-sitcom-comedy-1961",
+  "title": "Classic Sitcom Comedy",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BarkingDog1961",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BarkingDog1961",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Sitcom Comedy: ''Ozzie and Harriet'' (''The Barking Dog'', 16 November 1961)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BarkingDog1961",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1745,
+          "videoFile": {
+            "name": "BarkingDog.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 168963045,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BarkingDog1961/BarkingDog.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

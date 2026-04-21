@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "s1e15-life_of_riley-01_10_1950_-_junior_drops_out-1960",
+  "title": "S1E15-Life_Of_Riley-01_10_1950_-_Junior_Drops_Out",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/S1E15-Life_Of_Riley-01_10_1950_-_Junior_Drops_Out",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "S1E15-Life_Of_Riley-01_10_1950_-_Junior_Drops_Out",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "S1E15-Life_Of_Riley-01_10_1950_-_Junior_Drops_Out.",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/S1E15-Life_Of_Riley-01_10_1950_-_Junior_Drops_Out",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E15-Life_Of_Riley-01_10_1950-Junior_Drops_Out.mp4",
+            "format": "h.264",
+            "sizeBytes": 128558876,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E15-Life_Of_Riley-01_10_1950_-_Junior_Drops_Out/S1E15-Life_Of_Riley-01_10_1950-Junior_Drops_Out.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "studio-one-pontius-pilate-2024",
+  "title": "Studio One Pontius Pilate",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/studio-one-pontius-pilate-1952",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "studio-one-pontius-pilate-1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One Pontius Pilate (1952)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/studio-one-pontius-pilate-1952",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio One Pontius Pilate (1952).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 226968359,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-pontius-pilate-1952/Studio One Pontius Pilate (1952).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

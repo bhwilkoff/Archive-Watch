@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "seriesID": "are-you-being-served-1960",
+  "title": "Are You Being Served?",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "This comedy series, which follows the exploits of employees at London's fictional \"Grace Brothers\" department store, is full of sexual innuendo, slapstick, visual gags, and double entendres. Much of the show's humor parodies Britain's class system, and many of the show's characters are based on stereotypes of the period, including the effeminate Mr. Humphries and the rich, but stingy, store owner.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/oO9lSt8AxrrZbvJODJtJltdXd37.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "David Croft",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "are-you-being-served-uncut",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Are You Being Served? Series 1 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E04 His And Hers.mp4",
+            "format": "h.264",
+            "sizeBytes": 176229902,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-uncut/S01E04 His And Hers.mp4"
+        },
+        {
+          "archiveID": "are-you-being-served-10",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Are You Being Served? Series 10 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S10E03 The Hold-Up.mp4",
+            "format": "h.264",
+            "sizeBytes": 178878844,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-10/S10E03 The Hold-Up.mp4"
+        },
+        {
+          "archiveID": "are-you-being-served-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Are You Being Served? Series 2 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S02E05 Hoorah For The Holidays.mp4",
+            "format": "h.264",
+            "sizeBytes": 178634737,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-2/S02E05 Hoorah For The Holidays.mp4"
+        },
+        {
+          "archiveID": "are-you-being-served-3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Are You Being Served? Series 3 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S03E07 Shoulder To Shoulder.mp4",
+            "format": "h.264",
+            "sizeBytes": 174545937,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-3/S03E07 Shoulder To Shoulder.mp4"
+        },
+        {
+          "archiveID": "are-you-being-served-5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Are You Being Served? Series 5 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S05E02 A Change Is As Good As A Rest.mp4",
+            "format": "h.264",
+            "sizeBytes": 177864530,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-5/S05E02 A Change Is As Good As A Rest.mp4"
+        },
+        {
+          "archiveID": "are-you-being-served-6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Are You Being Served? Series 6 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S06E03 Do You Take This Man.mp4",
+            "format": "h.264",
+            "sizeBytes": 176897635,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-6/S06E03 Do You Take This Man.mp4"
+        },
+        {
+          "archiveID": "are-you-being-served-7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Are You Being Served? Series 7 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S07E01 The Junior.mp4",
+            "format": "h.264",
+            "sizeBytes": 179551684,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-7/S07E01 The Junior.mp4"
+        },
+        {
+          "archiveID": "are-you-being-served-9",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Are You Being Served? Series 9 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S09E02 Conduct Unbecoming.mp4",
+            "format": "h.264",
+            "sizeBytes": 176173410,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-9/S09E02 Conduct Unbecoming.mp4"
+        },
+        {
+          "archiveID": "are-you-being-served-4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Are You being Served? Series 4 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S04E05 Fifty Years On.mp4",
+            "format": "h.264",
+            "sizeBytes": 177239413,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-4/S04E05 Fifty Years On.mp4"
+        },
+        {
+          "archiveID": "are-you-being-served-8",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Are You being Served? Series 8 (Uncut)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4rQHn58WwUENWyrFhoZjLUkYpxT.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S08E08 Roots (1981 Christmas Special).mp4",
+            "format": "h.264",
+            "sizeBytes": 177464305,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/are-you-being-served-8/S08E08 Roots (1981 Christmas Special).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 10
+}

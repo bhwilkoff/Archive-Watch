@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-martian-chronicles-1980",
+  "title": "The Martian Chronicles",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": "The Martian Chronicles deals with the exploration of Mars and the inhabitants there.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/vBq5qOxBKnhGZNcW36b2Qq6cLDG.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/kb8obptHWmfaG7ZhP1IeracmW9o.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Ray Bradbury",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-martian-chronicles-1980_202312",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Martian Chronicles Complete.[1980]",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vBq5qOxBKnhGZNcW36b2Qq6cLDG.jpg",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Martian Chronicles [1980].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2411844505,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-martian-chronicles-1980_202312/The Martian Chronicles [1980].ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

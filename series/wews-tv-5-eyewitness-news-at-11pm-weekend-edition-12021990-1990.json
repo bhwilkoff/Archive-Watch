@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wews-tv-5-eyewitness-news-at-11pm-weekend-edition-12021990-1990",
+  "title": "WEWS TV 5 Eyewitness News At 11PM Weekend Edition 12/02/1990",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/wews-tv-5-eyewitness-news-at-11pm-12-2-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "wews-tv-5-eyewitness-news-at-11pm-12-2-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WEWS TV 5 Eyewitness News At 11PM Weekend Edition 12/02/1990",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/wews-tv-5-eyewitness-news-at-11pm-12-2-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "y2mate.com - 1221990 WEWS TV5 Eyewitness News at 11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 71127269,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wews-tv-5-eyewitness-news-at-11pm-12-2-1990/y2mate.com - 1221990 WEWS TV5 Eyewitness News at 11.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

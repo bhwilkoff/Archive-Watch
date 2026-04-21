@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-jim-henson-hour-ep-2-1989",
+  "title": "The Jim Henson Hour EP 2",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/jim-henson-hour-2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "jim-henson-hour-2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Jim Henson Hour EP 2 (1989)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jim-henson-hour-2",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "jh.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 236451926,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jim-henson-hour-2/jh.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

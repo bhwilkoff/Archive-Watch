@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "seriesID": "the-dinah-shore-chevy-show-1957",
+  "title": "The Dinah Shore Chevy Show",
+  "yearStart": 1957,
+  "yearEnd": 1959,
+  "overview": "The Dinah Shore Chevy Show is an American variety series hosted by Dinah Shore, and broadcast on NBC from October 1956 to June 1963. The series was sponsored by the Chevrolet Motor Division of General Motors and its theme song, sung by Shore, was \"See the U.S.A. in Your Chevrolet\", which continued to be used in Chevrolet advertising for several more years after the cancellation of the show.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tvxMaRSoX7gX7LEDfsHUlWDqf5T.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheDinahShoreChevyShow1November1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 1 November 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3532,
+          "videoFile": {
+            "name": "The Dinah Shore Chevy Show - 1 November 1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 368169216,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow1November1959/The Dinah Shore Chevy Show - 1 November 1959.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreChevyShow10May1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 10 May 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3599,
+          "videoFile": {
+            "name": "TheDinahShoreChevyShow-10May1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 374570461,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow10May1959/TheDinahShoreChevyShow-10May1959.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreChevyShow11January1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 11 January 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3547,
+          "videoFile": {
+            "name": "The Dinah Shore Chevy Show - 11 January 1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 369088088,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow11January1959/The Dinah Shore Chevy Show - 11 January 1959.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreChevyShow12January1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 12 January 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 3555,
+          "videoFile": {
+            "name": "The Dinah Shore Chevy Show - 12 January 1958.mp4",
+            "format": "h.264",
+            "sizeBytes": 370653602,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow12January1958/The Dinah Shore Chevy Show - 12 January 1958.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreChevyShow15February1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 15 February 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3561,
+          "videoFile": {
+            "name": "The Dinah Shore Chevy Show - 15 February 1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 370622701,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow15February1959/The Dinah Shore Chevy Show - 15 February 1959.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreChevyShow15March1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 15 March 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3557,
+          "videoFile": {
+            "name": "The Dinah Shore Chevy Show - 15 March 1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 370404390,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow15March1959/The Dinah Shore Chevy Show - 15 March 1959.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreChevyShow17May1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 17 May 1957",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 3204,
+          "videoFile": {
+            "name": "The Dinah Shore Chevy Show - 17 May 1957.mp4",
+            "format": "h.264",
+            "sizeBytes": 333365276,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow17May1957/The Dinah Shore Chevy Show - 17 May 1957.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreChevyShow17May1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 17 May 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3543,
+          "videoFile": {
+            "name": "TheDinahShoreChevyShow-17 May 1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 369128158,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow17May1959/TheDinahShoreChevyShow-17 May 1959.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreChevyShow26January1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 26 January 1958",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TheDinahShoreChevyShow26January1958.mp4",
+            "format": "h.264",
+            "sizeBytes": 370517084,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow26January1958/TheDinahShoreChevyShow26January1958.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreChevyShow29December1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 29 December 1957",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 3570,
+          "videoFile": {
+            "name": "The Dinah Shore Chevy Show - 29 December 1957.mp4",
+            "format": "h.264",
+            "sizeBytes": 371379752,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow29December1957/The Dinah Shore Chevy Show - 29 December 1957.mp4"
+        },
+        {
+          "archiveID": "DinahShore4October1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 4 October 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3572,
+          "videoFile": {
+            "name": "dinahshore4October1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 370556412,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DinahShore4October1959/dinahshore4October1959.mp4"
+        },
+        {
+          "archiveID": "TheDinahShoreShow8March1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Dinah Shore Chevy Show'' - 8 March 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3565,
+          "videoFile": {
+            "name": "The Dinah Shore Chevy Show - 8 March  1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 370677403,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreShow8March1959/The Dinah Shore Chevy Show - 8 March  1959.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12
+}

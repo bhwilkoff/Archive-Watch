@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-restless-gun-1957",
+  "title": "The Restless Gun",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": "The Restless Gun is an American western television series that appeared on NBC between 1957 and 1959, with John Payne in the role of Vint Bonner, a wandering cowboy in the era after the American Civil War. A skilled gunfighter, Bonner is an idealistic person who prefers peaceful resolutions of conflict wherever possible. He is gregarious, intelligent, and public-spirited. The half-hour black-and-white program aired seventy-eight episodes. Jeanne Bates appeared in varying roles with Payne in five episodes of The Restless Gun.\n\nThe Restless Gun theme song begins: \"I ride with the wind, my eyes on the sun, and my hand on my restless gun...\" The song composer is probably Paul Dunlap, credited as the primary series composer, but could have been contributed to by either of the two other series composers, Dave Kahn and Stanley Wilson, also. Two versions are currently posted on YouTube, but neither posting lists any composer or performance credits.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/r9Kk7XVHhhjVfif4i6YYNFkvegM.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-restless-gun-1957-pilot-episode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Restless Gun - Pilot Episode",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/r9Kk7XVHhhjVfif4i6YYNFkvegM.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Restless Gun - 1957 Pilot Episode.mp4",
+            "format": "h.264",
+            "sizeBytes": 162151282,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-restless-gun-1957-pilot-episode/The Restless Gun - 1957 Pilot Episode.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

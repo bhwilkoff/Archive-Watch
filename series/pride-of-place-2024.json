@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "pride-of-place-2024",
+  "title": "Pride of Place",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/pride-of-place-building-the-american-dream-ep.-6-the-places-within",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "pride-of-place-building-the-american-dream-ep.-6-the-places-within",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Pride of Place: Building the American Dream- Ep. 6 (The Places Within, 1986)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/pride-of-place-building-the-american-dream-ep.-6-the-places-within",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Pride of Place Building the American Dream (Ep. 6, The Places Within).mp4",
+            "format": "h.264",
+            "sizeBytes": 336971545,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/pride-of-place-building-the-american-dream-ep.-6-the-places-within/Pride of Place Building the American Dream (Ep. 6, The Places Within).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

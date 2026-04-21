@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-fifth-corner-1992",
+  "title": "The Fifth Corner",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "The Fifth Corner was a very short-lived American television series which aired on NBC and produced by TriStar Television in 1992. The two-hour pilot aired on April 17, 1992, and one final episode aired the week after.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-fifth-corner-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Fifth Corner - Kim Delaney, James Coburn",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Fifth Corner - 1992.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2713093058,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-fifth-corner-1992/The Fifth Corner - 1992.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

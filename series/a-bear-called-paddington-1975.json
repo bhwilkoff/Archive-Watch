@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "a-bear-called-paddington-1975",
+  "title": "A Bear Called Paddington",
+  "yearStart": 1975,
+  "yearEnd": 1975,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ABCPV1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ABCPV1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Bear Called Paddington Volume 1 read by Bernard Cribbins (1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ABCPV1",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A b C P  V1.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 398459474,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ABCPV1/A b C P  V1.ogv"
+        },
+        {
+          "archiveID": "ABCPNV2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Bear Called Paddington Volume 2 read by Bernard Cribbins (1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ABCPNV2",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A B  C P n V 2.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 393088990,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ABCPNV2/A B  C P n V 2.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

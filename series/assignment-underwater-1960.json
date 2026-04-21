@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "assignment-underwater-1960",
+  "title": "Assignment Underwater",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "Assignment: Underwater is an American adventure television series which aired in NTA Film Network syndication from 1960 to 1962.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NTA Film Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "01-assignment-underwater-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Assignment Underwater",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "10 Underwater Assignment-1.mp4",
+            "format": "h.264",
+            "sizeBytes": 165298938,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01-assignment-underwater-1/10 Underwater Assignment-1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

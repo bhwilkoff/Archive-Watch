@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "the-guiding-light-1953",
+  "title": "The Guiding Light",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": "Guiding Light is an American television soap opera that is credited by the Guinness Book of World Records as the longest-running television drama in history, broadcast from 1952 until 2009, preceded by a 15-year broadcast on radio. Guiding Light stands as the third longest-running program in all of broadcast history; only the Norwegian children's radio program Lørdagsbarnetimen and the American country music radio program Grand Ole Opry have been on the air longer.\n\nOn April 1, 2009, it was announced that CBS canceled Guiding Light after a 72-year run due to low ratings. The show taped its final scenes for CBS on August 11, 2009, and its final episode on the network aired on September 18, 2009.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/e6tItyViWEFvcTILGzAHlQIgKHb.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Irna Phillips",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GuidingLight4March1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Guiding Light'' - 4 March 1953? (improved copy)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 866,
+          "videoFile": {
+            "name": "GuidingLight-4March1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 90272986,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GuidingLight4March1953/GuidingLight-4March1953.mp4"
+        },
+        {
+          "archiveID": "GuidingLight9April1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Guiding Light'' - 9 April 1953 (improved copy)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 862,
+          "videoFile": {
+            "name": "GuidingLight9April1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 89976118,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GuidingLight9April1953/GuidingLight9April1953.mp4"
+        },
+        {
+          "archiveID": "The_Maykers_Suck",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'The Guiding Light' - April 9, 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GuidingLightApril9-1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 84289005,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The_Maykers_Suck/GuidingLightApril9-1953.mp4"
+        },
+        {
+          "archiveID": "Guiding_Light",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'The Guiding Light' - March 4, 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GuidingLightMarch4-1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 84965194,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Guiding_Light/GuidingLightMarch4-1953.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

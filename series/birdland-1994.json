@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "birdland-1994",
+  "title": "Birdland",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": "Dr. Brian McKenzie, the chief of psychiatry at Riverview Hospital in Oakland, deals with patients while trying to juggle his own problems.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/qtXk2RnbGTUO9LJ0J4gjI6wYTt5.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qNAp3kTAwyjNWRSkor3ZW5Swz7a.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Scott Frank",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "birdland-1.2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Birdland - Brian Dennehy, Leslie Mann",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/qtXk2RnbGTUO9LJ0J4gjI6wYTt5.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Birdland - 1.2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1060242496,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/birdland-1.2/Birdland - 1.2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "swans-crossing-1992",
+  "title": "Swans Crossing",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "Swans Crossing is an American teen drama series that aired for thirteen weeks in syndication from June 29 to September 25, 1992.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fPPfiDtBYvvv69DyxRFugYiemyz.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/y3tN4mPq1L3PNCeOPilc5YncGus.jpg",
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": "Mardee Kravit",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "swans-crossing-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Swans Crossing (1992) soap, Sarah Michelle Gellar",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fPPfiDtBYvvv69DyxRFugYiemyz.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episodes 1-19/Swans Crossing S01E10 - S01_E10 - Season 1, Episode 10   from Tubi TV.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 224564445,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/swans-crossing-1992/Episodes 1-19/Swans Crossing S01E10 - S01_E10 - Season 1, Episode 10   from Tubi TV.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

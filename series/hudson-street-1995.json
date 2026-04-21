@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "hudson-street-1995",
+  "title": "Hudson Street",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": "Tony Canetti is a divorced detective in Hoboken, New Jersey, who shares custody of his son Mickey with his ex-wife. In between work and raising his son, Tony also starts a romance with an idealistic crime reporter, Melanie.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lWYuo0EbYTsCM53mINgD7o8Q0ie.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4ERwLwypyNdkxtjP6shqnKQsMre.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Randi Mayem Singer",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hudson-street-1.04_202206",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hudson Street - Lori Loughlin, Tony Danza",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lWYuo0EbYTsCM53mINgD7o8Q0ie.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hudson Street - 1.04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 705515415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hudson-street-1.04_202206/Hudson Street - 1.04.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

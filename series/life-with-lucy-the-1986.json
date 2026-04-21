@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "life-with-lucy-the-1986",
+  "title": "Life with Lucy (The",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/life-with-lucy-the-complete-series-1986-DVD",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "life-with-lucy-the-complete-series-1986-DVD",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Life with Lucy (The Complete Series) [1986]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life-with-lucy-the-complete-series-1986-DVD",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Life with Lucy (The Complete Series) [1986]/S01E01 - One Good Grandparent Deserves Another.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 374017949,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life-with-lucy-the-complete-series-1986-DVD/Life with Lucy (The Complete Series) [1986]/S01E01 - One Good Grandparent Deserves Another.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

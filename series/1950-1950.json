@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "seriesID": "1950-1950",
+  "title": "1950",
+  "yearStart": 1950,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1950EpisodeOftheBusterKeatonShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1950-RollerDerby-NewJerseyVsBrooklyn",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950 - Roller Derby - New Jersey vs Brooklyn",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1950-RollerDerby-NewJerseyVsBrooklyn",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 2143,
+          "videoFile": {
+            "name": "1950-RollerDerby-NewJerseyVsBrooklyn.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 169524556,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1950-RollerDerby-NewJerseyVsBrooklyn/1950-RollerDerby-NewJerseyVsBrooklyn.ogv"
+        },
+        {
+          "archiveID": "1950-RollerDerby-NewJerseyVsPhiladelphia",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950 - Roller Derby - New Jersey vs Philadelphia",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1950-RollerDerby-NewJerseyVsPhiladelphia",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1621,
+          "videoFile": {
+            "name": "1950-RollerDerby-NewJerseyVsPhiladelphia.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 128290896,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1950-RollerDerby-NewJerseyVsPhiladelphia/1950-RollerDerby-NewJerseyVsPhiladelphia.ogv"
+        },
+        {
+          "archiveID": "1950-RollerDerby-TheJoltersVsTheEsterners",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950 - Roller Derby - the Jolters vs the Westerners",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1950-RollerDerby-TheJoltersVsTheEsterners",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1987,
+          "videoFile": {
+            "name": "1950-RollerDerby-TheJoltersVsTheWesterners.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 150683220,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1950-RollerDerby-TheJoltersVsTheEsterners/1950-RollerDerby-TheJoltersVsTheWesterners.ogv"
+        },
+        {
+          "archiveID": "1950EpisodeOfhowdyDoody-VisitingClown",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950 Episode of ''Howdy Doody'' - Visiting Clown",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1950EpisodeOfhowdyDoody-VisitingClown",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1719,
+          "videoFile": {
+            "name": "HowdyDoody1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 178139460,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1950EpisodeOfhowdyDoody-VisitingClown/HowdyDoody1950.mp4"
+        },
+        {
+          "archiveID": "1950EpisodeOftheBusterKeatonShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950 Episode of ''The Buster Keaton Show''",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1950EpisodeOftheBusterKeatonShow",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1652,
+          "videoFile": {
+            "name": "TheBusterKeatonShow1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 170870186,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1950EpisodeOftheBusterKeatonShow/TheBusterKeatonShow1950.mp4"
+        },
+        {
+          "archiveID": "Dr-Hudson4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950's Drama: ''Dr. Hudson's Secret Journal'' - Off the Pedestal",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Dr-Hudson4",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1576,
+          "videoFile": {
+            "name": "Dr-Hudson4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158894272,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dr-Hudson4/Dr-Hudson4.ia.mp4"
+        },
+        {
+          "archiveID": "Jazz_Dorothy_Collins",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950's Jazz Music: ''Singin' in the Rain'' from ''Your Hit Parade''",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Jazz_Dorothy_Collins",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 141,
+          "videoFile": {
+            "name": "Dorothy_Collins_Jazz.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 13279462,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Jazz_Dorothy_Collins/Dorothy_Collins_Jazz.ia.mp4"
+        },
+        {
+          "archiveID": "Howdy_Doody_51",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950's Pop Culture: ''Howdy Doody'' - April 6, 1951",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Howdy_Doody_51",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1776,
+          "videoFile": {
+            "name": "HowdyDoody51.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 170306013,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Howdy_Doody_51/HowdyDoody51.ia.mp4"
+        },
+        {
+          "archiveID": "MotorCycleDavidNelson",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950's Pop Culture: ''Ozzie and Harriet'' (Episode Aired: 10 December 1958)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MotorCycleDavidNelson",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1760,
+          "videoFile": {
+            "name": "DavidMotorcycle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 171745595,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MotorCycleDavidNelson/DavidMotorcycle.ia.mp4"
+        },
+        {
+          "archiveID": "ItCouldBeYou",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950's Television Series ''It Could Be You'' (Circa 1958)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ItCouldBeYou",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1576,
+          "videoFile": {
+            "name": "itCouldBeYou.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155471244,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ItCouldBeYou/itCouldBeYou.ia.mp4"
+        },
+        {
+          "archiveID": "JealousJoeRandolph",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950's Television: ''Ozzie and Harriet'' (Episode: ''Jealous Joe Randolph'', Aired 4 February 1959)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JealousJoeRandolph",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1757,
+          "videoFile": {
+            "name": "Jealous_JoeRandolph.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 170667903,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JealousJoeRandolph/Jealous_JoeRandolph.ia.mp4"
+        },
+        {
+          "archiveID": "Joan_Broken_Toe",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950's Television: - Broken Toe - ''I Married Joan''",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Joan_Broken_Toe",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1441,
+          "videoFile": {
+            "name": "Joan_Broken_Toe.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 139957114,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Joan_Broken_Toe/Joan_Broken_Toe.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12
+}

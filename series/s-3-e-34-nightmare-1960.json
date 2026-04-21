@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "s-3-e-34-nightmare-1960",
+  "title": "S 3 E 34 NIGHTMARE",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/S3E34NIGHTMARE",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "S3E34NIGHTMARE",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "S 3 E 34 NIGHTMARE",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/S3E34NIGHTMARE",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S3E34 - NIGHTMARE.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 109341682,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E34NIGHTMARE/S3E34 - NIGHTMARE.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

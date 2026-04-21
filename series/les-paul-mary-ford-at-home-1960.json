@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "seriesID": "les-paul-mary-ford-at-home-1960",
+  "title": "Les Paul & Mary Ford at Home",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/LesPaulMaryFordMisc8",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LesPaulMaryFordMisc1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Les Paul & Mary Ford at Home'' - Misc 1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LesPaulMaryFordMisc1",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 272,
+          "videoFile": {
+            "name": "LesPaulMaryFord-Misc1.mp4",
+            "format": "h.264",
+            "sizeBytes": 28337876,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LesPaulMaryFordMisc1/LesPaulMaryFord-Misc1.mp4"
+        },
+        {
+          "archiveID": "LesPaulMaryFordMisc2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Les Paul & Mary Ford at Home'' - Misc 2",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LesPaulMaryFordMisc2",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 277,
+          "videoFile": {
+            "name": "LesPaulMaryFord-Misc2.mp4",
+            "format": "h.264",
+            "sizeBytes": 28917614,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LesPaulMaryFordMisc2/LesPaulMaryFord-Misc2.mp4"
+        },
+        {
+          "archiveID": "LesPaulMaryFordMisc3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Les Paul & Mary Ford at Home'' - Misc 3",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LesPaulMaryFordMisc3",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 270,
+          "videoFile": {
+            "name": "LesPaulMaryFord-Misc3.mp4",
+            "format": "h.264",
+            "sizeBytes": 28129123,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LesPaulMaryFordMisc3/LesPaulMaryFord-Misc3.mp4"
+        },
+        {
+          "archiveID": "LesPaulMaryFordMisc4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Les Paul & Mary Ford at Home'' - Misc 4",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LesPaulMaryFordMisc4",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 256,
+          "videoFile": {
+            "name": "LesPaulMaryFord-Misc4.mp4",
+            "format": "h.264",
+            "sizeBytes": 26688808,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LesPaulMaryFordMisc4/LesPaulMaryFord-Misc4.mp4"
+        },
+        {
+          "archiveID": "LesPaulMaryFordMisc5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Les Paul & Mary Ford at Home'' - Misc 5",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LesPaulMaryFordMisc5",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 270,
+          "videoFile": {
+            "name": "LesPaulMaryFord-Misc5.mp4",
+            "format": "h.264",
+            "sizeBytes": 28077875,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LesPaulMaryFordMisc5/LesPaulMaryFord-Misc5.mp4"
+        },
+        {
+          "archiveID": "LesPaulMaryFordMisc6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Les Paul & Mary Ford at Home'' - Misc 6",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LesPaulMaryFordMisc6",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 268,
+          "videoFile": {
+            "name": "LesPaulMaryFordMisc-6.mp4",
+            "format": "h.264",
+            "sizeBytes": 27894925,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LesPaulMaryFordMisc6/LesPaulMaryFordMisc-6.mp4"
+        },
+        {
+          "archiveID": "LesPaulMaryFordMisc7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Les Paul & Mary Ford at Home'' - Misc 7",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LesPaulMaryFordMisc7",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 266,
+          "videoFile": {
+            "name": "LesPaulMaryFord-Misc7.mp4",
+            "format": "h.264",
+            "sizeBytes": 27628251,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LesPaulMaryFordMisc7/LesPaulMaryFord-Misc7.mp4"
+        },
+        {
+          "archiveID": "LesPaulMaryFordMisc8",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Les Paul & Mary Ford at Home'' - Misc 8",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LesPaulMaryFordMisc8",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 271,
+          "videoFile": {
+            "name": "LesPaulMaryFord-Misc8.mp4",
+            "format": "h.264",
+            "sizeBytes": 28218827,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LesPaulMaryFordMisc8/LesPaulMaryFord-Misc8.mp4"
+        },
+        {
+          "archiveID": "LesPaulMaryFordMisc9",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Les Paul & Mary Ford at Home'' - Misc 9",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LesPaulMaryFordMisc9",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 269,
+          "videoFile": {
+            "name": "LesPaulMaryFordMisc9.mp4",
+            "format": "h.264",
+            "sizeBytes": 28037206,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LesPaulMaryFordMisc9/LesPaulMaryFordMisc9.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9
+}

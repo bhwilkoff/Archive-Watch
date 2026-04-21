@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-roy-rogers-dale-evans-show-1962",
+  "title": "The Roy Rogers & Dale Evans Show",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": "The Roy Rogers and Dale Evans Show is a Western comedy and variety program. In addition to Rogers and Evans, the program featured the Sons of the Pioneers, Pat Brady, and Cliff Arquette.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheRoyRogersDaleEvansShow20October1962",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Roy Rogers & Dale Evans Show'' - 20 October 1962",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 3178,
+          "videoFile": {
+            "name": "The Roy Rogers & Dale Evans Show - 20 October 1962.mp4",
+            "format": "h.264",
+            "sizeBytes": 330676800,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRoyRogersDaleEvansShow20October1962/The Roy Rogers & Dale Evans Show - 20 October 1962.mp4"
+        },
+        {
+          "archiveID": "TheRoyRogersDaleEvansShowThisIsOurCountry",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Roy Rogers & Dale Evans Show'' - This Is Our Country",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Roy Rogers & Dale Evans Show - This Is Our Country.mp4",
+            "format": "h.264",
+            "sizeBytes": 338219799,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRoyRogersDaleEvansShowThisIsOurCountry/The Roy Rogers & Dale Evans Show - This Is Our Country.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

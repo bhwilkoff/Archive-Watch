@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "circus-time-1956",
+  "title": "Circus Time",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": "Circus Time was a variety program presented in the United States by television network ABC as part of its 1956-57 season.\n\nCircus Time was not an actual circus broadcast but rather a circus-themed program, in which both traditional circus acts and more traditional mainstream forms of entertainment were presented. The host, or \"ringmaster\" in the show's parlance, was ventriloquist Paul Winchell, who was \"assisted\" by his dummies Jerry Mahoney and Knucklehead Smiff. Mainstream musical guests appearing on the program at times included Mickey and Sylvia and the Dell Vikings.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CircusTimeBusterKeatonSketch",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Circus Time - Buster Keaton sketch",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 444,
+          "videoFile": {
+            "name": "Circus Time - Buster Keaton sketch.mp4",
+            "format": "h.264",
+            "sizeBytes": 46326914,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CircusTimeBusterKeatonSketch/Circus Time - Buster Keaton sketch.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

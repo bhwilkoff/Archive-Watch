@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "lovejoy-1986",
+  "title": "Lovejoy",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "The adventures of the eponymous Lovejoy, a likeable but roguish antiques dealer based in East Anglia. Within the trade, he has a reputation as a “divvie”, a person with an almost supernatural powers for recognising exceptional items as well as distinguishing genuine antique from clever fakes or forgeries.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/d433J9jLaOI3T99mPIudkW6b9RO.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qLarafHjS9IPRgqVGU97prD9x3d.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Ian La Frenais",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Lovejoy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lovejoy",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/d433J9jLaOI3T99mPIudkW6b9RO.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lovejoy/Lovejoy - S05E14 - The Lost Colony (Feature Length Special).mp4",
+            "format": "h.264",
+            "sizeBytes": 576865258,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Lovejoy/Lovejoy/Lovejoy - S05E14 - The Lost Colony (Feature Length Special).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

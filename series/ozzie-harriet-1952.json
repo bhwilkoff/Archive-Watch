@@ -1,0 +1,633 @@
+{
+  "version": 1,
+  "seriesID": "ozzie-harriet-1952",
+  "title": "Ozzie & Harriet",
+  "yearStart": 1952,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Ozzie-Harriet_Separate_Rooms",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Ozzie-Harriet_Door_Key_for_David",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: A Door Key for David",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_Door_Key_for_David",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1303,
+          "videoFile": {
+            "name": "01-34_A_Door_Key_for_David.mp4",
+            "format": "h.264",
+            "sizeBytes": 135630591,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_Door_Key_for_David/01-34_A_Door_Key_for_David.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_07-28",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Always a Bridegroom (1959)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_07-28",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "Ozzie-Harriet_07-28_Always_a_Bridegroom.mp4",
+            "format": "h.264",
+            "sizeBytes": 159880639,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_07-28/Ozzie-Harriet_07-28_Always_a_Bridegroom.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_Be_on_Time",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Be on Time",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_Be_on_Time",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1199,
+          "videoFile": {
+            "name": "02-31_Be_on_Time.mp4",
+            "format": "h.264",
+            "sizeBytes": 124995842,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_Be_on_Time/02-31_Be_on_Time.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_Captain_Salty",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Captain Salty and the Submarine",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_Captain_Salty",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1251,
+          "videoFile": {
+            "name": "05-02_Captain_Salty_and_the_Submarine.mp4",
+            "format": "h.264",
+            "sizeBytes": 130140655,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_Captain_Salty/05-02_Captain_Salty_and_the_Submarine.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_03-17",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Career Woman (1955)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_03-17",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1493,
+          "videoFile": {
+            "name": "Ozzie-Harriet_03-17_Career_Woman.mp4",
+            "format": "h.264",
+            "sizeBytes": 155200483,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_03-17/Ozzie-Harriet_03-17_Career_Woman.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_03-06",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Come as You Are Party (1954)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_03-06",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1708,
+          "videoFile": {
+            "name": "Ozzie-Harriet_03-06_Come-as-You_Are_Party.mp4",
+            "format": "h.264",
+            "sizeBytes": 177677196,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_03-06/Ozzie-Harriet_03-06_Come-as-You_Are_Party.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_02-19",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Courage (1954)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_02-19",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1309,
+          "videoFile": {
+            "name": "Ozzie-Harriet_02-19_Courage.mp4",
+            "format": "h.264",
+            "sizeBytes": 136407238,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_02-19/Ozzie-Harriet_02-19_Courage.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_02-14",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Credit Reference (1953)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_02-14",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1465,
+          "videoFile": {
+            "name": "Ozzie-Harriet_02-14_Credit_Reference.mp4",
+            "format": "h.264",
+            "sizeBytes": 152305260,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_02-14/Ozzie-Harriet_02-14_Credit_Reference.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_06-24",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Dating System (1958)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_06-24",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1553,
+          "videoFile": {
+            "name": "Ozzie-Harriet_06-24_Dating_System.mp4",
+            "format": "h.264",
+            "sizeBytes": 161430308,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_06-24/Ozzie-Harriet_06-24_Dating_System.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_02-22",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: David's Career (1954)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_02-22",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1482,
+          "videoFile": {
+            "name": "Ozzie-Harriet_02-22_Davids_Career.mp4",
+            "format": "h.264",
+            "sizeBytes": 154243607,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_02-22/Ozzie-Harriet_02-22_Davids_Career.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_05-34",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: David's Date with Miss Universe (1957)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_05-34",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1593,
+          "videoFile": {
+            "name": "Ozzie-Harriet_05-34_Davids_Date_with_Miss_Universe.mp4",
+            "format": "h.264",
+            "sizeBytes": 165522628,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_05-34/Ozzie-Harriet_05-34_Davids_Date_with_Miss_Universe.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet--Davids_Pipe",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: David's Pipe",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet--Davids_Pipe",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1251,
+          "videoFile": {
+            "name": "02-03_Davids_Pipe.mp4",
+            "format": "h.264",
+            "sizeBytes": 130573686,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet--Davids_Pipe/02-03_Davids_Pipe.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_Dental_Receptionist",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Dental Receptionist",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_Dental_Receptionist",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "01-22_Dental_Receptionist.mp4",
+            "format": "h.264",
+            "sizeBytes": 158256845,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_Dental_Receptionist/01-22_Dental_Receptionist.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet--Fathers_Night",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Fathers' Night at the Fraternity House",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet--Fathers_Night",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1760,
+          "videoFile": {
+            "name": "Ozzie-Harriet--Fathers_Night.mp4",
+            "format": "h.264",
+            "sizeBytes": 183181787,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet--Fathers_Night/Ozzie-Harriet--Fathers_Night.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_06-01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Fixing Up the Fraternity House (1957)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_06-01",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1578,
+          "videoFile": {
+            "name": "Ozzie-Harriet_06-01_Fixing_Up_the_Fraternity_House.mp4",
+            "format": "h.264",
+            "sizeBytes": 164156632,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_06-01/Ozzie-Harriet_06-01_Fixing_Up_the_Fraternity_House.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_02-23",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Harriet Gives a Party (1954)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_02-23",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1764,
+          "videoFile": {
+            "name": "Ozzie-Harriet_02-23_Harriet_Gives_a_Party.mp4",
+            "format": "h.264",
+            "sizeBytes": 183385729,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_02-23/Ozzie-Harriet_02-23_Harriet_Gives_a_Party.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet--Individuality",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Individuality",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet--Individuality",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1223,
+          "videoFile": {
+            "name": "03-14_Individuality.mp4",
+            "format": "h.264",
+            "sizeBytes": 127685218,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet--Individuality/03-14_Individuality.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet--Late_Christmas_Gift",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Late Christmas Gift",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet--Late_Christmas_Gift",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1387,
+          "videoFile": {
+            "name": "Ozzie_01-13_Late_Christmas_Gift.mp4",
+            "format": "h.264",
+            "sizeBytes": 144780635,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet--Late_Christmas_Gift/Ozzie_01-13_Late_Christmas_Gift.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_02-07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: No Noise (1953)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_02-07",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1482,
+          "videoFile": {
+            "name": "Ozzie-Harriet_02-07_No_Noise.mp4",
+            "format": "h.264",
+            "sizeBytes": 154462782,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_02-07/Ozzie-Harriet_02-07_No_Noise.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_02-24",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Old Fashioned Remedy (1954)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_02-24",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1319,
+          "videoFile": {
+            "name": "Ozzie-Harriet_02-24_Old-Fashioned_Remedy.mp4",
+            "format": "h.264",
+            "sizeBytes": 137236145,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_02-24/Ozzie-Harriet_02-24_Old-Fashioned_Remedy.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet--Oscillating_Ozzie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Oscillating Ozzie",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet--Oscillating_Ozzie",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1433,
+          "videoFile": {
+            "name": "01-39_Oscillating_Ozzie.mp4",
+            "format": "h.264",
+            "sizeBytes": 149344922,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet--Oscillating_Ozzie/01-39_Oscillating_Ozzie.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_02-26",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Ricky's Lost Letter (1954)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_02-26",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1513,
+          "videoFile": {
+            "name": "Ozzie-Harriet_02-26_Rickys_Lost_Letter.mp4",
+            "format": "h.264",
+            "sizeBytes": 157505654,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_02-26/Ozzie-Harriet_02-26_Rickys_Lost_Letter.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_03-23",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Ricky's Shadow (1955)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_03-23",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1735,
+          "videoFile": {
+            "name": "Ozzie-Harriet_03-23_Rickys_Shadow.mp4",
+            "format": "h.264",
+            "sizeBytes": 180254041,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_03-23/Ozzie-Harriet_03-23_Rickys_Shadow.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_Separate_Rooms",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Separate Rooms",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_Separate_Rooms",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1495,
+          "videoFile": {
+            "name": "01-19_Separate_Rooms.mp4",
+            "format": "h.264",
+            "sizeBytes": 155823194,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_Separate_Rooms/01-19_Separate_Rooms.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_Banjo-Player",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: The Banjo Player",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_Banjo-Player",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1250,
+          "videoFile": {
+            "name": "05-05_The_Banjo_Player.mp4",
+            "format": "h.264",
+            "sizeBytes": 130164157,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_Banjo-Player/05-05_The_Banjo_Player.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_Boxing_Matches",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: The Boxing Matches",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_Boxing_Matches",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1312,
+          "videoFile": {
+            "name": "01-33_Boxing_Matches.mp4",
+            "format": "h.264",
+            "sizeBytes": 135737671,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_Boxing_Matches/01-33_Boxing_Matches.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_Magic_of_Three",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: The Magic of Three",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_Magic_of_Three",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1699,
+          "videoFile": {
+            "name": "06-32_The_Magic_of_Three.mp4",
+            "format": "h.264",
+            "sizeBytes": 177264669,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_Magic_of_Three/06-32_The_Magic_of_Three.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_Orchid_and_Violet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: The Orchid and the Violet",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_Orchid_and_Violet",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1679,
+          "videoFile": {
+            "name": "01-27_The_Orchid_and_the_Violet.mp4",
+            "format": "h.264",
+            "sizeBytes": 155535143,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_Orchid_and_Violet/01-27_The_Orchid_and_the_Violet.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_06-16",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: The Picture in Rick's Notebook",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_06-16",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "Ozzie_06-16_Picture_in_Ricks_Notebook.mp4",
+            "format": "h.264",
+            "sizeBytes": 156667794,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_06-16/Ozzie_06-16_Picture_in_Ricks_Notebook.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_Speech",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: The Speech",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_Speech",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1312,
+          "videoFile": {
+            "name": "01-23_The_Speech.mp4",
+            "format": "h.264",
+            "sizeBytes": 136718016,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_Speech/01-23_The_Speech.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_03-19",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: The Sportscar (1955)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_03-19",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1462,
+          "videoFile": {
+            "name": "Ozzie-Harriet_03-19_The_Sportscar.mp4",
+            "format": "h.264",
+            "sizeBytes": 152265734,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_03-19/Ozzie-Harriet_03-19_The_Sportscar.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_The_Window_Pane",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: The Window Pane",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_The_Window_Pane",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1250,
+          "videoFile": {
+            "name": "02-04_The_Window_Pane.mp4",
+            "format": "h.264",
+            "sizeBytes": 130490289,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_The_Window_Pane/02-04_The_Window_Pane.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_Valentine_Show",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Valentine Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_Valentine_Show",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1318,
+          "videoFile": {
+            "name": "01-20_The_Valentine_Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 137198064,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_Valentine_Show/01-20_The_Valentine_Show.mp4"
+        },
+        {
+          "archiveID": "Ozzie-Harriet_04-19",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie & Harriet: Watching Thorny's House (1956)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_04-19",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1477,
+          "videoFile": {
+            "name": "Ozzie-Harriet_04-19_Watching_Thornys_House.mp4",
+            "format": "h.264",
+            "sizeBytes": 153572943,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_04-19/Ozzie-Harriet_04-19_Watching_Thornys_House.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 34
+}

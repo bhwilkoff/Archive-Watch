@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "partial-october-1995-tbn-program-1995",
+  "title": "Partial October 1995 TBN Program",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/october-1995-tbn",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "october-1995-tbn",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Partial October 1995 TBN Program",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/october-1995-tbn",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "October 1995 TBN.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 695980322,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/october-1995-tbn/October 1995 TBN.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

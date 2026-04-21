@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "entertainment-tonight--october-29-1998-most-2024",
+  "title": "Entertainment Tonight- October 29, 1998 (most",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/entertainment-tonight-october-29-1998-most",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "entertainment-tonight-october-29-1998-most",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Entertainment Tonight- October 29, 1998 (most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/entertainment-tonight-october-29-1998-most",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Entertainment Tonight- October 29, 1998 (most).mp4",
+            "format": "h.264",
+            "sizeBytes": 114127053,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/entertainment-tonight-october-29-1998-most/Entertainment Tonight- October 29, 1998 (most).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "maigret-1959",
+  "title": "Maigret",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": "BBC series based on the novels by Georges Simenon which starred Rupert Davies as Inspector Maigret, a French police detective who preferred to watch and listen in order to solve crimes. The series ran from 1960-63 on British television.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pskC2szlKUS52mnz4GLrwKcr7Di.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/kHeKbPaWHPGN3rotOLYRRffn80J.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Maigret (1959)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pskC2szlKUS52mnz4GLrwKcr7Di.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S03E05 - High Politics 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 353284965,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E05 - High Politics 1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

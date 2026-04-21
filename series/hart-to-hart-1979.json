@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "hart-to-hart-1979",
+  "title": "Hart To Hart",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": "Wealthy couple Jonathan and Jennifer Hart, a self-made millionaire and his journalist wife, moonlight as amateur detectives.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rK7eHDVQVYwwuxf91rmSNn6ykQn.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/fyPyyWNmzH7Ugt51K8SqiI0SWNI.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Sidney Sheldon",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hart-to-hart-s01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hart To Hart Season 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rK7eHDVQVYwwuxf91rmSNn6ykQn.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hart to Hart S01E08 Max in Love.mp4",
+            "format": "h.264",
+            "sizeBytes": 284690779,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hart-to-hart-s01/Hart to Hart S01E08 Max in Love.mp4"
+        },
+        {
+          "archiveID": "hart-to-hart-s02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hart To Hart Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rK7eHDVQVYwwuxf91rmSNn6ykQn.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hart To Hart S02e18 Operation Murder.mp4",
+            "format": "h.264",
+            "sizeBytes": 285504365,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hart-to-hart-s02/Hart To Hart S02e18 Operation Murder.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

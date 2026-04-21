@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "rush-limbaugh--october-18-1993-most-2022",
+  "title": "Rush Limbaugh- October 18, 1993 (most",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/rush-limbaugh-october-18-1993-most",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "rush-limbaugh-october-18-1993-most",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Rush Limbaugh- October 18, 1993 (most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/rush-limbaugh-october-18-1993-most",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Rush Limbaugh- October 18, 1993 (most).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324814880,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/rush-limbaugh-october-18-1993-most/Rush Limbaugh- October 18, 1993 (most).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

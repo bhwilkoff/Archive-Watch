@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "alfred-hitchcock-presents-1959-road-hog-w-richard-chamberlai-1959",
+  "title": "Alfred Hitchcock Presents (1959 Road Hog, W Richard Chamberlain",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/alfred-hitchcock-presents-1959-road-hog-w-richard-chamberlain",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "alfred-hitchcock-presents-1959-road-hog-w-richard-chamberlain",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alfred Hitchcock Presents (1959 Road Hog, W Richard Chamberlain)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/alfred-hitchcock-presents-1959-road-hog-w-richard-chamberlain",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1327,
+          "videoFile": {
+            "name": "Alfred Hitchcock Presents (1959 Road Hog, w Richard Chamberlain).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 67002426,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/alfred-hitchcock-presents-1959-road-hog-w-richard-chamberlain/Alfred Hitchcock Presents (1959 Road Hog, w Richard Chamberlain).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

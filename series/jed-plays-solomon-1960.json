@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jed-plays-solomon-1960",
+  "title": "Jed Plays Solomon",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep21_Jed_Plays_Soloman",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep21_Jed_Plays_Soloman",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jed Plays Solomon",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep21_Jed_Plays_Soloman",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH21_Jed_Plays_Solomon.mp4",
+            "format": "h.264",
+            "sizeBytes": 153714443,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep21_Jed_Plays_Soloman/BH21_Jed_Plays_Solomon.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

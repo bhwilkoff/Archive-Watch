@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-world-news-tonight-july-24-25-and-26-of-1989-1989",
+  "title": "ABC World News Tonight July 24, 25 and 26 of 1989",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/abc-19890725",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "abc-19890725",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC World News Tonight July 24, 25 and 26 of 1989",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/abc-19890725",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC世界新闻 19890725.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 427639176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/abc-19890725/ABC世界新闻 19890725.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

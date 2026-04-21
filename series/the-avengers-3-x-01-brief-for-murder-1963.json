@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-avengers-3-x-01-brief-for-murder-1963",
+  "title": "The Avengers 3 X 01 Brief For Murder",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/theavengers3x01briefformurder",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theavengers3x01briefformurder",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Avengers 3 X 01 Brief For Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theavengers3x01briefformurder",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Avengers - 3X01 - Brief For Murder.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 234349649,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theavengers3x01briefformurder/The Avengers - 3X01 - Brief For Murder.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

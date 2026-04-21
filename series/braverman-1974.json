@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "braverman-1974",
+  "title": "Braverman",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BravermanBeatles",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BravermanBeatles",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Braverman's Condensed Cream of the Beatles (1974) V2",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BravermanBeatles",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1 (1).mp4",
+            "format": "h.264",
+            "sizeBytes": 93617789,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BravermanBeatles/1 (1).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

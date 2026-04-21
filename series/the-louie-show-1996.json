@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-louie-show-1996",
+  "title": "The Louie Show",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": "The Louie Show is an American sitcom television series that aired from January 31 until March 6, 1996.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/i8aGQKowp6cgeDzGJS6QfvqEzLf.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/7mpdNQJ5ypAHmH76ljQW2Jicyzg.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Diane English",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-louie-show-1.5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Louie Show - Louie Anderson, Bryan Cranston",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i8aGQKowp6cgeDzGJS6QfvqEzLf.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Louie Show - 1.5.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 442916733,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-louie-show-1.5/The Louie Show - 1.5.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

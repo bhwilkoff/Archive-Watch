@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "thetube1984s03e12uncut-1960",
+  "title": "The.Tube.1984.S03E12.uncut",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the.-tube.-1984.-s-03-e-12.uncut",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "the.-tube.-1984.-s-03-e-12.uncut",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "The.Tube.1984.S03E12.uncut",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the.-tube.-1984.-s-03-e-12.uncut",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Tube.1984.S03E12.uncut.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 288469122,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-tube.-1984.-s-03-e-12.uncut/The.Tube.1984.S03E12.uncut.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

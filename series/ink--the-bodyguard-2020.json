@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ink--the-bodyguard-2020",
+  "title": "Ink- The Bodyguard",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ink-the-bodyguard-part-1-episode-12-partial-convert-video-online.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ink-the-bodyguard-part-1-episode-12-partial-convert-video-online.com",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Ink- The Bodyguard, part 1 (Episode 12, partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ink-the-bodyguard-part-1-episode-12-partial-convert-video-online.com",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ink- The Bodyguard, part 1 (Episode 12, partial) (convert-video-online.com).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 270463874,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ink-the-bodyguard-part-1-episode-12-partial-convert-video-online.com/Ink- The Bodyguard, part 1 (Episode 12, partial) (convert-video-online.com).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

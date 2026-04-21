@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "planet-earth-2008",
+  "title": "Planet Earth",
+  "yearStart": 2008,
+  "yearEnd": 2008,
+  "overview": "David Attenborough celebrates the amazing variety of the natural world in this epic documentary series, filmed over four years across 64 different countries.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/bNcNxUtZ520d5de5s78onoiSiwQ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/rsQDFOcMvmX93MNot0bwLaRi9hK.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PlanetEarth1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Planet Earth (1986) DVD ISOs",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/bNcNxUtZ520d5de5s78onoiSiwQ.jpg",
+          "airDate": null,
+          "year": 2008,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Planet.Earth.S01E01.The.Living.Machine.1986.Planet.Earth.S01E02.The.Blue.Planet.1986.mp4",
+            "format": "h.264",
+            "sizeBytes": 661992494,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PlanetEarth1986/Planet.Earth.S01E01.The.Living.Machine.1986.Planet.Earth.S01E02.The.Blue.Planet.1986.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

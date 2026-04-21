@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ep-45-changing_houses-1960",
+  "title": "EP 45 Changing_Houses",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/I_Married_Joan_EP45_Changing_Houses",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "I_Married_Joan_EP45_Changing_Houses",
+          "seasonNumber": 1,
+          "episodeNumber": 45,
+          "title": "EP 45 Changing_Houses",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/I_Married_Joan_EP45_Changing_Houses",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "I_Married_Joan_EP45_Changing_Houses.mp4",
+            "format": "h.264",
+            "sizeBytes": 151294482,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan_EP45_Changing_Houses/I_Married_Joan_EP45_Changing_Houses.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

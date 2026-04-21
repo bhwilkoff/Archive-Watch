@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "roswell-2026",
+  "title": "Roswell",
+  "yearStart": 2026,
+  "yearEnd": 2026,
+  "overview": "Bizarre things start happening in the little New Mexico town where UFOs were spotted in 1947. Cut to 1999, when a cute high-school student saves the life of a teenage waitress. Surrounded by cliques of clever, angst-filled classmates, the two form a bond that threatens the survival of a secret universe involving superhuman powers, a yen for hot sauce and an alien gene pool.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/47CaTpah62bxbAkWANDzZdJxkxw.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qq9ZQLpYAj0PwI2uWPPuLyCNW6h.jpg",
+  "genres": [],
+  "networks": [
+    "The WB",
+    "UPN"
+  ],
+  "creator": "Jason Katims",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "roswell-s01e01-pilot-ml99rp",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Pilot",
+          "overview": "Liz Parker learns Max Evans' out-of-this-world secret when he saves her life and must rely on her to safeguard his secret as an orphaned extraterrestrial.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rYODGFk0cM0yH51SKV2LcAL9Su5.jpg",
+          "airDate": "1999-10-06",
+          "year": 2026,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Roswell.s01e01.Pilot.1440p.10bit.HEVC.AC3.Dual.MULTi.SUBS-ML99RP.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 269068511,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/roswell-s01e01-pilot-ml99rp/Roswell.s01e01.Pilot.1440p.10bit.HEVC.AC3.Dual.MULTi.SUBS-ML99RP.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

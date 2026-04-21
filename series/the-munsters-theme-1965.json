@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-munsters-theme-1965",
+  "title": "The Munsters Theme",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the_munsters_season_2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the_munsters_season_2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Munsters Theme (1965)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the_munsters_season_2",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "the_munsters_season_2_-_episode_01___5772fcc12efb0_Segment_0_x264.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 4719236,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the_munsters_season_2/the_munsters_season_2_-_episode_01___5772fcc12efb0_Segment_0_x264.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

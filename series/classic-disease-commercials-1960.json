@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "classic-disease-commercials-1960",
+  "title": "Classic Disease Commercials",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ClassicDiseaseCommercials",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ClassicDiseaseCommercials",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Disease Commercials",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ClassicDiseaseCommercials",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "cdc_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 58615655,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClassicDiseaseCommercials/cdc_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

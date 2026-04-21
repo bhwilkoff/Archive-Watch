@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-oprah-winfrey-show-january-15-1991-2020",
+  "title": "The Oprah Winfrey Show (January 15, 1991",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/theoprahwinfreyshowjanuary151991convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theoprahwinfreyshowjanuary151991convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Oprah Winfrey Show (January 15, 1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theoprahwinfreyshowjanuary151991convertvideoonline.com",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Oprah Winfrey Show (January 15, 1991) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 194743310,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theoprahwinfreyshowjanuary151991convertvideoonline.com/The Oprah Winfrey Show (January 15, 1991) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

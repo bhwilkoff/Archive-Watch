@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "on-the-air-1992",
+  "title": "On the Air",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "The year is 1957. The cast and crew of the Lester Guy Show are extremely apprehensive about their upcoming live television broadcast on the Zoblotnick Broadcasting Co. network. Lester Guy despises fellow cast member Betty Hudson for unknowingly becoming more popular than him and schemes to destroy her career. Only two of the seven episodes were written by David Lynch.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kSvDzCnUCMzH6bvkGQv3Ps0sJJS.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bZ7vf3fzqMLHpbYFMxk2M39B6dQ.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Mark Frost",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "on-the-air-s-01e-01-e-03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "On the Air (1992)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kSvDzCnUCMzH6bvkGQv3Ps0sJJS.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "On the Air s01e01-e03.mp4",
+            "format": "h.264",
+            "sizeBytes": 428225256,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/on-the-air-s-01e-01-e-03/On the Air s01e01-e03.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

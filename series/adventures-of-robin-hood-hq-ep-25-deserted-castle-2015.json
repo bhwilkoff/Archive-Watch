@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "adventures-of-robin-hood-hq-ep-25-deserted-castle-2015",
+  "title": "Adventures Of Robin Hood (HQ) ep 25 Deserted Castle",
+  "yearStart": 2015,
+  "yearEnd": 2015,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AdventuresOfRobinHoodep25DesertedCastle",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "AdventuresOfRobinHoodep25DesertedCastle",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Adventures Of Robin Hood (HQ) ep 25 Deserted Castle",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AdventuresOfRobinHoodep25DesertedCastle",
+          "airDate": null,
+          "year": 2015,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Adventures of Robin Hood (ep 25 Deserted Castle ).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157171289,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AdventuresOfRobinHoodep25DesertedCastle/Adventures of Robin Hood (ep 25 Deserted Castle ).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

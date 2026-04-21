@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ou-m203-1980-1996-intro-to-pure-mathematics-open-university-1960",
+  "title": "OU M203 (1980-1996) (Intro to Pure Mathematics) (OPEN UNIVERSITY",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OUBBCM203GeometryTV2EInversiveGeometryPureMaths19951",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OUBBCM203GeometryTV2EInversiveGeometryPureMaths19951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "OU M203 (1980-1996) (Intro to Pure Mathematics) (OPEN UNIVERSITY)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OUBBCM203GeometryTV2EInversiveGeometryPureMaths19951",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "M203 Group Theory 2 TV6 Lagrange's Theorem (Intro to Pure Maths).mp4",
+            "format": "h.264",
+            "sizeBytes": 157746481,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OUBBCM203GeometryTV2EInversiveGeometryPureMaths19951/M203 Group Theory 2 TV6 Lagrange's Theorem (Intro to Pure Maths).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

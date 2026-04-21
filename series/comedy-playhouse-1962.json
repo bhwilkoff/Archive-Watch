@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "comedy-playhouse-1962",
+  "title": "Comedy Playhouse",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": "Comedy Playhouse is a long-running British anthology series of one-off unrelated sitcoms that aired for 120 episodes from 1961 to 1975. Many episodes later graduated to their own series, including Steptoe and Son, Till Death Us Do Part, All Gas and Gaiters, The Liver Birds, Are You Being Served? and Last of the Summer Wine, which is the world's longest running sitcom, having run from January 1973 to August 2010.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7Sei1DQKQwIGkXWVV0m6zjZnbs4.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ComedyPlayhouse4Jan1962",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Offer",
+          "overview": "Harold Steptoe, a middle aged rag and bone man, yearns to break away from the clutches of his elderly, conniving, and disgusting father, but events always conspire against him.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/7Sei1DQKQwIGkXWVV0m6zjZnbs4.jpg",
+          "airDate": "1962-01-05",
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Steptoe And Son Full Episode Season 1E0 The Offer Pilot.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 133054245,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ComedyPlayhouse4Jan1962/Steptoe And Son Full Episode Season 1E0 The Offer Pilot.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

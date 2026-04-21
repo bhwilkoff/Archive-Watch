@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "school-house-1949",
+  "title": "School House",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": "School House is a musical comedy variety show, with Kenny Delmar presiding over a classroom of adult students, often famous guest stars, who perform variety acts. Ran on Tuesday nights on the Dumont network in 1949.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "DuMont Television Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "schoolHouse1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"School House\" (1949)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "School_house_1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 153422225,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/schoolHouse1949/School_house_1949.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

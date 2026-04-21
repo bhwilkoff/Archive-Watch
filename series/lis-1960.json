@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "lis-1960",
+  "title": "LIS",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "LIS follows four ambitious medical interns working at a struggling Norwegian hospital. Facing the harsh realities of an overstretched medical system, with rising patient numbers and dwindling resources, the young interns grapple with the complex ethical dilemmas of providing care in a system stretched to its limits. They will learn that compassion alone may not be enough, and they are forced to grow in ways they never expected.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/sTHfC8tteXxAqCT111THvB3HmqH.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/pUhOMFbSdzcKR5XA001DSaArPza.jpg",
+  "genres": [],
+  "networks": [
+    "NRK1",
+    "NRK TV"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "L_I_S",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "LIS",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sTHfC8tteXxAqCT111THvB3HmqH.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lost In Space - Season 03/S3E13-15 - Two Weeks In Space, Castles In Space, The Anti-matter Man.mp4",
+            "format": "h.264",
+            "sizeBytes": 904553267,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/L_I_S/Lost In Space - Season 03/S3E13-15 - Two Weeks In Space, Castles In Space, The Anti-matter Man.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

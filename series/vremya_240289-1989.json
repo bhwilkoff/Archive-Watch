@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "vremya_240289-1989",
+  "title": "Vremya_24.02.89",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Vremya_24.02.89",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Vremya_24.02.89",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Vremya_24.02.89",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Vremya_24.02.89",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": 1923,
+          "videoFile": {
+            "name": "VREMYA_24.02.89.mp4",
+            "format": "h.264",
+            "sizeBytes": 192907269,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Vremya_24.02.89/VREMYA_24.02.89.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

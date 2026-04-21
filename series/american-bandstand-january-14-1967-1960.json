@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "american-bandstand-january-14-1967-1960",
+  "title": "American Bandstand (January 14, 1967",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AmericanBandstandJanuary141967",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AmericanBandstandJanuary141967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "American Bandstand (January 14, 1967)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AmericanBandstandJanuary141967",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "American-Bandstand-_January-14_-1967_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 194197092,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AmericanBandstandJanuary141967/American-Bandstand-_January-14_-1967_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

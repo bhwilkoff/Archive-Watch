@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "seriesID": "flash-gordon-1954",
+  "title": "Flash Gordon",
+  "yearStart": 1954,
+  "yearEnd": 1955,
+  "overview": "Flash Gordon is a science fiction television series based on the characters of the Alex Raymond-created comic strip of the same name. Diverging from the storyline of the comics, the series set Flash, Dale Arden and Dr. Zarkov in the year 3203. As agents of the Galactic Bureau of Investigation, the team travels the galaxy in their ship the Sky Flash, battling cosmic villains under the order of Commander Paul Richards.\n\nThe series was filmed in West Berlin and Marseille as a West German, French and American co-production by Intercontinental Television Films and Telediffusion. The series aired in syndication throughout most of the U.S. but also aired on the east coast on the DuMont Television Network.\n\nThe series proved popular with American audiences and critical response, though sparse, was positive. Flash Gordon has garnered little modern critical attention. What little there is generally dismisses the series, although there has been some critical thought devoted to its presentation of Cold War and capitalist themes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/nVvlGQP8JW05oOvDj8R6V8HeaHL.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/zDzdKUq7mi33Rxcs3hOIH3qd2jA.jpg",
+  "genres": [],
+  "networks": [
+    "DuMont Television Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "fg-1-12",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Flash Gordon Series 54-55",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nVvlGQP8JW05oOvDj8R6V8HeaHL.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FG 1-12.mp4",
+            "format": "h.264",
+            "sizeBytes": 1930270385,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fg-1-12/FG 1-12.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "flash-gordon-s-01-e-23-the-water-world-mennace",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Water World Menace",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nVvlGQP8JW05oOvDj8R6V8HeaHL.jpg",
+          "airDate": "1955-03-25",
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flash Gordon - S01E23 - The Water World Mennace.mp4",
+            "format": "h.264",
+            "sizeBytes": 155245198,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-s-01-e-23-the-water-world-mennace/Flash Gordon - S01E23 - The Water World Mennace.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

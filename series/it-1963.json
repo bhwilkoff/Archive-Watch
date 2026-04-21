@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "seriesID": "it-1963",
+  "title": "It",
+  "yearStart": 1963,
+  "yearEnd": 1967,
+  "overview": "In 1960, seven outcast kids known as \"The Losers' Club\" fight against an ancient shape-shifting alien who poses as a child-killing clown, while also dealing with bullies and abusive parents. Thirty years later, they reunite to stop the creature once and for all when it returns to their hometown.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/2lFfjPdVXleGHukp0Phr5pNJ4ab.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Stephen King",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ItsAcademic",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''It's Academic'' - 6 October 1963",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ItsAcademic",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1535,
+          "videoFile": {
+            "name": "It's Academic.mp4",
+            "format": "h.264",
+            "sizeBytes": 159685871,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ItsAcademic/It's Academic.mp4"
+        },
+        {
+          "archiveID": "its-wonderful-by-young-rascals-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'It's Wonderful' by Young Rascals + Part of 'The Letter' by The Box Tops • AB Dancers Dec 30 1967",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/its-wonderful-by-young-rascals-1967",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "'It's Wonderful' by Young Rascals + part of 'The Letter' by The Box Tops • AB Dancers Dec 30 1967.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 290191316,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/its-wonderful-by-young-rascals-1967/'It's Wonderful' by Young Rascals + part of 'The Letter' by The Box Tops • AB Dancers Dec 30 1967.ia.mp4"
+        },
+        {
+          "archiveID": "its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's About Time (TV Series 1966)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It's About Time/Season 01/It's About Time (1966) - S01E09 - Have I Got a Girl for You - 480p 1.0 HDTV h265.mp4",
+            "format": "h.264",
+            "sizeBytes": 147640268,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/its-about-time-1966-s-01-e-09-have-i-got-a-girl-for-you-480p-1.0-hdtv-h-265/It's About Time/Season 01/It's About Time (1966) - S01E09 - Have I Got a Girl for You - 480p 1.0 HDTV h265.mp4"
+        },
+        {
+          "archiveID": "ItSShowtimeAtTheApolloMarch261988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Showtime At The Apollo (March 26, 1988)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It_s-Showtime-At-The-Apollo-_March-26_-1988_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 208615820,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ItSShowtimeAtTheApolloMarch261988/It_s-Showtime-At-The-Apollo-_March-26_-1988_.ogv"
+        },
+        {
+          "archiveID": "ItSShowtimeAtTheApolloClipDecember191987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Showtime At The Apollo clip (December 19, 1987)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It_s-Showtime-At-The-Apollo-clip-_December-19_-1987_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 52889333,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ItSShowtimeAtTheApolloClipDecember191987/It_s-Showtime-At-The-Apollo-clip-_December-19_-1987_.ogv"
+        },
+        {
+          "archiveID": "ItSShowtimeAtTheApollo1987PartialEpisode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Showtime At The Apollo- 1987 partial episode",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It_s-Showtime-At-The-Apollo-1987-partial-episode.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 99464834,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ItSShowtimeAtTheApollo1987PartialEpisode/It_s-Showtime-At-The-Apollo-1987-partial-episode.ogv"
+        },
+        {
+          "archiveID": "ItSShowtimeAtTheApolloJanuary171998Partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Showtime At The Apollo- January 17, 1998 (partial)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It_s-Showtime-At-The-Apollo-January-17_-1998-_partial_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 147655492,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ItSShowtimeAtTheApolloJanuary171998Partial/It_s-Showtime-At-The-Apollo-January-17_-1998-_partial_.ogv"
+        },
+        {
+          "archiveID": "ItSShowtimeAtTheApolloOctober101987Partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It's Showtime At The Apollo- October 10, 1987 (partial)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4ybQ6gopB3H3cu0seVZLznDnIKo.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It_s-Showtime-At-The-Apollo-October-10_-1987-_partial_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 110576360,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ItSShowtimeAtTheApolloOctober101987Partial/It_s-Showtime-At-The-Apollo-October-10_-1987-_partial_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

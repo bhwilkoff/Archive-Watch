@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sea-hunt-1958",
+  "title": "Sea Hunt",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": "Sea Hunt is an American adventure television series that aired in syndication from 1958 to 1961 and was popular in syndication for decades afterwards. The series originally aired for four seasons, with 155 episodes produced. It stars Lloyd Bridges as ex-Navy frogman Mike Nelson, and was produced by Ivan Tors.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/5aSZlCZ0zEvww83kmFFxlbCElPf.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/1B9h8lWshSc8emaU7J3zVrWbPxV.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": "Ivan Tors",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Sea_Hunt_Mark_of_the_Octopus",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Mark of the Octopus",
+          "overview": "Before Mike can investigate the disappearance of a pair of skin-diving geologists, one turns up dead on the beach bearing marks resembling the suction valves of a giant octopus.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7t94OCGCHEQaV4icwDuaormJN9e.jpg",
+          "airDate": "1958-02-01",
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1-04_Mark_of_the_Octopus.mp4",
+            "format": "h.264",
+            "sizeBytes": 162436208,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Sea_Hunt_Mark_of_the_Octopus/1-04_Mark_of_the_Octopus.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

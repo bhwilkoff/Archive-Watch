@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "this-week-in-britain-1970",
+  "title": "This Week in Britain",
+  "yearStart": 1970,
+  "yearEnd": 1974,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/this-week-in-britain-the-mary-quant-show-1974",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "this-week-in-britain-mens-fashions-1973",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "This Week In Britain - Men's Fashions",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/this-week-in-britain-mens-fashions-1973",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 281,
+          "videoFile": {
+            "name": "This Week in Britain - Men's Fashions (1973).mp4",
+            "format": "h.264",
+            "sizeBytes": 26884576,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/this-week-in-britain-mens-fashions-1973/This Week in Britain - Men's Fashions (1973).mp4"
+        },
+        {
+          "archiveID": "this-week-in-britain-national-theatre",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "This Week in Britain - National Theatre",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/this-week-in-britain-national-theatre",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 298,
+          "videoFile": {
+            "name": "This Week in Britain - National Theatre.mp4",
+            "format": "h.264",
+            "sizeBytes": 28812392,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/this-week-in-britain-national-theatre/This Week in Britain - National Theatre.mp4"
+        },
+        {
+          "archiveID": "this-week-in-britain-the-mary-quant-show-1974",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "This Week in Britain - The Mary Quant Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/this-week-in-britain-the-mary-quant-show-1974",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 288,
+          "videoFile": {
+            "name": "This Week in Britain - The Mary Quant Show (1974).mp4",
+            "format": "h.264",
+            "sizeBytes": 27881669,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/this-week-in-britain-the-mary-quant-show-1974/This Week in Britain - The Mary Quant Show (1974).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

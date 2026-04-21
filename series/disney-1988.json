@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "disney-1988",
+  "title": "Disney",
+  "yearStart": 1988,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/disneys-animal-kingdom-drew-carey-1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "disneys-animal-kingdom-drew-carey-1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Disney's Animal Kingdom - Drew Carey",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/disneys-animal-kingdom-drew-carey-1998",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Disneys Animal Kingdom - Drew Carey - 1998.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 849985739,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/disneys-animal-kingdom-drew-carey-1998/Disneys Animal Kingdom - Drew Carey - 1998.ia.mp4"
+        },
+        {
+          "archiveID": "disneys-great-american-celebration-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Disney's Great American Celebration - Connie Sellecca, Robert Guillaume",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/disneys-great-american-celebration-1991",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Disneys Great American Celebration - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2240974537,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/disneys-great-american-celebration-1991/Disneys Great American Celebration - 1991.ia.mp4"
+        },
+        {
+          "archiveID": "disneys-magic-in-the-magic-kingdom-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Disney's Magic In The Magic Kingdom - George Burns",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/disneys-magic-in-the-magic-kingdom-1988",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Disneys Magic in the Magic Kingdom - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1466416871,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/disneys-magic-in-the-magic-kingdom-1988/Disneys Magic in the Magic Kingdom - 1988.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

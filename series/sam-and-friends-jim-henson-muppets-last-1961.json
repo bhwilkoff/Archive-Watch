@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sam-and-friends-jim-henson-muppets-last-1961",
+  "title": "Sam And Friends (Jim Henson Muppets) Last",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sam-and-friends-jim-henson-muppets-last-episode-reconstruction-i-come-for-to-sing",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sam-and-friends-jim-henson-muppets-last-episode-reconstruction-i-come-for-to-sing",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sam And Friends (Jim Henson Muppets) Last Episode Reconstruction \"I Come For to Sing\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sam-and-friends-jim-henson-muppets-last-episode-reconstruction-i-come-for-to-sing",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sam and Friends Last Episode Recon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 290155813,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sam-and-friends-jim-henson-muppets-last-episode-reconstruction-i-come-for-to-sing/Sam and Friends Last Episode Recon.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

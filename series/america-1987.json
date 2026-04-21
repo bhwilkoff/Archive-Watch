@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "seriesID": "america-1987",
+  "title": "America",
+  "yearStart": 1987,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AmericasWildHorses",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "americas-all-star-tribute-to-elizabeth-taylor-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "America's All Star Tribute To Elizabeth Taylor - Charles Bronson",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/americas-all-star-tribute-to-elizabeth-taylor-1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Americas All-Star Tribute to Elizabeth Taylor - 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1108101634,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/americas-all-star-tribute-to-elizabeth-taylor-1989/Americas All-Star Tribute to Elizabeth Taylor - 1989.ia.mp4"
+        },
+        {
+          "archiveID": "americas-funniest-people-balancing-acts-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "America's Funniest People - Arleen Sorkin, Dave Coulier",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/americas-funniest-people-balancing-acts-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Americas Funniest People - Big Winner 2 - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 759108922,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/americas-funniest-people-balancing-acts-1990/Americas Funniest People - Big Winner 2 - 1990.ia.mp4"
+        },
+        {
+          "archiveID": "AmericasMostWantedLadyKiller",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "America's Most Wanted - Lady Killer: The Most Wanted Man in America",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AmericasMostWantedLadyKiller",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lady Killer - The Most Wanted Man in America.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 127254004,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AmericasMostWantedLadyKiller/Lady Killer - The Most Wanted Man in America.ia.mp4"
+        },
+        {
+          "archiveID": "americas-toughest-assignment-199x",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "America's Toughest Assignment - Charles Kuralt",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/americas-toughest-assignment-199x",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Americas Toughest Assignment - 199x.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2171481666,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/americas-toughest-assignment-199x/Americas Toughest Assignment - 199x.ia.mp4"
+        },
+        {
+          "archiveID": "AmericasWildHorses",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "America's Wild Horses",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AmericasWildHorses",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Nature.S05E14.Americas.Wild.Horses.1987.VHSRip.AAC2.0.x264-rattera.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 267889864,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AmericasWildHorses/Nature.S05E14.Americas.Wild.Horses.1987.VHSRip.AAC2.0.x264-rattera.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "through-animal-eyes-1985",
+  "title": "Through Animal Eyes",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Naturethroughanimaleyes",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Naturethroughanimaleyes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Through Animal Eyes (1985)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Naturethroughanimaleyes",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Nature.S03E16.Through.Animal.Eyes.VHSrip.x264.AAC-ASTRO.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 257775034,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Naturethroughanimaleyes/Nature.S03E16.Through.Animal.Eyes.VHSrip.x264.AAC-ASTRO.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

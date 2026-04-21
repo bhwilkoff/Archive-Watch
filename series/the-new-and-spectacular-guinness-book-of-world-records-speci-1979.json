@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-new-and-spectacular-guinness-book-of-world-records-speci-1979",
+  "title": "The New and Spectacular Guinness Book of World Records special",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheNewAndSpectacularGuinnessBookOfWorldRecordsSpecial1979",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheNewAndSpectacularGuinnessBookOfWorldRecordsSpecial1979",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The New and Spectacular Guinness Book of World Records special (1979)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheNewAndSpectacularGuinnessBookOfWorldRecordsSpecial1979",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The-New-and-Spectacular-Guinness-Book-of-World-Records-special-_1979_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 213259834,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheNewAndSpectacularGuinnessBookOfWorldRecordsSpecial1979/The-New-and-Spectacular-Guinness-Book-of-World-Records-special-_1979_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

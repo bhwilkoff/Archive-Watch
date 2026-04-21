@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "fatima-1984-documentary-2025",
+  "title": "Fatima (1984 documentary",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/fatima-1984-documentary",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "fatima-1984-documentary",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fatima (1984 documentary)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/fatima-1984-documentary",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fatima (1984) documentary.mp4",
+            "format": "h.264",
+            "sizeBytes": 331637728,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fatima-1984-documentary/Fatima (1984) documentary.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jackie-gleason-on-1951",
+  "title": "Jackie Gleason on",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Cavalcade_Of_Stars",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cavalcade_Of_Stars",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jackie Gleason on \"Cavalcade of Stars\"",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Cavalcade_Of_Stars",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TheHoneymoonersSketch1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 50476780,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cavalcade_Of_Stars/TheHoneymoonersSketch1951.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

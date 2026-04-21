@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "crusade-in-the-pacific-1960",
+  "title": "CRUSADE IN THE PACIFIC",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "This richly detailed, visually stunning documentary series covers the entire dramatic saga of World War II in the Pacific. From Manchuria to Hiroshima, the people, armaments, locations and battles of the epic conflict are covered in 20 unforgettable episodes. The Allies' crusade to defeat imperial Japan's bloody expansion featured difficult, heroic fighting at sea, in the air, and on innumerable jungle islands.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/k8CdNumBRedwlhXdH5w7Y9RLFhE.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "01thepacificineruption",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CRUSADE IN THE PACIFIC part 1 of 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/k8CdNumBRedwlhXdH5w7Y9RLFhE.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "04-AMERICA GOES TO WAR.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156668305,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01thepacificineruption/04-AMERICA GOES TO WAR.ia.mp4"
+        },
+        {
+          "archiveID": "08warinthenorth",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CRUSADE IN THE PACIFIC part 2 of 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/k8CdNumBRedwlhXdH5w7Y9RLFhE.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "13-THE MARSHALLS.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 175105798,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/08warinthenorth/13-THE MARSHALLS.ia.mp4"
+        },
+        {
+          "archiveID": "15themarianas",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CRUSADE IN THE PACIFIC part 3 of 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/k8CdNumBRedwlhXdH5w7Y9RLFhE.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "18-MACARTHUR RETURNS.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156897131,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/15themarianas/18-MACARTHUR RETURNS.ia.mp4"
+        },
+        {
+          "archiveID": "22surrenderoccupation",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CRUSADE IN THE PACIFIC part 4 of 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/k8CdNumBRedwlhXdH5w7Y9RLFhE.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "22-SURRENDER & OCCUPATION.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155101910,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/22surrenderoccupation/22-SURRENDER & OCCUPATION.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

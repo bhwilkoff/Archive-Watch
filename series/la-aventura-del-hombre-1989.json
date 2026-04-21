@@ -1,0 +1,615 @@
+{
+  "version": 1,
+  "seriesID": "la-aventura-del-hombre-1989",
+  "title": "La Aventura del Hombre",
+  "yearStart": 1989,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/la-aventura-del-hombre-mas-alla-del-rio-grande-1995-1080p",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "la-aventura-del-hombre-adictos-a-la-muerte-1989-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Adictos a la muerte (1989) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-adictos-a-la-muerte-1989-1080p",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Adictos a la muerte (1989) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1533652406,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-adictos-a-la-muerte-1989-1080p/La Aventura del Hombre - Adictos a la muerte (1989) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-adivinos-de-la-vida-1991-480p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Adivinos de la vida (1991) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-adivinos-de-la-vida-1991-480p",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "02. La Aventura del Hombre - Adivinos de la vida (Parte 2) [1080p].mp4.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1471597926,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-adivinos-de-la-vida-1991-480p/02. La Aventura del Hombre - Adivinos de la vida (Parte 2) [1080p].mp4.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-al-este-del-uruguay-1994-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Al este del Uruguay (1994) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-al-este-del-uruguay-1994-1080p",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Al este del Uruguay (1994) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1596585507,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-al-este-del-uruguay-1994-1080p/La Aventura del Hombre - Al este del Uruguay (1994) [1080p].mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-apocalipsis-de-los-isleros-1994-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Apocalipsis de los isleros (1994) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-apocalipsis-de-los-isleros-1994-1080p",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Apocalipsis de los isleros (1994) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1575875981,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-apocalipsis-de-los-isleros-1994-1080p/La Aventura del Hombre - Apocalipsis de los isleros (1994) [1080p].mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-asma-la-enfermedad-de-las-4-estaciones-1991-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Asma, la enfermedad de las 4 estaciones (1991) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-asma-la-enfermedad-de-las-4-estaciones-1991-1080p",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Asma, la enfermedad de las 4 estaciones (1991) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1646271792,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-asma-la-enfermedad-de-las-4-estaciones-1991-1080p/La Aventura del Hombre - Asma, la enfermedad de las 4 estaciones (1991) [1080p].mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-buenos-aires-tango-1993-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Buenos Aires Tango (1993) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-buenos-aires-tango-1993-1080p",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Buenos Aires Tango (1993) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1678873017,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-buenos-aires-tango-1993-1080p/La Aventura del Hombre - Buenos Aires Tango (1993) [1080p].mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-camino-a-iruya-1994-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Camino a Iruya (1994) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-camino-a-iruya-1994-1080p",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "02. La aventura del hombre - Camino a Iruya (Parte 2) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1671194801,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-camino-a-iruya-1994-1080p/02. La aventura del hombre - Camino a Iruya (Parte 2) [1080p].mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-cerca-del-cielo-1993-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Cerca del cielo (1993) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-cerca-del-cielo-1993-1080p",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Cerca del cielo (1993) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1630525843,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-cerca-del-cielo-1993-1080p/La Aventura del Hombre - Cerca del cielo (1993) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-colera-1991-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Cólera (1991) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-colera-1991-1080p",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Colera (1991) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1490773655,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-colera-1991-1080p/La Aventura del Hombre - Colera (1991) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-de-la-puna-a-la-selva-1992-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - De la puna a la selva (1992) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-de-la-puna-a-la-selva-1992-1080p",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - De la puna a la selva (1992) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1510929863,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-de-la-puna-a-la-selva-1992-1080p/La Aventura del Hombre - De la puna a la selva (1992) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-down-una-vida-vacia-1993-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Down: ¿una vida vacía? (1993) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-down-una-vida-vacia-1993-1080p",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Down, ¿una vida vacía (1993) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1645409224,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-down-una-vida-vacia-1993-1080p/La Aventura del Hombre - Down, ¿una vida vacía (1993) [1080p].mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-el-canon-del-atuel-1989-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - El Cañón del Atuel (1990) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-el-canon-del-atuel-1989-1080p",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - El Cañón del Atuel (1990) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1665285320,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-el-canon-del-atuel-1989-1080p/La Aventura del Hombre - El Cañón del Atuel (1990) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-el-muro-de-berlin-1990-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - El muro de Berlín (1990) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-el-muro-de-berlin-1990-1080p",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - El muro de Berlín (1990) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1484304027,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-el-muro-de-berlin-1990-1080p/La Aventura del Hombre - El muro de Berlín (1990) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-el-ombligo-del-mundo-1996-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - El ombligo del mundo (1996) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-el-ombligo-del-mundo-1996-1080p",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "01. La Aventura del Hombre - El ombligo del mundo (Parte 1) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1624235295,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-el-ombligo-del-mundo-1996-1080p/01. La Aventura del Hombre - El ombligo del mundo (Parte 1) [1080p].mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-el-portal-de-cuyo-1993-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - El portal de Cuyo (1993) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-el-portal-de-cuyo-1993-1080p",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - El portal de Cuyo (1993) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1555088768,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-el-portal-de-cuyo-1993-1080p/La Aventura del Hombre - El portal de Cuyo (1993) [1080p].mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-el-sida-un-asesino-mundial-1990-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - El sida, un asesino mundial (1990) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-el-sida-un-asesino-mundial-1990-1080p",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "01. El sida, un asesino mundial (Parte 1) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1583942678,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-el-sida-un-asesino-mundial-1990-1080p/01. El sida, un asesino mundial (Parte 1) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-el-sol-negro-patagonico-1990-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - El sol negro patagónico (1990) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-el-sol-negro-patagonico-1990-1080p",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - El sol negro patagónico (1990) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1529271451,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-el-sol-negro-patagonico-1990-1080p/La Aventura del Hombre - El sol negro patagónico (1990) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-expedicion-al-bermejo-1993-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Expedición al Bermejo (1993) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-expedicion-al-bermejo-1993-1080p",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "02. La Aventura del Hombre - Expedición al Bermejo (Parte 2) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1544062935,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-expedicion-al-bermejo-1993-1080p/02. La Aventura del Hombre - Expedición al Bermejo (Parte 2) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-historia-de-un-canal-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Historia de un Canal (1990)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-historia-de-un-canal-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Historia de un Canal (1990).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1542211659,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-historia-de-un-canal-1990/La Aventura del Hombre - Historia de un Canal (1990).ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-inmigrantes-1991-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Inmigrantes (1991) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-inmigrantes-1991-1080p",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "02. La Aventura del Hombre - Inmigrantes (Parte 2) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1511782769,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-inmigrantes-1991-1080p/02. La Aventura del Hombre - Inmigrantes (Parte 2) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-la-cordoba-desconocida-1994-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - La Córdoba desconocida (1994) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-la-cordoba-desconocida-1994-1080p",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "01. La Aventura del Hombre - La Córdoba desconocida (Parte 1) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1615806728,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-la-cordoba-desconocida-1994-1080p/01. La Aventura del Hombre - La Córdoba desconocida (Parte 1) [1080p].mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-la-resistencia-del-chaco-1993-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - La resistencia del Chaco (1993) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-la-resistencia-del-chaco-1993-1080p",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "02. La resistencia del Chaco (Parte 2) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1578148990,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-la-resistencia-del-chaco-1993-1080p/02. La resistencia del Chaco (Parte 2) [1080p].mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-la-vision-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - La visión (1990) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-la-vision-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - La visión (1990).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1445292004,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-la-vision-1990/La Aventura del Hombre - La visión (1990).ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-los-andes-del-libertador-1995-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Los Andes del Libertador (1995) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-los-andes-del-libertador-1995-1080p",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La aventura del hombre - Los Andes del Libertador (1995) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1563631778,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-los-andes-del-libertador-1995-1080p/La aventura del hombre - Los Andes del Libertador (1995) [1080p].mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-mas-alla-del-rio-grande-1995-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Más allá del Río Grande (1995) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-mas-alla-del-rio-grande-1995-1080p",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "01. La Aventura del Hombre - Más allá del Río Grande (Parte 1) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1500885238,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-mas-alla-del-rio-grande-1995-1080p/01. La Aventura del Hombre - Más allá del Río Grande (Parte 1) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-patagonia-tierra-desprotegida-1992-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Patagonia, tierra desprotegida (1992) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-patagonia-tierra-desprotegida-1992-1080p",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Patagonia, tierra desprotegida (1992) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1619639053,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-patagonia-tierra-desprotegida-1992-1080p/La Aventura del Hombre - Patagonia, tierra desprotegida (1992) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-quichua-1989-480p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Quichua (1989) [480p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-quichua-1989-480p",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Quichua (1989) [480p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 749862906,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-quichua-1989-480p/La Aventura del Hombre - Quichua (1989) [480p].mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-rescate-al-pasado-1992-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Rescate al pasado (1992) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-rescate-al-pasado-1992-1080p",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Rescate al pasado (1992) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1598903763,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-rescate-al-pasado-1992-1080p/La Aventura del Hombre - Rescate al pasado (1992) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-rumbo-186-1994-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Rumbo 186 (1994) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-rumbo-186-1994-1080p",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "01. Rumbo 1-8-6 (Parte 1) [1080p].mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1610692467,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-rumbo-186-1994-1080p/01. Rumbo 1-8-6 (Parte 1) [1080p].mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-tierra-ranquel-1993-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Tierra Ranquel (1993) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-tierra-ranquel-1993-1080p",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Tierra Ranquel (1993) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1645622223,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-tierra-ranquel-1993-1080p/La Aventura del Hombre - Tierra Ranquel (1993) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-valle-de-uco-1991-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Valle de Uco (1991) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-valle-de-uco-1991-1080p",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Valle de Uco (1991) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1517359382,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-valle-de-uco-1991-1080p/La Aventura del Hombre - Valle de Uco (1991) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-viaje-al-olvido-1990-1080p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Viaje al olvido (1990) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-viaje-al-olvido-1990-1080p",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Viaje al olvido (1990) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1583305972,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-viaje-al-olvido-1990-1080p/La Aventura del Hombre - Viaje al olvido (1990) [1080p].ia.mp4"
+        },
+        {
+          "archiveID": "la-aventura-del-hombre-yacyreta-lugar-de-la-luna-1989-480p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "La Aventura del Hombre - Yacyretá, lugar de la luna (1989) [480p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/la-aventura-del-hombre-yacyreta-lugar-de-la-luna-1989-480p",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "La Aventura del Hombre - Yacyretá, lugar de la luna (1989) [480p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 744195607,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/la-aventura-del-hombre-yacyreta-lugar-de-la-luna-1989-480p/La Aventura del Hombre - Yacyretá, lugar de la luna (1989) [480p].ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 33
+}

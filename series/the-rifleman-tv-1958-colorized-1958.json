@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "the-rifleman-tv-1958-colorized-1958",
+  "title": "The Rifleman TV 1958 colorized",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-rifleman-tv-1958-colorized-s01e01-the-sharpshooter",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-rifleman-tv-1958-colorized-s01e01-the-sharpshooter",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Rifleman TV 1958 colorized s01e01 The Sharpshooter",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rifleman-tv-1958-colorized-s01e01-the-sharpshooter",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Rifleman TV 1958 colorized s01e01 The Sharpshooter.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 162271171,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-rifleman-tv-1958-colorized-s01e01-the-sharpshooter/The Rifleman TV 1958 colorized s01e01 The Sharpshooter.mp4"
+        },
+        {
+          "archiveID": "the-rifleman-tv-1958-s01e04-the-marshal",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Rifleman TV 1958 colorized s01e04 The Marshal",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rifleman-tv-1958-s01e04-the-marshal",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Rifleman TV 1958 colorized s01e04 The Marshal.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 161129269,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-rifleman-tv-1958-s01e04-the-marshal/The Rifleman TV 1958 colorized s01e04 The Marshal.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

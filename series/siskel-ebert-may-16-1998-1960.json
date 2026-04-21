@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "siskel-ebert-may-16-1998-1960",
+  "title": "Siskel & Ebert (May 16, 1998",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SiskelEbertMay161998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SiskelEbertMay161998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Siskel & Ebert (May 16, 1998)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SiskelEbertMay161998",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Siskel-_-Ebert-_May-16_-1998_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 99642335,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SiskelEbertMay161998/Siskel-_-Ebert-_May-16_-1998_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

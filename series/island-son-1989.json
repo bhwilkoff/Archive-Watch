@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "island-son-1989",
+  "title": "Island Son",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "Island Son is a CBS television medical drama during its 1989-90 schedule.\n\nIsland Son marked the return to regular weekly series television of Richard Chamberlain, who had not so appeared since his Dr. Kildare series almost 25 years earlier. In the interim he had enjoyed a somewhat successful career in feature films, and had become widely known as \"The King of the Miniseries\" due to his success in that format.\n\nChamberlain once again portrayed a dedicated medical doctor, Dr. Daniel Kulani. Kulani was born in Hawaii and practiced on the mainland for many years prior to his return to work at the fictional Kamehameha Medical Center in Honolulu. Kulani's complicated life involved his stressful work environment; his adoptive parents, Tutu and Nana; his 18-year-old son, Sam; and his love interest, high school drama teacher Nina Delaney. Dr. Kulani's complicated life was never resolved to the satisfaction of the viewers because the program was canceled in March 1990.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/6957H3pstt42hf0dAzKLDMHEymx.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/2GBaBT1V3R0qyiDm9MLCvpOTwad.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Martin Rabbett",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "island-son-1.02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Island Son - Richard Chamberlain, Brynn Thayer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/6957H3pstt42hf0dAzKLDMHEymx.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Island Son - 1.15.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1442636657,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/island-son-1.02/Island Son - 1.15.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "date-with-the-angels-220-1960",
+  "title": "Date With The Angels 220",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DateWithTheAngels220",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DateWithTheAngels220",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Date With The Angels 220",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DateWithTheAngels220",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Date with the Angels FRANCIS GOES TO SCHOOL.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 117114714,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DateWithTheAngels220/Date with the Angels FRANCIS GOES TO SCHOOL.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

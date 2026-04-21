@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "love-of-life-1960",
+  "title": "Love of Life",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "Love of Life is an American soap opera which aired on CBS from September 24, 1951, to February 1, 1980. It was created by Roy Winsor, whose previous creation Search for Tomorrow had premiered three weeks before Love of Life, and who would go on to create The Secret Storm two and a half years later.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/527/1319042.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Roy Winsor",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "loveoflife22August1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Love of Life'' - 22 August 1960",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1487,
+          "videoFile": {
+            "name": "loveoflife22August1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 154777267,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/loveoflife22August1960/loveoflife22August1960.mp4"
+        },
+        {
+          "archiveID": "LoveOfLife",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Love of Life",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/527/1319042.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TvSoapOpera-LoveOfLife1-15-53_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 60215205,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LoveOfLife/TvSoapOpera-LoveOfLife1-15-53_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

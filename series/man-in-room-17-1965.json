@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "man-in-room-17-1965",
+  "title": "Man In Room 17",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": "The Man in Room 17 is a British television series which ran for two seasons in the mid-1960s, produced by the Northern ITV franchise, Granada Television. Key to the series' success was the involvement of writer/producer Robin Chapman.\n\nThe show was set in Room 17 of the Department of Social Research, where former wartime agent-turned-criminologist Edwin Oldenshaw solved difficult police cases through theory and discussions with his assistants.\n\nThe novelty of the series was that Oldenshaw and his colleagues never needed to leave their office in order to resolve cases, preferring to spend their time playing the Japanese board game of Go. They simply provided their prognosis and left the police to do the cleaning up. Different directors were often appointed to film the Room 17 and outside-world scenes independently, to maintain a sense of distance between the two worlds.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/vxSf55FbCCPZmtPlJhLWIKq5cdq.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/nBn59LEdmgIHRPGp5tDQVDuxTlP.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Robin Chapman",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Man In Room 17 - Complete Series 1965",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vxSf55FbCCPZmtPlJhLWIKq5cdq.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Man in Room 17 S03E13.mp4",
+            "format": "h.264",
+            "sizeBytes": 295719457,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man in Room 17 S03E13.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

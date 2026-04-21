@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "viewpoint-1988",
+  "title": "Viewpoint",
+  "yearStart": 1988,
+  "yearEnd": 1991,
+  "overview": "Viewpoint was a political talk show on Current TV. Formerly known as Viewpoint with Eliot Spitzer, it was hosted by former New York Governor Eliot Spitzer until January 6, 2013. After that, it was hosted by John Fugelsang. Viewpoint began airing on March 30, 2012 as a replacement to Keith Olbermann, who was dismissed from his show in the same time slot. It was the second television talk show to be hosted by Spitzer, with his previous effort having aired on CNN.\n\nEliot Spitzer announced on January 6, 2013 that he left the show and the network, saying that \"journalism has been more a matter of projecting a particular approach to covering policies, to covering issues. It was a continuation of what I tried to do in government. And that doesn’t fit with their vision of what [Al Jazeera is] going to do.\" However, he did say that \"I view Al Jazeera as a very serious journalistic outfit\". For the remainder of its run, the show was hosted by comedian John Fugelsang. The show aired its final episode on August 15, 2013.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Current TV"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ViewpointMDS1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Viewpoint - Miriam Defensor Santiago 1991 Interview",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Viewpoint - Miriam Defensor Santiago 1991 interview 5.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 38938794,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ViewpointMDS1991/Viewpoint - Miriam Defensor Santiago 1991 interview 5.mp4"
+        },
+        {
+          "archiveID": "ViewpointMakatiFundMess",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Viewpoint - The Makati Fund Mess - July 1988",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bobby Brillante vs Jojo Binay at Viewpoint ( 240 X 322 ).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 112528275,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ViewpointMakatiFundMess/Bobby Brillante vs Jojo Binay at Viewpoint ( 240 X 322 ).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

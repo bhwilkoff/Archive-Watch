@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "whats-cooking-1960",
+  "title": "Whats Cooking",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "What's Cooking? Atlanta is here! Pretty Vee will feature chefs in Atlanta, make signature dishes, and the chefs tell us their backstory on how, why, and when their restaurants started!",
+  "posterURL": "https://image.tmdb.org/t/p/w500/2ceyj8Oqjdiw5RmAnOd83GCJ1lj.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "My_Little_Margie_3x14_Whats_Cooking",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Whats Cooking",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2ceyj8Oqjdiw5RmAnOd83GCJ1lj.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "My_Little_Margie_-_3x14_-_What_s_Cooking.mp4",
+            "format": "h.264",
+            "sizeBytes": 153275280,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/My_Little_Margie_3x14_Whats_Cooking/My_Little_Margie_-_3x14_-_What_s_Cooking.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

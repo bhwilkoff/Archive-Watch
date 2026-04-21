@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "seriesID": "1949-1949",
+  "title": "1949",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": null,
+  "posterURL": "http://commons.wikimedia.org/wiki/Special:FilePath/Captain%20Video%20title%20card.JPG",
+  "backdropURL": null,
+  "genres": [
+    "children's television series",
+    "science fiction television program"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1949-RollerDerby-NewJerseyVsPhiladelphia",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1949 - Roller Derby - New Jersey vs Philadelphia",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1949-RollerDerby-NewJerseyVsPhiladelphia",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1947,
+          "videoFile": {
+            "name": "1949-RollerDerby-NewJerseyVsPhiladelphia.mp4",
+            "format": "h.264",
+            "sizeBytes": 203512865,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1949-RollerDerby-NewJerseyVsPhiladelphia/1949-RollerDerby-NewJerseyVsPhiladelphia.mp4"
+        },
+        {
+          "archiveID": "1949-RollerDerby-NewYorkVsPhiladelphia",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1949 - Roller Derby - New York vs Philadelphia",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1949-RollerDerby-NewYorkVsPhiladelphia",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 2077,
+          "videoFile": {
+            "name": "1949-RollerDerby-NewYorkVsPhiladelphia.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 852370646,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1949-RollerDerby-NewYorkVsPhiladelphia/1949-RollerDerby-NewYorkVsPhiladelphia.mp4"
+        },
+        {
+          "archiveID": "captainvideo",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1949 episode of the TV series \"Captain Video\"",
+          "overview": null,
+          "stillURL": "http://commons.wikimedia.org/wiki/Special:FilePath/Captain%20Video%20title%20card.JPG",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CaptainVideo1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 165584538,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/captainvideo/CaptainVideo1949.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

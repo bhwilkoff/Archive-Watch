@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-paula-poundstone-show-1993",
+  "title": "The Paula Poundstone Show",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "A standard yet somehow odd chatshow. Guests would be normal folks like a stewardess, meter maid, or lottery winner. Musical performances were provided by The Blind Boys of Alabama, Pat Benatar, and Charles Brown. There were remote segments and short film parodies. Most importantly, you have Poundstone's impeccable audience interaction. She brings many guests on in panels and plays off their interaction with each other as well.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "HBO"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-paula-poundstone-show-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Paula Poundstone Show - Paula Poundstone",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Paula Poundstone Show - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2201346318,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-paula-poundstone-show-1.1/The Paula Poundstone Show - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

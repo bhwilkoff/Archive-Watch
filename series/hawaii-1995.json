@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "hawaii-1995",
+  "title": "Hawaii",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/HawaiiBornofFire",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "HawaiiBornofFire",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hawaii: Born of Fire",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/HawaiiBornofFire",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S22E11.Hawaii.Born.of.Fire.1995.VHSRip.AAC2.0.x264-rattera.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 278798596,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HawaiiBornofFire/NOVA.S22E11.Hawaii.Born.of.Fire.1995.VHSRip.AAC2.0.x264-rattera.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

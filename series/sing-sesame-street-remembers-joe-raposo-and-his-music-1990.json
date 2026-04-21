@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sing-sesame-street-remembers-joe-raposo-and-his-music-1990",
+  "title": "Sing! Sesame Street Remembers Joe Raposo And His Music",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sing-sesame-street-remembers-joe-raposo-and-his-music-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sing-sesame-street-remembers-joe-raposo-and-his-music-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sing! Sesame Street Remembers Joe Raposo And His Music - Jon Stone",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sing-sesame-street-remembers-joe-raposo-and-his-music-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sing - Sesame Street Remembers Joe Raposo and His Music - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1798919513,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sing-sesame-street-remembers-joe-raposo-and-his-music-1990/Sing - Sesame Street Remembers Joe Raposo and His Music - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

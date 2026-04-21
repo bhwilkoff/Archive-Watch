@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "america-coast-to-coast-1990",
+  "title": "America Coast To Coast",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/america-coast-to-coast-orlando-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "america-coast-to-coast-orlando-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "America Coast To Coast - Annette Funicello",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/america-coast-to-coast-orlando-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "America Coast to Coast - Orlando - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 610057316,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/america-coast-to-coast-orlando-1990/America Coast to Coast - Orlando - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

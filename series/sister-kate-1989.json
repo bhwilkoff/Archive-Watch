@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "sister-kate-1989",
+  "title": "Sister Kate",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "A nun whose vocation has traditionally provided assignments to cultured settings is assigned to an orphanage inhabited by a motley group of children.\n\nSISTER KATE was an American sitcom that aired on NBC during the 1989–1990 television season.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/cfR1uzs1QEwXl3pqL427X0ewqzC.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/8NZlCIYZXeEhtn1allIwlN1QPjs.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Jeff Stein",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sister-kate-1.3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sister Kate - Stephanie Beacham, Hannah Cutrona",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/cfR1uzs1QEwXl3pqL427X0ewqzC.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sister Kate - 1.3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 728783692,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sister-kate-1.3/Sister Kate - 1.3.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

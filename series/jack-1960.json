@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jack-1960",
+  "title": "Jack",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "JACK is the definitive documentary of American golfer Jack Nicklaus that covers his career and contributions to the game of golf. The series premiered April 9, 2017 on the Golf Channel as a 3 part series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3sEmPgPWLvOChKFpeRt22mJdMtS.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/vLvNuPmRARHl16jbAyDjXCgcntP.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JacksBoatTripToHawaii",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack's Boat Trip From Hawaii",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3sEmPgPWLvOChKFpeRt22mJdMtS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1541,
+          "videoFile": {
+            "name": "JackBenny-JacksBoatTripToHawaii.mp4",
+            "format": "h.264",
+            "sizeBytes": 159863468,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JacksBoatTripToHawaii/JackBenny-JacksBoatTripToHawaii.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

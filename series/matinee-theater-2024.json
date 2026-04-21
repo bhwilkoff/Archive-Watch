@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "matinee-theater-2024",
+  "title": "Matinee Theater",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/matinee-theatre-jane-eyre-1957",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "matinee-theater-george-has-a-birthday-1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Matinee Theater - George Has A Birthday (1956)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/matinee-theater-george-has-a-birthday-1956",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Matinee Theater George Has A Birthday (1956).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 243316280,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/matinee-theater-george-has-a-birthday-1956/Matinee Theater George Has A Birthday (1956).ia.mp4"
+        },
+        {
+          "archiveID": "matinee-theatre-horsepower",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Matinee Theater - Horsepower (1956)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/matinee-theatre-horsepower",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Matinee Theatre - Horsepower.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 565749975,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/matinee-theatre-horsepower/Matinee Theatre - Horsepower.ia.mp4"
+        },
+        {
+          "archiveID": "matinee-theatre-jane-eyre-1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Matinee Theater - Jane Eyre (1957)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/matinee-theatre-jane-eyre-1957",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Matinee Theatre - Jane Eyre (1957).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155418962,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/matinee-theatre-jane-eyre-1957/Matinee Theatre - Jane Eyre (1957).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-a-team-s-01-e-03-pros-and-con-1983",
+  "title": "The A Team S 01 E 03 Pros And Con",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-a-team-s-01-e-04-pros-and-con",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-a-team-s-01-e-04-pros-and-con",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The A Team S 01 E 03 Pros And Con",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-a-team-s-01-e-04-pros-and-con",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The A-Team S01E04 Pros and Con.mp4",
+            "format": "h.264",
+            "sizeBytes": 284704607,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-a-team-s-01-e-04-pros-and-con/The A-Team S01E04 Pros and Con.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

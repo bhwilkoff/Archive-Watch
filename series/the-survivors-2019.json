@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-survivors-2019",
+  "title": "The Survivors",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": "Eight very different people take part in a course where, during five days of conversations and discussion physical challenges, they are confronted with their greatest fear: life.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/s36i5q2AXdEAviTlLPREtDyrSss.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/aBRZv0c4EbPZcs5BniwXxMzRs4P.jpg",
+  "genres": [],
+  "networks": [
+    "TV 2"
+  ],
+  "creator": "Ina Bruhn",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "thesurvivorsbehindthescenesfootageandsneakpeek1983",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Survivors: Behind the scenes footage and sneak peek (1983)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/s36i5q2AXdEAviTlLPREtDyrSss.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The-Survivors-behind-the-scenes-footage-and-sneak-peek-_1983_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 39143473,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thesurvivorsbehindthescenesfootageandsneakpeek1983/The-Survivors-behind-the-scenes-footage-and-sneak-peek-_1983_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

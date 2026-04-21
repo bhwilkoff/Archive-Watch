@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "jason-king-1971",
+  "title": "Jason King",
+  "yearStart": 1971,
+  "yearEnd": 1971,
+  "overview": "Jason King - a suavely sophisticated former secret agent turned novelist - travels the world searching for material to fill his books, encountering an endless parade of glamorous women, exotic locales, menacing villains and daring intrigue! Before Austin Powers swung into action, Jason King set the standard for the hip crime-fighting international playboy! ",
+  "posterURL": "https://image.tmdb.org/t/p/w500/wTSMq9q69gq6T3YZXGNpMXgMFp8.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bIGu2VZXA6HNXBxQllbPqlR5mGO.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Dennis Spooner",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "jason-king-the-complete-series-1971",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jason King - The Complete Series 1971",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wTSMq9q69gq6T3YZXGNpMXgMFp8.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jason King S01E07 - Russia With Panache.mp4",
+            "format": "h.264",
+            "sizeBytes": 286962584,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason King S01E07 - Russia With Panache.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

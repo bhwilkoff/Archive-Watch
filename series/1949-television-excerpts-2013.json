@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1949-television-excerpts-2013",
+  "title": "1949 Television (excerpts",
+  "yearStart": 2013,
+  "yearEnd": 2013,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1949TVClips",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1949TVClips",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1949 Television (excerpts)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1949TVClips",
+          "airDate": null,
+          "year": 2013,
+          "runtimeSeconds": 2019,
+          "videoFile": {
+            "name": "1949TVclips.mp4",
+            "format": "h.264",
+            "sizeBytes": 209408324,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1949TVClips/1949TVclips.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

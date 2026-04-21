@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "2-on-the-town-1985",
+  "title": "2 on the Town",
+  "yearStart": 1985,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/2-on-the-town-fiji",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "2-on-the-town-garrison-keillor-1985",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "2 On The Town - Melody Rogers, Bob Chandler",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/2-on-the-town-garrison-keillor-1985",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2 on the Town - Garrison Keillor - 1985.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 670117898,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/2-on-the-town-garrison-keillor-1985/2 on the Town - Garrison Keillor - 1985.ia.mp4"
+        },
+        {
+          "archiveID": "2-on-the-town-fiji",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "2 on the Town - Fiji: Hidden Treasure of the South Pacific",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/2-on-the-town-fiji",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2 on the Town - Fiji.mp4",
+            "format": "h.264",
+            "sizeBytes": 121334097,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/2-on-the-town-fiji/2 on the Town - Fiji.mp4"
+        },
+        {
+          "archiveID": "2-on-the-town-hong-kong",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "2 on the Town - Hong Kong",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/2-on-the-town-hong-kong",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2 on the Town - Hong Kong.mp4",
+            "format": "h.264",
+            "sizeBytes": 121816777,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/2-on-the-town-hong-kong/2 on the Town - Hong Kong.mp4"
+        },
+        {
+          "archiveID": "2-on-the-town-vienna",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "2 on the Town - Vienna",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/2-on-the-town-vienna",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2 on the Town - Vienna.mp4",
+            "format": "h.264",
+            "sizeBytes": 124779436,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/2-on-the-town-vienna/2 on the Town - Vienna.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

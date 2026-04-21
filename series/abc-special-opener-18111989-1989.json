@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-special-opener-18111989-1989",
+  "title": "ABC Special Opener (18.11.1989",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ABCSpecialOpener18111989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ABCSpecialOpener18111989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC Special Opener (18.11.1989)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ABCSpecialOpener18111989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABCTV Special Opener - (18.11.1989).mp4",
+            "format": "h.264",
+            "sizeBytes": 2116634,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ABCSpecialOpener18111989/ABCTV Special Opener - (18.11.1989).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

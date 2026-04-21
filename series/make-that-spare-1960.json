@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "seriesID": "make-that-spare-1960",
+  "title": "Make that Spare",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Make That Spare was a fifteen-minute bowling program that aired on ABC from October 8, 1960 to June 30, 1962 and again from October 6, 1962 to September 11, 1964.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "makethatspare",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Make that Spare'' - Misc episode",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 753,
+          "videoFile": {
+            "name": "makethatspare.mp4",
+            "format": "h.264",
+            "sizeBytes": 78045877,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/makethatspare/makethatspare.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "makethatspare2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "''Make that Spare'' - Misc episode 2",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 342,
+          "videoFile": {
+            "name": "makethatspare2.mp4",
+            "format": "h.264",
+            "sizeBytes": 35578428,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/makethatspare2/makethatspare2.mp4"
+        },
+        {
+          "archiveID": "makethatsparemisc3",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "''Make that Spare'' - Misc episode 3",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 639,
+          "videoFile": {
+            "name": "makethatsparemisc3.mp4",
+            "format": "h.264",
+            "sizeBytes": 66414158,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/makethatsparemisc3/makethatsparemisc3.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

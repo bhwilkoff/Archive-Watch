@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "who-1953",
+  "title": "Who",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Whos_Walter--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Whos_Walter--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Who's Walter? (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Whos_Walter--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1545,
+          "videoFile": {
+            "name": "Whos_Walter--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 160382656,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Whos_Walter--Ozzie-Harriet/Whos_Walter--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

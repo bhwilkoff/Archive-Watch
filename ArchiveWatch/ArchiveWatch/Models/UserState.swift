@@ -11,12 +11,20 @@ final class WatchProgress {
     var positionSeconds: Double
     var durationSeconds: Double
     var lastWatchedAt: Date
+    // When the archiveID belongs to a TV episode, `seriesID` is set so
+    // Continue Watching can surface the parent series card (episodes
+    // don't appear in the main catalog by themselves). Nil for films.
+    var seriesID: String?
+    var episodeTitle: String?
 
-    init(archiveID: String, positionSeconds: Double = 0, durationSeconds: Double = 0) {
+    init(archiveID: String, positionSeconds: Double = 0, durationSeconds: Double = 0,
+         seriesID: String? = nil, episodeTitle: String? = nil) {
         self.archiveID = archiveID
         self.positionSeconds = positionSeconds
         self.durationSeconds = durationSeconds
         self.lastWatchedAt = Date()
+        self.seriesID = seriesID
+        self.episodeTitle = episodeTitle
     }
 
     /// 0–1. Zero when we don't know duration yet.

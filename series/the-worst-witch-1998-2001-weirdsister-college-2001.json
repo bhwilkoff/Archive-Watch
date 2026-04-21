@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-worst-witch-1998-2001-weirdsister-college-2001",
+  "title": "The Worst Witch (1998-2001) + Weirdsister College",
+  "yearStart": 2001,
+  "yearEnd": 2001,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/worst_witch_weirdsister_college",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "worst_witch_weirdsister_college",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Worst Witch (1998-2001) + Weirdsister College (2001) complete series",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/worst_witch_weirdsister_college",
+          "airDate": null,
+          "year": 2001,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Worst.Witch.108.The.Great.Outdoors.mp4",
+            "format": "h.264",
+            "sizeBytes": 151045788,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/worst_witch_weirdsister_college/The.Worst.Witch.108.The.Great.Outdoors.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

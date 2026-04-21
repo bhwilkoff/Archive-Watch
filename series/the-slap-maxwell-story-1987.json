@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-slap-maxwell-story-1987",
+  "title": "The Slap Maxwell Story",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": "The Slap Maxwell Story is a situation comedy broadcast in the United States by ABC as part of its 1987-88 lineup.\n\nIt stars Dabney Coleman as \"Slap\" Maxwell, an egocentric sportswriter for a newspaper called The Ledger, somewhere in the American Southwest. The Ledger was a very old-fashioned newspaper -- Slap still composed his column, \"Slap Shots,\" on a typewriter -- and Slap was a very old-fashioned guy. Despite the newly litigious environment of journalism, Slap insisted on filling his column with rumor and innuendo, drawing lawsuits and Slap's frequent termination, to be followed by a groveling apology and his rehiring.\n\nHe had an on-again, off-again relationship with girlfriend Judy, one of the paper's secretaries, due primarily to his off-putting personality. Annie was Slap's ex-wife, who nonetheless retained a soft spot for him.\n\nA recurring event throughout the series' run is that at some point in each episode, someone would hit Slap, with a nun even doing the honors in one episode.\n\nThe show was created by Jay Tarses, who in 1983 was co-creator of Buffalo Bill, an NBC sitcom in which Coleman starred as a similarly off-putting character, the host of a TV talk show.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/eLEx0hndqLjebRRbYV1QdbLUgMC.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/u07FS7T6YZGVvB1wJ5czqDOCx3C.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Jay Tarses",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "slap-maxwell-story-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Slap Maxwell Story - Dabney Coleman",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eLEx0hndqLjebRRbYV1QdbLUgMC.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Slap Maxwell Story - 1.17.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 715338583,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/slap-maxwell-story-1.01/Slap Maxwell Story - 1.17.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

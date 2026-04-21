@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "mvi-1377-1999",
+  "title": "MVI 1377",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MVI1377_201903",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MVI1377_201903",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "MVI 1377",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MVI1377_201903",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MVI_1377.mp4",
+            "format": "h.264",
+            "sizeBytes": 30828457,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MVI1377_201903/MVI_1377.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

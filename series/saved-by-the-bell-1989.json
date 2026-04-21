@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "saved-by-the-bell-1989",
+  "title": "Saved By The Bell",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "Lovable schemer Zack Morris leads his pals on adventures at California's Bayside High School. The friends navigate relationships, final exams, school dances, breakups and more while frequently frustrating their principal, Mr. Richard Belding, who does his best to keep them in check.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9YC576fs6XQR2pfPDJn4kcmG8T5.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/d0nAuGAH5EIQDLTs7dJcQOubpha.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Sam Bobrick",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "savedbythebell_202507",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Saved By The Bell complete series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9YC576fs6XQR2pfPDJn4kcmG8T5.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Season 4/Saved by the Bell - 04x23 - Hawaiian Style.mp4",
+            "format": "h.264",
+            "sizeBytes": 550702922,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/savedbythebell_202507/Season 4/Saved by the Bell - 04x23 - Hawaiian Style.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

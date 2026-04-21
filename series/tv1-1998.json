@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tv1-1998",
+  "title": "TV1",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tv1-halloweenzone-1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tv1-halloweenzone-1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TV1 - Halloween Zone (faint sound - 1998)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tv1-halloweenzone-1998",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "07 - Space Cadets - Men In Black (A Force 7 film).mp4",
+            "format": "h.264",
+            "sizeBytes": 42708182,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tv1-halloweenzone-1998/07 - Space Cadets - Men In Black (A Force 7 film).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

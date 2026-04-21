@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "george-leo-1997",
+  "title": "George & Leo",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": "George & Leo is a short-lived American sitcom starring Bob Newhart and Judd Hirsch. Set on Martha's Vineyard, the series aired on CBS from September 15, 1997 to March 16, 1998.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/jO5qn32B7s07m9DxGQN7Z4Tgwsc.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/aU3hNGU6RAJwSQEddvTmHmYfRan.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Dan Staley",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "george-leo-1.03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "George & Leo - Bob Newhart, Judd Hirsch",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jO5qn32B7s07m9DxGQN7Z4Tgwsc.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "George & Leo - 1.17.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 701691410,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/george-leo-1.03/George & Leo - 1.17.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "seriesID": "dangerous-assignment-1960",
+  "title": "Dangerous Assignment",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "A U.S. government agent travels the world on undercover missions in this 1950s series. Star Brian Donlevy originated the role on radio in the '40s.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/rvL7rL5FckpsjIhhVIRGWqIndBm.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DangerousAssignmentTheArtTreasureStory",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dangerous Assignment: The Art Treasure Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "DangerousAssignment-theArtTreasureStory.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154145831,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DangerousAssignmentTheArtTreasureStory/DangerousAssignment-theArtTreasureStory.ia.mp4"
+        },
+        {
+          "archiveID": "DangerousAssignmentTheAssassinRing",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dangerous Assignment: The Assassin Ring",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1551,
+          "videoFile": {
+            "name": "DangerousAssignment-theAssassinRing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154600322,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DangerousAssignmentTheAssassinRing/DangerousAssignment-theAssassinRing.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "DangerousAssignment-TheKeyStory",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Key Story",
+          "overview": "Steve must risk his life in the Swiss Alps to recover a document that proves a country's recently deceased leader was murdered.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1554,
+          "videoFile": {
+            "name": "DangerousAssignment-TheKeyStory.mp4",
+            "format": "h.264",
+            "sizeBytes": 156480524,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DangerousAssignment-TheKeyStory/DangerousAssignment-TheKeyStory.mp4"
+        },
+        {
+          "archiveID": "DangerousAssignment-TheBhandaraStory",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Bhandara Story",
+          "overview": "Steve travels to Bombay in order to clear a jailed American citizen of sabotage charges.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1469,
+          "videoFile": {
+            "name": "DangerousAssignment-TheBhandaraStory.mp4",
+            "format": "h.264",
+            "sizeBytes": 145156862,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DangerousAssignment-TheBhandaraStory/DangerousAssignment-TheBhandaraStory.mp4"
+        },
+        {
+          "archiveID": "DangerousAssignment-TheSunflowerSeedStory",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Sunflower Seed Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DangerousAssignment-TheSunflowerSeedStory.mp4",
+            "format": "h.264",
+            "sizeBytes": 143412442,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DangerousAssignment-TheSunflowerSeedStory/DangerousAssignment-TheSunflowerSeedStory.mp4"
+        },
+        {
+          "archiveID": "DangerousAssignmentTheMissingDiplomatStory",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Missing Diplomat Story",
+          "overview": "In Barcelona, Steve tries to retrieve a taped conversation of a European diplomat who has disappeared.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+          "airDate": "1952-05-19",
+          "year": null,
+          "runtimeSeconds": 1553,
+          "videoFile": {
+            "name": "DangerousAssignment-theMissingDiplomatStory.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155744360,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DangerousAssignmentTheMissingDiplomatStory/DangerousAssignment-theMissingDiplomatStory.ia.mp4"
+        },
+        {
+          "archiveID": "DangerousAssignmentTheArcheologicalStory",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "The Archeological Story",
+          "overview": "Steve poses as an agitator in Transjordan to stop a fanatic bent on starting a revolt against his government.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dangerous Assignment  - The Archeological Story.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 114805227,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DangerousAssignmentTheArcheologicalStory/Dangerous Assignment  - The Archeological Story.ogv"
+        },
+        {
+          "archiveID": "TheAlienSmugglerStory",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "The Alien Smuggler Story",
+          "overview": "Agent Steve Mitchell journeys to Portugal to help his friend and fellow agent bust a human smuggling operation.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+          "airDate": "1950-02-13",
+          "year": null,
+          "runtimeSeconds": 1465,
+          "videoFile": {
+            "name": "DangerousAssignment-TheAlienSmugglerStory.mp4",
+            "format": "h.264",
+            "sizeBytes": 141493903,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAlienSmugglerStory/DangerousAssignment-TheAlienSmugglerStory.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

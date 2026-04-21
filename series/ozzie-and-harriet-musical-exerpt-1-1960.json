@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ozzie-and-harriet-musical-exerpt-1-1960",
+  "title": "Ozzie and Harriet musical exerpt 1",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OzzieAndHarrietMusicalExerpt1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OzzieAndHarrietMusicalExerpt1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie and Harriet musical exerpt 1",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OzzieAndHarrietMusicalExerpt1",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "RickyNelson1.mp4",
+            "format": "h.264",
+            "sizeBytes": 10636121,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieAndHarrietMusicalExerpt1/RickyNelson1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

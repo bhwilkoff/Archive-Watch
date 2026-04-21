@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "single-guy-s02e04--kept-man-1960",
+  "title": "Single Guy (S02E04- Kept Man",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SingleGuyS02E04KeptMan",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "SingleGuyS02E04KeptMan",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Single Guy (S02E04- Kept Man)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SingleGuyS02E04KeptMan",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Single Guy (S02E04- Kept Man).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 96067216,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SingleGuyS02E04KeptMan/Single Guy (S02E04- Kept Man).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

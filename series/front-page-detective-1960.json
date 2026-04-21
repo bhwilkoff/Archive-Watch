@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "front-page-detective-1960",
+  "title": "Front Page Detective",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Front Page Detective is an American crime drama series which aired on the DuMont Television Network on Fridays at 9:30pm ET from July 6, 1951 to September 19, 1952, with a few more episodes shown in 1953. The program was then in broadcast syndication for several years thereafter.\n\nIt chronicles the stories of David Chase a newspaper columnist who helps police solve especially difficult mysteries. The title derived from a popular mystery magazine of the same name.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "DuMont Television Network"
+  ],
+  "creator": "Gene Levitt",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "FrontPageDetectiveSevenSeasToDanger",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Seven Seas to Danger",
+          "overview": "While researching a human interest story on the waterfront, David Chase stumbles upon a smuggling operation and is shot for his troubles.",
+          "stillURL": null,
+          "airDate": "1951-09-21",
+          "year": null,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "FrontPageDetective-sevenSeasToDanger.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153617194,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontPageDetectiveSevenSeasToDanger/FrontPageDetective-sevenSeasToDanger.ia.mp4"
+        },
+        {
+          "archiveID": "FrontPageDetectiveMurderRidesTheNightTrain",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Murder Rides the Night Train",
+          "overview": "When a notorious gangster is subpoenaed to testify before a Congressional committee, reporter David Chase takes the same train to get an exclusive interview and discovers that other criminals don't want the crook to appear",
+          "stillURL": null,
+          "airDate": "1951-10-05",
+          "year": null,
+          "runtimeSeconds": 1566,
+          "videoFile": {
+            "name": "FrontPageDetective-murderRidesTheNightTrain.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158818014,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontPageDetectiveMurderRidesTheNightTrain/FrontPageDetective-murderRidesTheNightTrain.ia.mp4"
+        },
+        {
+          "archiveID": "FrontPageDetectiveTheLittleBlackBook-1951",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "The Little Black Book",
+          "overview": "Upon returning from two weeks of investigative reporting in Washington, David Chase discovers his room ransacked and a dead body lying in his closet. Before he can investigate, two thugs try to force Chase to reveal the location of a mysterious 'little black book' that Chase had no previous knowledge of. With the help of his intrepid secretary, Dorabelle, and a timely assist from Lieutenant Andrews, Chase manages to bring the killers to justice.",
+          "stillURL": null,
+          "airDate": "1952-01-18",
+          "year": null,
+          "runtimeSeconds": 1572,
+          "videoFile": {
+            "name": "FrontPageDetective-littleBlackBook.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159531559,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontPageDetectiveTheLittleBlackBook-1951/FrontPageDetective-littleBlackBook.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

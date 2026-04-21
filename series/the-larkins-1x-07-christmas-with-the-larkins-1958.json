@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-larkins-1x-07-christmas-with-the-larkins-1958",
+  "title": "The Larkins 1x 07 Christmas With The Larkins",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheLarkins1x07CheistmasWithTheLarkins",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheLarkins1x07CheistmasWithTheLarkins",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Larkins 1x 07 Christmas With The Larkins",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheLarkins1x07CheistmasWithTheLarkins",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Larkins 1x07 Cheistmas With The Larkins.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 126531737,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheLarkins1x07CheistmasWithTheLarkins/The Larkins 1x07 Cheistmas With The Larkins.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

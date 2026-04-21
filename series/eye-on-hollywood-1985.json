@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "eye-on-hollywood-1985",
+  "title": "Eye on Hollywood",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/eye-on-hollywood-rio",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "eye-on-hollywood-rio",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye on Hollywood - Rio",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/eye-on-hollywood-rio",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye On Hollywood - Rio.mp4",
+            "format": "h.264",
+            "sizeBytes": 117711032,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-hollywood-rio/Eye On Hollywood - Rio.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

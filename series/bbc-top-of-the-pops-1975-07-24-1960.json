@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bbc-top-of-the-pops-1975-07-24-1960",
+  "title": "BBC Top Of The Pops 1975 07 24",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bbc-top-of-the-pops-1975-07-24",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bbc-top-of-the-pops-1975-07-24",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Top Of The Pops 1975 07 24",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bbc-top-of-the-pops-1975-07-24",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC Top of the Pops 1975-07-24.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 174208463,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bbc-top-of-the-pops-1975-07-24/BBC Top of the Pops 1975-07-24.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

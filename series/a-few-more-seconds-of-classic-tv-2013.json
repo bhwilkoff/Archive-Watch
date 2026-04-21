@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-few-more-seconds-of-classic-tv-2013",
+  "title": "A Few More Seconds of Classic TV",
+  "yearStart": 2013,
+  "yearEnd": 2013,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AFewMoreSecondsOfClassicTV",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AFewMoreSecondsOfClassicTV",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Few More Seconds of Classic TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AFewMoreSecondsOfClassicTV",
+          "airDate": null,
+          "year": 2013,
+          "runtimeSeconds": 761,
+          "videoFile": {
+            "name": "afewmoresecondsofclassictv.mp4",
+            "format": "h.264",
+            "sizeBytes": 78719117,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AFewMoreSecondsOfClassicTV/afewmoresecondsofclassictv.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

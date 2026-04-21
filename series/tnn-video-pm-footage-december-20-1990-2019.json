@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tnn-video-pm-footage-december-20-1990-2019",
+  "title": "TNN Video PM Footage (December 20, 1990",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tnnvideopmfootagedecember201990pt.1convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tnnvideopmfootagedecember201990pt.1convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TNN Video PM Footage (December 20, 1990)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tnnvideopmfootagedecember201990pt.1convertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TNN Video PM footage- December 20, 1990 (pt. 1) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 219583845,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tnnvideopmfootagedecember201990pt.1convertvideoonline.com/TNN Video PM footage- December 20, 1990 (pt. 1) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

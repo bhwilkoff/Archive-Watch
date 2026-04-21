@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "steve-martin-1978",
+  "title": "Steve Martin",
+  "yearStart": 1978,
+  "yearEnd": 1978,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SteveMartinAWildAndCrazyGuy1978",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SteveMartinSBestShowEver1981Most",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Steve Martin's Best Show Ever (1981, most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SteveMartinSBestShowEver1981Most",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Steve-Martin_s-Best-Show-Ever-_1981_-most_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 191719731,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteveMartinSBestShowEver1981Most/Steve-Martin_s-Best-Show-Ever-_1981_-most_.ogv"
+        },
+        {
+          "archiveID": "SteveMartinAWildAndCrazyGuy1978",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Steve Martin: A Wild and Crazy Guy special (1978)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SteveMartinAWildAndCrazyGuy1978",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Steve-Martin-A-Wild-and-Crazy-Guy-_1978_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 216950822,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteveMartinAWildAndCrazyGuy1978/Steve-Martin-A-Wild-and-Crazy-Guy-_1978_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

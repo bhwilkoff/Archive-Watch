@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-struggle-for-democracy-february-19-1989-1960",
+  "title": "The Struggle For Democracy February 19, 1989",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-struggle-for-democracy-1989-02-19-the-last-citizens",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-struggle-for-democracy-1989-02-19-the-last-citizens",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Struggle For Democracy February 19, 1989 Episode 6: The Last Citizens",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-struggle-for-democracy-1989-02-19-the-last-citizens",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Struggle for Democracy 1989-02-19 The Last Citizens.mp4",
+            "format": "h.264",
+            "sizeBytes": 307707972,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-struggle-for-democracy-1989-02-19-the-last-citizens/The Struggle for Democracy 1989-02-19 The Last Citizens.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

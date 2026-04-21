@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "57-03-24-the-jack-benny-program-s-07e-14-jack-in-paris-1957",
+  "title": "57 03 24 The Jack Benny Program S 07e 14 Jack In Paris",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/570324TheJackBennyProgramS07e14JackInParis",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "570324TheJackBennyProgramS07e14JackInParis",
+          "seasonNumber": 1,
+          "episodeNumber": 57,
+          "title": "57 03 24 The Jack Benny Program S 07e 14 Jack In Paris",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/570324TheJackBennyProgramS07e14JackInParis",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "57-03-24  The Jack Benny Program  s07e14  Jack In Paris.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 110139238,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/570324TheJackBennyProgramS07e14JackInParis/57-03-24  The Jack Benny Program  s07e14  Jack In Paris.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

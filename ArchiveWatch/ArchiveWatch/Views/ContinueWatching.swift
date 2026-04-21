@@ -13,12 +13,24 @@ struct ContinueWatchingRow: View {
     private var entries: [(item: Catalog.Item, progress: WatchProgress)] {
         guard let catalog = store.catalog else { return [] }
         let items = Dictionary(uniqueKeysWithValues: catalog.items.map { ($0.archiveID, $0) })
+        // Series cards are keyed on seriesID (== archiveID on the Catalog.Item).
+        let seriesCards = Dictionary(
+            uniqueKeysWithValues: catalog.items
+                .filter { $0.contentType == "tv-series" }
+                .map { ($0.archiveID, $0) },
+        )
         return progressRecords
             .filter { !$0.isComplete && $0.positionSeconds > 10 }
             .prefix(12)
             .compactMap { record -> (Catalog.Item, WatchProgress)? in
-                guard let item = items[record.archiveID] else { return nil }
-                return (item, record)
+                // TV episodes resolve via their parent series card.
+                if let sid = record.seriesID, let series = seriesCards[sid] {
+                    return (series, record)
+                }
+                if let item = items[record.archiveID] {
+                    return (item, record)
+                }
+                return nil
             }
     }
 

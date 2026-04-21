@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "life-1960",
+  "title": "Life",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Complex, offbeat Detective Charlie Crews returns to the force after serving time in prison for a crime he didn't commit. Crews' new lease on life has provided him with a Zen-like outlook, peace of mind and no need for vengeance, an attitude which can be challenging to maintain when someone he cares about is threatened — or when he is investigating the mystery surrounding the murder he was falsely accused of.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4zTDeRJxdMqH3Si2fIZjQi44k17.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/5Ecv4eIWDBeOPqcA9iWb04NCsmr.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Rand Ravich",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "LifeSWorkJobsS1E9",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Serious Control Issues",
+          "overview": "While investigating the case of a murdered homeless girl, Reese and Crews stumble across a child who was kidnapped when he was three.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/zorpux4SBnjCJm2zSDHov80TfNP.jpg",
+          "airDate": "2007-11-28",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Life_s-Work-Jobs-_S1E9_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 97587833,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LifeSWorkJobsS1E9/Life_s-Work-Jobs-_S1E9_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

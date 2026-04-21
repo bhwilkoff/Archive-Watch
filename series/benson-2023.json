@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "benson-2023",
+  "title": "Benson",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/benson-complete-series-1979-1986",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "benson-complete-series-1979-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Benson Complete Series (1979-1986)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/benson-complete-series-1979-1986",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Season 7/Benson.S07E03.Uncle Jack.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152269043,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/benson-complete-series-1979-1986/Season 7/Benson.S07E03.Uncle Jack.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

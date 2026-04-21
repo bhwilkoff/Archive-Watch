@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "episode-7-1990",
+  "title": "Episode 7",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/10000000-291738034686202-440893506924314624-n",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "10000000-291738034686202-440893506924314624-n",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7: Star Trek: The Next Generation",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/10000000-291738034686202-440893506924314624-n",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "10000000_291738034686202_440893506924314624_n.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 88756567,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/10000000-291738034686202-440893506924314624-n/10000000_291738034686202_440893506924314624_n.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

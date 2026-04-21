@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "it-takes-a-thief-1968",
+  "title": "It Takes a Thief",
+  "yearStart": 1968,
+  "yearEnd": 1968,
+  "overview": "Convicted cat burglar Alexander Mundy gets an offer he can't refuse from the United States government: If he puts his formidable thieving skills to work for them, he'll be released from prison. Alexander's dad, Alister, sometimes comes out of retirement as a thief to help his son on special jobs.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/17OV310dMUvJXN0YAgwtDUwYM5b.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/KulnfimeXzQuyi7tHTbBd6VV82.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Roland Kibbee",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "it-takes-a-thief-complete-series-1968",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "It Takes a Thief - Complete Series 1968",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/17OV310dMUvJXN0YAgwtDUwYM5b.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "It Takes a Thief S01E01 - A Thief Is a Thief.mp4",
+            "format": "h.264",
+            "sizeBytes": 369172298,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/it-takes-a-thief-complete-series-1968/It Takes a Thief S01E01 - A Thief Is a Thief.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

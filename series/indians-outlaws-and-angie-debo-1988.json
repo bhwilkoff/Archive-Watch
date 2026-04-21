@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "indians-outlaws-and-angie-debo-1988",
+  "title": "Indians, Outlaws and Angie Debo",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/IndiansOutlawsandAngieDebo",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "IndiansOutlawsandAngieDebo",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Indians, Outlaws and Angie Debo",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/IndiansOutlawsandAngieDebo",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "American.Experience.S01E03.Indians.Outlaws.and.Angie.Debo.1988.DVD.Rip.AAC2.0.x264-krokkers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 635973515,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/IndiansOutlawsandAngieDebo/American.Experience.S01E03.Indians.Outlaws.and.Angie.Debo.1988.DVD.Rip.AAC2.0.x264-krokkers.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

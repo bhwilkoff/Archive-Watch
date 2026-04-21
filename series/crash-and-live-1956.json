@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "crash-and-live-1956",
+  "title": "Crash And Live!",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/CrashAndLive",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CrashAndLive",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Crash And Live!",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CrashAndLive",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 613,
+          "videoFile": {
+            "name": "200-fc-930 Crash And Live ca1956.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 45284459,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrashAndLive/200-fc-930 Crash And Live ca1956.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

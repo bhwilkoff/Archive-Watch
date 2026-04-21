@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "strange-but-true-1996",
+  "title": "Strange but True?",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": "Michael Aspel explores supernatural phenomena and unexplained mysteries from ghosts and poltergeists to near death experiences, vampires and aliens.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "strangebuttrue-s2e4",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Psychic Detective Nella Jones; Millboro Past Lives",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1994-11-18",
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "29 - Strange but True (1st segment).mp4",
+            "format": "h.264",
+            "sizeBytes": 69848977,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/strangebuttrue-s2e4/29 - Strange but True (1st segment).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

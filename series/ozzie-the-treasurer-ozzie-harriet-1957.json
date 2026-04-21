@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ozzie-the-treasurer-ozzie-harriet-1957",
+  "title": "Ozzie, the Treasurer (Ozzie & Harriet",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Ozzie_the_Treasurer--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Ozzie_the_Treasurer--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ozzie, the Treasurer (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ozzie_the_Treasurer--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1145,
+          "videoFile": {
+            "name": "Ozzie_the_Treasurer--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 119139239,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie_the_Treasurer--Ozzie-Harriet/Ozzie_the_Treasurer--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

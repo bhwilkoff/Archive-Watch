@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-matter-of-inches-ozzie-harriet-1954",
+  "title": "A Matter of Inches (Ozzie & Harriet",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Matter_of_Inches--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Matter_of_Inches--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Matter of Inches (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Matter_of_Inches--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1258,
+          "videoFile": {
+            "name": "Matter_of_Inches--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 130479520,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Matter_of_Inches--Ozzie-Harriet/Matter_of_Inches--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

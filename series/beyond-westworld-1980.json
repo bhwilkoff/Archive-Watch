@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "beyond-westworld-1980",
+  "title": "Beyond Westworld",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": "Beyond Westworld was a short-lived 1980 television series that carried on the stories of the two feature films, Westworld and Futureworld. It featured Jim McMullan as Security Chief John Moore of the Delos Corporation. The story revolved around John Moore having to stop the evil scientist, Quaid, as he planned to use the robots in Delos to try to take over the world. Despite being nominated for two Emmys, only five episodes were produced, and only three of them were aired before cancellation.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rseAYsyWtvwXGQSF02wJrXgFgcK.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/j705g2CLjCunx6Ld2IlCHDAg7Fh.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Michael Crichton",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "beyond-westworld-Complete-Series-1980",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Beyond Westworld - Complete Series 1980",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rseAYsyWtvwXGQSF02wJrXgFgcK.jpg",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Beyond Westworld S01E05 - Takeover.mp4",
+            "format": "h.264",
+            "sizeBytes": 277053531,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/beyond-westworld-Complete-Series-1980/Beyond Westworld S01E05 - Takeover.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

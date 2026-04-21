@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "mr-sunshine-2020",
+  "title": "Mr. Sunshine",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": "Set in the early 1900s, this drama tells the story of a young man from Korea who grows up in the United States. When he returns to Korea as a US Marine Corps officer, he meets and falls in love with a noblewoman who is fighting for Korean independence. Their romance is complicated by social class and political ideology.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/p7ljjykSsiyWstGVAwIkbdfPzRV.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/gQwa6X2nmTHkmDgAifU4wacNqp4.jpg",
+  "genres": [],
+  "networks": [
+    "tvN"
+  ],
+  "creator": "Lee Eung-bok",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mr.-sunshine-1986-mrs.-swinford-takes-the-plunge-ep.-2-convert-video-online.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. Sunshine (1986)- Mrs. Swinford Takes The Plunge (Ep. 2)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/p7ljjykSsiyWstGVAwIkbdfPzRV.jpg",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mr. Sunshine (1986)- Mrs. Swinford Takes the Plunge (Ep. 2) (convert-video-online.com).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 699183090,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mr.-sunshine-1986-mrs.-swinford-takes-the-plunge-ep.-2-convert-video-online.com/Mr. Sunshine (1986)- Mrs. Swinford Takes the Plunge (Ep. 2) (convert-video-online.com).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

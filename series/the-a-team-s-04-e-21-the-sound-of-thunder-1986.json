@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-a-team-s-04-e-21-the-sound-of-thunder-1986",
+  "title": "The A Team S 04 E 21 The Sound Of Thunder",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-a-team-s-04-e-22-the-sound-of-thunder",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-a-team-s-04-e-22-the-sound-of-thunder",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The A Team S 04 E 21 The Sound Of Thunder",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-a-team-s-04-e-22-the-sound-of-thunder",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The A-Team S04E22 The Sound of Thunder.mp4",
+            "format": "h.264",
+            "sizeBytes": 275148414,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-a-team-s-04-e-22-the-sound-of-thunder/The A-Team S04E22 The Sound of Thunder.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "another-misc-1960",
+  "title": "Another Misc",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/53/134993.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Trust_2_Public_Domain_Uploaded_By_Yugi_Moto",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Another Misc episode of 'Do You Trust Your Wife'",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/53/134993.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Trust_2_Uploaded_by_Matthew-Paul-Argall.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149850825,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Trust_2_Public_Domain_Uploaded_By_Yugi_Moto/Trust_2_Uploaded_by_Matthew-Paul-Argall.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

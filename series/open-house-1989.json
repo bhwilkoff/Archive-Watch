@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "open-house-1989",
+  "title": "Open House",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "Open House is an American sitcom that aired on Fox from August 27, 1989 to July 21, 1990. The series is a spin-off of the Fox series Duet. Despite airing right after the Top 50 hit Married...with Children on Sundays, the series attracted low ratings, thus Fox canceled the show after 24 episodes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/nGCnHbNtvLCEaEjbO98mgNYdh03.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/zemDcC4AMZn6J16t2XyDN3IntvQ.jpg",
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "open-house-1.21",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Open House - Ellen DeGeneres, Alison La Placa, Philip Charles MacKenzie, Ginger Orsi",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/nGCnHbNtvLCEaEjbO98mgNYdh03.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Open House - 1.21.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 995270602,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/open-house-1.21/Open House - 1.21.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

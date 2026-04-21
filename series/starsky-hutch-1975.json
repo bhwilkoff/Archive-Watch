@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "starsky-hutch-1975",
+  "title": "Starsky & Hutch",
+  "yearStart": 1975,
+  "yearEnd": 1975,
+  "overview": "Streetwise Detective David Starsky partners up with a more intellectual partner, Kenneth 'Hutch' Hutchinson, to protect citizens and patrol the streets of Bay City.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/aBj5oTi1uibVcXDoCJeKseJNY2d.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/9GEghzkUfxWNQ65BbRwfysKOVoS.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "William Blinn",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "starsky-hutch-season-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Starsky & Hutch Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/aBj5oTi1uibVcXDoCJeKseJNY2d.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S02 E05 Murder At Sea Part I.mp4",
+            "format": "h.264",
+            "sizeBytes": 317773946,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/starsky-hutch-season-2/S02 E05 Murder At Sea Part I.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

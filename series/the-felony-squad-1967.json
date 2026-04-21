@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-felony-squad-1967",
+  "title": "The Felony Squad",
+  "yearStart": 1967,
+  "yearEnd": 1967,
+  "overview": "Twenty-year veteran Detective Sergeant Sam Stone is paired with rookie Briggs in a large Western metropolis.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7a0ZBQ4sUZiLVh04FdkqxrU4lNy.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Richard Murphy",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-felony-squad-1967-season-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Felony Squad (1967) - Complete Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7a0ZBQ4sUZiLVh04FdkqxrU4lNy.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E20 - The Love Victim.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 329144634,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2 (26 of 26)/S02E20 - The Love Victim.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

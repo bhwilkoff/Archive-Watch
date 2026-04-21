@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "yawmeyat-wanis-1994",
+  "title": "Yawmeyat Wanis",
+  "yearStart": 1994,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/yawmeyat-wanis-s01-egyptian-series-1994-720p",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "yawmeyat-wanis-s01-egyptian-series-1994-720p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Yawmeyat Wanis S01 - Egyptian Series (1994) 720p",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/yawmeyat-wanis-s01-egyptian-series-1994-720p",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ep30.The.Final.mp4",
+            "format": "h.264",
+            "sizeBytes": 363862808,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/yawmeyat-wanis-s01-egyptian-series-1994-720p/Ep30.The.Final.mp4"
+        },
+        {
+          "archiveID": "yawmeyat-wanis-s02-egyptian-series-1995-720p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Yawmeyat Wanis S02 - Egyptian Series (1995) 720p",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/yawmeyat-wanis-s02-egyptian-series-1995-720p",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ep30.The.Final.mp4",
+            "format": "h.264",
+            "sizeBytes": 462972537,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/yawmeyat-wanis-s02-egyptian-series-1995-720p/Ep30.The.Final.mp4"
+        },
+        {
+          "archiveID": "yawmeyat-wanis-s03-egyptian-series-1996-720p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Yawmeyat Wanis S03 - Egyptian Series (1996) 720p",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/yawmeyat-wanis-s03-egyptian-series-1996-720p",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ep09.mp4",
+            "format": "h.264",
+            "sizeBytes": 335490647,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/yawmeyat-wanis-s03-egyptian-series-1996-720p/Ep09.mp4"
+        },
+        {
+          "archiveID": "yawmeyat-wanis-s04-egyptian-series-1998-720p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Yawmeyat Wanis S04 - Egyptian Series (1998) 720p",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/yawmeyat-wanis-s04-egyptian-series-1998-720p",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ep32.The.Final.mp4",
+            "format": "h.264",
+            "sizeBytes": 318819080,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/yawmeyat-wanis-s04-egyptian-series-1998-720p/Ep32.The.Final.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

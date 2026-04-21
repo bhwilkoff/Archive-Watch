@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cigarette-commercials-lucky-strike-1960",
+  "title": "Cigarette Commercials Lucky Strike",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Cigarette_Commercials_Lucky_Strike",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cigarette_Commercials_Lucky_Strike",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cigarette Commercials Lucky Strike",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Cigarette_Commercials_Lucky_Strike",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Commercial_Lucky_Strike_Cigarettes_w_Jack_Benny_and_Humphrey_Bogart_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 9391263,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cigarette_Commercials_Lucky_Strike/Commercial_Lucky_Strike_Cigarettes_w_Jack_Benny_and_Humphrey_Bogart_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

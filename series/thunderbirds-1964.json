@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "thunderbirds-1964",
+  "title": "Thunderbirds",
+  "yearStart": 1964,
+  "yearEnd": 1965,
+  "overview": "Thunderbirds is a 1960s British science-fiction television series which was produced using a mixed method of marionette puppetry and scale-model special effects termed \"Supermarionation\". The series is set in the 21st century and follows the exploits of International Rescue, a secret organization formed to save people in mortal danger with the help of technologically advanced land, sea, air and space vehicles and equipment, launched from a hidden base on Tracy Island in the South Pacific Ocean.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/eB9m5com4DBlj8iY1Iwo2OmfDg2.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/7LbWPcttJ5a8YPnwwD7mHNd4D6X.jpg",
+  "genres": [],
+  "networks": [
+    "Associated Television"
+  ],
+  "creator": "Gerry Anderson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "01ThunderbirdsTrappedInTheSky",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Thunderbirds",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eB9m5com4DBlj8iY1Iwo2OmfDg2.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "01 Thunderbirds - Trapped in the sky.mp4",
+            "format": "h.264",
+            "sizeBytes": 332809704,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01ThunderbirdsTrappedInTheSky/01 Thunderbirds - Trapped in the sky.mp4"
+        },
+        {
+          "archiveID": "ThunderbirdsSeries",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Thunderbirds (complete Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eB9m5com4DBlj8iY1Iwo2OmfDg2.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Thunderbirds 32 - Give or Take a Million.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 437369374,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThunderbirdsSeries/Thunderbirds 32 - Give or Take a Million.ia.mp4"
+        },
+        {
+          "archiveID": "thunderbirds-pilot-episode-trapped-in-the-sky",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Thunderbirds : Pilot : Trapped In The Sky",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eB9m5com4DBlj8iY1Iwo2OmfDg2.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Thunderbirds - Pilot Episode - Trapped in the Sky.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 702711500,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thunderbirds-pilot-episode-trapped-in-the-sky/Thunderbirds - Pilot Episode - Trapped in the Sky.mp4"
+        },
+        {
+          "archiveID": "thunderbirds-tv-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Thunderbirds : Various Episodes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eB9m5com4DBlj8iY1Iwo2OmfDg2.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Thunderbirds - 07 - 30 Minutes After Noon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 676374202,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thunderbirds-tv-series/Thunderbirds - 07 - 30 Minutes After Noon.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

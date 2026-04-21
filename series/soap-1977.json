@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "soap-1977",
+  "title": "Soap |",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": "The antics of a wealthy family, the Tates, and a working-class family, the Campbells, in the fictional town of Dunn's River, Connecticut.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kq2G0SjdVcZnKh5cpq9hp0MKvWL.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/kXNBx6zc25SyL6zVMJZUQAB9Eu7.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Susan Harris",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "soap-s-01e-01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": "This satirical soap opera introduces the Campbells and the Tates: two suburban families of unequal prosperity but equal lunacy and a similar zest for the foibles which make us all human.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ndYcGfU8VHhukAmRczNMKeTrdI9.jpg",
+          "airDate": "1977-09-13",
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soap - s01e01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 142401837,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soap-s-01e-01/Soap - s01e01.ia.mp4"
+        },
+        {
+          "archiveID": "soap-s-01e-02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": "In order to leave the mob, Danny is ordered to kill his father's killer; Chester is blackmailed by his secretary; and the identity of Burt's long lost son is a shock in more ways than one.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/zqzF1909LMqJ2CZgwQd7NzadDGV.jpg",
+          "airDate": "1977-09-20",
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soap - s01e02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 141353077,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soap-s-01e-02/Soap - s01e02.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

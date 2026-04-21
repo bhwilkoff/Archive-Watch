@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "degrassi-talks-on-alcohol-1992",
+  "title": "Degrassi Talks On Alcohol",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/degrassi-talks-on-alcohol",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "degrassi-talks-on-alcohol",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Degrassi Talks On Alcohol",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-talks-on-alcohol",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Talks On Alcohol.mp4",
+            "format": "h.264",
+            "sizeBytes": 136530751,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-talks-on-alcohol/Degrassi Talks On Alcohol.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

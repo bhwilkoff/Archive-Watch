@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "war-with-gwynne-dyer-1960",
+  "title": "War With Gwynne Dyer",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/war-1983-11-06-rpt-1984-07-10",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "war-1983-11-06-rpt-1984-07-10",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "War With Gwynne Dyer - Episode 6 - November 6, 1983, Re-aired July 10, 1984",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/war-1983-11-06-rpt-1984-07-10",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "War 1983-11-06 (RPT 1984-07-10) Re-Encoded.mp4",
+            "format": "h.264",
+            "sizeBytes": 347187146,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/war-1983-11-06-rpt-1984-07-10/War 1983-11-06 (RPT 1984-07-10) Re-Encoded.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

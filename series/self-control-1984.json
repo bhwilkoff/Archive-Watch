@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "self-control-1984",
+  "title": "Self Control",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/laura-branigan-self-control-official-music-video_202110",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "laura-branigan-self-control-official-music-video_202110",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Self Control - Laura Branigan (1984)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/laura-branigan-self-control-official-music-video_202110",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Laura Branigan - Self Control (Official Music Video).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 19081181,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/laura-branigan-self-control-official-music-video_202110/Laura Branigan - Self Control (Official Music Video).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

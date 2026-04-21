@@ -1,0 +1,541 @@
+{
+  "version": 1,
+  "seriesID": "studio-one-1948",
+  "title": "Studio One",
+  "yearStart": 1948,
+  "yearEnd": 1954,
+  "overview": "An American radio–television anthology series, created in 1947 by Canadian director Fletcher Markle, who came to CBS from the CBC. Studio One, presented by Westinghouse, was one of the first of the anthology TV programs. The episodes were often abridged remakes of movies from years gone by and many future well-known television and movie actors appeared in the productions.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/sWaYMwzkJrhc4ZrgAvJhE4Nl5Pz.jpg",
+  "genres": [
+    "tragedy"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Fletcher Markle",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "studioOneMr.MummerysSuspicion1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Studio One\" - Mr. Mummery's suspicion (1951)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio_One_Mr_Mummerys_suspicion_09_03_51.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 352495571,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studioOneMr.MummerysSuspicion1951/Studio_One_Mr_Mummerys_suspicion_09_03_51.ia.mp4"
+        },
+        {
+          "archiveID": "StudioOneWillowcabin",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Studio One'' - The Willow Cabin",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 3559,
+          "videoFile": {
+            "name": "StudioOne-willowcabin.mp4",
+            "format": "h.264",
+            "sizeBytes": 369722366,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOneWillowcabin/StudioOne-willowcabin.mp4"
+        },
+        {
+          "archiveID": "StudioOneWintertime",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Studio One'' - Wintertime",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 3569,
+          "videoFile": {
+            "name": "StudioOne-wintertime.mp4",
+            "format": "h.264",
+            "sizeBytes": 371323322,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOneWintertime/StudioOne-wintertime.mp4"
+        },
+        {
+          "archiveID": "Studio-One_The-Laugh-Maker_3D",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One - The Laugh Maker in 3D",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio-One_The-Laugh-Maker_3d.mp4",
+            "format": "h.264",
+            "sizeBytes": 350766411,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Studio-One_The-Laugh-Maker_3D/Studio-One_The-Laugh-Maker_3d.mp4"
+        },
+        {
+          "archiveID": "TheNativity",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One - The Nativity",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 3540,
+          "videoFile": {
+            "name": "TheNativity.mp4",
+            "format": "h.264",
+            "sizeBytes": 367099851,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheNativity/TheNativity.mp4"
+        },
+        {
+          "archiveID": "StudioOne-TheNativity",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One : The Nativity",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "StudioOne-TheNativity.mp4",
+            "format": "h.264",
+            "sizeBytes": 343734900,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOne-TheNativity/StudioOne-TheNativity.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Studio-One--The_Storm",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Storm",
+          "overview": "During a stormy night, a woman alone in a country house discovers a dead body in her basement and is terrorized by an intruder.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1948-11-07",
+          "year": 1949,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "StudioOne206_The_Storm.mp4",
+            "format": "h.264",
+            "sizeBytes": 294872257,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Studio-One--The_Storm/StudioOne206_The_Storm.mp4"
+        },
+        {
+          "archiveID": "StudioOneTheMedium1948",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Medium",
+          "overview": "Madame Flora conducts bogus seances to bilk grieving parents, but during one seance she feels hands around her neck and panics.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1948-12-12",
+          "year": 1948,
+          "runtimeSeconds": 3578,
+          "videoFile": {
+            "name": "Studio_One_Medium_12_12_1948.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 508003854,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOneTheMedium1948/Studio_One_Medium_12_12_1948.ia.mp4"
+        },
+        {
+          "archiveID": "Studio_One--The_Glass_Key",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Glass Key",
+          "overview": "When his boss, a corrupt politician, is accused of murder, a man hunts the real killer, avoiding amorous advances from his boss' fiancee and attacks from gangsters along the way.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1949-05-11",
+          "year": 1949,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "StudioOne113_The_Glass_Key.mp4",
+            "format": "h.264",
+            "sizeBytes": 303025628,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Studio_One--The_Glass_Key/StudioOne113_The_Glass_Key.mp4"
+        },
+        {
+          "archiveID": "StudioOne_FlowersFromAStranger",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Flowers from a Stranger",
+          "overview": "A psychiatrist's wife battles her own deteriorating emotional state when she receives a box of flowers from a stranger.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1949-05-25",
+          "year": 1949,
+          "runtimeSeconds": 3120,
+          "videoFile": {
+            "name": "FlowersFromAStranger_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 253611994,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOne_FlowersFromAStranger/FlowersFromAStranger_512kb.mp4"
+        },
+        {
+          "archiveID": "StudioOneJuneMoon1949",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "June Moon",
+          "overview": "A naive Schenectady shipping clerk comes to Manhattan with dreams of becoming a lyricist, befriends a one-hit wonder composer, and meets the girl of his dreams.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1949-06-22",
+          "year": 1949,
+          "runtimeSeconds": 3571,
+          "videoFile": {
+            "name": "Studio_One_June_moon_06_22_1949.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 482562868,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOneJuneMoon1949/Studio_One_June_moon_06_22_1949.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "StudioOne_TwoSharpKnives",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Two Sharp Knives",
+          "overview": "A murderer is found dead and his killer is sought.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/78/197261.jpg",
+          "airDate": "1949-11-14",
+          "year": 1949,
+          "runtimeSeconds": 3120,
+          "videoFile": {
+            "name": "TwoSharpKnives_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 258493376,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOne_TwoSharpKnives/TwoSharpKnives_512kb.mp4"
+        },
+        {
+          "archiveID": "StudioOneOfHumanBondage1949",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Of Human Bondage",
+          "overview": "Story of a crippled medical student's romance with a heartless waitress in 1910 Paris.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1949-11-21",
+          "year": 1949,
+          "runtimeSeconds": 3559,
+          "videoFile": {
+            "name": "Studio_One_Of_human_bondage_11_21_1949.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 504706837,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOneOfHumanBondage1949/Studio_One_Of_human_bondage_11_21_1949.ia.mp4"
+        },
+        {
+          "archiveID": "StudioOneHenryIv1949",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Henry IV",
+          "overview": "A wealthy eccentric Italian gentleman believes himself to be  11th-century Holy Roman Emperor Henry IV.",
+          "stillURL": "http://commons.wikimedia.org/wiki/Special:FilePath/Pirandello%20-%20Enrico%204.%2C%201922.djvu",
+          "airDate": "1949-12-05",
+          "year": 1949,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio_One_Henry_IV_12_05_49.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 353197908,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOneHenryIv1949/Studio_One_Henry_IV_12_05_49.ia.mp4"
+        },
+        {
+          "archiveID": "StudioOneAPassengerToBail1950",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "Passenger to Bali",
+          "overview": "A freighter captain agrees to take on an innocent looking passenger who proves to be a fountain of evil and impossible to get rid of.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1950-03-27",
+          "year": 1950,
+          "runtimeSeconds": 3561,
+          "videoFile": {
+            "name": "Studio_One_Passenger_to_Bali_03_27_1950.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 593038666,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOneAPassengerToBail1950/Studio_One_Passenger_to_Bali_03_27_1950.ia.mp4"
+        },
+        {
+          "archiveID": "Studio_One--Man_Who_Had_Influence",
+          "seasonNumber": 2,
+          "episodeNumber": 38,
+          "title": "The Man Who Had Influence",
+          "overview": "The spoiled son of a politician learns a lesson when he is accused of murder.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1950-05-29",
+          "year": 1950,
+          "runtimeSeconds": 3112,
+          "videoFile": {
+            "name": "Studio_One--Man_Who_Had_Influence.mp4",
+            "format": "h.264",
+            "sizeBytes": 323799534,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Studio_One--Man_Who_Had_Influence/Studio_One--Man_Who_Had_Influence.mp4"
+        },
+        {
+          "archiveID": "StudioOne_ThereWasACrookedMan",
+          "seasonNumber": 2,
+          "episodeNumber": 41,
+          "title": "There Was a Crooked Man",
+          "overview": "The murder of a boarding house lodger is investigated.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1950-06-19",
+          "year": 1950,
+          "runtimeSeconds": 3360,
+          "videoFile": {
+            "name": "ThereWasaCrookedMan_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 245363272,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOne_ThereWasACrookedMan/ThereWasaCrookedMan_512kb.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "Studio_One--None_but_My_Foe",
+          "seasonNumber": 3,
+          "episodeNumber": 25,
+          "title": "None But My Foe",
+          "overview": "A man writes an anonymous letter claiming he is going to poison a town's water supply, setting off a panic.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1951-02-12",
+          "year": 1951,
+          "runtimeSeconds": 3560,
+          "videoFile": {
+            "name": "StudioOne325--None_but_My_Foe.mp4",
+            "format": "h.264",
+            "sizeBytes": 370467998,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Studio_One--None_but_My_Foe/StudioOne325--None_but_My_Foe.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "Studio_One--Devil_in_Velvet",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "The Devil in Velvet",
+          "overview": "A professor goes back in time to the 17th Century to save a woman from poisoning.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1952-01-07",
+          "year": 1952,
+          "runtimeSeconds": 3108,
+          "videoFile": {
+            "name": "StudioOne417_Devil_in_Velvet.mp4",
+            "format": "h.264",
+            "sizeBytes": 323163047,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Studio_One--Devil_in_Velvet/StudioOne417_Devil_in_Velvet.mp4"
+        },
+        {
+          "archiveID": "Studio_One--Ten_Thousand_Horses_Singing",
+          "seasonNumber": 4,
+          "episodeNumber": 25,
+          "title": "Ten Thousand Horses Singing",
+          "overview": "James Dean and John Forsythe star in this story of a wealthy orphan who meets a shy airline owner aboard a plane and later discovers that a corpse has been stowed there.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1952-03-03",
+          "year": 1952,
+          "runtimeSeconds": 3228,
+          "videoFile": {
+            "name": "StudioOne425--10000_Horses_Singing.mp4",
+            "format": "h.264",
+            "sizeBytes": 335769678,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Studio_One--Ten_Thousand_Horses_Singing/StudioOne425--10000_Horses_Singing.mp4"
+        },
+        {
+          "archiveID": "StudioOneTreasureIsland1952",
+          "seasonNumber": 4,
+          "episodeNumber": 34,
+          "title": "Treasure Island",
+          "overview": "The search is on for the pirate Flint's buried treasure on the treacherous ship of Long John Silver.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1952-05-05",
+          "year": 1952,
+          "runtimeSeconds": 3568,
+          "videoFile": {
+            "name": "Studio_One_Treasure_Island_05_05_1952.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 458492373,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOneTreasureIsland1952/Studio_One_Treasure_Island_05_05_1952.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "Studio_One--Little_Men_Big_World",
+          "seasonNumber": 5,
+          "episodeNumber": 4,
+          "title": "Little Man, Big World",
+          "overview": "A group of gangsters from a mid-sized city are getting squeezed out by their big city counterparts.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1952-10-13",
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "StudioOne504_Little_Men_Big_World.mp4",
+            "format": "h.264",
+            "sizeBytes": 286327918,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Studio_One--Little_Men_Big_World/StudioOne504_Little_Men_Big_World.mp4"
+        },
+        {
+          "archiveID": "StudioOne_PlanForEscape",
+          "seasonNumber": 5,
+          "episodeNumber": 8,
+          "title": "Plan For Escape",
+          "overview": "A crooked club owner's wife witnesses his murder, and has to flee from gangsters.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1952-11-17",
+          "year": 1952,
+          "runtimeSeconds": 3120,
+          "videoFile": {
+            "name": "PlanForEscape_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 250066030,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOne_PlanForEscape/PlanForEscape_512kb.mp4"
+        },
+        {
+          "archiveID": "Studio_One--Mark_of_Cain",
+          "seasonNumber": 5,
+          "episodeNumber": 19,
+          "title": "Mark of Cain",
+          "overview": "A young man on parole after 7 years in Sing Sing tries to start his life with a clean slate, but while his mother and his girlfriend are glad to see him, his brother is less than warm.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1953-02-02",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "StudioOne519_Mark_of_Cain.mp4",
+            "format": "h.264",
+            "sizeBytes": 324597948,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Studio_One--Mark_of_Cain/StudioOne519_Mark_of_Cain.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "StudioOne19841953",
+          "seasonNumber": 6,
+          "episodeNumber": 1,
+          "title": "1984",
+          "overview": "An adaptation of the dystopic novel concerning one man's rebellion against a totalitarian society",
+          "stillURL": "https://image.tmdb.org/t/p/w300/6DPTGX6DM5wYQFtWxIvaGx8nhOK.jpg",
+          "airDate": "1953-09-21",
+          "year": 1953,
+          "runtimeSeconds": 3039,
+          "videoFile": {
+            "name": "Studio_One_1984_09_21_1953.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 407925962,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOne19841953/Studio_One_1984_09_21_1953.ia.mp4"
+        },
+        {
+          "archiveID": "Studio_One--Dark_Possession",
+          "seasonNumber": 6,
+          "episodeNumber": 22,
+          "title": "Dark Possession",
+          "overview": "An anonymous letter writer creates fear and havoc in the lives of three sisters.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1954-02-15",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "StudioOne622_Dark_Possession.mp4",
+            "format": "h.264",
+            "sizeBytes": 288749742,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Studio_One--Dark_Possession/StudioOne622_Dark_Possession.mp4"
+        },
+        {
+          "archiveID": "Studio_One--Death_and_Life_of_Larry_Benson",
+          "seasonNumber": 6,
+          "episodeNumber": 37,
+          "title": "The Death and Life of Larry Benson",
+          "overview": "Larry Benson was reported missing on the battlefield more than three years ago and the entire town is excited about his unexpected homecoming.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1954-05-31",
+          "year": 1954,
+          "runtimeSeconds": 3095,
+          "videoFile": {
+            "name": "StudioOne06-37_Death_and_Life_of_Larry_Benson.mp4",
+            "format": "h.264",
+            "sizeBytes": 290768105,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Studio_One--Death_and_Life_of_Larry_Benson/StudioOne06-37_Death_and_Life_of_Larry_Benson.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 27
+}

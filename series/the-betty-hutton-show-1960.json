@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-betty-hutton-show-1960",
+  "title": "The Betty Hutton Show",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "The Betty Hutton Show is an American sitcom that aired on CBS's Thursday night schedule during the 1959-1960 season. The show was sponsored by General Foods' Post Cereals, and was produced by Desilu and Hutton Productions.\n\nThe series, which was originally entitled Goldie, would retain its original title during its syndication run.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/391/978500.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Stanley Roberts",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theBettyHuttonShow-RoyRunsAway",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Betty Hutton Show'' - Roy Runs Away",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/391/978500.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "TheBettyHuttonShow-RoyRunsAway.mp4",
+            "format": "h.264",
+            "sizeBytes": 156815069,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theBettyHuttonShow-RoyRunsAway/TheBettyHuttonShow-RoyRunsAway.mp4"
+        },
+        {
+          "archiveID": "Betty_Mutton",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'The Betty Hutton Show' - Art for Goldie's Sake",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/391/978500.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TheBettyHuttonShow-ArtForGoldiesSake.mp4",
+            "format": "h.264",
+            "sizeBytes": 157230248,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Betty_Mutton/TheBettyHuttonShow-ArtForGoldiesSake.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

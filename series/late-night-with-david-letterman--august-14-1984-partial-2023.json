@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "late-night-with-david-letterman--august-14-1984-partial-2023",
+  "title": "Late Night With David Letterman- August 14, 1984 (partial",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/late-night-with-david-letterman-august-14-1984-partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "late-night-with-david-letterman-august-14-1984-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Late Night With David Letterman- August 14, 1984 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/late-night-with-david-letterman-august-14-1984-partial",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Late Night With David Letterman- August 14, 1984 (partial).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1305688406,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/late-night-with-david-letterman-august-14-1984-partial/Late Night With David Letterman- August 14, 1984 (partial).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

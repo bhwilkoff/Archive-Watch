@@ -1,0 +1,118 @@
+{
+  "version": 1,
+  "seriesID": "rocky-king-detective-1952",
+  "title": "Rocky King, Detective",
+  "yearStart": 1952,
+  "yearEnd": 1954,
+  "overview": "Rocky King, Inside Detective is an American television series broadcast on the DuMont Television Network on Sundays at 9pm ET from January 15, 1950 to December 26, 1954. This series was one of DuMont's most popular programs, and was a live crime series set in New York City.\n\nThe show not only kept Roscoe Karns from retirement, but cast him opposite his son, Todd Karns. The DuMont offices and corridors were used as sets. At the end of each program, King would exchange telephone small talk with his unseen wife Mabel and, after hanging up, say to no one in particular, \"Great girl, that Mabel\".",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "DuMont Television Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Rocky_King_Detective",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Rocky King Detective\" - Murder, PH.D.",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "RockyKingDetective-MurderPhD.mp4",
+            "format": "h.264",
+            "sizeBytes": 153359830,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Rocky_King_Detective/RockyKingDetective-MurderPhD.mp4"
+        },
+        {
+          "archiveID": "Rocky_King_Detective_2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Rocky King, Detective\" - Murder Scores a Knockout (Classic TV)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "RockyKingDetective-MurderScoresAKnockout.mp4",
+            "format": "h.264",
+            "sizeBytes": 167919424,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Rocky_King_Detective_2/RockyKingDetective-MurderScoresAKnockout.mp4"
+        },
+        {
+          "archiveID": "The_Hermits_Cat",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Rocky King, Detective' - The Hermit's Cat (Classic TV) (1952)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "RockyKingDetective-TheHermitsCat.mp4",
+            "format": "h.264",
+            "sizeBytes": 166889302,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The_Hermits_Cat/RockyKingDetective-TheHermitsCat.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "Rocky_King--Return_for_Death",
+          "seasonNumber": 5,
+          "episodeNumber": 37,
+          "title": "Return for Death",
+          "overview": "Rocky and Detective Hart investigate when a dead body is found at a cemetery.",
+          "stillURL": null,
+          "airDate": "1954-05-23",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "RockyKing536_Return_for_Death.mp4",
+            "format": "h.264",
+            "sizeBytes": 137904807,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Rocky_King--Return_for_Death/RockyKing536_Return_for_Death.mp4"
+        },
+        {
+          "archiveID": "Rocky_King--In_the_Bag",
+          "seasonNumber": 5,
+          "episodeNumber": 47,
+          "title": "In the Bag",
+          "overview": "A hospital patient dies suddenly and $100,000 disappears from a bag that he kept with him—Rocky suspects murder.",
+          "stillURL": null,
+          "airDate": "1954-08-01",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "RockyKing547_In_the_Bag.mp4",
+            "format": "h.264",
+            "sizeBytes": 139102771,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Rocky_King--In_the_Bag/RockyKing547_In_the_Bag.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

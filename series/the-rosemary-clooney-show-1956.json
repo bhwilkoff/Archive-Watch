@@ -1,0 +1,239 @@
+{
+  "version": 1,
+  "seriesID": "the-rosemary-clooney-show-1956",
+  "title": "The Rosemary Clooney Show",
+  "yearStart": 1956,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheRosemaryClooneyShowBeatriceKay",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Rosemary Clooney Show'' - Beatrice Kay",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "The Rosemary Clooney Show - Beatrice Kay.mp4",
+            "format": "h.264",
+            "sizeBytes": 159122261,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRosemaryClooneyShowBeatriceKay/The Rosemary Clooney Show - Beatrice Kay.mp4"
+        },
+        {
+          "archiveID": "TheRosemaryClooneyShowBorisKarloff",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Rosemary Clooney Show'' - Boris Karloff",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1761,
+          "videoFile": {
+            "name": "The Rosemary Clooney Show - Boris Karloff.mp4",
+            "format": "h.264",
+            "sizeBytes": 183500559,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRosemaryClooneyShowBorisKarloff/The Rosemary Clooney Show - Boris Karloff.mp4"
+        },
+        {
+          "archiveID": "TheRosemaryClooneyShowBuddyGreco",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Rosemary Clooney Show'' - Buddy Greco",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "The Rosemary Clooney Show - Buddy Greco.mp4",
+            "format": "h.264",
+            "sizeBytes": 157196494,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRosemaryClooneyShowBuddyGreco/The Rosemary Clooney Show - Buddy Greco.mp4"
+        },
+        {
+          "archiveID": "TheRosemaryClooneyShowBusterKeaton",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Rosemary Clooney Show'' - Buster Keaton as guest",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1546,
+          "videoFile": {
+            "name": "The Rosemary Clooney Show - Buster Keaton.mp4",
+            "format": "h.264",
+            "sizeBytes": 161083281,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRosemaryClooneyShowBusterKeaton/The Rosemary Clooney Show - Buster Keaton.mp4"
+        },
+        {
+          "archiveID": "TheRosemaryClooneyShowDaniCrayneAndJoeBushkin",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Rosemary Clooney Show'' - Dani Crayne & Joe Bushkin",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1504,
+          "videoFile": {
+            "name": "The Rosemary Clooney Show - Dani Crayne and Joe Bushkin.mp4",
+            "format": "h.264",
+            "sizeBytes": 156590797,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRosemaryClooneyShowDaniCrayneAndJoeBushkin/The Rosemary Clooney Show - Dani Crayne and Joe Bushkin.mp4"
+        },
+        {
+          "archiveID": "TheRosemaryClooneyShowDorothyMaloneBobbyTroup",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Rosemary Clooney Show'' - Dorothy Malone & Bobby Troup",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Rosemary Clooney Show - Dorothy Malone & Bobby Troup.mp4",
+            "format": "h.264",
+            "sizeBytes": 149371580,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRosemaryClooneyShowDorothyMaloneBobbyTroup/The Rosemary Clooney Show - Dorothy Malone & Bobby Troup.mp4"
+        },
+        {
+          "archiveID": "TheRosemaryClooneyShowGuyMitchell",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Rosemary Clooney Show'' - Guy Mitchell as guest",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1527,
+          "videoFile": {
+            "name": "The Rosemary Clooney Show - Guy Mitchell.mp4",
+            "format": "h.264",
+            "sizeBytes": 158922465,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRosemaryClooneyShowGuyMitchell/The Rosemary Clooney Show - Guy Mitchell.mp4"
+        },
+        {
+          "archiveID": "TheRosemaryClooneyShowJohnnyMercer",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Rosemary Clooney Show'' - Johnny Mercer as guest",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1554,
+          "videoFile": {
+            "name": "The Rosemary Clooney Show - Johnny Mercer.mp4",
+            "format": "h.264",
+            "sizeBytes": 161843536,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRosemaryClooneyShowJohnnyMercer/The Rosemary Clooney Show - Johnny Mercer.mp4"
+        },
+        {
+          "archiveID": "TheRosemaryClooneyShowJudyCanova",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Rosemary Clooney Show'' - Judy Canova",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1531,
+          "videoFile": {
+            "name": "The Rosemary Clooney Show - Judy Canova.mp4",
+            "format": "h.264",
+            "sizeBytes": 159503085,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRosemaryClooneyShowJudyCanova/The Rosemary Clooney Show - Judy Canova.mp4"
+        },
+        {
+          "archiveID": "TheRosemaryClooneyShowMargueritePiazza",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Rosemary Clooney Show'' - Marguerite Piazza",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1499,
+          "videoFile": {
+            "name": "The Rosemary Clooney Show - Marguerite Piazza.mp4",
+            "format": "h.264",
+            "sizeBytes": 156200508,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRosemaryClooneyShowMargueritePiazza/The Rosemary Clooney Show - Marguerite Piazza.mp4"
+        },
+        {
+          "archiveID": "TheRosemaryClooneyShowTennesseeErnieFord",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Rosemary Clooney Show'' - Tennessee Ernie Ford",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1541,
+          "videoFile": {
+            "name": "The Rosemary Clooney Show - Tennessee Ernie Ford.mp4",
+            "format": "h.264",
+            "sizeBytes": 160406612,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRosemaryClooneyShowTennesseeErnieFord/The Rosemary Clooney Show - Tennessee Ernie Ford.mp4"
+        },
+        {
+          "archiveID": "TheRosemaryClooneyShowTonyCurtis",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Rosemary Clooney Show'' - Tony Curtis",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1556,
+          "videoFile": {
+            "name": "The Rosemary Clooney Show - Tony Curtis.mp4",
+            "format": "h.264",
+            "sizeBytes": 161484074,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRosemaryClooneyShowTonyCurtis/The Rosemary Clooney Show - Tony Curtis.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12
+}

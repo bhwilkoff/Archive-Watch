@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "seriesID": "tender-is-the-night-1985",
+  "title": "Tender Is The Night",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": "Tender Is the Night is a 1985 television drama miniseries co-produced by Showtime, 20th Century Fox Television, BBC, and 7 Network. Based on F. Scott Fitzgerald's 1934 novel of the same name, the six-part series focuses on themes of love, ambition, mental illness, and the decline of the American Dream.\n\n1920s, the French Riviera: wealthy expatriate Nicole Warren's mental illness strains her marriage to psychiatrist Dick. A young American actress named Rosemary Hoyt arrives and is drawn into their circle, becoming romantically involved with the older, married Dick and disrupting the fragile balance of the group. The thought of Dick possibly being attracted to another sends Nicole on an emotional downward spiral that threatens to consume them all.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/v0zfkPcVKTAEzsrxtejxWEnYoG9.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC One",
+    "Showtime",
+    "Seven Network"
+  ],
+  "creator": "Dennis Potter",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tender-is-the-night-1985-pt-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tender Is The Night - Peter Strauss, Mary Steenburgen",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v0zfkPcVKTAEzsrxtejxWEnYoG9.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tender is the Night - 1985 - Pt 2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 4539384901,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tender-is-the-night-1985-pt-1/Tender is the Night - 1985 - Pt 2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

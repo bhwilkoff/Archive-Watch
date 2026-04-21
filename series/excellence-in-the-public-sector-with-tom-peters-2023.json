@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "excellence-in-the-public-sector-with-tom-peters-2023",
+  "title": "Excellence In The Public Sector With Tom Peters",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/excellence-in-the-public-sector-with-tom-peters-1989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "excellence-in-the-public-sector-with-tom-peters-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Excellence In The Public Sector With Tom Peters (1989)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/excellence-in-the-public-sector-with-tom-peters-1989",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Excellence in the Public Sector with Tom Peters (1989).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1750506172,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/excellence-in-the-public-sector-with-tom-peters-1989/Excellence in the Public Sector with Tom Peters (1989).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

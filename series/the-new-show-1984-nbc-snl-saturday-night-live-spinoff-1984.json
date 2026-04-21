@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-new-show-1984-nbc-snl-saturday-night-live-spinoff-1984",
+  "title": "The New Show 1984 NBC SNL Saturday Night Live Spinoff",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-new-show-1984-nbc-snl-saturday-night-live-spinoff",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-new-show-1984-nbc-snl-saturday-night-live-spinoff",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The New Show 1984 NBC SNL Saturday Night Live Spinoff",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-new-show-1984-nbc-snl-saturday-night-live-spinoff",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "New Show/NSD1/VIDEO_TS/VTS_03_1.mp4",
+            "format": "h.264",
+            "sizeBytes": 277552535,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-new-show-1984-nbc-snl-saturday-night-live-spinoff/New Show/NSD1/VIDEO_TS/VTS_03_1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wews-newschannel-5-at-11pm-weekend-edition-11101996-1996",
+  "title": "WEWS NewsChannel 5 At 11PM Weekend Edition 11/10/1996",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/11-10-1996-wews-newschannel-5-at-11-pm",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "11-10-1996-wews-newschannel-5-at-11-pm",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WEWS NewsChannel 5 At 11PM Weekend Edition 11/10/1996",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/11-10-1996-wews-newschannel-5-at-11-pm",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WEWS NewsChannel 5 At 11PM Weekend Edition 11-10-1996 Extras.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 98611114,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/11-10-1996-wews-newschannel-5-at-11-pm/WEWS NewsChannel 5 At 11PM Weekend Edition 11-10-1996 Extras.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

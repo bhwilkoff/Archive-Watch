@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-44th-golden-globe-awards-2020",
+  "title": "The 44th Golden Globe Awards",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the44thgoldenglobeawards1987convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the44thgoldenglobeawards1987convertvideoonline.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The 44th Golden Globe Awards (1987)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the44thgoldenglobeawards1987convertvideoonline.com",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The 44th Golden Globe Awards (1987) (convert-video-online.com).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1807211800,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the44thgoldenglobeawards1987convertvideoonline.com/The 44th Golden Globe Awards (1987) (convert-video-online.com).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

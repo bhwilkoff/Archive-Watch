@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "double-rush-1995",
+  "title": "Double Rush",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": "Double Rush is an American CBS television comedy that lasted only one season in 1995. Robert Pastorelli played Johnny Verona, manager of a bicycle delivery service in New York City. Verona must keep his business on its feet in the face of competition from the increased use of fax machines and the internet.\n\nThe show premiered 4 January 1995 and ended with the twelfth episode on 12 April of that year. The reason for its cancellation might be because of the title of the seventh episode 'The Show We Wrote the Day We Found Out We Were Going on Opposite Roseanne'. Apparently, \"even the most smart-mouthed, wise-cracking New York working stiffs couldn't compete with Roseanne for ratings.\"",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Diane English",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "double-rush-1.07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Double Rush - Corinne Bohrer, Sam Lloyd",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Double Rush - 1.10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 718963760,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/double-rush-1.07/Double Rush - 1.10.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

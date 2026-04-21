@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "dead-or-alive-1960",
+  "title": "Dead Or Alive",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "What happens when wild animals and humans collide? Each episode in this new series features a dramatic recreation of a deadly predator attacking an unsuspecting victim, resulting in either a story of incredible survival or a story of tragic and sudden death.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/eLTjgrsSxj0hNbMI5UXd8te99dp.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/fHCYDT6EhUa2miFpLmV093liLGz.jpg",
+  "genres": [],
+  "networks": [
+    "Nat Geo Wild"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_03_Dead_Or_Alive",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dead Or Alive",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eLTjgrsSxj0hNbMI5UXd8te99dp.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_03_Dead_Or_Alive.mp4",
+            "format": "h.264",
+            "sizeBytes": 155907341,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_03_Dead_Or_Alive/Robin_Hood_03_Dead_Or_Alive.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

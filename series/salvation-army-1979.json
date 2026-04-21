@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "salvation-army-1979",
+  "title": "Salvation Army",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/salvation-army-1979",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "salvation-army-1979",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Salvation Army (1979)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/salvation-army-1979",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Salvation Army (1979).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 132348867,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/salvation-army-1979/Salvation Army (1979).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "nfl-2021",
+  "title": "NFL",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/nfl-baltimore-colts-vs.-philadelphia-eagles-october-30-1983-pt.-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "nfl-baltimore-colts-vs.-philadelphia-eagles-october-30-1983-pt.-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "NFL: Baltimore Colts vs. Philadelphia Eagles (October 30, 1983)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/nfl-baltimore-colts-vs.-philadelphia-eagles-october-30-1983-pt.-1",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NFL Baltimore Colts vs. Philadelphia Eagles (October 30, 1983, pt. 1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2332526471,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nfl-baltimore-colts-vs.-philadelphia-eagles-october-30-1983-pt.-1/NFL Baltimore Colts vs. Philadelphia Eagles (October 30, 1983, pt. 1).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

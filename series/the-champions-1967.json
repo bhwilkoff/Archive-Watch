@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-champions-1967",
+  "title": "The Champions",
+  "yearStart": 1967,
+  "yearEnd": 1967,
+  "overview": "After a plane carrying three Agents crashes in the Himalayas, they are rescued by an advanced civilisation secretly living in Tibet who grant them enhanced versions of the ordinary five senses, and intellectual and physical abilities.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/93fLFB8HfKAhVKF968Dl03ITwOX.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3uU2xfwDQzxmpOB0XIr3VuP0ZFF.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Monty Berman",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-champions-complete-series-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Champions - Complete Series 1967",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/93fLFB8HfKAhVKF968Dl03ITwOX.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Champions   Episode 23   The Night People DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 279606815,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The Champions   Episode 23   The Night People DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Champions : Pilot : The Beginning",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/93fLFB8HfKAhVKF968Dl03ITwOX.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Champions - Episode 01 - The Beginning [DivX].mp4",
+            "format": "h.264",
+            "sizeBytes": 275622220,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-champions-1967/The Champions - Episode 01 - The Beginning [DivX].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

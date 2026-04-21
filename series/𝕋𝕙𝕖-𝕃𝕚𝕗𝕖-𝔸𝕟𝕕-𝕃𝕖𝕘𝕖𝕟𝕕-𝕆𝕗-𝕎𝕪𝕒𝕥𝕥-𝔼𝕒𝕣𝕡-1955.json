@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "𝕋𝕙𝕖-𝕃𝕚𝕗𝕖-𝔸𝕟𝕕-𝕃𝕖𝕘𝕖𝕟𝕕-𝕆𝕗-𝕎𝕪𝕒𝕥𝕥-𝔼𝕒𝕣𝕡-1955",
+  "title": "𝕋𝕙𝕖 𝕃𝕚𝕗𝕖 𝔸𝕟𝕕 𝕃𝕖𝕘𝕖𝕟𝕕 𝕆𝕗 𝕎𝕪𝕒𝕥𝕥 𝔼𝕒𝕣𝕡",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-life-and-legend-of-wyatt-earp-s-02-e-39-the-time-for-all-good-men",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-life-and-legend-of-wyatt-earp-s-02-e-39-the-time-for-all-good-men",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "𝕋𝕙𝕖 𝕃𝕚𝕗𝕖 𝔸𝕟𝕕 𝕃𝕖𝕘𝕖𝕟𝕕 𝕆𝕗 𝕎𝕪𝕒𝕥𝕥 𝔼𝕒𝕣𝕡",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-life-and-legend-of-wyatt-earp-s-02-e-39-the-time-for-all-good-men",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Life and Legend of Wyatt Earp S02E39 The Time for All Good Men.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 275315263,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-life-and-legend-of-wyatt-earp-s-02-e-39-the-time-for-all-good-men/The Life and Legend of Wyatt Earp S02E39 The Time for All Good Men.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

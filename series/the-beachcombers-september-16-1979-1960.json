@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-beachcombers-september-16-1979-1960",
+  "title": "The Beachcombers September 16, 1979",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-beachcombers-1979-09-16",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-beachcombers-1979-09-16",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Beachcombers September 16, 1979: Songwriters",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-beachcombers-1979-09-16",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Beachcombers 1979-09-16.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 482283491,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-beachcombers-1979-09-16/The Beachcombers 1979-09-16.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

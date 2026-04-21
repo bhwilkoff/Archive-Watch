@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "coming-from-japan-1992",
+  "title": "Coming From Japan",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ComingFromJapan",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ComingFromJapan",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Coming From Japan",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ComingFromJapan",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Frontline.S10E03.Coming.From.Japan.1992.VHSRip.AAC2.0.x264-krokkers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1904352194,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ComingFromJapan/Frontline.S10E03.Coming.From.Japan.1992.VHSRip.AAC2.0.x264-krokkers.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

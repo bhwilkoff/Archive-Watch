@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-adventures-of-robin-hood-1956",
+  "title": "The Adventures of Robin Hood",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": "The legendary character Robin Hood and his band of merry men in Sherwood Forest and the surrounding vicinity. While some episodes dramatised the traditional Robin Hood tales, most episodes were original dramas created by the show's writers and producers.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/hDlzPHsz0iVNjspLZlsSKWfLc3g.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/vNleBASRzlBrmRrHGu1c3A8zHz2.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RobinHood_Blackmail_3D",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures of Robin Hood - Blackmail in 3D",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/hDlzPHsz0iVNjspLZlsSKWfLc3g.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1489,
+          "videoFile": {
+            "name": "RH_Blackmail_3D.mp4",
+            "format": "h.264",
+            "sizeBytes": 144033068,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RobinHood_Blackmail_3D/RH_Blackmail_3D.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

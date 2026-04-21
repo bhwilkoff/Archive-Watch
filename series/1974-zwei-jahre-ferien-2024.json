@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "1974-zwei-jahre-ferien-2024",
+  "title": "1974. Zwei Jahre Ferien",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1974.-zwei-jahre-ferien-teil-1-die-flaschenpost",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1974.-zwei-jahre-ferien-teil-1-die-flaschenpost",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1974. Zwei Jahre Ferien - Teil 1 - Die Flaschenpost",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1974.-zwei-jahre-ferien-teil-1-die-flaschenpost",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1974. Zwei Jahre Ferien - Teil 1 - Die Flaschenpost.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1045850019,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1974.-zwei-jahre-ferien-teil-1-die-flaschenpost/1974. Zwei Jahre Ferien - Teil 1 - Die Flaschenpost.mp4"
+        },
+        {
+          "archiveID": "1974.-zwei-jahre-ferien-teil-2-die-meuterei",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1974. Zwei Jahre Ferien - Teil 2 - Die Meuterei",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1974.-zwei-jahre-ferien-teil-2-die-meuterei",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1974. Zwei Jahre Ferien - Teil 2 - Die Meuterei.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1070960796,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1974.-zwei-jahre-ferien-teil-2-die-meuterei/1974. Zwei Jahre Ferien - Teil 2 - Die Meuterei.mp4"
+        },
+        {
+          "archiveID": "1974.-zwei-jahre-ferien-teil-3-eine-kuste-ohne-namen",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1974. Zwei Jahre Ferien - Teil 3 - Eine Küste ohne Namen",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1974.-zwei-jahre-ferien-teil-3-eine-kuste-ohne-namen",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1974. Zwei Jahre Ferien - Teil 3 - Eine Küste ohne Namen.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1034474838,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1974.-zwei-jahre-ferien-teil-3-eine-kuste-ohne-namen/1974. Zwei Jahre Ferien - Teil 3 - Eine Küste ohne Namen.mp4"
+        },
+        {
+          "archiveID": "1974.-zwei-jahre-ferien-teil-4-die-vergessene-insel",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1974. Zwei Jahre Ferien - Teil 4 - Die vergessene Insel",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1974.-zwei-jahre-ferien-teil-4-die-vergessene-insel",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1974. Zwei Jahre Ferien - Teil 4 - Die vergessene Insel.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1019766899,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1974.-zwei-jahre-ferien-teil-4-die-vergessene-insel/1974. Zwei Jahre Ferien - Teil 4 - Die vergessene Insel.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

@@ -1,0 +1,255 @@
+{
+  "version": 1,
+  "seriesID": "eye-on-la-1986",
+  "title": "Eye on L.A",
+  "yearStart": 1986,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "eye-on-la-all-lies-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye On L.A. - Chuck Henry",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye on LA - All Lies - 1986.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 686446139,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-la-all-lies-1986/Eye on LA - All Lies - 1986.ia.mp4"
+        },
+        {
+          "archiveID": "eye-on-l.-a.-aussie-endless-summer",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye on L.A. - Aussie Endless Summer",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye on L.A. - Aussie Endless Summer.mp4",
+            "format": "h.264",
+            "sizeBytes": 123672023,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-l.-a.-aussie-endless-summer/Eye on L.A. - Aussie Endless Summer.mp4"
+        },
+        {
+          "archiveID": "eye-on-l.-a.-california-wet-and-wild",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye on L.A. - California Wet and Wild",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye on L.A. - California Wet and Wild.mp4",
+            "format": "h.264",
+            "sizeBytes": 122994547,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-l.-a.-california-wet-and-wild/Eye on L.A. - California Wet and Wild.mp4"
+        },
+        {
+          "archiveID": "eye-on-l.-a.-europes-forbidden-pleasures",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye on L.A. - Europe’s Forbidden Pleasures",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye on L.A. - Europe's Forbidden Pleasures.mp4",
+            "format": "h.264",
+            "sizeBytes": 128951222,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-l.-a.-europes-forbidden-pleasures/Eye on L.A. - Europe's Forbidden Pleasures.mp4"
+        },
+        {
+          "archiveID": "eye-on-l.-a.-eye-on-l.-a.-magazine",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye on L.A. - Eye on L.A. Magazine",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye on L.A. - Eye on L.A. Magazine.mp4",
+            "format": "h.264",
+            "sizeBytes": 123389687,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-l.-a.-eye-on-l.-a.-magazine/Eye on L.A. - Eye on L.A. Magazine.mp4"
+        },
+        {
+          "archiveID": "eye-on-l.-a.-eye-on-a-lei",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye on L.A. - Eye on a Lei",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye on L.A. - Eye on a Lei.mp4",
+            "format": "h.264",
+            "sizeBytes": 121989273,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-l.-a.-eye-on-a-lei/Eye on L.A. - Eye on a Lei.mp4"
+        },
+        {
+          "archiveID": "eye-on-l.-a.-fantasy-islands-hong-kong",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye on L.A. - Fantasy Islands: Hong Kong",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye on L.A. - Fantasy Islands - Hong Kong.mp4",
+            "format": "h.264",
+            "sizeBytes": 123965411,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-l.-a.-fantasy-islands-hong-kong/Eye on L.A. - Fantasy Islands - Hong Kong.mp4"
+        },
+        {
+          "archiveID": "eye-on-l.-a.-new-orleans",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye on L.A. - New Orleans",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye on L.A. - New Orleans.mp4",
+            "format": "h.264",
+            "sizeBytes": 124650485,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-l.-a.-new-orleans/Eye on L.A. - New Orleans.mp4"
+        },
+        {
+          "archiveID": "eye-on-l.-a.-spa-squad",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye on L.A. - Spa Squad",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye on L.A. - Spa Squad.mp4",
+            "format": "h.264",
+            "sizeBytes": 119963487,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-l.-a.-spa-squad/Eye on L.A. - Spa Squad.mp4"
+        },
+        {
+          "archiveID": "eye-on-l.-a.-surfing-the-ultimate-pleasure",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye on L.A. - Surfing: The Ultimate Pleasure",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye on L.A. - Surfing - The Ultimate Pleasure.mp4",
+            "format": "h.264",
+            "sizeBytes": 122743025,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-l.-a.-surfing-the-ultimate-pleasure/Eye on L.A. - Surfing - The Ultimate Pleasure.mp4"
+        },
+        {
+          "archiveID": "eye-on-l.-a.-topless-arizona",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye on L.A. - Topless Arizona",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye on L.A. - Topless Arizona.mp4",
+            "format": "h.264",
+            "sizeBytes": 124397785,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-l.-a.-topless-arizona/Eye on L.A. - Topless Arizona.mp4"
+        },
+        {
+          "archiveID": "eye-on-l.-a.-topless-paris",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye on L.A. - Topless Paris",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye on L.A. - Topless Paris.mp4",
+            "format": "h.264",
+            "sizeBytes": 119756064,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-l.-a.-topless-paris/Eye on L.A. - Topless Paris.mp4"
+        },
+        {
+          "archiveID": "eye-on-l.-a.-topless-riviera",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Eye on L.A. - Topless Riviera",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Eye on L.A. - Topless Riviera.mp4",
+            "format": "h.264",
+            "sizeBytes": 119818335,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/eye-on-l.-a.-topless-riviera/Eye on L.A. - Topless Riviera.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13
+}

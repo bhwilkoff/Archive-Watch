@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "compilation-of-1950s-game-show-opening-titles-2014",
+  "title": "Compilation of 1950s game show opening titles",
+  "yearStart": 2014,
+  "yearEnd": 2014,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1950sgameshows-openingtitles",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1950sgameshows-openingtitles",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Compilation of 1950s game show opening titles",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1950sgameshows-openingtitles",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 1306,
+          "videoFile": {
+            "name": "1950sgameshows-IAversion.mp4",
+            "format": "h.264",
+            "sizeBytes": 135962894,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1950sgameshows-openingtitles/1950sgameshows-IAversion.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

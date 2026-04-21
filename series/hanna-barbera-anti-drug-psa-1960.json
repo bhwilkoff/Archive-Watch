@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "hanna-barbera-anti-drug-psa-1960",
+  "title": "Hanna Barbera Anti Drug PSA",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/HannaBarberaAntiDrugPsa",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "HannaBarberaAntiDrugPsa",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hanna Barbera Anti Drug PSA",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/HannaBarberaAntiDrugPsa",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "hbantidrug_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 2231107,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HannaBarberaAntiDrugPsa/hbantidrug_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

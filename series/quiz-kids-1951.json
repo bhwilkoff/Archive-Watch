@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "quiz-kids-1951",
+  "title": "Quiz Kids",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": "Quiz Kids, a popular radio and TV series of the 1940s and 1950s, was created by Chicago public relations and advertising man Louis G. Cowan. Originally sponsored by Alka-Seltzer, the series was first broadcast on NBC from Chicago, June 28, 1940, airing as a summer replacement show for Alec Templeton Time. It continued on radio for the next 13 years. On television, the show was seen on NBC and CBS from July 6, 1949 to July 5, 1953, with Joe Kelly as quizmaster, and again from January 12 to September 27, 1956, with Clifton Fadiman as host.\n\nThe premise of the original show involved Kelly asking questions sent in by listeners and researched by Eliza Hickok and Rachel Stevenson. Kelly often said that he was not an intellectual, and that he could not have answered any of the questions without knowing the answer from his flash card. Yet he was remarkably kind and affable, and put even novice young contestants at ease immediately. The answers were supplied by a panel of five children, chosen for their high IQs, strong academic interests, and appealing personalities, as well as such qualities as poise, quickness, and sense of humor. One of the first Quiz Kids was seven-year-old nature expert Gerard Darrow. For the initial premiere panel he was joined by Mary Ann Anderson, Joan Bishop, Van Dyke Tiers and Charles Schwartz.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "quizkids_201403",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Quiz Kids'' - a 1951 episode",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1769,
+          "videoFile": {
+            "name": "quizkids.mp4",
+            "format": "h.264",
+            "sizeBytes": 184679150,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/quizkids_201403/quizkids.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

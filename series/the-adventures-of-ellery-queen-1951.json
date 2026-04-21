@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "seriesID": "the-adventures-of-ellery-queen-1951",
+  "title": "The Adventures of Ellery Queen",
+  "yearStart": 1951,
+  "yearEnd": 1952,
+  "overview": "The first TV adaptation of the adventures of super sleuth Ellery Queen, broadcast live from Hollywood. Queen was a mystery writer who assisted his father, a detective with the New York Police Department, in solving murders. Queen's methods were arcane and intellectual rather than action oriented, and he always astounded his father by arriving at a correction solution by purely deductive reasoning.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dbu2dNeMA8WdvemFsiWufSMJ1Au.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theAdventuresOfElleryQueen-BuckFever1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'The Adventures of Ellery Queen' - Buck fever (1952)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dbu2dNeMA8WdvemFsiWufSMJ1Au.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "Ellery_Queen_Buck_fever_10_01_52.mp4",
+            "format": "h.264",
+            "sizeBytes": 152022795,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theAdventuresOfElleryQueen-BuckFever1952/Ellery_Queen_Buck_fever_10_01_52.mp4"
+        },
+        {
+          "archiveID": "theAdventuresOfElleryQueen-DeathSpinsAWheel1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'The Adventures of Ellery Queen' - Death Spins a Wheel (1951)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dbu2dNeMA8WdvemFsiWufSMJ1Au.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1503,
+          "videoFile": {
+            "name": "EQ_Death_spins_wheel_05_10_51.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 204805990,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theAdventuresOfElleryQueen-DeathSpinsAWheel1951/EQ_Death_spins_wheel_05_10_51.ia.mp4"
+        },
+        {
+          "archiveID": "theAdventuresOfElleryQueen-ManWhoEnjoyedDeath1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'The Adventures of Ellery Queen' - Man who enjoyed death (1951)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dbu2dNeMA8WdvemFsiWufSMJ1Au.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ellery_Queen_Man_who_enjoyed_death_03_29_51.mp4",
+            "format": "h.264",
+            "sizeBytes": 153054269,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theAdventuresOfElleryQueen-ManWhoEnjoyedDeath1951/Ellery_Queen_Man_who_enjoyed_death_03_29_51.mp4"
+        },
+        {
+          "archiveID": "theAdventuresOfElleryQueen-MurderToMusic1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'The Adventures of Ellery Queen' - Murder to Music (1951)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dbu2dNeMA8WdvemFsiWufSMJ1Au.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "EQ_Murder_to_music_11_08_51.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 227887137,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theAdventuresOfElleryQueen-MurderToMusic1951/EQ_Murder_to_music_11_08_51.ia.mp4"
+        },
+        {
+          "archiveID": "Ellery_Queen_DuMont",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures of Ellery Queen - The Hanging Acrobat - DuMont Network",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/104/262276.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1440,
+          "videoFile": {
+            "name": "Ellery_Queen_DuMont_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 106012708,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ellery_Queen_DuMont/Ellery_Queen_DuMont_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

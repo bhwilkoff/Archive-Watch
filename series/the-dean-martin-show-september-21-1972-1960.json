@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-dean-martin-show-september-21-1972-1960",
+  "title": "The Dean Martin Show (September 21, 1972",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheDeanMartinShowSeptember211972",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheDeanMartinShowSeptember211972",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Dean Martin Show (September 21, 1972)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheDeanMartinShowSeptember211972",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The-Dean-Martin-Show-_September-21_-1972_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 219509797,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDeanMartinShowSeptember211972/The-Dean-Martin-Show-_September-21_-1972_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

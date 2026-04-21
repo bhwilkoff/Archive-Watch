@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "malhac_a_o_1997_capi_tulo_56-1960",
+  "title": "malhac_a_o_1997_Capi_tulo_56",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/malhac_a_o_1997_Capi_tulo_56",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "malhac_a_o_1997_Capi_tulo_56",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "malhac_a_o_1997_Capi_tulo_56",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/malhac_a_o_1997_Capi_tulo_56",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "malhac_a_o_1997_Capi_tulo_56.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 187612856,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/malhac_a_o_1997_Capi_tulo_56/malhac_a_o_1997_Capi_tulo_56.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "122155-awful-truth-76-77-outrage-of-working-conditions-4-5-1994",
+  "title": "122155 Awful Truth # 76 77 Outrage Of Working Conditions 4 5",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/122155-awful-truth-76-77-outrage-of-working-conditions-4-5_202210",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "122155-awful-truth-76-77-outrage-of-working-conditions-4-5_202210",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "122155 Awful Truth # 76 77 Outrage Of Working Conditions 4 5",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/122155-awful-truth-76-77-outrage-of-working-conditions-4-5_202210",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "122155 Awful Truth #76-77 Outrage of working conditions 4-5.mp4",
+            "format": "h.264",
+            "sizeBytes": 694742641,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/122155-awful-truth-76-77-outrage-of-working-conditions-4-5_202210/122155 Awful Truth #76-77 Outrage of working conditions 4-5.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

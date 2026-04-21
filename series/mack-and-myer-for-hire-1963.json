@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "seriesID": "mack-and-myer-for-hire-1963",
+  "title": "Mack and Myer for Hire",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": "Mack & Myer for Hire is an American sitcom that aired in syndication from 1963 to 1964. The show starred Mickey Deems and Joey Faye, and was produced by Trans-Lux Television in New York. Each episode was approximately 12 minutes long, and the show was filmed using a two-camera layout. Over 100 episodes were produced during its only year in production, and these were re-run well into the 1970s.",
+  "posterURL": "https://archive.org/services/img/Friendly_Enemies",
+  "backdropURL": null,
+  "genres": [
+    "sitcom"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Mack_And_Myer_For_Hire_Jennie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Mack And Myer For Hire\": Mack & Myer Meet Jennie (Classic TV)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mack_And_Myer_For_Hire_Jennie",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MackAndMyerMeetJennie.mp4",
+            "format": "h.264",
+            "sizeBytes": 71288047,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mack_And_Myer_For_Hire_Jennie/MackAndMyerMeetJennie.mp4"
+        },
+        {
+          "archiveID": "Mack_and_Myer_For_Hire_Dueling_Fools",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Mack and Myer For Hire\": Dueling Fools (Classic TV)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mack_and_Myer_For_Hire_Dueling_Fools",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 720,
+          "videoFile": {
+            "name": "MackandMyerForHire-DuelingFools.mp4",
+            "format": "h.264",
+            "sizeBytes": 71448851,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mack_and_Myer_For_Hire_Dueling_Fools/MackandMyerForHire-DuelingFools.mp4"
+        },
+        {
+          "archiveID": "Friendly_Enemies",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Mack and Myer for Hire\" - Finders Weepers (Classic TV)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Friendly_Enemies",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 720,
+          "videoFile": {
+            "name": "MackandMyerForHire-FindersWeepers.mp4",
+            "format": "h.264",
+            "sizeBytes": 71440692,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Friendly_Enemies/MackandMyerForHire-FindersWeepers.mp4"
+        },
+        {
+          "archiveID": "mackAndMyerForHire-FriendlyEnemieshigherQuality",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Mack and Myer for Hire'' - Friendly Enemies (Higher Quality)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/mackAndMyerForHire-FriendlyEnemieshigherQuality",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 689,
+          "videoFile": {
+            "name": "MackMyer1.mp4",
+            "format": "h.264",
+            "sizeBytes": 66125905,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mackAndMyerForHire-FriendlyEnemieshigherQuality/MackMyer1.mp4"
+        },
+        {
+          "archiveID": "MackAndMyerForHire_Out_On_The_Town",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Mack and Myer for Hire' - Out On The Town (Classic TV)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MackAndMyerForHire_Out_On_The_Town",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MackAndMyerOutOnTheTown.mp4",
+            "format": "h.264",
+            "sizeBytes": 71835709,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MackAndMyerForHire_Out_On_The_Town/MackAndMyerOutOnTheTown.mp4"
+        },
+        {
+          "archiveID": "Wacky_Wizardry",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Mack and Myer for Hire'- Wacky Wizardry (60's Sitcom) (Classic TV)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Wacky_Wizardry",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MackAndMyerForHireWackyWizardry.mp4",
+            "format": "h.264",
+            "sizeBytes": 66312336,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Wacky_Wizardry/MackAndMyerForHireWackyWizardry.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

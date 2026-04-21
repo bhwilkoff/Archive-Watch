@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-big-crime-1960",
+  "title": "The Big Crime",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Dragnet_TheBigCrime",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dragnet_TheBigCrime",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Crime",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Dragnet_TheBigCrime",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S04E03_TheBigCrime.mp4",
+            "format": "h.264",
+            "sizeBytes": 160383795,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dragnet_TheBigCrime/S04E03_TheBigCrime.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

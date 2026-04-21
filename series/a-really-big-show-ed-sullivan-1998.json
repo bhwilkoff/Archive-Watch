@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-really-big-show-ed-sullivan-1998",
+  "title": "A Really Big Show Ed Sullivan",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/a-really-big-show-ed-sullivans-50th-1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "a-really-big-show-ed-sullivans-50th-1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Really Big Show Ed Sullivan's 50th - Smothers Brothers",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/a-really-big-show-ed-sullivans-50th-1998",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A Really Big Show - Ed Sullivans 50th - 1998.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1435631640,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/a-really-big-show-ed-sullivans-50th-1998/A Really Big Show - Ed Sullivans 50th - 1998.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

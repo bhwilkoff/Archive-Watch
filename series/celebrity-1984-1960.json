@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "celebrity-1984-1960",
+  "title": "Celebrity (1984",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Celebrity1984LastHour",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Celebrity1984LastHour",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Celebrity (1984 miniseries)- last hour",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Celebrity1984LastHour",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Celebrity-_1984_-last-hour.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 226893587,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Celebrity1984LastHour/Celebrity-_1984_-last-hour.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

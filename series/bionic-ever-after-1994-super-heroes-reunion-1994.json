@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bionic-ever-after-1994-super-heroes-reunion-1994",
+  "title": "Bionic Ever After (1994 Super Heroes Reunion",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bionic-ever-after-1994-super-heroes-wald-alwald-m-03",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bionic-ever-after-1994-super-heroes-wald-alwald-m-03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bionic Ever After (1994 Super Heroes Reunion)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bionic-ever-after-1994-super-heroes-wald-alwald-m-03",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": 5332,
+          "videoFile": {
+            "name": "Bionic Ever After (1994 Super Heroes_ (wald alwald) M03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 244697173,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bionic-ever-after-1994-super-heroes-wald-alwald-m-03/Bionic Ever After (1994 Super Heroes_ (wald alwald) M03.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

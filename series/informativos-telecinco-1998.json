@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "informativos-telecinco-1998",
+  "title": "Informativos Telecinco",
+  "yearStart": 1998,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/informativos-telecinco-1998-04-04",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "informativos-telecinco-1999-01-02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Informativos Telecinco - 2 de enero, 1999",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/informativos-telecinco-1999-01-02",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Informativo Fin de Semana - Fragmento (2-1-1999).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 53109513,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/informativos-telecinco-1999-01-02/Informativo Fin de Semana - Fragmento (2-1-1999).ia.mp4"
+        },
+        {
+          "archiveID": "informativos-telecinco-1998-04-04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Informativos Telecinco - 4 de abril, 1998",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/informativos-telecinco-1998-04-04",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Informativo Fin de Semana (4-4-1998) (resubido).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 88215287,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/informativos-telecinco-1998-04-04/Informativo Fin de Semana (4-4-1998) (resubido).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

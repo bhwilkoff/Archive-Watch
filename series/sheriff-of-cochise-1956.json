@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "sheriff-of-cochise-1956",
+  "title": "Sheriff of Cochise",
+  "yearStart": 1956,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sheriffOfCochiseLynchingPartydrama1957",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sheriffOfCochise-BankRobbery1957Drama",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Sheriff of Cochise'' - Bank Robbery (1957, Drama)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sheriffOfCochise-BankRobbery1957Drama",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1546,
+          "videoFile": {
+            "name": "CochiseBankRobbery.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150588766,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sheriffOfCochise-BankRobbery1957Drama/CochiseBankRobbery.ia.mp4"
+        },
+        {
+          "archiveID": "sheriffOfCochise-HusbandAndWife1957formatIpod",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Sheriff of Cochise'' - Husband and Wife (1957) (Format: iPod)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sheriffOfCochise-HusbandAndWife1957formatIpod",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1543,
+          "videoFile": {
+            "name": "HusbandandWife.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154684874,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sheriffOfCochise-HusbandAndWife1957formatIpod/HusbandandWife.ia.mp4"
+        },
+        {
+          "archiveID": "sheriffOfCochiseLynchingPartydrama1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Sheriff of Cochise'' Lynching Party (Drama, 1957)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sheriffOfCochiseLynchingPartydrama1957",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1547,
+          "videoFile": {
+            "name": "LynchingParty1957.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152359104,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sheriffOfCochiseLynchingPartydrama1957/LynchingParty1957.ia.mp4"
+        },
+        {
+          "archiveID": "sheriffOfCochise-TheRed-hairedVisitortvDrama1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Sheriff of Cochise''- The Red-Haired Visitor (TV Drama, 1956)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sheriffOfCochise-TheRed-hairedVisitortvDrama1956",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1555,
+          "videoFile": {
+            "name": "RedHairedVisitor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153054109,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sheriffOfCochise-TheRed-hairedVisitortvDrama1956/RedHairedVisitor.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

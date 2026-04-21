@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "excerpt-from-unidentified-programexcerpt-from-1960",
+  "title": "Excerpt from unidentified program/Excerpt from",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Johnny_Cash_Carl_Perkins",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Johnny_Cash_Carl_Perkins",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Excerpt from unidentified program/Excerpt from 'The Ranch Party Show'",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Johnny_Cash_Carl_Perkins",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Johnny_Cash_Carl_Perkins.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 29960259,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Johnny_Cash_Carl_Perkins/Johnny_Cash_Carl_Perkins.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

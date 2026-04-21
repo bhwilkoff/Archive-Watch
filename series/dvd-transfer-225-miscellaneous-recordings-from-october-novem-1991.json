@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dvd-transfer-225-miscellaneous-recordings-from-october-novem-1991",
+  "title": "DVD Transfer 225 (Miscellaneous Recordings from October-November 1991",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/dvd-transfer-225",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dvd-transfer-225",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "DVD Transfer 225 (Miscellaneous Recordings from October-November 1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/dvd-transfer-225",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Miscellaneous Recordings (Mostly from October-November 1991).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 4726935805,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dvd-transfer-225/Miscellaneous Recordings (Mostly from October-November 1991).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

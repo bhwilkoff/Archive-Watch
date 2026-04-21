@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "adam-12-1968",
+  "title": "Adam 12",
+  "yearStart": 1968,
+  "yearEnd": 1968,
+  "overview": "Adam-12 is a television police drama that followed two police officers of the Los Angeles Police Department, Pete Malloy and Jim Reed, as they patrolled the streets of Los Angeles in their patrol unit, 1-Adam-12.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/jXlPZz943xMbqfp2Ne1OvOWaPo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/dM6fTSA55edFYGPTc7VOaaz9NdK.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Jack Webb",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "adam-12.-s-01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Adam 12 Season 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jXlPZz943xMbqfp2Ne1OvOWaPo.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Adam-12.S01E11.Log.111.Snake.In.The.Trunk.mp4",
+            "format": "h.264",
+            "sizeBytes": 150461996,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/adam-12.-s-01/Adam-12.S01E11.Log.111.Snake.In.The.Trunk.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

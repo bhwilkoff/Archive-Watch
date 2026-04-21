@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-gordon-elliott-show--april-5-1996-partial-2025",
+  "title": "The Gordon Elliott Show- April 5, 1996 (partial",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-gordon-elliott-show-april-5-1996-partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-gordon-elliott-show-april-5-1996-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Gordon Elliott Show- April 5, 1996 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-gordon-elliott-show-april-5-1996-partial",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Gordon Elliott Show- April 5, 1996 (partial).mp4",
+            "format": "h.264",
+            "sizeBytes": 176984952,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-gordon-elliott-show-april-5-1996-partial/The Gordon Elliott Show- April 5, 1996 (partial).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

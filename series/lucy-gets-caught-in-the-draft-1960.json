@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lucy-gets-caught-in-the-draft-1960",
+  "title": "Lucy Gets Caught In The Draft",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TLS_Lucy_Gets_Caught_In_The_Draft",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TLS_Lucy_Gets_Caught_In_The_Draft",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lucy Gets Caught In The Draft",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TLS_Lucy_Gets_Caught_In_The_Draft",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TLS_Lucy_Gets_Caught_In_The_Draft.mp4",
+            "format": "h.264",
+            "sizeBytes": 147668492,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TLS_Lucy_Gets_Caught_In_The_Draft/TLS_Lucy_Gets_Caught_In_The_Draft.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

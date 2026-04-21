@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "seriesID": "the-world-according-to-smith-and-jones-1987",
+  "title": "The World According to Smith and Jones",
+  "yearStart": 1987,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-world-according-to-smith-and-jones-s-1x-e-1-the-stone-age-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The World According to Smith and Jones - S1xE1 (The Stone Age, 1987)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The World According to Smith and Jones - S1xE1 (The Stone Age, 1987).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 91148138,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-world-according-to-smith-and-jones-s-1x-e-1-the-stone-age-1987/The World According to Smith and Jones - S1xE1 (The Stone Age, 1987).mp4"
+        },
+        {
+          "archiveID": "the-world-according-to-smith-and-jones-s-1x-e-2-the-romans-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The World According to Smith and Jones - S1xE2 (The Romans, 1987)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The World According to Smith and Jones - S1xE2 (The Romans, 1987).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85627635,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-world-according-to-smith-and-jones-s-1x-e-2-the-romans-1987/The World According to Smith and Jones - S1xE2 (The Romans, 1987).mp4"
+        },
+        {
+          "archiveID": "the-world-according-to-smith-and-jones-s-1x-e-3-the-middle-ages-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The World According to Smith and Jones - S1xE3 (The Middle Ages, 1987)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The World According to Smith and Jones - S1xE3 (The Middle Ages, 1987).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 89348093,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-world-according-to-smith-and-jones-s-1x-e-3-the-middle-ages-1987/The World According to Smith and Jones - S1xE3 (The Middle Ages, 1987).mp4"
+        },
+        {
+          "archiveID": "the-world-according-to-smith-and-jones-s-1x-e-4-the-tudors-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The World According to Smith and Jones - S1xE4 (The Tudors, 1987)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The World According to Smith and Jones - S1xE4 (The Tudors, 1987).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 87463269,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-world-according-to-smith-and-jones-s-1x-e-4-the-tudors-1987/The World According to Smith and Jones - S1xE4 (The Tudors, 1987).mp4"
+        },
+        {
+          "archiveID": "the-world-according-to-smith-and-jones-s-1x-e-5-the-napoleonic-wars-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The World According to Smith and Jones - S1xE5 (The Napoleonic Wars, 1987)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The World According to Smith and Jones - S1xE5 (The Napoleonic Wars, 1987).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 92223671,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-world-according-to-smith-and-jones-s-1x-e-5-the-napoleonic-wars-1987/The World According to Smith and Jones - S1xE5 (The Napoleonic Wars, 1987).mp4"
+        },
+        {
+          "archiveID": "the-world-according-to-smith-and-jones-s-1x-e-6-the-victorians-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The World According to Smith and Jones - S1xE6 (The Victorians, 1987)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The World According to Smith and Jones - S1xE6 (The Victorians, 1987).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 86213036,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-world-according-to-smith-and-jones-s-1x-e-6-the-victorians-1987/The World According to Smith and Jones - S1xE6 (The Victorians, 1987).mp4"
+        },
+        {
+          "archiveID": "the-world-according-to-smith-and-jones-s-2x-e-1-medicine-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The World According to Smith and Jones - S2xE1 (Medicine, 1988)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The World According to Smith and Jones - S2xE1 - (Medicine, 1988).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 75277113,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-world-according-to-smith-and-jones-s-2x-e-1-medicine-1988/The World According to Smith and Jones - S2xE1 - (Medicine, 1988).mp4"
+        },
+        {
+          "archiveID": "the-world-according-to-smith-and-jones-s-2x-e-2-war-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The World According to Smith and Jones - S2xE2 (War, 1988)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The World According to Smith and Jones - S2xE2 (War, 1988).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 73848015,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-world-according-to-smith-and-jones-s-2x-e-2-war-1988/The World According to Smith and Jones - S2xE2 (War, 1988).mp4"
+        },
+        {
+          "archiveID": "the-world-according-to-smith-and-jones-s-2x-e-3-law-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The World According to Smith and Jones - S2xE3 (Law, 1988)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The World According to Smith and Jones - S2xE3 (Law, 1988).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71055220,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-world-according-to-smith-and-jones-s-2x-e-3-law-1988/The World According to Smith and Jones - S2xE3 (Law, 1988).mp4"
+        },
+        {
+          "archiveID": "the-world-according-to-smith-and-jones-s-2x-e-4-education-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The World According to Smith and Jones - S2xE4 (Education, 1988)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The World According to Smith and Jones - S2xE4 (Education, 1988).mp4",
+            "format": "h.264",
+            "sizeBytes": 149539037,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-world-according-to-smith-and-jones-s-2x-e-4-education-1988/The World According to Smith and Jones - S2xE4 (Education, 1988).mp4"
+        },
+        {
+          "archiveID": "the-world-according-to-smith-and-jones-s-2x-e-6-science-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The World According to Smith and Jones - S2xE6 (Science, 1988)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The World According to Smith and Jones - S2xE6 (Science, 1988).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 82195646,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-world-according-to-smith-and-jones-s-2x-e-6-science-1988/The World According to Smith and Jones - S2xE6 (Science, 1988).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 11
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "xcorps-music-special-early-jewel-1994-1994",
+  "title": "Xcorps MUSIC SPECIAL EARLY JEWEL 1994",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Jewel1994-00-00.Jewel",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Jewel1994-00-00.Jewel",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Xcorps MUSIC SPECIAL EARLY JEWEL 1994",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Jewel1994-00-00.Jewel",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "XcorpsMusicJEWEL94HD.mp4",
+            "format": "h.264",
+            "sizeBytes": 32229944,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Jewel1994-00-00.Jewel/XcorpsMusicJEWEL94HD.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

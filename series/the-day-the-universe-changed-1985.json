@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "seriesID": "the-day-the-universe-changed-1985",
+  "title": "The Day The Universe Changed",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": "Documentary series about the effect of advances in science and technology on western society in its philosophical aspects.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/vOSgLmPj34jBIRFvFigEEScbfRo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qE7PThkhsn02H1vhrhQN0nE2CxK.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-day-the-universe-changed-s01e01-the-way-we-are",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Way We Are: It Started with the Greeks",
+          "overview": "Written and presented by James Burke, this 10-part series traces the development of Western thought through its major transformations since the days of ancient Greece. Program one is an overview of the series, showing how a culture’s view of the world around it determines how it sees itself, and is reflected even in the smallest details of its customs and habits.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vOSgLmPj34jBIRFvFigEEScbfRo.jpg",
+          "airDate": "1985-03-19",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Day The Universe Changed - S01E01 - The Way We Are.mp4",
+            "format": "h.264",
+            "sizeBytes": 292592353,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-day-the-universe-changed-s01e01-the-way-we-are/The Day The Universe Changed - S01E01 - The Way We Are.mp4"
+        },
+        {
+          "archiveID": "the-day-the-universe-changed-s01e02-the-way-we-are",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "In the Light of the Above: Medieval Conflict: Faith and Reason",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vOSgLmPj34jBIRFvFigEEScbfRo.jpg",
+          "airDate": "1985-03-26",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Day The Universe Changed - S01E02 - In the Light of the Above.mp4",
+            "format": "h.264",
+            "sizeBytes": 294218485,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-day-the-universe-changed-s01e02-the-way-we-are/The Day The Universe Changed - S01E02 - In the Light of the Above.mp4"
+        },
+        {
+          "archiveID": "the-day-the-universe-changed-s01e03-the-way-we-are",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Point of View: Scientific Imagination in the Renaissance",
+          "overview": "Shows that Western Europe’s rediscovery of perspective through the study of Arab optics led to revolutions in art and architecture. The West’s new-found ability to control things at a distance resulted in new methods of warfare and the confidence to make long voyages of exploration.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vOSgLmPj34jBIRFvFigEEScbfRo.jpg",
+          "airDate": "1985-04-02",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Day The Universe Changed - S01E03 - Point of View.mp4",
+            "format": "h.264",
+            "sizeBytes": 293289079,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-day-the-universe-changed-s01e03-the-way-we-are/The Day The Universe Changed - S01E03 - Point of View.mp4"
+        },
+        {
+          "archiveID": "the-day-the-universe-changed-s01e04-the-way-we-are",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "A Matter of Fact: Printing Transforms Knowledge",
+          "overview": "Observes that the invention of printing and the advent of cheap paper forever transformed the nature of knowledge from the local and traditional to the systematic and testable. Nationalism, public relations, and propaganda are among the results.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vOSgLmPj34jBIRFvFigEEScbfRo.jpg",
+          "airDate": "1985-04-09",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Day The Universe Changed - S01E04 - A Matter of Fact.mp4",
+            "format": "h.264",
+            "sizeBytes": 294040254,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-day-the-universe-changed-s01e04-the-way-we-are/The Day The Universe Changed - S01E04 - A Matter of Fact.mp4"
+        },
+        {
+          "archiveID": "the-day-the-universe-changed-s01e05-the-way-we-are",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Infinitely Reasonable: Science Revises the Heavens",
+          "overview": "Notes that investigators such as Copernicus, Kepler, Galileo, and Newton evolved better explanations of natural phenomena than those of Aristotle. Highlights the theories that led to a new conception of how the universe works and of man’s place in it.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vOSgLmPj34jBIRFvFigEEScbfRo.jpg",
+          "airDate": "1985-04-16",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Day The Universe Changed - S01E05 - Infinitely Reasonable.mp4",
+            "format": "h.264",
+            "sizeBytes": 292907758,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-day-the-universe-changed-s01e05-the-way-we-are/The Day The Universe Changed - S01E05 - Infinitely Reasonable.mp4"
+        },
+        {
+          "archiveID": "the-day-the-universe-changed-s01e06-the-way-we-are",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Credit Where It's Due: The Factory and Marketplace Revolution",
+          "overview": "Locates the origins of contemporary consumerism in the English industrial Revolution, powered by religious dissenters barred from all activities except trade. The invention of the steam engine, new forms of credit, surplus wealth, and opening markets laid the foundation for industrial society.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vOSgLmPj34jBIRFvFigEEScbfRo.jpg",
+          "airDate": "1985-04-23",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Day The Universe Changed - S01E06 - Credit Where Its Due.mp4",
+            "format": "h.264",
+            "sizeBytes": 293708385,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-day-the-universe-changed-s01e06-the-way-we-are/The Day The Universe Changed - S01E06 - Credit Where Its Due.mp4"
+        },
+        {
+          "archiveID": "the-day-the-universe-changed-s01e07-the-way-we-are",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "What the Doctor Ordered: Impacts of New Medical Knowledge",
+          "overview": "Traces modern society’s recognition of the value of statistics to medical advances stemming from responses to the French Revolution and an English cholera epidemic. Identifies the origins of medicine as a science with the discovery of anesthesia, antiseptics, and bacteriology.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vOSgLmPj34jBIRFvFigEEScbfRo.jpg",
+          "airDate": "1985-04-30",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Day The Universe Changed - S01E07 - What the Doctor Ordered.mp4",
+            "format": "h.264",
+            "sizeBytes": 294266559,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-day-the-universe-changed-s01e07-the-way-we-are/The Day The Universe Changed - S01E07 - What the Doctor Ordered.mp4"
+        },
+        {
+          "archiveID": "the-day-the-universe-changed-s01e08-the-way-we-are",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Fit to Rule: Darwin's Revolution",
+          "overview": "Tracks the expectation of change, fundamental to contemporary society, through the developing sciences of botany, geology, and biology to Darwin’s theory of evolution. Darwin’s theory, in turn, has been used as a justification for Nazism, communism, and cut-throat capitalism.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vOSgLmPj34jBIRFvFigEEScbfRo.jpg",
+          "airDate": "1985-05-07",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Day The Universe Changed - S01E08 - Fit to Rule.mp4",
+            "format": "h.264",
+            "sizeBytes": 292692506,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-day-the-universe-changed-s01e08-the-way-we-are/The Day The Universe Changed - S01E08 - Fit to Rule.mp4"
+        },
+        {
+          "archiveID": "the-day-the-universe-changed-s01e09-the-way-we-are",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Making Waves: The New Physics: Newton Revised",
+          "overview": "Points out that studies of the properties of magnetism, electricity, and light have led scientists to the realization that Newtonian physics is inadequate to explain all that they observe. The public, meanwhile, has continued to concentrate on the technological by-products of science.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vOSgLmPj34jBIRFvFigEEScbfRo.jpg",
+          "airDate": "1985-05-14",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Day The Universe Changed - S01E09 - Making Waves.mp4",
+            "format": "h.264",
+            "sizeBytes": 291465343,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-day-the-universe-changed-s01e09-the-way-we-are/The Day The Universe Changed - S01E09 - Making Waves.mp4"
+        },
+        {
+          "archiveID": "the-day-the-universe-changed-s01e10-the-way-we-are",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Worlds Without End: Changing Knowledge, Changing Reality",
+          "overview": "Observes that over the centuries Western civilization has regularly shifted its conception of the nature of truth. The series closes with host James Burke's remarkably prescient assessment of the role in which modern computer networks are beginning to now play in shaping man's current conception of his reality as well as how they may well define the fundamental nature of all future human interaction. And while his message is ultimately a positive one, it is tempered with the warning that while the promise of the computer may indeed provide a framework for a future anarchism where human freedom is nourished and where every individual conception of reality is a valid one, it could conversely become of tool of totalitarian repression and conformity.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/vOSgLmPj34jBIRFvFigEEScbfRo.jpg",
+          "airDate": "1985-05-21",
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Day The Universe Changed - S01E10 - Worlds Without End.mp4",
+            "format": "h.264",
+            "sizeBytes": 293425955,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-day-the-universe-changed-s01e10-the-way-we-are/The Day The Universe Changed - S01E10 - Worlds Without End.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 10
+}

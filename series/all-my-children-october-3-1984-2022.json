@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "all-my-children-october-3-1984-2022",
+  "title": "All My Children (October 3, 1984",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/all-my-children-october-3-1984",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "all-my-children-october-3-1984",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "All My Children (October 3, 1984)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/all-my-children-october-3-1984",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "All My Children (October 3, 1984).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 708859749,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/all-my-children-october-3-1984/All My Children (October 3, 1984).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

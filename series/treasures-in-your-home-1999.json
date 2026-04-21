@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "treasures-in-your-home-1999",
+  "title": "Treasures In Your Home",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/treasures-in-your-home-mm-estate-1999",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "treasures-in-your-home-mm-estate-1999",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Treasures In Your Home - Rhonda Pearson, John Bruno, Judith Katz-Schwartz",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/treasures-in-your-home-mm-estate-1999",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Treasures In Your Home - MM estate - 1999.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1376167239,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/treasures-in-your-home-mm-estate-1999/Treasures In Your Home - MM estate - 1999.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

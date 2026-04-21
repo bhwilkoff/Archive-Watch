@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "anniversary-show-april-30-1949-1960",
+  "title": "Anniversary Show (April 30, 1949",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AnniversaryShowapril301949",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AnniversaryShowapril301949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Anniversary Show (April 30, 1949)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AnniversaryShowapril301949",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1772,
+          "videoFile": {
+            "name": "Ten_years_ago_today_04_30_1949.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 243608750,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AnniversaryShowapril301949/Ten_years_ago_today_04_30_1949.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

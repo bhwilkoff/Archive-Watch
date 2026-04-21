@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "s1e16-life_of_riley-01_17_1950_-_rileys_firstborn-1960",
+  "title": "S1E16-Life_Of_Riley-01_17_1950_-_Rileys_Firstborn",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/S1E16-Life_Of_Riley-01_17_1950_-_Rileys_Firstborn",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "S1E16-Life_Of_Riley-01_17_1950_-_Rileys_Firstborn",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "S1E16-Life_Of_Riley-01_17_1950_-_Rileys_Firstborn",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/S1E16-Life_Of_Riley-01_17_1950_-_Rileys_Firstborn",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E16-Life_Of_Riley-01_17_1950-Rileys_Firstborn.mp4",
+            "format": "h.264",
+            "sizeBytes": 105552760,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E16-Life_Of_Riley-01_17_1950_-_Rileys_Firstborn/S1E16-Life_Of_Riley-01_17_1950-Rileys_Firstborn.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

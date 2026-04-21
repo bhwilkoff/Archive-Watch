@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-a-team-s-01-e-13-a-nice-place-to-visit-1983",
+  "title": "The A Team S 01 E 13 A Nice Place To Visit",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-a-team-s-01-e-14-a-nice-place-to-visit",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-a-team-s-01-e-14-a-nice-place-to-visit",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The A Team S 01 E 13 A Nice Place To Visit",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-a-team-s-01-e-14-a-nice-place-to-visit",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The A-Team S01E14 A Nice Place to Visit.mp4",
+            "format": "h.264",
+            "sizeBytes": 270976896,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-a-team-s-01-e-14-a-nice-place-to-visit/The A-Team S01E14 A Nice Place to Visit.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

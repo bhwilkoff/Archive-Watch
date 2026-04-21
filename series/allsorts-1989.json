@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "allsorts-1989",
+  "title": "Allsorts",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "Allsorts is British children's television series that was produced by Granada Television for nine series, which aired from 8 January 1986 to 12 December 1995 on CITV.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/5gOOtsmRHC8CjE5B6huzG8DBeYW.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/3mEyvcfhj4CfDpADCAGpjCsEaop.jpg",
+  "genres": [],
+  "networks": [
+    "CITV"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "allsorts-s-03-e-09-sharing",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Same/Different",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/5gOOtsmRHC8CjE5B6huzG8DBeYW.jpg",
+          "airDate": "1987-03-04",
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Allsorts - S03E09 - Sharing.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 612058682,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/allsorts-s-03-e-09-sharing/Allsorts - S03E09 - Sharing.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

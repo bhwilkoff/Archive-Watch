@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dick-clark-presents-1988",
+  "title": "Dick Clark Presents",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/89/224523.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": "Dick Clark",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dick-clark-presents-the-association-steve-landesburg-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dick Clark Presents... - The Association, Steve Landesberg",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/89/224523.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Dick Clark Presents - The Association Steve Landesburg - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 402824601,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dick-clark-presents-the-association-steve-landesburg-1988/Dick Clark Presents - The Association Steve Landesburg - 1988.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-oscar-levant-show-1960",
+  "title": "The Oscar Levant Show",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheOscarLevantShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheOscarLevantShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Oscar Levant Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheOscarLevantShow",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The_Oscar_Levant_Show-1958_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 124071167,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheOscarLevantShow/The_Oscar_Levant_Show-1958_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

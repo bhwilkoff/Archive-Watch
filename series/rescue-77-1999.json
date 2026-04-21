@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "rescue-77-1999",
+  "title": "Rescue 77",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": "Rescue 77 is an American television series about the professional and personal lives of paramedics in Los Angeles, California. The show aired in the spring of 1999 on Monday nights on the WB network.\n\nThe creator and executive producer was Gregory Widen, a former Southern California firefighter and paramedic, and the writer of the 1991 firefighting drama Backdraft. His goal for the show was to provide a more realistic depiction of the lives of firefighters and paramedics than previous emergency medical television series such as Emergency!.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/sSDvZ4ESV2SJ2ZnuypZXa2iiuui.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "The WB"
+  ],
+  "creator": "Gregory Widen",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "rescue-77-s-01-e-03-a-bumpy-ride",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "A Bumpy Ride",
+          "overview": "Crazed college celebrators keep everyone busy, and steal Station 77's R.A. Wick performs a risky surgical procedure in the field, and the doctor that is going to write him up instead learns how important it can be to improvise. Michael's father tries to convince him to take over the family business. Ryan prepares for an amateur crossbow tournament in New Zealand.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sSDvZ4ESV2SJ2ZnuypZXa2iiuui.jpg",
+          "airDate": "1999-03-22",
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Rescue 77 S01E03 A Bumpy Ride.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 377897596,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/rescue-77-s-01-e-03-a-bumpy-ride/Rescue 77 S01E03 A Bumpy Ride.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

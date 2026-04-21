@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "out-of-this-world-1987",
+  "title": "Out of This World",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": "Out Of This World is an American fantasy sitcom about a teenage girl who is half alien, which gives her unique supernatural powers. It first aired in syndication from September 17, 1987 and ended on May 25, 1991.\n\nDuring its first season, the series was originally part of NBC's Prime Time Begins at 7:30 campaign, in which the network's owned-and-operated stations would run first-run sitcoms in the 7:30-8 pm time slot to counterprogram competing stations' game shows, sitcom reruns and other offerings. Out of This World was rotated with the original series Marblehead Manor and She's the Sheriff, a syndicated revival of the 1983 sitcom We Got It Made, and a television adaptation of the play You Can't Take It With You. NBC ended the experiment after the 1987-88 season due to the low ratings put up by three of the series, with Out of This World being one of the two that was renewed. After its first season the series was largely moved to weekend time slots, where it remained until its cancellation following the fourth season.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/qyvr4gE5RbIldFlVeJBHn60VQfd.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/v5zofMpCXFlOwDF8LOK7EA5CBq4.jpg",
+  "genres": [],
+  "networks": [
+    "NBC",
+    "Syndication"
+  ],
+  "creator": "John Boni",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "out-of-this-world-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Out of This World - Maureen Flannigan, Donna Pescow",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/qyvr4gE5RbIldFlVeJBHn60VQfd.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Out of This World - 1.05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 662920594,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/out-of-this-world-1.01/Out of This World - 1.05.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "classic-coca-cola-commercial-from-1954-1954",
+  "title": "Classic Coca-Cola Commercial from 1954",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Coke_Commercial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Coke_Commercial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic Coca-Cola Commercial from 1954",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Coke_Commercial",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Coke_Commercial_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4086310,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Coke_Commercial/Coke_Commercial_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

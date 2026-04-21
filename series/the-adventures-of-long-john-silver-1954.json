@@ -1,0 +1,260 @@
+{
+  "version": 1,
+  "seriesID": "the-adventures-of-long-john-silver-1954",
+  "title": "The Adventures of Long John Silver",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": "The Adventures of Long John Silver is a family adventure series about the Long John Silver character from Treasure Island. Produced in 1954 in colour in Australia for the American and British markets before the development of Australian television.\n\nLong John Silver is the proud captain of his own ship and his own crew. He and his buccaneer cruise around the Caribbean and often stay on the side of the English and fight the French and Spanish. After long and dangerous adventures, he and his crew rest in the tavern of Miss Purity.\n\nThe series first aired in the United States on syndicated basis in 1956, but irregularly as part of another show. Several episodes were edited together and shown theatrically under the titles: 'Under the Black Flag' and 'South Sea Pirates'.\n\nAfterwards, it was sold to the ITV in the UK, and aired in 1957. In 1958, the Australian Broadcasting Company (ABC) screened the series as part of Children's TV Club.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qJMfpdKfiBIEZBpZHUQaxrIyFCZ.jpg",
+  "genres": [],
+  "networks": [
+    "ABC TV",
+    "ITV1",
+    "ARD-alpha",
+    "Reel Media International"
+  ],
+  "creator": "Robert Louis Stevenson",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode1theNecklace",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Necklace",
+          "overview": "Long John Silver is arrested for murder and robbery. Miss Purity and Jim Hawkins try to prove his innocense.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-04-09",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TheAdventuresOfLongJohnSilver-TheNecklace-limou3okxka.mp4",
+            "format": "h.264",
+            "sizeBytes": 164929639,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode1theNecklace/TheAdventuresOfLongJohnSilver-TheNecklace-limou3okxka.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Pieces of Eight",
+          "overview": "Desperate to get the money to save his ship, Long John agrees to a plan another pirate recommends to steal Spanish gold. But the pirate turns out to be just as much of a liar as was the last time Long John met him.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-04-30",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Long John Silver PIECES OF EIGHT - Robert Newton-ec0Xyc4T3io.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 111627056,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode2/Long John Silver PIECES OF EIGHT - Robert Newton-ec0Xyc4T3io.ogv"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode4",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Execution Dock",
+          "overview": "While sick with a fever, Long John dreams that he is to be executed for piracy.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-06-20",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Long John Silver EXECUTION DOCK-i3LRdQsqe6g.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 122030786,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode4/Long John Silver EXECUTION DOCK-i3LRdQsqe6g.ogv"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode5",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Eviction",
+          "overview": "The Governor orders to close Miss Purity’s tavern on behalf of the English. Long John discovers plans from the Spanish about an military invasion.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-06-18",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Long John Silver THE EVICTION-9f_UltV-F7g.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 120463411,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode5/Long John Silver THE EVICTION-9f_UltV-F7g.ogv"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode6",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Pink Pearl",
+          "overview": "Gentleman Richard Thorpe asks Lng John for help to find his brother, who is missing on an island occupied by the Spanish. On the island they find out, that the Spanish try everything to get all the pink pearls.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-03-05",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - The Pink Pearl-BnvsKevGkwU.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 114582790,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode6/The Adventures of Long John Silver - The Pink Pearl-BnvsKevGkwU.ogv"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode7",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Tale of a Tooth",
+          "overview": "Long John Silver suddenly is in pain, he has a toothache. So he is forced to save a dentist from the Spanish.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-08-20",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - The Tale of the Tooth-MAEYuIrU_1s.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 116135328,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode7/The Adventures of Long John Silver - The Tale of the Tooth-MAEYuIrU_1s.ogv"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode8",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Ship o' the Dead",
+          "overview": "Jim Hawkins tells the story that he actually saw a ship in the bay with a dead crew - and of course nobody believes him. Jim and Long John Silver discover that the Spanish robbed the ship and killed the entire crew.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-08-27",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - Ship O' the Dead-_2nFygVkXx4.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 113620808,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode8/The Adventures of Long John Silver - Ship O' the Dead-_2nFygVkXx4.ogv"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode9swordOfVengeance",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Sword of Vengeance",
+          "overview": "Silver and his crew attempt to plunder a Spanish ship, but there's no one aboard except dead prisoners.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-07-09",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TheAdventuresOfLongJohnSilver-SwordOfVengeance-wz0btc4zbmo.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 100770787,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode9swordOfVengeance/TheAdventuresOfLongJohnSilver-SwordOfVengeance-wz0btc4zbmo.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode10",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Turnabout",
+          "overview": "France and England are at war—and to the amusement of Long John Silver and his pirate crew, the foppish French Navy takes over their ship.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-06-04",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - Turnabout-vOaBHoC19_k.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 114541147,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode10/The Adventures of Long John Silver - Turnabout-vOaBHoC19_k.ogv"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode11missPuritysBirthday",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Miss Purity's Birthday",
+          "overview": "Miss Purity is upset that no one has remembered her birthday except the priest.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-06-11",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TheAdventuresOfLongJohnSilver-MissPuritysBirthday-t948txc6zay.mp4",
+            "format": "h.264",
+            "sizeBytes": 166146921,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode11missPuritysBirthday/TheAdventuresOfLongJohnSilver-MissPuritysBirthday-t948txc6zay.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode12",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Dead Reckoning",
+          "overview": "Miss Purity and Long John decide Jim should be sent to a private school after he causes trouble at a local birthday party. But things become worse then Jim's roommate is the same boy who actually caused the trouble at the party.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-07-02",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - Dead Reckoning-B4e_Ylk5Oxg.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 114257008,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode12/The Adventures of Long John Silver - Dead Reckoning-B4e_Ylk5Oxg.ogv"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode13",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Devil's Stew",
+          "overview": "After losing the Faithful gambling, a former pirate convinces Long John the real money is in honest trade, such as he conducts. But is this \"former\" pirate really reformed?",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-04-02",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - The Devil's Stew-6gGVoecFzLM.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 115727085,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode13/The Adventures of Long John Silver - The Devil's Stew-6gGVoecFzLM.ogv"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode19",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Dragon Slayer",
+          "overview": "Redbeard says he can bring Long John and Miss Purity back together by making Long John a \"Dragon Slayer\" like the knights of old. In truth, Redbeard is playing Long John against Miss Purity, and plans on being the winner himself.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": "1957-07-16",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - Dragon Slayer-j_aj1oRgE8I.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 114758068,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode19/The Adventures of Long John Silver - Dragon Slayer-j_aj1oRgE8I.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13
+}

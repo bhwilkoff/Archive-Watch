@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lucy-meets-sheldon-leonard-1960",
+  "title": "Lucy Meets Sheldon Leonard",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TLS_Lucy_Meets_Sheldon_Leonard",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TLS_Lucy_Meets_Sheldon_Leonard",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lucy Meets Sheldon Leonard",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TLS_Lucy_Meets_Sheldon_Leonard",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TLS_Lucy_Meets_Sheldon_Leonard.mp4",
+            "format": "h.264",
+            "sizeBytes": 147388113,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TLS_Lucy_Meets_Sheldon_Leonard/TLS_Lucy_Meets_Sheldon_Leonard.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

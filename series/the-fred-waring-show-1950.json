@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-fred-waring-show-1950",
+  "title": "The Fred Waring Show",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": "The Fred Waring Show is an American television musical variety show that ran from April 17, 1949 to May 30, 1954 on CBS. The show was hosted by Fred Waring and featured his choral group \"The Pennsylvanians\".",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/215/538647.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheFredWaringShow-8October1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Fred Waring Show - 8 October 1950",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/215/538647.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 3559,
+          "videoFile": {
+            "name": "TheFredWaringShow1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 369197644,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheFredWaringShow-8October1949/TheFredWaringShow1949.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

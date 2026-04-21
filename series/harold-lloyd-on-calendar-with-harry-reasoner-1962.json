@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "harold-lloyd-on-calendar-with-harry-reasoner-1962",
+  "title": "Harold Lloyd on Calendar with Harry Reasoner",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Calendar_Harold_Lloyd",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Calendar_Harold_Lloyd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Harold Lloyd on Calendar with Harry Reasoner",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Calendar_Harold_Lloyd",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Calendar_Harold_Lloyd_1962_04_16.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 188945961,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Calendar_Harold_Lloyd/Calendar_Harold_Lloyd_1962_04_16.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

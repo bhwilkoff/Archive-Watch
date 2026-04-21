@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "鏗鏘集-檔案記錄-hong-kong-connection-archive-1978-2026-1978",
+  "title": "鏗鏘集 檔案記錄 Hong Kong Connection Archive 1978 ~ 2026",
+  "yearStart": 1978,
+  "yearEnd": 1978,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/RTHK_HKConnection",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RTHK_HKConnection",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "鏗鏘集 檔案記錄 Hong Kong Connection Archive 1978 ~ 2026",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/RTHK_HKConnection",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "20131006 鏗鏘集：驪歌再唱.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 753222248,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RTHK_HKConnection/20131006 鏗鏘集：驪歌再唱.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "smothers-brothers-comedy-hour-69-02-23-3-18-the-beatles-vict-1969",
+  "title": "Smothers Brothers Comedy Hour 69 02 23 3 18 The Beatles, Victor Borge, Joe South, The Clingers, The Hello People",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/69-02-23-3-18-the-beatles-victor-borge-joe-south-the-clingers-the-hello-people",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "69-02-23-3-18-the-beatles-victor-borge-joe-south-the-clingers-the-hello-people",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Smothers Brothers Comedy Hour 69 02 23 3 18 The Beatles, Victor Borge, Joe South, The Clingers, The Hello People",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/69-02-23-3-18-the-beatles-victor-borge-joe-south-the-clingers-the-hello-people",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "69-02-23 3-18 The Beatles, Victor Borge, Joe South, The Clingers, The Hello People.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 223240776,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/69-02-23-3-18-the-beatles-victor-borge-joe-south-the-clingers-the-hello-people/69-02-23 3-18 The Beatles, Victor Borge, Joe South, The Clingers, The Hello People.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

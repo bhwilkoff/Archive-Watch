@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "nbc-60th-anniversary-celebration-1986",
+  "title": "NBC 60th Anniversary Celebration",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/nbc-60th-anniversary-1986",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "nbc-60th-anniversary-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "NBC 60th Anniversary Celebration - Nell Carter",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/nbc-60th-anniversary-1986",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NBC 60th Anniversary - 1986.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 4526042654,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nbc-60th-anniversary-1986/NBC 60th Anniversary - 1986.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

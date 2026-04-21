@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "3-2-1-contact-extra-1990",
+  "title": "3 2 1 Contact Extra!",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "3-2-1 Contact Extra is a collection of documentary‑style specials produced by the Children’s Television Workshop as an extension of the science series 3‑2‑1 Contact. Aired between 1989 and 1992, the specials were designed for older children and teenagers, tackling real‑world issues through science, personal stories, and expert insight. Each episode focused on a single topic—ranging from public health and environmental challenges to adolescence and social pressures—using interviews, on‑location reporting, and first‑person narratives. The series aimed to help young viewers understand complex subjects with clarity, honesty, and practical relevance.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/t6Ja8DBtsi4dH0Yc9RlhziwZOTt.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/wjULJasW41ywxAXJTwGXttYyPSB.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": "Samuel Y. Gibbon Jr.",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "3-2-1-contact-extra-down-the-drain",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "You Can’t Grow Home Again",
+          "overview": "“You Can’t Grow Home Again” examines what happens when a community faces environmental damage that threatens the place families have called home for generations. Through interviews with residents, scientists, and local officials, the episode explores how pollution, land misuse, and changing ecosystems can force people to rethink their relationship with the land around them. Blending personal stories with environmental science, the special helps teens understand how human choices shape the health of their communities—and why protecting the environment is essential to preserving the places we love.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/t6Ja8DBtsi4dH0Yc9RlhziwZOTt.jpg",
+          "airDate": "1990-09-02",
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "3 2 1 Contact Extra! Down The Drain.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 103123594,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/3-2-1-contact-extra-down-the-drain/3 2 1 Contact Extra! Down The Drain.mp4"
+        },
+        {
+          "archiveID": "3-2-1-contact-extra-the-rotten-truth",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Rotten Truth",
+          "overview": "“The Rotten Truth” explores the hidden world of germs, hygiene, and disease prevention, showing how everyday habits can either spread illness or help stop it. Through real‑life demonstrations, interviews with medical experts, and on‑location reporting, the episode breaks down how bacteria and viruses grow, how contamination happens, and why simple actions—like handwashing and proper food handling—make a major difference. Designed to give teens practical, science‑based insight, the special encourages awareness, responsibility, and healthier choices in daily life.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/qnYIVIRP51D31gNcTUeo2OHJCaS.jpg",
+          "airDate": "1990-01-15",
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "3 2 1 Contact Extra! The Rotten Truth.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121080104,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/3-2-1-contact-extra-the-rotten-truth/3 2 1 Contact Extra! The Rotten Truth.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

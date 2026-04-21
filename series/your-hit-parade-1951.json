@@ -1,0 +1,401 @@
+{
+  "version": 1,
+  "seriesID": "your-hit-parade-1951",
+  "title": "Your Hit Parade",
+  "yearStart": 1951,
+  "yearEnd": 1956,
+  "overview": "Your Hit Parade is an American radio and television music program that was broadcast from 1935 to 1955 on radio, and seen from 1950 to 1959 on television. It was sponsored by American Tobacco's Lucky Strike cigarettes. During this 24-year run, the show had 19 orchestra leaders and 52 singers or groups. Many listeners and viewers casually referred to the show with the incorrect title The Hit Parade.\n\nWhen the show debuted, there was no agreement as to what it should be called. The press referred to it in a variety of ways, with the most common being \"Hit Parade,\" \"The Hit Parade,\" and even \"The Lucky Strike Hit Parade\". The program's title was not officially changed to \"Your Hit Parade\" until November 9, 1935\n\nEach Saturday evening, the program offered the most popular and bestselling songs of the week. The earliest format involved a presentation of the top 15 songs. Later, a countdown with fanfares led to the top three finalists, with the number one song for the finale. Occasional performances of standards and other favorite songs from the past were known as \"Lucky Strike Extras.\"",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "YourHitParadeHotDiggity",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Your Hit Parade\" - Hot Diggity (Dog Ziggity Boom)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hot_Diggity.mp4",
+            "format": "h.264",
+            "sizeBytes": 12724684,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParadeHotDiggity/Hot_Diggity.mp4"
+        },
+        {
+          "archiveID": "Yourhitparade1953Episode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Your Hit Parade'' - ??/??/1953",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1437,
+          "videoFile": {
+            "name": "yourhitparade - 1953 episode.mp4",
+            "format": "h.264",
+            "sizeBytes": 149584618,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Yourhitparade1953Episode/yourhitparade - 1953 episode.mp4"
+        },
+        {
+          "archiveID": "Your_Hit_Parade_7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Your Hit Parade' - 12 November 1955",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "YHP12NOV1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 174331956,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Your_Hit_Parade_7/YHP12NOV1955.mp4"
+        },
+        {
+          "archiveID": "Your_Hit_Parade_6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Your Hit Parade' - 16/April/1955",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "YHP16april1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 174754653,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Your_Hit_Parade_6/YHP16april1955.mp4"
+        },
+        {
+          "archiveID": "Your_Hit_Parade_5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Your Hit Parade' - 2 May 1953",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "YHP1953May2.mp4",
+            "format": "h.264",
+            "sizeBytes": 175196106,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Your_Hit_Parade_5/YHP1953May2.mp4"
+        },
+        {
+          "archiveID": "Your_Hit_Parade_Complete_Episode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Your Hit Parade' - April 12, 1952 episode",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1952YHPApril12.mp4",
+            "format": "h.264",
+            "sizeBytes": 173078855,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Your_Hit_Parade_Complete_Episode/1952YHPApril12.mp4"
+        },
+        {
+          "archiveID": "Your_Hit_Parade_3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Your Hit Parade' - December 4, 1954",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Your_Hit_Parade_3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 167913183,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Your_Hit_Parade_3/Your_Hit_Parade_3.ia.mp4"
+        },
+        {
+          "archiveID": "YourHitParade1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Your Hit Parade' - January 31, 1953",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "YourHitParade31Jan1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 183083431,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParade1953/YourHitParade31Jan1953.mp4"
+        },
+        {
+          "archiveID": "YourHitParade8",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Your Hit Parade' - June 2, 1956",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "YourHitParadeJune2-1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 183602294,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParade8/YourHitParadeJune2-1956.mp4"
+        },
+        {
+          "archiveID": "Your_Hit_Parade_4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Your Hit Parade' - June 9, 1956",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Your_Hit_Parade_4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 169046182,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Your_Hit_Parade_4/Your_Hit_Parade_4.ia.mp4"
+        },
+        {
+          "archiveID": "YourHitParade1March1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade - 1 March 1952",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1772,
+          "videoFile": {
+            "name": "Your Hit Parade - 1 March 1952.mp4",
+            "format": "h.264",
+            "sizeBytes": 184158118,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParade1March1952/Your Hit Parade - 1 March 1952.mp4"
+        },
+        {
+          "archiveID": "YourHitParade11September1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade - 11 September 1954",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1772,
+          "videoFile": {
+            "name": "Your Hit Parade - 11 September 1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 184319996,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParade11September1954/Your Hit Parade - 11 September 1954.mp4"
+        },
+        {
+          "archiveID": "YourHitParade-15thSeptember1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade - 15 September 1951",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1522,
+          "videoFile": {
+            "name": "YourHitParade1951Sep15.mp4",
+            "format": "h.264",
+            "sizeBytes": 146365250,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParade-15thSeptember1951/YourHitParade1951Sep15.mp4"
+        },
+        {
+          "archiveID": "YourHitParade22May1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade - 22 May 1954",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1777,
+          "videoFile": {
+            "name": "Your Hit Parade - 22 May 1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 185035155,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParade22May1954/Your Hit Parade - 22 May 1954.mp4"
+        },
+        {
+          "archiveID": "YourHitParade3April1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade - 3 April 1954",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1777,
+          "videoFile": {
+            "name": "Your Hit Parade - 3 April 1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 185211360,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParade3April1954/Your Hit Parade - 3 April 1954.mp4"
+        },
+        {
+          "archiveID": "YourHitParade3December1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade - 3 December 1955",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1734,
+          "videoFile": {
+            "name": "Your Hit Parade - 3 December 1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 180424016,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParade3December1955/Your Hit Parade - 3 December 1955.mp4"
+        },
+        {
+          "archiveID": "YourHitParade-ChristmasEveShow1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade - Christmas Eve Show 1955",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "YourHitParade-ChristmasEveShow1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 183181667,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParade-ChristmasEveShow1955/YourHitParade-ChristmasEveShow1955.mp4"
+        },
+        {
+          "archiveID": "YourHitParade-February271954musicvariety",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade - February 27, 1954 (Music/Variety)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1774,
+          "videoFile": {
+            "name": "YourHitParade-Feb27-1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 170888192,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParade-February271954musicvariety/YourHitParade-Feb27-1954.mp4"
+        },
+        {
+          "archiveID": "YourHitParade-March61954musicVariety",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade - March 6, 1954 (Music, Variety)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1776,
+          "videoFile": {
+            "name": "YourHitParadeMarch9-1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 172480055,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YourHitParade-March61954musicVariety/YourHitParadeMarch9-1954.mp4"
+        },
+        {
+          "archiveID": "Sandman_Your_Hit_Parade",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade: \"Mr Sandman\" - Snooky Lanson",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sandman.mp4",
+            "format": "h.264",
+            "sizeBytes": 12037664,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Sandman_Your_Hit_Parade/Sandman.mp4"
+        },
+        {
+          "archiveID": "Moonglow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Your Hit Parade: Moonglow",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Moonglow.mp4",
+            "format": "h.264",
+            "sizeBytes": 16066428,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Moonglow/Moonglow.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 21
+}

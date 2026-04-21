@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1949-public-service-announcement-1949",
+  "title": "1949 Public Service Announcement",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/PSA-2-DuMont",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PSA-2-DuMont",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1949 Public Service Announcement",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/PSA-2-DuMont",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 66,
+          "videoFile": {
+            "name": "Video-Ranger-PSA-2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 6426145,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PSA-2-DuMont/Video-Ranger-PSA-2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

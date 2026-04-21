@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "born-to-run-1995",
+  "title": "Born to Run",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": "Byron Flitch is not enjoying his anniversary party. Instead of making him a partner in their classic car business, his father Burke has demanded he work harder. His mistress Judith could arrive to gate crash the celebrations at any moment and to top things off midway through the line 'I'm going to live forever' from his karaoke Fame rendition, Burke keels over with a heart attack. Amidst this chaos, Burke's wife Lili sees a chance to make her escape and ducks out of the party to leave for an impromptu holiday in Tenerife. When she returns, she is a changed woman and intent on taking up marathon running. With Burke critically ill and Lili off guard, the rest of the family squabble for control of the business.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ej4HKk7a0bwHZrPHiziOaW3Z9uw.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Debbie Horsfield",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "NatureBorntoRun",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Born to Run",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ej4HKk7a0bwHZrPHiziOaW3Z9uw.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Nature.S13E13.Born.to.Run.1995.VHSRip.AAC2.0.x264-rattera.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 263410524,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/NatureBorntoRun/Nature.S13E13.Born.to.Run.1995.VHSRip.AAC2.0.x264-rattera.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "gma-network-news-1996",
+  "title": "GMA Network News",
+  "yearStart": 1996,
+  "yearEnd": 1999,
+  "overview": "GMA Network News is the former late-night English newscast of GMA Network from January 6, 1992 to 1998 and became the first Filipino-language late-night television newscast from 1998 until July 30, 1999 on weeknights and June 30, 2002 on weekends.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "GMA Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GMANetworkNewsAPECPhilippines1996",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "GMA Network News - APEC Philippines 1996, Full Broadcast - November 25, 1996",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GMANetworkNews11251996.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 134243670,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GMANetworkNewsAPECPhilippines1996/GMANetworkNews11251996.ia.mp4"
+        },
+        {
+          "archiveID": "GMANetworkNewsMiriamQuiambaoMissU1999",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "GMA Network News - Miriam Quiambao 1st Runner-up Miss Universe 1999",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GMA Network News Miriam Quiambao.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 68691953,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GMANetworkNewsMiriamQuiambaoMissU1999/GMA Network News Miriam Quiambao.ia.mp4"
+        },
+        {
+          "archiveID": "GMANetworkNews1998PhilippineCentennialCelebrations",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "GMA Network News - Philippine Centennial Celebrations - June 12, 1998",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GMA Network News - Philippine Centennial Celebrations - June 12, 1998.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 113837000,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GMANetworkNews1998PhilippineCentennialCelebrations/GMA Network News - Philippine Centennial Celebrations - June 12, 1998.mp4"
+        },
+        {
+          "archiveID": "gmanetworknews08031999",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "GMA Network News - Typhoon Ising; State of Calamity - August 03, 1999",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": 2160,
+          "videoFile": {
+            "name": "GMANetworkNews08031999.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2097429218,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gmanetworknews08031999/GMANetworkNews08031999.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

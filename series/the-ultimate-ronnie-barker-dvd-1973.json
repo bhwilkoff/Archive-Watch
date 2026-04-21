@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-ultimate-ronnie-barker-dvd-1973",
+  "title": "The Ultimate Ronnie Barker DVD",
+  "yearStart": 1973,
+  "yearEnd": 1973,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ronniebarker",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ronniebarker",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Ultimate Ronnie Barker DVD Collection [PAL DVD ISO] (Porridge, Open All Hours, Going Straight, Seven of One, The Magnificent Evans, Clarence)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ronniebarker",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "08 Open All Hours Series 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 1223773292,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ronniebarker/08 Open All Hours Series 2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

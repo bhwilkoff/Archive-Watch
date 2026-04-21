@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-krofft-supershow-ep-5-1976",
+  "title": "The Krofft Supershow EP 5",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/thekrofftsupershow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "thekrofftsupershow",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Krofft Supershow EP 5 (1976)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/thekrofftsupershow",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TITLE_02.mp4",
+            "format": "h.264",
+            "sizeBytes": 285996974,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thekrofftsupershow/TITLE_02.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

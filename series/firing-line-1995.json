@@ -1,0 +1,96 @@
+{
+  "version": 1,
+  "seriesID": "firing-line-1995",
+  "title": "Firing-Line",
+  "yearStart": 1995,
+  "yearEnd": 1996,
+  "overview": "Firing Line was an American public affairs show founded and hosted by conservative William F. Buckley, Jr., founder and publisher of National Review magazine. Its 1,504 episodes over 33 years made Firing Line the longest-running public affairs show in television history with a single host. The erudite program, which featured many of the most prominent intellectuals and public figures in the United States, won an Emmy Award in 1969.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/f2X5r0mEaIA6K89qDjMwEUJxCx4.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "PBS",
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FiringLineThatcherGMA7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Firing-Line - An Interview with Margaret Thatcher - January 29, 1996",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/f2X5r0mEaIA6K89qDjMwEUJxCx4.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Firingline.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 409929853,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FiringLineThatcherGMA7/Firingline.ia.mp4"
+        },
+        {
+          "archiveID": "FiringLineCorazonAquinoInterview",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Firing-Line - Interview with Corazon Aquino",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/f2X5r0mEaIA6K89qDjMwEUJxCx4.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "lv_0_20230428150200.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 326226274,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FiringLineCorazonAquinoInterview/lv_0_20230428150200.ia.mp4"
+        },
+        {
+          "archiveID": "FiringLineLoidaInterview",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Firing-Line - Interview with Loida Lewis",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/f2X5r0mEaIA6K89qDjMwEUJxCx4.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "lv_0_20230429020612.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 260948134,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FiringLineLoidaInterview/lv_0_20230429020612.ia.mp4"
+        },
+        {
+          "archiveID": "FiringLineFVRGMA7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Firing-Line - President Fidel V. Ramos Interview",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/f2X5r0mEaIA6K89qDjMwEUJxCx4.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FiringLineFVR.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 381739641,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FiringLineFVRGMA7/FiringLineFVR.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "64-10-02-the-jack-benny-program-s-15e-02-lucille-ball-show-1964",
+  "title": "64 10 02 The Jack Benny Program S 15e 02 Lucille Ball Show",
+  "yearStart": 1964,
+  "yearEnd": 1964,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/641002TheJackBennyProgramS15e02LucilleBallShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "641002TheJackBennyProgramS15e02LucilleBallShow",
+          "seasonNumber": 1,
+          "episodeNumber": 64,
+          "title": "64 10 02 The Jack Benny Program S 15e 02 Lucille Ball Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/641002TheJackBennyProgramS15e02LucilleBallShow",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "64-10-02  The Jack Benny Program  s15e02  Lucille Ball Show.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 116894603,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/641002TheJackBennyProgramS15e02LucilleBallShow/64-10-02  The Jack Benny Program  s15e02  Lucille Ball Show.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

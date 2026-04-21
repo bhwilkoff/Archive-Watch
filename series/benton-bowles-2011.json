@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "benton-bowles-2011",
+  "title": "Benton & Bowles",
+  "yearStart": 2011,
+  "yearEnd": 2011,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/dmbb20801",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dmbb20801",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Benton & Bowles: Stalking the Wild Cranberry, 1970s (dmbb20801)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/dmbb20801",
+          "airDate": null,
+          "year": 2011,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "dmbb20801_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 20297951,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dmbb20801/dmbb20801_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

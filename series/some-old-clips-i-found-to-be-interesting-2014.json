@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "some-old-clips-i-found-to-be-interesting-2014",
+  "title": "Some old clips I found to be interesting",
+  "yearStart": 2014,
+  "yearEnd": 2014,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/MiscClips1IncludingPrelingerandOldTimeTV",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "MiscClips1IncludingPrelingerandOldTimeTV",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Some old clips I found to be interesting",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MiscClips1IncludingPrelingerandOldTimeTV",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 948,
+          "videoFile": {
+            "name": "MiscClips1IncludingPrelingerandOldTimeTV.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 69314781,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MiscClips1IncludingPrelingerandOldTimeTV/MiscClips1IncludingPrelingerandOldTimeTV.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

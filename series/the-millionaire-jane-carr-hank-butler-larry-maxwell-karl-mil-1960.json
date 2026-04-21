@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-millionaire-jane-carr-hank-butler-larry-maxwell-karl-mil-1960",
+  "title": "THE MILLIONAIRE JANE CARR HANK BUTLER LARRY MAXWELL KARL MILLER BILL FRANKLIN",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/vts-04-1_20211008_0305",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "vts-04-1_20211008_0305",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "THE MILLIONAIRE JANE CARR HANK BUTLER LARRY MAXWELL KARL MILLER BILL FRANKLIN",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/vts-04-1_20211008_0305",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "VTS_02_1.mp4",
+            "format": "h.264",
+            "sizeBytes": 142968483,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/vts-04-1_20211008_0305/VTS_02_1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

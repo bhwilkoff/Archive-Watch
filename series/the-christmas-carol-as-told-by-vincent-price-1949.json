@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-christmas-carol-as-told-by-vincent-price-1949",
+  "title": "The Christmas Carol (as told by Vincent Price",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheChristmasCarolastoldbyVincentPrice",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheChristmasCarolastoldbyVincentPrice",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Christmas Carol (as told by Vincent Price)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheChristmasCarolastoldbyVincentPrice",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "TheChristmasCarolastoldbyVincentPrice.mp4",
+            "format": "h.264",
+            "sizeBytes": 144033931,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChristmasCarolastoldbyVincentPrice/TheChristmasCarolastoldbyVincentPrice.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

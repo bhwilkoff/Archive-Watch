@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "jack-levine-2023",
+  "title": "Jack Levine",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/jack-levine-a-feast-of-pure-reason-1986",
+  "backdropURL": null,
+  "genres": [
+    "Documentary"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "jack-levine-a-feast-of-pure-reason-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Levine: A Feast Of Pure Reason (1986)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jack-levine-a-feast-of-pure-reason-1986",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": 3540,
+          "videoFile": {
+            "name": "Jack Levine A Feast of Pure Reason (1986).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1555320643,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jack-levine-a-feast-of-pure-reason-1986/Jack Levine A Feast of Pure Reason (1986).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

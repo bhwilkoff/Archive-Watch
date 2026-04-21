@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ken-burns-the-civil-war-1960",
+  "title": "Ken. Burns. The. Civil. War",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ken.-burns.-the.-civil.-war.",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ken.-burns.-the.-civil.-war.",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ken. Burns. The. Civil. War.",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ken.-burns.-the.-civil.-war.",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ken.Burns.The.Civil.War.1of9.The.Cause.mp4",
+            "format": "h.264",
+            "sizeBytes": 577471474,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ken.-burns.-the.-civil.-war./Ken.Burns.The.Civil.War.1of9.The.Cause.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

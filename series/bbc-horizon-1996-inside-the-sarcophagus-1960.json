@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bbc-horizon-1996-inside-the-sarcophagus-1960",
+  "title": "BBC Horizon 1996 Inside the Sarcophagus",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bbchorizon1996insidethesarcophagus",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bbchorizon1996insidethesarcophagus",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Horizon 1996 Inside the Sarcophagus",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bbchorizon1996insidethesarcophagus",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "124453935_mp4_h264_aac_hq.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 214328211,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bbchorizon1996insidethesarcophagus/124453935_mp4_h264_aac_hq.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

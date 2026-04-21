@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sifl-and-olly-episodes-high-quality-1960",
+  "title": "Sifl and Olly Episodes High Quality",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/siflandollyepisodeshq",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "siflandollyepisodeshq",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sifl and Olly Episodes High Quality",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/siflandollyepisodeshq",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Season 1 (04).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1045374027,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/siflandollyepisodeshq/Season 1 (04).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

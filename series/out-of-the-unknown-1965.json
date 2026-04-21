@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "out-of-the-unknown-1965",
+  "title": "Out of the Unknown",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": "Out of the Unknown is a British television science fiction anthology drama series, produced by the BBC and broadcast on BBC2 in four series between 1965 and 1971. Each episode was a dramatisation of a science fiction short story; some were created for the series, but most were adaptations of already published stories.\n\nThe first three years were exclusively science fiction, but that genre was abandoned in the final year in favour of horror and fantasy. A number of episodes were wiped during the early 1970s, as was standard procedure at the time.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/n8o2KS8D49ZcQ4NbVJ1K2ROaBjm.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/y4JJ3PS3EfFPLlXkPhVxNIu94HY.jpg",
+  "genres": [],
+  "networks": [
+    "BBC Two"
+  ],
+  "creator": "Irene Shubik",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "come-buttercup-come-daisy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Out Of The Unknown Series 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/n8o2KS8D49ZcQ4NbVJ1K2ROaBjm.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Out Of The Unknown S01E12 - The Midas Plague - 1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 359335678,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/come-buttercup-come-daisy/Out Of The Unknown S01E12 - The Midas Plague - 1965.mp4"
+        },
+        {
+          "archiveID": "out-of-the-unknown-1965-s-1e-4-colorized-576p-sd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Out of the Unknown - Seasons 1 and 2 (incomplete) (colorized) (1965, BBC, sci-fi)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/n8o2KS8D49ZcQ4NbVJ1K2ROaBjm.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "out of the unknown-1965-s1e12-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 362764059,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/out-of-the-unknown-1965-s-1e-4-colorized-576p-sd/out of the unknown-1965-s1e12-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "out-of-the-unknown-1969-s-3e-3-in-color-sd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Out of the Unknown - Seasons 3 and 4 (incomplete) (in color) (1969-1971, BBC, sci-fi)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/n8o2KS8D49ZcQ4NbVJ1K2ROaBjm.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "out of the unknown-1971-s4e2-in color-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 288202228,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/out-of-the-unknown-1969-s-3e-3-in-color-sd/out of the unknown-1971-s4e2-in color-sd.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

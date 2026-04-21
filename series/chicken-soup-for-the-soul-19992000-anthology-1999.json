@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "chicken-soup-for-the-soul-19992000-anthology-1999",
+  "title": "Chicken Soup for the Soul (1999–2000) anthology",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/chicken-soup-for-the-soul-1999-2000",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "chicken-soup-for-the-soul-1999-2000",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Chicken Soup for the Soul (1999–2000) anthology",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/chicken-soup-for-the-soul-1999-2000",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Chicken Soup (Pilot), 9.12.1989 Jackie Mason, 1989, commercials, sitcom, pilot, Lynn Redgrave.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170831300,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/chicken-soup-for-the-soul-1999-2000/Chicken Soup (Pilot), 9.12.1989 Jackie Mason, 1989, commercials, sitcom, pilot, Lynn Redgrave.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

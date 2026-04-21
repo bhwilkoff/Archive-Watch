@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "alice-1985-1960",
+  "title": "Alice (1985",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Alice1985FinalEpisode",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Alice1985FinalEpisode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alice (1985 Series Finale)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Alice1985FinalEpisode",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alice-_1985-Final-episode_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 101740801,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Alice1985FinalEpisode/Alice-_1985-Final-episode_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

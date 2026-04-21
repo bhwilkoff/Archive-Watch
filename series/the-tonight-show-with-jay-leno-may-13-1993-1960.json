@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-tonight-show-with-jay-leno-may-13-1993-1960",
+  "title": "The Tonight Show With Jay Leno (May 13, 1993",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-tonight-show-with-jay-leno-may-13-1993",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-tonight-show-with-jay-leno-may-13-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Tonight Show With Jay Leno (May 13, 1993)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-tonight-show-with-jay-leno-may-13-1993",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Tonight Show with Jay Leno (May 13, 1993).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 339047699,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-tonight-show-with-jay-leno-may-13-1993/The Tonight Show with Jay Leno (May 13, 1993).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

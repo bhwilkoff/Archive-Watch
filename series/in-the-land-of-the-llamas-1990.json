@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "in-the-land-of-the-llamas-1990",
+  "title": "In the land of the llamas",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/IntheLandoftheLlamas",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "IntheLandoftheLlamas",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "In the land of the llamas",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/IntheLandoftheLlamas",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S17E19.In.the.Land.of.the.Llamas.1990.VHSRip.AAC2.0.x264-astro.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1524431070,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/IntheLandoftheLlamas/NOVA.S17E19.In.the.Land.of.the.Llamas.1990.VHSRip.AAC2.0.x264-astro.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

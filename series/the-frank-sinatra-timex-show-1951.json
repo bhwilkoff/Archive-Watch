@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "the-frank-sinatra-timex-show-1951",
+  "title": "The Frank Sinatra Timex Show",
+  "yearStart": 1951,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheFrankSinatraTimexShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theFrankSinatraTimexShow-13December1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Frank Sinatra Timex Show'' - 13 December 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theFrankSinatraTimexShow-13December1959",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3544,
+          "videoFile": {
+            "name": "TheFrankSinatraTimexShow13December1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 368567128,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theFrankSinatraTimexShow-13December1959/TheFrankSinatraTimexShow13December1959.mp4"
+        },
+        {
+          "archiveID": "theFrankSinatraTimexShow-19October1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Frank Sinatra Timex Show'' - 19 October 1959",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theFrankSinatraTimexShow-19October1959",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3551,
+          "videoFile": {
+            "name": "TheFrankSinatraTimexShow19October1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 368223702,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theFrankSinatraTimexShow-19October1959/TheFrankSinatraTimexShow19October1959.mp4"
+        },
+        {
+          "archiveID": "TheFrankSinatraTimexShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Frank Sinatra Timex Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheFrankSinatraTimexShow",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "With-JoeyBishop_SammyDavisJr_NancySinatra_ElvisPresley.mp4",
+            "format": "h.264",
+            "sizeBytes": 371710151,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheFrankSinatraTimexShow/With-JoeyBishop_SammyDavisJr_NancySinatra_ElvisPresley.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

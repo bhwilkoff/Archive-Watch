@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "turn-on-1969",
+  "title": "Turn-On",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": "Turn-On is an American sketch comedy series that aired on ABC in February 1969. Only one episode was shown leaving one episode unaired and the show is considered one of the most infamous flops in TV history.\n\nTurn-On's sole episode was shown on Wednesday, February 5, 1969, at 8:30 p.m. Eastern. Among the cast were Teresa Graves, who would join the Laugh-In cast that autumn, and Chuck McCann, longtime kiddie show host, character actor, and voice artist. The writing staff included a young Albert Brooks. The guest host for the 1st episode was Tim Conway.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lEQYnc2l8j2lnEhPiQm5nhXIGDu.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "George Schlatter",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "turn-on_202310",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Turn-On",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lEQYnc2l8j2lnEhPiQm5nhXIGDu.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Turn-On.mp4",
+            "format": "h.264",
+            "sizeBytes": 180202454,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/turn-on_202310/Turn-On.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

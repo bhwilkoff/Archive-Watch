@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "christopher-columbus-1985",
+  "title": "Christopher Columbus",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": "After his proposal to sail west to the East Indies is rejected by Portugal, Columbus overcomes court intrigue in Spain to gain support for his expedition.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/jBv3a92IacxDbwAlmli86v6u8co.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/1TG2q5mifX830mJPHbKBjB7GsDq.jpg",
+  "genres": [],
+  "networks": [
+    "Rai 1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "christopher-columbus-1985-1-3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Christopher Columbus - Faye Dunaway, Gabriel Byrne",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jBv3a92IacxDbwAlmli86v6u8co.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Christopher Columbus - 1985 - 3-3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2949744005,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/christopher-columbus-1985-1-3/Christopher Columbus - 1985 - 3-3.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

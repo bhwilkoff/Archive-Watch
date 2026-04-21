@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "robin_hood_67_the_borrowed_baby-1960",
+  "title": "Robin_Hood_67_The_Borrowed_Baby",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Robin_Hood_67_The_Borrowed_Baby",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_67_The_Borrowed_Baby",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Robin_Hood_67_The_Borrowed_Baby",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Robin_Hood_67_The_Borrowed_Baby",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_67_-_The_Borrowed_Baby.mp4",
+            "format": "h.264",
+            "sizeBytes": 150267761,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_67_The_Borrowed_Baby/Robin_Hood_67_-_The_Borrowed_Baby.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

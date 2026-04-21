@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "msnbc-weekend-magazine-with-stone-phillips--october-9-1999-p-2024",
+  "title": "MSNBC Weekend Magazine With Stone Phillips -October 9, 1999 (partial",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/msnbc-weekend-magazine-with-stone-phillips-october-9-1999-partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "msnbc-weekend-magazine-with-stone-phillips-october-9-1999-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "MSNBC Weekend Magazine With Stone Phillips -October 9, 1999 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/msnbc-weekend-magazine-with-stone-phillips-october-9-1999-partial",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MSNBC Weekend Magazine with Stone Phillips- October 9, 1999 (partial).mp4",
+            "format": "h.264",
+            "sizeBytes": 110534603,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/msnbc-weekend-magazine-with-stone-phillips-october-9-1999-partial/MSNBC Weekend Magazine with Stone Phillips- October 9, 1999 (partial).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

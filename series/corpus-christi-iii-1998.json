@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "corpus-christi-iii-1998",
+  "title": "Corpus Christi III",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/CorpusChristiIii-Temple-Arte-1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CorpusChristiIii-Temple-Arte-1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Corpus Christi III - Temple - Arte - 1998",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CorpusChristiIii-Temple-Arte-1998",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": 3188,
+          "videoFile": {
+            "name": "CorpusChristiIii-Templedocu.Arte1998.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 244441624,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CorpusChristiIii-Temple-Arte-1998/CorpusChristiIii-Templedocu.Arte1998.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "studio-one-black-rain-2024",
+  "title": "Studio One Black Rain",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/studio-one-black-rain-1953",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "studio-one-black-rain-1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Studio One Black Rain (1953)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/studio-one-black-rain-1953",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Studio One Black Rain (1953).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 834559206,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studio-one-black-rain-1953/Studio One Black Rain (1953).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

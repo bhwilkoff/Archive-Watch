@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "guys-like-us-october-5-1998-pilot-1998",
+  "title": "Guys Like Us (October 5, 1998) Pilot",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/guys-like-us-october-5-1998-pilot",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "guys-like-us-october-5-1998-pilot",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Guys Like Us (October 5, 1998) Pilot",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/guys-like-us-october-5-1998-pilot",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Y2Mate.is - Guys Like Us - Pilot-YwTn6eIcRTE-480p-1654303214658.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 118760165,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/guys-like-us-october-5-1998-pilot/Y2Mate.is - Guys Like Us - Pilot-YwTn6eIcRTE-480p-1654303214658.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

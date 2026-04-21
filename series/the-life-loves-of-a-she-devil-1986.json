@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-life-loves-of-a-she-devil-1986",
+  "title": "THE LIFE & LOVES OF A SHE-DEVIL",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "Ruth Patchett has it all: a large, warty body, a standard suburban home, a couple of unruly children, a dog, a cat and a guinea pig. She also has Bobbo, her unfaithful accountant husband who resents her very existence. Bobbo wants, and is wanted by, romance novelist Mary Fisher, who lives in a lighthouse by the sea. When Bobo leaves Ruth for Mary, Ruth decides that Mary doesn't know the first thing about love, and she's gonna teach her.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9523D1CscV6dxPRKR1j1u7AACtF.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/8z8dHflwfGfzfiq13G4uNminJ2p.jpg",
+  "genres": [],
+  "networks": [
+    "BBC Two"
+  ],
+  "creator": "Ted Whitehead",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-life-loves-of-a-she-devil",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "THE LIFE & LOVES OF A SHE-DEVIL (1986) (Full Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9523D1CscV6dxPRKR1j1u7AACtF.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "04.The Life & Loves Of A She Devil.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 347498215,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-life-loves-of-a-she-devil/04.The Life & Loves Of A She Devil.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

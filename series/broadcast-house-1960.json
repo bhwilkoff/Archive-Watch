@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "broadcast-house-1960",
+  "title": "Broadcast House",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BroadcastHouse-10february1954",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BroadcastHouse-10february1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Broadcast House - 10/February/1954",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BroadcastHouse-10february1954",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Broadcast_house_02_10_1954.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 191748542,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BroadcastHouse-10february1954/Broadcast_house_02_10_1954.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

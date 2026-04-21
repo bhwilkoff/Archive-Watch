@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1986-в-поисках-капитана-гранта-серия-7-2024",
+  "title": "1986. В поисках капитана Гранта (серия 7",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1986.-7",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1986.-7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1986. В поисках капитана Гранта (серия 7)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1986.-7",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1986. В поисках капитана Гранта (серия 7).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 521569888,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1986.-7/1986. В поисках капитана Гранта (серия 7).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

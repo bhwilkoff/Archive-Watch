@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "seriesID": "tom-corbett-space-cadet-1954",
+  "title": "Tom Corbett, Space cadet",
+  "yearStart": 1954,
+  "yearEnd": 1955,
+  "overview": "Four centuries into the future, Cadets Tom Corbett, Roger Manning and Astro are training to become Solar Guards. Their ship, the \"Polaris\" took them to numerous adventures, usually natural catastrophes rather than villains.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/d6sW9UWRhDAKZ52pjwimEj8fc5z.jpg",
+  "genres": [],
+  "networks": [
+    "NBC",
+    "DuMont Television Network"
+  ],
+  "creator": "Joseph Greene",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tomCorbettSpaceCadet-AmbushInSpace1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Tom Corbett, Space cadet' - Ambush in space (1955)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TOM_CORBETT_1955_05_21_Ambush_in_space.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 137408442,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tomCorbettSpaceCadet-AmbushInSpace1955/TOM_CORBETT_1955_05_21_Ambush_in_space.ia.mp4"
+        },
+        {
+          "archiveID": "tomCorbettSpaceCadet-FightForSurvival1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Tom Corbett, Space cadet' - Fight for survival (1955)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TOM_CORBETT_1955_06_04_Fight_for_survival.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 133980739,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tomCorbettSpaceCadet-FightForSurvival1955/TOM_CORBETT_1955_06_04_Fight_for_survival.ia.mp4"
+        },
+        {
+          "archiveID": "tomCorbettSpaceCadet-MissingMailShip1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Tom Corbett, Space cadet' - Missing Mail Ship (1955)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1761,
+          "videoFile": {
+            "name": "Tom_Corbett_Mail_ship_03_12_1955.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150883907,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tomCorbettSpaceCadet-MissingMailShip1955/Tom_Corbett_Mail_ship_03_12_1955.ia.mp4"
+        },
+        {
+          "archiveID": "tomCorbettSpaceCadet-MonsterOfSpace1955_278",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Tom Corbett, Space cadet' - Monster of Space (1955)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1707,
+          "videoFile": {
+            "name": "Tom_Corbett_Monster_of_space_03_19_1955.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 219961361,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tomCorbettSpaceCadet-MonsterOfSpace1955_278/Tom_Corbett_Monster_of_space_03_19_1955.ia.mp4"
+        },
+        {
+          "archiveID": "tomCorbettSpaceCadet-PursuitOfTheDeepSpaceProjectile1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Tom Corbett, Space cadet' - Pursuit of the deep space projectile (1955)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tom_Corbett_Space_projectile_04_30_55.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198280753,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tomCorbettSpaceCadet-PursuitOfTheDeepSpaceProjectile1955/Tom_Corbett_Space_projectile_04_30_55.ia.mp4"
+        },
+        {
+          "archiveID": "tomCorbettSpaceCadet-RunawayRocket1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Tom Corbett, Space cadet' - Runaway rocket (1954)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tom_Corbett_Runaway_Rocket_05_22_54.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 168677818,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tomCorbettSpaceCadet-RunawayRocket1954/Tom_Corbett_Runaway_Rocket_05_22_54.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

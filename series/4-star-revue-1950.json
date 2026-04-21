@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "4-star-revue-1950",
+  "title": "4 Star Revue",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/4StarRevuePossibly22Nov.1950incomplete",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "4StarRevuePossibly22Nov.1950incomplete",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''4 Star Revue'' - 22 November 1950? (incomplete)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/4StarRevuePossibly22Nov.1950incomplete",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 3045,
+          "videoFile": {
+            "name": "4 Star Revue - Possibly - 22 Nov. 1950 (incomplete).mp4",
+            "format": "h.264",
+            "sizeBytes": 316598805,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/4StarRevuePossibly22Nov.1950incomplete/4 Star Revue - Possibly - 22 Nov. 1950 (incomplete).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-lone-ranger-tv-show-1949",
+  "title": "The Lone Ranger TV Show",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/theloneranger_201705",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theloneranger_201705",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Lone Ranger TV Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theloneranger_201705",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "s01e01_EntertheLoneRanger.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 111037935,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theloneranger_201705/s01e01_EntertheLoneRanger.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

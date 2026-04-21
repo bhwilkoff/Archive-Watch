@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "roger-ramjet-1965",
+  "title": "Roger Ramjet",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": "Roger Ramjet is an animated American children's television comedy series that first ran in 1965 and has aired in syndication since. Starring Roger Ramjet and the American Eagle Squadron, the show was known for its crude animation, frenetic pace, and frequent references to popular culture, which allowed the show to entertain various age groups.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/aU4izsLC7bYBMteWIfDmDXL2Qz7.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/711pjOE7VJU0ufjVw8xx3y7A0Jr.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Roger Ramjet: 13-Episode Compilation (1965-69)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/aU4izsLC7bYBMteWIfDmDXL2Qz7.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 113988628,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger Ramjet - Episode 03.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

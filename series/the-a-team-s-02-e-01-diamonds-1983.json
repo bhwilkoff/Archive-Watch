@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-a-team-s-02-e-01-diamonds-1983",
+  "title": "The A Team S 02 E 01 Diamonds",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-a-team-s-02-e-01-diamonds-n-dust",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-a-team-s-02-e-01-diamonds-n-dust",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The A Team S 02 E 01 Diamonds 'n Dust",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-a-team-s-02-e-01-diamonds-n-dust",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The A-Team S02E01 Diamonds 'n Dust.mp4",
+            "format": "h.264",
+            "sizeBytes": 278491618,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-a-team-s-02-e-01-diamonds-n-dust/The A-Team S02E01 Diamonds 'n Dust.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

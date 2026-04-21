@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "karen-1987",
+  "title": "Karen",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": "Karen is one of three NBC sitcoms set in a California apartment complex located at 90 Bristol Court. It stars Debbie Watson in the title role of 16-year-old Karen Scott, and Gina Gillespie as the tomboyish little sister Mimi.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/hsjzTrrrogVjUFoh6USQS2XxbHg.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Bob Mosher",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "karens-song-1.01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Karen's Song - Patty Duke, Teri Hatcher",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/hsjzTrrrogVjUFoh6USQS2XxbHg.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Karens Song - 1.08.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 702908379,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/karens-song-1.01/Karens Song - 1.08.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

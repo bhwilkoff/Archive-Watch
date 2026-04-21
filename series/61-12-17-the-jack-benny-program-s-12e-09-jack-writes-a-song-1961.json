@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "61-12-17-the-jack-benny-program-s-12e-09-jack-writes-a-song-1961",
+  "title": "61 12 17 The Jack Benny Program S 12e 09 Jack Writes A Song",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/611217TheJackBennyProgramS12e09JackWritesASong",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "611217TheJackBennyProgramS12e09JackWritesASong",
+          "seasonNumber": 1,
+          "episodeNumber": 61,
+          "title": "61 12 17 The Jack Benny Program S 12e 09 Jack Writes A Song",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/611217TheJackBennyProgramS12e09JackWritesASong",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "61-12-17  The Jack Benny Program  s12e09  Jack Writes A Song.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 110325352,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/611217TheJackBennyProgramS12e09JackWritesASong/61-12-17  The Jack Benny Program  s12e09  Jack Writes A Song.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-world-news-saturday-january-16-1988-1988",
+  "title": "ABC World News Saturday January 16, 1988",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/abc-19880116",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "abc-19880116",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC World News Saturday January 16, 1988",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/abc-19880116",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC世界新闻 19880116六.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 181241299,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/abc-19880116/ABC世界新闻 19880116六.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

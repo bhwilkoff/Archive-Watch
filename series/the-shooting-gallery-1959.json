@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-shooting-gallery-1959",
+  "title": "The Shooting Gallery",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": "Shooting Gallery is a television series on the Outdoor Channel hosted by Elle Alexander, Michael Bane, and Katie Rowe. The series deals with sharpshooting and target practice.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9Zf612h3TuzfWVzrL9ToHVS3AS6.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lyXWLiBKYjcfnHrfepaDj9Kwqj8.jpg",
+  "genres": [],
+  "networks": [
+    "Outdoor Channel"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FMM_The_Shooting_Gallery",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Shooting Gallery",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9Zf612h3TuzfWVzrL9ToHVS3AS6.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FMM_The_Shooting_Gallery.mp4",
+            "format": "h.264",
+            "sizeBytes": 147761656,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FMM_The_Shooting_Gallery/FMM_The_Shooting_Gallery.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

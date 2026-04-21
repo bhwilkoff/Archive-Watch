@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-moxy-show-1993",
+  "title": "The Moxy Show",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "The Moxy Show is an animation anthology television series created by Scott Fellows and produced by Hanna-Barbera for Cartoon Network. The show ran on December 5, 1993, originally as The Moxy Pirate Show, and consisted of classic cartoons divided by 3-D animated interstitials featuring Moxy, a dog, and Flea, a flea. The show ran on Cartoon Network from 1993 to 1998 as a CGI cartoon and 1998 to 2000 as a hand-drawn cartoon with CGI and live-action effects. The series aired its last episode on January 2, 2000, and reruns were removed completely on April 1, 2000. Moxy is considered the first original series on Cartoon Network, but Space Ghost Coast to Coast was Cartoon Network's first fully produced series.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/491/1228168.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Cartoon Network"
+  ],
+  "creator": "Scott Fellows",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-moxy-show-lost-cartoon-episode-1-2-full-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Moxy Show S1 E1",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/491/1228168.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Moxy Show (Lost Cartoon)_ Episode 1_2 - Full Episode.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 46539587,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-moxy-show-lost-cartoon-episode-1-2-full-episode/The Moxy Show (Lost Cartoon)_ Episode 1_2 - Full Episode.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

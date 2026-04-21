@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "what-2023",
+  "title": "What",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/whats-so-funny-december-10-1995-ep.-2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "whats-so-funny-december-10-1995-ep.-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "What's So Funny- December 10, 1995 (Ep. 2)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/whats-so-funny-december-10-1995-ep.-2",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "What's So Funny- December 10, 1995 (Ep. 2).mp4",
+            "format": "h.264",
+            "sizeBytes": 132604038,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/whats-so-funny-december-10-1995-ep.-2/What's So Funny- December 10, 1995 (Ep. 2).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

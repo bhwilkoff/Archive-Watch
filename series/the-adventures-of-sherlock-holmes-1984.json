@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-adventures-of-sherlock-holmes-1984",
+  "title": "The Adventures of Sherlock Holmes",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "The Adventures of Sherlock Holmes and Dr. Watson is a series of five films produced by Lenfilm for the Soviet Central Television, split into eleven episodes, starring Vasily Livanov as Sherlock Holmes and Vitaly Solomin as Dr. Watson. They were directed by Igor Maslennikov and filmed in Russia (the then Soviet Union) between 1979 and 1986, and the series was one of the most successful in the history of Russian television.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/6WxfaKH4KkruJROkoto84xIpVAf.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/pMDNmcij2TyTYIUzJ5xzCjHGp0k.jpg",
+  "genres": [],
+  "networks": [
+    "Central Television USSR"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-1984_202303",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures of Sherlock Holmes (1984)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/6WxfaKH4KkruJROkoto84xIpVAf.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes S1E06 - The Speckled Band.mp4",
+            "format": "h.264",
+            "sizeBytes": 308557325,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-1984_202303/The Adventures of Sherlock Holmes S1E06 - The Speckled Band.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

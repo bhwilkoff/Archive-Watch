@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "especial-de-los-morancos-1996",
+  "title": "Especial de los Morancos",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/especial-los-morancos-1996-12-31",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "especial-los-morancos-1996-12-31",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Especial de los Morancos - 31 de diciembre, 1996",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/especial-los-morancos-1996-12-31",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TVE 1 - Fragmento 'Especial Los Morancos' (31-12-1996).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 62954939,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/especial-los-morancos-1996-12-31/TVE 1 - Fragmento 'Especial Los Morancos' (31-12-1996).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

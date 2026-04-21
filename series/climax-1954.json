@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "seriesID": "climax-1954",
+  "title": "Climax!",
+  "yearStart": 1954,
+  "yearEnd": 1957,
+  "overview": "Climax! is an American anthology series that aired on CBS from 1954 to 1958. The series was hosted by William Lundigan and later co-hosted by Mary Costa. It was one of the few CBS programs of that era to be broadcast in color. Many of the episodes were performed and broadcast live.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tc1YJLMCMFyvA1OsFyzMMJ2wIfL.jpg",
+  "genres": [
+    "anthology series"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "climax_202103",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Climax",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ClimaxS01E34Dr JekyllandMrHyde.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 368584511,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/climax_202103/ClimaxS01E34Dr JekyllandMrHyde.ia.mp4"
+        },
+        {
+          "archiveID": "Climax-DrJekyllAndMrHyde",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Climax - Dr Jekyll and Mr Hyde",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Climax-drJekyllAndMrHyde_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 258938822,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Climax-DrJekyllAndMrHyde/Climax-drJekyllAndMrHyde_512kb.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Climax_AdventuresofHuckleberryFinn",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "The Adventures of Huckleberry Finn",
+          "overview": "Huck and Jim once again embark on their adventure-filled trek down the Mississippi .",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1955-09-01",
+          "year": 1955,
+          "runtimeSeconds": 3540,
+          "videoFile": {
+            "name": "AdventuresofHuckleberryFinn.mp4",
+            "format": "h.264",
+            "sizeBytes": 360122994,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Climax_AdventuresofHuckleberryFinn/AdventuresofHuckleberryFinn.mp4"
+        },
+        {
+          "archiveID": "Climax-TheLouGehrigStory1956",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "The Lou Gehrig Story",
+          "overview": "Baseball's \"\"Iron Horse,\"\" whose brilliant career was ended by a terminal illness, and who struggled valiantly against adversity.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1956-04-19",
+          "year": 1956,
+          "runtimeSeconds": 3567,
+          "videoFile": {
+            "name": "Climax_Lou_Gehrig_story_04_19_56.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 401124311,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Climax-TheLouGehrigStory1956/Climax_Lou_Gehrig_story_04_19_56.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "Climax--A_Matter_of_Life_and_Death",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "A Matter of Life and Death",
+          "overview": "A man wakes up with a hangover one morning believing he is responsible for a murder. All he can remember is standing over a body holding a broken bottle in his hand. The girl in love with him is convinced he is innocent and helps him try to prove",
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1957-11-21",
+          "year": 1957,
+          "runtimeSeconds": 2838,
+          "videoFile": {
+            "name": "Climax407_A_Matter_of_Life_and_Death.mp4",
+            "format": "h.264",
+            "sizeBytes": 266634445,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Climax--A_Matter_of_Life_and_Death/Climax407_A_Matter_of_Life_and_Death.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

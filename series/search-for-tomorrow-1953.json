@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "search-for-tomorrow-1953",
+  "title": "Search For Tomorrow",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": "Search for Tomorrow is an American soap opera that premiered on September 3, 1951, on CBS. The show was moved from CBS to NBC on March 29, 1982. It continued on NBC until the final episode aired on December 26, 1986, a run of thirty-five years. At the time of its final broadcast, it was the longest-running non-news program on television. This record would later be broken by Hallmark Hall of Fame, which premiered on Christmas Eve 1951 and still airs occasionally.\n\nThe show was created by Roy Winsor and was first written by Agnes Nixon for thirteen weeks and, later, by Irving Vendig.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/8vy1WKfaqk4yWSHEQszYX4AHoNE.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/gyc2Zf7656uoyqRqToeDS52axCi.jpg",
+  "genres": [],
+  "networks": [
+    "NBC",
+    "CBS"
+  ],
+  "creator": "Roy Winsor",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SearchForTomorrow19August1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Search For Tomorrow'' - 19 August 1953",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8vy1WKfaqk4yWSHEQszYX4AHoNE.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 875,
+          "videoFile": {
+            "name": "Search for Tomorrow - 19 August 1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 91277418,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SearchForTomorrow19August1953/Search for Tomorrow - 19 August 1953.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

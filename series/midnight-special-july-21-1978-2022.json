@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "midnight-special-july-21-1978-2022",
+  "title": "Midnight Special (July 21, 1978",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/midnight-special-july-21-1978",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "midnight-special-july-21-1978",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Midnight Special (July 21, 1978)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/midnight-special-july-21-1978",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Midnight Special (July 21, 1978).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1109205059,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/midnight-special-july-21-1978/Midnight Special (July 21, 1978).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

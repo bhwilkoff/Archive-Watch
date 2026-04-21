@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "jefferson-journal-1997",
+  "title": "Jefferson Journal",
+  "yearStart": 1997,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/archjjnotinourtown-2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ARCHJJEARTHQUAKES",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jefferson Journal: Earthquakes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ARCHJJEARTHQUAKES",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ARCHJJEARTHQUAKES.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1365831889,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ARCHJJEARTHQUAKES/ARCHJJEARTHQUAKES.ia.mp4"
+        },
+        {
+          "archiveID": "ARCHJJNAGAMING",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jefferson Journal: Native American Gambling",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ARCHJJNAGAMING",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ARCHJJNAGAMING.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 622571917,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ARCHJJNAGAMING/ARCHJJNAGAMING.ia.mp4"
+        },
+        {
+          "archiveID": "archjjnotinourtown-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jefferson Journal: Not In Our Town, Part Two",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/archjjnotinourtown-2",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ARCHJJNOTINOURTOWN2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1396896948,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/archjjnotinourtown-2/ARCHJJNOTINOURTOWN2.ia.mp4"
+        },
+        {
+          "archiveID": "ARCHJJSCHOOLTOWORK",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jefferson Journal: School to Work",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ARCHJJSCHOOLTOWORK",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ARCHJJSCHOOLTOWORK.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 946418625,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ARCHJJSCHOOLTOWORK/ARCHJJSCHOOLTOWORK.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

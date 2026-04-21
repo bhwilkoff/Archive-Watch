@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "world-trade-organization-1996",
+  "title": "World Trade Organization",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/wto_1999_protest-footage",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "wto_1999_protest-footage",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "World Trade Organization: Protest Movement 1999 (Globalization)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/wto_1999_protest-footage",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "resist_exist_1996_eugene_or.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 133206624,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wto_1999_protest-footage/resist_exist_1996_eugene_or.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

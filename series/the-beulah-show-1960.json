@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-beulah-show-1960",
+  "title": "The Beulah Show",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Beulah Show is an American situation-comedy series that ran on CBS Radio from 1945 to 1954, and on ABC Television from 1950 to 1952. The show is notable for being the first sitcom to star an African American actress.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theBeulahShow-SecondWedding",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Beulah Show'' - Second Wedding",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1490,
+          "videoFile": {
+            "name": "Beulah-SecondWedding.mp4",
+            "format": "h.264",
+            "sizeBytes": 153933436,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theBeulahShow-SecondWedding/Beulah-SecondWedding.mp4"
+        },
+        {
+          "archiveID": "The_Waltz",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'The Beulah Show' - The Waltz",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TheWaltz.mp4",
+            "format": "h.264",
+            "sizeBytes": 154939512,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/The_Waltz/TheWaltz.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

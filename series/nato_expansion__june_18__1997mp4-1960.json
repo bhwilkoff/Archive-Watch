@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "seriesID": "nato_expansion__june_18__1997mp4-1960",
+  "title": "NATO_Expansion__June_18__1997.mp4",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/NATO_Expansion__June_18__1997.mp4",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lic:3154f354c4de",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "NATO_Expansion__June_18__1997.mp4",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/NATO_Expansion__June_18__1997.mp4",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

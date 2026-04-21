@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "department-s-1969-1969",
+  "title": "Department S (1969",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/department-s-jason-king",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "department-s-jason-king",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Department S (1969 - 70) & Jason King (1971 - 72) Complete Series HD",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/department-s-jason-king",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Department S (1969 - 70) & Jason King (1971 - 72)/02 Jason King (1971 - 72)/Ep01 Wanna Buy A Television Series.mp4",
+            "format": "h.264",
+            "sizeBytes": 299350462,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/department-s-jason-king/Department S (1969 - 70) & Jason King (1971 - 72)/02 Jason King (1971 - 72)/Ep01 Wanna Buy A Television Series.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

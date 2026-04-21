@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "meego-1997",
+  "title": "Meego",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": "After his spaceship crashlands on Earth, an alien unepectedly becomes the nanny to a single father's three children.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/29/73962.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Ross Brown",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "meego-1.02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Meego - Bronson Pinchot, Michelle Trachtenberg",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/29/73962.jpg",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Meego - 1.02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 188308261,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/meego-1.02/Meego - 1.02.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

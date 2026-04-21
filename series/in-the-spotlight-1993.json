@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "in-the-spotlight-1993",
+  "title": "In The Spotlight",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/a-beatles-songbook-1993",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "a-beatles-songbook-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "In The Spotlight - A Beatles Songbook",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/a-beatles-songbook-1993",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A Beatles Songbook - 1993.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1685835401,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/a-beatles-songbook-1993/A Beatles Songbook - 1993.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

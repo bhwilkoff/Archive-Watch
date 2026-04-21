@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "duet-open-house-1987-1990-1987",
+  "title": "Duet / Open House (1987-1990",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/duet-open-house",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "duet-open-house",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Duet / Open House (1987-1990)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/duet-open-house",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Duet S01E07-8 - Fugue & Resolution.mp4",
+            "format": "h.264",
+            "sizeBytes": 285308237,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/duet-open-house/Duet S01E07-8 - Fugue & Resolution.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

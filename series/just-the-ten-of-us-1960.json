@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "just-the-ten-of-us-1960",
+  "title": "Just the Ten of Us",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Just the Ten of Us is an American sitcom starring stand-up comedian Bill Kirchenbauer as Coach Graham Lubbock, a teacher and the head of a large Catholic family with eight children living in Eureka, California. The series is a spin-off of Growing Pains, in which Kirchenbauer portrayed the same character on a recurring basis. As the series progressed, Coach Lubbock's four eldest daughters, the teenagers Marie, Cindy, Wendy, and Connie, became the primary focus of the show.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/iDcwx7Ea53DTjTer7Qot5RV4aeV.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4sdpv28Vj9alBGGS1bdogLDXYRK.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Steve Marshall",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "just-the-ten-of-us-s01ep1-pilot",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Move It or Lose It",
+          "overview": "The Lubbock clan make it to Eureka, California, where Graham's accepting a coaching job at St Auggie's Academy — but the family's in for some surprises.  First, the Coach learns that the university is an all-boys school which his daughters will be attending.  Then they arrive at their new run-down home, and find it \"looks like something out of Nightmare on Elm Street.\" But the biggest surprise is that Graham only got the job because his former student, Duane Johnson, works on the faculty, and has been corresponding with Elizabeth.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/iDcwx7Ea53DTjTer7Qot5RV4aeV.jpg",
+          "airDate": "1988-04-26",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "just the ten of us 1_prob4.mp4",
+            "format": "h.264",
+            "sizeBytes": 139110667,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/just-the-ten-of-us-s01ep1-pilot/just the ten of us 1_prob4.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

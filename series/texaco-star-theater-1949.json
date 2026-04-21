@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "texaco-star-theater-1949",
+  "title": "Texaco Star Theater",
+  "yearStart": 1949,
+  "yearEnd": 1951,
+  "overview": "Texaco Star Theater is an American comedy-variety show, broadcast on radio from 1938 to 1949 and telecast from 1948 to 1956. It was one of the first successful examples of American television broadcasting, remembered as the show that gave Milton Berle the nickname \"Mr. Television\".\n\nThe classic 1940–44 version of the program, hosted by radio's Fred Allen, was followed by a radio series on ABC in the spring of 1948. When Texaco first took it to television on NBC on June 8, 1948, the show had a huge cultural impact.",
+  "posterURL": null,
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/kUzukEm0JTBX3iFvXYxIlZcitQL.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TexacoStarTheater22March1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Texaco Star Theater'' - 22 March 1949",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 3575,
+          "videoFile": {
+            "name": "texaco22March1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 373635285,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TexacoStarTheater22March1949/texaco22March1949.mp4"
+        },
+        {
+          "archiveID": "TexacoStarTheater28February1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Texaco Star Theater'' - 28 February 1950",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 3539,
+          "videoFile": {
+            "name": "TexacoStarTheater28February1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 367177440,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TexacoStarTheater28February1950/TexacoStarTheater28February1950.mp4"
+        },
+        {
+          "archiveID": "TexacoStarTheater",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Texaco Star Theater'' - 29 November 1949",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 3377,
+          "videoFile": {
+            "name": "TexacoStarTheater29November1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 350323670,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TexacoStarTheater/TexacoStarTheater29November1949.mp4"
+        },
+        {
+          "archiveID": "TexacoStarTheatre-29May1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Texaco Star Theater - 29 May 1951",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 3550,
+          "videoFile": {
+            "name": "Texaco1951.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 344858375,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TexacoStarTheatre-29May1951/Texaco1951.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

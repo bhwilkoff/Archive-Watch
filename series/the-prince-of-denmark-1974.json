@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-prince-of-denmark-1974",
+  "title": "THE PRINCE OF DENMARK",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": "Ronnie and Laura Corbett have embarked on a new future - this time in the company of the Prince of Denmark, a public house that she has inherited. Ronnie's initially rather put out by Laura's being technically in charge; something which the brewery's delivery men are swift to pick up on! Her prior experience working behind a bar soon begins to rub off, but it's a slow learning curve for the diminutive busybody as he attempts to keep his pride in tact, his eye over everything, and his hand firmly on the tiller.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/5GGQHO1zxF8CtwaAVF4GVL9dmuH.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/deDdUMaqZWAGr5J9GXUD3J95qaO.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": "Graham Chapman",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-prince-of-denmark-1974",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "THE PRINCE OF DENMARK (1974) (Full Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/5GGQHO1zxF8CtwaAVF4GVL9dmuH.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PRINCE OF DENMARK (1974)/03.The Prince Of Denmark...Marriage Counsellor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 173447354,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-prince-of-denmark-1974/PRINCE OF DENMARK (1974)/03.The Prince Of Denmark...Marriage Counsellor.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

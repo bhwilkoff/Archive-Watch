@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "westinghouse-summer-theatre-1951",
+  "title": "Westinghouse Summer Theatre",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/therabbit",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Mr.MummerysSuspicion",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Westinghouse Summer Theatre'' - Mr. Mummery's Suspicion (improved copy)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Mr.MummerysSuspicion",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 3559,
+          "videoFile": {
+            "name": "Mr. Mummery's Suspicion.mp4",
+            "format": "h.264",
+            "sizeBytes": 370933376,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mr.MummerysSuspicion/Mr. Mummery's Suspicion.mp4"
+        },
+        {
+          "archiveID": "therabbit",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Westinghouse Summer Theatre'' - The Rabbit",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/therabbit",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 3526,
+          "videoFile": {
+            "name": "therabbit.mp4",
+            "format": "h.264",
+            "sizeBytes": 366730646,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/therabbit/therabbit.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

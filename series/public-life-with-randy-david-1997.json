@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "public-life-with-randy-david-1997",
+  "title": "Public Life with Randy David",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": "Public Life with Randy David was a public affairs program hosted by Randy David. It was aired on GMA Network from 1995 to 1998.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "GMA Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PublicLifeJomaSison1997",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Public Life with Randy David - Joma Sison and the Peace Talks",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PublicLifeJoma.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 351186308,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicLifeJomaSison1997/PublicLifeJoma.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

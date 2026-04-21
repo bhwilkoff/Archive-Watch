@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "music-scene-1969",
+  "title": "Music Scene",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": "The Music Scene is a television series aired by ABC as part of its Fall 1969 lineup, in the Monday, 7:30 to 8:15 timeslot, primarily featuring rock and pop music.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3Dn8EAJ3jzHryGYlzf37xsvG3OB.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1969-10-27-richie-havens-issac-hayes-janis-joplin-smith-jerry-lee-lewis-ten-year",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Music Scene (1969)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/3Dn8EAJ3jzHryGYlzf37xsvG3OB.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1969-10-27 Richie Havens, Issac Hayes, Janis Joplin, Smith, Jerry Lee Lewis, Ten Years After, Michael Cole, Archies, and bonus songs (VHS).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 520515597,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1969-10-27-richie-havens-issac-hayes-janis-joplin-smith-jerry-lee-lewis-ten-year/1969-10-27 Richie Havens, Issac Hayes, Janis Joplin, Smith, Jerry Lee Lewis, Ten Years After, Michael Cole, Archies, and bonus songs (VHS).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

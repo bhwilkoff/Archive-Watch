@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "almost-live-specials-1990-1990",
+  "title": "Almost Live! Specials 1990",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AlmostLiveSpecials",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AlmostLiveSpecials",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Live! Specials 1990 - 2005",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlmostLiveSpecials",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Almost Live! vs The Media (1992).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319310933,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlmostLiveSpecials/Almost Live! vs The Media (1992).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

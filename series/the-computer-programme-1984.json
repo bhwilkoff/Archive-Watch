@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-computer-programme-1984",
+  "title": "The Computer Programme",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "The Computer Programme was a TV series, produced by Paul Kriwaczek, originally broadcast by the BBC in 1982. The idea behind the series was to introduce people to computers and show them what they were capable of. The BBC wanted to use their own computer, so the BBC Micro was developed as part of the BBC Computer Literacy Project, and was featured in this series. The series was successful enough for two series to follow it, namely Making the Most of the Micro in 1983 and Micro Live from 1984 until 1987.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/otVX8ztDezq1XIwIqAqIFeTFm2Q.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC Two"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ComputerProgrammeABCAusIntroEp1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "It's Happening Now",
+          "overview": "\"Don't expect the computer revolution to happen tomorrow, it's going on all around us.\" Chris Serle, Ian McNaught-Davis and Gill Nevill begin their exploration of the world of Information Science and ask: 'What can computers do for us? Who is using them now, and where is this technology likely to lead?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/hB658ffqCTx8zjgOQb5HbVWr7qX.jpg",
+          "airDate": "1982-01-11",
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ComputerProgramme_ABCAusIntro_Episode1.mp4",
+            "format": "h.264",
+            "sizeBytes": 15530708,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ComputerProgrammeABCAusIntroEp1/ComputerProgramme_ABCAusIntro_Episode1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

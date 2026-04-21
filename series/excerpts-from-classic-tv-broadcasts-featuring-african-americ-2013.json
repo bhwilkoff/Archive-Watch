@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "excerpts-from-classic-tv-broadcasts-featuring-african-americ-2013",
+  "title": "Excerpts from classic TV broadcasts featuring African-Americans",
+  "yearStart": 2013,
+  "yearEnd": 2013,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/African-Americans1950sTV",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "African-Americans1950sTV",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Excerpts from classic TV broadcasts featuring African-Americans",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/African-Americans1950sTV",
+          "airDate": null,
+          "year": 2013,
+          "runtimeSeconds": 4688,
+          "videoFile": {
+            "name": "1950sTVAfricanAmericans.mp4",
+            "format": "h.264",
+            "sizeBytes": 487380334,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/African-Americans1950sTV/1950sTVAfricanAmericans.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

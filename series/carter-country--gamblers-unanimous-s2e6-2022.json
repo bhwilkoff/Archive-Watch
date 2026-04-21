@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "carter-country--gamblers-unanimous-s2e6-2022",
+  "title": "Carter Country- Gamblers Unanimous (S2E6",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/carter-country-gamblers-unanimous-s-2-e-6",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "carter-country-gamblers-unanimous-s-2-e-6",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Carter Country- Gamblers Unanimous (S2E6)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/carter-country-gamblers-unanimous-s-2-e-6",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Carter Country- Gamblers Unanimous (S2E6).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1153998103,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/carter-country-gamblers-unanimous-s-2-e-6/Carter Country- Gamblers Unanimous (S2E6).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

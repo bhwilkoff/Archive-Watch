@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bbc-supersenselifesensesupernatural-198819911999-1960",
+  "title": "BBC SuperSense/LifeSense/SuperNatural (1988/1991/1999",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bbc-life-sense-ep-4-of-6-life-soul",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bbc-life-sense-ep-4-of-6-life-soul",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC SuperSense/LifeSense/SuperNatural (1988/1991/1999)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bbc-life-sense-ep-4-of-6-life-soul",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC SuperSense Ep 4 of 6 Super Scents (9 Jan 1989).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 563732689,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bbc-life-sense-ep-4-of-6-life-soul/BBC SuperSense Ep 4 of 6 Super Scents (9 Jan 1989).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

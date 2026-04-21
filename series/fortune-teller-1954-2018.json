@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "fortune-teller-1954-2018",
+  "title": "Fortune Teller 1954",
+  "yearStart": 2018,
+  "yearEnd": 2018,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FortuneTeller1954",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FortuneTeller1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fortune Teller 1954",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FortuneTeller1954",
+          "airDate": null,
+          "year": 2018,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FortuneTeller1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 162877320,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FortuneTeller1954/FortuneTeller1954.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

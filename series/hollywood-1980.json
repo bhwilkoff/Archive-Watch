@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "hollywood-1980",
+  "title": "Hollywood",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": "A 1980 documentary series exploring the establishment and development of the Hollywood studios and its impact on 1920s culture.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/jCAFbN0ar40BeM6tnPpcnqKMVml.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/dDBi3HQ9mpmjlUsA7rA5jlwyBcR.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Kevin Brownlow",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "vol.-12-star-treatment",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hollywood",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jCAFbN0ar40BeM6tnPpcnqKMVml.jpg",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Vol. 3 - Hollywood.mp4",
+            "format": "h.264",
+            "sizeBytes": 306585343,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/vol.-12-star-treatment/Vol. 3 - Hollywood.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

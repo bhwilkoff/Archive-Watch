@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "carlos-monzon-el-segundo-juicio-1996",
+  "title": "Carlos Monzon, el segundo juicio",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/carlos-monzon-el-segundo-juicio-1996-480p",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "carlos-monzon-el-segundo-juicio-1996-480p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Carlos Monzon, el segundo juicio (1996) [1080p]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/carlos-monzon-el-segundo-juicio-1996-480p",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Carlos Monzon, el segundo juicio (1996) [1080p].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3184907451,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/carlos-monzon-el-segundo-juicio-1996-480p/Carlos Monzon, el segundo juicio (1996) [1080p].ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

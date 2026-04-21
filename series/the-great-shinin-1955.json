@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-great-shinin-1955",
+  "title": "The Great Shinin",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Saucer_of_Paddy_Faneen--Star_Story",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Saucer_of_Paddy_Faneen--Star_Story",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Great Shinin' Saucer of Paddy Faneen (The Star and the Story)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Saucer_of_Paddy_Faneen--Star_Story",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1556,
+          "videoFile": {
+            "name": "Saucer_of_Paddy_Faneen.mp4",
+            "format": "h.264",
+            "sizeBytes": 159924642,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Saucer_of_Paddy_Faneen--Star_Story/Saucer_of_Paddy_Faneen.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

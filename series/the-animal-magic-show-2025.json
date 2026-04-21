@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-animal-magic-show-2025",
+  "title": "The Animal Magic Show",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-animal-magic-show-s-03-2000-cbbc-on-choice-repeat",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-animal-magic-show-s-03-2000-cbbc-on-choice-repeat",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Animal Magic Show - S01E07 - 26th October 1998 (CBBC on Choice repeat)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-animal-magic-show-s-03-2000-cbbc-on-choice-repeat",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Animal Magic Show - S01 - 1998 (CBBC on Choice repeat).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 212810419,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-animal-magic-show-s-03-2000-cbbc-on-choice-repeat/The Animal Magic Show - S01 - 1998 (CBBC on Choice repeat).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

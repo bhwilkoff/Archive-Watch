@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-4th-annual-american-comedy-awards-2021",
+  "title": "The 4th Annual American Comedy Awards",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-4th-annual-american-comedy-awards-1990-pt.-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-4th-annual-american-comedy-awards-1990-pt.-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The 4th Annual American Comedy Awards (1990)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-4th-annual-american-comedy-awards-1990-pt.-1",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The 4th Annual American Comedy Awards (1990) pt.2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 988273037,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-4th-annual-american-comedy-awards-1990-pt.-1/The 4th Annual American Comedy Awards (1990) pt.2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ms-velma-1976",
+  "title": "Ms. Velma",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Ms_Velmas_Most_Incredibly_Magnificent_Christmas_Week",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Ms_Velmas_Most_Incredibly_Magnificent_Christmas_Week",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ms. Velma's Most Incredibly Magnificent Christmas Week (1976)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Ms_Velmas_Most_Incredibly_Magnificent_Christmas_Week",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "videoplayback (1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 210122734,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ms_Velmas_Most_Incredibly_Magnificent_Christmas_Week/videoplayback (1).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

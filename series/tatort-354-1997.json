@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tatort-354-1997",
+  "title": "Tatort (354",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/2780408-47754201",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "2780408-47754201",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tatort (354): Brüder (1997)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/2780408-47754201",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2780408_47754201.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 3088178625,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/2780408-47754201/2780408_47754201.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

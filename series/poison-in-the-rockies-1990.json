@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "poison-in-the-rockies-1990",
+  "title": "Poison in the Rockies",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/PoisonintheRockies",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PoisonintheRockies",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Poison in the Rockies",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/PoisonintheRockies",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S17E01.(Film).Poison.in.the.Rockies.1990.DVDRip.DD2.0.x264-astro.mp4",
+            "format": "h.264",
+            "sizeBytes": 348867483,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PoisonintheRockies/NOVA.S17E01.(Film).Poison.in.the.Rockies.1990.DVDRip.DD2.0.x264-astro.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

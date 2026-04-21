@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "classic-1965-commercial-for-arrid-deodorant-1965",
+  "title": "Classic 1965 Commercial for Arrid Deodorant",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Classic1965CommercialForArridDeodorant",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Classic1965CommercialForArridDeodorant",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Classic 1965 Commercial for Arrid Deodorant",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Classic1965CommercialForArridDeodorant",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 64,
+          "videoFile": {
+            "name": "Arrid_deodorant_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4623608,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Classic1965CommercialForArridDeodorant/Arrid_deodorant_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

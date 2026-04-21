@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jack-hunts-for-uranium-1960",
+  "title": "Jack Hunts for Uranium",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/JackHuntsForUranium",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JackHuntsForUranium",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Hunts for Uranium",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackHuntsForUranium",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1524,
+          "videoFile": {
+            "name": "JackBenny-JackHuntsForUranium.mp4",
+            "format": "h.264",
+            "sizeBytes": 144772173,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackHuntsForUranium/JackBenny-JackHuntsForUranium.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

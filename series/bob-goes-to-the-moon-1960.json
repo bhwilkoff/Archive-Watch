@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bob-goes-to-the-moon-1960",
+  "title": "Bob Goes To The Moon",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Love_That_Bob_Ep4x27_Bob_Goes_To_The_Moon",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Love_That_Bob_Ep4x27_Bob_Goes_To_The_Moon",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Goes To The Moon",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Love_That_Bob_Ep4x27_Bob_Goes_To_The_Moon",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Love_That_Bob_-_4x27_-_1958-04-01_-_Bob_Goes_to_the_Moon__DivX_DVD_640x464__b59_.mp4",
+            "format": "h.264",
+            "sizeBytes": 153465712,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Love_That_Bob_Ep4x27_Bob_Goes_To_The_Moon/Love_That_Bob_-_4x27_-_1958-04-01_-_Bob_Goes_to_the_Moon__DivX_DVD_640x464__b59_.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

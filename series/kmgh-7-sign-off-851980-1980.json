@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "kmgh-7-sign-off-851980-1980",
+  "title": "KMGH-7 sign off, 8/5/1980",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/20211104_20211104_0621",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "20211104_20211104_0621",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "KMGH-7 sign off, 8/5/1980",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/20211104_20211104_0621",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1980_360P.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 12121786,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/20211104_20211104_0621/1980_360P.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

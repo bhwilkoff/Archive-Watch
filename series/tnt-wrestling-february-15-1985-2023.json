@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tnt-wrestling-february-15-1985-2023",
+  "title": "TNT Wrestling (February 15, 1985",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tnt-wrestling-february-15-1985",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tnt-wrestling-february-15-1985",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TNT Wrestling (February 15, 1985)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tnt-wrestling-february-15-1985",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TNT Wrestling (February 15, 1985).mp4",
+            "format": "h.264",
+            "sizeBytes": 270547971,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tnt-wrestling-february-15-1985/TNT Wrestling (February 15, 1985).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

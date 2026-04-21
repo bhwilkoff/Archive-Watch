@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "marrakesh-express-1969",
+  "title": "Marrakesh Express",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/marrakesh-express-by-crosby-stills-nash-1969",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "marrakesh-express-by-crosby-stills-nash-1969",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Marrakesh Express' by Crosby, Stills & Nash • AB Dancers August 2 1969 720p Special Mix",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/marrakesh-express-by-crosby-stills-nash-1969",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "'Marrakesh Express' by Crosby, Stills & Nash • AB Dancers August 2 1969 720p Special Mix.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 225316271,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/marrakesh-express-by-crosby-stills-nash-1969/'Marrakesh Express' by Crosby, Stills & Nash • AB Dancers August 2 1969 720p Special Mix.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

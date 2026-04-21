@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "brigada-siete-1995",
+  "title": "Brigada Siete",
+  "yearStart": 1995,
+  "yearEnd": 1998,
+  "overview": "Brigada Siete is an investigative news television show in the Philippines on GMA Network from December 5, 1993 to September 29, 2001. The show was revived in 2011 and retitled as Brigada.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "GMA Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "brigada-siete-batas-obala-june-1995",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brigada Siete - Batas O' Bala? - June 1995",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BrigadaSieteBatasOBalaJune1995.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 372783677,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brigada-siete-batas-obala-june-1995/BrigadaSieteBatasOBalaJune1995.ia.mp4"
+        },
+        {
+          "archiveID": "BrigadaSiete02071998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brigada Siete - Cebu Pacific Flight 387 - February 07, 1998",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BrigadaSieteFebruary071998.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 462518113,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BrigadaSiete02071998/BrigadaSieteFebruary071998.ia.mp4"
+        },
+        {
+          "archiveID": "BrigadaSieteOzoneDiscoTragedy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brigada Siete - Ozone Disco Tragedy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BrigadaSiete03231996.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 362861543,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BrigadaSieteOzoneDiscoTragedy/BrigadaSiete03231996.ia.mp4"
+        },
+        {
+          "archiveID": "brigadasiete06251995",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Brigada Siete - Vizconde Massacre: Crime of the Century",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BrigadaSieteVizconde.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 414817356,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brigadasiete06251995/BrigadaSieteVizconde.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-brothers-1960",
+  "title": "The Brothers",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Brothers is a British television series, produced and shown by the BBC between 1972 and 1976.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/yEaqhm40Qy08I1jUyjPictB4rtM.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/peBCcSngfbsLsE9woKLPEw2g2jA.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_17_The_Brothers",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Brothers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yEaqhm40Qy08I1jUyjPictB4rtM.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_17_The_Brothers.mp4",
+            "format": "h.264",
+            "sizeBytes": 152367275,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_17_The_Brothers/Robin_Hood_17_The_Brothers.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

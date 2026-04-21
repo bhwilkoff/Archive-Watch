@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-avengers-3x-14-dressed-to-kill-1964",
+  "title": "The Avengers 3x 14 Dressed To Kill",
+  "yearStart": 1964,
+  "yearEnd": 1964,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/theavengers3x14dressedtokill",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theavengers3x14dressedtokill",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Avengers 3x 14 Dressed To Kill",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theavengers3x14dressedtokill",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Avengers - 3x14 - Dressed to Kill.mp4",
+            "format": "h.264",
+            "sizeBytes": 319455404,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theavengers3x14dressedtokill/The Avengers - 3x14 - Dressed to Kill.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

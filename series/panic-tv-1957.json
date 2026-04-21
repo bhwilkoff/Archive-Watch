@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "panic-tv-1957",
+  "title": "Panic TV",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/101-panic-no-warning-the-priest",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "101-panic-no-warning-the-priest",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Panic TV Series",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/101-panic-no-warning-the-priest",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "116 Botulism Panic.mp4",
+            "format": "h.264",
+            "sizeBytes": 201117075,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/101-panic-no-warning-the-priest/116 Botulism Panic.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

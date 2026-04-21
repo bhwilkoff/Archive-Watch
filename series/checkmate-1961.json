@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "seriesID": "checkmate-1961",
+  "title": "Checkmate",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": "Checkmate is an American detective television series starring Anthony George, Sebastian Cabot, and Doug McClure. The show aired on CBS Television from 1960 to 1962 for a total of 70 episodes and was produced by Jack Benny's production company, \"JaMco Productions\" in co-operation with Revue Studios. Guest stars included Charles Laughton, Peter Lorre, and Lee Marvin, among many other commensurately prominent performers.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/8EPt8QG4e4qbw2lIHySMPYFdhUE.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/9zvc03mGeRtuMfAasghNTn2zapv.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Eric Ambler",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_09_Checkmate",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Checkmate",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8EPt8QG4e4qbw2lIHySMPYFdhUE.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_09_Checkmate.mp4",
+            "format": "h.264",
+            "sizeBytes": 150568178,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_09_Checkmate/Robin_Hood_09_Checkmate.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "CheckmateTheHumanTouch1961",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Human Touch",
+          "overview": "Arguably the finest episode of the series, featuring guest star Peter Lorre as an ex-con criminal mastermind determined to wreak revenge on master criminologist Sebastian Cabot.  An intricate series of cat and mouse moves between the two geniuses culminates in a surprise and ultimately poignant ending, befitting the episode title.  This episode stresses the close friendships between the three detectives of CHECKMATE INCORPORATED as it contrasts with that of the brilliant, but soulless Lorre.  Directing, writing and acting are all exemplary.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/8EPt8QG4e4qbw2lIHySMPYFdhUE.jpg",
+          "airDate": "1961-01-14",
+          "year": 1961,
+          "runtimeSeconds": 2964,
+          "videoFile": {
+            "name": "Checkmate-theHumanTouch.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310345653,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CheckmateTheHumanTouch1961/Checkmate-theHumanTouch.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Checkmate--Nice_Guys_Finish_Last",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Nice Guys Finish Last",
+          "overview": "Police Lieutenant Dave Harker, a friend of Don's, is bitter after being denied a promotion to Captain, and decides to frame nightclub owner and high school rival Nick Culley, whom he blames for the pass over, for murder. Harker in turn is being blackmailed by a man who knows the truth. Devlin goes undercover as a rookie cop to keep an eye on Harker.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/8EPt8QG4e4qbw2lIHySMPYFdhUE.jpg",
+          "airDate": "1961-12-13",
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Checkmate210_Nice_Guys_Finish_Last.mp4",
+            "format": "h.264",
+            "sizeBytes": 278261889,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Checkmate--Nice_Guys_Finish_Last/Checkmate210_Nice_Guys_Finish_Last.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

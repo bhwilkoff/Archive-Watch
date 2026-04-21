@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "totally-hidden-video-1991",
+  "title": "Totally Hidden Video",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Totally Hidden Video was an American hidden-camera television show that aired from 1989 to 1996. It was one of the early shows in the history of the Fox television network and held the highest viewing share for any Fox program at one point. It was produced by Quantum Media and Fox.\n\nThe show premiered on Sunday, July 9, 1989. Steve Skrovan was the program's first host, later replaced by Mark Pitta in 1991.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "totally-hidden-video-rock-n-roller-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Totally Hidden Video - Steve Skrovan, Blake Clark, Mark Pitta",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Totally Hidden Video - One Hour Special - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1450297685,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/totally-hidden-video-rock-n-roller-1991/Totally Hidden Video - One Hour Special - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

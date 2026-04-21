@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "end-of-the-whirl-1973",
+  "title": "End Of The Whirl",
+  "yearStart": 1973,
+  "yearEnd": 1973,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/EndOfTheWhirl",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "EndOfTheWhirl",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "End Of The Whirl",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/EndOfTheWhirl",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "End Of The Whirl.mp4",
+            "format": "h.264",
+            "sizeBytes": 41808151,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/EndOfTheWhirl/End Of The Whirl.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

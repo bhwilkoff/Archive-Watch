@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "land-of-the-lost-1992",
+  "title": "Land Of The Lost",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "Rick Marshall and his children Will and Holly are on a weekend expedition rafting down a river when an enormous earthquake diverts them to an eclectic alien world inhabited by dinosaurs, chimpanzee-like cavemen called Pakuni, and aggressive, humanoid lizard creatures called Sleestak.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4AvO1tZUsoupwSQ0Aetr93JJJIf.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/kJB50LyeILumAAhSJetPtpiHLmD.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Marty Krofft",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "land-of-the-lost-1991-dreammaker",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Land Of The Lost (1991) Dreammaker",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4AvO1tZUsoupwSQ0Aetr93JJJIf.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Land of the Lost (1991) - 2-2 Dreammaker.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 106449304,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/land-of-the-lost-1991-dreammaker/Land of the Lost (1991) - 2-2 Dreammaker.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

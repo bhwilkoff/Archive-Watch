@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "the-patti-page-oldsmobile-show-1958",
+  "title": "The Patti Page Oldsmobile Show",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "PattiPage12November1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Patti Page Oldsmobile Show'' - 12 November 1958",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1755,
+          "videoFile": {
+            "name": "pattipage12november1958.mp4",
+            "format": "h.264",
+            "sizeBytes": 182449174,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PattiPage12November1958/pattipage12november1958.mp4"
+        },
+        {
+          "archiveID": "PattiPage15October1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Patti Page Oldsmobile Show'' - 15 October 1958",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1634,
+          "videoFile": {
+            "name": "pattipage15October1958.mp4",
+            "format": "h.264",
+            "sizeBytes": 169254298,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PattiPage15October1958/pattipage15October1958.mp4"
+        },
+        {
+          "archiveID": "pattipage29October1958",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Patti Page Oldsmobile Show'' - 29 October 1958",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1763,
+          "videoFile": {
+            "name": "pattipage29October1958.mp4",
+            "format": "h.264",
+            "sizeBytes": 183407863,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/pattipage29October1958/pattipage29October1958.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

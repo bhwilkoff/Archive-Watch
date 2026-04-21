@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ge-college-bowl-1959",
+  "title": "G.E. College Bowl",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "gecollegebowl",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''G.E. College Bowl'' - 29 March 1959",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1751,
+          "videoFile": {
+            "name": "gecollegebowl.mp4",
+            "format": "h.264",
+            "sizeBytes": 182075346,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gecollegebowl/gecollegebowl.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

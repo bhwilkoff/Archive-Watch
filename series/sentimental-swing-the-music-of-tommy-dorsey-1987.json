@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sentimental-swing-the-music-of-tommy-dorsey-1987",
+  "title": "Sentimental Swing: The Music Of Tommy Dorsey",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sentimental-swing-the-music-of-tommy-dorsey-1987",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sentimental-swing-the-music-of-tommy-dorsey-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sentimental Swing: The Music Of Tommy Dorsey - Mel Torme",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sentimental-swing-the-music-of-tommy-dorsey-1987",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sentimental Swing - The Music of Tommy Dorsey - 1987.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1393726006,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sentimental-swing-the-music-of-tommy-dorsey-1987/Sentimental Swing - The Music of Tommy Dorsey - 1987.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

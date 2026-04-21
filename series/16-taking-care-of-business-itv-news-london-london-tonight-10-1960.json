@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "16-taking-care-of-business-itv-news-london-london-tonight-10-1960",
+  "title": "16. Taking Care Of Business: ITV News London (London Tonight) 10/6/1999 18:00",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/16-itv-news-london-10-6-99-1999",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "16-itv-news-london-10-6-99-1999",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "16. Taking Care Of Business: ITV News London (London Tonight) 10/6/1999 18:00 - short TV clip",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/16-itv-news-london-10-6-99-1999",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "16_ITV News London - 10-6-99 (1999).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2306403,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/16-itv-news-london-10-6-99-1999/16_ITV News London - 10-6-99 (1999).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

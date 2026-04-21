@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "ghostwriter-1992",
+  "title": "Ghostwriter",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "Ghostwriter is an American television program created by Liz Nealon and produced by the Children's Television Workshop and BBC One. It began airing on PBS on October 4, 1992, and the final episode aired on February 13, 1995. The series revolves around a close knit circle of friends from Brooklyn who solve neighborhood crimes and mysteries as a team of young detectives with the help of an invisible ghost named Ghostwriter. Ghostwriter can communicate with the kids only by manipulating whatever text and letters he can find and using them to form words and sentences. The series was filmed on location in Fort Greene, Brooklyn.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1enj0PMkMBUtRYbWZbfsmv7DUrO.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/pRKydsDEs69Sp6rFHEKgLhoT2TJ.jpg",
+  "genres": [],
+  "networks": [
+    "BBC Two",
+    "PBS Kids"
+  ],
+  "creator": "Liz Nealon",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "gw-24-whos-who-pt-2-lilazn",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ghostwriter",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1enj0PMkMBUtRYbWZbfsmv7DUrO.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "GW Special - The Ghostwriter 3-Peat Special.mp4",
+            "format": "h.264",
+            "sizeBytes": 224872539,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gw-24-whos-who-pt-2-lilazn/GW Special - The Ghostwriter 3-Peat Special.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tlc-1984-unsold-pilot-1960",
+  "title": "TLC (1984 unsold pilot",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TLC1984UnsoldPilot",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TLC1984UnsoldPilot",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TLC (1984 unsold pilot)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TLC1984UnsoldPilot",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TLC-_1984-unsold-pilot_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 110359739,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TLC1984UnsoldPilot/TLC-_1984-unsold-pilot_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

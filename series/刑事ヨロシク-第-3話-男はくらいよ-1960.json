@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "刑事ヨロシク-第-3話-男はくらいよ-1960",
+  "title": "刑事ヨロシク 第 3話 男はくらいよ",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/3_20230517_20230517",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "3_20230517_20230517",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "刑事ヨロシク 第 3話 男はくらいよ",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/3_20230517_20230517",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "刑事ヨロシク 第3話 男はくらいよ.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 308130644,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/3_20230517_20230517/刑事ヨロシク 第3話 男はくらいよ.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

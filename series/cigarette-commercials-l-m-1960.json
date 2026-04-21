@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cigarette-commercials-l-m-1960",
+  "title": "Cigarette Commercials L & M",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Cigarette_Commercials_L_and_M",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cigarette_Commercials_L_and_M",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cigarette Commercials L & M",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Cigarette_Commercials_L_and_M",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Commercial_L_and_M_Cigarettes_1962_Start_freshstay_fresh_jingle_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 4431236,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cigarette_Commercials_L_and_M/Commercial_L_and_M_Cigarettes_1962_Start_freshstay_fresh_jingle_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

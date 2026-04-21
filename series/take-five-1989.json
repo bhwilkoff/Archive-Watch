@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "take-five-1989",
+  "title": "Take Five",
+  "yearStart": 1989,
+  "yearEnd": 1992,
+  "overview": "Take Five is an American sitcom that aired from April 1 until April 8, 1987.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/563/1408078.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Babaloo Mandel",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "take-five-shake-rattle-and-roll",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Take Five - Shake, Rattle and Roll",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Take Five - Shake, Rattle, and Roll.mp4",
+            "format": "h.264",
+            "sizeBytes": 50098925,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/take-five-shake-rattle-and-roll/Take Five - Shake, Rattle, and Roll.mp4"
+        },
+        {
+          "archiveID": "take-five-up-against-the-great-wall",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Take Five - Up Against the Great Wall",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Take Five - Up Against the Great Wall.mp4",
+            "format": "h.264",
+            "sizeBytes": 34284940,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/take-five-up-against-the-great-wall/Take Five - Up Against the Great Wall.mp4"
+        },
+        {
+          "archiveID": "take-five-voyager-the-last-picture-show",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Take Five - Voyager: The Last Picture Show",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/563/1408078.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Take Five - Voyager The Last Picture Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 47639234,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/take-five-voyager-the-last-picture-show/Take Five - Voyager The Last Picture Show.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

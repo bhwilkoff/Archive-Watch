@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "vh-1-new-visions-1987",
+  "title": "VH-1 New Visions",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1987-12-20-miles-davis",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1987-12-20-miles-davis",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "VH-1 New Visions: Miles Davis (December 20, 1987)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1987-12-20-miles-davis",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1987-12-20 Miles Davis.mp4",
+            "format": "h.264",
+            "sizeBytes": 688065357,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1987-12-20-miles-davis/1987-12-20 Miles Davis.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-ray-anthony-show-1957",
+  "title": "The Ray Anthony Show",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheRayAnthonyShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheRayAnthonyShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Ray Anthony Show'' - 22 March 1957",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheRayAnthonyShow",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 3534,
+          "videoFile": {
+            "name": "The Ray Anthony Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 367692647,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheRayAnthonyShow/The Ray Anthony Show.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

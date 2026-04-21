@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jenny-jones-1991",
+  "title": "Jenny Jones",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/jenny-jones-cover-up-that-chest",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "jenny-jones-cover-up-that-chest",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jenny Jones - Jenny Jones",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jenny-jones-cover-up-that-chest",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jenny Jones - My Chest is the Best - 1998.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1369844105,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jenny-jones-cover-up-that-chest/Jenny Jones - My Chest is the Best - 1998.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

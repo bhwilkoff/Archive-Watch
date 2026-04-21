@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "nature-1990",
+  "title": "Nature",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "Consistently stunning documentaries transport viewers to far-flung locations ranging from the torrid African plains to the chilly splendours of icy Antarctica. The show's primary focus is on animals and ecosystems around the world. A comic book based on the show, meant to be used an as educational tool for kids, was briefly distributed to museums and schools at no cost in the mid-2000s.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/qRg5boKJdJhJKoGJdchVqPGQTEl.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/j6aCSIjK4N7SpkSPBBNv7vbDvJo.jpg",
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": "Thomas Lovejoy",
+  "seasons": [
+    {
+      "seasonNumber": 8,
+      "episodes": [
+        {
+          "archiveID": "nature-8-20",
+          "seasonNumber": 8,
+          "episodeNumber": 20,
+          "title": "Serpents",
+          "overview": "A natural history of the snake includes its significance to man as a symbol of fertility, immortality and death.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/qRg5boKJdJhJKoGJdchVqPGQTEl.jpg",
+          "airDate": "1990-04-15",
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Nature - 8-20.mp4",
+            "format": "h.264",
+            "sizeBytes": 327720960,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nature-8-20/Nature - 8-20.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

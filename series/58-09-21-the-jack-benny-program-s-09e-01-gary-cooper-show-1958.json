@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "58-09-21-the-jack-benny-program-s-09e-01-gary-cooper-show-1958",
+  "title": "58 09 21 The Jack Benny Program S 09e 01 Gary Cooper Show",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/580921TheJackBennyProgramS09e01GaryCooperShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "580921TheJackBennyProgramS09e01GaryCooperShow",
+          "seasonNumber": 1,
+          "episodeNumber": 58,
+          "title": "58 09 21 The Jack Benny Program S 09e 01 Gary Cooper Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/580921TheJackBennyProgramS09e01GaryCooperShow",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "58-09-21TheJackBennyProgramS09e01GaryCooperShow.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 125963919,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/580921TheJackBennyProgramS09e01GaryCooperShow/58-09-21TheJackBennyProgramS09e01GaryCooperShow.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

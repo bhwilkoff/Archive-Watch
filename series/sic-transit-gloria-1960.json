@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sic-transit-gloria-1960",
+  "title": "Sic Transit Gloria",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FollowThatMan-RalphBellamy-4-25-SicTransitGloria",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FollowThatMan-RalphBellamy-4-25-SicTransitGloria",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sic Transit Gloria",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FollowThatMan-RalphBellamy-4-25-SicTransitGloria",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FollowThatMan-RalphBellamy-4-25-SicTransitGloria.mp4",
+            "format": "h.264",
+            "sizeBytes": 155054314,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FollowThatMan-RalphBellamy-4-25-SicTransitGloria/FollowThatMan-RalphBellamy-4-25-SicTransitGloria.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

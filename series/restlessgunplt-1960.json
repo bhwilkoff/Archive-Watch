@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "restlessgunplt-1960",
+  "title": "Restlessgunplt",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Restlessgunplt",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Restlessgunplt",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Restlessgunplt",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Restlessgunplt",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1542,
+          "videoFile": {
+            "name": "Restless_Gun-Pilot.mp4",
+            "format": "h.264",
+            "sizeBytes": 148053346,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Restlessgunplt/Restless_Gun-Pilot.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

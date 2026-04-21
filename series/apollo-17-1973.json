@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "apollo-17-1973",
+  "title": "Apollo 17",
+  "yearStart": 1973,
+  "yearEnd": 1973,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Apollo17OnTheShouldersOfGiants",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Apollo17OnTheShouldersOfGiants",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Apollo 17: On The Shoulders Of Giants",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Apollo17OnTheShouldersOfGiants",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 1709,
+          "videoFile": {
+            "name": "Apollo 17 - On the Shoulders of Giants.mp4",
+            "format": "h.264",
+            "sizeBytes": 177837710,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Apollo17OnTheShouldersOfGiants/Apollo 17 - On the Shoulders of Giants.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

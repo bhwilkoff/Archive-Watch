@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-afterschool-specials-don-1985",
+  "title": "ABC Afterschool Specials Don",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ABCAfterschoolSpecialsDontTouch1985",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ABCAfterschoolSpecialsDontTouch1985",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC Afterschool Specials Don't Touch (1985)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ABCAfterschoolSpecialsDontTouch1985",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC Afterschool Specials Don't Touch.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 212001985,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ABCAfterschoolSpecialsDontTouch1985/ABC Afterschool Specials Don't Touch.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

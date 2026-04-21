@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-colgate-summer-comedy-hour-1954",
+  "title": "The Colgate Summer Comedy Hour",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/theColgateSummerComedyHour-8August1954",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theColgateSummerComedyHour-8August1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Colgate Summer Comedy Hour'' - 8 August 1954",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theColgateSummerComedyHour-8August1954",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 3159,
+          "videoFile": {
+            "name": "ColgateComedyHour8August1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 327346504,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theColgateSummerComedyHour-8August1954/ColgateComedyHour8August1954.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

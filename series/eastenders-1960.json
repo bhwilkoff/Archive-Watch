@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "seriesID": "eastenders-1960",
+  "title": "EastEnders",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The everyday lives of working-class residents of Albert Square, a traditional Victorian square of terrace houses surrounding a park in the East End of London's Walford borough.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/z4jgyI5TpoRZiJTNchkVkMrGQyz.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4og4Eme2gHcTRaHVpZTSCDd7ZNY.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Julia Smith",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "east-enders-episode-1168-8-august-1995_202403",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "EastEnders: Episode 1168 (8 August 1995)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z4jgyI5TpoRZiJTNchkVkMrGQyz.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "EastEnders Episode 1168 (8 August 1995).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 127467051,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/east-enders-episode-1168-8-august-1995_202403/EastEnders Episode 1168 (8 August 1995).mp4"
+        },
+        {
+          "archiveID": "east-enders-episode-1169-10-august-1995_202403",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "EastEnders: Episode 1169 (10 August 1995)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z4jgyI5TpoRZiJTNchkVkMrGQyz.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "EastEnders Episode 1169 (10 August 1995).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 103236179,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/east-enders-episode-1169-10-august-1995_202403/EastEnders Episode 1169 (10 August 1995).mp4"
+        },
+        {
+          "archiveID": "east-enders-episode-1171-15-august-1995_202403",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "EastEnders: Episode 1171 (15 August 1995)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z4jgyI5TpoRZiJTNchkVkMrGQyz.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "EastEnders Episode 1171 (15 August 1995).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 111980211,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/east-enders-episode-1171-15-august-1995_202403/EastEnders Episode 1171 (15 August 1995).mp4"
+        },
+        {
+          "archiveID": "east-enders-episode-1172-17-august-1995_202403",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "EastEnders: Episode 1172 (17 August 1995)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z4jgyI5TpoRZiJTNchkVkMrGQyz.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "EastEnders Episode 1172 (17 August 1995).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 86393593,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/east-enders-episode-1172-17-august-1995_202403/EastEnders Episode 1172 (17 August 1995).mp4"
+        },
+        {
+          "archiveID": "east-enders-episode-1246-5-february-1996_202403",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "EastEnders: Episode 1246 (5 February 1996)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z4jgyI5TpoRZiJTNchkVkMrGQyz.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "EastEnders Episode 1246 (5 February 1996).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 82338342,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/east-enders-episode-1246-5-february-1996_202403/EastEnders Episode 1246 (5 February 1996).mp4"
+        },
+        {
+          "archiveID": "east-enders-episode-1254-22-february-1996_202403",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "EastEnders: Episode 1254 (22 February 1996)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z4jgyI5TpoRZiJTNchkVkMrGQyz.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "EastEnders Episode 1254 (22 February 1996).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 84668943,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/east-enders-episode-1254-22-february-1996_202403/EastEnders Episode 1254 (22 February 1996).mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "east-enders-episode-945-17-february-1994_202403",
+          "seasonNumber": 1,
+          "episodeNumber": 945,
+          "title": "EastEnders: Episode 945 (17 February 1994)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z4jgyI5TpoRZiJTNchkVkMrGQyz.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "EastEnders Episode 945 (17 February 1994).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 116060062,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/east-enders-episode-945-17-february-1994_202403/EastEnders Episode 945 (17 February 1994).mp4"
+        },
+        {
+          "archiveID": "east-enders-episode-962-14-april-1994_202403",
+          "seasonNumber": 1,
+          "episodeNumber": 962,
+          "title": "EastEnders: Episode 962 (14 April 1994)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z4jgyI5TpoRZiJTNchkVkMrGQyz.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "EastEnders Episode 962 (14 April 1994).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 100024004,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/east-enders-episode-962-14-april-1994_202403/EastEnders Episode 962 (14 April 1994).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

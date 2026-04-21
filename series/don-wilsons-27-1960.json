@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "don-wilsons-27-1960",
+  "title": "Don Wilsons 27",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Jack_Benny_-_Don_Wilsons_27th_Anniversary",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Jack_Benny_-_Don_Wilsons_27th_Anniversary",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Don Wilsons 27'th Anniversary",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Jack_Benny_-_Don_Wilsons_27th_Anniversary",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jack_Benny_-_Don_Wilsons_27th_Anniversary.mp4",
+            "format": "h.264",
+            "sizeBytes": 144733284,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Jack_Benny_-_Don_Wilsons_27th_Anniversary/Jack_Benny_-_Don_Wilsons_27th_Anniversary.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

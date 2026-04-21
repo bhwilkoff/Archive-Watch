@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wheel-of-fortune-s-5384-taped-december-10-2010-aired-februar-2011",
+  "title": "Wheel of Fortune #S-5384 (taped December 10, 2010; aired February 24, 2011; long credits only",
+  "yearStart": 2011,
+  "yearEnd": 2011,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/20110224wheeloffortunelongcreditsonlykhoucbshoustontx",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "20110224wheeloffortunelongcreditsonlykhoucbshoustontx",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wheel of Fortune #S-5384 (taped December 10, 2010; aired February 24, 2011; long credits only)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/20110224wheeloffortunelongcreditsonlykhoucbshoustontx",
+          "airDate": null,
+          "year": 2011,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2011-02-24 Wheel of Fortune (long credits only) [KHOU-CBS Houston, TX].ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 4838642,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/20110224wheeloffortunelongcreditsonlykhoucbshoustontx/2011-02-24 Wheel of Fortune (long credits only) [KHOU-CBS Houston, TX].ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

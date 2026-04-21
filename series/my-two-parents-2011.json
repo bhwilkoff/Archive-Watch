@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "my-two-parents-2011",
+  "title": "My Two Parents!",
+  "yearStart": 2011,
+  "yearEnd": 2011,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/my-two-parents",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "my-two-parents",
+          "seasonNumber": 1,
+          "episodeNumber": 128,
+          "title": "\"My Two Parents!\" - Episode 128 (1954) Sitcom",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/my-two-parents",
+          "airDate": null,
+          "year": 2011,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "My Two Parents!.mp4",
+            "format": "h.264",
+            "sizeBytes": 33499138,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/my-two-parents/My Two Parents!.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

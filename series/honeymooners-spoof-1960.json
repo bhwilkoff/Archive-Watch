@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "honeymooners-spoof-1960",
+  "title": "Honeymooners Spoof",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Jack_Benny_-_Honeymooners_Show",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Jack_Benny_-_Honeymooners_Show",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Honeymooners Spoof",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Jack_Benny_-_Honeymooners_Show",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jack_Benny_-_Honeymooners_Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 144085107,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Jack_Benny_-_Honeymooners_Show/Jack_Benny_-_Honeymooners_Show.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

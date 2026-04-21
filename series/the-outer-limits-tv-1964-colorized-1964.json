@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "the-outer-limits-tv-1964-colorized-1964",
+  "title": "The Outer Limits TV 1964 colorized",
+  "yearStart": 1964,
+  "yearEnd": 1964,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-outer-limits-tv-1964-s02e05-demon-with-a-glass-hand",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the-outer-limits-tv-1964-s02e05-demon-with-a-glass-hand",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "The Outer Limits TV 1964 colorized s02e05 Demon with a Glass Hand",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-outer-limits-tv-1964-s02e05-demon-with-a-glass-hand",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Outer Limits TV 1964 colorized s02e05 Demon with a Glass Hand.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 347530923,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-tv-1964-s02e05-demon-with-a-glass-hand/The Outer Limits TV 1964 colorized s02e05 Demon with a Glass Hand.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-tv-1964-s02e07-the-invisible-enemy",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The Outer Limits TV 1964 colorized s02e07 The Invisible Enemy",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-outer-limits-tv-1964-s02e07-the-invisible-enemy",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Outer Limits TV 1964 colorized s02e07 The Invisible Enemy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 472612763,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-tv-1964-s02e07-the-invisible-enemy/The Outer Limits TV 1964 colorized s02e07 The Invisible Enemy.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s02e09-i-robot",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "The Outer Limits TV 1964 colorized s02e09 I, Robot",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-outer-limits-s02e09-i-robot",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Outer Limits TV 1964 colorized s02e09 I, Robot.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 404604449,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s02e09-i-robot/The Outer Limits TV 1964 colorized s02e09 I, Robot.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

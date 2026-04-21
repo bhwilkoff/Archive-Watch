@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "cover-up-1984",
+  "title": "Cover Up",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "Cover Up is an American action/adventure television series that aired for one season on CBS from September 22, 1984 to April 6, 1985. Created by Glen A. Larson, the series stars Jennifer O'Neill, Jon-Erik Hexum, Antony Hamilton, and Richard Anderson.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/g8WfEecQXm0sjJZKlvg5r7sBmiL.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/k5UXXcFcpxI4PpjYZZ69vBiaqzV.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Glen A. Larson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cover-up-complete-series-1984",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cover Up - Complete Series 1984",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/g8WfEecQXm0sjJZKlvg5r7sBmiL.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cover Up 1x00 Pilot (Parts 1 & 2).mp4",
+            "format": "h.264",
+            "sizeBytes": 500446947,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cover-up-complete-series-1984/Cover Up 1x00 Pilot (Parts 1 & 2).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

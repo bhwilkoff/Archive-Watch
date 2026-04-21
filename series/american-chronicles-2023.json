@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "american-chronicles-2023",
+  "title": "American Chronicles",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": "A three-month series of documentaries, hosted by actor Richard Dreyfuss, look at some of the more unusual aspects of American society. Considering that the director is David Lynch, the aspects chosen are some of the much more unusual ones. Subjects chosen for the Lynch treatment include Mardi Gras in New Orleans, and the gruelling weeks of training at a US Marine boot camp.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": "Mark Frost",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "american-chronicles-1990-manhattan-after-dark-ep.-3",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Manhattan After Dark",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1990-09-22",
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "American Chronicles (1990)- Manhattan After Dark (Ep. 3).mp4",
+            "format": "h.264",
+            "sizeBytes": 134751874,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/american-chronicles-1990-manhattan-after-dark-ep.-3/American Chronicles (1990)- Manhattan After Dark (Ep. 3).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

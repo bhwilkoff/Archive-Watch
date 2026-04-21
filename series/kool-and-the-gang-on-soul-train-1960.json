@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "kool-and-the-gang-on-soul-train-1960",
+  "title": "Kool and the Gang on Soul Train",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/soul-train-season-1-episode-22-season-3-episode-19-36",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "soul-train-season-1-episode-22-season-3-episode-19-36",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kool and the Gang on Soul Train (Volume 1)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/soul-train-season-1-episode-22-season-3-episode-19-36",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Soul Train (Season 1, Episode 22), (Season 3, Episode 19 & 36).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2511327718,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/soul-train-season-1-episode-22-season-3-episode-19-36/Soul Train (Season 1, Episode 22), (Season 3, Episode 19 & 36).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

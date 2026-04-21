@@ -1,0 +1,339 @@
+{
+  "version": 1,
+  "seriesID": "the-adventures-of-ozzie-and-harriet-1961",
+  "title": "The Adventures of Ozzie and Harriet",
+  "yearStart": 1961,
+  "yearEnd": 1966,
+  "overview": "The Adventures of Ozzie and Harriet is an American sitcom, airing on ABC from October 3, 1952 through March 26, 1966, starring the real life Nelson family. After a long run on radio, the show was brought to television where it continued its success, running on both radio and television for a few years. The series stars Ozzie Nelson and his wife, singer Harriet Nelson, and their young sons, David and Eric \"Ricky\" Nelson. Don DeFore had a recurring role as the Nelsons' friendly neighbor \"Thorny\".",
+  "posterURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/z9ipjaUaoRWMl6vvQnLhpuFfkBu.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Ozzie_and_Harriet_Christmas",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Adventures of Ozzie and Harriet\" 1956 Christmas episode",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ozzie_and_Harriet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 173183818,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ozzie_and_Harriet_Christmas/Ozzie_and_Harriet.ia.mp4"
+        },
+        {
+          "archiveID": "OzzieAndHarrietRickSendsAPicture",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Adventures of Ozzie And Harriet'' - Rick Sends A Picture",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1527,
+          "videoFile": {
+            "name": "Ozzie and Harriet - Rick Sends a Picture.mp4",
+            "format": "h.264",
+            "sizeBytes": 159277566,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieAndHarrietRickSendsAPicture/Ozzie and Harriet - Rick Sends a Picture.mp4"
+        },
+        {
+          "archiveID": "theAdventuresOfOzzieAndHarriet22September1965aRoseADay",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Adventures of Ozzie and Harriet'' (22 September 1965, 'A Rose a Day')",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1715,
+          "videoFile": {
+            "name": "ARoseADay.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 166464285,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theAdventuresOfOzzieAndHarriet22September1965aRoseADay/ARoseADay.ia.mp4"
+        },
+        {
+          "archiveID": "built-in-tv-set",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Adventures of Ozzie and Harriet'' - Built-In TV Set",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "built-in-tv-set.mp4",
+            "format": "h.264",
+            "sizeBytes": 156088646,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/built-in-tv-set/built-in-tv-set.mp4"
+        },
+        {
+          "archiveID": "ozzieharrietricksraise",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Adventures of Ozzie and Harriet'' - Rick's Raise",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1528,
+          "videoFile": {
+            "name": "ozzieharrietricksraise.mp4",
+            "format": "h.264",
+            "sizeBytes": 159531598,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ozzieharrietricksraise/ozzieharrietricksraise.mp4"
+        },
+        {
+          "archiveID": "safehusbands",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Adventures of Ozzie and Harriet'' - Safe Husbands",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1486,
+          "videoFile": {
+            "name": "safehusbands.mp4",
+            "format": "h.264",
+            "sizeBytes": 155099645,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/safehusbands/safehusbands.mp4"
+        },
+        {
+          "archiveID": "AdventuresOfOzzieAndHarriet-ARoseADay",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Adventures of Ozzie and Harriet - A Rose A Day",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AdventuresOfOzzieAndHarriet-ARoseADay.mp4",
+            "format": "h.264",
+            "sizeBytes": 127036551,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AdventuresOfOzzieAndHarriet-ARoseADay/AdventuresOfOzzieAndHarriet-ARoseADay.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-ozzie-and-harriet-season-8-to-14",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures Of Ozzie And Harriet Season 8 to 14",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Ozzie and Harriet - S8E20 - An Interesting Evening.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150091191,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-season-8-to-14/The Adventures of Ozzie and Harriet - S8E20 - An Interesting Evening.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-ozzie-and-harriet-season-one",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures Of Ozzie And Harriet Season One",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Ozzie and Harriet - S01E39 - Oscillating Ozzie.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 133205677,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-season-one/The Adventures of Ozzie and Harriet - S01E39 - Oscillating Ozzie.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-ozzie-and-harriet-season-three",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures Of Ozzie And Harriet Season Three",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Ozzie and Harriet - S03E15 - The Electric Train.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159048491,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-season-three/The Adventures of Ozzie and Harriet - S03E15 - The Electric Train.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-ozzie-and-harriet-season-two",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures Of Ozzie And Harriet Season Two",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Adventures of Ozzie and Harriet - S02E02 - The Party.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156710818,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-season-two/The Adventures of Ozzie and Harriet - S02E02 - The Party.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfOzzieAndHarriet_690",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures of Ozzie and Harriet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1680,
+          "videoFile": {
+            "name": "The-Adventures-of-Ozzie-and-Harriet-11-1-62.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 166090557,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieAndHarriet_690/The-Adventures-of-Ozzie-and-Harriet-11-1-62.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfOzzieAndHarriet_119",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Adventures of Ozzie and Harriet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1680,
+          "videoFile": {
+            "name": "The-Adventures-of-Ozzie-and-Harriet-10-28-64.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 171905794,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieAndHarriet_119/The-Adventures-of-Ozzie-and-Harriet-10-28-64.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 13,
+      "episodes": [
+        {
+          "archiveID": "OzzieHarriet--Chess_Set",
+          "seasonNumber": 13,
+          "episodeNumber": 14,
+          "title": "Chess Set",
+          "overview": "Ozzie discovers that a precocious neighborhood child is winning money playing chess.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1964-12-16",
+          "year": 1964,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OzzieHarriet1314_Chess_Set.mp4",
+            "format": "h.264",
+            "sizeBytes": 123536921,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieHarriet--Chess_Set/OzzieHarriet1314_Chess_Set.mp4"
+        },
+        {
+          "archiveID": "OzzieHarriet--Kriss_Girlfriend",
+          "seasonNumber": 13,
+          "episodeNumber": 21,
+          "title": "Kris's Girlfriend",
+          "overview": "Kris's old girlfriend comes back to town to live permanently in Hillsdale but stays with Kris and Rick instead of searching for her own apartment.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1965-02-10",
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OzzieHarriet1321_Kriss_Girlfriend.mp4",
+            "format": "h.264",
+            "sizeBytes": 135587551,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieHarriet--Kriss_Girlfriend/OzzieHarriet1321_Kriss_Girlfriend.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 14,
+      "episodes": [
+        {
+          "archiveID": "OzzieHarriet--Equestrians",
+          "seasonNumber": 14,
+          "episodeNumber": 11,
+          "title": "The Equestrians",
+          "overview": "Using reverse psychology, Ricky tries to cure Kris's extravagance by threatening to buy a horse",
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1965-11-24",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OzzieHarriet1411_Equestrians.mp4",
+            "format": "h.264",
+            "sizeBytes": 161449517,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieHarriet--Equestrians/OzzieHarriet1411_Equestrians.mp4"
+        },
+        {
+          "archiveID": "OzzieHarriet--Kris_the_Little_Helper",
+          "seasonNumber": 14,
+          "episodeNumber": 15,
+          "title": "Kris, the Little Helper",
+          "overview": "Kris is worn out from doing favors for Rick and his fraternity brothers.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1966-01-05",
+          "year": 1966,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OzzieHarriet1415_Kris_the_Little_Helper.mp4",
+            "format": "h.264",
+            "sizeBytes": 118950085,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieHarriet--Kris_the_Little_Helper/OzzieHarriet1415_Kris_the_Little_Helper.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 17
+}

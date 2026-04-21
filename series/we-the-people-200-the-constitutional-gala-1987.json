@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "we-the-people-200-the-constitutional-gala-1987",
+  "title": "We the People 200: The Constitutional Gala",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/we-the-people-the-constitutional-gala-1987",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "we-the-people-the-constitutional-gala-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "We the People 200: The Constitutional Gala - Walter Cronkite",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/we-the-people-the-constitutional-gala-1987",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "We The People The Constitutional Gala - 1987.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2977577536,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/we-the-people-the-constitutional-gala-1987/We The People The Constitutional Gala - 1987.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

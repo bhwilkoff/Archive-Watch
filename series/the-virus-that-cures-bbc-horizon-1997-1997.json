@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-virus-that-cures-bbc-horizon-1997-1997",
+  "title": "The Virus That Cures BBC Horizon 1997",
+  "yearStart": 1997,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BBCHorizonS1997e13TheVirusThatCures",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BBCHorizonS1997e13TheVirusThatCures",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Virus That Cures BBC Horizon 1997",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BBCHorizonS1997e13TheVirusThatCures",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC Horizon - s1997e13 - The Virus that Cures.mp4",
+            "format": "h.264",
+            "sizeBytes": 307666649,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BBCHorizonS1997e13TheVirusThatCures/BBC Horizon - s1997e13 - The Virus that Cures.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

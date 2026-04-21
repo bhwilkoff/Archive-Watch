@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "walking-with-dinosaurs-1999-tv-documentary-1999",
+  "title": "Walking with Dinosaurs (1999 TV documentary",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/walkingwithdinosaurs1999miniseries",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "walkingwithdinosaurs1999miniseries",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Walking with Dinosaurs (1999 TV documentary miniseries)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/walkingwithdinosaurs1999miniseries",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WALKING_WITH_DINOSAURS_DISC1_Title7_1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2587803458,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/walkingwithdinosaurs1999miniseries/WALKING_WITH_DINOSAURS_DISC1_Title7_1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

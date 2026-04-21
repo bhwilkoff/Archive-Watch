@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tales-of-tomorrow-9-1951",
+  "title": "Tales of Tomorrow #9",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tales_of_tomorrow_09_the_crystal_egg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tales_of_tomorrow_09_the_crystal_egg",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales of Tomorrow #9: The Crystal Egg",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tales_of_tomorrow_09_the_crystal_egg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1426,
+          "videoFile": {
+            "name": "tales_of_tomorrow_9_the_crystal_egg.mp4",
+            "format": "h.264",
+            "sizeBytes": 142447851,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tales_of_tomorrow_09_the_crystal_egg/tales_of_tomorrow_9_the_crystal_egg.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

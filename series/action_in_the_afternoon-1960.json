@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "action_in_the_afternoon-1960",
+  "title": "Action_in_the_Afternoon",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Action in the Afternoon is an American western television series that aired live on CBS from February 2, 1953 to January 29, 1954. The series originated from the studios and back lot of WCAU-TV, Channel 10 in Philadelphia, Pennsylvania, and was broadcast Monday through Friday regardless of the weather. The half-hour series aired variously at 3:30 pm or 4:00 pm, throughout its run.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Action_in_the_Afternoon",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Action_in_the_Afternoon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1502,
+          "videoFile": {
+            "name": "Action_in_the_Afternoon.mp4",
+            "format": "h.264",
+            "sizeBytes": 145546867,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Action_in_the_Afternoon/Action_in_the_Afternoon.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

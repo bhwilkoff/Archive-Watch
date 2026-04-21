@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tfarorp-s-1-e-3-1976",
+  "title": "TFARORP S 1 E 3",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/tfarorps1e3",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "tfarorps1e3",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "TFARORP S 1 E 3",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/tfarorps1e3",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TFARORP S1-E7.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 139909120,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tfarorps1e3/TFARORP S1-E7.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

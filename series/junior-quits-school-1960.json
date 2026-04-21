@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "junior-quits-school-1960",
+  "title": "Junior Quits School",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/life_of_riley_-_4x21_-_junior_quits_school",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "life_of_riley_-_4x21_-_junior_quits_school",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Junior Quits School",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_4x21_-_junior_quits_school",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_4x21_-_junior_quits_school_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 132927570,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_4x21_-_junior_quits_school/life_of_riley_-_4x21_-_junior_quits_school_agk.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

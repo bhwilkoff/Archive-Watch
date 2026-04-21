@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "life-in-the-freezer-1993-tv-documentary-1993",
+  "title": "Life in the Freezer (1993 TV documentary",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/life-in-the-freezer-bbc",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "life-in-the-freezer-bbc",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Life in the Freezer (1993 TV documentary miniseries)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life-in-the-freezer-bbc",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "(2) The Ice Retreats.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 583637566,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life-in-the-freezer-bbc/(2) The Ice Retreats.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "seriesID": "the-exile-1991",
+  "title": "The Exile",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "The Exile is an American television series that aired on CBS as part of its late night Crimetime After Primetime line up. The series premiered on April 2, 1991 and ran until October 1991.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/zzySRXvlShTXgKla0BP2gAiHePO.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Joseph J. Trento",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "exile-3",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Triangles",
+          "overview": "Someone's out to kill Jacquie's friend (Rebecca Staab), a fashion model. Jeffrey Meek, Nadia Fares. Barteau: Yves Collington.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/zzySRXvlShTXgKla0BP2gAiHePO.jpg",
+          "airDate": "1991-04-16",
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Exile - 3.mp4",
+            "format": "h.264",
+            "sizeBytes": 239503561,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/exile-3/Exile - 3.mp4"
+        },
+        {
+          "archiveID": "exile-7",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Birds of a Feather",
+          "overview": "Stone engages in a duel with a former DCS classmate (John Belucci) who's after the loot from a train robbery. Paul Dupont: Jean Valmont. Sarah Vershin: Annabelle Mouloudji. Cabot: Christian Burgess.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/zzySRXvlShTXgKla0BP2gAiHePO.jpg",
+          "airDate": "1991-05-14",
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Exile - 7.mp4",
+            "format": "h.264",
+            "sizeBytes": 239674888,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/exile-7/Exile - 7.mp4"
+        },
+        {
+          "archiveID": "exile-8",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Dear Life",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zzySRXvlShTXgKla0BP2gAiHePO.jpg",
+          "airDate": "1991-05-21",
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Exile - 8.mp4",
+            "format": "h.264",
+            "sizeBytes": 239066369,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/exile-8/Exile - 8.mp4"
+        },
+        {
+          "archiveID": "exile-10",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Immaculate Deception",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zzySRXvlShTXgKla0BP2gAiHePO.jpg",
+          "airDate": "1991-07-16",
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Exile - 10.mp4",
+            "format": "h.264",
+            "sizeBytes": 240102717,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/exile-10/Exile - 10.mp4"
+        },
+        {
+          "archiveID": "exile-11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Bad Choices",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zzySRXvlShTXgKla0BP2gAiHePO.jpg",
+          "airDate": "1991-07-23",
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Exile - 11.mp4",
+            "format": "h.264",
+            "sizeBytes": 240055024,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/exile-11/Exile - 11.mp4"
+        },
+        {
+          "archiveID": "exile-12",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Girl from Brazil",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/zzySRXvlShTXgKla0BP2gAiHePO.jpg",
+          "airDate": "1991-08-13",
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Exile - 12.mp4",
+            "format": "h.264",
+            "sizeBytes": 247872805,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/exile-12/Exile - 12.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

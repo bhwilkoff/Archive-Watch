@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "ding-dong-school-1960",
+  "title": "Ding Dong School",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Ding Dong School, billed as \"the nursery school of the air\", was a half-hour children's TV show which began on WNBQ-TV in Chicago, Illinois a few months before its four-year run on NBC.\n\nA precursor to both Sesame Street and Mister Rogers' Neighborhood, the show was hosted live by Frances Horwich, and at one point was the most popular TV series aimed at preschoolers.\n\nThe show and its host, Miss Frances, were mentioned in the comic strip Peanuts in 1955 and 1956.\n\nThe show was revived in 1959 as a syndicated program, now videotaped and distributed by National Telefilm Associates. This iteration ran until 1965.\n\nFive NBC kinescoped episodes from 1954-1955 are housed at the Library of Congress, in the J. Fred and Leslie W. MacDonald Collection.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/hOF2q4KlcSefAGy8Ljp6yd8Lsla.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "George Heinemann",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DingDongSchoolMisc2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Ding Dong School'' - Misc episode",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/hOF2q4KlcSefAGy8Ljp6yd8Lsla.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1543,
+          "videoFile": {
+            "name": "DingDongSchool2.mp4",
+            "format": "h.264",
+            "sizeBytes": 160123513,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DingDongSchoolMisc2/DingDongSchool2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

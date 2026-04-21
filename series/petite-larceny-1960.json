@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "petite-larceny-1960",
+  "title": "Petite Larceny",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FollowThatMan-RalphBellamy-5-11-PetiteLarceny",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FollowThatMan-RalphBellamy-5-11-PetiteLarceny",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Petite Larceny",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FollowThatMan-RalphBellamy-5-11-PetiteLarceny",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FollowThatMan-RalphBellamy-5-11-PetiteLarceny.mp4",
+            "format": "h.264",
+            "sizeBytes": 154203492,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FollowThatMan-RalphBellamy-5-11-PetiteLarceny/FollowThatMan-RalphBellamy-5-11-PetiteLarceny.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

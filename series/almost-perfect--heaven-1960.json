@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "almost-perfect--heaven-1960",
+  "title": "Almost Perfect- Heaven",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/AlmostPerfectHeavenSHelperUNANNOUNCEDFINA",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "AlmostPerfectHeavenSHelperUNANNOUNCEDFINA",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Almost Perfect- Heaven's Helper (UNANNOUNCED FINALE)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/AlmostPerfectHeavenSHelperUNANNOUNCEDFINA",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Almost-Perfect-Heaven_s-Helper-_UNANNOUNCED-FINA.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 98719221,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AlmostPerfectHeavenSHelperUNANNOUNCEDFINA/Almost-Perfect-Heaven_s-Helper-_UNANNOUNCED-FINA.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

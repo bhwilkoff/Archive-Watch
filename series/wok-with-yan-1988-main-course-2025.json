@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wok-with-yan-1988-main-course-2025",
+  "title": "Wok With Yan (1988, Main course",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/wok-with-yan-1988-main-course-chicken-with-sweet-and-sour-sauce",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "wok-with-yan-1988-main-course-chicken-with-sweet-and-sour-sauce",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wok With Yan (1988, Main course: Chicken with Peking Style sweet and sour sauce)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/wok-with-yan-1988-main-course-chicken-with-sweet-and-sour-sauce",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wok With Yan (1988, Main course Chicken with sweet and sour sauce).mp4",
+            "format": "h.264",
+            "sizeBytes": 134895144,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wok-with-yan-1988-main-course-chicken-with-sweet-and-sour-sauce/Wok With Yan (1988, Main course Chicken with sweet and sour sauce).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

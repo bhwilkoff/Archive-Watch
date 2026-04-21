@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "yes-minister-yes-prime-minister-1980",
+  "title": "Yes Minister & Yes, Prime Minister",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/yesminister-yesprimeminister",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "yesminister-yesprimeminister",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Yes Minister & Yes, Prime Minister: The Complete Collection [PAL DVD ISO]",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/yesminister-yesprimeminister",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Yes Minister Series 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 1207047773,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/yesminister-yesprimeminister/Yes Minister Series 2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "fast-copy-april-28-1987-2023",
+  "title": "Fast Copy (April 28, 1987",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/fast-copy-april-28-1987",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "fast-copy-april-28-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fast Copy (April 28, 1987)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/fast-copy-april-28-1987",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fast Copy (April 28, 1987).mp4",
+            "format": "h.264",
+            "sizeBytes": 330071464,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fast-copy-april-28-1987/Fast Copy (April 28, 1987).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

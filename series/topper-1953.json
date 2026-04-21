@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "seriesID": "topper-1953",
+  "title": "Topper",
+  "yearStart": 1953,
+  "yearEnd": 1954,
+  "overview": "Topper is an American fantasy sitcom based on the 1937 film of the same name. The series was broadcast on CBS from October 9, 1953 to July 15, 1955, and stars Leo G. Carroll in the title role.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tIPTvlADElrK6B48a1q6rqUXZ8V.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheSmokingGhostsShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Topper' - George's Old Flame",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1765,
+          "videoFile": {
+            "name": "Topper-GeorgesOldFlame1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 183456755,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheSmokingGhostsShow/Topper-GeorgesOldFlame1954.mp4"
+        },
+        {
+          "archiveID": "Topper_Decorating",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Topper: Decorating",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1524,
+          "videoFile": {
+            "name": "1-17_Decorating.mp4",
+            "format": "h.264",
+            "sizeBytes": 160513633,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Topper_Decorating/1-17_Decorating.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Topper--Uncle_Jonathan",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Uncle Jonathan",
+          "overview": "Foreign relations.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": "1953-12-11",
+          "year": 1953,
+          "runtimeSeconds": 1320,
+          "videoFile": {
+            "name": "Topper110_Uncle_Jonathan.mp4",
+            "format": "h.264",
+            "sizeBytes": 137195188,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Topper--Uncle_Jonathan/Topper110_Uncle_Jonathan.mp4"
+        },
+        {
+          "archiveID": "Topper_S1E14",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Second Honeymoon",
+          "overview": "Mr. & Mrs. Topper spend their anniversary in a haunted inn.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": "1954-01-08",
+          "year": 1954,
+          "runtimeSeconds": 1525,
+          "videoFile": {
+            "name": "Topper_S1E14_Second-Honeymoon.mp4",
+            "format": "h.264",
+            "sizeBytes": 151248829,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Topper_S1E14/Topper_S1E14_Second-Honeymoon.mp4"
+        },
+        {
+          "archiveID": "topper-s-01-e-19-1954-tv-com-fan-trip-to-lisbon",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Trip to Lisbon",
+          "overview": "A port in any storm.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": "1954-02-12",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Topper S01E19 (1954 TV ComFan) Trip to Lisbon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 80200068,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/topper-s-01-e-19-1954-tv-com-fan-trip-to-lisbon/Topper S01E19 (1954 TV ComFan) Trip to Lisbon.mp4"
+        },
+        {
+          "archiveID": "Topper-HenriettaSellsTheHouse",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Henrietta Sells the House",
+          "overview": "The Kerbys will have none of it.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": "1954-04-09",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TopperHenriettaSellsTheHouse_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 122859112,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Topper-HenriettaSellsTheHouse/TopperHenriettaSellsTheHouse_512kb.mp4"
+        },
+        {
+          "archiveID": "Topper--Legacy",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Legacy",
+          "overview": "What goes up the family tree, must come down eventually...",
+          "stillURL": "https://image.tmdb.org/t/p/w500/z7arSKmtwiEwKgy9XCxa4neWktf.jpg",
+          "airDate": "1954-04-16",
+          "year": 1954,
+          "runtimeSeconds": 1316,
+          "videoFile": {
+            "name": "Topper--Legacy.mp4",
+            "format": "h.264",
+            "sizeBytes": 136773538,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Topper--Legacy/Topper--Legacy.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

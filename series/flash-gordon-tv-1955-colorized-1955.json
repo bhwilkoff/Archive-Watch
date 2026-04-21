@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "flash-gordon-tv-1955-colorized-1955",
+  "title": "Flash Gordon TV 1955 colorized",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/flash-gordon-tv-1955-colorized-s01e36-deadline-at-noon",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "flash-gordon-tv-1955-colorized-s01e35-the-earths-core",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Flash Gordon TV 1955 colorized s01e35 The Earth's Core (Steve Holland)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/flash-gordon-tv-1955-colorized-s01e35-the-earths-core",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flash Gordon TV 1955 colorized s01e35 The Earth's Core.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 175014213,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-tv-1955-colorized-s01e35-the-earths-core/Flash Gordon TV 1955 colorized s01e35 The Earth's Core.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-tv-1955-colorized-s01e36-deadline-at-noon",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Flash Gordon TV 1955 colorized s01e36 Deadline at Noon (Steve Holland)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/flash-gordon-tv-1955-colorized-s01e36-deadline-at-noon",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Flash Gordon TV 1955 colorized s01e36 Deadline at Noon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 236593158,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-tv-1955-colorized-s01e36-deadline-at-noon/Flash Gordon TV 1955 colorized s01e36 Deadline at Noon.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

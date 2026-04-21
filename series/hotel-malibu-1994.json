@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "hotel-malibu-1994",
+  "title": "Hotel Malibu",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": "Hotel Malibu is an American television series that aired on CBS in 1994 that was created and written by producers Bernard Lechowick and Lynn Marie Latham. Its cast includes Jennifer Lopez, Joanna Cassidy, Harry Reilly, and John Dye. The pilot episode was directed by Sharron Miller. It was a spin-off of the show Second Chances.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "A&E"
+  ],
+  "creator": "Bernard Lechowick",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hotel-malibu-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hotel Malibu - Jennifer Lopez, Joanna Cassidy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hotel Malibu - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1065590776,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hotel-malibu-1.1/Hotel Malibu - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

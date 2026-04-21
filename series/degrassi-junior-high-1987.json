@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "degrassi-junior-high-1987",
+  "title": "Degrassi Junior High",
+  "yearStart": 1987,
+  "yearEnd": 1989,
+  "overview": "Degrassi Junior High is a Canadian CBC Television teen drama series that was produced from 1987-1989 as part of the Degrassi series. The show followed the lives of a group of students attending the titular fictional school. Many episodes tackled difficult topics such as drug use, child abuse, teenage pregnancy, homosexuality, homophobia, racism, and divorce, and the series was acclaimed for its sensitive and realistic portrayal of the challenges of teenage life. The cast comprised mainly non-professional actors, which added to the show's sense of realism.\n\nThe series featured many of the same actors who had starred on The Kids of Degrassi Street a few years earlier, including Stacie Mistysyn, Neil Hope, Anais Granofsky, Sarah Charlesworth and others. However, their character names and family situations had been changed, so Degrassi Junior High cannot, therefore, be considered a direct spinoff.\n\nThe legal counsel for all the episodes was Stephen Stohn who later became the executive producer of Degrassi: The Next Generation. The series was filmed at the unused Vincent Massey Public School in Etobicoke, Ontario.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/fYetgZI5fkmIFsxUGqzryGmql8G.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tyf0Hiir1mYy0WRwGwDnvO3Mm7h.jpg",
+  "genres": [],
+  "networks": [
+    "CBC Television"
+  ],
+  "creator": "Linda Schuyler",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "degrassi-jr-high-season-01_202208",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Degrassi Junior High Season 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fYetgZI5fkmIFsxUGqzryGmql8G.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E04 - The Cover Up.mp4",
+            "format": "h.264",
+            "sizeBytes": 165350656,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-season-01_202208/Degrassi Jr High S01E04 - The Cover Up.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Degrassi Junior High Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fYetgZI5fkmIFsxUGqzryGmql8G.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S02E03 - Great Expectations.mkv",
+            "format": "Matroska",
+            "sizeBytes": 326508775,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-02/Degrassi Jr High S02E03 - Great Expectations.mkv"
+        },
+        {
+          "archiveID": "degrassi-junior-high-season-03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Degrassi Junior High Season 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fYetgZI5fkmIFsxUGqzryGmql8G.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E15 - Pa-arty!.mp4",
+            "format": "h.264",
+            "sizeBytes": 165817271,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-season-03/Degrassi Junior High S03E15 - Pa-arty!.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

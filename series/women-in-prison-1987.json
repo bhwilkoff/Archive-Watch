@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "women-in-prison-1987",
+  "title": "Women In Prison",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": "Women in Prison is an American television sitcom created by Katherine Green which aired on Fox from October 11, 1987 to April 2, 1988.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/xjNJnZe7y1640BkNai2MIXptvGd.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/oBqiMsEKza62VUny4gPqRW4QcO4.jpg",
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "women-in-prison-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Women In Prison - Julia Campbell, Denny Dillon, Wendie Jo Sperber",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xjNJnZe7y1640BkNai2MIXptvGd.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Women in Prison - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 130020257,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/women-in-prison-1.1/Women in Prison - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

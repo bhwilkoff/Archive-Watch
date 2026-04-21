@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "high-society-1995",
+  "title": "High Society",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": "High Society is the title of an American television sitcom that aired Monday nights on CBS in 1995 and early 1996. The series revolves around two New York City women who act in an outrageous, campy, and decadent manner. The theme song was the Lady is a Tramp sung by Chaka Khan.\n\nIts premise was similar to the campy British comedy series Absolutely Fabulous.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rjfvA6pEHdHSfGiqJOGxcknGem6.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/voiAp6zAq1isQymqvhYp0Y8CnpM.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "high-society-1.05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "High Society - Jean Smart, Mary McDonnell",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rjfvA6pEHdHSfGiqJOGxcknGem6.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "High Society - 1.05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 532460765,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/high-society-1.05/High Society - 1.05.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

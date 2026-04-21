@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "street-cents-february-23-1991-1960",
+  "title": "Street Cents February 23, 1991",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/street-cents-1991-02-23-the-high-tech-show",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "street-cents-1991-02-23-the-high-tech-show",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Street Cents February 23, 1991 - Season 2 Episode 22 - The High Tech Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/street-cents-1991-02-23-the-high-tech-show",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Street Cents 1991-02-23 The High-Tech Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 176986111,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/street-cents-1991-02-23-the-high-tech-show/Street Cents 1991-02-23 The High-Tech Show.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

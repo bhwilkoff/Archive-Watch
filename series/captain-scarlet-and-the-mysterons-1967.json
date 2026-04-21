@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "captain-scarlet-and-the-mysterons-1967",
+  "title": "Captain Scarlet and the Mysterons",
+  "yearStart": 1967,
+  "yearEnd": 1967,
+  "overview": "Captain Scarlet heads up an international intelligence agency as they battle against the Mysterons, an alien species from Mars that vows vengeance after a misunderstanding with humans.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/83Q8UHBJYLQx4bbCDYvt3TxODd1.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/sDXpAPO6MudcF98AH599RJc2Bbg.jpg",
+  "genres": [],
+  "networks": [
+    "Associated Television"
+  ],
+  "creator": "Sylvia Anderson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CaptainScarlet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Captain Scarlet and the Mysterons (Complete Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/83Q8UHBJYLQx4bbCDYvt3TxODd1.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Captain Scarlet 99 S.I.G (interviews.best bits).mp4",
+            "format": "h.264",
+            "sizeBytes": 354162833,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CaptainScarlet/Captain Scarlet 99 S.I.G (interviews.best bits).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "armchair-adventure-1960",
+  "title": "Armchair Adventure",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ArmchairAdventure",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ArmchairAdventure",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Armchair Adventure'' - Misc Episode",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ArmchairAdventure",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 715,
+          "videoFile": {
+            "name": "armchairadventure.mp4",
+            "format": "h.264",
+            "sizeBytes": 74048095,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ArmchairAdventure/armchairadventure.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

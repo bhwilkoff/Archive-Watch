@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "savage-seas-dvd-isos-1999",
+  "title": "Savage Seas DVD ISOs",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SavageSeasISOs",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SavageSeasISOs",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Savage Seas DVD ISOs",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SavageSeasISOs",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Savage.Seas.S01E02.Rescue.1999.NTSC.DVD5.mp4",
+            "format": "h.264",
+            "sizeBytes": 355364501,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SavageSeasISOs/Savage.Seas.S01E02.Rescue.1999.NTSC.DVD5.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

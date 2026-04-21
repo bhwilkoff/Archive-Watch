@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-big-look-1960",
+  "title": "The Big Look",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Dragnet_The_Big_Look",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Dragnet_The_Big_Look",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Look",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Dragnet_The_Big_Look",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S05E07_The_Big_Look.mp4",
+            "format": "h.264",
+            "sizeBytes": 160613489,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dragnet_The_Big_Look/S05E07_The_Big_Look.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

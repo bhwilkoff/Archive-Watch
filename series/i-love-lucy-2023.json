@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "seriesID": "i-love-lucy-2023",
+  "title": "I Love Lucy",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/img-0553_202307",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "img-3834_202312",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "I Love Lucy - Indian Play - 11-24-23",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/img-3834_202312",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMG_3834.mp4",
+            "format": "h.264",
+            "sizeBytes": 25746066,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/img-3834_202312/IMG_3834.mp4"
+        },
+        {
+          "archiveID": "img-3283_202307",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "I Love Lucy - Job Switching - Short Scenes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/img-3283_202307",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMG_3283.mp4",
+            "format": "h.264",
+            "sizeBytes": 29382536,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/img-3283_202307/IMG_3283.mp4"
+        },
+        {
+          "archiveID": "img-2924_202307",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "I Love Lucy - No Children Allowed Clips",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/img-2924_202307",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMG_2924.mp4",
+            "format": "h.264",
+            "sizeBytes": 15456422,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/img-2924_202307/IMG_2924.mp4"
+        },
+        {
+          "archiveID": "img-0553_202307",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "I Love Lucy - Ricky’s Face Paint Scene",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/img-0553_202307",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMG_0553.mp4",
+            "format": "h.264",
+            "sizeBytes": 16901911,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/img-0553_202307/IMG_0553.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

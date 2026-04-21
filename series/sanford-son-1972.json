@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "sanford-son-1972",
+  "title": "Sanford & Son",
+  "yearStart": 1972,
+  "yearEnd": 1972,
+  "overview": "The misadventures of a cantankerous junk dealer and his frustrated son.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/zIGPWBFjfnOzqsMxZeQ4UmuPggQ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/9bKG3fEyUjDizCL164OgfFGYTUs.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Norman Lear",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "SanfordSonSeason1Episode01CrossingSwords",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Crossed Swords",
+          "overview": "Lamont buys a porcelain figure for $15 from a silent movie star and after having it appraised, Lamont and Fred decide to take it to an auction to make even more money on it. Fred and Lamont attend the auction pretending to be buyers so that the price can be jacked up higher.  However, things go awry to Lamont's dismay.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/8BaYMKLfxpKA6M2VS7VqrURCyLS.jpg",
+          "airDate": "1972-01-14",
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sanford & Son - Season 1 Episode 01 - Crossing Swords.mp4",
+            "format": "h.264",
+            "sizeBytes": 162336726,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SanfordSonSeason1Episode01CrossingSwords/Sanford & Son - Season 1 Episode 01 - Crossing Swords.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

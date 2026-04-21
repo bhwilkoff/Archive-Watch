@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "santa-barbara-december-1-1989-1960",
+  "title": "Santa Barbara (December 1, 1989",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SantaBarbaraDecember11989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SantaBarbaraDecember11989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Santa Barbara (December 1, 1989)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SantaBarbaraDecember11989",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Santa Barbara (December 1, 1989).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 191885822,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SantaBarbaraDecember11989/Santa Barbara (December 1, 1989).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

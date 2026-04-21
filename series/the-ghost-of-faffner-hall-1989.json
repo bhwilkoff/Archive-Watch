@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-ghost-of-faffner-hall-1989",
+  "title": "The Ghost of Faffner Hall",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "The Ghost of Faffner Hall is a British/American children's television series from The Jim Henson Company and the British ITV company Tyne Tees Television which aired from August 16, 1989 to November 11, 1989 in the UK, and slightly later in the US. The puppets for this show were created by Jim Henson's Creature Shop, and the series was recorded at the Tyne Tees Studios in Newcastle upon Tyne and directed by Tony Kysh, then senior director within that company's children's department.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/6WBeMWJsyBqtIBSFY8Vg9okChYD.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/oNVAz9qB9YeCdZd9sFzSA1BNxhZ.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-ghost-of-faffner-hall",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Ghost of Faffner Hall",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/6WBeMWJsyBqtIBSFY8Vg9okChYD.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "106 Reacting to Sounds.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 518665141,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-ghost-of-faffner-hall/106 Reacting to Sounds.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

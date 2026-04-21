@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-bill-1984",
+  "title": "The Bill",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "The daily lives of the men and women at Sun Hill Police Station as they fight crime on the streets of London. From bomb threats to armed robbery and drug raids to the routine demands of policing this ground-breaking series focuses as much on crime as it does on the personal lives of its characters.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/bMd4T647b9YdkbQvULyndBNV8uL.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/iTccszzHWk0uV3opwgK40J9Y0hL.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-bill-complete-series-1-to-26",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Bill complete series 1 to 26",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/bMd4T647b9YdkbQvULyndBNV8uL.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "23/The Bill S23E14 The Lone Wolf Part 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 698637942,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-bill-complete-series-1-to-26/23/The Bill S23E14 The Lone Wolf Part 1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

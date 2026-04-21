@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bbc-the-wild-west-1994",
+  "title": "BBC The Wild West",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/BBCTheWildWestEp3TheBanditTheBuildernarratedByBobPeck1994",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BBCTheWildWestEp3TheBanditTheBuildernarratedByBobPeck1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC The Wild West (1994)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BBCTheWildWestEp3TheBanditTheBuildernarratedByBobPeck1994",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC The Wild West Ep 1 Land of Giants (narrated by Ian Holm) (1994).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 221482456,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BBCTheWildWestEp3TheBanditTheBuildernarratedByBobPeck1994/BBC The Wild West Ep 1 Land of Giants (narrated by Ian Holm) (1994).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

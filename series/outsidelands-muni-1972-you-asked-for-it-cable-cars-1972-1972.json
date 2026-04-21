@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "outsidelands-muni-1972-you-asked-for-it-cable-cars-1972-1972",
+  "title": "Outsidelands MUNI 1972 You Asked For It Cable Cars 1972",
+  "yearStart": 1972,
+  "yearEnd": 1972,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OutsidelandsMUNI1972YouAskedForItCableCars1972",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OutsidelandsMUNI1972YouAskedForItCableCars1972",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Outsidelands MUNI 1972 You Asked For It Cable Cars 1972",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OutsidelandsMUNI1972YouAskedForItCableCars1972",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Outsidelands - MUNI 1972 You Asked For It cable cars.mp4",
+            "format": "h.264",
+            "sizeBytes": 34337541,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OutsidelandsMUNI1972YouAskedForItCableCars1972/Outsidelands - MUNI 1972 You Asked For It cable cars.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

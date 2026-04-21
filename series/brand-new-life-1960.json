@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "seriesID": "brand-new-life-1960",
+  "title": "Brand New Life",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Brand New Life is an American comedy-drama series starring Barbara Eden and produced by Walt Disney Television that aired for five 60-minute episodes on NBC as part of The Magical World of Disney during the 1989–90 television season.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "brand-new-life.s-01e-01.above-and-beyond-therapy.vhsrip",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Beyond Therapy",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
+          "airDate": "1989-10-01",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "brand new life.s01e01.above and beyond therapy.vhsrip.mp4",
+            "format": "h.264",
+            "sizeBytes": 272248750,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brand-new-life.s-01e-01.above-and-beyond-therapy.vhsrip/brand new life.s01e01.above and beyond therapy.vhsrip.mp4"
+        },
+        {
+          "archiveID": "brand-new-life.s-01e-02.i-fought-the-law.vhsrip",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "I Fought the Law",
+          "overview": "After attending Rodgers 30th high school reunion,One of his former classmates, now a tv therapist, contacts Rodger and asks him to be on his show. Rodger dosn't want any part of it, but after barbara and the kids beg him to, he gives in.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
+          "airDate": "1989-10-15",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "brand new life.s01e02.i fought the law.vhsrip.mp4",
+            "format": "h.264",
+            "sizeBytes": 274546574,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brand-new-life.s-01e-02.i-fought-the-law.vhsrip/brand new life.s01e02.i fought the law.vhsrip.mp4"
+        },
+        {
+          "archiveID": "brand-new-life.s-01e-03.private-school.vhsrip",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Private School",
+          "overview": "Barbara is pitted aginst a traffic court judge, after her sons gets a ticket. The judge is someone who likes to make victims of the accused- Barbara objects to his actions, and he has her jailed for contempt.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
+          "airDate": "1989-10-22",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "brand new life.s01e03.private school.vhsrip.mp4",
+            "format": "h.264",
+            "sizeBytes": 270996215,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brand-new-life.s-01e-03.private-school.vhsrip/brand new life.s01e03.private school.vhsrip.mp4"
+        },
+        {
+          "archiveID": "brand-new-life.s-01e-04.children-of-a-legal-mom.vhsrip",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Children of a Legal Mom",
+          "overview": "This episode tackles the issue of teen pregnancy. When Erika finds out a 17 year old classmate is pregnant, she's excited--enough that her and her boyfriend want to throw a baby shower.   The excitment soon changes when she relizes her friendship is in danger, when her friend has to face real commitment-- and grow up.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
+          "airDate": "1990-01-07",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "brand new life.s01e04.children of a legal mom.vhsrip.mp4",
+            "format": "h.264",
+            "sizeBytes": 273286774,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brand-new-life.s-01e-04.children-of-a-legal-mom.vhsrip/brand new life.s01e04.children of a legal mom.vhsrip.mp4"
+        },
+        {
+          "archiveID": "brand-new-life.s-01e-05.even-housekeepers-sing-the-blues.vhsrip",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Even Housekeepers Sing the Blues",
+          "overview": "Amanda brings a deaf friend hom with her, a week before leaving for colledge, but many of the kids treat him differently. Until they all relize they have somthing in common.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
+          "airDate": "1990-04-15",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "brand new life.s01e05.even housekeepers sing the blues.vhsrip.mp4",
+            "format": "h.264",
+            "sizeBytes": 243689208,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/brand-new-life.s-01e-05.even-housekeepers-sing-the-blues.vhsrip/brand new life.s01e05.even housekeepers sing the blues.vhsrip.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

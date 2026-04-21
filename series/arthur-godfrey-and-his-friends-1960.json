@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "arthur-godfrey-and-his-friends-1960",
+  "title": "Arthur Godfrey and his friends",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Arthur Godfrey and His Friends is an American television variety show hosted by Arthur Godfrey. The hour-long series aired on CBS Television from January 1949 to June 1957, then again as a half-hour show from September 1958 to April 1959.\n\nMany of Godfrey's musical acts were culled from Arthur Godfrey's Talent Scouts, which was airing on CBS at the same time. Among the more popular of his singers were Frank Parker, Marion Marlowe, Janette Davis, Julius La Rosa, Haleloke, The McGuire Sisters, Carmel Quinn, Pat Boone, Miyoshi Umeki and The Chordettes. The show was live, and Godfrey often did away with the script and improvised. He refused to participate in commercials for products he did not believe in.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "arthurGodfreyAndHisFriends-28january1953",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Arthur Godfrey and his friends\" - 28/January/1953",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Arthur_Godfreys_friends_01_28_1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 126678593,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/arthurGodfreyAndHisFriends-28january1953/Arthur_Godfreys_friends_01_28_1953.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

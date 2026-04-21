@@ -1,0 +1,787 @@
+{
+  "version": 1,
+  "seriesID": "degrassi-jr-high-1987",
+  "title": "Degrassi Jr High",
+  "yearStart": 1987,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-05-the-great-race",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "degrassi-jr-high-s-01-e-01-kiss-me-steph",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Degrassi Jr High S01E01 - Kiss Me, Steph",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-01-kiss-me-steph",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E01 - Kiss Me Steph.mp4",
+            "format": "h.264",
+            "sizeBytes": 161577652,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-01-e-01-kiss-me-steph/Degrassi Jr High S01E01 - Kiss Me Steph.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-01-e-02-the-big-dance",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Degrassi Jr High S01E02 - The Big Dance",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-02-the-big-dance",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E02 - The Big Dance.mp4",
+            "format": "h.264",
+            "sizeBytes": 161271955,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-01-e-02-the-big-dance/Degrassi Jr High S01E02 - The Big Dance.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-01-e-03-the-experiment",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Degrassi Jr High S01E03 - The Experiment",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-03-the-experiment",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E03 - The Experiment.mp4",
+            "format": "h.264",
+            "sizeBytes": 163445249,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-01-e-03-the-experiment/Degrassi Jr High S01E03 - The Experiment.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-01-e-04-the-cover-up",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Degrassi Jr High S01E04 - The Cover Up",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-04-the-cover-up",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E04 - The Cover Up.mp4",
+            "format": "h.264",
+            "sizeBytes": 165350576,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-01-e-04-the-cover-up/Degrassi Jr High S01E04 - The Cover Up.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-01-e-05-the-great-race",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Degrassi Jr High S01E05 - The Great Race",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-05-the-great-race",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E05 - The Great Race.mp4",
+            "format": "h.264",
+            "sizeBytes": 161098470,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-01-e-05-the-great-race/Degrassi Jr High S01E05 - The Great Race.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-01-e-06-rumor-has-it",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Degrassi Jr High S01E06 - Rumor Has It",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-06-rumor-has-it",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E06 - Rumor Has It.mp4",
+            "format": "h.264",
+            "sizeBytes": 163375144,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-01-e-06-rumor-has-it/Degrassi Jr High S01E06 - Rumor Has It.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-01-e-07-the-best-laid-plans",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Degrassi Jr High S01E07 -The Best Laid Plans",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-07-the-best-laid-plans",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E07 - The Best Laid Plans.mp4",
+            "format": "h.264",
+            "sizeBytes": 161633096,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-01-e-07-the-best-laid-plans/Degrassi Jr High S01E07 - The Best Laid Plans.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-01-e-08-nothing-to-fear",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Degrassi Jr High S01E08 - Nothing To Fear",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-08-nothing-to-fear",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E08 - Nothing To Fear.mp4",
+            "format": "h.264",
+            "sizeBytes": 162159788,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-01-e-08-nothing-to-fear/Degrassi Jr High S01E08 - Nothing To Fear.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-01-e-09-what-a-night",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Degrassi Jr High S01E09 - What A Night",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-09-what-a-night",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E09 - What A Night.mp4",
+            "format": "h.264",
+            "sizeBytes": 161743505,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-01-e-09-what-a-night/Degrassi Jr High S01E09 - What A Night.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-01-e-10-smokescreen",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Degrassi Jr High S01E10 - Smokescreen",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-10-smokescreen",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E10 - Smokescreen.mp4",
+            "format": "h.264",
+            "sizeBytes": 160871178,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-01-e-10-smokescreen/Degrassi Jr High S01E10 - Smokescreen.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-01-e-11-its-late",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Degrassi Jr High S01E11 - It's Late!",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-11-its-late",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E11 - It's Late.mp4",
+            "format": "h.264",
+            "sizeBytes": 163787582,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-01-e-11-its-late/Degrassi Jr High S01E11 - It's Late.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-01-e-12-parents-night",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Degrassi Jr High S01E12 - Parents' Night",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-12-parents-night",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E12 - Parents' Night.mp4",
+            "format": "h.264",
+            "sizeBytes": 161433444,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-01-e-12-parents-night/Degrassi Jr High S01E12 - Parents' Night.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-01-e-13-revolution",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Degrassi Jr High S01E13 - Revolution",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-01-e-13-revolution",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S01E13 - Revolution.mp4",
+            "format": "h.264",
+            "sizeBytes": 161762126,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-01-e-13-revolution/Degrassi Jr High S01E13 - Revolution.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "degrassi-jr-high-s-02-e-01-eggbert",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Degrassi Jr High S02E01 - Eggbert",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-02-e-01-eggbert",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S02E01 - Eggbert.mp4",
+            "format": "h.264",
+            "sizeBytes": 155802456,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-02-e-01-eggbert/Degrassi Jr High S02E01 - Eggbert.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-02-e-02-a-helping-hand",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Degrassi Jr High S02E02 - A Helping Hand",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-02-e-02-a-helping-hand",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S02E02 - A Helping Hand.mp4",
+            "format": "h.264",
+            "sizeBytes": 155191839,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-02-e-02-a-helping-hand/Degrassi Jr High S02E02 - A Helping Hand.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-02-e-03-great-expectations",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Degrassi Jr High S02E03 - Great Expectations",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-02-e-03-great-expectations",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S02E03 - Great Expectations.mp4",
+            "format": "h.264",
+            "sizeBytes": 154614913,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-02-e-03-great-expectations/Degrassi Jr High S02E03 - Great Expectations.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-02-e-04-dinner-and-a-show",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Degrassi Jr High S02E04 - Dinner And A Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-02-e-04-dinner-and-a-show",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S02E04 - Dinner and a Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 154830266,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-02-e-04-dinner-and-a-show/Degrassi Jr High S02E04 - Dinner and a Show.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-02-e-05-stage-fright",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Degrassi Jr High S02E05 - Stage Fright",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-02-e-05-stage-fright",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S02E05 - Stage Fright.mp4",
+            "format": "h.264",
+            "sizeBytes": 155104309,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-02-e-05-stage-fright/Degrassi Jr High S02E05 - Stage Fright.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-02-e-06-fight",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Degrassi Jr High S02E06 - Fight!",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-02-e-06-fight",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S02E06 - Fight.mp4",
+            "format": "h.264",
+            "sizeBytes": 153605977,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-02-e-06-fight/Degrassi Jr High S02E06 - Fight.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-02-e-07-bottled-up",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Degrassi Jr High S02E07 - Bottled Up",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-02-e-07-bottled-up",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S02E07 - Bottled Up.mp4",
+            "format": "h.264",
+            "sizeBytes": 155145268,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-02-e-07-bottled-up/Degrassi Jr High S02E07 - Bottled Up.mp4"
+        },
+        {
+          "archiveID": "degrassi-jr-high-s-02-e-08-sealed-with-a-kiss",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Degrassi Jr High S02E08 - Sealed With A Kiss",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-jr-high-s-02-e-08-sealed-with-a-kiss",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Jr High S02E08 - Sealed with a Kiss.mp4",
+            "format": "h.264",
+            "sizeBytes": 155026180,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-jr-high-s-02-e-08-sealed-with-a-kiss/Degrassi Jr High S02E08 - Sealed with a Kiss.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-02-e-09-dog-days",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Degrassi Jr High S02E09 - Dog Days",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-02-e-09-dog-days",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S02E09 - Dog Days.mp4",
+            "format": "h.264",
+            "sizeBytes": 155159431,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-02-e-09-dog-days/Degrassi Junior High S02E09 - Dog Days.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-02-e-10-censored",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Degrassi Jr High S02E10 - Censored",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-02-e-10-censored",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S02E10 - Censored.mp4",
+            "format": "h.264",
+            "sizeBytes": 154828326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-02-e-10-censored/Degrassi Junior High S02E10 - Censored.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-02-e-11-trust-me",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Degrassi Jr High S02E11 - Trust Me",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-02-e-11-trust-me",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S02E11 - Trust Me.mp4",
+            "format": "h.264",
+            "sizeBytes": 155509080,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-02-e-11-trust-me/Degrassi Junior High S02E11 - Trust Me.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-02-e-12-...-hes-back",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Degrassi Jr High S02E12 - ...He's Back",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-02-e-12-...-hes-back",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S02E12 - ...He's Back.mp4",
+            "format": "h.264",
+            "sizeBytes": 155532096,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-02-e-12-...-hes-back/Degrassi Junior High S02E12 - ...He's Back.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-02-e-13-pass-tense",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Degrassi Jr High S02E13 - Pass Tense",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-02-e-13-pass-tense",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S02E13 - Pass Tense.mp4",
+            "format": "h.264",
+            "sizeBytes": 155617454,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-02-e-13-pass-tense/Degrassi Junior High S02E13 - Pass Tense.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-01-cant-live-with-em-part-1",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Degrassi Jr High S03E01 - Can't Live With 'Em (Part 1)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-01-cant-live-with-em-part-1",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E01 - Can't Live With Em (Part 1).mp4",
+            "format": "h.264",
+            "sizeBytes": 156743045,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-01-cant-live-with-em-part-1/Degrassi Junior High S03E01 - Can't Live With Em (Part 1).mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-02-cant-live-with-em-part-2",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Degrassi Jr High S03E02 - Can't Live With 'Em (Part 2)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-02-cant-live-with-em-part-2",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E02 - Can't Live With Em (Part 2).mp4",
+            "format": "h.264",
+            "sizeBytes": 156516238,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-02-cant-live-with-em-part-2/Degrassi Junior High S03E02 - Can't Live With Em (Part 2).mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-03-a-big-girl-now",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Degrassi Jr High S03E03 - A Big Girl Now",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-03-a-big-girl-now",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E03 - A Big Girl Now.mp4",
+            "format": "h.264",
+            "sizeBytes": 155091503,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-03-a-big-girl-now/Degrassi Junior High S03E03 - A Big Girl Now.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-04-seasons-greetings",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Degrassi Jr High S03E04 - Season's Greetings",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-04-seasons-greetings",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E04 - Season's Greetings.mp4",
+            "format": "h.264",
+            "sizeBytes": 156246928,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-04-seasons-greetings/Degrassi Junior High S03E04 - Season's Greetings.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-05-loves-me-loves-me-not",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Degrassi Jr High S03E05 - Loves Me, Loves Me Not",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-05-loves-me-loves-me-not",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E05 - Loves Me, Loves Me Not.mp4",
+            "format": "h.264",
+            "sizeBytes": 155179123,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-05-loves-me-loves-me-not/Degrassi Junior High S03E05 - Loves Me, Loves Me Not.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-06-he-aint-heavy",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Degrassi Jr High S03E06 - He Ain't Heavy",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-06-he-aint-heavy",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E06 - He Ain't Heavy.mp4",
+            "format": "h.264",
+            "sizeBytes": 156062052,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-06-he-aint-heavy/Degrassi Junior High S03E06 - He Ain't Heavy.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-07-the-whole-truth",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Degrassi Jr High S03E07 - The Whole Truth",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-07-the-whole-truth",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E07 - The Whole Truth.mp4",
+            "format": "h.264",
+            "sizeBytes": 156587699,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-07-the-whole-truth/Degrassi Junior High S03E07 - The Whole Truth.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-08-star-crossed",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Degrassi Jr High S03E08 - Star Crossed",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-08-star-crossed",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E08 - Star-Crossed.mp4",
+            "format": "h.264",
+            "sizeBytes": 155743972,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-08-star-crossed/Degrassi Junior High S03E08 - Star-Crossed.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-09-food-for-thought",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Degrassi Jr High S03E09 - Food For Thought",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-09-food-for-thought",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E09 - Food For Thought.mp4",
+            "format": "h.264",
+            "sizeBytes": 157385962,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-09-food-for-thought/Degrassi Junior High S03E09 - Food For Thought.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-10-twenty-bucks",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Degrassi Jr High S03E10 - Twenty Bucks",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-10-twenty-bucks",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E10 - Twenty Bucks.mp4",
+            "format": "h.264",
+            "sizeBytes": 156822842,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-10-twenty-bucks/Degrassi Junior High S03E10 - Twenty Bucks.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-11-taking-off-part-1",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Degrassi Jr High S03E11 - Taking Off (Part 1)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-11-taking-off-part-1",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E11 - Taking Off (Part 1).mp4",
+            "format": "h.264",
+            "sizeBytes": 156359552,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-11-taking-off-part-1/Degrassi Junior High S03E11 - Taking Off (Part 1).mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-12-taking-off-part-2",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Degrassi Jr High S03E12 - Taking Off (Part 2)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-12-taking-off-part-2",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E12 - Taking Off (Part 2).mp4",
+            "format": "h.264",
+            "sizeBytes": 156853158,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-12-taking-off-part-2/Degrassi Junior High S03E12 - Taking Off (Part 2).mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-13-making-whoopee",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Degrassi Jr High S03E13 - Making Whoopee",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-13-making-whoopee",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E13 - Making Whoopee.mp4",
+            "format": "h.264",
+            "sizeBytes": 157022556,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-13-making-whoopee/Degrassi Junior High S03E13 - Making Whoopee.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-14-black-and-white",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Degrassi Jr High S03E14 - Black And White",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-14-black-and-white",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E14 - Black and White.mp4",
+            "format": "h.264",
+            "sizeBytes": 156888635,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-14-black-and-white/Degrassi Junior High S03E14 - Black and White.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-15-pa-arty",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "Degrassi Jr High S03E15 - Pa-arty!",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-15-pa-arty",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E15 - Pa-arty!.mp4",
+            "format": "h.264",
+            "sizeBytes": 165817899,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-15-pa-arty/Degrassi Junior High S03E15 - Pa-arty!.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-16-bye-bye-junior-high",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "Degrassi Jr High S03E16 - Bye Bye Junior High",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-16-bye-bye-junior-high",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E16 - Bye-Bye Junior High.mp4",
+            "format": "h.264",
+            "sizeBytes": 156931328,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-16-bye-bye-junior-high/Degrassi Junior High S03E16 - Bye-Bye Junior High.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 42
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1978-05-17-olivia-newton-john-abba-andy-gibb-gary-frank-1978",
+  "title": "1978 05 17 Olivia! Newton John ABBA Andy Gibb Gary Frank",
+  "yearStart": 1978,
+  "yearEnd": 1978,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1978-05-17-olivia-abba-andy.-gibb-gary.-frank",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1978-05-17-olivia-abba-andy.-gibb-gary.-frank",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1978 05 17 Olivia! Newton John ABBA Andy Gibb Gary Frank",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1978-05-17-olivia-abba-andy.-gibb-gary.-frank",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1978-05-17_Olivia!_ABBA_Andy.Gibb_Gary.Frank/Olivia! ABC-TV Special_Unedited.Concert_STEREO .ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 128678529,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1978-05-17-olivia-abba-andy.-gibb-gary.-frank/1978-05-17_Olivia!_ABBA_Andy.Gibb_Gary.Frank/Olivia! ABC-TV Special_Unedited.Concert_STEREO .ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

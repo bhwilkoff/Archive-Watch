@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-parcel-suspense-1950",
+  "title": "The Parcel (Suspense",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Suspense--The_Parcel",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Suspense--The_Parcel",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Parcel (Suspense)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Suspense--The_Parcel",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1701,
+          "videoFile": {
+            "name": "Suspense--The_Parcel.mp4",
+            "format": "h.264",
+            "sizeBytes": 176263265,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--The_Parcel/Suspense--The_Parcel.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

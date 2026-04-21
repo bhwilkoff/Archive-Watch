@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "seriesID": "mister-ed-1958",
+  "title": "Mister Ed",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": "Wilbur Post and his wife Carol move into a beautiful new home. When Wilbur takes a look in his new barn, he finds that the former owner left his horse behind. This horse is no ordinary horse . . . he can talk, but only to Wilbur, which leads to all sorts of misadventures for Wilbur and his trouble-making sidekick Mister Ed.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ykGlIpjTiyd4wYk617X73TL5FTS.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/luppCk9XUcs0gUEf9Sv7MhiJv4H.jpg",
+  "genres": [],
+  "networks": [
+    "CBS",
+    "Syndication"
+  ],
+  "creator": "Walter R. Brooks",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mister-ed-s-02-",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mister Ed Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ykGlIpjTiyd4wYk617X73TL5FTS.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mister Ed S02E03 Ed's Ancestors.mp4",
+            "format": "h.264",
+            "sizeBytes": 148214694,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mister-ed-s-02-/Mister Ed S02E03 Ed's Ancestors.mp4"
+        },
+        {
+          "archiveID": "mister-ed-s-03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mister Ed Season 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ykGlIpjTiyd4wYk617X73TL5FTS.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mister Ed S03E04 The Bashful Clipper.mp4",
+            "format": "h.264",
+            "sizeBytes": 148359497,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mister-ed-s-03/Mister Ed S03E04 The Bashful Clipper.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

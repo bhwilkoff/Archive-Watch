@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "dads-army-1960",
+  "title": "Dads Army",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Introducing the Walmington-On-Sea home guard. During WW2, in a fictional British seaside town, a ragtag group of Home Guard local defense volunteers prepare for an imminent German invasion.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/8MujdHdJaQKML59PNP9jFXlclBn.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/AfzpsVEOzThowOcG0w6vj2ho0Wg.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Jimmy Perry",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dads-army-series-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dads Army Series 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8MujdHdJaQKML59PNP9jFXlclBn.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01 E04-The Enemy Within The Gates.mp4",
+            "format": "h.264",
+            "sizeBytes": 172223117,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dads-army-series-1/S01 E04-The Enemy Within The Gates.mp4"
+        },
+        {
+          "archiveID": "dads-army-series-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dads Army Series 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8MujdHdJaQKML59PNP9jFXlclBn.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S02 E05 A Stripe For Frazer(Remake).mp4",
+            "format": "h.264",
+            "sizeBytes": 198826292,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dads-army-series-2/S02 E05 A Stripe For Frazer(Remake).mp4"
+        },
+        {
+          "archiveID": "dads-army-series-3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dads Army Series 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8MujdHdJaQKML59PNP9jFXlclBn.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S03 E03 The Lion Has Phones.mp4",
+            "format": "h.264",
+            "sizeBytes": 173377803,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dads-army-series-3/S03 E03 The Lion Has Phones.mp4"
+        },
+        {
+          "archiveID": "dads-army-series-4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dads Army Series 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8MujdHdJaQKML59PNP9jFXlclBn.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S04 E14 - Battle Of Giants.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1061337081,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dads-army-series-4/S04 E14 - Battle Of Giants.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

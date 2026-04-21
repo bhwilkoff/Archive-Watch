@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "queen-for-a-day---partial-1956-1956",
+  "title": "Queen for a Day - Partial 1956",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/queen-for-a-day-partial-1956-episode-2",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "queen-for-a-day-partial-1956-episode-2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Queen for a Day - Partial 1956 episode (2)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/queen-for-a-day-partial-1956-episode-2",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 851,
+          "videoFile": {
+            "name": "Queen for a Day - Partial 1956 episode (2).mp4",
+            "format": "h.264",
+            "sizeBytes": 84364972,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/queen-for-a-day-partial-1956-episode-2/Queen for a Day - Partial 1956 episode (2).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

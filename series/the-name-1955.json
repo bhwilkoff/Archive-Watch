@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-name-1955",
+  "title": "The Name",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheNamesTheSame1955",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheNamesTheSame1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Name's the Same (1955)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheNamesTheSame1955",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "Name_the_Same_01_03_1955.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 239237324,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheNamesTheSame1955/Name_the_Same_01_03_1955.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

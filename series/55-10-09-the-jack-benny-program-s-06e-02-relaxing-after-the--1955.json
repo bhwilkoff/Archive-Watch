@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "55-10-09-the-jack-benny-program-s-06e-02-relaxing-after-the--1955",
+  "title": "55 10 09 The Jack Benny Program S 06e 02 Relaxing After The Show",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/551009TheJackBennyProgramS06e02RelaxingAfterTheShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "551009TheJackBennyProgramS06e02RelaxingAfterTheShow",
+          "seasonNumber": 1,
+          "episodeNumber": 55,
+          "title": "55 10 09 The Jack Benny Program S 06e 02 Relaxing After The Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/551009TheJackBennyProgramS06e02RelaxingAfterTheShow",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "55-10-09  The Jack Benny Program  s06e02  Relaxing After The Show.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 117054389,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/551009TheJackBennyProgramS06e02RelaxingAfterTheShow/55-10-09  The Jack Benny Program  s06e02  Relaxing After The Show.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

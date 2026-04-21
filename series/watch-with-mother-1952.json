@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "seriesID": "watch-with-mother-1952",
+  "title": "Watch with Mother",
+  "yearStart": 1952,
+  "yearEnd": 1958,
+  "overview": "'Watch with Mother' was a cycle of children's programmes created by Freda Lingstrom. Broadcast by BBC Television from 1952 until 1973, it was the first BBC television series aimed specifically at pre-school children, a development of BBC radio's equivalent 'Listen with Mother', which had begun two years earlier. In accordance with its intended target audience of pre-school children viewing with their mothers, 'Watch with Mother' was initially broadcast between 3:45 pm and 4:00 pm, post–afternoon nap and before the older children came home from school.\n\nThe choice of 'Watch with Mother' for the title of the series was intended \"to deflect fears that television might become a nursemaid to children and encourage 'bad mothering'\".",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "watch_with_mother_woodentops_horseshoe",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Watch With Mother - The Woodentops (Horseshoe)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 895,
+          "videoFile": {
+            "name": "watch_with_mother_woodentops_horseshoe.mp4",
+            "format": "h.264",
+            "sizeBytes": 88530942,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/watch_with_mother_woodentops_horseshoe/watch_with_mother_woodentops_horseshoe.mp4"
+        },
+        {
+          "archiveID": "watch_with_mother_andy_pandy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Watch with Mother - Andy Pandy (The Cart)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1003,
+          "videoFile": {
+            "name": "watch_with_mother_andy_pandy.mp4",
+            "format": "h.264",
+            "sizeBytes": 99736437,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/watch_with_mother_andy_pandy/watch_with_mother_andy_pandy.mp4"
+        },
+        {
+          "archiveID": "watch_with_mother_the_flowerpot_men",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Watch with Mother - Bill and Ben: The Flowerpot Men (The Potato Man)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 905,
+          "videoFile": {
+            "name": "watch_with_mother_the_flowerpot_men.mp4",
+            "format": "h.264",
+            "sizeBytes": 89872880,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/watch_with_mother_the_flowerpot_men/watch_with_mother_the_flowerpot_men.mp4"
+        },
+        {
+          "archiveID": "watch_with_mother_rag_tag_and_bobtail",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Watch with Mother - Rag, Tag and Bobtail",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 792,
+          "videoFile": {
+            "name": "Bobtail.mp4",
+            "format": "h.264",
+            "sizeBytes": 79326549,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/watch_with_mother_rag_tag_and_bobtail/Bobtail.mp4"
+        },
+        {
+          "archiveID": "watch_with_mother_rag_tag_and_bobtail_snowballs",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Watch with Mother - Rag, Tag and Bobtail (Snowballs)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 881,
+          "videoFile": {
+            "name": "watch_with_mother_rag_tag_and_bobtail_snowballs.mp4",
+            "format": "h.264",
+            "sizeBytes": 86888745,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/watch_with_mother_rag_tag_and_bobtail_snowballs/watch_with_mother_rag_tag_and_bobtail_snowballs.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

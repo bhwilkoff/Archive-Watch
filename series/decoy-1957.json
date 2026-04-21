@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "decoy-1957",
+  "title": "Decoy",
+  "yearStart": 1957,
+  "yearEnd": 1959,
+  "overview": "New York City policewoman Casey Jones' assignment to fight crime often entails her going undercover in some of the seediest and most dangerous parts of the city. Decoy is a groundbreaking American crime drama television series created for syndication and initially broadcast from October 14, 1957, to July 7, 1958, with thirty-nine 30-minute black-and-white episodes. It was the first American police series with a female protagonist. Many Decoy episodes are in the public domain.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/nGWlVSsW6zzNkGbtlS9v9h62yFo.jpg",
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "DecoyToTrapAThief",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "To Trap a Thief",
+          "overview": "A policeman is accused of stealing $10,000.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1957-11-04",
+          "year": 1957,
+          "runtimeSeconds": 1545,
+          "videoFile": {
+            "name": "Decoy-toTrapAThief-november41957.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151051394,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyToTrapAThief/Decoy-toTrapAThief-november41957.ia.mp4"
+        },
+        {
+          "archiveID": "DecoyHighSwing",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "High Swing",
+          "overview": "Casey acts as bait in order to catch a mugger.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1959-06-03",
+          "year": 1959,
+          "runtimeSeconds": 1569,
+          "videoFile": {
+            "name": "Decoy-highSwing-june31959.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160706364,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoyHighSwing/Decoy-highSwing-june31959.ia.mp4"
+        },
+        {
+          "archiveID": "DecoytheFirstArrest",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "First Arrest",
+          "overview": "Casey recalls her first case - looking for stolen gems at Coney Island's amusement park.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+          "airDate": "1958-06-30",
+          "year": 1958,
+          "runtimeSeconds": 1587,
+          "videoFile": {
+            "name": "Decoy-theFirstArrest-june301958.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157505375,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DecoytheFirstArrest/Decoy-theFirstArrest-june301958.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

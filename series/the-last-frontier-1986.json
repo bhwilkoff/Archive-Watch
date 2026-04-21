@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-last-frontier-1986",
+  "title": "The Last Frontier",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "Following a whirlwind courtship, a single mother from Los Angeles marries an Australian cattle rancher. He returns to Australia ahead of her and her two children but dies before they arrive, leaving his widow to deal with a debt-ridden ranch and land-grabbing neighbors.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/uGmBUD4SXZWFaupjJYAAKWDNwgm.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/cZXXL9D21Pci5xnku2lE5ahrjOt.jpg",
+  "genres": [],
+  "networks": [
+    "10"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-last-frontier-1986-pt-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Last Frontier - Linda Evans",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uGmBUD4SXZWFaupjJYAAKWDNwgm.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Last Frontier - 1986 - Pt 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2836082175,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-last-frontier-1986-pt-1/The Last Frontier - 1986 - Pt 1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

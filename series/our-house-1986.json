@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "our-house-1986",
+  "title": "Our House",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "Our House is an American television drama series that aired on NBC for two seasons from September 11, 1986 to May 8, 1988. The series centers on the Witherspoon family and the challenges they face adjusting to life with three generations living in the same house.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/oXPvK5il0cG6ofYdYfoJiKZKvxM.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/onPGr1fEeO8BC8ksqR1xDZkiF5s.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "James Lee Barrett",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "our-house-1.19",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Our House - Deidre Hall, Shannen Doherty",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oXPvK5il0cG6ofYdYfoJiKZKvxM.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Our House - 2.17.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1484717382,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/our-house-1.19/Our House - 2.17.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

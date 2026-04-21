@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wagner-1983-tv-2024",
+  "title": "Wagner (1983 TV",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/wagner-10",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "wagner-10",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wagner (1983 TV series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/wagner-10",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wagner 10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 342134771,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wagner-10/Wagner 10.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

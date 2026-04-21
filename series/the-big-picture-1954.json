@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "seriesID": "the-big-picture-1954",
+  "title": "The Big Picture",
+  "yearStart": 1954,
+  "yearEnd": 1959,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/KoreanWar",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BeyondtheCallofDuty",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture: Beyond the Call",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BeyondtheCallofDuty",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1680,
+          "videoFile": {
+            "name": "BeyondtheCallofDuty.mp4",
+            "format": "h.264",
+            "sizeBytes": 165329467,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BeyondtheCallofDuty/BeyondtheCallofDuty.mp4"
+        },
+        {
+          "archiveID": "SummerStorm",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture: Summer Storm",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SummerStorm",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1680,
+          "videoFile": {
+            "name": "SummerStorm.mp4",
+            "format": "h.264",
+            "sizeBytes": 167444854,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SummerStorm/SummerStorm.mp4"
+        },
+        {
+          "archiveID": "KoreanWar",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture: The Korean War",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/KoreanWar",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1680,
+          "videoFile": {
+            "name": "KoreanWar.mp4",
+            "format": "h.264",
+            "sizeBytes": 167864107,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/KoreanWar/KoreanWar.mp4"
+        },
+        {
+          "archiveID": "WarsEnd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture: Wars End",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/WarsEnd",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1620,
+          "videoFile": {
+            "name": "WarsEnd.mp4",
+            "format": "h.264",
+            "sizeBytes": 162217672,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/WarsEnd/WarsEnd.mp4"
+        },
+        {
+          "archiveID": "TheBigPicture-WhereverTheyGo-UnitedServiceOrganizationUSO",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Picture: Wherever They Go",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheBigPicture-WhereverTheyGo-UnitedServiceOrganizationUSO",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1726,
+          "videoFile": {
+            "name": "TheBigPicture-WhereverTheyGo-UnitedServiceOrganizationUSO.mp4",
+            "format": "h.264",
+            "sizeBytes": 171711674,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBigPicture-WhereverTheyGo-UnitedServiceOrganizationUSO/TheBigPicture-WhereverTheyGo-UnitedServiceOrganizationUSO.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

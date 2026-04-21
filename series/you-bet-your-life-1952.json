@@ -1,0 +1,185 @@
+{
+  "version": 1,
+  "seriesID": "you-bet-your-life-1952",
+  "title": "You Bet Your Life",
+  "yearStart": 1952,
+  "yearEnd": 1959,
+  "overview": "You Bet Your Life is an American quiz show that aired on both radio and television. The original and best-known version was hosted by Groucho Marx of the Marx Brothers, with announcer and assistant George Fenneman. The show debuted on ABC Radio in October 1947, then moved to CBS Radio in September 1949 before making the transition to NBC-TV in October 1950. Because of its simple format, it was possible to broadcast the show simultaneously on the radio and on television. In 1960, the show was renamed The Groucho Show and ran a further year. Most episodes are in the public domain.\n\nThe play of the game, however, was secondary to the interplay between Groucho, the contestants, and occasionally Fenneman. The program was rerun into the 1970s, and later in syndication as The Best of Groucho. As such, it was the first game show to have its reruns syndicated.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lyRfeIXMj3Bcyy3ich05kqpx4Th.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "youBetYourLife1954-SecretWordHouse",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'You Bet Your Life' (1954) - Secret Word: House",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1758,
+          "videoFile": {
+            "name": "You_Bet_Your_Life_House_05_13_1954.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 249436514,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/youBetYourLife1954-SecretWordHouse/You_Bet_Your_Life_House_05_13_1954.ia.mp4"
+        },
+        {
+          "archiveID": "youBetYourLife1955-SecretWordBook",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'You Bet Your Life' (1955) - Secret Word: Book",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1771,
+          "videoFile": {
+            "name": "You_Bet_Your_Life_Book_11_17_1955.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 297262552,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/youBetYourLife1955-SecretWordBook/You_Bet_Your_Life_Book_11_17_1955.ia.mp4"
+        },
+        {
+          "archiveID": "youBetYourLife1955-SecretWordFace",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'You Bet Your Life' (1955) - Secret Word: Face",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1761,
+          "videoFile": {
+            "name": "You_Bet_Your_Life_Face_02_24_1955.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 249802928,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/youBetYourLife1955-SecretWordFace/You_Bet_Your_Life_Face_02_24_1955.ia.mp4"
+        },
+        {
+          "archiveID": "youBetYourLife1956-SecretWordDoor",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'You Bet Your Life' (1956) - Secret Word: Door",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "You_Bet_Your_Life_Door_02_09_1956_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 121295936,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/youBetYourLife1956-SecretWordDoor/You_Bet_Your_Life_Door_02_09_1956_512kb.mp4"
+        },
+        {
+          "archiveID": "YouBetYourLife19501952Outtakes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "You Bet Your Life - 1950-1952 outtakes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 682,
+          "videoFile": {
+            "name": "You Bet Your Life - 1950-1952 outtakes.mp4",
+            "format": "h.264",
+            "sizeBytes": 71143549,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YouBetYourLife19501952Outtakes/You Bet Your Life - 1950-1952 outtakes.mp4"
+        },
+        {
+          "archiveID": "YouBetYourLife19531955Outtakes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "You Bet Your Life - 1953-1955 outtakes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1095,
+          "videoFile": {
+            "name": "You Bet Your Life - 1953-1955 outtakes.mp4",
+            "format": "h.264",
+            "sizeBytes": 113997369,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YouBetYourLife19531955Outtakes/You Bet Your Life - 1953-1955 outtakes.mp4"
+        },
+        {
+          "archiveID": "YouBetYourLife19551956Outtakes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "You Bet Your Life - 1955-1956 outtakes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 411,
+          "videoFile": {
+            "name": "You Bet Your Life - 1955-1956 outtakes.mp4",
+            "format": "h.264",
+            "sizeBytes": 42944669,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YouBetYourLife19551956Outtakes/You Bet Your Life - 1955-1956 outtakes.mp4"
+        },
+        {
+          "archiveID": "YouBetYourLife19561957Outtakes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "You Bet Your Life - 1956-1957 outtakes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 650,
+          "videoFile": {
+            "name": "You Bet Your Life - 1956-1957 outtakes.mp4",
+            "format": "h.264",
+            "sizeBytes": 67883911,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YouBetYourLife19561957Outtakes/You Bet Your Life - 1956-1957 outtakes.mp4"
+        },
+        {
+          "archiveID": "YouBetYourLife19581959Outtakes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "You Bet Your Life - 1958-1959 outtakes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kFdD8LAAhDAXiWVF7KBati9l17W.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 772,
+          "videoFile": {
+            "name": "You Bet Your Life - 1958-1959 outtakes.mp4",
+            "format": "h.264",
+            "sizeBytes": 80769717,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YouBetYourLife19581959Outtakes/You Bet Your Life - 1958-1959 outtakes.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9
+}

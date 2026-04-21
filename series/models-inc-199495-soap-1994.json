@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "models-inc-199495-soap-1994",
+  "title": "Models Inc. (1994–95) soap",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/models-inc.-intro",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "models-inc.-intro",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Models Inc. (1994–95) soap",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/models-inc.-intro",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Models Inc #27 FULL EPISODE  - BETAMAX - VHS - SUPER 8.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 726806898,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/models-inc.-intro/Models Inc #27 FULL EPISODE  - BETAMAX - VHS - SUPER 8.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

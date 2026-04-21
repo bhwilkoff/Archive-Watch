@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jethros-friend-1960",
+  "title": "Jethros Friend",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep36_Jethros_Friend",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep36_Jethros_Friend",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jethros Friend",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep36_Jethros_Friend",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH36_Jethros_Friend.mp4",
+            "format": "h.264",
+            "sizeBytes": 147124378,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep36_Jethros_Friend/BH36_Jethros_Friend.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

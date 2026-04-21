@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "glenn-miller-a-moonlight-serenade-1984",
+  "title": "Glenn Miller: A Moonlight Serenade",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/glenn-miller-moonlight-serenade-1984",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "glenn-miller-moonlight-serenade-1984",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Glenn Miller: A Moonlight Serenade - Van Johnson",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/glenn-miller-moonlight-serenade-1984",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Glenn Miller Moonlight Serenade - 1984.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2348373050,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/glenn-miller-moonlight-serenade-1984/Glenn Miller Moonlight Serenade - 1984.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

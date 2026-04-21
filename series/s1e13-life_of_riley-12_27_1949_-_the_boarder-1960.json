@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "s1e13-life_of_riley-12_27_1949_-_the_boarder-1960",
+  "title": "S1E13-Life_Of_Riley-12_27_1949_-_The_Boarder",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/S1E13-Life_Of_Riley-12_27_1949_-_The_Boarder",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "S1E13-Life_Of_Riley-12_27_1949_-_The_Boarder",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "S1E13-Life_Of_Riley-12_27_1949_-_The_Boarder.",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/S1E13-Life_Of_Riley-12_27_1949_-_The_Boarder",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1E13-Life_Of_Riley-12_27_1949-The_Boarder.mp4",
+            "format": "h.264",
+            "sizeBytes": 130180901,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E13-Life_Of_Riley-12_27_1949_-_The_Boarder/S1E13-Life_Of_Riley-12_27_1949-The_Boarder.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

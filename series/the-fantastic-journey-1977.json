@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-fantastic-journey-1977",
+  "title": "The Fantastic Journey",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": "The Fantastic Journey was an American science fiction television series that was originally aired on NBC from February 3 through June 17, 1977.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7ExChIiRaAZ9N5SeiAcw8XjJCyk.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/Au9EHrI3KSJVfNgLgOSJq4apeUE.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Bruce Lansbury",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-fantastic-journey-1977_202504",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Fantastic Journey - The Complete Series 1977",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7ExChIiRaAZ9N5SeiAcw8XjJCyk.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Fantastic Journey [1977] E01 - Vortex.mp4",
+            "format": "h.264",
+            "sizeBytes": 418600990,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-fantastic-journey-1977_202504/The Fantastic Journey [1977] E01 - Vortex.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

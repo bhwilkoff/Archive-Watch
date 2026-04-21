@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "russian-right-stuff-1991",
+  "title": "Russian right stuff",
+  "yearStart": 1991,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/RussianRightStuffTheDarkSideoftheMoon",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RussianRightStuffTheDarkSideoftheMoon",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Russian right stuff : the dark side of the moon",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/RussianRightStuffTheDarkSideoftheMoon",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S18E07.Russian.Right.Stuff.The.Dark.Side.of.the.Moon.1991.VHSRip.AAC2.0.x264-astro.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 843928878,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RussianRightStuffTheDarkSideoftheMoon/NOVA.S18E07.Russian.Right.Stuff.The.Dark.Side.of.the.Moon.1991.VHSRip.AAC2.0.x264-astro.mp4"
+        },
+        {
+          "archiveID": "RussianRightStuffTheInvisibleSpaceman",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Russian right stuff : the invisible spaceman",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/RussianRightStuffTheInvisibleSpaceman",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S18E06.Russian.Right.Stuff.The.Invisible.Spaceman.1991.VHSRip.AAC2.0.x264-astro.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 931983059,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RussianRightStuffTheInvisibleSpaceman/NOVA.S18E06.Russian.Right.Stuff.The.Invisible.Spaceman.1991.VHSRip.AAC2.0.x264-astro.mp4"
+        },
+        {
+          "archiveID": "RussianRightStuffTheMission",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Russian right stuff : the mission",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/RussianRightStuffTheMission",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S18E08.Russian.Right.Stuff.The.Mission.1991.VHSRip.AAC2.0.x264-rattera.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 534210102,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RussianRightStuffTheMission/NOVA.S18E08.Russian.Right.Stuff.The.Mission.1991.VHSRip.AAC2.0.x264-rattera.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

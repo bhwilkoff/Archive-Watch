@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "blackstar-1981",
+  "title": "Blackstar",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": "Blackstar is an American animated television series, a science fantasy story sometimes reported as being inspired by Thundarr the Barbarian. It was produced in 1981 by Lou Scheimer and Norm Prescott for Filmation. The series was Filmation's second fantasy epic, the first being tucked in as a segment of Tarzan and Tarzan and the Super 7, The Freedom Force. Blackstar has many notable similarities to He-Man and the Masters of the Universe, which was produced shortly afterwards.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ujWNJd0ckjohwNrUsHM0tuBNZj8.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/6WiDJrLzN8PUdwVS03gFyVpmGSw.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Norm Prescott",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "13-the-zombie-masters",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Blackstar",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ujWNJd0ckjohwNrUsHM0tuBNZj8.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "13 The Zombie Masters.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 125688628,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/13-the-zombie-masters/13 The Zombie Masters.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

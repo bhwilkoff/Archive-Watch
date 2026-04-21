@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "moonstrike-1963",
+  "title": "Moonstrike",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": "An anthology of self-contained stories about acts of resistance in occupied Europe during the Second World War. Producer Gerard Glaister drew upon his own wartime experiences, having served as a pilot in the RAF.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "moonstrike-s01-ep16",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "A Girl Friend",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-06-06",
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Moonstrike S01 Ep16.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 153139067,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moonstrike-s01-ep16/Moonstrike S01 Ep16.mp4"
+        },
+        {
+          "archiveID": "moonstrike-s01-ep17",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Biggest Bandit",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-06-13",
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Moonstrike 1963 S01 Ep17.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 202907447,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moonstrike-s01-ep17/Moonstrike 1963 S01 Ep17.mp4"
+        },
+        {
+          "archiveID": "moonstrike-s01-ep22",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Factory",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-07-18",
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Moonstrike 1963 S01Ep22.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 188009335,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moonstrike-s01-ep22/Moonstrike 1963 S01Ep22.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-crab-nebula-1971",
+  "title": "The Crab Nebula",
+  "yearStart": 1971,
+  "yearEnd": 1971,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheCrabNebula",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheCrabNebula",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Crab Nebula",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheCrabNebula",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Horizon.S08E28.The.Crab.Nebula.1971.VHSrip.x264.AAC-RATTERA.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 285459644,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheCrabNebula/Horizon.S08E28.The.Crab.Nebula.1971.VHSrip.x264.AAC-RATTERA.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

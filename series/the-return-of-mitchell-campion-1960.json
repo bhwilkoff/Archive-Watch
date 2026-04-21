@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-return-of-mitchell-campion-1960",
+  "title": "The Return of Mitchell Campion",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OSB-12_The_Return_Of_Mitchell_Compion",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OSB-12_The_Return_Of_Mitchell_Compion",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Return of Mitchell Campion",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OSB-12_The_Return_Of_Mitchell_Compion",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OSB-12_The_Return_Of_Mitchell_Compion.mp4",
+            "format": "h.264",
+            "sizeBytes": 150881678,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-12_The_Return_Of_Mitchell_Compion/OSB-12_The_Return_Of_Mitchell_Compion.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

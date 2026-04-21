@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-mick-molloy-show-1999",
+  "title": "The Mick Molloy Show",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": "The Mick Molloy Show was a television program that appeared on the Nine Network in Australia for just eight weeks during 1999. The host, Mick Molloy, was a widely acclaimed comedian from The Late Show and Martin/Molloy. The program's running time was approximately 1 hour 50 minutes.\n\nThe show was essentially took a laidback, easy-going chat variety format, with a set comprising a couple of couches, a coffee table and resident band. The regular weekly guest band, featuring acts not normally seen on commercial television, added to the musical interludes. All this was combined with a some pre-recorded sketches, movie reviews, a sport segment, regular guests and local comedians to create a relaxed, urban/warehouse vibe. The lead-in shows were the iconic Hey Hey It's Saturday and The Pretender.\n\nThe premise of the show was that some mates would gather together on a pair of couches on a Saturday night. It was a variety show, with comedy, and musical performances.\n\nAt the time The Mick Molloy Show was in pre-production, the popular comedy movie Austin Powers: The Spy Who Shagged Me had just been released, featuring the character Mini-me. In the debut episode, Tony Martin brought many gifts for Mick for his first show, including a new sidekick for Mick called Mini-Mick, a vertically challenged replica of Mick, parodying Mini-me. Mini-Mick was played by Arthur Serevetas. Mini-Mick's catchphrase was \"Blow it out your arse!\" and was generally a more vulgar version of Mick, often yelling obscenities at people. Mini-Mick appeared in all eight episodes of The Mick Molloy Show.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Nine Network"
+  ],
+  "creator": "Mick Molloy",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mick-molloy-show",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Mick Molloy Show (complete series - 1999)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Mick.Molloy.Show.VHS.S01.Ep01.xvid.mp4",
+            "format": "h.264",
+            "sizeBytes": 647423488,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mick-molloy-show/The.Mick.Molloy.Show.VHS.S01.Ep01.xvid.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

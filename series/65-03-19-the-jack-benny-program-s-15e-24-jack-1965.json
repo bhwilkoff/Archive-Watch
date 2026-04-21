@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "65-03-19-the-jack-benny-program-s-15e-24-jack-1965",
+  "title": "65 03 19 The Jack Benny Program S 15e 24 Jack",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/650319TheJackBennyProgramS15e24JacksNavyBuddyReturns",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "650319TheJackBennyProgramS15e24JacksNavyBuddyReturns",
+          "seasonNumber": 1,
+          "episodeNumber": 65,
+          "title": "65 03 19 The Jack Benny Program S 15e 24 Jack's Navy Buddy Returns",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/650319TheJackBennyProgramS15e24JacksNavyBuddyReturns",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "65-03-19  The Jack Benny Program  s15e24  Jack's Navy Buddy Returns.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 112859276,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/650319TheJackBennyProgramS15e24JacksNavyBuddyReturns/65-03-19  The Jack Benny Program  s15e24  Jack's Navy Buddy Returns.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

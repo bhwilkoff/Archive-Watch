@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "national-geographic-explorer--january-31-1988-partial-1960",
+  "title": "National Geographic Explorer- January 31, 1988 (Partial",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/NationalGeographicExplorerJanuary311988Partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "NationalGeographicExplorerJanuary311988Partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "National Geographic Explorer- January 31, 1988 (Partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/NationalGeographicExplorerJanuary311988Partial",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "National-Geographic-Explorer-January-31_-1988-_partial_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 187906327,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/NationalGeographicExplorerJanuary311988Partial/National-Geographic-Explorer-January-31_-1988-_partial_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

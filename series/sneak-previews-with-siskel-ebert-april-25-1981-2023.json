@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sneak-previews-with-siskel-ebert-april-25-1981-2023",
+  "title": "Sneak Previews with Siskel & Ebert (April 25, 1981",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sneak-previews-with-siskel-ebert-april-25-1981",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sneak-previews-with-siskel-ebert-april-25-1981",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sneak Previews with Siskel & Ebert (April 25, 1981)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sneak-previews-with-siskel-ebert-april-25-1981",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sneak Previews with Siskel & Ebert (April 25, 1981).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 564205016,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sneak-previews-with-siskel-ebert-april-25-1981/Sneak Previews with Siskel & Ebert (April 25, 1981).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

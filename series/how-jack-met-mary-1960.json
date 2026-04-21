@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "how-jack-met-mary-1960",
+  "title": "How Jack Met Mary",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/JackBennyProgram-5x03.HowJackMetMary",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JackBennyProgram-5x03.HowJackMetMary",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "How Jack Met Mary",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBennyProgram-5x03.HowJackMetMary",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "JackBennyProgram-5x03.HowJackMetMary.mp4",
+            "format": "h.264",
+            "sizeBytes": 151861335,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBennyProgram-5x03.HowJackMetMary/JackBennyProgram-5x03.HowJackMetMary.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

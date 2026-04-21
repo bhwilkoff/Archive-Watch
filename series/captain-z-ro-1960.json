@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "captain-z-ro-1960",
+  "title": "Captain Z-Ro",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "http://commons.wikimedia.org/wiki/Special:FilePath/%22Atlas%20Television%20Corporation%22%20%22Producer-Distributor%20of%20%27CAPTAIN%20Z-RO%27%22%20ad%20-%20from%2C%20The%20Radio%20Annual%20and%20Television%20Yearbook%2C%201955%20%28IA%20radioannua00radi%29%20%28page%201093%20crop%29.jpg",
+  "backdropURL": null,
+  "genres": [
+    "children's television series",
+    "science fiction television program"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CaptainZ-ro-ChristopherColumbus",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Captain Z-Ro - Christopher Columbus",
+          "overview": null,
+          "stillURL": "http://commons.wikimedia.org/wiki/Special:FilePath/%22Atlas%20Television%20Corporation%22%20%22Producer-Distributor%20of%20%27CAPTAIN%20Z-RO%27%22%20ad%20-%20from%2C%20The%20Radio%20Annual%20and%20Television%20Yearbook%2C%201955%20%28IA%20radioannua00radi%29%20%28page%201093%20crop%29.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1592,
+          "videoFile": {
+            "name": "01ChristopherColumbus.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 116411282,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-ro-ChristopherColumbus/01ChristopherColumbus.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

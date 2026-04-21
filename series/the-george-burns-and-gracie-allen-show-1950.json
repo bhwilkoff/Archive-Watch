@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "seriesID": "the-george-burns-and-gracie-allen-show-1950",
+  "title": "The George Burns and Gracie Allen Show",
+  "yearStart": 1950,
+  "yearEnd": 1954,
+  "overview": "Burns and Allen, an American comedy duo consisting of George Burns and his wife, Gracie Allen, worked together as a comedy team in vaudeville, films, radio and television and achieved great success over four decades.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DriversLicence",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The George Burns and Gracie Allen Show'' (Episode aired 1/November/1954)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1759,
+          "videoFile": {
+            "name": "GracieDrivers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 169932618,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DriversLicence/GracieDrivers.ia.mp4"
+        },
+        {
+          "archiveID": "theGeorgeBurnsAndGracieAllenShow-HarryMortonsPrivateSecretary",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The George Burns and Gracie Allen Show'' - Harry Morton's Private Secretary",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 1710,
+          "videoFile": {
+            "name": "harrymortonsprivatesecretary.mp4",
+            "format": "h.264",
+            "sizeBytes": 178086972,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theGeorgeBurnsAndGracieAllenShow-HarryMortonsPrivateSecretary/harrymortonsprivatesecretary.mp4"
+        },
+        {
+          "archiveID": "GeorgeBurnsGracieAllen-Thanksgiving",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The George Burns and Gracie Allen Show'' - Thanksgiving",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1771,
+          "videoFile": {
+            "name": "burnsallen-thanksgiving.mp4",
+            "format": "h.264",
+            "sizeBytes": 184086326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeorgeBurnsGracieAllen-Thanksgiving/burnsallen-thanksgiving.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Burns-Allen-Show_S2E7_Christmas",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Christmas with Mamie Kelly",
+          "overview": "George and Gracie's second Christmas show.  Mamie Kelly and her children join the Burnses for the holidays.  George dresses up like Santa for the children and Gracie tells the children the story of \"\"A Christmas Carol.\"\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+          "airDate": "1951-12-20",
+          "year": 1951,
+          "runtimeSeconds": 1737,
+          "videoFile": {
+            "name": "Burns-Allen-Show_S2E7_Christmas.mp4",
+            "format": "h.264",
+            "sizeBytes": 168270301,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Burns-Allen-Show_S2E7_Christmas/Burns-Allen-Show_S2E7_Christmas.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

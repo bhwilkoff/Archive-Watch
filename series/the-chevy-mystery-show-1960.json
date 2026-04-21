@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-chevy-mystery-show-1960",
+  "title": "The Chevy Mystery Show",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "The Chevy Mystery Show is an American television anthology series featuring a different mystery each week that aired on NBC in 1960 as a summer replacement.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/396/992368.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/rvFJQbi9H75cyXVz6Wy4hUQjfRp.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheSuicideClub1960withAds",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Chevy Mystery Show'' - The Suicide Club",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/396/992368.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3550,
+          "videoFile": {
+            "name": "suicideclub1960chevy.mp4",
+            "format": "h.264",
+            "sizeBytes": 367629837,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheSuicideClub1960withAds/suicideclub1960chevy.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

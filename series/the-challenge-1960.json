@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-challenge-1960",
+  "title": "The Challenge",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Each Challenge pits numerous cast members from past seasons of reality shows against each other, dividing them into two separate teams according to different criteria, such as gender, which show they first appeared on, whether or not they're veterans or rookies on the show, etc. The two teams compete in numerous missions in order to win prizes and advance in the overall game.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/aLwN4WTtkIQL1Waa86MDY41a1Xh.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bapuJxfX6zMKHv2i36cItnvGeHi.jpg",
+  "genres": [],
+  "networks": [
+    "MTV"
+  ],
+  "creator": "Mary-Ellis Bunim",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_07_The_Challenge",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Challenge",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/aLwN4WTtkIQL1Waa86MDY41a1Xh.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_07_The_Challenge.mp4",
+            "format": "h.264",
+            "sizeBytes": 155694806,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_07_The_Challenge/Robin_Hood_07_The_Challenge.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

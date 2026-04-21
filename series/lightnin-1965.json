@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lightnin-1965",
+  "title": "Lightnin",
+  "yearStart": 1965,
+  "yearEnd": 1965,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/lightnin-strikes-by-lou-christie-o-ab-dancers-october-8-1966-480p",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lightnin-strikes-by-lou-christie-o-ab-dancers-october-8-1966-480p",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Lightnin' Strikes' by Lou Christie • AB Dancers December 14 1965",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/lightnin-strikes-by-lou-christie-o-ab-dancers-october-8-1966-480p",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "'Lightnin' Strikes' by Lou Christie • AB Dancers October 8 1966 720p.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 269918166,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lightnin-strikes-by-lou-christie-o-ab-dancers-october-8-1966-480p/'Lightnin' Strikes' by Lou Christie • AB Dancers October 8 1966 720p.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "can-the-elephant-be-saved-1990",
+  "title": "Can the elephant be saved?",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/CantheElephantbeSaved",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CantheElephantbeSaved",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Can the elephant be saved?",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CantheElephantbeSaved",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S17E17.Can.the.Elephant.be.Saved.1990.TVRip.AAC2.0.x264-thisoldvideo.mp4",
+            "format": "h.264",
+            "sizeBytes": 356014950,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CantheElephantbeSaved/NOVA.S17E17.Can.the.Elephant.be.Saved.1990.TVRip.AAC2.0.x264-thisoldvideo.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "oprah-winfrey-show--september-3-1987-partial-1960",
+  "title": "Oprah Winfrey Show- September 3, 1987 (partial",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OprahWinfreyShowSeptember31987Partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OprahWinfreyShowSeptember31987Partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Oprah Winfrey Show- September 3, 1987 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OprahWinfreyShowSeptember31987Partial",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Oprah-Winfrey-Show-September-3_-1987-_partial_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 143322191,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OprahWinfreyShowSeptember31987Partial/Oprah-Winfrey-Show-September-3_-1987-_partial_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

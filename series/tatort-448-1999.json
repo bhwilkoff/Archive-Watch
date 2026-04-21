@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tatort-448-1999",
+  "title": "Tatort (448",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/job-457475-sendeton-1920x-1080-50p-5000kbit",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "job-457475-sendeton-1920x-1080-50p-5000kbit",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tatort (448): Passion (1999/2000)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/job-457475-sendeton-1920x-1080-50p-5000kbit",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "JOB_457475_sendeton_1920x1080-50p-5000kbit.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2822695805,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/job-457475-sendeton-1920x-1080-50p-5000kbit/JOB_457475_sendeton_1920x1080-50p-5000kbit.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

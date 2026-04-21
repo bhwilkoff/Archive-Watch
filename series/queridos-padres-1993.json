@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "queridos-padres-1993",
+  "title": "Queridos padres",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/queridos-padres-1993-01-11",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "queridos-padres-1993-01-11",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Queridos padres - 11 de enero, 1993",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/queridos-padres-1993-01-11",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Queridos padres  - Fragmento (11-1-1993).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 121611760,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/queridos-padres-1993-01-11/Queridos padres  - Fragmento (11-1-1993).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

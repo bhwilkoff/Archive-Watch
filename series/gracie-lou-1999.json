@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "gracie-lou-1999",
+  "title": "Gracie Lou",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/gracie-lou-s-0-e-1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "gracie-lou-s-0-e-1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Gracie Lou Miniseries 1999",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/gracie-lou-s-0-e-1",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Gracie Lou S0 E1.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 243962028,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gracie-lou-s-0-e-1/Gracie Lou S0 E1.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

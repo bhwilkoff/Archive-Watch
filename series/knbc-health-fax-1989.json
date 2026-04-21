@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "knbc-health-fax-1989",
+  "title": "KNBC Health Fax",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/knbc-health-fax-blinking-1989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "knbc-health-fax-blinking-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "KNBC Health Fax - Dr. Bruce Hensel",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/knbc-health-fax-blinking-1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "KNBC Health Fax - Blinking - 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 691698757,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knbc-health-fax-blinking-1989/KNBC Health Fax - Blinking - 1989.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

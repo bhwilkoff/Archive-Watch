@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "tales-of-the-unexpected-1979",
+  "title": "Tales Of The Unexpected",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": "A British television anthology of stories, often with sinister and wryly comedic undertones, and a twist at the end. With early episodes written and presented by Roald Dahl, the series featured a plethora of big name guest stars.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/pd6OT8CjLWM48BOY7qubIKNbtYl.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Roald Dahl",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 109 - The Way Up to Heaven.mp4",
+            "format": "h.264",
+            "sizeBytes": 155010127,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries1/Tales of the Unexpected - 109 - The Way Up to Heaven.mp4"
+        },
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 207 -taste.mp4",
+            "format": "h.264",
+            "sizeBytes": 168367940,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries2/Tales of the Unexpected - 207 -taste.mp4"
+        },
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 306 Parson's Pleasure.mp4",
+            "format": "h.264",
+            "sizeBytes": 170450096,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries3/Tales of the Unexpected - 306 Parson's Pleasure.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "seriesID": "sally-jesse-raphael--may-13-1988-partial-2019",
+  "title": "Sally Jesse Raphael- May 13, 1988 (partial",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SallyJesseRaphaelMay131988partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lic:fb8b6ab24382",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sally Jesse Raphael- May 13, 1988 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SallyJesseRaphaelMay131988partial",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": null,
+          "downloadURL": null
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

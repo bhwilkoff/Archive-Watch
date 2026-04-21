@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "happy-birthday-hollywood-2019",
+  "title": "Happy Birthday Hollywood",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/HappyBirthdayHollywood1987Pt.1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "HappyBirthdayHollywood1987Pt.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Happy Birthday Hollywood (1987)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/HappyBirthdayHollywood1987Pt.1",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Happy-Birthday-Hollywood-_1987_-pt.-2_.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 197610446,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HappyBirthdayHollywood1987Pt.1/Happy-Birthday-Hollywood-_1987_-pt.-2_.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

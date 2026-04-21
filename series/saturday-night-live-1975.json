@@ -1,0 +1,606 @@
+{
+  "version": 1,
+  "seriesID": "saturday-night-live-1975",
+  "title": "Saturday Night Live",
+  "yearStart": 1975,
+  "yearEnd": 1979,
+  "overview": "A late-night live television sketch comedy and variety show created by Lorne Michaels. The show's comedy sketches, which parody contemporary culture and politics, are performed by a large and varying cast of repertory and newer cast members. Each episode is hosted by a celebrity guest, who usually delivers an opening monologue and performs in sketches with the cast, and features performances by a musical guest.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/sSAX59Kf01lBRkBW4UcIL4kIoIm.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Dick Ebersol",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "saturday-night-live-april-22-1978-s-3-e-18",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Saturday Night Live - April 22, 1978",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live- April 22, 1978 (S3E18).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 668993868,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-april-22-1978-s-3-e-18/Saturday Night Live- April 22, 1978 (S3E18).mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "saturday-night-live-s-01-e-06-lily-tomlin-tomlin-with-howard-shore-the-all-nurse",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Lily Tomlin",
+          "overview": "Live from New York, it's... Lily Tomlin\n\nSketches Include: Beethoven Part 1, Jaws III, Bell-Hop, Edith Ann Skates, Beethoven Part 2, Spud Beer, Patty, Jim Henson's Muppets, Beethoven Part 3, Hard Hats, Speed, Margo's Dance Palace",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ngtacXDlEnVSMVEsYELUJC8T5rI.jpg",
+          "airDate": "1975-11-22",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live - S01E06 - Lily Tomlin, Tomlin with Howard Shore & the All Nurse Band (November 22, 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 375099406,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-06-lily-tomlin-tomlin-with-howard-shore-the-all-nurse/Saturday Night Live - S01E06 - Lily Tomlin, Tomlin with Howard Shore & the All Nurse Band (November 22, 1975).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-01-e-07-richard-pryor-gil-scott-heron-december-13-1975_202501",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Richard Pryor with Gil Scott-Heron",
+          "overview": "Live From New York, it's... Richard Pryor!\n\nSketches Include: Samurai Hotel, Looks At Books, Line-Up #1, Word Association, Pong, They're Taking Over, Line-Up #2, L-Pill, Jim Henson's Muppets, Line-Up #3, Exorcist II, Assassination",
+          "stillURL": "https://image.tmdb.org/t/p/w300/pu5rxY1hVmiJf6xiMEFvV86cbdq.jpg",
+          "airDate": "1975-12-13",
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live - S01E07 - Richard Pryor & Gil-Scott Heron (December 13, 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 383750402,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-07-richard-pryor-gil-scott-heron-december-13-1975_202501/Saturday Night Live - S01E07 - Richard Pryor & Gil-Scott Heron (December 13, 1975).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-01-e-19-madeline-kahn-carly-simon-may-8-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Madeline Kahn with Carly Simon",
+          "overview": "Live from New York, it's Chevy Chase!   Sketches are \"Ronald Reagan's Jam Session,\" Not for Ladies Only, Wilderness Comedian, \"Slumber Party,\" Bride of Frankenstein, \"Fondue Pots for Namibia,\" \"The Muppets Can Reunite the Beatles,\" New York's My Home (film), \"Super Absordent Dry Hose,\" and \"The Final Days.\" Carly Simon performs You're So Vain.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/5jwbN6rWo3Mwuu5mePE0vaDrtXO.jpg",
+          "airDate": "1976-05-08",
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live - S01E19 - Madeline Kahn & Carly Simon (May 8, 1976).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 382464061,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-19-madeline-kahn-carly-simon-may-8-1976/Saturday Night Live - S01E19 - Madeline Kahn & Carly Simon (May 8, 1976).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-01-e-21-buck-henry-gordon-lightfoot-garrett-morris-may-22-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Buck Henry with Gordon Lightfoot",
+          "overview": "Live from New York, It's...Chevy Chase\n\nSketches include--Emmy winner Chevy tries to get Laraine todo the fall, Samurai Tailor, \"Talk Back!\", \"Dell Stator's Toad Ranch Resturaunt\", \"Looks at Books\", The Crowd Audition, Peter Lemon Moodring, \"Not For Ladies Only\", Lorne Micheals offer to the Beatles.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/kIPdxemTqNz1ecAYmm8cWI3hUGf.jpg",
+          "airDate": "1976-05-22",
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live - S01E21 - Buck Henry, Gordon Lightfoot & Garrett Morris (May 22, 1976).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 389031699,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-21-buck-henry-gordon-lightfoot-garrett-morris-may-22-1976/Saturday Night Live - S01E21 - Buck Henry, Gordon Lightfoot & Garrett Morris (May 22, 1976).mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "saturday-night-live-s-02-e-02-norman-lear-boz-scaggs",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Norman Lear/Boz Scaggs",
+          "overview": "Live from New York, It's...Chevy Chase (On telephone)\n\nSketches include-- Gilda plans to do the fall, Jimmy Carter speaks on sexual performance in the White House, Chevy's Girls, Trial sitcom--\"The Snakehandling O'Sheas\", Joseph Franklin--The Metric Clock, Abusive Divorce Lawyer, Rhodesian Peace Talks.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iMesutSH4HnexgpTkaGzJRpijWA.jpg",
+          "airDate": "1976-09-25",
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S02E02 Norman Lear, Boz Scaggs.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 671222187,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-02-e-02-norman-lear-boz-scaggs/Saturday Night Live S02E02 Norman Lear, Boz Scaggs.mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-02e-05-steve-martin-10-23-1976",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Steve Martin/Kinky Friedman",
+          "overview": "Sketches include \"Yankees Lose,\" \"Jeopardy 1999,\" \"Speak Out For Milk\", \"The Beatnik Club,\" \"Ted Baxter Kills Mary Richards,\" \"Looks at Books,\" and \"Mysteries in Medicine.\"\n\nKinky Friedman performed \"Dear Abby.\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/dL369RKWxdV8lbW68bPQemehU3k.jpg",
+          "airDate": "1976-10-23",
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live - S02e05 - Steve Martin (10-23-1976).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 672854963,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-05-steve-martin-10-23-1976/Saturday Night Live - S02e05 - Steve Martin (10-23-1976).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-02-e-06-buck-henry-the-band",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Buck Henry/The Band",
+          "overview": "Sketches include-- Trick or Treating Land Shark, \"Not For Ladies Only\", Samurai Stockbroker, Garrett Morris's Family History, Debate 76, Super Bass-O-Matic 77, \"The OintMENt\", Mr. Mike's Least Loved Bedtime Tales, Houdini's Ghost.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rSoMbb7m9F8Up4PzaxBedqhwjTI.jpg",
+          "airDate": "1976-10-30",
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S02E06 Buck Henry, The Band.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 675952176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-02-e-06-buck-henry-the-band/Saturday Night Live S02E06 Buck Henry, The Band.mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-02-e-08-paul-simon-george-harrison-11-20-1976",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Paul Simon/Paul Simon, George Harrison",
+          "overview": "Live from New York, It's...George Harrison\n\nSketches include-- Paul Simon meets pauper Chevy Chase on sidewalk while Lorne talks with George Harrison, Quarry, \"Baba Wawa at Large\", The Twilight Zone, Billy Paul, \"Tomorrow with Tom Synder\".",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9uvw1MjMqaOugnwde1rYPiwh6L6.jpg",
+          "airDate": "1976-11-20",
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live - S02E08 - Paul Simon, George Harrison (11-20-1976).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 668262705,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-02-e-08-paul-simon-george-harrison-11-20-1976/Saturday Night Live - S02E08 - Paul Simon, George Harrison (11-20-1976).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-02e-10-candice-bergen-frank-zappa-12-11-1976_202501",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Candice Bergen/Frank Zappa",
+          "overview": "Live from New York, it's... Gilda Radner!\n\nSketches include: \"Patty Hearst At Home,\" \"Jimmy Carter Can't Keep His Promises,\" \"Santi-Wrap,\" Consumer Probe, Fern and Friend in PSA for The Right to Extreme Stupidity League, FX-70 Cheese Slicer, The Killer Trees trailer, \"Adopt John Belushi For Christmas,\" \"Radioactive Fallout Report,\" and \"Let's Kill Gary Gilmore For Christmas.\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/pWCuEQn1465NWPgr01CtjWy5nuy.jpg",
+          "airDate": "1976-12-11",
+          "year": 1976,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live - S02e10 - Candice Bergen, Frank Zappa (12-11-1976).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 674530600,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-10-candice-bergen-frank-zappa-12-11-1976_202501/Saturday Night Live - S02e10 - Candice Bergen, Frank Zappa (12-11-1976).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-2-e-11-ralph-nader-andy-kaufman-1-15-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Ralph Nader/George Benson",
+          "overview": "Live from New York, It's...Ralph Nader\n\nSketches include-- Ralph Nader wants to cut loose, Badmouthing Grandfather, Dress Rehearsal for Execution, The Confederate Takeover, \"Baba Wawa At Large\"\" The Coneheads, \"Youth Ask Questions\", Andy Kaufman as Elvis, Testing Party Dolls.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/o4DGSWOHMsRlsbcQKQxtQfAqyO0.jpg",
+          "airDate": "1977-01-15",
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S2E11 - Ralph Nader, Andy Kaufman (1-15-1977).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 671795415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-2-e-11-ralph-nader-andy-kaufman-1-15-1977/Saturday Night Live S2E11 - Ralph Nader, Andy Kaufman (1-15-1977).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-02e-19-elliott-gould-4-16-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Elliott Gould/McGarrigle Sisters",
+          "overview": "Live From New York, It's...John Belushi!  Sketches include-- Brezhnev Wants to Appear on Carson, The Castration Walk, Nick The Lounge Singer, You've Come a Long Way, Buddy, United Face Bank, Jason and Sunshine, Pilson Feedbag Dinners.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/dInKTpJNCWwQTEKbhxMifPkDsYG.jpg",
+          "airDate": "1977-04-16",
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live - S02e19 - Elliott Gould (4-16-1977).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 671924572,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-19-elliott-gould-4-16-1977/Saturday Night Live - S02e19 - Elliott Gould (4-16-1977).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-02e-22-buck-henry-bella-abzug-5-21-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Buck Henry/Kenny Vance, Jennifer Warnes",
+          "overview": "Live From New York, It's...Gilda Radner\n\nSketches include-- Carter's Energy Saving Message, Buck Performs A Live Sex Act, Samurai B.M.O.C, The Shower Mike, The Coneheads Return to Remulak, Rhonda Weiss's Bridal Shower, Charles Lindbergh Meets the Land Shark.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/kdWWuk2b9moTzlP2SLLdxPCcgar.jpg",
+          "airDate": "1977-05-21",
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live - S02e22 - Buck Henry, Bella Abzug (5-21-1977).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 669270963,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-22-buck-henry-bella-abzug-5-21-1977/Saturday Night Live - S02e22 - Buck Henry, Bella Abzug (5-21-1977).mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "saturday-night-live-s-03-e-01-steve-martin-jackson-browne-9-24-1977_202501",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Steve Martin/Jackson Browne",
+          "overview": "Live From New York, It's...Dan Aykroyd\n\nSketches include--\"Bert Lance National Express Card\", \"Kromega III\", \"Wild & Crazy Guys\", \"Mike McMack, Defense Lawyer\", \"Trinity 3000 Computer\", \"Great Moments In Rock & Roll\", \"Mr. U.S.A. Pageant\", \"Royal Deluxe II\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/j31JhkCkP1iIWcJI5428fjCE8QG.jpg",
+          "airDate": "1977-09-24",
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S03E01 - Steve Martin, Jackson Browne (9-24-1977).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 694114241,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-01-steve-martin-jackson-browne-9-24-1977_202501/Saturday Night Live S03E01 - Steve Martin, Jackson Browne (9-24-1977).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-03-e-04-charles-grodin-paul-simon-art-garfunkel-10-29-1977_202505",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Charles Grodin/Paul Simon and The Persuaders",
+          "overview": "Live From New York, It's...John Belushi\n\nSketches include--\"Grodin Misses Dress Rehearsal\", \"Weekend Update Ad\", \"The Coneheads\", \"Long-Winded Set-Up\", \"Consumer Probe\", \"The 'Anyone Can Host' Contest\", \"Samurai Dry Cleaners\", \"Trick-or-Treating Killer Bees\", \"Judy Miller\"\", \"The Professional School of Football\", \"Incompetents\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/yESjvDce36p7OtUnb6OPSIobnQA.jpg",
+          "airDate": "1977-10-29",
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S03E04 - Charles Grodin, Paul Simon, Art Garfunkel - (10-29-1977).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 671077926,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-04-charles-grodin-paul-simon-art-garfunkel-10-29-1977_202505/Saturday Night Live S03E04 - Charles Grodin, Paul Simon, Art Garfunkel - (10-29-1977).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-3-e-10-robert-klein-bonnie-raitt",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Robert Klein/Bonnie Raitt",
+          "overview": "Live From New York, It's...Paul Shaffer\n\nSketches include--\"Mr. Mike & Tina Turner Review\", \"Olympia Cafe\", \"The X-Police\", \"Nick Winters\", \"Nerds Album\", \"Frogs Look At Film \", \"Giant Lobster Attack Warning\", \"Rhonda Weiss\", \"Attack Of The Giant Lobsters\", \"Lobsters Wreck The Studio\"\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9F4xT99Z9GpFWCE18ltoEBLeHWr.jpg",
+          "airDate": "1978-01-28",
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S3E10 Robert Klein, Bonnie Raitt.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 703714408,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-3-e-10-robert-klein-bonnie-raitt/Saturday Night Live S3E10 Robert Klein, Bonnie Raitt.mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-03-e-12-o.-j.-simpson-ashford-simpson-2-25-1978_202505",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "O.J. Simpson/Ashford and Simpson",
+          "overview": "Live From New York, It's...Gilda Radner\n\nSketches include--\"Gilda Answers Audience Questions\", \"Samurai Night Fever\", \"Great Moments In Sports\", \"The Mohawk Master\", \"The Raid On Nicosia\", \"Voodoo\", \"The Franken & Davis Show\", \"Mandingo II\", \"E. Buzz Miller's Animal Kingdom\", \"Hertz Ad\", \"Celebrity Battle of the Sexes\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/aSwGEQryIrljOaeHlCCcVW1j252.jpg",
+          "airDate": "1978-02-25",
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S03E12 - O.J. Simpson, Ashford & Simpson (2-25-1978).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 668493651,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-12-o.-j.-simpson-ashford-simpson-2-25-1978_202505/Saturday Night Live S03E12 - O.J. Simpson, Ashford & Simpson (2-25-1978).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-03-e-13-art-garfunkel-stephen-bishop",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Art Garfunkel/Stephen Bishop",
+          "overview": "Live From New York, It's...Gilda Radner\n\nSketches include--\"Modern Crimes\", \"Kromega III\", \"Tomorrow\", \"Miracle In Chicago\", \"Stage Door Guard\", \"Looks At Books\", \"Don't Look Back In Anger\", \"Looking For Mr. Goodbar Playset\"\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/oojSlKALlgM7uvvgTAMj7NVCEe7.jpg",
+          "airDate": "1978-03-11",
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S03E13 Art Garfunkel, Stephen Bishop.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 670087228,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-13-art-garfunkel-stephen-bishop/Saturday Night Live S03E13 Art Garfunkel, Stephen Bishop.mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-03-e-15-christopher-lee-richard-belzer-meatloaf-3-25-1978_202505",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "Christopher Lee/Meat Loaf",
+          "overview": "Live From New York, It's...John Belushi\n\nSketches include--\"Kevin Scott\", \"Movie Trailers\", \"My Fair Lady\", \"Mr. Death\", \"Anwar Sadat\", \"Cold As Ice\", \"Dell Stator's Rabbit Hut\", \"Vampire Hunters\", \"Richard Belzer\", \"Mr. Bill Goes To The Circus\"\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/n3pVeCzD36zJ6vcfdB6pRqDIF9.jpg",
+          "airDate": "1978-03-25",
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S03E15 - Christopher Lee, Richard Belzer, Meatloaf (3-25-1978).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 674162042,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-15-christopher-lee-richard-belzer-meatloaf-3-25-1978_202505/Saturday Night Live S03E15 - Christopher Lee, Richard Belzer, Meatloaf (3-25-1978).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-03-e-16-michael-palin-eugene-record",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "Michael Palin/Eugene Record",
+          "overview": "Live From New York, It's...Dan Aykroyd\n\nSketches include--\"Oscar Awards\", \"Little Chocolate Donuts\", \"Tax Deductions\", \"H&L Brock\", \"Great Escape\", \"Nerds Piano Lesson\", \"The Case of the Scarlet Membrane\", \"Good Time At Party\", \"Mr. Bill Pays His Taxes\", \"Danger Probe\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/55ojuqqIlQ68b6WJqCO85GByGDL.jpg",
+          "airDate": "1978-04-08",
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S03E16 Michael Palin, Eugene Record.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 675484022,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-16-michael-palin-eugene-record/Saturday Night Live S03E16 Michael Palin, Eugene Record.mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-03-e-19-richard-dreyfuss-jimmy-buffett-5-13-1978_202501",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "Richard Dreyfuss/Jimmy Buffett",
+          "overview": "Live From New York, It's...Bill Murray\n\nSketches include--\"Paraquat\", \"Cone Encounters of the Third Kind\", \"Sex Test\", \"Nick 'Springs'\", \"Annoying Lovers' Traits\", \"The David Susskind Show\",  \"Father Guido Sarducci\",",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2iZQa2qfsPvCmX6cqk9SrtSKatB.jpg",
+          "airDate": "1978-05-13",
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S03E19 - Richard Dreyfuss, Jimmy Buffett (5-13-1978).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 683399366,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-19-richard-dreyfuss-jimmy-buffett-5-13-1978_202501/Saturday Night Live S03E19 - Richard Dreyfuss, Jimmy Buffett (5-13-1978).mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "saturday-night-live-s-04-e-02-fred-willard-devo-10-14-1978_202501",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "Fred Willard/Devo",
+          "overview": "Sketches include--\"Honker in the Audience\", \"Two Guys Who Are Lawyers\", \"Aging Stuntman Cliff Preston\", \"One-Night-Stand vs. Phone Talk\", \"Mr. Bill Goes To N.Y.\", \"Bobbi Farber\", \"Crossroads\", \"Scotch Boutique\", \"Booji Boy\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/1KdlEoDpjwcbY0Us2HOzEOQ6tys.jpg",
+          "airDate": "1978-10-14",
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S04E02 - Fred Willard, Devo (10-14-1978).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 687549600,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-04-e-02-fred-willard-devo-10-14-1978_202501/Saturday Night Live S04E02 - Fred Willard, Devo (10-14-1978).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-4-e-04-steve-martin-van-morrison",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "Steve Martin/Van Morrison",
+          "overview": "Live from New York, it's...President Dan Aykroyd!  Sketches include  \"A Message From the President of the United States\", \"Where's the Cracker, Steve?\", \"Elvis Presley's Coat\", \"What If?\", \"Theodoric of York, Medieval Judge\", \"Festrunk Brothers at a Fox Bar,\" \"The Nerds at the Hospital\", \"Looks At Books\", and \"Annoying Waiter\".",
+          "stillURL": "https://image.tmdb.org/t/p/w300/dUqrUMQ5MN6tr5bCTvDqSwMcbxP.jpg",
+          "airDate": "1978-11-04",
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S4E04 Steve Martin, Van Morrison.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 684066522,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-04-steve-martin-van-morrison/Saturday Night Live S4E04 Steve Martin, Van Morrison.mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-4-e-08-eric-idle-kate-bush-12-09-1978",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "Eric Idle/Kate Bush",
+          "overview": "Sketches include \"Telepsychic Ray,\" \"Julia Child,\" \"Madrigal,\" \"The Woman He Loved,\" \"What Do You?\", \"Candy Slice,\" \"Consumer Probe,\" \"Singing Dog Agent,\" and \"Cochise at Oxford\".",
+          "stillURL": "https://image.tmdb.org/t/p/w300/jkSV73jxJnWoqCj3VsygtlYH0MC.jpg",
+          "airDate": "1978-12-09",
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S4E08 - Eric Idle, Kate Bush (12-09-1978).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 674225158,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-08-eric-idle-kate-bush-12-09-1978/Saturday Night Live S4E08 - Eric Idle, Kate Bush (12-09-1978).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-4-e-10-michael-palin-the-doobie-brothers-01-27-1979",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "Michael Palin/The Doobie Brothers",
+          "overview": "Sketches include \"State of the Union Address: Preparation I,\" \"Palin's Socks Monologue,\" \"Mr. Brighton Returns to the Nerds,\" \"Miles Cowperthwaite, Part One,\" \"What If Superman Grew Up in Germany?\" and \"Name the Bats.\"  Weekend Update features \"Chico Escuela's Super Bowl Recap\" and \"Father Guido Sarducci's Bill for The Last Brunch.\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/c62e5tlpFgJPvL7OEtDedbdhXj2.jpg",
+          "airDate": "1979-01-27",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S4E10 - Michael Palin, The Doobie Brothers (01-27-1979).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 671302672,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-10-michael-palin-the-doobie-brothers-01-27-1979/Saturday Night Live S4E10 - Michael Palin, The Doobie Brothers (01-27-1979).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-04-e-12-rick-nelson-judy-collins-02-17-1979_202501",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "Rick Nelson/Judy Collins",
+          "overview": "Live from New York, it's...John Belushi!\n\nSketches include \"WGN Morning Show,\" \"The Twilight Zone,\" \"Helium,\" \"¿Quien Es Mas Macho?,\" and \"Rock Against Yeast '79.\"\n\nJudy Collins performed \"Hard Times for Lovers.\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2X491a8WG9xqshTEm59njRstnw8.jpg",
+          "airDate": "1979-02-17",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S04E12 - Rick Nelson, Judy Collins (02-17-1979).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 680521739,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-04-e-12-rick-nelson-judy-collins-02-17-1979_202501/Saturday Night Live S04E12 - Rick Nelson, Judy Collins (02-17-1979).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-04-e-14-gary-busey-03-10-1979_202501",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "Gary Busey/Gary Busey with Rick Danko and Paul Butterfield, Eubie Blake",
+          "overview": "Live from New York, it's...John Belushi!   Sketches include: \"Breaking the Ice with Belushi\" \"Billy Carter\" \"Women's Problems\" \"The Unsung Heroes of Rock n Roll\" \"The Slopjockey\" \"Bill Murray Talks With Mrs. Ed.\"  Gregory Hines joins Eubie Blake in singing Low-down Blues, I'm Just Simply Full Of Jazz and I'm Just Wild About Harry.   Busey and Paul Butterfield perform Stay All Night.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/tbmiKJw7PuQGvHGaSbSi65OxlZM.jpg",
+          "airDate": "1979-03-10",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S04E14 - Gary Busey (03-10-1979).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 700677686,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-04-e-14-gary-busey-03-10-1979_202501/Saturday Night Live S04E14 - Gary Busey (03-10-1979).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-4-e-15-margot-kidder-the-chieftains-03-17-1979",
+          "seasonNumber": 4,
+          "episodeNumber": 15,
+          "title": "Margot Kidder/The Chieftains",
+          "overview": "Live from New York, it's...John Belushi!   Sketches include \"WGN Radio Live at Doyle's Tavern,\" \"The Navy,\" \"Fred Garvin: Male Prostitute,\" \"St. Mickey's Knights of Columbus,\" \"Superhero Party,\" The Franken and Davis Show, \"Men's Problems,\" and The Mr. Bill Show. The Chieftains perform If I Had Maggie In The Woods and Morning Dew.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/q1aGIRY7a0Fl2F6KVn9AAWOb7X8.jpg",
+          "airDate": "1979-03-17",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S4E15 - Margot Kidder, The Chieftains (03-17-1979).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 683269047,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-15-margot-kidder-the-chieftains-03-17-1979/Saturday Night Live S4E15 - Margot Kidder, The Chieftains (03-17-1979).mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-4-e-16-richard-benjamin-04-07-1979",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "Richard Benjamin/Rickie Lee Jones",
+          "overview": "Sketches include \"The Pepsi Syndrome,\" \"The Nerds In Love,\" and \"Scottish Restaurant.\" Jones performs his hit \"Chuck E's In Love.\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rYY1NVSOtaV2bKABquPuMo4wMOI.jpg",
+          "airDate": "1979-04-07",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S4E16 - Richard Benjamin (04-07-1979).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 676662844,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-16-richard-benjamin-04-07-1979/Saturday Night Live S4E16 - Richard Benjamin (04-07-1979).mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "saturday-night-live-s-05-e-04-buck-henry-tom-petty-and-the-heartbreakers_202505",
+          "seasonNumber": 5,
+          "episodeNumber": 4,
+          "title": "Buck Henry/Tom Petty and the Heartbreakers",
+          "overview": "Sketches include \"\"Rush Home to the Bathroom,\"\" \"\"Find the Popes in the Pizza Contest drawing,\"\" \"\"Nerds #12,\"\" \"\"Harley's Bristol Cream\"\" and \"\"Banshee\"\" commercial parodies, and one of Aviva Slesin's \"\"First Love\"\" films.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/lDBKMaRTwK3PCRJSCbziULVnVsf.jpg",
+          "airDate": "1979-11-10",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S05E04 - Buck Henry, Tom Petty and the Heartbreakers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 672695600,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-05-e-04-buck-henry-tom-petty-and-the-heartbreakers_202505/Saturday Night Live S05E04 - Buck Henry, Tom Petty and the Heartbreakers.mp4"
+        },
+        {
+          "archiveID": "saturday-night-live-s-05-e-06-howard-hesseman-randy-newman_202501",
+          "seasonNumber": 5,
+          "episodeNumber": 6,
+          "title": "Howard Hesseman/Randy Newman",
+          "overview": "Sketches include the \"\"Steve Marvin Radio Show\"\" and the debut of \"\"The Al Franken Decade.\"\"",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2QLuVXgRjSnuyvU20KrijfEoArH.jpg",
+          "airDate": "1979-12-08",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live S05E06 - Howard Hesseman, Randy Newman.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 673887249,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturday-night-live-s-05-e-06-howard-hesseman-randy-newman_202501/Saturday Night Live S05E06 - Howard Hesseman, Randy Newman.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 31
+}

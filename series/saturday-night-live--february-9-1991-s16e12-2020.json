@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "saturday-night-live--february-9-1991-s16e12-2020",
+  "title": "Saturday Night Live- February 9, 1991 (S16E12",
+  "yearStart": 2020,
+  "yearEnd": 2020,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/saturdaynightlivefebruary91991s16e12convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 16,
+      "episodes": [
+        {
+          "archiveID": "saturdaynightlivefebruary91991s16e12convertvideoonline.com",
+          "seasonNumber": 16,
+          "episodeNumber": 12,
+          "title": "Saturday Night Live- February 9, 1991 (S16E12)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/saturdaynightlivefebruary91991s16e12convertvideoonline.com",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live- February 9, 1991 (S16E12) (convert-video-online.com).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1131101708,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturdaynightlivefebruary91991s16e12convertvideoonline.com/Saturday Night Live- February 9, 1991 (S16E12) (convert-video-online.com).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "kraft-television-theatre-2024",
+  "title": "Kraft Television Theatre",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/kraft-television-theatre-kelly-1951",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "kraft-television-theatre-alice-in-wonderland-1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kraft Television Theatre - Alice In Wonderland (1954)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/kraft-television-theatre-alice-in-wonderland-1954",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Kraft Television Theatre Alice in Wonderland (1954).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 392473103,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/kraft-television-theatre-alice-in-wonderland-1954/Kraft Television Theatre Alice in Wonderland (1954).ia.mp4"
+        },
+        {
+          "archiveID": "kraft-television-theatre-kelly-1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kraft Television Theatre - Kelly (1951)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/kraft-television-theatre-kelly-1951",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Kraft Television Theatre Kelly (1951).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 378922411,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/kraft-television-theatre-kelly-1951/Kraft Television Theatre Kelly (1951).ia.mp4"
+        },
+        {
+          "archiveID": "kraft-television-theatre-kidnapped-1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Kraft Television Theatre - Kidnapped (1954)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/kraft-television-theatre-kidnapped-1954",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Kraft Television Theatre- Kidnapped (1954).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 183236846,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/kraft-television-theatre-kidnapped-1954/Kraft Television Theatre- Kidnapped (1954).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

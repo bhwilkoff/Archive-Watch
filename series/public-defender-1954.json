@@ -1,0 +1,424 @@
+{
+  "version": 1,
+  "seriesID": "public-defender-1954",
+  "title": "Public Defender",
+  "yearStart": 1954,
+  "yearEnd": 1955,
+  "overview": "The Public Defender is a half-hour 69-episode television dramatic series starring Reed Hadley as Bart Matthews, an attorney for the indigent. The series aired on CBS from March 11, 1954 to June 23, 1955, a season and a half.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Mort R. Lewis",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Public_Defender--The_Forger",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Forger",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-04-01",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PublicDefender--The_Forger.mp4",
+            "format": "h.264",
+            "sizeBytes": 157137116,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--The_Forger/PublicDefender--The_Forger.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Prize_Fighter",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Prize Fighter Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-04-08",
+          "year": 1954,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "PublicDefender--Prize_Fighter.mp4",
+            "format": "h.264",
+            "sizeBytes": 158591066,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Prize_Fighter/PublicDefender--Prize_Fighter.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Paupers_Gold",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Pauper's Gold",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-05-20",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PublicDefender--Paupers_Gold.mp4",
+            "format": "h.264",
+            "sizeBytes": 136988500,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Paupers_Gold/PublicDefender--Paupers_Gold.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Confession_of_Guilt",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Confession of Guilt",
+          "overview": "A woman confesses to shooting her ex-husband and is to stand trial for murder. Her boyfriend tells the public defender what really happened.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-06-10",
+          "year": 1954,
+          "runtimeSeconds": 1430,
+          "videoFile": {
+            "name": "PublicDefender--Confession_of_Guilt.mp4",
+            "format": "h.264",
+            "sizeBytes": 148756718,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Confession_of_Guilt/PublicDefender--Confession_of_Guilt.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--The_Hobo_Story",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Hobo Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-06-17",
+          "year": 1954,
+          "runtimeSeconds": 1440,
+          "videoFile": {
+            "name": "PublicDefender--The_Hobo_Story.mp4",
+            "format": "h.264",
+            "sizeBytes": 149777590,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--The_Hobo_Story/PublicDefender--The_Hobo_Story.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Think_No_Evil",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Think No Evil",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-08-16",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PublicDefender--Think_No_Evil.mp4",
+            "format": "h.264",
+            "sizeBytes": 135514220,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Think_No_Evil/PublicDefender--Think_No_Evil.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Public_Defender--Return_of_the_Dead",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Return of the Dead",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-09-06",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PublicDefender201_Return_of_the_Dead.mp4",
+            "format": "h.264",
+            "sizeBytes": 136776460,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Return_of_the_Dead/PublicDefender201_Return_of_the_Dead.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Loyalty",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Loyalty",
+          "overview": "Matthews takes the case of a cop killer who is depending on his little brother's false testimony to get him off. When the killer thinks Matthews is getting to friendly with his little brother, he fires Matthews.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-09-30",
+          "year": 1954,
+          "runtimeSeconds": 1485,
+          "videoFile": {
+            "name": "PublicDefender--Loyalty.mp4",
+            "format": "h.264",
+            "sizeBytes": 153765192,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Loyalty/PublicDefender--Loyalty.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--The_Do-Gooder",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Do-Gooder",
+          "overview": "A man is in hospital after wrecking a car with an escaped fugitive, killing the fugitive. The man is in trouble for harboring the fugitive but he refuses to speak to Matthews, his Public Defender. Matthews quickly deduces that the man doesn't want to be linked to his father who is a prominent judge.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-10-07",
+          "year": 1954,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "PublicDefender_206--Do-Gooder.mp4",
+            "format": "h.264",
+            "sizeBytes": 156734360,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--The_Do-Gooder/PublicDefender_206--Do-Gooder.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--When_Credit_Is_Due",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "When Credit Is Due",
+          "overview": "When a father of 2 is temporarily disabled in an auto accident, his wife gets a job to make ends meet. However, unscrupulous debtors begin to garnish her wages and then her boss fires her. Matthews comes to the rescue.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-10-14",
+          "year": 1954,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "PublicDefender_207--When_Credit_Is_Due.mp4",
+            "format": "h.264",
+            "sizeBytes": 156480335,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--When_Credit_Is_Due/PublicDefender_207--When_Credit_Is_Due.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Crash_Out",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Crash Out",
+          "overview": "An prison inmate just 3 weeks from parole participates in a prison break. His wife cannot understand why he would do such a thing and goes to Bart Matthews for help,",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-10-21",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PublicDefender205_Crash_Out.mp4",
+            "format": "h.264",
+            "sizeBytes": 140604476,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Crash_Out/PublicDefender205_Crash_Out.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Destiny",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Destiny",
+          "overview": "The Public Defender's deputy almost wrecks his marriage when he insists on defending a 15-year old boy accused of assault and murder.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-10-28",
+          "year": 1954,
+          "runtimeSeconds": 1494,
+          "videoFile": {
+            "name": "PublicDefender--Destiny.mp4",
+            "format": "h.264",
+            "sizeBytes": 155178318,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Destiny/PublicDefender--Destiny.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Circumstantial_Evidence",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Circumstanial Evidence",
+          "overview": "A story of blind justice, as Matthews defends a man whom was caught by police with the gun that killed the man's wife.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-11-25",
+          "year": 1954,
+          "runtimeSeconds": 1515,
+          "videoFile": {
+            "name": "PublicDefender_213--Circumstantial_Evidence.mp4",
+            "format": "h.264",
+            "sizeBytes": 157251631,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Circumstantial_Evidence/PublicDefender_213--Circumstantial_Evidence.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Moonshine",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Moonshine",
+          "overview": "During a raid on the Carter family still, a warden is shot and killed. Jesse Carter, fresh home from the service, is arrested for the killing.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-12-23",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PublicDefender217_Moonshine.mp4",
+            "format": "h.264",
+            "sizeBytes": 140729466,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Moonshine/PublicDefender217_Moonshine.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Man_Who_Couldnt_Remember",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "The Man Who Couldn't Remember",
+          "overview": "A man is arrested for a robbery he didn't commit, but he can't remember what he did at the time of the robbery. His wife believes in his innocence. His only hope may be a mental hospital where they can help him remember.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1954-12-30",
+          "year": 1954,
+          "runtimeSeconds": 1467,
+          "videoFile": {
+            "name": "PublicDefender--Man_Who_Couldnt_Remember.mp4",
+            "format": "h.264",
+            "sizeBytes": 152307461,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Man_Who_Couldnt_Remember/PublicDefender--Man_Who_Couldnt_Remember.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Mamas_Boy",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "Mama's Boy",
+          "overview": "After a boy is discovered dead in the hallway at school, one of his classmates is arrested since he was caught fighting with him at the time of his death. The Public Defender sets out to find out if the boy's being a \"Mama's Boy\" may have been the cause for what the classmates claim was an accident.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1955-02-10",
+          "year": 1955,
+          "runtimeSeconds": 1455,
+          "videoFile": {
+            "name": "2-24_Public_Defender--Mamas_Boy.mp4",
+            "format": "h.264",
+            "sizeBytes": 152267266,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Mamas_Boy/2-24_Public_Defender--Mamas_Boy.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Jackpot",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Jackpot",
+          "overview": "A kid is arrested for gang activity after mugging a cop, but the gang is being organized by some influential people, so the other gang members threaten to kill the kid if he talks. The Public defender must get to the bottom of things before someone else is hurt!",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1955-02-24",
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PublicDefender226_Jackpot.mp4",
+            "format": "h.264",
+            "sizeBytes": 141128903,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Jackpot/PublicDefender226_Jackpot.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Knowledge_of_Astronomy",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "A Knowledge of Astronomy",
+          "overview": "An error in reading the stars provides the key clue in unraveling crimes committed at an oil drilling site.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1955-03-03",
+          "year": 1955,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "PublicDefender227_Knowledge_of_Astronomy.mp4",
+            "format": "h.264",
+            "sizeBytes": 156737379,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Knowledge_of_Astronomy/PublicDefender227_Knowledge_of_Astronomy.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Time_To_Kill",
+          "seasonNumber": 2,
+          "episodeNumber": 31,
+          "title": "Time to Kill",
+          "overview": "When Peter Stone hears that a murder suspect fits his description, his extreme paranoia leads him to take actions that make him appear guilty. He is eventually convicted of a murder he had nothing to do with. Matthews appeals his case.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1955-03-31",
+          "year": 1955,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "PublicDefender_231--Time_To_Kill.mp4",
+            "format": "h.264",
+            "sizeBytes": 157508241,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Time_To_Kill/PublicDefender_231--Time_To_Kill.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--Sapphire_Mink",
+          "seasonNumber": 2,
+          "episodeNumber": 32,
+          "title": "The Sapphire Mink",
+          "overview": "A young modal is arrested for stealing a mink, but she says she had permission to wear it.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1955-04-07",
+          "year": 1955,
+          "runtimeSeconds": 1522,
+          "videoFile": {
+            "name": "PublicDefender232_Sapphire_Mink.mp4",
+            "format": "h.264",
+            "sizeBytes": 157785355,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--Sapphire_Mink/PublicDefender232_Sapphire_Mink.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--The_Stepfather",
+          "seasonNumber": 2,
+          "episodeNumber": 33,
+          "title": "The Stepfather",
+          "overview": "A teenage boy, stepson of the Police Chief, is arrested for breaking into a gas station. The Chief is convinced he can help him. Bart steps in to help and all is resolved in the end when the Chief faces the boy down.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1955-04-14",
+          "year": 1955,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "PublicDefender233_The_Stepfather.mp4",
+            "format": "h.264",
+            "sizeBytes": 157650913,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--The_Stepfather/PublicDefender233_The_Stepfather.mp4"
+        },
+        {
+          "archiveID": "Public_Defender--A_Pair_of_Gloves",
+          "seasonNumber": 2,
+          "episodeNumber": 34,
+          "title": "A Pair of Gloves",
+          "overview": "Flippant small time hood and three time loser Allie Kilgore claims he bought out of town a pair of gloves that are the like the pair he is accused of taking in a home burglary.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1955-04-21",
+          "year": 1955,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "PublicDefender234_Pair_of_Gloves.mp4",
+            "format": "h.264",
+            "sizeBytes": 157434039,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Public_Defender--A_Pair_of_Gloves/PublicDefender234_Pair_of_Gloves.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 22
+}

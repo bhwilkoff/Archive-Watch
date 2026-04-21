@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "partners-199596-sitcom-1995",
+  "title": "Partners (1995–96) sitcom",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/partners-1995-96",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "partners-1995-96",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Partners (1995–96) sitcom - Jon Cryer, Tate Donovan",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/partners-1995-96",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "22 Partners- 1.22 - one of 2 on ARCHIVE James E. Woods.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 662914336,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/partners-1995-96/22 Partners- 1.22 - one of 2 on ARCHIVE James E. Woods.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "saturday-night-live--november-23-1996-s22e7-most-2019",
+  "title": "Saturday Night Live- November 23, 1996 (S22E7, most",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/saturdaynightlivenovember231996s22e7mostconvertvideoonline.com1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 22,
+      "episodes": [
+        {
+          "archiveID": "saturdaynightlivenovember231996s22e7mostconvertvideoonline.com1",
+          "seasonNumber": 22,
+          "episodeNumber": 7,
+          "title": "Saturday Night Live- November 23, 1996 (S22E7, most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/saturdaynightlivenovember231996s22e7mostconvertvideoonline.com1",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Saturday Night Live- November 23, 1996 (S22E7, most) (convert-video-online.com) (1).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 302835298,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/saturdaynightlivenovember231996s22e7mostconvertvideoonline.com1/Saturday Night Live- November 23, 1996 (S22E7, most) (convert-video-online.com) (1).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

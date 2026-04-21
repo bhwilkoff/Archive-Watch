@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-children-1960",
+  "title": "The Children",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "An eight-year-old girl is found murdered on the patio of her home. Any one of the adults who care for her could have killed her, but which one?",
+  "posterURL": "https://image.tmdb.org/t/p/w500/aaqdhslczuIEEzL9P7uvvQWdVCQ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/aRYbaJOYxTYJmnOo8s5HGHkseDj.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheChildrensDoctor",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Children's Doctor",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/aaqdhslczuIEEzL9P7uvvQWdVCQ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 281,
+          "videoFile": {
+            "name": "TheChildrensDoctor.mp4",
+            "format": "h.264",
+            "sizeBytes": 29264731,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChildrensDoctor/TheChildrensDoctor.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

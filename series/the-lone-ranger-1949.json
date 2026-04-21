@@ -1,0 +1,154 @@
+{
+  "version": 1,
+  "seriesID": "the-lone-ranger-1949",
+  "title": "The Lone Ranger",
+  "yearStart": 1949,
+  "yearEnd": 1949,
+  "overview": "The Lone Ranger is an American western television series that ran from 1949 to 1957, starring Clayton Moore with Jay Silverheels as Tonto. The live-action series initially featured Gerald Mohr as the episode narrator. Fred Foy served as both narrator and announcer of the radio series from 1948 to its finish and became announcer of the television version when story narration was dropped there. This was by far the highest-rated television program on the ABC network in the early 1950s and its first true \"hit\".",
+  "posterURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/hjYanQ2NcrpEbFLxCkRgBZPPV93.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Fran Striker",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheLoneRanger-CannonballMcKay",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Lone Ranger'' - Cannonball McKay",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1350,
+          "videoFile": {
+            "name": "CannonballMcKay1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 140275286,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheLoneRanger-CannonballMcKay/CannonballMcKay1949.mp4"
+        },
+        {
+          "archiveID": "OldJoeSister",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Lone Ranger'' - Old Joe's Sister",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "OldJoeSister1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 138485411,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OldJoeSister/OldJoeSister1949.mp4"
+        },
+        {
+          "archiveID": "LegionOfOldTimers1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Lone Ranger'' - The Legion of Old Timers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1466,
+          "videoFile": {
+            "name": "LegionOfOldTimers1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 152594598,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LegionOfOldTimers1949/LegionOfOldTimers1949.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "thelonerangerenterthelonerangers01e01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Enter the Lone Ranger",
+          "overview": "John Reid, the sole surviving Texas Ranger of a murderous ambush, becomes the great masked hero with his companion, Tonto.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ldtAMFjvTsitOXEVfLWg6IGvWJe.jpg",
+          "airDate": "1949-09-15",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lone Ranger - Enter The Lone Ranger S01  E01.mp4",
+            "format": "h.264",
+            "sizeBytes": 161482771,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thelonerangerenterthelonerangers01e01/The Lone Ranger - Enter The Lone Ranger S01  E01.mp4"
+        },
+        {
+          "archiveID": "thelonerangerthelonerangerfightsons01e02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Lone Ranger Fights On",
+          "overview": "The origin of the Lone Ranger's horse Silver and his use of silver bullets is explained.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": "1949-09-22",
+          "year": 1949,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Lone Ranger - The Lone Ranger Fights On S01 E02.mp4",
+            "format": "h.264",
+            "sizeBytes": 153727628,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thelonerangerthelonerangerfightsons01e02/The Lone Ranger - The Lone Ranger Fights On S01 E02.mp4"
+        },
+        {
+          "archiveID": "thelonerangerlegionofoldtimerss01e04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Legion of Old Timers",
+          "overview": "Bob Kittredge is being forced by Red Devers to sell the ranch he inherited from his father. The Lone Ranger and Tonto, aided by Banty Bishop and the old ranch hands rescue Kittredge, and the ranch (and jobs of the ranch hands) are restored.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": "1949-10-06",
+          "year": 1949,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Lone Ranger - Legion of old Timers S01 E04.mp4",
+            "format": "h.264",
+            "sizeBytes": 143642110,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thelonerangerlegionofoldtimerss01e04/The Lone Ranger - Legion of old Timers S01 E04.mp4"
+        },
+        {
+          "archiveID": "thelonerangerrustlershideouts01e05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Rustler's Hideout",
+          "overview": "The Vance family settles right in the middle of a war between the Madden gang and local ranches. Despite the hostility to Fred Vance over his past, he decides he will not be run off this parcel of land. The Lone Ranger believes in Fred's innocence, and asks him to help stop the ranchers riding into an ambush and then set a counter trap for the gang after rescuing the son of one of the ranchers being held hostage",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": "1949-10-13",
+          "year": 1949,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Lone Ranger - Rustler's Hideout S01 E05.mp4",
+            "format": "h.264",
+            "sizeBytes": 144565211,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thelonerangerrustlershideouts01e05/The Lone Ranger - Rustler's Hideout S01 E05.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

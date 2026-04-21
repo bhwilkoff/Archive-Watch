@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lucy-meets-the-law-1960",
+  "title": "Lucy Meets The Law",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TLS_Lucy_Meets_The_Law",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TLS_Lucy_Meets_The_Law",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lucy Meets The Law",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TLS_Lucy_Meets_The_Law",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TLS_Lucy_Meets_The_Law.mp4",
+            "format": "h.264",
+            "sizeBytes": 147867933,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TLS_Lucy_Meets_The_Law/TLS_Lucy_Meets_The_Law.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

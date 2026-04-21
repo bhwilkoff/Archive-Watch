@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "seriesID": "burke-1963",
+  "title": "Burke",
+  "yearStart": 1963,
+  "yearEnd": 1965,
+  "overview": "Burke's Law is an American detective series that ran on ABC from 1963 to 1965 and was revived on CBS in the 1990s. The show starred Gene Barry as Amos Burke, millionaire captain of Los Angeles police homicide division, who was chauffeured around to solve crimes in his Rolls-Royce Silver Cloud II.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ePKRW7T0RCgzSzuVJPwHxcqBPXG.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/1vS7Z2RPXpFVXC0aIOP8VsCIrmh.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Ivan Goff",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BurkesLaw",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Burke's Law",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ePKRW7T0RCgzSzuVJPwHxcqBPXG.jpg",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3062,
+          "videoFile": {
+            "name": "BurkesLawWhoKilledJasonShaw_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 222466136,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BurkesLaw/BurkesLawWhoKilledJasonShaw_512kb.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "burkes-law-tv-1963-s01e02-who-killed-mr-x",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Who Killed Mr. X?",
+          "overview": "When a body is discovered dumped alongside the merry-go-round at an amusement park, clues (including a phone number on an old matchbook cover) lead back to the elusive millionaire Emory Flood.  Burke is thwarted in his attempts to speak to Flood by the top three men in the Flood empire.  Meanwhile, Burke and Tim come to the aid of an elderly woman who is also trying to see Flood, and interview three lovely starlets who are being \"\"supported\"\" by Flood (two of whom hate the man, while the third definitely strikes romantic sparks with Burke).  Until Burke can identify the dead man, discover the true scene of the crime and locate Flood, he can't find the killer.  A photo of Robert Mitchum reveals the clue which proves that the crime was based on a case of mistaken identity.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/dOxZcZwBkQyGSe3u1vMl97tuRkU.jpg",
+          "airDate": "1963-09-27",
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Burke's Law TV 1963 colorized s01e02 Who Killed Mr.X.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 324539559,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/burkes-law-tv-1963-s01e02-who-killed-mr-x/Burke's Law TV 1963 colorized s01e02 Who Killed Mr.X.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "burkes-law-tv-1965-colorized-s02e30-who-killed-the-jackpot",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "Who Killed the Jackpot?",
+          "overview": "When a wealthy banker is found murdered in a seedy hotel, it becomes a race to see who will catch the killer first - Burke or glamorous private eye Honey West, who had been hired by the victim.  The banker had been planning on skipping the country with a huge amount of cash, now missing, along with his gun.  Was his wife, the sleazy yacht owner she was involved with, the dead man's attorney, his very \"\"faithful\"\" secretary, or a local scuba diver in on the deal?  Which was the killer?  Will Burke or Honey figure out the crime first - and will they survive (one suspect already has been murdered!)?",
+          "stillURL": "https://archive.org/services/img/burkes-law-tv-1965-colorized-s02e30-who-killed-the-jackpot",
+          "airDate": "1965-04-21",
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Burke's Law TV 1965 colorized s02e30 Who Killed the Jackpot.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 367014638,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/burkes-law-tv-1965-colorized-s02e30-who-killed-the-jackpot/Burke's Law TV 1965 colorized s02e30 Who Killed the Jackpot.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

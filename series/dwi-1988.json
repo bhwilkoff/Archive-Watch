@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "dwi-1988",
+  "title": "DWI",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/dwi-198x",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dwi-198x",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "DWI - Tom Snyder",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/dwi-198x",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DWI - 198x.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1816876914,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dwi-198x/DWI - 198x.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

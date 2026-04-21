@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "60-minutes-1979",
+  "title": "60 Minutes",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": "America's popular television News magazine in which an ever changing team of CBS News correspondents contribute segments ranging from hard news coverage to politics to lifestyle and pop culture.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/hqsJOrlmItlYJRZ6VEb7YnvGGup.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bgo1ixOB2U6hxl8Og2TZritWKaD.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Don Hewitt",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "60-minutes-the-muppet-show",
+          "seasonNumber": 1,
+          "episodeNumber": 60,
+          "title": "60 Minutes: The Muppet Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/hqsJOrlmItlYJRZ6VEb7YnvGGup.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "60 Minutes The Muppet Show.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 522575012,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/60-minutes-the-muppet-show/60 Minutes The Muppet Show.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

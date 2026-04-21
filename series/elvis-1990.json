@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "elvis-1990",
+  "title": "Elvis",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": "An account of the life of Elvis Presley in the early days of his fame in the 1950s.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/c0HgZe97QRarEVFzHR3JI1qNMYx.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/AgRV0h0ZXgeN4C7tYPmCo1ChLAu.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Priscilla Presley",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "elvis-1.03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Elvis - Michael St. Gerard, Kelli Williams",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c0HgZe97QRarEVFzHR3JI1qNMYx.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Elvis - 1.04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 701687331,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/elvis-1.03/Elvis - 1.04.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

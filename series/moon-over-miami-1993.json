@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "moon-over-miami-1993",
+  "title": "Moon Over Miami",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": "Moon Over Miami is a short-lived American comedy series that aired on ABC.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/aOrGeMWM3pOdOeazPGAHFc5cC6p.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lYb4EiPtuAVsuMvKkSCEPBTjcf0.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Harley Peyton",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "moon-over-miami-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Moon Over Miami (1993) crime drama",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/aOrGeMWM3pOdOeazPGAHFc5cC6p.jpg",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Moon Over Miami Promo September 13th 1993.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2063462,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/moon-over-miami-1993/Moon Over Miami Promo September 13th 1993.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "seriesID": "tales-of-tomorrow-1960",
+  "title": "Tales of Tomorrow",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Tales of Tomorrow is an American anthology science fiction series that was performed and broadcast live on ABC from 1951 to 1953. The series covered such stories as Frankenstein, starring Lon Chaney, Jr., 20,000 Leagues Under the Sea starring Thomas Mitchell as Captain Nemo, and many others featuring such performers as Boris Karloff, Brian Keith, Lee J. Cobb, Rod Steiger, Bruce Cabot, Franchot Tone, Gene Lockhart, Walter Abel, Leslie Nielsen, and Paul Newman. The series had many similarities to the later Twilight Zone which also covered one of the same stories, \"What You Need\". In total it ran for eighty-five 30-minute episodes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TalesOfTomorrow-AChildIsCrying_607",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "A Child is Crying",
+          "overview": "The government attempts to use a young girl as a weapon in the Cold War when she displays powerful mental abilities.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/5TFLB2KSyHZzInlcSLCFcRaCrpd.jpg",
+          "airDate": "1951-08-17",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TalesOfTomorrow-AChildIsCrying_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 105202956,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTomorrow-AChildIsCrying_607/TalesOfTomorrow-AChildIsCrying_512kb.mp4"
+        },
+        {
+          "archiveID": "TalesOfTomorrow-IceFromSpace",
+          "seasonNumber": 1,
+          "episodeNumber": 43,
+          "title": "Ice from Space",
+          "overview": "A rocket returns from space with a huge block of ice inside its compartment. An Air Force officer realizes that this block of ice is a form of alien invasion.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/hNWeJYx1FMvYLiwBr2dzldKUohk.jpg",
+          "airDate": "1952-08-08",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TalesOfTomorrow-IceFromSpace_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 100443640,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTomorrow-IceFromSpace/TalesOfTomorrow-IceFromSpace_512kb.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "TalesOfTomorrow-LostPlanet",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "The Window",
+          "overview": "A live television program is interrupted by a mysterious signal that shows a murder about to take place.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/igoYz0yyZmn3ijANG3Z2qzRSNp7.jpg",
+          "airDate": "1952-11-07",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TalesOfTomorrow-LostPlanet_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 120161195,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTomorrow-LostPlanet/TalesOfTomorrow-LostPlanet_512kb.mp4"
+        },
+        {
+          "archiveID": "TalesOfTomorrow-FuryOfTheCocoon",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "The Fury of the Cocoon",
+          "overview": "Members of an expedition into the jungle are attacked by invisible blood sucking leaches from outer space.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/jrCw8NZEvWlBqHJEztLGzOsF4FB.jpg",
+          "airDate": "1953-03-06",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TalesOfTomorrow-TheFuryOfTheCocoon2x31_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 106625374,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTomorrow-FuryOfTheCocoon/TalesOfTomorrow-TheFuryOfTheCocoon2x31_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

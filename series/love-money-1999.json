@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "love-money-1999",
+  "title": "Love & Money",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": "In a swanky New York City apartment tower, the earnest young handyman, who lives in the basement, loves the shy heiress who lives in the penthouse. Separating this couple, more than just 20 stories of plush co-ops, is a slew of oddball relatives and millions of dollars in social prestige.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/w7pg3K5Oy3ze4j45zCFSa3axdsf.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/nVRqdb7yxBB64kuPtAhP9XnHHeb.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "love-and-money-1.2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Love & Money - Paget Brewster, Judy Greer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/w7pg3K5Oy3ze4j45zCFSa3axdsf.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Love and Money - 1.3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 685022588,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/love-and-money-1.2/Love and Money - 1.3.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

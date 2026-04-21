@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "educational-tv-from-the-50-1954",
+  "title": "Educational TV from the 50",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Yugi-Moto_likes-to_Fart",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Yugi-Moto_likes-to_Fart",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Educational TV from the 50's: 'Watch Mr. Wizard'",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Yugi-Moto_likes-to_Fart",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WatchMrWizard1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 170919059,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Yugi-Moto_likes-to_Fart/WatchMrWizard1954.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

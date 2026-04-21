@@ -1,0 +1,591 @@
+{
+  "version": 1,
+  "seriesID": "lights-out-1960",
+  "title": "Lights Out",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Lights Out was an extremely popular American old-time radio program, an early example of a network series devoted mostly to horror and the supernatural, predating Suspense and Inner Sanctum. Versions of Lights Out aired on different networks, at various times, from January 1934 to the summer of 1947 and the series eventually made the transition to television.\n\nIn 1946, NBC Television brought Lights Out to TV in a series of four specials, broadcast live and produced by Fred Coe, who also contributed three of the scripts. NBC asked Cooper to write the script for the premiere, \"First Person Singular\", which is told entirely from the point of view of an unseen murderer who kills his obnoxious wife and winds up being executed. Variety gave this first episode a rave review (\"undoubtedly one of the best dramatic shows yet seen on a television screen\"), but Lights Out did not become a regular NBC-TV series until 1949.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lights-out-tv-series-season-2-of-4-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lights Out - TV Series - Season 2 of 4 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lights Out - S02E36 - Grey Reminder.mp4",
+            "format": "h.264",
+            "sizeBytes": 183500289,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lights-out-tv-series-season-2-of-4-xvid-avi/Lights Out - S02E36 - Grey Reminder.mp4"
+        },
+        {
+          "archiveID": "lights-out-tv-series-season-3-of-4-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lights Out - TV Series - Season 3 of 4 - MKV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lights Out - S03E25 - Curtain Call.mp4",
+            "format": "h.264",
+            "sizeBytes": 184096157,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lights-out-tv-series-season-3-of-4-mkv/Lights Out - S03E25 - Curtain Call.mp4"
+        },
+        {
+          "archiveID": "lights-out-tv-series-season-4-of-4-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lights Out - TV Series - Season 4 of 4 - MKV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lights Out - S04E10 - The Veil.mp4",
+            "format": "h.264",
+            "sizeBytes": 141368681,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lights-out-tv-series-season-4-of-4-mkv/Lights Out - S04E10 - The Veil.mp4"
+        },
+        {
+          "archiveID": "LightsOut-TheMadDullaghen",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lights Out - The Mad Dullaghen",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1338,
+          "videoFile": {
+            "name": "Lights_Out-S3E32-The_Mad_Dullaghen-2_April_1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 132096634,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-TheMadDullaghen/Lights_Out-S3E32-The_Mad_Dullaghen-2_April_1951.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "LightsOut-JustWhatHappened",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Just What Happened",
+          "overview": "A man stands trial for murdering another man by throwing him out a window.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1950-10-09",
+          "year": null,
+          "runtimeSeconds": 1654,
+          "videoFile": {
+            "name": "Lights_out_Just_what_happened_10_09_1950.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 215170714,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-JustWhatHappened/Lights_out_Just_what_happened_10_09_1950.ia.mp4"
+        },
+        {
+          "archiveID": "LightsOut-MartianEyes",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "The Martian Eyes",
+          "overview": "An odd professor claims he can spot Martians, who masquerade as humans, using a pair of infrared glasses he wears. Only then can you see the third eyeball in the middle of their forehead. He relates his wild theory to a photographer sitting by him in a bar--and the man believes him. While playing around with infrared film, the photographer says he's snapped a shot of a man with three eyes. The two team up to convince authorities of their find.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1950-10-30",
+          "year": null,
+          "runtimeSeconds": 1336,
+          "videoFile": {
+            "name": "Lights_out_Martian_eyes_10_30_1950.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 180564596,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-MartianEyes/Lights_out_Martian_eyes_10_30_1950.ia.mp4"
+        },
+        {
+          "archiveID": "LightsOut-BewareThisWoman",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Beware This Woman",
+          "overview": "A woman experiencing poltergeist activity in her home secures the services of a reluctant, non-believer in the supernatural, scientist to resolve her problem.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1950-12-04",
+          "year": null,
+          "runtimeSeconds": 1330,
+          "videoFile": {
+            "name": "LightsOut-BewareThisWoman.mp4",
+            "format": "h.264",
+            "sizeBytes": 134069744,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-BewareThisWoman/LightsOut-BewareThisWoman.mp4"
+        },
+        {
+          "archiveID": "LightsOut-Jasper",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Jasper",
+          "overview": "Songwriter Charlie has suffered with writer's block\" since he and his wife moved to the country. Betty wants them to sell the house to pay the bills, but Charlie doesn't want to part with the family estate. His late ancestor, Jasper, isn't thrilled with the idea either.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1950-12-25",
+          "year": null,
+          "runtimeSeconds": 1350,
+          "videoFile": {
+            "name": "LightsOut-Jasper.mp4",
+            "format": "h.264",
+            "sizeBytes": 128962576,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-Jasper/LightsOut-Jasper.mp4"
+        },
+        {
+          "archiveID": "LightsOut-ForReleaseToday",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "For Release Today",
+          "overview": "Maggie, the press agent for actor Henry Crawford, is horrified by his lifeless performances during dress rehearsals for his new play. She comments that he seems dead, to which his wife, Elaine, declares that he is. A year earlier, Elaine's ex-fiancé Balsamo had cursed Henry when he stole her away, promising Henry that he'd be through in one year.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-01-22",
+          "year": null,
+          "runtimeSeconds": 1342,
+          "videoFile": {
+            "name": "Lights_out_For_release_today_01_22_1951.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 173126145,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-ForReleaseToday/Lights_out_For_release_today_01_22_1951.ia.mp4"
+        },
+        {
+          "archiveID": "LightsOut-CurtainCall",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "Curtain Call",
+          "overview": "Off-his-rocker Kruger, a famous actor coming out of retirement for a new play with his daughter (Randel), suddenly is tormented by the ghost of his late, thought-to-be-a-suicide wife. His daughter is a triumph in her first big stage role, but ... can Kruger take the adulation she receives ...",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-02-12",
+          "year": null,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "Lights_out_Curtain_call_02_12_1951.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 240807790,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-CurtainCall/Lights_out_Curtain_call_02_12_1951.ia.mp4"
+        },
+        {
+          "archiveID": "LightsOut-StrangeLegacy",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Strange Legacy",
+          "overview": "After suffering a concussion in a car accident on the Oregon coast, Stephen Elliott is carried to the home of an old man and his beautiful daughter-in-law to recover. The young woman tells Stephen that her husband, a World War II pilot, had died the year before and left an uncompleted musical composition, a model airplane and a piece of sculpture, as well as a strange will.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-02-19",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lights_Out-S3E26-Strange_Legacy-19_February_1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 129777910,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-StrangeLegacy/Lights_Out-S3E26-Strange_Legacy-19_February_1951.mp4"
+        },
+        {
+          "archiveID": "LightsOut-TheFoncevilleCurse",
+          "seasonNumber": 2,
+          "episodeNumber": 35,
+          "title": "THE FONCECILLE CURSE",
+          "overview": "The heir of the old aristocratic Fonceville family takes his bride to the ancestral castle, where a hereditary madness takes over his dreams, one that tries to induce the murder of his new wife.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-04-23",
+          "year": null,
+          "runtimeSeconds": 1596,
+          "videoFile": {
+            "name": "LightsOut-TheFoncevilleCurse.mp4",
+            "format": "h.264",
+            "sizeBytes": 163273247,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-TheFoncevilleCurse/LightsOut-TheFoncevilleCurse.mp4"
+        },
+        {
+          "archiveID": "LightsOut-LostWillOfDr.Rant",
+          "seasonNumber": 2,
+          "episodeNumber": 37,
+          "title": "The Lost Will of Dr. Rant",
+          "overview": "A Boston librarian is drawn into a ghostly web of deceit as he helps a beautiful heiress recover her stolen fortune by finding a missing will written in a rare version of the Talmud.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-05-07",
+          "year": null,
+          "runtimeSeconds": 1326,
+          "videoFile": {
+            "name": "LightsOut-LostWillOfDr.rant.mp4",
+            "format": "h.264",
+            "sizeBytes": 126309028,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-LostWillOfDr.Rant/LightsOut-LostWillOfDr.rant.mp4"
+        },
+        {
+          "archiveID": "LightsOut-DeadMansCoat",
+          "seasonNumber": 2,
+          "episodeNumber": 38,
+          "title": "Dead Man's Coat",
+          "overview": "By opening the grave of a recently deceased man and putting on his coat, a person will supposedly be granted invisibility. A bitter man with scores to settle decides to put the superstition to the test. He forces his reluctant butler to join him in his scheme of grave-robbing and murder.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-05-14",
+          "year": null,
+          "runtimeSeconds": 1338,
+          "videoFile": {
+            "name": "LightsOut-DeadMansCoat.mp4",
+            "format": "h.264",
+            "sizeBytes": 130861535,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-DeadMansCoat/LightsOut-DeadMansCoat.mp4"
+        },
+        {
+          "archiveID": "LightsOut-CatsCradle",
+          "seasonNumber": 2,
+          "episodeNumber": 39,
+          "title": "Cat's Cradle",
+          "overview": "Former hometown football star George Logan pays an unexpected late night visit on Phyllis and Bob at their country home. Down on his luck, he's obsessed with having never fit in, and holds a grudge against the world. His one talent is weaving a string into a cat's cradle and, he claims, using it to cast spells and murder people who get in his way. A skeptical Bob call it nonsense so an irate George is determined to prove him wrong.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-05-21",
+          "year": null,
+          "runtimeSeconds": 1341,
+          "videoFile": {
+            "name": "LightsOut-CatsCradle.mp4",
+            "format": "h.264",
+            "sizeBytes": 131341572,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-CatsCradle/LightsOut-CatsCradle.mp4"
+        },
+        {
+          "archiveID": "LightsOut-ThePattern",
+          "seasonNumber": 2,
+          "episodeNumber": 40,
+          "title": "The Pattern",
+          "overview": "Al March is tortured by his failure to have stopped the bombing of an Army barracks in 1945 Germany. Awaiting surgery, he tells his sister that the two men and a woman he killed the night before were the same ones who had planted the explosives. Even though they had died in the blast, they had been chasing him for the past six years because he lived and they didn't.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-05-28",
+          "year": null,
+          "runtimeSeconds": 1299,
+          "videoFile": {
+            "name": "LightsOut-ThePattern.mp4",
+            "format": "h.264",
+            "sizeBytes": 131802670,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-ThePattern/LightsOut-ThePattern.mp4"
+        },
+        {
+          "archiveID": "LightsOut-ThePassageBeyond",
+          "seasonNumber": 2,
+          "episodeNumber": 44,
+          "title": "The Passage Beyond",
+          "overview": "The ghost of Lady Anne continues to walk down the stairs, knife in hand, and into the secret passage where she murdered her domineering husband. She vividly demonstrates her disapproval of Rodney's attempt to conduct an affair with a visiting friend of his wife.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-06-25",
+          "year": null,
+          "runtimeSeconds": 1594,
+          "videoFile": {
+            "name": "Lights_Out-S3E44-The_Passage_Beyond-25_June_1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 154305704,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-ThePassageBeyond/Lights_Out-S3E44-The_Passage_Beyond-25_June_1951.mp4"
+        },
+        {
+          "archiveID": "LightsOut-AndAdamBegot",
+          "seasonNumber": 2,
+          "episodeNumber": 45,
+          "title": "THE ADAM BEGOT",
+          "overview": "The car carrying cultured Geoffrey, brutish Claude and eligible Kay swerves off a cliff and into a mysterious valley. Surprised by the weird vegetation and climate, they come to believe they've traveled back in time 50,000 years. An encounter with an unfriendly caveman results in all three being held captive in the wild man's cave.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-07-02",
+          "year": null,
+          "runtimeSeconds": 1339,
+          "videoFile": {
+            "name": "LightsOut-AndAdamBegot.mp4",
+            "format": "h.264",
+            "sizeBytes": 132107680,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-AndAdamBegot/LightsOut-AndAdamBegot.mp4"
+        },
+        {
+          "archiveID": "LightsOut-TheMeddlers",
+          "seasonNumber": 2,
+          "episodeNumber": 46,
+          "title": "The Meddlers",
+          "overview": "Cecil Crofton shows up at the backwoods, hillbilly shack of Purdy with a wild proposition on how the two can split a million dollars. Crofton as figured out that a ton gold that once belonged to the Confederacy is buried locally, in the cellar of a house that had burned down and was rebuilt. Purdy figures rightly that it's the old Larro place, but the abandoned house is cursed by the ghosts of Larro ancestors from the Civil War.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-07-09",
+          "year": null,
+          "runtimeSeconds": 1294,
+          "videoFile": {
+            "name": "LightsOut-TheMeddlers.mp4",
+            "format": "h.264",
+            "sizeBytes": 126775624,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-TheMeddlers/LightsOut-TheMeddlers.mp4"
+        },
+        {
+          "archiveID": "LightsOut-TheFacelessMan",
+          "seasonNumber": 2,
+          "episodeNumber": 50,
+          "title": "The Faceless Man",
+          "overview": "Francis Carvel visits a plastic surgeon to erase a lifetime of ugliness from his face. Now handsome, he returns to the French inn where, a year earlier, an lovely woman had spurned his affection. Complicating Carvel's plans is a new traveling companion, a disfigured man in bandages who knows everything about him.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-08-06",
+          "year": null,
+          "runtimeSeconds": 1336,
+          "videoFile": {
+            "name": "Lights_Out-S3E50-The_Faceless_Man-6_August_1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 131095138,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-TheFacelessMan/Lights_Out-S3E50-The_Faceless_Man-6_August_1951.mp4"
+        },
+        {
+          "archiveID": "LightsOut-TheManWithTheWatch",
+          "seasonNumber": 2,
+          "episodeNumber": 51,
+          "title": "The Man With the Watch",
+          "overview": "A New York City detective is investigating the disappearance of over 200 people. Before vanishing into thin air, each person has reported a dream involving a fat man with a bizarre watch who convinces them to join him on his planet of Aleria.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-08-13",
+          "year": null,
+          "runtimeSeconds": 1578,
+          "videoFile": {
+            "name": "Lights_Out-S3E51-The_Man_with_the_Watch_13_August_1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 151556598,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-TheManWithTheWatch/Lights_Out-S3E51-The_Man_with_the_Watch_13_August_1951.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "LightsOut-Mrs.Manifold",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Mrs. Manifold",
+          "overview": "In 1890s London, Mrs. Manifold runs a boarding house for sailors on the waterfront. New hire John hears from a customer that her wine-guzzling husband, Ambrose, long ago disappeared and that some say she killed him. The old lady gets jumpy when a strange man reeking of wine signs the register \"Ambrose Manifold.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-08-27",
+          "year": null,
+          "runtimeSeconds": 1337,
+          "videoFile": {
+            "name": "Lights_out_Mrs_Manifold_08_27_1951.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 189624489,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-Mrs.Manifold/Lights_out_Mrs_Manifold_08_27_1951.ia.mp4"
+        },
+        {
+          "archiveID": "LightsOut-WillOTheWisp",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Will-O-the-wisp",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-10-01",
+          "year": null,
+          "runtimeSeconds": 1348,
+          "videoFile": {
+            "name": "LightsOut-WillOTheWisp.mp4",
+            "format": "h.264",
+            "sizeBytes": 128576134,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-WillOTheWisp/LightsOut-WillOTheWisp.mp4"
+        },
+        {
+          "archiveID": "LightsOut-ISpy",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "I SPY",
+          "overview": "A survey taker makes a startling discovery when she visits the home of two very paranoid, eccentric, elderly collectors of odds and ends.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-10-15",
+          "year": null,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": "Lights_Out-S4E08-I_Spy-15_October_1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 130167292,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-ISpy/Lights_Out-S4E08-I_Spy-15_October_1951.mp4"
+        },
+        {
+          "archiveID": "LightsOut-TheDeal",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "The Deal",
+          "overview": "A man makes a deal with a mysterious businessman in order to get rid of his high spending wife.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-10-22",
+          "year": null,
+          "runtimeSeconds": 1338,
+          "videoFile": {
+            "name": "Lights_out_The_deal_10_22_1951.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 173422771,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-TheDeal/Lights_out_The_deal_10_22_1951.ia.mp4"
+        },
+        {
+          "archiveID": "LightsOut-TheVeil",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "The Veil",
+          "overview": "Ambitious defense attorney David Stevenson has high political aspirations and believes his romance with a nobody like Sylvia Willis will only hold him back. Calling in a favor from a murderer he once saved from conviction, he has his bride-to-be shot. Sylvia, however, is not so easily silenced. She demands justice and forces the great attorney to defend himself before a jury of the dead.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-10-29",
+          "year": null,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "LightsOut-TheVeil.mp4",
+            "format": "h.264",
+            "sizeBytes": 133568620,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-TheVeil/LightsOut-TheVeil.mp4"
+        },
+        {
+          "archiveID": "LightsOut-TheSilentSupper",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "The Silent Supper",
+          "overview": "Dede attends the silent supper, a ritual the single Bayou women conduct to foresee their future husbands. Old voodoo woman Miss Watkins had told Dede that she'd meet her husband at the supper that night. Miss Watkins has the misfortune of meeting up with troublemaker Jean Duval, who stabs her and steals her silver. Then, uninvited, he crashes the silent supper.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-12-03",
+          "year": null,
+          "runtimeSeconds": 1328,
+          "videoFile": {
+            "name": "LightsOut-TheSilentSupper.mp4",
+            "format": "h.264",
+            "sizeBytes": 131276001,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-TheSilentSupper/LightsOut-TheSilentSupper.mp4"
+        },
+        {
+          "archiveID": "LightsOut-theAngryBirds",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "The Angry Birds",
+          "overview": "Bird lover Waldo Bryan leaves behind his big city art career to live in the country. His wife, Adele, has turned hateful, angry that he made her give up the city life. To get even, she lets Waldo's beloved parakeet out of it's cage to be killed by her cat. The birds outside seem to know of Adele's evil deed and turn on her, turning her into the caged one.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-12-10",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "theAngryBirds.mp4",
+            "format": "h.264",
+            "sizeBytes": 133529654,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-theAngryBirds/theAngryBirds.mp4"
+        },
+        {
+          "archiveID": "LightsOut-PerchanceToDream",
+          "seasonNumber": 3,
+          "episodeNumber": 17,
+          "title": "Perchance to Dream",
+          "overview": "Jeff Morgan reads a story in a pulp fiction magazine exactly like one he'd written and filed away years earlier. His meeting with the author, Frank Joyce, is eerie; he already knows everything about the man without having met him before. Convinced Frank is his doppelganger, Jeff panics when he dreams Frank steps onto an elevator that malfunctions and plunges fifteen stories. Frank just scoffs at his frantic warning.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1951-12-17",
+          "year": null,
+          "runtimeSeconds": 1233,
+          "videoFile": {
+            "name": "LightsOut-PerchanceToDream.mp4",
+            "format": "h.264",
+            "sizeBytes": 120991630,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-PerchanceToDream/LightsOut-PerchanceToDream.mp4"
+        },
+        {
+          "archiveID": "LightsOut-TheUpstairsFloor",
+          "seasonNumber": 3,
+          "episodeNumber": 29,
+          "title": "The Upstairs Floor",
+          "overview": "A husband rents the same upstairs apartment where he and his late wife once lived. Despite his claims of being married, the elderly landlady feels that something is not quite right. After weeks, she's yet to meet the woman. In fact, she's never heard so much as a sound coming from upstairs floor.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1952-03-10",
+          "year": null,
+          "runtimeSeconds": 1336,
+          "videoFile": {
+            "name": "LightsOut-TheUpstairsFloor.mp4",
+            "format": "h.264",
+            "sizeBytes": 132116847,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-TheUpstairsFloor/LightsOut-TheUpstairsFloor.mp4"
+        },
+        {
+          "archiveID": "LightsOut-AnotherCountry",
+          "seasonNumber": 3,
+          "episodeNumber": 31,
+          "title": "Another Country",
+          "overview": "A mysterious stranger enters a home uninvited, drawn from the street by the haunting music of Beethoven's \"Geister (Ghost) Trio\" that three musicians are performing. The pianist is immediately smitten with the woman of obvious wealth and status, soon proposing they marry. She says it is impossible, as the man would be forced to choose between her or his music.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+          "airDate": "1952-03-24",
+          "year": null,
+          "runtimeSeconds": 1336,
+          "videoFile": {
+            "name": "Lights_out_Another_country_03_24_1952.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 172100203,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LightsOut-AnotherCountry/Lights_out_Another_country_03_24_1952.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 31
+}

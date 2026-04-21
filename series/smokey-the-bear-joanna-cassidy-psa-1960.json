@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "smokey-the-bear-joanna-cassidy-psa-1960",
+  "title": "Smokey The Bear / Joanna Cassidy PSA",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SmokeyTheBearJoannaCassidyPsa",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SmokeyTheBearJoannaCassidyPsa",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Smokey The Bear / Joanna Cassidy PSA",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SmokeyTheBearJoannaCassidyPsa",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "joannacassidy_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 2193942,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SmokeyTheBearJoannaCassidyPsa/joannacassidy_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

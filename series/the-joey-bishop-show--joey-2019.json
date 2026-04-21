@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-joey-bishop-show--joey-2019",
+  "title": "The Joey Bishop Show- Joey",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/thejoeybishopshowjoeyshideaways3e15convertvideoonline.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "thejoeybishopshowjoeyshideaways3e15convertvideoonline.com",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "The Joey Bishop Show- Joey's Hideaway (S3E15)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/thejoeybishopshowjoeyshideaways3e15convertvideoonline.com",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Joey Bishop Show- Joey's Hideaway (S3E15) (convert-video-online.com).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 112085090,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thejoeybishopshowjoeyshideaways3e15convertvideoonline.com/The Joey Bishop Show- Joey's Hideaway (S3E15) (convert-video-online.com).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

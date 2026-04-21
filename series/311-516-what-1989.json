@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "311-516-what-1989",
+  "title": "311 516 WHAT",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/311-516-wgo-h-264",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "311-516-wgo-h-264",
+          "seasonNumber": 1,
+          "episodeNumber": 311,
+          "title": "311 516 WHAT'S GOING ON",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/311-516-wgo-h-264",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "311_516_WGO_H264.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2691857382,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/311-516-wgo-h-264/311_516_WGO_H264.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

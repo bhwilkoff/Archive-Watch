@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "club-mtv--april-1989-partial-first-song-2025",
+  "title": "Club MTV- April 1989 (partial, first song",
+  "yearStart": 2025,
+  "yearEnd": 2025,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/club-mtv-late-spring-1989-partial-first-song-bobby-brown-every-little-step",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "club-mtv-late-spring-1989-partial-first-song-bobby-brown-every-little-step",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Club MTV- April 1989 (partial, first song: Bobby Brown- Every Little Step)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/club-mtv-late-spring-1989-partial-first-song-bobby-brown-every-little-step",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Club MTV- Late Spring 1989 (partial, first song Bobby Brown- Every Little Step).mp4",
+            "format": "h.264",
+            "sizeBytes": 101396124,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/club-mtv-late-spring-1989-partial-first-song-bobby-brown-every-little-step/Club MTV- Late Spring 1989 (partial, first song Bobby Brown- Every Little Step).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

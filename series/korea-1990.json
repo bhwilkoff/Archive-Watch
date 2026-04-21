@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "korea-1990",
+  "title": "Korea",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/KoreaUnknownWarISOs",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "KoreaUnknownWarISOs",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Korea : The Unknown War DVD ISOs",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/KoreaUnknownWarISOs",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Korea.The.Unknown.War.S01E05.The.Battle.of.Minds.1990.Korea.The.Unknown.War.S01E06.Armed.Truce.1990.mp4",
+            "format": "h.264",
+            "sizeBytes": 349203755,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/KoreaUnknownWarISOs/Korea.The.Unknown.War.S01E05.The.Battle.of.Minds.1990.Korea.The.Unknown.War.S01E06.Armed.Truce.1990.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

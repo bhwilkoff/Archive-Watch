@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "seriesID": "bob-hope-1986",
+  "title": "Bob Hope",
+  "yearStart": 1986,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bob-hopes-bagful-of-christmas-cheer-1986",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bob-hopes-bagful-of-christmas-cheer-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope's Bagful Of Christmas Cheer - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hopes-bagful-of-christmas-cheer-1986",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hopes Bagful of Christmas Cheer - 1986.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1522221639,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hopes-bagful-of-christmas-cheer-1986/Bob Hopes Bagful of Christmas Cheer - 1986.ia.mp4"
+        },
+        {
+          "archiveID": "bob-hopes-birthday-spectacular-in-paris-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope's Birthday Spectacular In Paris - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hopes-birthday-spectacular-in-paris-1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hopes Birthday Spectacular in Paris - 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2907629870,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hopes-birthday-spectacular-in-paris-1989/Bob Hopes Birthday Spectacular in Paris - 1989.ia.mp4"
+        },
+        {
+          "archiveID": "bob-hopes-christmas-cheer-from-saudi-arabia-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope's Christmas Cheer From Saudi Arabia - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hopes-christmas-cheer-from-saudi-arabia-1991",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hopes Christmas Cheer from Saudi Arabia - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2210338698,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hopes-christmas-cheer-from-saudi-arabia-1991/Bob Hopes Christmas Cheer from Saudi Arabia - 1991.ia.mp4"
+        },
+        {
+          "archiveID": "bob-hopes-christmas-show-from-hawaii-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope's Christmas Show From Hawaii - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hopes-christmas-show-from-hawaii-1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hopes Christmas Show from Hawaii - 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1498859576,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hopes-christmas-show-from-hawaii-1989/Bob Hopes Christmas Show from Hawaii - 1989.ia.mp4"
+        },
+        {
+          "archiveID": "bob-hopes-cross-country-xmas-show-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope's Cross Country Xmas Show - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hopes-cross-country-xmas-show-1991",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hopes Cross-Country Xmas Show - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1384529134,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hopes-cross-country-xmas-show-1991/Bob Hopes Cross-Country Xmas Show - 1991.ia.mp4"
+        },
+        {
+          "archiveID": "bob-hopes-high-flying-birthday-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope's High-Flying Birthday - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hopes-high-flying-birthday-1986",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hopes High-Flying Birthday - 1986.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3093050188,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hopes-high-flying-birthday-1986/Bob Hopes High-Flying Birthday - 1986.ia.mp4"
+        },
+        {
+          "archiveID": "bob-hopes-jolly-christmas-show-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope's Jolly Christmas Show - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hopes-jolly-christmas-show-1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hopes Jolly Christmas Show - 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1506324132,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hopes-jolly-christmas-show-1989/Bob Hopes Jolly Christmas Show - 1989.ia.mp4"
+        },
+        {
+          "archiveID": "bob-hopes-love-affair-with-lucy-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope's Love Affair With Lucy - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hopes-love-affair-with-lucy-1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hopes Love Affair with Lucy - 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2206387609,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hopes-love-affair-with-lucy-1989/Bob Hopes Love Affair with Lucy - 1989.ia.mp4"
+        },
+        {
+          "archiveID": "bob-hopes-spring-fling-from-acapulco-1990_202205",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope's Spring Fling From Acapulco - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hopes-spring-fling-from-acapulco-1990_202205",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hopes Spring Fling from Acapulco - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1438375059,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hopes-spring-fling-from-acapulco-1990_202205/Bob Hopes Spring Fling from Acapulco - 1990.ia.mp4"
+        },
+        {
+          "archiveID": "bob-hopes-yellow-ribbon-party-1991",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope's Yellow Ribbon Party - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hopes-yellow-ribbon-party-1991",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hopes Yellow Ribbon Party - 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2174464577,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hopes-yellow-ribbon-party-1991/Bob Hopes Yellow Ribbon Party - 1991.ia.mp4"
+        },
+        {
+          "archiveID": "bob-hopes-young-comedians-making-america-laugh-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bob Hope's Young Comedians Making America Laugh - Bob Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bob-hopes-young-comedians-making-america-laugh-1994",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Bob Hopes Young Comedians - Making America Laugh - 1994.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1428134816,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bob-hopes-young-comedians-making-america-laugh-1994/Bob Hopes Young Comedians - Making America Laugh - 1994.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 11
+}

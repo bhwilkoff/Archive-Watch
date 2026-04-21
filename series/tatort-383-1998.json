@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "tatort-383-1998",
+  "title": "Tatort (383",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/2862640-49962993",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "2862640-49962993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tatort (383): Manila (1998)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/2862640-49962993",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "2862640_49962993.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2991935111,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/2862640-49962993/2862640_49962993.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

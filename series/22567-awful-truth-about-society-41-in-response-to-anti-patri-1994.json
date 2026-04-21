@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "22567-awful-truth-about-society-41-in-response-to-anti-patri-1994",
+  "title": "22567 Awful Truth About Society # 41 In Response To Anti Patriot Groups",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/22567-awful-truth-about-society-41-in-response-to-anti-patriot-groups",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "22567-awful-truth-about-society-41-in-response-to-anti-patriot-groups",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "22567 Awful Truth About Society # 41 In Response To Anti Patriot Groups",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/22567-awful-truth-about-society-41-in-response-to-anti-patriot-groups",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "22567 Awful Truth About Society #41 In Response to Anti-Patriot Groups.mp4",
+            "format": "h.264",
+            "sizeBytes": 621459641,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/22567-awful-truth-about-society-41-in-response-to-anti-patriot-groups/22567 Awful Truth About Society #41 In Response to Anti-Patriot Groups.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

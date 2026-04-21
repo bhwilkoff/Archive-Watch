@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-howie-mandel-show-september-18-1998-2024",
+  "title": "The Howie Mandel Show (September 18, 1998",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-howie-mandel-show-september-18-1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-howie-mandel-show-september-18-1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Howie Mandel Show (September 18, 1998)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-howie-mandel-show-september-18-1998",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Howie Mandel Show (September 18, 1998).mp4",
+            "format": "h.264",
+            "sizeBytes": 259508193,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-howie-mandel-show-september-18-1998/The Howie Mandel Show (September 18, 1998).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

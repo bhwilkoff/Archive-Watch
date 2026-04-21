@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-ladies-of-sherwood-1960",
+  "title": "The Ladies Of Sherwood",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Robin_Hood_23_The_Ladies_Of_Sherwood",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_23_The_Ladies_Of_Sherwood",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Ladies Of Sherwood",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Robin_Hood_23_The_Ladies_Of_Sherwood",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_23_The_Ladies_Of_Sherwood.mp4",
+            "format": "h.264",
+            "sizeBytes": 152497644,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_23_The_Ladies_Of_Sherwood/Robin_Hood_23_The_Ladies_Of_Sherwood.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

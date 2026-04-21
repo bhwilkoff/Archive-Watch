@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "adolf-hitler-1950",
+  "title": "Adolf Hitler",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Documentaire_201809",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Documentaire_201809",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Adolf Hitler",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Documentaire_201809",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TheSecretLifeOfAdolfHitler.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 236961034,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Documentaire_201809/TheSecretLifeOfAdolfHitler.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

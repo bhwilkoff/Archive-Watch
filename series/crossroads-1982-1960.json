@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "crossroads-1982-1960",
+  "title": "Crossroads 1982",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/crossroads-1982-1987_202303",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "crossroads-1982-1987_202303",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Crossroads 1982 - 1987",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/crossroads-1982-1987_202303",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Crossroads (1965) - S1982-S1987E4510 (SDTV-576p h264 AC3)-RelaTVity.mp4",
+            "format": "h.264",
+            "sizeBytes": 381186498,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/crossroads-1982-1987_202303/Crossroads (1965) - S1982-S1987E4510 (SDTV-576p h264 AC3)-RelaTVity.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

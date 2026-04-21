@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cayuga-connection-11-11-92-1992",
+  "title": "Cayuga Connection 11 11 92",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/CayugaConnection111192",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CayugaConnection111192",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cayuga Connection 11 11 92",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CayugaConnection111192",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cayuga Connection 11-11-92.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 127338137,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CayugaConnection111192/Cayuga Connection 11-11-92.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

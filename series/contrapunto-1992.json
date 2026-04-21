@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "contrapunto-1992",
+  "title": "Contrapunto",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Contrapunto_Informe_sobre_el_atentado_a_Frecuencia_2_07-06-1992",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Contrapunto_Informe_sobre_el_atentado_a_Frecuencia_2_07-06-1992",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Contrapunto - Informe sobre el atentado a Frecuencia 2 - 07-06-1992",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Contrapunto_Informe_sobre_el_atentado_a_Frecuencia_2_07-06-1992",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Contrapunto - Informe sobre el atentado a Frecuencia 2 - 07-06-1992.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 90476362,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Contrapunto_Informe_sobre_el_atentado_a_Frecuencia_2_07-06-1992/Contrapunto - Informe sobre el atentado a Frecuencia 2 - 07-06-1992.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

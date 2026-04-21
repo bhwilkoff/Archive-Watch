@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "pilot-episode-1960",
+  "title": "Pilot Episode",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/FMAM_TV_PILOT",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "FMAM_TV_PILOT",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Pilot Episode",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/FMAM_TV_PILOT",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "FMAM_TV_Pilot.mp4",
+            "format": "h.264",
+            "sizeBytes": 164823111,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FMAM_TV_PILOT/FMAM_TV_Pilot.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

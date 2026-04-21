@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ae-biography-1960",
+  "title": "A&E Biography",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/frank-sinatra-1998-tribute-edition",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "frank-sinatra-1998-tribute-edition",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A&E Biography: Frank Sinatra (1998 Tribute Edition)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/frank-sinatra-1998-tribute-edition",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Frank Sinatra (1998 Tribute Edition).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 161732953,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/frank-sinatra-1998-tribute-edition/Frank Sinatra (1998 Tribute Edition).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

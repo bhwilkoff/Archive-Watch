@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "malhac_a_o_1997_capi_tulo_42-1960",
+  "title": "Malhac_a_o_1997_Capi_tulo_42",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Malhac_a_o_1997_Capi_tulo_42",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Malhac_a_o_1997_Capi_tulo_42",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Malhac_a_o_1997_Capi_tulo_42",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Malhac_a_o_1997_Capi_tulo_42",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Malhac_a_o_1997_Capi_tulo_42.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 174176294,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Malhac_a_o_1997_Capi_tulo_42/Malhac_a_o_1997_Capi_tulo_42.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

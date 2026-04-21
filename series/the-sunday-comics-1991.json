@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-sunday-comics-1991",
+  "title": "The Sunday Comics",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "The Sunday Comics is a prime time showcase of comedy broadcast in the United States by Fox Broadcasting Company in 1991 and 1992.\n\nThe Sunday Comics showcased not only standup comedy but also variety acts, and film shorts produced by comics including Bruce Baum, Gilbert Gottfried, Rich Hall, and Rich Overton. The program's primary venue was the Palace Theatre in Hollywood, but the show also made visits to other locations.\n\nThe program was originally hosted by Jeff Altman, but he left the show in June 1991 and was replaced by Lenny Clarke. Clark's tenure as host ended in October, and for the rest of the year, guest hosts were used.\n\nEdited reruns of the show were shown on FOX in February and March 1992.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-sunday-comics-s-01-e-01-april-28-1991-host-altman-franklin-ajaye",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Sunday Comics S01E01 April 28 1991 Host Altman Franklin Ajaye",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Sunday Comics - S01E01 - April 28 1991 - Host Altman - Franklin Ajaye.mp4",
+            "format": "h.264",
+            "sizeBytes": 341782771,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-sunday-comics-s-01-e-01-april-28-1991-host-altman-franklin-ajaye/The Sunday Comics - S01E01 - April 28 1991 - Host Altman - Franklin Ajaye.mp4"
+        },
+        {
+          "archiveID": "the-sunday-comics-s-01-e-02-may-5-1991-host-altman",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Sunday Comics S01E02 May 5 1991 Host Altman",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Sunday Comics - S01E02 - May 5 1991 - Host Altman.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 846779981,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-sunday-comics-s-01-e-02-may-5-1991-host-altman/The Sunday Comics - S01E02 - May 5 1991 - Host Altman.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

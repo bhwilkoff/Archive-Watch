@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-martin-short-show-1994",
+  "title": "The Martin Short Show",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": "A syndicated talk show hosted by actor Martin Short with announcer/sidekick Michael McGrath.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kmCDW773PfqwAZySq4eoOaBpUkH.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "martin-short-show-steve-martin-1.2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Martin Short Show - Martin Short",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kmCDW773PfqwAZySq4eoOaBpUkH.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Martin Short Show - Steve Martin - 1.2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 694915603,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/martin-short-show-steve-martin-1.2/Martin Short Show - Steve Martin - 1.2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

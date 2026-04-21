@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sally-jessy-raphael-december-10-1990-2024",
+  "title": "Sally Jessy Raphael (December 10, 1990",
+  "yearStart": 2024,
+  "yearEnd": 2024,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sally-jessy-raphael-december-10-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sally-jessy-raphael-december-10-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sally Jessy Raphael (December 10, 1990)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sally-jessy-raphael-december-10-1990",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sally Jessy Raphael (December 10, 1990).mp4",
+            "format": "h.264",
+            "sizeBytes": 270008600,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sally-jessy-raphael-december-10-1990/Sally Jessy Raphael (December 10, 1990).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "larry-king-live-1988",
+  "title": "Larry King Live",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": "Larry King Live is an American talk show that was hosted by Larry King on CNN from 1985 to 2010. It was CNN's most watched and longest-running program, with over one million viewers nightly.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/bjBePP4oQdyVWzsVp168WsoiRDm.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/2dXIL3sZ9TmR3nxaEfZmhouuSbF.jpg",
+  "genres": [],
+  "networks": [
+    "CNN"
+  ],
+  "creator": "Larry King",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "larry-king-frank-borman-geraldo-rivera-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Larry King Live - Larry King",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/bjBePP4oQdyVWzsVp168WsoiRDm.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Larry King - Frank Borman Geraldo Rivera - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1335781616,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/larry-king-frank-borman-geraldo-rivera-1988/Larry King - Frank Borman Geraldo Rivera - 1988.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

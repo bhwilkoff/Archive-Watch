@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "out-of-control-1984",
+  "title": "Out Of Control",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "Out of Control is an American comedy television series that ran on Nickelodeon from 1984 until 1985 with reruns until 1991, and was the first series produced specifically for that channel.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Nickelodeon"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "out-of-control_202407",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Out Of Control (1984)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Out of Control - Dave's Birthday [RedF].mp4",
+            "format": "h.264",
+            "sizeBytes": 153579200,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/out-of-control_202407/Out of Control - Dave's Birthday [RedF].mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

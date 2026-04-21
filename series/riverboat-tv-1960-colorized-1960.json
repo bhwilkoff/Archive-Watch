@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "riverboat-tv-1960-colorized-1960",
+  "title": "Riverboat TV 1960 colorized",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/riverboat-tv-1960-colorized-s01e17-landlubbers",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "riverboat-tv-1960-colorized-s01e17-landlubbers",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Riverboat TV 1960 colorized s01e17 Landlubbers",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/riverboat-tv-1960-colorized-s01e17-landlubbers",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Riverboat TV 1960 colorized s01e17 Landlubbers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 334648904,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/riverboat-tv-1960-colorized-s01e17-landlubbers/Riverboat TV 1960 colorized s01e17 Landlubbers.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

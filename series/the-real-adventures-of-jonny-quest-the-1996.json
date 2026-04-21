@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "seriesID": "the-real-adventures-of-jonny-quest-the-1996",
+  "title": "The Real Adventures Of Jonny Quest The",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": "The Real Adventures of Jonny Quest is an American animated action-adventure television series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/vx8KdVNOpHVBR0x30shg5kcGnd7.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/iIQKA17YHJUmGYRpXmP0KXaxq99.jpg",
+  "genres": [],
+  "networks": [
+    "TNT",
+    "Cartoon Network",
+    "TBS"
+  ],
+  "creator": "Doug Wildey",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-real-adventures-of-jonny-quest-the-complete-series_202304",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Real Adventures Of Jonny Quest The Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vx8KdVNOpHVBR0x30shg5kcGnd7.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Real Adventures of Jonny Quest Season 01 Episode 18 – Heroes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 131810354,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-real-adventures-of-jonny-quest-the-complete-series_202304/The Real Adventures of Jonny Quest Season 01 Episode 18 – Heroes.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

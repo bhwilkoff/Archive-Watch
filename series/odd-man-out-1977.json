@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "odd-man-out-1977",
+  "title": "ODD MAN OUT",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": "Odd Man Out is a British comedy television series starring John Inman. The series aired seven episodes on ITV in 1977. It was made by Thames TV and written by Vince Powell.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/c7mwFDeYaJbqyWlnfWCWiaeF37m.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bGivaqF4QOm97mv4f7Su0DTygof.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "odd-man-out-1977",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ODD MAN OUT (1977) (Full Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c7mwFDeYaJbqyWlnfWCWiaeF37m.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ODD MAN OUT (1977)/06.Odd  Man Out...Clunk Click.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 81746609,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/odd-man-out-1977/ODD MAN OUT (1977)/06.Odd  Man Out...Clunk Click.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

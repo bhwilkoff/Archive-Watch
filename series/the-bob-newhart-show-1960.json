@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-bob-newhart-show-1960",
+  "title": "The Bob Newhart Show",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Bob Newhart Show is an American situation comedy produced by MTM Enterprises, which aired 142 original episodes on CBS from September 16, 1972, to April 1, 1978. Comedian Bob Newhart portrays a psychologist having to deal with his patients and fellow office workers. The show was filmed before a live audience.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kQ9XpyvsW76gIwQxJ5GdXsYbF5N.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/vE6yzGzNqQdjdOFw48C41a4pF5j.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Lorenzo Music",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheBobNewhartShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Bob Newhart Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kQ9XpyvsW76gIwQxJ5GdXsYbF5N.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Bob Newhart Show - Season 3/The Bob Newhart Show s03e14 - Serve For Daylight.mp4",
+            "format": "h.264",
+            "sizeBytes": 160525819,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBobNewhartShow/The Bob Newhart Show - Season 3/The Bob Newhart Show s03e14 - Serve For Daylight.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

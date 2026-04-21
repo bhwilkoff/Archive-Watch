@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "haven-for-heavies-1960",
+  "title": "Haven For Heavies",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Cisco_Kid_-_Haven_For_Heavies",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cisco_Kid_-_Haven_For_Heavies",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Haven For Heavies",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Cisco_Kid_-_Haven_For_Heavies",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cisco_Kid_-_Haven_For_Heavies.mp4",
+            "format": "h.264",
+            "sizeBytes": 147455523,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cisco_Kid_-_Haven_For_Heavies/Cisco_Kid_-_Haven_For_Heavies.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

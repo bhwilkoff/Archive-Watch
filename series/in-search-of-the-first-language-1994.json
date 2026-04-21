@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "in-search-of-the-first-language-1994",
+  "title": "In Search of the First Language",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/InSearchoftheFirstLanguage",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "InSearchoftheFirstLanguage",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "In Search of the First Language",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/InSearchoftheFirstLanguage",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "NOVA.S21E20.In.Search.of.the.First.Language.1994.VHSRip.AAC2.0.x264-rattera.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 276860359,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/InSearchoftheFirstLanguage/NOVA.S21E20.In.Search.of.the.First.Language.1994.VHSRip.AAC2.0.x264-rattera.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

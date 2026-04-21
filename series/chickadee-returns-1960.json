@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "chickadee-returns-1960",
+  "title": "Chickadee Returns",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep43_Chickadee_Returns",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep43_Chickadee_Returns",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Chickadee Returns",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep43_Chickadee_Returns",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Beverly_Hillbillies_Ep43_Chickadee_Returns.mp4",
+            "format": "h.264",
+            "sizeBytes": 153330171,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep43_Chickadee_Returns/Beverly_Hillbillies_Ep43_Chickadee_Returns.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

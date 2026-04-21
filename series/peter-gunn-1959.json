@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "peter-gunn-1959",
+  "title": "Peter Gunn",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": "Peter Gunn is an American private eye television series. Filmed in a film noir atmosphere and featuring Henry Mancini music that could tell you the action with your eyes closed, Peter Gunn worked in style. Known as Pete to his friends and simply as Gunn to his enemies, he did his job in a calm cool way.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/hE0Un65f1k11GUQTCqk7s0hzokY.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/kNgdev5dOyp7QVXA9SqBGifwC0o.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Blake Edwards",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "PeterGunn-TheFuse",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Fuse",
+          "overview": "A union boss's birthday starts off with a bang, and the crime boss who is the chief suspect wants Pete to clear his name before the situation gets even more explosive.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rJblZr3AA25Mv4fso1Ig70ELA2a.jpg",
+          "airDate": "1959-01-05",
+          "year": 1959,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "PeterGunn-TheFuse.mp4",
+            "format": "h.264",
+            "sizeBytes": 158897166,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PeterGunn-TheFuse/PeterGunn-TheFuse.mp4"
+        },
+        {
+          "archiveID": "PeterGunn-LetsKillTimothy",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Let's Kill Timothy",
+          "overview": "A couple of safe-crackers realize too late that the lookout on their jewel store burglary is no longer looking out, he's absconded with the most valuable jewels. The double-crosser bursts into Mother's nightclub to beg Peter Gunn to protect a mysterious 4th conspirator, Timothy, who turns out to be a trained seal. Why would anyone want to kill Timothy?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/vIqL3igreDerzd0w6HUNdctUJsC.jpg",
+          "airDate": "1959-01-19",
+          "year": 1959,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "PeterGunn-LetsKillTimothy.mp4",
+            "format": "h.264",
+            "sizeBytes": 159415895,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PeterGunn-LetsKillTimothy/PeterGunn-LetsKillTimothy.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

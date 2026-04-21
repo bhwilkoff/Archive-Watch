@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jack-goes-to-a-concert-1960",
+  "title": "Jack Goes To A Concert",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/JackBennyProgram-11x08.JackGoesToAConcert",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JackBennyProgram-11x08.JackGoesToAConcert",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Goes To A Concert",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBennyProgram-11x08.JackGoesToAConcert",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "JackBennyProgram-11x08.JackGoesToAConcert.mp4",
+            "format": "h.264",
+            "sizeBytes": 143659330,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBennyProgram-11x08.JackGoesToAConcert/JackBennyProgram-11x08.JackGoesToAConcert.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

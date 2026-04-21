@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "nightline-07091998-1998",
+  "title": "Nightline (07/09/1998",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/nightline19980907",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "nightline19980907",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Nightline (07/09/1998)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/nightline19980907",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "13 - Nightline (1st segment)-ads (1st break)-(2nd segment).mp4",
+            "format": "h.264",
+            "sizeBytes": 104576914,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/nightline19980907/13 - Nightline (1st segment)-ads (1st break)-(2nd segment).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

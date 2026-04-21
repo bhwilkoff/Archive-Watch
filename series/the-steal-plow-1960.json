@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-steal-plow-1960",
+  "title": "The Steal Plow",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheStealPlow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheStealPlow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Steal Plow",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheStealPlow",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "CiscoKid-TheSteelPlow.mp4",
+            "format": "h.264",
+            "sizeBytes": 152319248,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheStealPlow/CiscoKid-TheSteelPlow.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

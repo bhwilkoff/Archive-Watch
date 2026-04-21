@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "a-bit-of-a-do-1989",
+  "title": "A BIT OF A DO",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "A Bit of a Do is a British comedy drama series based on the books by David Nobbs. The show starred David Jason and was aired on ITV in 1989. It was made for the ITV network by Yorkshire Television.\n\nThe show was set in a fictional Yorkshire town. Each episode took place at a different social function and followed the changing lives of two families, the working-class Simcocks and the middle-class Rodenhursts, together with their respective friends, Rodney and Betty Sillitoe, and Neville Badger. The series begins with the wedding of Ted and Rita Simcock's son Paul to Laurence and Liz Rodenhurst's daughter Jenny; an event at which Ted and Liz begin an affair. The subsequent fallout from this affair forms the basis for most of the first series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/d5v3Rkm8t9tfv7w64iNw8gfn6of.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bS94h52mp7iPAvYw86wgL7J3Uhv.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "a-bit-of-a-do-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A BIT OF A DO (1989) (Full Series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/d5v3Rkm8t9tfv7w64iNw8gfn6of.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A BIT OF A DO (1989)/03.A Bit Of A Do...The Angling Club Christmas Party.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 420270363,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/a-bit-of-a-do-1989/A BIT OF A DO (1989)/03.A Bit Of A Do...The Angling Club Christmas Party.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

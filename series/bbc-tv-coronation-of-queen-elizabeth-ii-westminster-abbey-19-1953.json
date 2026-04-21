@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bbc-tv-coronation-of-queen-elizabeth-ii-westminster-abbey-19-1953",
+  "title": "BBC TV Coronation Of Queen Elizabeth II Westminster Abbey 1953 William Mc Kie",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/bbc-tv-coronation-of-queen-elizabeth-ii-westminster-abbey-1953-william-mc-kie",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "bbc-tv-coronation-of-queen-elizabeth-ii-westminster-abbey-1953-william-mc-kie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC TV Coronation Of Queen Elizabeth II Westminster Abbey 1953 William Mc Kie",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bbc-tv-coronation-of-queen-elizabeth-ii-westminster-abbey-1953-william-mc-kie",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BBC TV Coronation of Queen Elizabeth II_ Westminster Abbey 1953 _William McKie_.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 808296984,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/bbc-tv-coronation-of-queen-elizabeth-ii-westminster-abbey-1953-william-mc-kie/BBC TV Coronation of Queen Elizabeth II_ Westminster Abbey 1953 _William McKie_.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

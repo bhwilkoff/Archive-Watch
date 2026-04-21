@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "cluedo-1991",
+  "title": "Cluedo",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Cluedo was a UK television game show based on the board game of the same name. Each week, a reenactment of the murder at the stately home Arlington Grange of a visiting guest was played and, through a combination of interrogating the suspects and deduction, celebrity guests had to discover who committed the murder, which of six weapons and in which room it was committed, whilst viewers were invited to play along at home.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/3uwUBPpfrCzHCwPwu2M70dIFx0u.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qQ8CSe9rot8gmmbCsUtzefiMy6.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "itv-s-cluedo-series-2-episode-2-1st-may-1991-vidiget-dot-com-664973",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Best Insurance",
+          "overview": "After a string of thefts from the Grange, George Biddle comes to call, in connection with Mrs Peacock's insurance claim. Who is the thief? And, indeed, was anything really stolen? A number of other issues come to the surface. There are obscurities about an insurance claim on the late Mr Peacock's death. Biddle, an old friend of Colonel Mustard's, had promised him a directorship but had not delivered. It seems that Green had made a suspicious claim for some supposedly missing candlesticks, while Biddle also knew that Scarlet had sold a valuable bronze and put a modern copy in its place. And did Mrs White really set fire to the last house she worked in?The real mystery is surely that Biddle managed to survive for more than five minutes at Arlington Grange.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/3uwUBPpfrCzHCwPwu2M70dIFx0u.jpg",
+          "airDate": "1991-05-01",
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ITV-s-Cluedo-Series-2-Episode-2-1st-May-1991-vidiget-dot-com-664973.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 182540415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/itv-s-cluedo-series-2-episode-2-1st-may-1991-vidiget-dot-com-664973/ITV-s-Cluedo-Series-2-Episode-2-1st-May-1991-vidiget-dot-com-664973.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

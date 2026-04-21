@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "el-show-de-koko-giles-1998",
+  "title": "El Show de Koko Giles",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/El_Show_de_Koko_Giles_Programa_Completo_02-09-1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "El_Show_de_Koko_Giles_Programa_Completo_02-09-1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "El Show de Koko Giles - Programa Incompleto 02-09-1998",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/El_Show_de_Koko_Giles_Programa_Completo_02-09-1998",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "El Show de Koko Giles - Programa Completo 02-09-1998.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 121908491,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/El_Show_de_Koko_Giles_Programa_Completo_02-09-1998/El Show de Koko Giles - Programa Completo 02-09-1998.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "a-year-to-remeber-1960",
+  "title": "A Year To Remeber",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/YTR1935",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "YTR1935",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Year To Remeber - 1935",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/YTR1935",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1320,
+          "videoFile": {
+            "name": "Year_To_Remeber_1935.mp4",
+            "format": "h.264",
+            "sizeBytes": 153003698,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/YTR1935/Year_To_Remeber_1935.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

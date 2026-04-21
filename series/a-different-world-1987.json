@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "a-different-world-1987",
+  "title": "A Different World",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": "A Different World is a spin-off series from The Cosby Show and originally centered on Denise Huxtable and the life of students at Hillman College, a fictional mixed but historically black college in the state of Virginia. After Bonet's departure in the first season, the remainder of the series primarily focused more on Southern belle Whitley Gilbert and mathematics whiz Dwayne Wayne. The series frequently depicted members of the major historically black fraternities and sororities.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/v7fuifcJjcqQxAsOjPviupcmFIZ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/ebTL1Lyvr0LVBrMlhgQp6lqijC6.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Bill Cosby",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "a-different-world-6.17-18",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "A Different World - Kadeem Hardison, Jasmine Guy, Lisa Bonet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v7fuifcJjcqQxAsOjPviupcmFIZ.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "A Different World - 6.17-18.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 905383566,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/a-different-world-6.17-18/A Different World - 6.17-18.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

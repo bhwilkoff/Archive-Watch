@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "outlaws-1986",
+  "title": "Outlaws",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": "Outlaws is an NBC Western television series, starring Barton MacLane as U.S. marshal Frank Caine, who operated in a lawless section of Oklahoma Territory about Stillwater. The program aired 50 one-hour episodes from September 29, 1960, to May 10, 1962. The first season was shot in black-and-white, the second in color. Co-starring with MacLane in the 1960–1961 season was Don Collier as deputy marshal Will Foreman. In the second season, MacLane left the program, and Collier was promoted to full marshal, with Bruce Yarnell joining the cast as deputy marshal Chalk Breeson. Jock Gaynor appeared in the first season as deputy Heck Martin, the on-screen nephew of Will Foreman. Slim Pickens appeared as \"Slim\" in the second season. Judy Lewis also appeared the second season as Connie Masters, an employee of the Wells Fargo office in Stillwater.\n\nThe dog who appeared in Walt Disney's Old Yeller was also cast in The Outlaws.\n\nOthers who appeared on the program on at least three occasions were Vic Morrow, Cliff Robertson, Pippa Scott, and Harry Townes. In addition, John Anderson, Edgar Buchanan, Jackie Coogan, Bruce Gordon, Robert Harland, Robert Lansing Cloris Leachman, Robert Karnes, Brian Keith, Larry Pennell, Chris Robinson, William Shatner, Ray Walston, Jack Warden, and David Wayne each appeared twice in the series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/93BqkPyaI0nt7w4YSEbkSauKfUz.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/a5Ifvd2PhCrvcD0HzuToU5wLSUo.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "outlaws-1.03",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Outlaws - Richard Roundtree, Christine Belford",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/93BqkPyaI0nt7w4YSEbkSauKfUz.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Outlaws - 1.01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1704845856,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/outlaws-1.03/Outlaws - 1.01.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

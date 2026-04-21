@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-lone-ranger-old-joe-2014",
+  "title": "The Lone Ranger Old Joe",
+  "yearStart": 2014,
+  "yearEnd": 2014,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheLoneRangerOldJoesSister",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheLoneRangerOldJoesSister",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Lone Ranger Old Joe's Sister",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheLoneRangerOldJoesSister",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Lone Ranger - Old Joe's Sister.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 98577556,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheLoneRangerOldJoesSister/The Lone Ranger - Old Joe's Sister.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

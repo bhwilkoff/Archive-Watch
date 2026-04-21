@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "sixty-years-of-seduction-1980",
+  "title": "Sixty Years Of Seduction",
+  "yearStart": 1980,
+  "yearEnd": 1981,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sixty-years-of-seduction-1981",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sixty Years Of Seduction - Angie Dickinson, James Garner",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sixty Years of Seduction - 1981.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2854324979,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sixty-years-of-seduction-1981/Sixty Years of Seduction - 1981.ia.mp4"
+        },
+        {
+          "archiveID": "sixty-years-of-seduction-1980",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sixty Years Of Seduction - Angie Dickinson, James Garner",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sixty Years of Seduction - 1980.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2833210112,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sixty-years-of-seduction-1980/Sixty Years of Seduction - 1980.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

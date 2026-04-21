@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "madonna-take-a-bow-live-american-music-awards-1995-1960",
+  "title": "Madonna Take A Bow (live @ American Music Awards 1995",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/madonna-take-a-bow-live-american-music-awards-1995",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "madonna-take-a-bow-live-american-music-awards-1995",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Madonna Take A Bow (live @ American Music Awards 1995)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/madonna-take-a-bow-live-american-music-awards-1995",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Madonna Take a bow (live @ American Music Awards 1995).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 28019715,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/madonna-take-a-bow-live-american-music-awards-1995/Madonna Take a bow (live @ American Music Awards 1995).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

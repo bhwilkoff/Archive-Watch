@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "55-01-09-the-jack-benny-program-s-05e-08-burglar-tries-to-br-1955",
+  "title": "55 01 09 The Jack Benny Program S 05e 08 Burglar Tries To Break Into The Vault",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/550109TheJackBennyProgramS05e08BurglarTriesToBreakIntoTheVault",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "550109TheJackBennyProgramS05e08BurglarTriesToBreakIntoTheVault",
+          "seasonNumber": 1,
+          "episodeNumber": 55,
+          "title": "55 01 09 The Jack Benny Program S 05e 08 Burglar Tries To Break Into The Vault",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/550109TheJackBennyProgramS05e08BurglarTriesToBreakIntoTheVault",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "55-01-09  The Jack Benny Program  s05e08  Burglar Tries To Break Into The Vault.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 99386392,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/550109TheJackBennyProgramS05e08BurglarTriesToBreakIntoTheVault/55-01-09  The Jack Benny Program  s05e08  Burglar Tries To Break Into The Vault.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

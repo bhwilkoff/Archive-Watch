@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-british-teenager-1960",
+  "title": "The British Teenager",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OutlookNo12201251959",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OutlookNo12201251959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The British Teenager\" (Outlook - 25/January/1959)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OutlookNo12201251959",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Outlook_No_122_01_25_1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 178910437,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OutlookNo12201251959/Outlook_No_122_01_25_1959.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

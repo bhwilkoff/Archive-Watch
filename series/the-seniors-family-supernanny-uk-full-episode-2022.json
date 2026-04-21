@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-seniors-family-supernanny-uk-full-episode-2022",
+  "title": "The Seniors Family Supernanny UK FULL EPISODE",
+  "yearStart": 2022,
+  "yearEnd": 2022,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-seniors-family-supernanny-uk-full-episode",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-seniors-family-supernanny-uk-full-episode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Seniors Family Supernanny UK FULL EPISODE",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-seniors-family-supernanny-uk-full-episode",
+          "airDate": null,
+          "year": 2022,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Seniors Family - Supernanny UK FULL EPISODE.mp4",
+            "format": "h.264",
+            "sizeBytes": 277864050,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-seniors-family-supernanny-uk-full-episode/The Seniors Family - Supernanny UK FULL EPISODE.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

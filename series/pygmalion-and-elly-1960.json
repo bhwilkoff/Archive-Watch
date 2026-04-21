@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "pygmalion-and-elly-1960",
+  "title": "Pygmalion And Elly",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep10_Pygmalion_And_Elly",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep10_Pygmalion_And_Elly",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Pygmalion And Elly",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep10_Pygmalion_And_Elly",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH10_Pygmalion_And_Elly.mp4",
+            "format": "h.264",
+            "sizeBytes": 154183455,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep10_Pygmalion_And_Elly/BH10_Pygmalion_And_Elly.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

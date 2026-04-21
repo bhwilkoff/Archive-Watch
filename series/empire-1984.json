@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "empire-1984",
+  "title": "Empire",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "Empire is an hour-long Western television series set on a 1960s 500,000-acre ranch in New Mexico, starring Richard Egan, Terry Moore, Charles Bronson, and Ryan O'Neal. It ran on NBC from September 25, 1962, to May 14, 1963.\n\nIn the second abbreviated season, from September 24 to December 31, 1963, it was renamed Redigo after Egan's title character, Jim Redigo, the general manager of the fictitious Garrett ranch in Empire, and reduced to a half-hour. (Unaired Pilot: This Rugged Land)",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/572/1431410.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Kathleen Hite",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "empire-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Empire - Dennis Dugan, Caren Kaye",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/572/1431410.jpg",
+          "airDate": null,
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Empire - 1.5-6.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1407276633,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/empire-1.1/Empire - 1.5-6.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

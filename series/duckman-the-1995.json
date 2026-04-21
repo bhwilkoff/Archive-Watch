@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "duckman-the-1995",
+  "title": "Duckman The",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DuckmanComplete",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "DuckmanComplete",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Duckman The Complete Series",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DuckmanComplete",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Duckman/Season 1/Duckman S01E04 Psyche.mp4",
+            "format": "h.264",
+            "sizeBytes": 137652795,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DuckmanComplete/Duckman/Season 1/Duckman S01E04 Psyche.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

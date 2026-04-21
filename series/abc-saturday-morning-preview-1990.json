@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-saturday-morning-preview-1990",
+  "title": "ABC Saturday Morning Preview",
+  "yearStart": 1990,
+  "yearEnd": 1990,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/abc-saturday-morning-preview-1990",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "abc-saturday-morning-preview-1990",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC Saturday Morning Preview - Jaleel White, Reginald VelJohnson",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/abc-saturday-morning-preview-1990",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC Saturday Morning Preview - 1990.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 546083027,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/abc-saturday-morning-preview-1990/ABC Saturday Morning Preview - 1990.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

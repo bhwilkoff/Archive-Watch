@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "columbo-pilot-episodes-1968",
+  "title": "Columbo Pilot Episodes",
+  "yearStart": 1968,
+  "yearEnd": 1968,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/columbo-pilot-episodes",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "columbo-pilot-episodes",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Columbo Pilot Episodes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/columbo-pilot-episodes",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1 - Prescription Murder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 543411121,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/columbo-pilot-episodes/1 - Prescription Murder.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "40-minutes-1989",
+  "title": "40 Minutes",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": "40 Minutes was a BBC TV documentary strand broadcast on BBC Two between 1981 and 1994. The documentaries could be on any possible subject, the only connection being that they last forty minutes.\n\nSome documentaries in the original series were revisited and updated in a 2006 version, Forty Minutes On.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dyEecs4X7v1cVWHDLfaACbgnId7.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC Two"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "40-minutes-raging-belles-1989",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "Raging Belles",
+          "overview": "The two top women's wrestlers in Britain fight for the most coveted prize, The British Ladies' Championship Belt",
+          "stillURL": "https://image.tmdb.org/t/p/w500/dyEecs4X7v1cVWHDLfaACbgnId7.jpg",
+          "airDate": "1989-03-09",
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "40 Minutes- Raging Belles (1989).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 108988822,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/40-minutes-raging-belles-1989/40 Minutes- Raging Belles (1989).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "queen-of-cuba-1996",
+  "title": "Queen Of Cuba",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/declassified-untold-stories-of-american-spies-s-01-e-04-ana-montes-queen-of-cuba",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "declassified-untold-stories-of-american-spies-s-01-e-04-ana-montes-queen-of-cuba",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Queen Of Cuba",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/declassified-untold-stories-of-american-spies-s-01-e-04-ana-montes-queen-of-cuba",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Declassified Untold Stories of American Spies S01E04 Ana Montes, Queen of Cuba.mp4",
+            "format": "h.264",
+            "sizeBytes": 251439546,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/declassified-untold-stories-of-american-spies-s-01-e-04-ana-montes-queen-of-cuba/Declassified Untold Stories of American Spies S01E04 Ana Montes, Queen of Cuba.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "seriesID": "3-2-1-contact-1983",
+  "title": "3-2-1 Contact",
+  "yearStart": 1983,
+  "yearEnd": 1987,
+  "overview": "3-2-1 Contact is an American science educational television show that aired on PBS from 1980 to 1988, and an adjoining children's magazine. The show, a production of the Children's Television Workshop, teaches scientific principles and their applications. Dr. Edward G. Atkins, who was responsible for much of the scientific content of the show, felt that the TV program wouldn't replace a classroom but would open the viewers to ask questions about the scientific purpose of things.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/jAHFYMRSbMy2XKU6y59992dF4Fw.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/zLSNYs1iO9hwdfoH5psM8tTCUf1.jpg",
+  "genres": [],
+  "networks": [
+    "PBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "3-2-1-contact-season-2-survival-protection-episode-3-1983",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "3 2 1 Contact - Season 2 - Survival: Protection Episode 3 (1983)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jAHFYMRSbMy2XKU6y59992dF4Fw.jpg",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "3-2-1 Contact203.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 152535057,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/3-2-1-contact-season-2-survival-protection-episode-3-1983/3-2-1 Contact203.mp4"
+        },
+        {
+          "archiveID": "3-2-1-contact-5-episodes-from-season-5",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "3-2-1 Contact - 5 episodes from Season #5 (1986)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jAHFYMRSbMy2XKU6y59992dF4Fw.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "3-2-1 Contact511.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 166315507,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/3-2-1-contact-5-episodes-from-season-5/3-2-1 Contact511.mp4"
+        },
+        {
+          "archiveID": "3-2-1-contact-space-and-measurement-10-episodes-from-season-3-1984",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Noisy/Quiet: How People & Animals Use Sound",
+          "overview": "Lisa goes to Hawaii to see how dolphins use sonar.  Another segment sees sonar of bats.  Trini sees an ultrasound apparatus at work.  The Bloodhound Gang finds a wrinkle in The Case of Princess Tomorrow.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/jAHFYMRSbMy2XKU6y59992dF4Fw.jpg",
+          "airDate": "1980-01-16",
+          "year": 1984,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "3-2-1 Contact308.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155610145,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/3-2-1-contact-space-and-measurement-10-episodes-from-season-3-1984/3-2-1 Contact308.mp4"
+        },
+        {
+          "archiveID": "3-2-1-contact-season-2-survival-energy-episode-4-1983",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Noisy/Quiet: Music",
+          "overview": "Dizzy Gillespie shows off his jazz talents.  Trini checks out the behind-the-scenes work at a Kiss concert.  The Bloodhound Gang cracks the Case of Princess Tomorrow.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/jAHFYMRSbMy2XKU6y59992dF4Fw.jpg",
+          "airDate": "1980-01-17",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "3-2-1 Contact204.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 154595355,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/3-2-1-contact-season-2-survival-energy-episode-4-1983/3-2-1 Contact204.mp4"
+        },
+        {
+          "archiveID": "3-2-1-contact-season-6-episode-5-japan-judo-and-computers",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Noisy/Quiet: Range of Vibration",
+          "overview": "Lisa, Marc, and Trini are given a puzzle.  They hear a bell ring and, as instructed, put the bell in a closed jar and take out some of the air with a vacuum pump.  Since they don't hear the ringing, they begin to wonder: Is the bell broken?",
+          "stillURL": "https://image.tmdb.org/t/p/w500/jAHFYMRSbMy2XKU6y59992dF4Fw.jpg",
+          "airDate": "1980-01-18",
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "3-2-1 Contact605.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156522964,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/3-2-1-contact-season-6-episode-5-japan-judo-and-computers/3-2-1 Contact605.mp4"
+        },
+        {
+          "archiveID": "3-2-1-contact-episode-502-signals-talking-birds-talking-rooms-september-23-1986",
+          "seasonNumber": 1,
+          "episodeNumber": 502,
+          "title": "3-2-1 Contact - episode 502: Signals: Talking Birds, Talking Rooms (September 23, 1986)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jAHFYMRSbMy2XKU6y59992dF4Fw.jpg",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "3-2-1 Contact502.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 132958131,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/3-2-1-contact-episode-502-signals-talking-birds-talking-rooms-september-23-1986/3-2-1 Contact502.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

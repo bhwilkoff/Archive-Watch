@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "laverne-shirley---perfidy-in-blue-1982",
+  "title": "Laverne & Shirley - Perfidy in Blue",
+  "yearStart": 1982,
+  "yearEnd": 1982,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/y-2-mate.is-laverne-shirley-s-07-e-22-perfidy-in-blue-1xt-lm-rj-x-q-480p-1657503973045",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "y-2-mate.is-laverne-shirley-s-07-e-22-perfidy-in-blue-1xt-lm-rj-x-q-480p-1657503973045",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Laverne & Shirley - Perfidy in Blue (Season 7 Episode 22)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/y-2-mate.is-laverne-shirley-s-07-e-22-perfidy-in-blue-1xt-lm-rj-x-q-480p-1657503973045",
+          "airDate": null,
+          "year": 1982,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Y2Mate.is - Laverne & Shirley S07E22 Perfidy in Blue-1xtLmRJ-x_Q-480p-1657503973045.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 151563027,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/y-2-mate.is-laverne-shirley-s-07-e-22-perfidy-in-blue-1xt-lm-rj-x-q-480p-1657503973045/Y2Mate.is - Laverne & Shirley S07E22 Perfidy in Blue-1xtLmRJ-x_Q-480p-1657503973045.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cbs-western-show-promos-from-1960s-1960",
+  "title": "CBS Western Show Promos From 1960s",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/CbsWesternShowPromosFrom1960s",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CbsWesternShowPromosFrom1960s",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CBS Western Show Promos From 1960s",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/CbsWesternShowPromosFrom1960s",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tv-Cbs1960sWesternShowPromos.mp4",
+            "format": "h.264",
+            "sizeBytes": 32927431,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CbsWesternShowPromosFrom1960s/Tv-Cbs1960sWesternShowPromos.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

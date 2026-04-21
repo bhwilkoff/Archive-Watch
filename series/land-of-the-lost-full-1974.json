@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "land-of-the-lost-full-1974",
+  "title": "Land of the Lost Full",
+  "yearStart": 1974,
+  "yearEnd": 1974,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/LotLFullSeries",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LotLFullSeries",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Land of the Lost Full Series (70's)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/LotLFullSeries",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "s2e04 - One of Our Pylons is Missing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 271650566,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e04 - One of Our Pylons is Missing.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

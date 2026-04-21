@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1956-ed-sullivan-show-30th-episode-1956",
+  "title": "1956 Ed Sullivan Show, 30th Episode",
+  "yearStart": 1956,
+  "yearEnd": 1956,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1956edsullivanshow30thepisode",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1956edsullivanshow30thepisode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1956 Ed Sullivan Show, 30th Episode",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1956edsullivanshow30thepisode",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1956 Ed Sullivan Show, 30th episode.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 229339908,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1956edsullivanshow30thepisode/1956 Ed Sullivan Show, 30th episode.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

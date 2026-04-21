@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "donahue-1970",
+  "title": "Donahue",
+  "yearStart": 1970,
+  "yearEnd": 1970,
+  "overview": "In 2002, Phil Donahue returned to television to host a show called Donahue on MSNBC. Its debut Nielsen ratings were strong, but its audience evaporated over the following months. In late August 2002, it got one of the lowest possible ratings, less than MSNBC's average for the day of 0.2. On February 25, 2003, MSNBC cancelled the show, citing low viewership. However, that month, Donahue averaged 446,000 viewers and became the highest rated show on the network. Other MSNBC shows, including Hardball with Chris Matthews and Scarborough Country, averaged lower ratings in 2005. Later, the website AllYourTV.com reported it had received a copy of an internal NBC memo that mentioned that Donahue had to be fired because he would be a \"difficult public face for NBC in a time of war\". Donahue was a vocal critic of the 2003 Invasion of Iraq. He mentioned the internal memo later in an interview on WILL-AM, a public radio station. Keith Olbermann, arguably the network's most prominent commentator since Donahue, told TV Guide in 2007 that the cancellation had as much to do with the show's production cost as it did with political orientation.\n\nDespite the show's cancellation, Donahue's willingness to dissent played a critical role in getting The Oprah Winfrey Show to rejoin the anti-war movement in November 2002. In September 2002, Winfrey praised Donahue saying \"the bottom line is we need you, Phil, because we need to be challenged by the voice of dissent\".",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "MSNBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "donahue-then-and-now-male-strippers-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Donahue - Phil Donahue",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Donahue The 25th Anniversary - 1992.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2868754423,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/donahue-then-and-now-male-strippers-1987/Donahue The 25th Anniversary - 1992.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

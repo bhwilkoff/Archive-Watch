@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "i-witness-video-1992",
+  "title": "I Witness Video",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "I Witness Video is an American informational reality-based television series that aired on NBC on Sunday night from August 16, 1992 to July 10, 1994. The program was first seen as a series of six specials beginning on February 23, 1992.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "i-witness-video-ducks-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "I Witness Video - John Forsythe",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "I Witness Video - TV Gun - 1993.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 897286602,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/i-witness-video-ducks-1994/I Witness Video - TV Gun - 1993.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-rolling-stones-1998",
+  "title": "The Rolling Stones",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/RollingStones-Telefe-ARG-1998",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RollingStones-Telefe-ARG-1998",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Rolling Stones - Bridges to Argentina - Telefe - 1998",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/RollingStones-Telefe-ARG-1998",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Rolling Stones Arg 1998 SinTANDA.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1350203427,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RollingStones-Telefe-ARG-1998/Rolling Stones Arg 1998 SinTANDA.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

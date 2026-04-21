@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "seriesID": "healthy-pets-healthy-people-1992",
+  "title": "Healthy Pets, Healthy People",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/healthy-pets-healthy-people-choosing-the-right-pet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "healthy-pets-healthy-people-veterinary-medicine",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Healthy Pets, Healthy People - Veterinary Medicine",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/healthy-pets-healthy-people-veterinary-medicine",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Healthy Pets, Healthy People - Veterinary Medicine.mp4",
+            "format": "h.264",
+            "sizeBytes": 156617054,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/healthy-pets-healthy-people-veterinary-medicine/Healthy Pets, Healthy People - Veterinary Medicine.mp4"
+        },
+        {
+          "archiveID": "healthy-pets-healthy-people-veterinary-medicine-human-health",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Healthy Pets, Healthy People - Veterinary Medicine & Human Health",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/healthy-pets-healthy-people-veterinary-medicine-human-health",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Healthy Pets, Healthy People - Veterinary Medicine & Human Health.mp4",
+            "format": "h.264",
+            "sizeBytes": 157457024,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/healthy-pets-healthy-people-veterinary-medicine-human-health/Healthy Pets, Healthy People - Veterinary Medicine & Human Health.mp4"
+        },
+        {
+          "archiveID": "healthy-pets-healthy-people-zoos",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Healthy Pets, Healthy People - Zoos",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/healthy-pets-healthy-people-zoos",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Healthy Pets, Healthy People - Zoos.mp4",
+            "format": "h.264",
+            "sizeBytes": 149290376,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/healthy-pets-healthy-people-zoos/Healthy Pets, Healthy People - Zoos.mp4"
+        },
+        {
+          "archiveID": "healthy-pets-healthy-people-choosing-the-right-pet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Healthy Pets, Healthy People – Choosing the Right Pet",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/healthy-pets-healthy-people-choosing-the-right-pet",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Healthy Pets, Healthy People - Choosing the Right Pet.mp4",
+            "format": "h.264",
+            "sizeBytes": 156354625,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/healthy-pets-healthy-people-choosing-the-right-pet/Healthy Pets, Healthy People - Choosing the Right Pet.mp4"
+        },
+        {
+          "archiveID": "healthy-pets-healthy-people-equine-medicine",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Healthy Pets, Healthy People – Equine Medicine",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/healthy-pets-healthy-people-equine-medicine",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Healthy Pets, Healthy People - Equine Medicine.mp4",
+            "format": "h.264",
+            "sizeBytes": 155752088,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/healthy-pets-healthy-people-equine-medicine/Healthy Pets, Healthy People - Equine Medicine.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

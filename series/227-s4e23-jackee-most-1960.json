@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "227-s4e23-jackee-most-1960",
+  "title": "227 (S4E23, Jackee, most",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/227-s-4-e-23-jackee-most-convert-video-online.com",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "227-s-4-e-23-jackee-most-convert-video-online.com",
+          "seasonNumber": 4,
+          "episodeNumber": 23,
+          "title": "227 (S4E23, Jackee, most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/227-s-4-e-23-jackee-most-convert-video-online.com",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "227 (S4E23, Jackee, most) (convert-video-online.com).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 362069561,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/227-s-4-e-23-jackee-most-convert-video-online.com/227 (S4E23, Jackee, most) (convert-video-online.com).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "geraldo--october-21-1988-partial-2023",
+  "title": "Geraldo- October 21, 1988 (partial",
+  "yearStart": 2023,
+  "yearEnd": 2023,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/geraldo-october-21-1988-partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "geraldo-october-21-1988-partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Geraldo- October 21, 1988 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/geraldo-october-21-1988-partial",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Geraldo- October 21, 1988 (partial).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 412667480,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/geraldo-october-21-1988-partial/Geraldo- October 21, 1988 (partial).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

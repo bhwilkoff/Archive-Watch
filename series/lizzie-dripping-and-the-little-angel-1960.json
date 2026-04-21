@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lizzie-dripping-and-the-little-angel-1960",
+  "title": "Lizzie Dripping And The Little Angel",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/lizzie-dripping-and-the-little-angel",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lizzie-dripping-and-the-little-angel",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lizzie Dripping And The Little Angel",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/lizzie-dripping-and-the-little-angel",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lizzie Dripping And the Little Angel.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 103017834,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lizzie-dripping-and-the-little-angel/Lizzie Dripping And the Little Angel.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

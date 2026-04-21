@@ -1,0 +1,136 @@
+{
+  "version": 1,
+  "seriesID": "wkrp-in-cincinnati-1978",
+  "title": "WKRP In Cincinnati",
+  "yearStart": 1978,
+  "yearEnd": 1978,
+  "overview": "When a Cincinnati radio station switches from sedate music to top-40 rock 'n' roll, its staff of oddball characters is forced to switch gears quickly. New programming director Andy Travis brings in a new DJ named Venus Flytrap to work with the station's burned-out veteran, Dr. Johnny Fever. Neurotic newsman Les Nessman, eager beaver Bailey Quarters, sleazy salesman Herb Tarlek, blonde bombshell Jennifer Marlowe, who serves as the station's ultra-capable receptionist, and station manager Arthur Carlson, whose domineering mother owns WKRP, round out the eccentric bunch.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/dP3eGvgzztqbSr73UDNLh0o35hS.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/w3ihDcCxjbVXPLUY1v4Dwb0OJzj.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Hugh Wilson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "wkrp-in-cincinnati-season-02-episodes-23-24-venus-risingmost-improved-station",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati Season 02 Episodes 23-24 Venus Rising/Most Improved Station",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dP3eGvgzztqbSr73UDNLh0o35hS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S02E23-24 Venus Rising-Most Improved Station.mp4",
+            "format": "h.264",
+            "sizeBytes": 290922822,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-02-episodes-23-24-venus-risingmost-improved-station/WKRP In Cincinnati S02E23-24 Venus Rising-Most Improved Station.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-03-episodes-01-03-the-airplane-showreal-families",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati Season 03 Episodes 01-03 The Airplane Show/Real Families",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dP3eGvgzztqbSr73UDNLh0o35hS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S03E01-3 The Airplane Show-Real Families.mp4",
+            "format": "h.264",
+            "sizeBytes": 283865044,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-01-03-the-airplane-showreal-families/WKRP In Cincinnati S03E01-3 The Airplane Show-Real Families.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-03-episodes-17-18-secrets-of-dayton-heightsout-to-lunch",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP In Cincinnati: Season 03 Episodes 17-18 Secrets Of Dayton Heights/Out To Lunch",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dP3eGvgzztqbSr73UDNLh0o35hS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S03E17-18 Secrets of Dayton Heights-Out To Lunch.mp4",
+            "format": "h.264",
+            "sizeBytes": 290421952,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-17-18-secrets-of-dayton-heightsout-to-lunch/WKRP In Cincinnati S03E17-18 Secrets of Dayton Heights-Out To Lunch.mp4"
+        },
+        {
+          "archiveID": "wkrp-s-1-e-20-young-master-carlson",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "WKRP in Cincinnati",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dP3eGvgzztqbSr73UDNLh0o35hS.jpg",
+          "airDate": null,
+          "year": 1978,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP S3E13+E14 Dr. Fever and Mr. Tide.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138205961,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-s-1-e-20-young-master-carlson/WKRP S3E13+E14 Dr. Fever and Mr. Tide.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "wkrp-in-cincinnati-season-04-episode-15-ill-take-romance",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Never Leave Me, Lucille",
+          "overview": "Temporarily separated from his wife, Herb envisions a fanciful bachelorhood.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/zKikTd2kxblpQecHxtgAxxKfG8B.jpg",
+          "airDate": "1979-03-05",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S04E15 I'll Take Romance.mp4",
+            "format": "h.264",
+            "sizeBytes": 144943672,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episode-15-ill-take-romance/WKRP In Cincinnati S04E15 I'll Take Romance.mp4"
+        },
+        {
+          "archiveID": "wkrp-in-cincinnati-season-03-episode-22-clean-up-radio-everywhere",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Preacher",
+          "overview": "A wrestler turned preacher uses his radio sermon to sell merchandise.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/vqN0ZYaSI2MYrNn89iOVqNQZ5LK.jpg",
+          "airDate": "1979-06-04",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "WKRP In Cincinnati S03E22 Clean Up Radio Everywhere.mp4",
+            "format": "h.264",
+            "sizeBytes": 144466436,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episode-22-clean-up-radio-everywhere/WKRP In Cincinnati S03E22 Clean Up Radio Everywhere.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

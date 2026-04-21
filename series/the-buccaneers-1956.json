@@ -1,0 +1,293 @@
+{
+  "version": 1,
+  "seriesID": "the-buccaneers-1956",
+  "title": "The Buccaneers",
+  "yearStart": 1956,
+  "yearEnd": 1957,
+  "overview": "The adventures of privateer Captain Dan Tempest and his crew of former pirates as they make their way across the seven seas in The Sultana.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/cosUAXn3mDeQuCFOvdsIqLKYbKz.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "THE_BUCCANEERS_Before_The_Mast",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" Before the Mast",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_Before_The_Mast.mp4",
+            "format": "h.264",
+            "sizeBytes": 144753872,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_Before_The_Mast/THE_BUCCANEERS_Before_The_Mast.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_Blackbeard",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" Blackbeard",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_Blackbeard.mp4",
+            "format": "h.264",
+            "sizeBytes": 143760451,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_Blackbeard/THE_BUCCANEERS_Blackbeard.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_Blood_Will_Tell",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" Blood Will Tell (1957)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_Blood_Will_Tell.mp4",
+            "format": "h.264",
+            "sizeBytes": 146262676,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_Blood_Will_Tell/THE_BUCCANEERS_Blood_Will_Tell.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_Captain_Dan_Tempest",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" Captain Dan Tempest",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_Captain_Dan_Tempest.mp4",
+            "format": "h.264",
+            "sizeBytes": 144377274,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_Captain_Dan_Tempest/THE_BUCCANEERS_Captain_Dan_Tempest.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_Conquest_Of_New_Providence",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" Conquest of New Providence",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_Conquest_Of_New_Providence.mp4",
+            "format": "h.264",
+            "sizeBytes": 142522139,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_Conquest_Of_New_Providence/THE_BUCCANEERS_Conquest_Of_New_Providence.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_Conquistador",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" Conquistador",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_Conquistador.mp4",
+            "format": "h.264",
+            "sizeBytes": 142367131,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_Conquistador/THE_BUCCANEERS_Conquistador.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_Cutlass_Wedding",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" Cutlass Wedding",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_Cutlass_Wedding.mp4",
+            "format": "h.264",
+            "sizeBytes": 142921619,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_Cutlass_Wedding/THE_BUCCANEERS_Cutlass_Wedding.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_Dan_Tempest_And_The_Amazons",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" Dan Tempest and the Amazons",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_Dan_Tempest_And_The_Amazons.mp4",
+            "format": "h.264",
+            "sizeBytes": 148095002,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_Dan_Tempest_And_The_Amazons/THE_BUCCANEERS_Dan_Tempest_And_The_Amazons.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_Dan_Tempests_War_With_Spain",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" Dan Tempest's War with Spain",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_Dan_Tempests_War_With_Spain.mp4",
+            "format": "h.264",
+            "sizeBytes": 147728467,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_Dan_Tempests_War_With_Spain/THE_BUCCANEERS_Dan_Tempests_War_With_Spain.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_Dangerous_Cargo",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" Dangerous Cargo",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_Dangerous_Cargo.mp4",
+            "format": "h.264",
+            "sizeBytes": 141619854,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_Dangerous_Cargo/THE_BUCCANEERS_Dangerous_Cargo.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_Dead_Mans_Rock",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" Dead Man's Rock",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_Dead_Mans_Rock.mp4",
+            "format": "h.264",
+            "sizeBytes": 142116745,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_Dead_Mans_Rock/THE_BUCCANEERS_Dead_Mans_Rock.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_Pirate_Honour",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" Pirate Honour",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_Pirate_Honour.mp4",
+            "format": "h.264",
+            "sizeBytes": 142056760,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_Pirate_Honour/THE_BUCCANEERS_Pirate_Honour.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_The_Aztec_Treasure",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" The Aztec Treasure",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_The_Aztec_Treasure.mp4",
+            "format": "h.264",
+            "sizeBytes": 140096683,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_The_Aztec_Treasure/THE_BUCCANEERS_The_Aztec_Treasure.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_The_Decoy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" The Decoy (1957)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_The_Decoy.mp4",
+            "format": "h.264",
+            "sizeBytes": 146005658,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_The_Decoy/THE_BUCCANEERS_The_Decoy.mp4"
+        },
+        {
+          "archiveID": "THE_BUCCANEERS_Instrument_Of_War",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The Buccaneers\" The Instrument of War",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/z085lWTy2t9t1P1LKdRd6SKlYdF.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "THE_BUCCANEERS_Instrument_Of_War.mp4",
+            "format": "h.264",
+            "sizeBytes": 142271262,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/THE_BUCCANEERS_Instrument_Of_War/THE_BUCCANEERS_Instrument_Of_War.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15
+}

@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "seriesID": "the-goldbergs-1955",
+  "title": "The Goldbergs",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": "The Goldbergs is a comedy-drama broadcast from 1929 to 1946 on American radio, and from 1949 to 1956 on American television. It was adapted into a 1948 play, Me and Molly, a 1950 film The Goldbergs, and a 1973 Broadway musical, Molly.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/f389aPM586V6N55gSNM6DUuQbxU.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/yLSiExHukav0gFshgzOx2980W9Y.jpg",
+  "genres": [],
+  "networks": [
+    "NBC",
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheGoldbergsRosiesNose",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Goldbergs: Rosie's Nose 27 October 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/f389aPM586V6N55gSNM6DUuQbxU.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Goldbergs Rosie's Nose.mp4",
+            "format": "h.264",
+            "sizeBytes": 166146859,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheGoldbergsRosiesNose/The Goldbergs Rosie's Nose.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

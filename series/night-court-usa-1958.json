@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "night-court-usa-1958",
+  "title": "Night Court U.S.A",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": "Night Court U.S.A. is a dramatized court show that aired weekly on KTLA in Los Angeles, California, beginning April 18, 1958. The TV Guide listing for the seminal session explained: \"This half hour program makes use of both character actors and people off the street to portray those brought into night court.\" The show eventually switched to using scripted cases, and was extended to an hour.\n\nThe subject matter of the cases was often whimsical. An example from season 2 was that of a drunk woman who passed out in a park. She claimed that she was merely bird watching. Most defendants entered a plea of guilty \"but with an explanation\" and then proceeded to throw themselves on the mercy of the court with the unfortunate circumstances leading to their crime. The judge was played by veteran actor Jay Jostyn.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "night-court-u.-s.-a-excerpt",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Night Court U.S.A, - Excerpt",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 488,
+          "videoFile": {
+            "name": "Night Court U.S.A,  - Excerpt.mp4",
+            "format": "h.264",
+            "sizeBytes": 48026809,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/night-court-u.-s.-a-excerpt/Night Court U.S.A,  - Excerpt.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

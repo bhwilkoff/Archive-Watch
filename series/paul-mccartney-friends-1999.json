@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "paul-mccartney-friends-1999",
+  "title": "Paul McCartney & Friends",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/paul-mc-cartney-friends-petas-millenium-concert-1999",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "paul-mc-cartney-friends-petas-millenium-concert-1999",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Paul McCartney & Friends - PETAs Millenium Concert",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/paul-mc-cartney-friends-petas-millenium-concert-1999",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Paul McCartney & Friends PETAs Millenium Concert - 1999.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2076879530,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/paul-mc-cartney-friends-petas-millenium-concert-1999/Paul McCartney & Friends PETAs Millenium Concert - 1999.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

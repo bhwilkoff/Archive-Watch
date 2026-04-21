@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "seriesID": "court-of-last-resort-1960",
+  "title": "Court of Last Resort",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The Court of Last Resort is an American television dramatized court show which aired on the NBC from 1957 through 1958. It was co-produced by Erle Stanley Gardner's Paisano Productions, which also brought forth the long-running hit television program, Perry Mason on CBS. Its approach to dealing with potential miscarriages of justice in an entirely extra-judicial format was adopted by the BBC series Rough Justice in the 1980s.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "Erle Stanley Gardner",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheCourtOfLastResortTheMaryMoralesCase",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Court of Last Resort: The Mary Morales Case",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1503,
+          "videoFile": {
+            "name": "CourtOfLastResort-theMaryMoralesCase.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153701407,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheCourtOfLastResortTheMaryMoralesCase/CourtOfLastResort-theMaryMoralesCase.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "CourtOfLastResortTheClarenceReddingCase",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Clarence Redding Case",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1957-12-06",
+          "year": null,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "CourtOfLastResort-clarenceReddingCase.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151504415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CourtOfLastResortTheClarenceReddingCase/CourtOfLastResort-clarenceReddingCase.ia.mp4"
+        },
+        {
+          "archiveID": "CourtOfLastResortTheFrankClarkCase",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Frank Clark Case",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1958-02-21",
+          "year": null,
+          "runtimeSeconds": 1514,
+          "videoFile": {
+            "name": "CourtOfLastResort-frankClarkCase.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155083775,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CourtOfLastResortTheFrankClarkCase/CourtOfLastResort-frankClarkCase.ia.mp4"
+        },
+        {
+          "archiveID": "CourtOfLastResortTheJacobLovelessCase",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Jacob Loveless Case",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1958-02-28",
+          "year": null,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "CourtOfLastResort-theJacobLovelessCase.mp4",
+            "format": "h.264",
+            "sizeBytes": 154005697,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CourtOfLastResortTheJacobLovelessCase/CourtOfLastResort-theJacobLovelessCase.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

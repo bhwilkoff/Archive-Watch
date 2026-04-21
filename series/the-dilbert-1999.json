@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-dilbert-1999",
+  "title": "The Dilbert",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/dilbert-season-1-episode-05-testing",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dilbert-season-1-episode-05-testing",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Dilbert Collection.",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/dilbert-season-1-episode-05-testing",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "00-Diltro.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 3924741,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dilbert-season-1-episode-05-testing/00-Diltro.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

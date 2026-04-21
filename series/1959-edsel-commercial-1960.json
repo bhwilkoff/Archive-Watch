@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1959-edsel-commercial-1960",
+  "title": "1959 EDSEL COMMERCIAL",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1959EdselCommercial_313",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1959EdselCommercial_313",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1959 EDSEL COMMERCIAL",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1959EdselCommercial_313",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 84,
+          "videoFile": {
+            "name": "59Edsel_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 6278994,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1959EdselCommercial_313/59Edsel_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

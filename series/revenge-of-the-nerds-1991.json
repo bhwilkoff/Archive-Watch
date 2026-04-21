@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "revenge-of-the-nerds-1991",
+  "title": "Revenge Of The Nerds",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": "Lewis, Gilbert, Booger and Wormser are kicked out of their dorm by the Alpha-Betas, so they join the Lambda Lambda Lambda fraternity and get revenge on the jocks. Unaired pilot based on the movie of the same name.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "revenge-of-the-nerds-1991-unaired-pilot",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Revenge Of The Nerds (1991) Unaired Pilot",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Revenge of the Nerds (1991) Unaired Pilot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 358779079,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/revenge-of-the-nerds-1991-unaired-pilot/Revenge of the Nerds (1991) Unaired Pilot.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "polizeiruf-110-149-1991",
+  "title": "Polizeiruf 110 (149",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/dc0f5ac3-fff6-4667-8c8e-6c320350d3c8_hd1080-avc1080",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "dc0f5ac3-fff6-4667-8c8e-6c320350d3c8_hd1080-avc1080",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Polizeiruf 110 (149): Das Treibhaus (1991)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/dc0f5ac3-fff6-4667-8c8e-6c320350d3c8_hd1080-avc1080",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": 4680,
+          "videoFile": {
+            "name": "dc0f5ac3-fff6-4667-8c8e-6c320350d3c8_hd1080-avc1080.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1796568227,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dc0f5ac3-fff6-4667-8c8e-6c320350d3c8_hd1080-avc1080/dc0f5ac3-fff6-4667-8c8e-6c320350d3c8_hd1080-avc1080.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

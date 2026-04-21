@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "flambards-1979-03-30-1979",
+  "title": "Flambards (1979-03-30",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/flambards-1979-03-30-s-1-e-10-by-william-humble-new-blood",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "flambards-1979-03-30-s-1-e-10-by-william-humble-new-blood",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Flambards (1979-03-30 S01E10 by William Humble) NEW BLOOD",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/flambards-1979-03-30-s-1-e-10-by-william-humble-new-blood",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": 3111,
+          "videoFile": {
+            "name": "Flambards (1979-03-30 S1E10 by William Humble) NEW BLOOD.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 191524800,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/flambards-1979-03-30-s-1-e-10-by-william-humble-new-blood/Flambards (1979-03-30 S1E10 by William Humble) NEW BLOOD.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

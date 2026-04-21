@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "knights-of-god-1987",
+  "title": "Knights Of God",
+  "yearStart": 1987,
+  "yearEnd": 1987,
+  "overview": "Knights of God was a British science fiction children's television serial, produced by TVS and first broadcast on ITV in 1987. It was written by Richard Cooper, who had previously worked in both children's and adult television drama.\n\nIn 2020, Britain is ruled by the Knights of God, a fascist religious order – founded by the Prior Mordrin – that came to power during a brutal civil war that began in 2000, during which the Royal Family were supposedly all slaughtered by Brother Hugo and the civilian government collapsed, leaving the Knights free to step into the power vacuum.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4guM28lz0WFsLJmCWsJTyyeisWx.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/cvHkdvyaR14aHDrNVGuGkMS6zi9.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": "Richard Cooper",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "knights-of-god-complete-series-1987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Knights Of God - Complete Series 1987",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/4guM28lz0WFsLJmCWsJTyyeisWx.jpg",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Knights of God episode 13 TVS Production 1987.mp4",
+            "format": "h.264",
+            "sizeBytes": 155823002,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/knights-of-god-complete-series-1987/Knights of God episode 13 TVS Production 1987.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

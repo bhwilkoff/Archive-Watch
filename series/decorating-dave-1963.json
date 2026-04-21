@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "decorating-dave-1963",
+  "title": "Decorating Dave",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Decorating_Daves_Office--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Decorating_Daves_Office--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Decorating Dave's Office (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Decorating_Daves_Office--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 1356,
+          "videoFile": {
+            "name": "Decorating_Daves_Office--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 140719384,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Decorating_Daves_Office--Ozzie-Harriet/Decorating_Daves_Office--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

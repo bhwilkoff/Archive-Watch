@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "smothers-brothers-comedy-hour-69-01-26-3-15-andy-williams-th-1969",
+  "title": "Smothers Brothers Comedy Hour 69 01 26 3 15 Andy Williams, The Clingers, Billy Barty",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/69-01-26-3-15-andy-williams-the-clingers-billy-barty",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "69-01-26-3-15-andy-williams-the-clingers-billy-barty",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Smothers Brothers Comedy Hour 69 01 26 3 15 Andy Williams, The Clingers, Billy Barty",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/69-01-26-3-15-andy-williams-the-clingers-billy-barty",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "69-01-26 3-15 Andy Williams, The Clingers, Billy Barty.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 200713507,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/69-01-26-3-15-andy-williams-the-clingers-billy-barty/69-01-26 3-15 Andy Williams, The Clingers, Billy Barty.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

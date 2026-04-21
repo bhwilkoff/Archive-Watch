@@ -1,0 +1,1401 @@
+{
+  "version": 1,
+  "seriesID": "lock-up-1960",
+  "title": "Lock Up",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Lock-Up is an American legal drama series that premiered in syndication in September 1959 and concluded in June 1961. The half-hour episodes had little time for character development or subplots and presented a compact story without embellishment.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up - Season 1 of 2 - TV Series - 1959 - MKV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": " Lock Up - S01E01 - Stakeout.mp4",
+            "format": "h.264",
+            "sizeBytes": 168437341,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/ Lock Up - S01E01 - Stakeout.mp4"
+        },
+        {
+          "archiveID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up - Season 1 of 2 - TV Series - 1959 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lock Up - S01E01 - Stake Out.mp4",
+            "format": "h.264",
+            "sizeBytes": 168365892,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/Lock Up - S01E01 - Stake Out.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up - Season 2 of 2 - TV Series - 1959 - MKV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lock Up - S02E22 - End of a Titan.mp4",
+            "format": "h.264",
+            "sizeBytes": 165810326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock Up - S02E22 - End of a Titan.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-2-of-2-tv-series-1959-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up - Season 2 of 2 - TV Series - 1959 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Lock Up - S02E37 - Face Of Innocence.mp4",
+            "format": "h.264",
+            "sizeBytes": 165454658,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-xvid-avi/Lock Up - S02E37 - Face Of Innocence.mp4"
+        },
+        {
+          "archiveID": "LockUpConcreteCoffincorrectEpisode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: Concrete Coffin (correct episode)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1574,
+          "videoFile": {
+            "name": "LockUp-theConcreteCoffin.mp4",
+            "format": "h.264",
+            "sizeBytes": 163375322,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpConcreteCoffincorrectEpisode/LockUp-theConcreteCoffin.mp4"
+        },
+        {
+          "archiveID": "LockUpDeathAndTexas",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: Death and Texas",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1337,
+          "videoFile": {
+            "name": "LockUp-deathAndTexas.mp4",
+            "format": "h.264",
+            "sizeBytes": 132931062,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpDeathAndTexas/LockUp-deathAndTexas.mp4"
+        },
+        {
+          "archiveID": "LockUpElectionDay",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: Election Day",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": "LockUp-electionDay.mp4",
+            "format": "h.264",
+            "sizeBytes": 133397486,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpElectionDay/LockUp-electionDay.mp4"
+        },
+        {
+          "archiveID": "LockUpEndOfATitan",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: End of a Titan",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1591,
+          "videoFile": {
+            "name": "LockUp-endOfATitan.mp4",
+            "format": "h.264",
+            "sizeBytes": 159068547,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpEndOfATitan/LockUp-endOfATitan.mp4"
+        },
+        {
+          "archiveID": "LockUpManlyArtOfTheMurder",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: Manly Art of the Murder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1429,
+          "videoFile": {
+            "name": "LockUp-theManlyArtOfMurder.mp4",
+            "format": "h.264",
+            "sizeBytes": 144709287,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpManlyArtOfTheMurder/LockUp-theManlyArtOfMurder.mp4"
+        },
+        {
+          "archiveID": "LockUpSentencedToDeath",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: Sentenced to Death",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1429,
+          "videoFile": {
+            "name": "LockUp-sentencedToDeath.mp4",
+            "format": "h.264",
+            "sizeBytes": 145534526,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpSentencedToDeath/LockUp-sentencedToDeath.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfAlexisGeorge",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Alexis George",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1556,
+          "videoFile": {
+            "name": "LockUp-theCaseOfAlexisGeorge.mp4",
+            "format": "h.264",
+            "sizeBytes": 154995383,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfAlexisGeorge/LockUp-theCaseOfAlexisGeorge.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfCorporalNewman",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Corporal Newman",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1435,
+          "videoFile": {
+            "name": "LockUp-theCaseOfCorporalNewman.mp4",
+            "format": "h.264",
+            "sizeBytes": 144891690,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfCorporalNewman/LockUp-theCaseOfCorporalNewman.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfDetectiveWeston",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Detective Weston",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1428,
+          "videoFile": {
+            "name": "LockUp-theCaseOfDetectiveWeston.mp4",
+            "format": "h.264",
+            "sizeBytes": 144697002,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfDetectiveWeston/LockUp-theCaseOfDetectiveWeston.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfFrankCorry",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Frank Corry",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "LockUp-theCaseOfFrankCorry.mp4",
+            "format": "h.264",
+            "sizeBytes": 154924572,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfFrankCorry/LockUp-theCaseOfFrankCorry.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfJoeSlade",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Joe Slade",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "LockUp-theCaseOfJoeSlade.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159875346,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfJoeSlade/LockUp-theCaseOfJoeSlade.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfNanHavens",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Nan Havens",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "LockUp-theCaseOfNanHavens.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160375884,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfNanHavens/LockUp-theCaseOfNanHavens.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfWillieButterlfly",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock Up: The Case of Willie Butterlfly",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1573,
+          "videoFile": {
+            "name": "LockUp-theCaseOfWillieButterfly.mp4",
+            "format": "h.264",
+            "sizeBytes": 161695060,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfWillieButterlfly/LockUp-theCaseOfWillieButterfly.mp4"
+        },
+        {
+          "archiveID": "Lock-upWritOfTerror",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock-Up: Writ of Terror",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1422,
+          "videoFile": {
+            "name": "Lock-up-writOfTerror.mp4",
+            "format": "h.264",
+            "sizeBytes": 143382333,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Lock-upWritOfTerror/Lock-up-writOfTerror.mp4"
+        },
+        {
+          "archiveID": "Lock-upMusicToMurderBy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lock-up: Music to Murder By",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1165,
+          "videoFile": {
+            "name": "Lock-up-musicToMurderBy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 113620176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Lock-upMusicToMurderBy/Lock-up-musicToMurderBy.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "LockUpStakeOut",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Stake Out",
+          "overview": "A rehabilitated ex-convict is suspected of killing a policeman and is jailed.  Maris comes to his defence.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-09-26",
+          "year": null,
+          "runtimeSeconds": 1616,
+          "videoFile": {
+            "name": "LockUp-stakeOut.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155901052,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpStakeOut/LockUp-stakeOut.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTheHarryConnorsStory",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Harry Connors Story",
+          "overview": "Harry Connors is a thug who confeses to killing the man who testified against him.  Later he changes his story and his attorney quits the case.  Maris comes to the rescue.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-10-03",
+          "year": null,
+          "runtimeSeconds": 1413,
+          "videoFile": {
+            "name": "LockUp-theHarryConnorsStory.mp4",
+            "format": "h.264",
+            "sizeBytes": 142560610,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheHarryConnorsStory/LockUp-theHarryConnorsStory.mp4"
+        },
+        {
+          "archiveID": "LockUpChangeOfHeart",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Change of Heart",
+          "overview": "Tom Sheppard is sent to jail for the muder of his former girlfriend on the testimony of an elderly eyewitness.  Tom's fiancÃ©e asks Maris for help on the case.  Maris' investigation reveals surprising facts.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-10-10",
+          "year": null,
+          "runtimeSeconds": 1598,
+          "videoFile": {
+            "name": "LockUp-changeOfHeart.mp4",
+            "format": "h.264",
+            "sizeBytes": 158501266,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpChangeOfHeart/LockUp-changeOfHeart.mp4"
+        },
+        {
+          "archiveID": "LockUpShadowOfAGiant",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Shadow of a Giant",
+          "overview": "An ex-convict and his son get implicated in a theft and get arrested.  Maris believes in the two men and gets to work on finding the truth about what happened.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-10-31",
+          "year": null,
+          "runtimeSeconds": 1311,
+          "videoFile": {
+            "name": "LockUp-shadowOfAGiant.mp4",
+            "format": "h.264",
+            "sizeBytes": 135856978,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpShadowOfAGiant/LockUp-shadowOfAGiant.mp4"
+        },
+        {
+          "archiveID": "Lock-upPresumptionOfGuilt",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Presumption of Guilt",
+          "overview": "In prison a gang leader is stabbed and killed.  Ron Davis is charged with the murder and is sentenced for execution.  After reviewing the case file Maris concludes that the wrong man was convicted for the killing.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-11-07",
+          "year": null,
+          "runtimeSeconds": 1587,
+          "videoFile": {
+            "name": "Lock-up-presumptionOfGuilt.mp4",
+            "format": "h.264",
+            "sizeBytes": 156638656,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Lock-upPresumptionOfGuilt/Lock-up-presumptionOfGuilt.mp4"
+        },
+        {
+          "archiveID": "LockUpTheAngryMen",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Angry Men",
+          "overview": "A wealthy businessman, unhappy with a contract he's signed, tries to void the contract through devious and unscrupulous means.  His actions place an innocent man in trouble with the law for assault and battery.  The problem for Maris is that it's his client breaking the law.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-11-14",
+          "year": null,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "Lock-up-theAngryMen.mp4",
+            "format": "h.264",
+            "sizeBytes": 154475761,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheAngryMen/Lock-up-theAngryMen.mp4"
+        },
+        {
+          "archiveID": "LockUpWithMaliceForOne",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "With Malice for One",
+          "overview": "A shop worker is charged for the murder of the supervisor.  The reason:  the man is an immigrant and bigotry enters the judicial system.  Maris is on hand to defend.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-12-05",
+          "year": null,
+          "runtimeSeconds": 1418,
+          "videoFile": {
+            "name": "LockUp-withMaliceTowardsOne.mp4",
+            "format": "h.264",
+            "sizeBytes": 143629894,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpWithMaliceForOne/LockUp-withMaliceTowardsOne.mp4"
+        },
+        {
+          "archiveID": "LockUpFramedEx-con",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Framed Ex-Con",
+          "overview": "Frank is an ex-convict who is going straight and is now the son-in-law of a policeman.  Two of Frank's old friends commit a robbery and Frank is jailed.  Maris tries to help but a few surprises come his way.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-12-12",
+          "year": null,
+          "runtimeSeconds": 1435,
+          "videoFile": {
+            "name": "LockUp-framedEx-con.mp4",
+            "format": "h.264",
+            "sizeBytes": 145466574,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpFramedEx-con/LockUp-framedEx-con.mp4"
+        },
+        {
+          "archiveID": "LockUpDeathInTheStreets",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Death in the Streets",
+          "overview": "A college student is unable to repay loan sharks and gives them the keys to his father's automobile.  The loan sharks then hit  someone on the highway then run. The father is implicated in the crime.  Maris tries to help the father who used to be one of his teachers and discovers the case is about more than a \"\"hit and run.\"\"",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-12-19",
+          "year": null,
+          "runtimeSeconds": 1404,
+          "videoFile": {
+            "name": "LockUp-deathInTheStreets.mp4",
+            "format": "h.264",
+            "sizeBytes": 141892345,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpDeathInTheStreets/LockUp-deathInTheStreets.mp4"
+        },
+        {
+          "archiveID": "Lock-upTheDrop",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Drop",
+          "overview": "A young couple is planning to elope but the plans come to a screeching halt when drugs are found in the car they rent.  Maris comes in and investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-12-26",
+          "year": null,
+          "runtimeSeconds": 1439,
+          "videoFile": {
+            "name": "LockUp-theDrop.mp4",
+            "format": "h.264",
+            "sizeBytes": 145944819,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Lock-upTheDrop/LockUp-theDrop.mp4"
+        },
+        {
+          "archiveID": "LockUpHisFathersFootsteps",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "His Father's Footsteps",
+          "overview": "A father suspects his teenage son is involved in a robbery and a shooting. The father then hires Maris to defend his son of possible charges.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-01-16",
+          "year": null,
+          "runtimeSeconds": 1561,
+          "videoFile": {
+            "name": "LockUp-hisFathersFootsteps.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157704353,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpHisFathersFootsteps/LockUp-hisFathersFootsteps.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpNeverBetTheOdds",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Never Bet the Odds",
+          "overview": "A prizefighter bets against himself in an upcoming fight. Maris becomes suspicious of his actions.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-01-30",
+          "year": null,
+          "runtimeSeconds": 1420,
+          "videoFile": {
+            "name": "LockUp-neverBetTheOdds.mp4",
+            "format": "h.264",
+            "sizeBytes": 143521026,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpNeverBetTheOdds/LockUp-neverBetTheOdds.mp4"
+        },
+        {
+          "archiveID": "LockUpDeadMansShoes",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Dead Man's Shoes",
+          "overview": "Fred Prescott, a news commentator, is murdered and Maris investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-02-13",
+          "year": null,
+          "runtimeSeconds": 1580,
+          "videoFile": {
+            "name": "LockUp-deadMansShoes.mp4",
+            "format": "h.264",
+            "sizeBytes": 157708870,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpDeadMansShoes/LockUp-deadMansShoes.mp4"
+        },
+        {
+          "archiveID": "LockUpConcreteCoffin",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Strange Summons",
+          "overview": "A locksmith is charged with the murder of a jewelry store owner.  Maris goes undercover to try to prove the locksmith innocent but runs afoul of the law.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-02-20",
+          "year": null,
+          "runtimeSeconds": 1585,
+          "videoFile": {
+            "name": "LockUp-conreteCoffin.mp4",
+            "format": "h.264",
+            "sizeBytes": 158337010,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpConcreteCoffin/LockUp-conreteCoffin.mp4"
+        },
+        {
+          "archiveID": "LockUpMurderPlaysItCool",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Murder Plays it Cool",
+          "overview": "A jazz musician is charged with murder.  Maris uses a trumpet to clear the musician.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-02-27",
+          "year": null,
+          "runtimeSeconds": 1604,
+          "videoFile": {
+            "name": "LockUp-murderPlaysItCool.mp4",
+            "format": "h.264",
+            "sizeBytes": 159346251,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpMurderPlaysItCool/LockUp-murderPlaysItCool.mp4"
+        },
+        {
+          "archiveID": "LockUpPokerClub",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Poker Club",
+          "overview": "A theatrical producer is robbed and killed.  An elderly Shakespearean is arrested for the murder.  Maris is there to help the aging actor.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-03-12",
+          "year": null,
+          "runtimeSeconds": 1421,
+          "videoFile": {
+            "name": "LockUp-pokerClub.mp4",
+            "format": "h.264",
+            "sizeBytes": 142721313,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpPokerClub/LockUp-pokerClub.mp4"
+        },
+        {
+          "archiveID": "LockUpTheTrigger",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Trigger",
+          "overview": "A young controller of a firm commits suicide before the audit of the books.  Was it a suicide?  Maris is not so sure and investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-03-19",
+          "year": null,
+          "runtimeSeconds": 1426,
+          "videoFile": {
+            "name": "LockUp-theTrigger.mp4",
+            "format": "h.264",
+            "sizeBytes": 143218342,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheTrigger/LockUp-theTrigger.mp4"
+        },
+        {
+          "archiveID": "LockUpMurderIsAGamble",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Murder is a Gamble",
+          "overview": "A husband is charged with the murder of his wife.  Maris tries to discover what happened.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-03-26",
+          "year": null,
+          "runtimeSeconds": 1571,
+          "videoFile": {
+            "name": "LockUp-murderIsAGamble.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159349162,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpMurderIsAGamble/LockUp-murderIsAGamble.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTheLocket",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "The Locket",
+          "overview": "A millionaire playboy is murdered and a girl is charged with the murder and sentenced to the electric chair.  Maris belives the girl is innocent and investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-04-09",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LockUp-theLocket.mp4",
+            "format": "h.264",
+            "sizeBytes": 149030219,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheLocket/LockUp-theLocket.mp4"
+        },
+        {
+          "archiveID": "LockUpTheTroubleCop",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "The Trouble Cop",
+          "overview": "A policeman is charged for the murder of a bookie.  The ones who are the likely suspects have an airtight cover story.  Maris takes the case to help the policeman.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-04-16",
+          "year": null,
+          "runtimeSeconds": 1427,
+          "videoFile": {
+            "name": "LockUp-theTroubleCop.mp4",
+            "format": "h.264",
+            "sizeBytes": 143058225,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheTroubleCop/LockUp-theTroubleCop.mp4"
+        },
+        {
+          "archiveID": "LockUpFirstPrizeForMurder",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "First Prize for Murder",
+          "overview": "A foreigner is accused of murdering her fiancÃ©'s father. Maris is urged by a young copy boy pretenting to be a reporter to take the case and investigate.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-04-23",
+          "year": null,
+          "runtimeSeconds": 1428,
+          "videoFile": {
+            "name": "LockUp-firstPrizeForMurder.mp4",
+            "format": "h.264",
+            "sizeBytes": 143414921,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpFirstPrizeForMurder/LockUp-firstPrizeForMurder.mp4"
+        },
+        {
+          "archiveID": "LockUpSocietyMatron",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Society Matron",
+          "overview": "Mr. Mitchel is charged for the murder of a young woman.  His wife believes in her husband and hires Maris to defend him and investigate.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-05-07",
+          "year": null,
+          "runtimeSeconds": 1378,
+          "videoFile": {
+            "name": "LockUp-societyMatron.mp4",
+            "format": "h.264",
+            "sizeBytes": 138259966,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpSocietyMatron/LockUp-societyMatron.mp4"
+        },
+        {
+          "archiveID": "LockUpTheLastChance",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Last Chance",
+          "overview": "The testimony of a witness has dire consequences for a man charged with murder.  However, the victim's last words do not implicate the man charged with the crime.  Maris investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-05-14",
+          "year": null,
+          "runtimeSeconds": 1337,
+          "videoFile": {
+            "name": "LockUp-lastChance.mp4",
+            "format": "h.264",
+            "sizeBytes": 132458918,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheLastChance/LockUp-lastChance.mp4"
+        },
+        {
+          "archiveID": "LockUpMindOverMurder_11615",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Mind Over Murder",
+          "overview": "A supervisor at a zoo is poisoned and the zoologist is charged with murder.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-05-21",
+          "year": null,
+          "runtimeSeconds": 1437,
+          "videoFile": {
+            "name": "LockUp-mindOverMurder.mp4",
+            "format": "h.264",
+            "sizeBytes": 144576411,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpMindOverMurder_11615/LockUp-mindOverMurder.mp4"
+        },
+        {
+          "archiveID": "LockUpSoShallYeReap",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "So Shall Ye Reap",
+          "overview": "A teenager is charged with murder and Maris' secretary urges him to take the case.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-05-28",
+          "year": null,
+          "runtimeSeconds": 1571,
+          "videoFile": {
+            "name": "LockUp-soShallYeReap.mp4",
+            "format": "h.264",
+            "sizeBytes": 162136438,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpSoShallYeReap/LockUp-soShallYeReap.mp4"
+        },
+        {
+          "archiveID": "LockUpTheVoiceOfDoom",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Voice of Doom",
+          "overview": "A circus performer, whose forte is throwing the knife, is charged for the murder of another circus performer in a jealous fit of rage over his wife and arrested.  Maris believes the circus performer is innocent.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-06-11",
+          "year": null,
+          "runtimeSeconds": 1611,
+          "videoFile": {
+            "name": "LockUp-voiceOfDoom.mp4",
+            "format": "h.264",
+            "sizeBytes": 160567596,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheVoiceOfDoom/LockUp-voiceOfDoom.mp4"
+        },
+        {
+          "archiveID": "LockUpTheBloodRedRuby",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "The Blood Red Ruby",
+          "overview": "A man is suspected of a jewelry heist and a killing and is arrested.  The man is a former client of Maris' and he investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-06-18",
+          "year": null,
+          "runtimeSeconds": 1431,
+          "videoFile": {
+            "name": "LockUp-theBloodRedRuby.mp4",
+            "format": "h.264",
+            "sizeBytes": 148344300,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheBloodRedRuby/LockUp-theBloodRedRuby.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "LockUpTheCaseOfDanGray",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Case of Dan Gray",
+          "overview": "Dan Gray invents an explosive formula similar to dynamite.  After a golfer is killed with an exploding golf ball the inventor is arrested for murder.  Maris and Lt. Weston investigate.  Gloria Larkley is Dan's supporting girlfriend.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-10-01",
+          "year": null,
+          "runtimeSeconds": 1434,
+          "videoFile": {
+            "name": "LockUp-theCaseOfDanGray.mp4",
+            "format": "h.264",
+            "sizeBytes": 143981508,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfDanGray/LockUp-theCaseOfDanGray.mp4"
+        },
+        {
+          "archiveID": "LockUpTheSkidRowStory",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Skid Row Story",
+          "overview": "Barney Klein lives on skid row and is accused of stealing money from a local half-way house.  Maris defends Barney.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-10-08",
+          "year": null,
+          "runtimeSeconds": 1564,
+          "videoFile": {
+            "name": "LockUp-theSkidRowStory.mp4",
+            "format": "h.264",
+            "sizeBytes": 154646442,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheSkidRowStory/LockUp-theSkidRowStory.mp4"
+        },
+        {
+          "archiveID": "LockUpFlyingHigh",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Flying High",
+          "overview": "Jean Davis, a flight attendant, is murdered.  When Maris investigates the case he discovers that many people had a reason to kill Ms. Davis.  The problem is that all of them have solid alibis.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-10-15",
+          "year": null,
+          "runtimeSeconds": 1562,
+          "videoFile": {
+            "name": "LockUp-flyingHigh.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158156459,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpFlyingHigh/LockUp-flyingHigh.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTheFrameUp",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Frame Up",
+          "overview": "An ex-convict runs a gift shop and finds the dead body of a well known gangster in his shop.  He is arrested for murder.  Maris and Lt. Weston, who are friends of the accused, help in the investigation.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-10-29",
+          "year": null,
+          "runtimeSeconds": 1323,
+          "videoFile": {
+            "name": "LockUp-theFrameUp.mp4",
+            "format": "h.264",
+            "sizeBytes": 132128848,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheFrameUp/LockUp-theFrameUp.mp4"
+        },
+        {
+          "archiveID": "LockUpTheSeventhHour",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Seventh Hour",
+          "overview": "Bill Donati, a laborer, is accused of killing a local racketeer named Al Curis. Maris defends Bill.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-11-05",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LockUpTheSeventhHour.mp4",
+            "format": "h.264",
+            "sizeBytes": 142406786,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheSeventhHour/LockUpTheSeventhHour.mp4"
+        },
+        {
+          "archiveID": "LockUpTheSisters",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Sisters",
+          "overview": "Whitney Coleman is charged for murder when her estranged husband is found dead.  Maris comes to her aid and investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-06-17",
+          "year": null,
+          "runtimeSeconds": 1581,
+          "videoFile": {
+            "name": "LockUp-theSisters.mp4",
+            "format": "h.264",
+            "sizeBytes": 157299044,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheSisters/LockUp-theSisters.mp4"
+        },
+        {
+          "archiveID": "LockUpStrangeSummons",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Diamond Dupe",
+          "overview": "A union member is accused of selling stolen property.  The union hires Maris to defend the man charged with the crime.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-11-12",
+          "year": null,
+          "runtimeSeconds": 1564,
+          "videoFile": {
+            "name": "LockUp-strangeSummons.mp4",
+            "format": "h.264",
+            "sizeBytes": 154745015,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpStrangeSummons/LockUp-strangeSummons.mp4"
+        },
+        {
+          "archiveID": "LockUpSocietyDoctor",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Society Doctor",
+          "overview": "A well-to-do medical doctor, William Stanhope, is accused of killing his wife and arrested.  Maris investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-11-26",
+          "year": null,
+          "runtimeSeconds": 1567,
+          "videoFile": {
+            "name": "LockUp-societyDoctor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158095119,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpSocietyDoctor/LockUp-societyDoctor.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTopSecret",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Top Secret",
+          "overview": "A scientist, who's also a top-notch secret agent, is accused of misusing top-secret information and botching his assigned job.  Maris comes to his aid.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-11-19",
+          "year": null,
+          "runtimeSeconds": 1567,
+          "videoFile": {
+            "name": "LockUp-topSecret.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156565352,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTopSecret/LockUp-topSecret.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpNumberPlease",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Number Please",
+          "overview": "A friend of Maris is arrested for the murder of a detective.  Maris is motivated to clear his friend and discovers the dead detective was running afoul of the law.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-12-03",
+          "year": null,
+          "runtimeSeconds": 1304,
+          "videoFile": {
+            "name": "LockUp-numberPlease.mp4",
+            "format": "h.264",
+            "sizeBytes": 130222641,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpNumberPlease/LockUp-numberPlease.mp4"
+        },
+        {
+          "archiveID": "LockUpGirlsWanted",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Girls Wanted",
+          "overview": "Maris receives an important clue from a young girl in an employment agency racket.  Maris decides to investigate.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-12-31",
+          "year": null,
+          "runtimeSeconds": 1422,
+          "videoFile": {
+            "name": "LockUp-girlsWanted.mp4",
+            "format": "h.264",
+            "sizeBytes": 142916257,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpGirlsWanted/LockUp-girlsWanted.mp4"
+        },
+        {
+          "archiveID": "LockUpHisBrothersKeeper",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "His Brother's Keeper",
+          "overview": "Larry Wade is a policeman who decides to help out the victim of the crime instead of chasing the perpetrator.  This places him in trouble with his superiors and is charged with dereliction of duty.  Maris defends Wade which places him at odds with Lt. Weston.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-01-07",
+          "year": null,
+          "runtimeSeconds": 1318,
+          "videoFile": {
+            "name": "LockUp-hisBrothersKeeper.mp4",
+            "format": "h.264",
+            "sizeBytes": 131925879,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpHisBrothersKeeper/LockUp-hisBrothersKeeper.mp4"
+        },
+        {
+          "archiveID": "LockUpACaseOfArson",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "A Case of Arson",
+          "overview": "Sam Putman is charged with arson.  Maris investigates and defends Mr. Putman since he is an old friend of his father.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-01-14",
+          "year": null,
+          "runtimeSeconds": 1575,
+          "videoFile": {
+            "name": "LockUp-aCaseOfArson.mp4",
+            "format": "h.264",
+            "sizeBytes": 156211577,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpACaseOfArson/LockUp-aCaseOfArson.mp4"
+        },
+        {
+          "archiveID": "LockUpJennifer",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Jennifer",
+          "overview": "A woman is charged and jailed for the murder of her husband.  Her step-daughter, Jennifer, asks Maris to investigate the case because she believes in her step-mother.  Jennifer turns out to be quite a sleuth and help Maris with the case.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-01-21",
+          "year": null,
+          "runtimeSeconds": 1571,
+          "videoFile": {
+            "name": "LockUp-jennifer.mp4",
+            "format": "h.264",
+            "sizeBytes": 155424156,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpJennifer/LockUp-jennifer.mp4"
+        },
+        {
+          "archiveID": "LockUpAbandonedMine",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Abandoned Mine",
+          "overview": "A death of a prospector worries the owners of a mine and send Maris to protect their interests and investigate the crime.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-01-28",
+          "year": null,
+          "runtimeSeconds": 1409,
+          "videoFile": {
+            "name": "LockUp-abandonnedMine.mp4",
+            "format": "h.264",
+            "sizeBytes": 145393874,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpAbandonedMine/LockUp-abandonnedMine.mp4"
+        },
+        {
+          "archiveID": "LockUpTheFrenchAffair",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "A French Affair",
+          "overview": "Maris travels to Paris to meet a potential client but finds him murdered. A suspect is arrested for the murder but Maris is not sure he's the killer.  Maris investigates in Europe.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-02-04",
+          "year": null,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "LockUp-aFrenchAffair.mp4",
+            "format": "h.264",
+            "sizeBytes": 154705471,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheFrenchAffair/LockUp-aFrenchAffair.mp4"
+        },
+        {
+          "archiveID": "LockupFugitiveFromFear",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Fugitive From Fear",
+          "overview": "A Korean war veteran suffering from post shock traumatic stress disorder flees after being accused of killing an acquaintance.  When Maris comes to his defense he discovers the dead woman had a note addressed to him.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-02-18",
+          "year": null,
+          "runtimeSeconds": 1579,
+          "videoFile": {
+            "name": "LockUp-fugitiveFromFear.mp4",
+            "format": "h.264",
+            "sizeBytes": 156619633,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockupFugitiveFromFear/LockUp-fugitiveFromFear.mp4"
+        },
+        {
+          "archiveID": "LockUpDesignForMurder",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "Design for Murder",
+          "overview": "An assistant dress designer is charged with murdering his employer.  Maris investigates and defends.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-02-25",
+          "year": null,
+          "runtimeSeconds": 1384,
+          "videoFile": {
+            "name": "LockUp-designForMurder.mp4",
+            "format": "h.264",
+            "sizeBytes": 138932153,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpDesignForMurder/LockUp-designForMurder.mp4"
+        },
+        {
+          "archiveID": "LockUpLikeFatherLikeSon",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "Like Father, Like Son",
+          "overview": "Mr. Burkhart, Sr. accuses his grandson George of stealing.  He claims only the two of them knew the combination of the safe.  Maris investigates the allegation.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-03-04",
+          "year": null,
+          "runtimeSeconds": 1439,
+          "videoFile": {
+            "name": "LockUp-likeFatherLikeSon.mp4",
+            "format": "h.264",
+            "sizeBytes": 144560021,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpLikeFatherLikeSon/LockUp-likeFatherLikeSon.mp4"
+        },
+        {
+          "archiveID": "LockUpRedConfetti",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Red Confetti",
+          "overview": "A spree of \"\"hit and runs\"\" bewilder the police department.  Maris and Lt. Weston are on the case and discover interesting facts in the eight accident.  The clues lead them to a dance studio the victims were members of.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-03-11",
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LockUp-redConfetti.mp4",
+            "format": "h.264",
+            "sizeBytes": 144576150,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpRedConfetti/LockUp-redConfetti.mp4"
+        },
+        {
+          "archiveID": "LockUpPlantersDeath",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "Planter's Death",
+          "overview": "Maris heads to the West Indies for some rest and recreation but his vacation is cut short when a plantation owner is killed.  Maris investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-03-18",
+          "year": null,
+          "runtimeSeconds": 1585,
+          "videoFile": {
+            "name": "LockUp-plantersDeath.mp4",
+            "format": "h.264",
+            "sizeBytes": 157219976,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpPlantersDeath/LockUp-plantersDeath.mp4"
+        },
+        {
+          "archiveID": "LockUpTwoWrongs",
+          "seasonNumber": 2,
+          "episodeNumber": 28,
+          "title": "Two Wrongs",
+          "overview": "A Broadway actress who no one likes is murdered.  Everyone she knew had a reason to want her dead.  Maris investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-03-25",
+          "year": null,
+          "runtimeSeconds": 1430,
+          "videoFile": {
+            "name": "LockUp-twoWrongs.mp4",
+            "format": "h.264",
+            "sizeBytes": 143584371,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTwoWrongs/LockUp-twoWrongs.mp4"
+        },
+        {
+          "archiveID": "LockUpJungleCompound",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "Jungle Compound",
+          "overview": "Maris takes a trip to the zoo.  A murder takes place and a zoo worker with a police record, fightened that he'll be the logical one arrested, panics and kidnaps Maris.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-04-01",
+          "year": null,
+          "runtimeSeconds": 1568,
+          "videoFile": {
+            "name": "LockUp-jungleCompound.mp4",
+            "format": "h.264",
+            "sizeBytes": 154808377,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpJungleCompound/LockUp-jungleCompound.mp4"
+        },
+        {
+          "archiveID": "LockUpTheWildcatter",
+          "seasonNumber": 2,
+          "episodeNumber": 31,
+          "title": "The Wildcatter",
+          "overview": "A rich oil man is the victim of the theft of his securities.  His former employee is accused of the crime.  Maris invesigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-04-15",
+          "year": null,
+          "runtimeSeconds": 1308,
+          "videoFile": {
+            "name": "LockUp-theWildcatter.mp4",
+            "format": "h.264",
+            "sizeBytes": 135993917,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheWildcatter/LockUp-theWildcatter.mp4"
+        },
+        {
+          "archiveID": "LockUpTheAccused",
+          "seasonNumber": 2,
+          "episodeNumber": 32,
+          "title": "The Accused",
+          "overview": "A woman dies suddenly and it is ruled a suicide.  The woman was a former client of Maris, and he is not so sure.  Maris investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-04-22",
+          "year": null,
+          "runtimeSeconds": 1436,
+          "videoFile": {
+            "name": "LockUp-theAccused.mp4",
+            "format": "h.264",
+            "sizeBytes": 148885675,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheAccused/LockUp-theAccused.mp4"
+        },
+        {
+          "archiveID": "LockUpLeadingYoungCitizen",
+          "seasonNumber": 2,
+          "episodeNumber": 33,
+          "title": "Leading Young Citizen",
+          "overview": "Joe Tanner is an ex-convict but is now reformed and leading a good life.  The police, however, charge him with a crime.  Tanner claims he is innocent.  Maris investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-04-29",
+          "year": null,
+          "runtimeSeconds": 1572,
+          "videoFile": {
+            "name": "LockUp-leadingYoungCitizen.mp4",
+            "format": "h.264",
+            "sizeBytes": 162561210,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpLeadingYoungCitizen/LockUp-leadingYoungCitizen.mp4"
+        },
+        {
+          "archiveID": "LockUpHurricane",
+          "seasonNumber": 2,
+          "episodeNumber": 34,
+          "title": "Hurricane",
+          "overview": "After a murder trial where the defendant was found guilty, Maris get a telegram from an important witness in the case stating that the convicted man was not guilty.  Maris investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-05-06",
+          "year": null,
+          "runtimeSeconds": 1568,
+          "videoFile": {
+            "name": "LockUp-hurricane.mp4",
+            "format": "h.264",
+            "sizeBytes": 161100015,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpHurricane/LockUp-hurricane.mp4"
+        },
+        {
+          "archiveID": "LockUpSacrificePlay",
+          "seasonNumber": 2,
+          "episodeNumber": 36,
+          "title": "Sacrifice Play",
+          "overview": "A newspaper columnist is murdered and Al Bingham, another newsman, is charged with murdering him.  Maris investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-05-20",
+          "year": null,
+          "runtimeSeconds": 1572,
+          "videoFile": {
+            "name": "LockUp-sacrificePlay.mp4",
+            "format": "h.264",
+            "sizeBytes": 163224176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpSacrificePlay/LockUp-sacrificePlay.mp4"
+        },
+        {
+          "archiveID": "LockUpTheFaceOfInnocence",
+          "seasonNumber": 2,
+          "episodeNumber": 37,
+          "title": "Face of Innocence",
+          "overview": "A murder and a robbery takes place.  Maris finds an envelope full of money tied to the case.  Maris investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-05-27",
+          "year": null,
+          "runtimeSeconds": 1584,
+          "videoFile": {
+            "name": "LockUp-faceOfInnocence.mp4",
+            "format": "h.264",
+            "sizeBytes": 164138888,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheFaceOfInnocence/LockUp-faceOfInnocence.mp4"
+        },
+        {
+          "archiveID": "LockUpTheIntruder",
+          "seasonNumber": 2,
+          "episodeNumber": 38,
+          "title": "The Intruder",
+          "overview": "An intruder is shot by a woman, an ex-showgirl.  It so happens that the intruder was her husband.  Maris investigates.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1961-06-03",
+          "year": null,
+          "runtimeSeconds": 1566,
+          "videoFile": {
+            "name": "LockUp-theIntruder.mp4",
+            "format": "h.264",
+            "sizeBytes": 161126196,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheIntruder/LockUp-theIntruder.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 76
+}

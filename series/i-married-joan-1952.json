@@ -1,0 +1,542 @@
+{
+  "version": 1,
+  "seriesID": "i-married-joan-1952",
+  "title": "I Married Joan",
+  "yearStart": 1952,
+  "yearEnd": 1955,
+  "overview": "I Married Joan is an American sitcom that aired on NBC from 1952 to 1955. It starred veteran vaudeville, film, and radio comedienne-comedy actress Joan Davis as the manic, scatterbrained wife of a mild-mannered community judge, the Honorable Bradley Stevens.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/88djbJFtcbzPC3VrfusydHuEcGE.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "I_Married_Joan",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"I Married Joan\" - Talent Scout (Classic TV)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoanTalentScout.mp4",
+            "format": "h.264",
+            "sizeBytes": 149076967,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan/IMarriedJoanTalentScout.mp4"
+        },
+        {
+          "archiveID": "JailJoan",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''I Married Joan'' - The Jailbird (1955, NBC-TV Comedy)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1490,
+          "videoFile": {
+            "name": "Joan_Jailbird.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 146076909,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JailJoan/Joan_Jailbird.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "I_Married_Joan--Joans_Curiosity",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Joan's Curiosity",
+          "overview": "Joan is in for a surprise when she opens an interesting-looking package that arrived for Brad.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1952-12-03",
+          "year": 1952,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "IMarriedJoan_108--Curiosity.mp4",
+            "format": "h.264",
+            "sizeBytes": 138868632,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Joans_Curiosity/IMarriedJoan_108--Curiosity.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Circumstantial_Evidence",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Circumstantial Evidence",
+          "overview": "Joan takes an interest in her husband's work and tries to prove that a man he is about to sentence was convicted on circumstantial evidence.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-01-14",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan114_Circumstantial_Evidence.mp4",
+            "format": "h.264",
+            "sizeBytes": 130156966,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Circumstantial_Evidence/IMarriedJoan114_Circumstantial_Evidence.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Memory",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Memory",
+          "overview": "Joan's faulty memory wreaks gastric disaster when she forgets a dinner invitation, resulting in not one, not two, but three spaghetti dinners in the same evening.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-02-11",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan118_Memory.mp4",
+            "format": "h.264",
+            "sizeBytes": 143496720,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Memory/IMarriedJoan118_Memory.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Opera",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Opera",
+          "overview": "In order to save her club's benefit show, Joan takes a whirl at the opera. Bing Crosby helps out.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-02-25",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan120_Opera.mp4",
+            "format": "h.264",
+            "sizeBytes": 144810734,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Opera/IMarriedJoan120_Opera.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Shopping",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Shopping",
+          "overview": "Joan needs newly out-fitted for a fancy party. So does husband Brad, but both have second thoughts about Joan's shopping trip.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-03-04",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan121_Shopping.mp4",
+            "format": "h.264",
+            "sizeBytes": 129411527,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Shopping/IMarriedJoan121_Shopping.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--The_Stamp",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Stamp",
+          "overview": "Joan mails a letter using a Mozambique stamp that Brad just purchased for $350. Her husband blows his top, but why is Joan now on trial?",
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-03-11",
+          "year": 1953,
+          "runtimeSeconds": 1363,
+          "videoFile": {
+            "name": "IMarriedJoan_122--The_Stamp.mp4",
+            "format": "h.264",
+            "sizeBytes": 141776469,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--The_Stamp/IMarriedJoan_122--The_Stamp.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Diet",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Diet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-03-25",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan124_Diet.mp4",
+            "format": "h.264",
+            "sizeBytes": 143836875,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Diet/IMarriedJoan124_Diet.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Lateness",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Lateness",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-04-08",
+          "year": 1953,
+          "runtimeSeconds": 1287,
+          "videoFile": {
+            "name": "IMarriedJoan126_Lateness.mp4",
+            "format": "h.264",
+            "sizeBytes": 120100937,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Lateness/IMarriedJoan126_Lateness.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Secrets",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Secrets",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-05-06",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan130_Secrets.mp4",
+            "format": "h.264",
+            "sizeBytes": 138663271,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Secrets/IMarriedJoan130_Secrets.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "I_Married_Joan--First_Lie",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "First Lie",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-10-21",
+          "year": 1953,
+          "runtimeSeconds": 1483,
+          "videoFile": {
+            "name": "IMarriedJoan202_First_Lie.mp4",
+            "format": "h.264",
+            "sizeBytes": 138871182,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--First_Lie/IMarriedJoan202_First_Lie.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Furniture_Quick_Changes",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Furniture Quick Changes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-10-28",
+          "year": 1953,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "IMarriedJoan_203--Furniture_Quick_Changes.mp4",
+            "format": "h.264",
+            "sizeBytes": 157790322,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Furniture_Quick_Changes/IMarriedJoan_203--Furniture_Quick_Changes.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Tropical_Fish",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Tropical Fish",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-11-11",
+          "year": 1953,
+          "runtimeSeconds": 1305,
+          "videoFile": {
+            "name": "IMarriedJoan205_Tropical_Fish.mp4",
+            "format": "h.264",
+            "sizeBytes": 121477576,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Tropical_Fish/IMarriedJoan205_Tropical_Fish.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Initiation",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Initiation",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-11-25",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan207_Initiation.mp4",
+            "format": "h.264",
+            "sizeBytes": 119478455,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Initiation/IMarriedJoan207_Initiation.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Lost_Check",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Lost Check",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-12-09",
+          "year": 1953,
+          "runtimeSeconds": 1329,
+          "videoFile": {
+            "name": "IMarriedJoan209_Lost_Check.mp4",
+            "format": "h.264",
+            "sizeBytes": 121323707,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Lost_Check/IMarriedJoan209_Lost_Check.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--The_Shotgun",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "The Shotgun",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-12-16",
+          "year": 1953,
+          "runtimeSeconds": 1430,
+          "videoFile": {
+            "name": "IMarriedJoan210_The_Shotgun.mp4",
+            "format": "h.264",
+            "sizeBytes": 133950050,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--The_Shotgun/IMarriedJoan210_The_Shotgun.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Double_Wedding",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Double Wedding",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-12-30",
+          "year": 1953,
+          "runtimeSeconds": 1456,
+          "videoFile": {
+            "name": "IMarriedJoan_212--Double_Wedding.mp4",
+            "format": "h.264",
+            "sizeBytes": 151512803,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Double_Wedding/IMarriedJoan_212--Double_Wedding.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Superstition",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Superstition",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1954-01-06",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan213_Superstition.mp4",
+            "format": "h.264",
+            "sizeBytes": 142233636,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Superstition/IMarriedJoan213_Superstition.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Bevs_Mistaken_Marriage",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Bev's Mistaken Marriage",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1954-02-10",
+          "year": 1954,
+          "runtimeSeconds": 1452,
+          "videoFile": {
+            "name": "IMarriedJoan_218--Bevs_Mistaken_Marriage.mp4",
+            "format": "h.264",
+            "sizeBytes": 151120695,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Bevs_Mistaken_Marriage/IMarriedJoan_218--Bevs_Mistaken_Marriage.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Anniversary_Memo",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Anniversary Memo",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1954-02-24",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan220_Anniversary_Memo.mp4",
+            "format": "h.264",
+            "sizeBytes": 141905317,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Anniversary_Memo/IMarriedJoan220_Anniversary_Memo.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Dented_Fender",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Dented Fender",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1954-03-03",
+          "year": 1954,
+          "runtimeSeconds": 1390,
+          "videoFile": {
+            "name": "IMarriedJoan221_Dented_Fender.mp4",
+            "format": "h.264",
+            "sizeBytes": 130250266,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Dented_Fender/IMarriedJoan221_Dented_Fender.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Pop_Retires",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "Pop Retires",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1954-03-24",
+          "year": 1954,
+          "runtimeSeconds": 1525,
+          "videoFile": {
+            "name": "IMarriedJoan224_Pop_Retires.mp4",
+            "format": "h.264",
+            "sizeBytes": 142801137,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Pop_Retires/IMarriedJoan224_Pop_Retires.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Get_Rich_Quick",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "Get Rich Quick",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1954-04-14",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan227_Get_Rich_Quick.mp4",
+            "format": "h.264",
+            "sizeBytes": 130818493,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Get_Rich_Quick/IMarriedJoan227_Get_Rich_Quick.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Predictions",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "Predictions",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1954-05-19",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan230_Predictions.mp4",
+            "format": "h.264",
+            "sizeBytes": 142745479,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Predictions/IMarriedJoan230_Predictions.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "I_Married_Joan--Party_Line",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Party Line",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1954-10-06",
+          "year": 1954,
+          "runtimeSeconds": 1386,
+          "videoFile": {
+            "name": "IMarriedJoan302_Party_Line.mp4",
+            "format": "h.264",
+            "sizeBytes": 129797090,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Party_Line/IMarriedJoan302_Party_Line.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--Manhole_Cover",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Manhole Cover",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1954-11-24",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan309_Manhole_Cover.mp4",
+            "format": "h.264",
+            "sizeBytes": 143212969,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Manhole_Cover/IMarriedJoan309_Manhole_Cover.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan--The_Wedding",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "The Wedding",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1955-01-05",
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan315_The_Wedding.mp4",
+            "format": "h.264",
+            "sizeBytes": 149136148,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--The_Wedding/IMarriedJoan315_The_Wedding.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 28
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "juke-box-jury-1960",
+  "title": "Juke Box Jury",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": "Juke Box Jury was a musical panel show which originally ran on BBC Television from 1 June 1959 until December 1967. The programme was based on the American show Jukebox Jury, itself an offshoot of a long-running radio series.\n\nThroughout its run the series featured celebrity showbusiness guests on a rotating weekly panel judging the hit potential of recent releases. By 1962 the programme attracted 12 million viewers weekly on Saturday nights.\n\nThe concept was later revived by the BBC for one series in 1979 and a further two series in 1989/1990.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JukeBoxJury29thOctober",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Juke Box Jury - 29th October 1960",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Juke Box Jury (1960s) UK BBC.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 115447924,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JukeBoxJury29thOctober/Juke Box Jury (1960s) UK BBC.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

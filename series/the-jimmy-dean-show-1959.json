@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-jimmy-dean-show-1959",
+  "title": "The Jimmy Dean Show",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": "The Jimmy Dean Show is the name of several similar music and variety series on American local and network television between 1957 and 1975. Each starred country music singer Jimmy Dean as host.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theJimmyDeanShow-9may1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Jimmy Dean Show'' - 9/May/1959",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1730,
+          "videoFile": {
+            "name": "TheJimmyDeanShow1959.mp4",
+            "format": "h.264",
+            "sizeBytes": 179208388,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theJimmyDeanShow-9may1959/TheJimmyDeanShow1959.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

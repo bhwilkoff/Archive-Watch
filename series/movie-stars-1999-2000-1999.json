@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "movie-stars-1999-2000-1999",
+  "title": "Movie Stars (1999-2000",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/movie-stars-1999",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "movie-stars-1999",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Movie Stars (1999-2000)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/movie-stars-1999",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "106 Educating Lori.mp4",
+            "format": "h.264",
+            "sizeBytes": 137667182,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/movie-stars-1999/106 Educating Lori.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

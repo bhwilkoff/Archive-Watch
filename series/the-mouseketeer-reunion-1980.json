@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-mouseketeer-reunion-1980",
+  "title": "The Mouseketeer Reunion",
+  "yearStart": 1980,
+  "yearEnd": 1980,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-mouseketeer-reunion-1980",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-mouseketeer-reunion-1980",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Mouseketeer Reunion - Paul Williams",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-mouseketeer-reunion-1980",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Mouseketeer Reunion - 1980.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1489642510,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-mouseketeer-reunion-1980/The Mouseketeer Reunion - 1980.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

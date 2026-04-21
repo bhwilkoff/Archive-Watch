@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "sherlock-holmes-three-episodes-colorized-1955",
+  "title": "Sherlock Holmes Three Episodes Colorized",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/sherlock-holmes-s-1e-9-the-case-of-harry-crocker",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sherlock-holmes-s-1e-9-the-case-of-harry-crocker",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sherlock Holmes Three Episodes Colorized",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sherlock-holmes-s-1e-9-the-case-of-harry-crocker",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sherlock Holmes s1e13 The Case Of The Split Ticket.mp4",
+            "format": "h.264",
+            "sizeBytes": 166795804,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sherlock-holmes-s-1e-9-the-case-of-harry-crocker/Sherlock Holmes s1e13 The Case Of The Split Ticket.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

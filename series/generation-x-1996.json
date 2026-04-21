@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "generation-x-1996",
+  "title": "Generation X",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/generation-x-1996-mkv",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "generation-x-1996-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Generation X - 1996 - MKV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/generation-x-1996-mkv",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Generation X - 1996.mp4",
+            "format": "h.264",
+            "sizeBytes": 545127224,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/generation-x-1996-mkv/Generation X - 1996.mp4"
+        },
+        {
+          "archiveID": "generation-x-1996-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Generation X - 1996 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/generation-x-1996-xvid-avi",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Generation X - 1996.mp4",
+            "format": "h.264",
+            "sizeBytes": 524396312,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/generation-x-1996-xvid-avi/Generation X - 1996.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-oprah-winfrey-show--november-16-1990-partial-2019",
+  "title": "The Oprah Winfrey Show- November 16, 1990 (partial",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheOprahWinfreyShowNovember161990partial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheOprahWinfreyShowNovember161990partial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Oprah Winfrey Show- November 16, 1990 (partial)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheOprahWinfreyShowNovember161990partial",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Oprah Winfrey Show- November 16, 1990 (partial).ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 92245752,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheOprahWinfreyShowNovember161990partial/The Oprah Winfrey Show- November 16, 1990 (partial).ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

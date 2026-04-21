@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "seriesID": "tombstone-territory-1958",
+  "title": "Tombstone Territory",
+  "yearStart": 1958,
+  "yearEnd": 1959,
+  "overview": "Tombstone Territory is an American Western series starring Pat Conway and Richard Eastham. The series' first two seasons aired on ABC from 1957 to 1959. The third and final season aired in syndication from 1959 until 1960.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/sqd4Z8UljfMvLYtdqszay1YtOCy.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/60KMLXvtUATae1TIPOxyii6W53e.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "tombstoneterritoryroseoftheriobravo",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Rose of the Rio Bravo",
+          "overview": "July 7, 1884 - A young Barton Clark Jr. comes to Tombstone to learn about life and takes a job with Clay Hollister as a jailer. When Hollister arrests Rose, wanted in Texas for cattle rustling and robbery, Barton falls for her charms and soon falls in love. Rose takes advantage of the situation and has Barton help her to escape by knocking the sheriff unconscious.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sqd4Z8UljfMvLYtdqszay1YtOCy.jpg",
+          "airDate": "1958-09-17",
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tombstone Territory - Rose of the Rio Bravo.mp4",
+            "format": "h.264",
+            "sizeBytes": 162134054,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tombstoneterritoryroseoftheriobravo/Tombstone Territory - Rose of the Rio Bravo.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "tombstoneterritorythemanfrombrewster",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The Man from Brewster",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sqd4Z8UljfMvLYtdqszay1YtOCy.jpg",
+          "airDate": "1959-04-24",
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tombstone Territory - The Man from Brewster.mp4",
+            "format": "h.264",
+            "sizeBytes": 162917418,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tombstoneterritorythemanfrombrewster/Tombstone Territory - The Man from Brewster.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

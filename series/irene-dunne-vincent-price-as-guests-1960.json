@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "irene-dunne-vincent-price-as-guests-1960",
+  "title": "Irene Dunne & Vincent Price as Guests",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Jack_Benny_-_Irene_Dunne_Vincent_Price_Guests",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Jack_Benny_-_Irene_Dunne_Vincent_Price_Guests",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Irene Dunne & Vincent Price as Guests",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Jack_Benny_-_Irene_Dunne_Vincent_Price_Guests",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jack_Benny_-_Irene_Dunne_Vincent_Price_Guests.mp4",
+            "format": "h.264",
+            "sizeBytes": 170624859,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Jack_Benny_-_Irene_Dunne_Vincent_Price_Guests/Jack_Benny_-_Irene_Dunne_Vincent_Price_Guests.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "seriesID": "i-led-3-lives-1960",
+  "title": "I Led 3 Lives",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Herbert Philbrick was a young professional and pacifist in 1939 Boston. He joined an anti-war group and quickly found himself caught up in the secret world of underground communist activity. He agreed to spy on the Communists for the FBI, and spent the next 9 years of his life as a Communist, FBI spy, and Communist counter-spy, since they had asked him to follow other comrades to test their loyalty. Hence the 3 lives; and his family, co-workers, and church never knew. This TV show is based on the TRUE story of how Philbrick (played ably by Richard Carlson) could never relax, but had to sneak to secret cell meetings and meet FBI agents in clandestine places to make info drops, never knowing when he might be found out, and if he would live to see the next rendezvous.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "i-led-3-lives-s1_202105",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "I Led 3 Lives s1",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "I Led 3 Lives 2_1 Jet Engine.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 976708948,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/i-led-3-lives-s1_202105/I Led 3 Lives 2_1 Jet Engine.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ILed3Lives-CapturedCongressman",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Captured Congressman",
+          "overview": "Philbrick is assisting George Reynolds with his election campaign for the U.S. Congress when he learns that one of Reynolds' primary contributors is giving the candidate money provided by the Communist party. As Reynolds is campaigning on an anti-communism platform it will be profoundly damaging to his chances when the information comes to light on the eve of the election.",
+          "stillURL": null,
+          "airDate": "1953-12-20",
+          "year": null,
+          "runtimeSeconds": 1578,
+          "videoFile": {
+            "name": "I_LED_3_LIVES-Captured_Congressman.mp4",
+            "format": "h.264",
+            "sizeBytes": 69691316,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ILed3Lives-CapturedCongressman/I_LED_3_LIVES-Captured_Congressman.mp4"
+        },
+        {
+          "archiveID": "ILed3Lives-PurloinedPrintingPress",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Purloined Printing Press",
+          "overview": "To get out some secretly produced propaganda leaflets, the communists have Philbrick go through an elaborate cloak-and-dagger scheme to secure an offset printing press. It involves a new typewriter, the use of his car, and an eager printer in a hidden location.",
+          "stillURL": null,
+          "airDate": "1953-12-27",
+          "year": null,
+          "runtimeSeconds": 1565,
+          "videoFile": {
+            "name": "I_LED_3_LIVES-Purloined_Printing_Press.mp4",
+            "format": "h.264",
+            "sizeBytes": 152529740,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ILed3Lives-PurloinedPrintingPress/I_LED_3_LIVES-Purloined_Printing_Press.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

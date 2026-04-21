@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bbc-hunters-in-the-wild-1993",
+  "title": "BBC Hunters In The Wild",
+  "yearStart": 1993,
+  "yearEnd": 1993,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hunters-in-the-wild-ep-3-the-company-of-killers-anthony-hopkins-1993",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hunters-in-the-wild-ep-3-the-company-of-killers-anthony-hopkins-1993",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "BBC Hunters In The Wild (1993)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hunters-in-the-wild-ep-3-the-company-of-killers-anthony-hopkins-1993",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hunters in the Wild Ep 1 Dining Alone (Anthony Hopkins) (1993).mp4",
+            "format": "h.264",
+            "sizeBytes": 171006824,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hunters-in-the-wild-ep-3-the-company-of-killers-anthony-hopkins-1993/Hunters in the Wild Ep 1 Dining Alone (Anthony Hopkins) (1993).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

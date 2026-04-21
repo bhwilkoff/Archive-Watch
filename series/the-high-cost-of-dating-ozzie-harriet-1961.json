@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-high-cost-of-dating-ozzie-harriet-1961",
+  "title": "The High Cost of Dating (Ozzie & Harriet",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/High_Cost_of_Dating--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "High_Cost_of_Dating--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The High Cost of Dating (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/High_Cost_of_Dating--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1589,
+          "videoFile": {
+            "name": "High_Cost_of_Dating--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 165287321,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/High_Cost_of_Dating--Ozzie-Harriet/High_Cost_of_Dating--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

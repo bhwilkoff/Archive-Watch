@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cbs-1961-fall-1960",
+  "title": "CBS 1961 Fall",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Cbs1961FallSeasonPreviewShow",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cbs1961FallSeasonPreviewShow",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CBS 1961 Fall Season Preview Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Cbs1961FallSeasonPreviewShow",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cbs1961FallPreviewShow.mp4",
+            "format": "h.264",
+            "sizeBytes": 160128558,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cbs1961FallSeasonPreviewShow/Cbs1961FallPreviewShow.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "bill-collins-golden-years-of-hollywood-1989",
+  "title": "Bill Collins Golden Years of Hollywood",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/billcollins-golden-years-of-hollywood-the-ghost-and-mrs-muir-intro-incomplete-19890722",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "billcollins-golden-years-of-hollywood-the-ghost-and-mrs-muir-intro-incomplete-19890722",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Bill Collins Golden Years of Hollywood - The Ghost and Mrs. Muir intro (incomplete – 22/07/1989)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/billcollins-golden-years-of-hollywood-the-ghost-and-mrs-muir-intro-incomplete-19890722",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "22 - Bill Collins Golden Years of Hollywood - The Ghost and Mrs Muir intro (incomplete).mp4",
+            "format": "h.264",
+            "sizeBytes": 13091145,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/billcollins-golden-years-of-hollywood-the-ghost-and-mrs-muir-intro-incomplete-19890722/22 - Bill Collins Golden Years of Hollywood - The Ghost and Mrs Muir intro (incomplete).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

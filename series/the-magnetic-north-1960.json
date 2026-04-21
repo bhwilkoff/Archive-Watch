@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-magnetic-north-1960",
+  "title": "The Magnetic North",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/VAS_11_The_Magnetic_North",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "VAS_11_The_Magnetic_North",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Magnetic North",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/VAS_11_The_Magnetic_North",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "VAS_11_The_Magnetic_North.mp4",
+            "format": "h.264",
+            "sizeBytes": 156044746,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/VAS_11_The_Magnetic_North/VAS_11_The_Magnetic_North.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

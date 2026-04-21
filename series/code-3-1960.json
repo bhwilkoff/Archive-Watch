@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "seriesID": "code-3-1960",
+  "title": "Code 3",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Code 3 is an American crime drama that aired in syndication in 1957. The stories were all based on actual files of the Los Angeles sheriff's office.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/c9vBwlGCx8u9L1Y1LTMnNBX44YO.jpg",
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Code3TheBensonCase",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Code 3: The Benson Case",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1577,
+          "videoFile": {
+            "name": "Code3-theBensonCase.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157836297,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Code3TheBensonCase/Code3-theBensonCase.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Code3TheRookieSheriff",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Rookie Sheriff",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
+          "airDate": "1957-04-02",
+          "year": null,
+          "runtimeSeconds": 1555,
+          "videoFile": {
+            "name": "Code3TheRookieSheriff.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156316556,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Code3TheRookieSheriff/Code3TheRookieSheriff.ia.mp4"
+        },
+        {
+          "archiveID": "Code3TheSniper",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Sniper",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
+          "airDate": "1957-08-20",
+          "year": null,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "Code3-theSniper.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157852512,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Code3TheSniper/Code3-theSniper.ia.mp4"
+        },
+        {
+          "archiveID": "Code3TheManWithManyFaces",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "The Man with Many Faces",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
+          "airDate": "1957-10-08",
+          "year": null,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "Code3-theManWithManyFaces.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156449434,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Code3TheManWithManyFaces/Code3-theManWithManyFaces.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

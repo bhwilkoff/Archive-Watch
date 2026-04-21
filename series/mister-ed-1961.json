@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "seriesID": "mister-ed-1961",
+  "title": "Mister Ed",
+  "yearStart": 1961,
+  "yearEnd": 1962,
+  "overview": "Wilbur Post and his wife Carol move into a beautiful new home. When Wilbur takes a look in his new barn, he finds that the former owner left his horse behind. This horse is no ordinary horse . . . he can talk, but only to Wilbur, which leads to all sorts of misadventures for Wilbur and his trouble-making sidekick Mister Ed.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/ykGlIpjTiyd4wYk617X73TL5FTS.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/luppCk9XUcs0gUEf9Sv7MhiJv4H.jpg",
+  "genres": [],
+  "networks": [
+    "CBS",
+    "Syndication"
+  ],
+  "creator": "Walter R. Brooks",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Ed_the_Beneficiary",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Mister Ed\" - Ed the Beneficiary",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ykGlIpjTiyd4wYk617X73TL5FTS.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mr_Ed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147209353,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ed_the_Beneficiary/Mr_Ed.ia.mp4"
+        },
+        {
+          "archiveID": "mister-ed-s-01",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mister Ed Season 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ykGlIpjTiyd4wYk617X73TL5FTS.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mister Ed S01E06 Sorority House.mp4",
+            "format": "h.264",
+            "sizeBytes": 151264422,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mister-ed-s-01/Mister Ed S01E06 Sorority House.mp4"
+        },
+        {
+          "archiveID": "mister-ed-s-04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mister Ed Season 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ykGlIpjTiyd4wYk617X73TL5FTS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mister Ed S04E21 Mae West Meets Mister Ed.mp4",
+            "format": "h.264",
+            "sizeBytes": 148475695,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mister-ed-s-04/Mister Ed S04E21 Mae West Meets Mister Ed.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

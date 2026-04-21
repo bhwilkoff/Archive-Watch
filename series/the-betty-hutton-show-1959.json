@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "seriesID": "the-betty-hutton-show-1959",
+  "title": "The Betty Hutton Show",
+  "yearStart": 1959,
+  "yearEnd": 1959,
+  "overview": "The Betty Hutton Show is an American sitcom that aired on CBS's Thursday night schedule during the 1959-1960 season. The show was sponsored by General Foods' Post Cereals, and was produced by Desilu and Hutton Productions.\n\nThe series, which was originally entitled Goldie, would retain its original title during its syndication run.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/391/978500.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Stanley Roberts",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BettyHuttonShow-GoldieGoesBroke",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Betty Hutton Show'' - Goldie Goes Broke",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/391/978500.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1765,
+          "videoFile": {
+            "name": "TheBettyHuttonShowGoldieGoesBroke.mp4",
+            "format": "h.264",
+            "sizeBytes": 183308036,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BettyHuttonShow-GoldieGoesBroke/TheBettyHuttonShowGoldieGoesBroke.mp4"
+        },
+        {
+          "archiveID": "Bettty_Hutton_Show",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'The Betty Hutton Show' - The Seaton Story",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/391/978500.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BettyHuttonShowSeatonStory.mp4",
+            "format": "h.264",
+            "sizeBytes": 158886976,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Bettty_Hutton_Show/BettyHuttonShowSeatonStory.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

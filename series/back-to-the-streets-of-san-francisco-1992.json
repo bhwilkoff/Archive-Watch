@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "back-to-the-streets-of-san-francisco-1992",
+  "title": "Back to the Streets of San Francisco",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/back-to-the-streets-of-san-francisco-1992-mkv",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "back-to-the-streets-of-san-francisco-1992-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Back to the Streets of San Francisco - 1992 - MKV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/back-to-the-streets-of-san-francisco-1992-mkv",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Back to the Streets of San Francisco - 1992.mp4",
+            "format": "h.264",
+            "sizeBytes": 585069712,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/back-to-the-streets-of-san-francisco-1992-mkv/Back to the Streets of San Francisco - 1992.mp4"
+        },
+        {
+          "archiveID": "back-to-the-streets-of-san-francisco-1992-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Back to the Streets of San Francisco - 1992 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/back-to-the-streets-of-san-francisco-1992-xvid-avi",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Back to the Streets of San Francisco - 1992.mp4",
+            "format": "h.264",
+            "sizeBytes": 572549488,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/back-to-the-streets-of-san-francisco-1992-xvid-avi/Back to the Streets of San Francisco - 1992.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

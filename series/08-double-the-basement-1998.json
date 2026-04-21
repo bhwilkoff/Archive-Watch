@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "08-double-the-basement-1998",
+  "title": "08. Double The Basement",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/8-double-the-basement-episodes-thurs-1st-fri-2nd-oct-98",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "8-double-the-basement-episodes-thurs-1st-fri-2nd-oct-98",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "08. Double The Basement (1998) Episodes: Thurs 1st & Fri 2nd Oct 98 - short TV clip",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/8-double-the-basement-episodes-thurs-1st-fri-2nd-oct-98",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "8_Double The Basement Episodes Thurs 1st & Fri 2nd Oct 98.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 26921165,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/8-double-the-basement-episodes-thurs-1st-fri-2nd-oct-98/8_Double The Basement Episodes Thurs 1st & Fri 2nd Oct 98.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

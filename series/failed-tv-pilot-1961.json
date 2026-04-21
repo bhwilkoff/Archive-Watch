@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "failed-tv-pilot-1961",
+  "title": "Failed TV Pilot",
+  "yearStart": 1961,
+  "yearEnd": 1962,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Time_Out_For_Ginger",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Daddy-O_TV-Pilot_1961",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Failed TV Pilot: 'Daddy-O' (1961)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Daddy-O_TV-Pilot_1961",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Daddy-O.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 164923184,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Daddy-O_TV-Pilot_1961/Daddy-O.ia.mp4"
+        },
+        {
+          "archiveID": "Little_Amy_1962",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Failed TV Pilot: 'Little Amy' (Produced 1962)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fIEvF9a9xJBNojO7bAZlplssZZ.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Little_Amy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156450197,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Little_Amy_1962/Little_Amy.ia.mp4"
+        },
+        {
+          "archiveID": "Time_Out_For_Ginger",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Failed TV Pilot: 'Time Out for Ginger' (Unknown Year)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Time_Out_For_Ginger",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ginger_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 117827358,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Time_Out_For_Ginger/Ginger_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

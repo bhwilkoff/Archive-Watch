@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-big-little-jesus-1953",
+  "title": "The Big Little Jesus",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TheBigLittleJesus",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheBigLittleJesus",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Big Little Jesus",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheBigLittleJesus",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "drag_ep064_12-24-53_The_Big_Little_Jesus.mp4",
+            "format": "h.264",
+            "sizeBytes": 168570332,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBigLittleJesus/drag_ep064_12-24-53_The_Big_Little_Jesus.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

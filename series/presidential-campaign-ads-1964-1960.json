@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "presidential-campaign-ads-1964-1960",
+  "title": "Presidential Campaign Ads 1964",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Election_Ads_02",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Election_Ads_02",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Presidential Campaign Ads 1964",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Election_Ads_02",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Commercial-LBJ1964ElectionAdOnehulluvaman_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 18110175,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Election_Ads_02/Commercial-LBJ1964ElectionAdOnehulluvaman_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

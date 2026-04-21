@@ -1,0 +1,257 @@
+{
+  "version": 1,
+  "seriesID": "the-dukes-of-hazzard-1979",
+  "title": "The Dukes Of Hazzard",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": "Cousins Bo and Luke Duke and their car \"General Lee\", assisted by Cousin Daisy and Uncle Jesse, have a running battle with the authorities of Hazzard County (Boss Hogg and Sheriff Coltrane), plus a string of ne'er-do-wells often backed by the scheming Hogg.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/r9eXJUxP6zgrpCMEOJzaEXzXLsp.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/usnCQeoAWw4MDCn7q6luOWqSwQO.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Rod Amateau",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-01-one-armed-bandits",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "One-Armed Bandits",
+          "overview": "Sheriff Coltrane is hissier than a sack of rattlesnakes! He sets up a slot machine operation to fund his election, but a pair of two-armed-bandits - Bo and Luke - find a way to give the proceeds to charity.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4cQbO3j0QuALw0iSMp7Cda5awX8.jpg",
+          "airDate": "1979-01-26",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E01 One Armed Bandits.mp4",
+            "format": "h.264",
+            "sizeBytes": 285719699,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-01-one-armed-bandits/The Dukes of Hazzard S01E01 One Armed Bandits.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-02-daisys-song",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Daisy's Song",
+          "overview": "What kind of music-publishing outfit would bilk daisy out of $50? Well, here's a hint, Dukesters: where there's corruption, there's Boss Hogg. And this time, the FBI is keeping an eye on the scam!",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rxJhTc35Qo2ku6YVrKR4cqpk2R9.jpg",
+          "airDate": "1979-02-02",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E02 Daisy's Song.mp4",
+            "format": "h.264",
+            "sizeBytes": 286078475,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-02-daisys-song/The Dukes of Hazzard S01E02 Daisy's Song.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-03-mary-kayes-baby",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Mary Kaye's Baby",
+          "overview": "Bo and Luke are unaware that 1) the borrowed car they're driving is loaded with moonshine and 2) the pregnant hitchhiker they've picked up is carrying over $100,000 in stolen mob money.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/veeATPfhLMfOQuCJCINwpaTXhUH.jpg",
+          "airDate": "1979-02-09",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E03 Mary Kaye's Baby.mp4",
+            "format": "h.264",
+            "sizeBytes": 286585959,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-03-mary-kayes-baby/The Dukes of Hazzard S01E03 Mary Kaye's Baby.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-04-repo-men",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Repo Men",
+          "overview": "The car's a wreck. But the engine's a honey, and Bo and Luke have to have it. So they make a deal with a car dealer who's as crooked as a switchback trail and whose scheme could land them behind bars.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/tZwL3YpRS18qkSUOGKudbYpPexU.jpg",
+          "airDate": "1979-02-16",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E04  Repo Men.mp4",
+            "format": "h.264",
+            "sizeBytes": 286524475,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-04-repo-men/The Dukes of Hazzard S01E04  Repo Men.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-05-high-octane",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "High Octane",
+          "overview": "Will a batch of kick-tail gasoline solve the nation's fuel crisis? Uncle Jesse fires up the moonshine still for a patriotic cause. And a lovely female revenue agent fires up Bo's dancin'-and-romancin' flames.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rtPoVmBnMc5CvlbC68xatS8xiM0.jpg",
+          "airDate": "1979-02-23",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E05  High Octane.mp4",
+            "format": "h.264",
+            "sizeBytes": 287097989,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-05-high-octane/The Dukes of Hazzard S01E05  High Octane.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-06-swamp-molly",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Swamp Molly",
+          "overview": "Way back in the '30s, Molly sprang Uncle Jesse out of a heap of trouble with the Feds. Now she wants to make one last moonshine run...and wants Jesse and the other Dukes to help.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/o8YvrBA6iQqw4otTEdZomUJXGH2.jpg",
+          "airDate": "1979-03-09",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E06  Swamp Molly.mp4",
+            "format": "h.264",
+            "sizeBytes": 286285256,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-06-swamp-molly/The Dukes of Hazzard S01E06  Swamp Molly.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-07-lukes-love-story",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Luke's Love Story",
+          "overview": "Luke's rival in in Hazzard's stock car derby has million-dollar legs and a lead foot... and she's got his heart revved up. Boss Hogg worries about reclaiming the derby trophy because his mama's ashes are inside it.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/6oo0QxgP312W0bG6V0rmmHh6tH5.jpg",
+          "airDate": "1979-03-16",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E07  Luke's Love Story.mp4",
+            "format": "h.264",
+            "sizeBytes": 285802971,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-07-lukes-love-story/The Dukes of Hazzard S01E07  Luke's Love Story.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-08-the-big-heist",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Big Heist",
+          "overview": "Bo and Luke robbers? That accusation is like going to church shirtless. It don't feel right! But if the Duke's didn't pull off the heist, who was in the General Lee when it roared away from the crime scene?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/5EhCpuV7F2rq5QAloyoCOPyUrVx.jpg",
+          "airDate": "1979-03-30",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E08  The Big Heist.mp4",
+            "format": "h.264",
+            "sizeBytes": 285995573,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-08-the-big-heist/The Dukes of Hazzard S01E08  The Big Heist.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-09-limo-one-is-missing",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Limo One is Missing",
+          "overview": "Leave it to Cooter to drive everyone wild. When government agents driving the U.S. President's limo through Hazzard stop at the Boar's Nest, Cooter hot-wires the vehicle and sets out on a joy ride.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/K6Q3lq8PardLu1YLIz3vjMByKe.jpg",
+          "airDate": "1979-04-06",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E09  Limo One Is Missing.mp4",
+            "format": "h.264",
+            "sizeBytes": 285804090,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-09-limo-one-is-missing/The Dukes of Hazzard S01E09  Limo One Is Missing.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-10-deputy-dukes",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Deputy Dukes",
+          "overview": "There ought to be a law. Instead, there's Bo and Luke. They've been deputized and sent to Springfield to retrieve a prisoner. One detail the boys aren't told: the prisoner is a notorious Public Enemy #1!",
+          "stillURL": "https://image.tmdb.org/t/p/w300/gPUIXCa5XDCI3DZMmEqZVbCyj9F.jpg",
+          "airDate": "1979-04-13",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E10  Deputy Dukes.mp4",
+            "format": "h.264",
+            "sizeBytes": 285614831,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-10-deputy-dukes/The Dukes of Hazzard S01E10  Deputy Dukes.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-11-money-to-burn",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Money to Burn",
+          "overview": "The government was going to burn the cash away, so who'd miss a cool million in ragged bills? Besides, Boss Hogg has masterminded his scheme so that Bo and Luke are the fall guys.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/bR4pZcM6M5pOwnxq3UyIOn3vh6O.jpg",
+          "airDate": "1979-04-20",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E11  Money To Burn.mp4",
+            "format": "h.264",
+            "sizeBytes": 285549071,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-11-money-to-burn/The Dukes of Hazzard S01E11  Money To Burn.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-12-route-7-11",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Route 7-11",
+          "overview": "The rig is rigged. Bo and Luke become drivers of an 18-wheeler, not knowing that the trailer is a rolling gambling casino and that its games aren't on the level.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/asooaSuH0vPgDAcLF1V7Cj2rKqs.jpg",
+          "airDate": "1979-05-04",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E12  Route 7-11.mp4",
+            "format": "h.264",
+            "sizeBytes": 285710154,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-12-route-7-11/The Dukes of Hazzard S01E12  Route 7-11.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-13-double-sting",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Double Sting",
+          "overview": "A fine mess they've gotten into this time! After a health quarantine  confines the Duke men and the police to the jailhouse, only Daisy is left to pursue bank robbers who disguise themselves as Laurel and Hardy.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iTk3XuOo3v8WeAbCx08Orth8Mfh.jpg",
+          "airDate": "1979-05-11",
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E13  Double Sting.mp4",
+            "format": "h.264",
+            "sizeBytes": 286377498,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-13-double-sting/The Dukes of Hazzard S01E13  Double Sting.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "clips-from-the-steve-allen-show-1960",
+  "title": "Clips from The Steve Allen Show",
+  "yearStart": 1960,
+  "yearEnd": 1960,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SteveAllenPlymouthIntro",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SteveAllenPlymouthIntro",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Clips from The Steve Allen Show",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SteveAllenPlymouthIntro",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Steve Allen Show singers.mp4",
+            "format": "h.264",
+            "sizeBytes": 47402896,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteveAllenPlymouthIntro/Steve Allen Show singers.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

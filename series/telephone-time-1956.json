@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "seriesID": "telephone-time-1956",
+  "title": "Telephone Time",
+  "yearStart": 1956,
+  "yearEnd": 1958,
+  "overview": "Telephone Time is an American anthology drama series that aired on CBS in 1956, and on ABC from 1957 to 1958. The series features plays by John Nesbitt who hosted the first season. Frank C. Baxter hosted the 1957 and 1958 seasons. The program was directed by Arthur Hiller.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/gkmQa9zWPMUBoce66ersUh8eDt6.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TelephoneTimeChicoAndTheArchbishop",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Telephone Time'' - Chico and the Archbishop",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gkmQa9zWPMUBoce66ersUh8eDt6.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "Telephone Time - Chico and the Archbishop.mp4",
+            "format": "h.264",
+            "sizeBytes": 158043921,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TelephoneTimeChicoAndTheArchbishop/Telephone Time - Chico and the Archbishop.mp4"
+        },
+        {
+          "archiveID": "IAmNotAlone_201411",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Telephone Time'' - I Am Not Alone",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gkmQa9zWPMUBoce66ersUh8eDt6.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1540,
+          "videoFile": {
+            "name": "I-Am-Not-Alone.mp4",
+            "format": "h.264",
+            "sizeBytes": 160396887,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/IAmNotAlone_201411/I-Am-Not-Alone.mp4"
+        },
+        {
+          "archiveID": "man-with-a-beard",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Telephone Time'' - Man with a Beard",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gkmQa9zWPMUBoce66ersUh8eDt6.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "man-with-a-beard.mp4",
+            "format": "h.264",
+            "sizeBytes": 160016894,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-beard/man-with-a-beard.mp4"
+        },
+        {
+          "archiveID": "TelephoneTimePitAPitAndTheDragon",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Telephone Time'' - Pit-a-Pit And the Dragon",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gkmQa9zWPMUBoce66ersUh8eDt6.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "Telephone Time - Pit-a-Pit and the Dragon.mp4",
+            "format": "h.264",
+            "sizeBytes": 157794189,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TelephoneTimePitAPitAndTheDragon/Telephone Time - Pit-a-Pit and the Dragon.mp4"
+        },
+        {
+          "archiveID": "recipeforsuccess_201411",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Telephone Time'' - Recipe for Success",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gkmQa9zWPMUBoce66ersUh8eDt6.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "recipeforsuccess.mp4",
+            "format": "h.264",
+            "sizeBytes": 160019720,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/recipeforsuccess_201411/recipeforsuccess.mp4"
+        },
+        {
+          "archiveID": "TelephoneTimeTheIntruder",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Telephone Time'' - The Intruder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gkmQa9zWPMUBoce66ersUh8eDt6.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1445,
+          "videoFile": {
+            "name": "Telephone Time - The Intruder.mp4",
+            "format": "h.264",
+            "sizeBytes": 150317226,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TelephoneTimeTheIntruder/Telephone Time - The Intruder.mp4"
+        },
+        {
+          "archiveID": "TelephoneTimeTheMountainThatMoved",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Telephone Time'' - The Mountain That Moved",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gkmQa9zWPMUBoce66ersUh8eDt6.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 1498,
+          "videoFile": {
+            "name": "TelephoneTime-TheMountainThatMoved.mp4",
+            "format": "h.264",
+            "sizeBytes": 155473446,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TelephoneTimeTheMountainThatMoved/TelephoneTime-TheMountainThatMoved.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "Telephone_Time--Novel_Appeal",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Novel Appeal",
+          "overview": "An author frees an innocent man from prison.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/gkmQa9zWPMUBoce66ersUh8eDt6.jpg",
+          "airDate": "1957-12-03",
+          "year": 1957,
+          "runtimeSeconds": 1528,
+          "videoFile": {
+            "name": "TelephoneTime313_Novel_Appeal.mp4",
+            "format": "h.264",
+            "sizeBytes": 158804860,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Telephone_Time--Novel_Appeal/TelephoneTime313_Novel_Appeal.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8
+}

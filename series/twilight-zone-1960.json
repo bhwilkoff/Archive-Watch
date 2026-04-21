@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "seriesID": "twilight-zone-1960",
+  "title": "Twilight Zone",
+  "yearStart": 1960,
+  "yearEnd": 1963,
+  "overview": "An anthology series containing drama, psychological thriller, fantasy, science fiction, suspense, and/or horror, often concluding with a macabre or unexpected twist.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7uY4pCOxbEdv4M8jTE4uMPVoSIW.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/fg5GcstgP9H8OCNS0MjOMp6MH8R.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Rod Serling",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-twilight-zone-s-2-e-1-colorized-720p-hd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Twilight Zone – Complete Season 2 (29 episodes) (restored, colorized) (1960, TV series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7uY4pCOxbEdv4M8jTE4uMPVoSIW.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "the twilight zone-s2e8-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 157806481,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-twilight-zone-s-2-e-1-colorized-720p-hd/the twilight zone-s2e8-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-twilight-zone-s-3e-1-colorized-720p-hd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Twilight Zone – Complete Season 3 (37 episodes) (restored, colorized) (1961, TV series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7uY4pCOxbEdv4M8jTE4uMPVoSIW.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "the twilight zone-s3e26-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 157678732,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-twilight-zone-s-3e-1-colorized-720p-hd/the twilight zone-s3e26-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-twilight-zone-s-4e-3-colorized-720p-hd",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Twilight Zone – Complete Season 4 (18 episodes) (restored, colorized) (1963, TV series)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7uY4pCOxbEdv4M8jTE4uMPVoSIW.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "the twilight zone-s4e17-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 309572726,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-twilight-zone-s-4e-3-colorized-720p-hd/the twilight zone-s4e17-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "tz_promos_s2_1960-61",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Twilight Zone \"Next Week\" Promos (Season 2, 1960-61)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7uY4pCOxbEdv4M8jTE4uMPVoSIW.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Twilight Zone promo (S2E25 The Silence).mp4",
+            "format": "h.264",
+            "sizeBytes": 4123056,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tz_promos_s2_1960-61/Twilight Zone promo (S2E25 The Silence).mp4"
+        },
+        {
+          "archiveID": "tz_promos_s3_1961-62",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Twilight Zone \"Next Week\" Promos (Season 3, 1961-62)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7uY4pCOxbEdv4M8jTE4uMPVoSIW.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Twilight Zone promo (S3E27 Person Or Persons Unknown).mp4",
+            "format": "h.264",
+            "sizeBytes": 4043000,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tz_promos_s3_1961-62/Twilight Zone promo (S3E27 Person Or Persons Unknown).mp4"
+        },
+        {
+          "archiveID": "tz_promos_s4_1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Twilight Zone \"Next Week\" Promos (Season 4, 1963)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7uY4pCOxbEdv4M8jTE4uMPVoSIW.jpg",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Twilight Zone promo (S4E11 The Parallel).mp4",
+            "format": "h.264",
+            "sizeBytes": 6086853,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tz_promos_s4_1963/Twilight Zone promo (S4E11 The Parallel).mp4"
+        },
+        {
+          "archiveID": "tz_promos_s5_1963-64",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Twilight Zone \"Next Week\" Promos (Season 5, 1963-64)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7uY4pCOxbEdv4M8jTE4uMPVoSIW.jpg",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Twilight Zone promo (S5E18 Black Leather Jackets).mp4",
+            "format": "h.264",
+            "sizeBytes": 2682914,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tz_promos_s5_1963-64/Twilight Zone promo (S5E18 Black Leather Jackets).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7
+}

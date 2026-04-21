@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "slim-john-1969",
+  "title": "Slim John",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": "Slim John was a 1969 BBC English Language Instruction serial made for overseas broadcast, in twenty-six episodes of fourteen minutes each, and in black and white. It involves android robots from outer space planning to take over the Earth, starting with London. They work following the directions of an authority called Control. Robot Five, nicknamed Slim John, is himself a rebel robot who befriends a human couple, Stevie and Richard.\n\nSlim John has extraordinary strength. The plots revolve around the other robots trying to eliminate him, and often include the fact that Slim John and the other robots have limited amounts of power available and need to recharge themselves regularly. Short grammar lessons are transmitted to all the robots at regular intervals via their hand-held communication devices. These short lessons are presented not only to the robots, but in full screen to the viewers.\n\nThe serial was an educational tool used for English language instruction. It was supported by books and records as an English teaching method. The series was broadcast for years all over the world, in Turkey, Cyprus, Finland, France, Germany, Italy, Sweden, Brazil, Yugoslavia and other countries. Hungary, Poland and Romania were the only Eastern Bloc countries to show the serial, with an enormous response, in the 1970s.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SlimJohnspezzoniDelTelefilmdownloadLaguMp3.com",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Slim John",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Slim John (spezzoni del telefilm) (download-lagu-mp3.com).mp4",
+            "format": "h.264",
+            "sizeBytes": 15055127,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SlimJohnspezzoniDelTelefilmdownloadLaguMp3.com/Slim John (spezzoni del telefilm) (download-lagu-mp3.com).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

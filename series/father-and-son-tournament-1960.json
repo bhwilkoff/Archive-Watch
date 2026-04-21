@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "father-and-son-tournament-1960",
+  "title": "Father and Son Tournament",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/OZZIE_AND_HARRIET_ep_Father_And_Son_Tournament",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OZZIE_AND_HARRIET_ep_Father_And_Son_Tournament",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Father and Son Tournament",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/OZZIE_AND_HARRIET_ep_Father_And_Son_Tournament",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OZZIE_AND_HARRIET_ep_Father_And_Son_Tournament.mp4",
+            "format": "h.264",
+            "sizeBytes": 152890998,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OZZIE_AND_HARRIET_ep_Father_And_Son_Tournament/OZZIE_AND_HARRIET_ep_Father_And_Son_Tournament.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

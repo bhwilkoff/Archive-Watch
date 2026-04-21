@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "mac-ronay-french-mime-magician-1961",
+  "title": "Mac Ronay French Mime Magician",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/mac-ronay-french-mime-magician-1961",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mac-ronay-french-mime-magician-1961",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mac Ronay French Mime Magician ( 1961)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/mac-ronay-french-mime-magician-1961",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mac Ronay - French mime-magician (1961).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 22717182,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mac-ronay-french-mime-magician-1961/Mac Ronay - French mime-magician (1961).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

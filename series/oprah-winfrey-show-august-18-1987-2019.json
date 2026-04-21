@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "oprah-winfrey-show-august-18-1987-2019",
+  "title": "Oprah Winfrey show (August 18, 1987",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/oprahwinfreyaugust181987",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "oprahwinfreyaugust181987",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Oprah Winfrey show (August 18, 1987)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/oprahwinfreyaugust181987",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Oprah-Winfrey-August-18_-1987.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 176686146,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oprahwinfreyaugust181987/Oprah-Winfrey-August-18_-1987.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

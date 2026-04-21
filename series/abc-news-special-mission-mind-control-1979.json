@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-news-special-mission-mind-control-1979",
+  "title": "ABC News Special ‘Mission Mind Control’",
+  "yearStart": 1979,
+  "yearEnd": 1979,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ABCNews_MissionMindControl-CIA_and_MKULTRA",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ABCNews_MissionMindControl-CIA_and_MKULTRA",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC News Special ‘Mission Mind Control’ - MKULTRA and the CIA",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ABCNews_MissionMindControl-CIA_and_MKULTRA",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MKULTRA Documentary CIA Mind Control Research Human Experiments in the United States - YouTube.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 591933722,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ABCNews_MissionMindControl-CIA_and_MKULTRA/MKULTRA Documentary CIA Mind Control Research Human Experiments in the United States - YouTube.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

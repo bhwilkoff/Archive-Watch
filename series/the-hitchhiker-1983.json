@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "seriesID": "the-hitchhiker-1983",
+  "title": "THE HITCHHIKER",
+  "yearStart": 1983,
+  "yearEnd": 1983,
+  "overview": "A young hitchhiker introduces characters who are about to experience a frightening and sometimes supernatural incident of some kind in this moody anthology series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/AmOBNQXTMPsi3NvcadHxfM4xEVZ.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/hiKKRRIJ9WB7mGxzhheQVcDIfYO.jpg",
+  "genres": [],
+  "networks": [
+    "HBO",
+    "USA Network"
+  ],
+  "creator": "Lewis Chesler",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "when-morning-comes",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "When Morning Comes",
+          "overview": "Bob is a married advertising executive who enjoys picking up women throughout his travels. After picking up the Hitchhiker, he runs into a beautiful blonde who he ends up spending the night with. After hearing a report on the radio that there is an escaped blonde mental patient named Ann Marie Brown on the loose who enjoys slitting men's throats, Bob becomes convinced that the woman he picked up is really the escaped mental patient, but things are not always as they seem.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rfhWxTqFWSTcnqHnTOPILqZH4Ib.jpg",
+          "airDate": "1983-11-30",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "When Morning Comes.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 559018429,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/when-morning-comes/When Morning Comes.ia.mp4"
+        },
+        {
+          "archiveID": "split-decision_202401",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Split Decision",
+          "overview": "John 'Jake' McElhaney will do anything to make a sale, absolutely anything. Faced with losing his job, he decides to make his next sale really count, and thinks he has it made when he signs on to work for the Packard twins, two women who have problems sharing and so split everything directly down the middle. Frances makes it clear straight away that she likes Jake, but Jake also plays up to Priscilla, hoping to not only sell the house for the two women but sell each of them homes as well. Unfortunately, the bond between the sisters is stronger than any bond they could form with him.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/w34COPBRdxun8caRCEhDwDu8Y6M.jpg",
+          "airDate": "1983-12-14",
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Split Decision.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 171327210,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/split-decision_202401/Split Decision.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "valerie-1986",
+  "title": "Valerie",
+  "yearStart": 1986,
+  "yearEnd": 1986,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/valerie-1.1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "valerie-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Valerie - Valerie Harper",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/valerie-1.1",
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Valeries Family - 3.5.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 709166266,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/valerie-1.1/Valeries Family - 3.5.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

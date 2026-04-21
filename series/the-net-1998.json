@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-net-1998",
+  "title": "The Net",
+  "yearStart": 1998,
+  "yearEnd": 1998,
+  "overview": "The Net is a 1998 television drama series based on the 1995 film of the same name. The series starred Brooke Langton as Angela Bennett, the character Sandra Bullock played in the film. Produced in Vancouver, British Columbia, Canada, the series originally aired for one season on the USA Network before being canceled in 1999.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/jGanyuPSFjIQVfKg60S1dHqq8eW.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/xoq9B3eSxSO0wapskInhjvCv5Kp.jpg",
+  "genres": [],
+  "networks": [
+    "USA Network"
+  ],
+  "creator": "Irwin Winkler",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-net-complete-tv-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Net (Complete TV Series) 1998-1999",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jGanyuPSFjIQVfKg60S1dHqq8eW.jpg",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The.Net.-.S01E01.-.Deleted.mp4",
+            "format": "h.264",
+            "sizeBytes": 260488584,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-net-complete-tv-series/The.Net.-.S01E01.-.Deleted.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

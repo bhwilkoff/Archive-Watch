@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "1991-video-story-of-taking-up-the-tracks-in-goldsboro-1991",
+  "title": "1991 Video Story Of Taking Up The Tracks In Goldsboro",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/1991VideoStoryOfTakingUpTheTracksInGoldsboro",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1991VideoStoryOfTakingUpTheTracksInGoldsboro",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1991 Video Story Of Taking Up The Tracks In Goldsboro",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1991VideoStoryOfTakingUpTheTracksInGoldsboro",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1991_VideoStoryOfTakingUpTheTracksInGoldsboro.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 24676782,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1991VideoStoryOfTakingUpTheTracksInGoldsboro/1991_VideoStoryOfTakingUpTheTracksInGoldsboro.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

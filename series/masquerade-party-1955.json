@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "masquerade-party-1955",
+  "title": "Masquerade Party",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": "Stefan Hatos",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "masqueradeparty",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Masquerade Party'' - 22 May 1955",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1757,
+          "videoFile": {
+            "name": "masqueradeparty.mp4",
+            "format": "h.264",
+            "sizeBytes": 182789352,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/masqueradeparty/masqueradeparty.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

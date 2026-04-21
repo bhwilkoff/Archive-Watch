@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "one-west-waikiki-1994",
+  "title": "One West Waikiki",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": "One West Waikiki is an American crime/drama TV show set in Hawaii which ran from 1994-1996. It starred Cheryl Ladd, Richard Burgi and Kayla Blake and was nominated for a Prime Time Emmy in 1995.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/hWfaRBgQrJFFXwNytFoN3rvs8sx.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qDsB0K481apxqxeLjrISyEKhQQ3.jpg",
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Glen A. Larson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "one-west-waikiki-1994",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "One West Waikiki - Cheryl Ladd, Richard Burgi",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/hWfaRBgQrJFFXwNytFoN3rvs8sx.jpg",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "One West Waikiki - 1994.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1799879573,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/one-west-waikiki-1994/One West Waikiki - 1994.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

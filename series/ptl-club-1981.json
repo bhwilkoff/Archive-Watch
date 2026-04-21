@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "seriesID": "ptl-club-1981",
+  "title": "PTL Club",
+  "yearStart": 1981,
+  "yearEnd": 1986,
+  "overview": "The PTL Club, later called The Jim and Tammy Show, and in its last days PTL Today and Heritage Today, was a Christian television program first hosted by evangelists Jim and Tammy Faye Bakker, which ran from 1974 to 1989. The PTL Club, which adopted a talk-show format, was the flagship television program of the Bakkers' PTL Satellite Network. It was one of the first Christian broadcasts in the U.S. to deal with the subject of homosexuality.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": "Jim Bakker",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ptl-club-1981-jim-and-tammy",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "PTL Club (1981) Jim and Tammy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PTL CLUB (1981) Jim and Tammy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 300844379,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ptl-club-1981-jim-and-tammy/PTL CLUB (1981) Jim and Tammy.mp4"
+        },
+        {
+          "archiveID": "ptl-club-1985-jim-and-tammy-faye",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "PTL Club (1985) Jim And Tammy Faye",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PTL Club (1985) Jim and Tammy Faye.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 223282712,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ptl-club-1985-jim-and-tammy-faye/PTL Club (1985) Jim and Tammy Faye.mp4"
+        },
+        {
+          "archiveID": "ptl-club-tammy-faye-with-mickey-rooney",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "PTL Club (1985) Tammy Faye Hosts",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PTL Club - Tammy Faye with Mickey Rooney.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 261285385,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ptl-club-tammy-faye-with-mickey-rooney/PTL Club - Tammy Faye with Mickey Rooney.mp4"
+        },
+        {
+          "archiveID": "ptl-club-1986-kevins-house",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "PTL Club (1986) Kevin's House",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "PTL Club (1986) Kevin's House.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 176611680,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ptl-club-1986-kevins-house/PTL Club (1986) Kevin's House.mp4"
+        },
+        {
+          "archiveID": "jim-tammy-christmas-city-parade-1986",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "PTL Club: Christmas City Parade (1986)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1986,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jim & Tammy Christmas City Parade 1986.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 289928404,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jim-tammy-christmas-city-parade-1986/Jim & Tammy Christmas City Parade 1986.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5
+}

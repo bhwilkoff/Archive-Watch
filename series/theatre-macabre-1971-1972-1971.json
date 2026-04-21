@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "theatre-macabre-1971-1972-1971",
+  "title": "Theatre Macabre (1971-1972",
+  "yearStart": 1971,
+  "yearEnd": 1971,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/theatre-macabre-s-1e-4-mateo-falcone-1971",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Theatre Macabre (1971-1972)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Theatre Macabre s1e11 - Tell Tale Hearts (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 153765229,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre Macabre s1e11 - Tell Tale Hearts (1971).mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

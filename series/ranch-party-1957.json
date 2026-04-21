@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "ranch-party-1957",
+  "title": "Ranch Party",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RanchParty1957",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ranch Party (1957)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1_Ranch_Party_Carl_Perkins_1957.mp4",
+            "format": "h.264",
+            "sizeBytes": 148301220,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RanchParty1957/1_Ranch_Party_Carl_Perkins_1957.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

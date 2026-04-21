@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-a-team-s-04-e-02-where-is-the-monster-when-you-need-him-1985",
+  "title": "The A Team S 04 E 02 Where Is The Monster When You Need Him",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-a-team-s-04-e-02-where-is-the-monster-when-you-need-him",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-a-team-s-04-e-02-where-is-the-monster-when-you-need-him",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The A Team S 04 E 02 Where Is The Monster When You Need Him",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-a-team-s-04-e-02-where-is-the-monster-when-you-need-him",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The A-Team S04E02 Where Is the Monster When You Need Him.mp4",
+            "format": "h.264",
+            "sizeBytes": 280746750,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-a-team-s-04-e-02-where-is-the-monster-when-you-need-him/The A-Team S04E02 Where Is the Monster When You Need Him.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

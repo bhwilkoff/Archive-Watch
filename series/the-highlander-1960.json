@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-highlander-1960",
+  "title": "The Highlander",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Ignored by the stories of the hawks and their weapons, little Tugomil can not resist the desire to shoot from the shotgun shot by his father Tomo. The boy will realize that he was flawed only when the old Martin was surrounded by gendarmes.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/oly3qoqDbQ2dVgbwqF2wH3Y2EZr.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_12_The_Highlander",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Highlander",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/oly3qoqDbQ2dVgbwqF2wH3Y2EZr.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_12_The_Highlander.mp4",
+            "format": "h.264",
+            "sizeBytes": 160539292,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_12_The_Highlander/Robin_Hood_12_The_Highlander.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

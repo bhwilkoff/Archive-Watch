@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "abc-all-star-spectacular-1985",
+  "title": "ABC All Star Spectacular",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/abc-all-star-spectacular-1985",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "abc-all-star-spectacular-1985",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ABC All Star Spectacular - Gavin McLeod",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/abc-all-star-spectacular-1985",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ABC All Star Spectacular - 1985.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1136883336,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/abc-all-star-spectacular-1985/ABC All Star Spectacular - 1985.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

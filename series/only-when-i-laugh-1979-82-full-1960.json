@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "only-when-i-laugh-1979-82-full-1960",
+  "title": "ONLY WHEN I LAUGH (1979-82) (Full",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/only-when-i-laugh-1979-82",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "only-when-i-laugh-1979-82",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ONLY WHEN I LAUGH (1979-82) (Full Series)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/only-when-i-laugh-1979-82",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ONLY WHEN I LAUGH (1979-82)/106.Only When I Laugh..Tangled.mp4",
+            "format": "h.264",
+            "sizeBytes": 148349449,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/only-when-i-laugh-1979-82/ONLY WHEN I LAUGH (1979-82)/106.Only When I Laugh..Tangled.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

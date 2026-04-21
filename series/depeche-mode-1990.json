@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "seriesID": "depeche-mode-1990",
+  "title": "DEPECHE MODE",
+  "yearStart": 1990,
+  "yearEnd": 1997,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/DM-1993-07-20-napkozi-tv1-hu",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "1992-09-05-mtv1-friss-dm-fekete-unnepej",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "DEPECHE MODE - 36 órás rajongói találkozó, HDMFC, PeCsa, 1990 - Bergendy Péter (a Post Mortem rendezőjének) riportfilmje",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1992-09-05-mtv1-friss-dm-fekete-unnepej",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1992-09-05---MTV1-(HU)-Friss-Fekete-Unnepej---ONLINE.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2751013977,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1992-09-05-mtv1-friss-dm-fekete-unnepej/1992-09-05---MTV1-(HU)-Friss-Fekete-Unnepej---ONLINE.mp4"
+        },
+        {
+          "archiveID": "1997RTL2BravoTVPopHistoryNET",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "DEPECHE MODE - Bravo TV's Pop History segment - RTL 2 × 1997",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/1997RTL2BravoTVPopHistoryNET",
+          "airDate": null,
+          "year": 1997,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1997-0x-xx---RTL2-(DE)-Bravo-TV-Pop-History-NET2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310781197,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1997RTL2BravoTVPopHistoryNET/1997-0x-xx---RTL2-(DE)-Bravo-TV-Pop-History-NET2.ia.mp4"
+        },
+        {
+          "archiveID": "DM-1993-07-20-napkozi-tv1-hu",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "DEPECHE MODE - Hangos jegyzet a DM-ről + verőcemarosi riport a rajongókról - TV1 × 1993",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/DM-1993-07-20-napkozi-tv1-hu",
+          "airDate": null,
+          "year": 1993,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "1993-07-20---TV1-(HU)-Napkozi-ONLINE.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 510712299,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DM-1993-07-20-napkozi-tv1-hu/1993-07-20---TV1-(HU)-Napkozi-ONLINE.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

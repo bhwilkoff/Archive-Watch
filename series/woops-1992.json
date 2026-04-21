@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "woops-1992",
+  "title": "Woops!",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "Woops! is an American post-apocalyptic sitcom that aired on the Fox network from September 27 to December 6, 1992.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/czSOViA92BbMHvVMQq2PvJit9FP.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "woops-1.07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Woops! - Marita Geraghty, Meagen Fay",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/czSOViA92BbMHvVMQq2PvJit9FP.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Woops - 1.10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 697516987,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/woops-1.07/Woops - 1.10.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

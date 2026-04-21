@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "help-for-honeybee-1960",
+  "title": "Help For Honeybee",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/life_of_riley_-_6x34_-_help_for_honeybee",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "life_of_riley_-_6x34_-_help_for_honeybee",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Help For Honeybee",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/life_of_riley_-_6x34_-_help_for_honeybee",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "life_of_riley_-_6x34_-_help_for_honeybee_agk.mp4",
+            "format": "h.264",
+            "sizeBytes": 131670294,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/life_of_riley_-_6x34_-_help_for_honeybee/life_of_riley_-_6x34_-_help_for_honeybee_agk.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

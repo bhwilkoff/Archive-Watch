@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cbs-evening-news-dec-14-1989-1989",
+  "title": "CBS Evening News Dec 14, 1989",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/cbs-19891214",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cbs-19891214",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "CBS Evening News Dec 14, 1989",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/cbs-19891214",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "CBS晚间新闻 19891214.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 186044309,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cbs-19891214/CBS晚间新闻 19891214.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

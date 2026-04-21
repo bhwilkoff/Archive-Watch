@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "action-1960",
+  "title": "Action",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Follow the life of Peter Dragon, an egotistic Hollywood movie producer who has built his career on the three pillars of sleazy show business - prostitution, nepotism and dishonesty.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/xTIohs08xedCORLIgOCDOZSpwVy.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/7xdJgEnnuEObR4aBI2j21UVO97E.jpg",
+  "genres": [],
+  "networks": [
+    "FOX"
+  ],
+  "creator": "Chris Thompson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "action-s-01-e-01-gross-player",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Action S01 1998",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xTIohs08xedCORLIgOCDOZSpwVy.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Action featurette - Getting Into the Action.mp4",
+            "format": "h.264",
+            "sizeBytes": 152097543,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/action-s-01-e-01-gross-player/Action featurette - Getting Into the Action.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

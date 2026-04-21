@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "super-heroi-americano-1981",
+  "title": "Super Heroi Americano",
+  "yearStart": 1981,
+  "yearEnd": 1981,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/super-heroi-americano_202007",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "super-heroi-americano_202007",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Super Heroi Americano",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/super-heroi-americano_202007",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Super Heroi Americano S02E13 - Hog Wild (legenda embutida).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 774399633,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/super-heroi-americano_202007/Super Heroi Americano S02E13 - Hog Wild (legenda embutida).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

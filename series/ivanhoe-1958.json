@@ -1,0 +1,131 @@
+{
+  "version": 1,
+  "seriesID": "ivanhoe-1958",
+  "title": "Ivanhoe",
+  "yearStart": 1958,
+  "yearEnd": 1958,
+  "overview": "Ivanhoe is a British television series first shown on ITV in 1958-59. The show features Roger Moore in his first starring role, as Sir Wilfred of Ivanhoe, in a series of adventures aimed at a children's audience. The characters were drawn loosely from Sir Walter Scott's 1819 novel.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/zIgn09X0tY9RzJGDMnDSnaBuUHk.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/8dzn72z2OTn2jiDAvIV3DVRDPAy.jpg",
+  "genres": [],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Ivanhoe1x01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Freeing the Serfs",
+          "overview": "Returning from the Crusades, Ivanhoe finds England under the cruel tyranny of Prince John and begins the fight to remove him from power.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/d6nI3s4Bv8Vb5jKj506dhlY7E30.jpg",
+          "airDate": "1958-01-05",
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ivanhoe.mp4",
+            "format": "h.264",
+            "sizeBytes": 164947698,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ivanhoe1x01/Ivanhoe.mp4"
+        },
+        {
+          "archiveID": "Ivanhoe",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Murder at the Inn",
+          "overview": "Ivanhoe lends a hand to villagers being terrorized by a brutal lord.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/1YJHibvDFQsnZYK6vPfwLWgV4Gi.jpg",
+          "airDate": "1958-04-12",
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ivanhoe.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 120301054,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ivanhoe/Ivanhoe.ogv"
+        },
+        {
+          "archiveID": "IvanhoeBrothersInArms",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Brothers in Arms",
+          "overview": "Five monks collecting taxes for Prince John disappear, and Ivanhoe goes to find them.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/qG7v3iJBmuzXnpR71JOPCfMFukV.jpg",
+          "airDate": "1958-06-14",
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ivanhoe Brothers in Arms.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 117075965,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/IvanhoeBrothersInArms/Ivanhoe Brothers in Arms.ogv"
+        },
+        {
+          "archiveID": "IvanhoeTheWeavers",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Weavers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/AqHplKCK29C5PhOtD3HZlmqWH1X.jpg",
+          "airDate": "1958-06-21",
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ivanhoe 3.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 98183807,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/IvanhoeTheWeavers/Ivanhoe 3.ogv"
+        },
+        {
+          "archiveID": "IvanhoeCounterfeit",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Counterfeit",
+          "overview": "A chest of gold for King Richard has been changed out with counterfeit pieces, and Ivanhoe tries finding the thief.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9uW4a4ZuftGIYqNtHqE20BGQwbP.jpg",
+          "airDate": "1958-07-06",
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ivanhoe 4.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 116751731,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/IvanhoeCounterfeit/Ivanhoe 4.ogv"
+        },
+        {
+          "archiveID": "IvanhoeTheKidnapping",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Kidnapping",
+          "overview": "Ivanhoe tries sneaking King Richard's heir out of the country.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/1OHTciVKuCi8si8C6bXkER28hhB.jpg",
+          "airDate": "1958-07-27",
+          "year": 1958,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Ivanhoe 6.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 109640123,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/IvanhoeTheKidnapping/Ivanhoe 6.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

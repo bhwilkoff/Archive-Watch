@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jack-benny-march-4th-1962-1962",
+  "title": "Jack Benny March, 4th 1962",
+  "yearStart": 1962,
+  "yearEnd": 1962,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/jack_benny_03_04_62",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "jack_benny_03_04_62",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny March, 4th 1962",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/jack_benny_03_04_62",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1395,
+          "videoFile": {
+            "name": "jackbenny_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 98983694,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/jack_benny_03_04_62/jackbenny_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

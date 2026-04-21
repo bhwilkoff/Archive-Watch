@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "our-time-1985",
+  "title": "Our Time",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/our-time-1.5",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "our-time-1.5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Our Time - Karen Valentine",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/our-time-1.5",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Our Time - 1.5.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 549036444,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/our-time-1.5/Our Time - 1.5.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

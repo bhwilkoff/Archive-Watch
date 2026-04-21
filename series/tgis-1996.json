@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "tgis-1996",
+  "title": "T.G.I.S",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": "TGIS is a Filipino youth-oriented drama series aired on GMA Network from July 8, 1995 to November, 1999. The series aired every Saturday. It was produced by GMA Network, and VIVA Television. The title is derived from the popular expression \"TGIF.\"",
+  "posterURL": "https://image.tmdb.org/t/p/w500/aPPbvFuXcjsIafknHdJWPYNM6By.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/qvbF51PVZwOdAY8QjhNGROS6op0.jpg",
+  "genres": [],
+  "networks": [
+    "GMA Network"
+  ],
+  "creator": "Kit Villanueva Langit",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TGISfraternityepisode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "T.G.I.S. - Fraternity episode",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/aPPbvFuXcjsIafknHdJWPYNM6By.jpg",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TGISfrat.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 312625758,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TGISfraternityepisode/TGISfrat.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

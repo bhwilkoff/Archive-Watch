@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "esp-ozzie-harriet-1961",
+  "title": "E.S.P. (Ozzie & Harriet",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/ESP--Ozzie-Harriet",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ESP--Ozzie-Harriet",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "E.S.P. (Ozzie & Harriet)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/ESP--Ozzie-Harriet",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1530,
+          "videoFile": {
+            "name": "ESP--Ozzie-Harriet.mp4",
+            "format": "h.264",
+            "sizeBytes": 158637310,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ESP--Ozzie-Harriet/ESP--Ozzie-Harriet.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

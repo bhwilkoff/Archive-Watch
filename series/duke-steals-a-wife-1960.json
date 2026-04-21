@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "duke-steals-a-wife-1960",
+  "title": "Duke Steals A Wife",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep22_Duke_Steals_A_Wife",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Beverly_Hillbillies_Ep22_Duke_Steals_A_Wife",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Duke Steals A Wife",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Beverly_Hillbillies_Ep22_Duke_Steals_A_Wife",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "BH22_Duke_Steals_A_Wife.mp4",
+            "format": "h.264",
+            "sizeBytes": 147269220,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep22_Duke_Steals_A_Wife/BH22_Duke_Steals_A_Wife.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

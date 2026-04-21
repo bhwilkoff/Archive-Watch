@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "groovin-1967",
+  "title": "Groovin",
+  "yearStart": 1967,
+  "yearEnd": 1967,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/groovin-by-young-rascals-1967",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "groovin-by-young-rascals-1967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Groovin' by Young Rascals • American Bandstand Top Ten #1 May 27 1967",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/groovin-by-young-rascals-1967",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "'Groovin' by Young Rascals • American Bandstand Top Ten #1 May 27 1967.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 293935720,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/groovin-by-young-rascals-1967/'Groovin' by Young Rascals • American Bandstand Top Ten #1 May 27 1967.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

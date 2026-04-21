@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "human-target-1992",
+  "title": "Human Target",
+  "yearStart": 1992,
+  "yearEnd": 1992,
+  "overview": "Human Target is an American action drama television series broadcast by ABC in the United States. It is based on the comic book character of the same title created by Len Wein and Carmine Infantino, and developed for television by Danny Bilson and Paul DeMeo. The seven-episode series premiered on July 20, 1992, and last aired on August 29, 1992. This series is unrelated to the 2010 Fox television series of the same name, also based on the Human Target character.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/550hahC7sDSi3UEvBxCmrIDJrHD.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/1ShM4lXejjkHvsHO28Eh4BM66VG.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Danny Bilson",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "human-target-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Human Target - Rick Springfield, Signy Coleman",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/550hahC7sDSi3UEvBxCmrIDJrHD.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Human Target - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 393524257,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/human-target-1.1/Human Target - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

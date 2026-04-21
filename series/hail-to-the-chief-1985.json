@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "hail-to-the-chief-1985",
+  "title": "Hail To The Chief",
+  "yearStart": 1985,
+  "yearEnd": 1985,
+  "overview": "Hail to the Chief is an American sitcom that ran on ABC from April 9, 1985 until May 21, 1985. It centered on the first woman President of the United States, portrayed by Academy Award-winning actress Patty Duke. The series was created by Susan Harris, and was produced by Witt/Thomas/Harris Productions. It featured one of the few recurring gay characters in a 1980s television series.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/tCfDa0Snl9j6LtUHoGEtcCfEcCi.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/n5vgIHVZNfzmRykrdJyEpBPAjFz.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Susan Harris",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hail-to-the-chief-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Hail To The Chief - Patty Duke, Ted Bessell",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/tCfDa0Snl9j6LtUHoGEtcCfEcCi.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Hail to the Chief - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 188945607,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hail-to-the-chief-1.1/Hail to the Chief - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

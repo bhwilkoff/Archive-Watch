@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "102603-awful-truth-391-more-of-the-accusations-of-autism-it--1994",
+  "title": "102603 Awful Truth # 391 More Of The Accusations Of Autism It Is Eugenics Program",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/102603-awful-truth-391-more-of-the-accusations-of-autism-it-is-eugenics-program",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "102603-awful-truth-391-more-of-the-accusations-of-autism-it-is-eugenics-program",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "102603 Awful Truth # 391 More Of The Accusations Of Autism It Is Eugenics Program",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/102603-awful-truth-391-more-of-the-accusations-of-autism-it-is-eugenics-program",
+          "airDate": null,
+          "year": 1994,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "102603 Awful Truth #391 more of the accusations of autism it is eugenics program.mp4",
+            "format": "h.264",
+            "sizeBytes": 325469277,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/102603-awful-truth-391-more-of-the-accusations-of-autism-it-is-eugenics-program/102603 Awful Truth #391 more of the accusations of autism it is eugenics program.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

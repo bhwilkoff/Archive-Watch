@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "night-stand-1995",
+  "title": "Night Stand",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": "A series of stand-up comedy specials.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/bW58NbN6s1wo3O9BkPwVnUHUtrW.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/nswDu1FQPpuR4etDvvcoK2r27ON.jpg",
+  "genres": [],
+  "networks": [
+    "HBO"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "night-stand-1.14",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Night Stand - Tim Stack",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/bW58NbN6s1wo3O9BkPwVnUHUtrW.jpg",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Night Stand - 1.52.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1610664781,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/night-stand-1.14/Night Stand - 1.52.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

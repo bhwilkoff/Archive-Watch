@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "wiseguy-april-18-1990-final-15-minutes-1960",
+  "title": "Wiseguy April 18, 1990 Final 15 Minutes",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/wiseguy-1990-04-18-partial-episode",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "wiseguy-1990-04-18-partial-episode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Wiseguy April 18, 1990 Final 15 Minutes",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/wiseguy-1990-04-18-partial-episode",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Wiseguy 1990-04-18 Partial Episode.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138209028,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wiseguy-1990-04-18-partial-episode/Wiseguy 1990-04-18 Partial Episode.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

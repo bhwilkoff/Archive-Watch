@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "geraldo-october-5-1988-1960",
+  "title": "Geraldo (October 5, 1988",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/GeraldoOctober51988",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GeraldoOctober51988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Geraldo (October 5, 1988)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/GeraldoOctober51988",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Geraldo-October-5_-1988.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 196830570,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeraldoOctober51988/Geraldo-October-5_-1988.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "steve-allen-show-with-ginger-rogers-1957",
+  "title": "Steve Allen Show with Ginger Rogers",
+  "yearStart": 1957,
+  "yearEnd": 1957,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/SteveAllenShowSingers1",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "SteveAllenShowSingers1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Steve Allen Show with Ginger Rogers: Types of Girl Singers",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/SteveAllenShowSingers1",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Steve Allen Show singers_1.ogv",
+            "format": "Ogg Video",
+            "sizeBytes": 34437223,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteveAllenShowSingers1/Steve Allen Show singers_1.ogv"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

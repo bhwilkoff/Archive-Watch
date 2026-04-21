@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "the-patty-duke-show-the-1963",
+  "title": "The Patty Duke Show (The",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": "The Patty Duke Show is an American sitcom which ran on ABC from September 18, 1963 to April 27, 1966, with reruns airing through August 31, 1966. The show was created as a vehicle for rising star Patty Duke. A total of 104 episodes were produced, most written by Sidney Sheldon.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/rjBKHT0et8oWpqLhhyiLQwfKtPz.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/eEf6acBj8wbXdE3rngQOJO0Nrjf.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "Sidney Sheldon",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Patty Duke Show (The Complete Series) [1963 - 1966]",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rjBKHT0et8oWpqLhhyiLQwfKtPz.jpg",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E20 - The Raffle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324937383,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E20 - The Raffle.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

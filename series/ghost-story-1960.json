@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "ghost-story-1960",
+  "title": "Ghost Story",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Ghost Story is an American television anthology series that aired for one season on NBC from 1972 to 1973. Executive-produced by William Castle, it initially featured supernatural entities such as ghosts, vampires, and witches. By mid-season, low ratings led to a shift -- for the most part -- away from paranormal themes and a title change to Circle of Fear.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/qJHLiAWFv77qHwLt6kvcPoexrut.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/2DYJK6STa8QyqlXtDafqCotEhCK.jpg",
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": "William Castle",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Cisco_Kid_-_Ghost_Story",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ghost Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/qJHLiAWFv77qHwLt6kvcPoexrut.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cisco_Kid_-_Ghost_Story.mp4",
+            "format": "h.264",
+            "sizeBytes": 158058564,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cisco_Kid_-_Ghost_Story/Cisco_Kid_-_Ghost_Story.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "shasta-mcnasty-1999",
+  "title": "Shasta McNasty",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": "Scott, Dennis and Randy are three slacker dudes who also make up the rap/rock band Shasta. Instead of working on their music, they spend most of their time hanging out on Venice Beach trying to score dates, finding new ways to stall the pizza delivery guy, and generally being mediocre.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/lXq61nq3xDFklCQuiWVv3oBToMJ.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "UPN"
+  ],
+  "creator": "Jeff Eastin",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "shasta-mc-nasty-1.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Shasta McNasty - Jake Busey, Jolie Jenkins",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/lXq61nq3xDFklCQuiWVv3oBToMJ.jpg",
+          "airDate": null,
+          "year": 1999,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Shasta McNasty - 1.1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 177507369,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/shasta-mc-nasty-1.1/Shasta McNasty - 1.1.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

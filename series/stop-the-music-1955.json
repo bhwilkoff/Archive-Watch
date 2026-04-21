@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "stop-the-music-1955",
+  "title": "Stop the Music",
+  "yearStart": 1955,
+  "yearEnd": 1955,
+  "overview": "Stop the Music was a prime time television game show that aired for an hour on Thursday evenings on ABC from May 5, 1949 to April 24, 1952, and again for a half-hour from September 7, 1954 to June 14, 1956. The show had also been broadcast on radio from 1948 to 1949. The radio show was responsible for taking \"The Fred Allen Show\" off the air, as the shows were broadcast opposite each other in 1949. The hosts were Bert Parks and Dennis James. Similar to the later Name That Tune on NBC and then CBS, Stop the Music had players identify songs. After a song was played, a home viewer would be called and could win a prize by correctly naming the song. A correct guess won a prize and a chance to identify a short clip from the Mystery Melody for more prizes. If the viewer missed the first song, the viewer received a gift from the sponsor and members of the audience would be asked to identify the song. Among the vocalists and stars who appeared on Stop the Music were Jaye P. Morgan, Jimmy Blaine, June Valli, Broadway dancer Wayne Lamb, Estelle Loring, and Ann Sheridan.\n\nThe program aired at 9 pm ET on Thursdays for all five seasons except for the 1954-1955 year, when it was broadcast at 10:30 pm ET on Tuesdays. Its competition in the 1951-1952 year was The George Burns and Gracie Allen Show and Amos 'n' Andy, both on CBS. In its last season from 1955 to 1956, it was aired opposite Jackie Cooper's The People's Choice on NBC.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "stopTheMusic-Misc1955Episode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''Stop the Music'' - Misc 1955 episode",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1766,
+          "videoFile": {
+            "name": "StopTheMusic1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 182544509,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/stopTheMusic-Misc1955Episode/StopTheMusic1955.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

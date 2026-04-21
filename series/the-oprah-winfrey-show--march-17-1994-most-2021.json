@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-oprah-winfrey-show--march-17-1994-most-2021",
+  "title": "The Oprah Winfrey Show- March 17, 1994 (most",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/the-oprah-winfrey-show-march-17-1994-most",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-oprah-winfrey-show-march-17-1994-most",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Oprah Winfrey Show- March 17, 1994 (most)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-oprah-winfrey-show-march-17-1994-most",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Oprah Winfrey Show- March 17, 1994 (most).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 611892774,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-oprah-winfrey-show-march-17-1994-most/The Oprah Winfrey Show- March 17, 1994 (most).ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

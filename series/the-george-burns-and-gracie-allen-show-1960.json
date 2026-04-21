@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "seriesID": "the-george-burns-and-gracie-allen-show-1960",
+  "title": "The George Burns and Gracie Allen Show",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "Burns and Allen, an American comedy duo consisting of George Burns and his wife, Gracie Allen, worked together as a comedy team in vaudeville, films, radio and television and achieved great success over four decades.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheGeorgeBurnsAndGracieAllenShow-Football",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The George Burns and Gracie Allen Show - Football",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1756,
+          "videoFile": {
+            "name": "TheFootballShowBurnsAllen.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 173375148,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheGeorgeBurnsAndGracieAllenShow-Football/TheFootballShowBurnsAllen.ia.mp4"
+        },
+        {
+          "archiveID": "TheGeorgeBurnsAndGracieAllenShow-GracieGivesAWedding",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The George Burns and Gracie Allen Show - Gracie Gives a Wedding",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1761,
+          "videoFile": {
+            "name": "GracieGivesaWedding1951.mp4",
+            "format": "h.264",
+            "sizeBytes": 182776378,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheGeorgeBurnsAndGracieAllenShow-GracieGivesAWedding/GracieGivesaWedding1951.mp4"
+        },
+        {
+          "archiveID": "TheGeorgeBurnsAndGracieAllenShow-NewCoatssitcom1950s",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The George Burns and Gracie Allen Show - New Coats (Sitcom, 1950s)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1761,
+          "videoFile": {
+            "name": "BurnsAllenCoats.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 174329679,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheGeorgeBurnsAndGracieAllenShow-NewCoatssitcom1950s/BurnsAllenCoats.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "TheGeorgeBurnsAndGracieAllenShow-TripToPalmSprings",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Trip to Palm Springs",
+          "overview": "George and Gracie are taking a trip to Jack Benny's Palm Springs home. Blanche wants to go, but Harry says no. Blanche doesn't accept \"no\" for an answer.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+          "airDate": "1952-02-28",
+          "year": null,
+          "runtimeSeconds": 1761,
+          "videoFile": {
+            "name": "BurnsAllPalmSprings.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 174038365,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheGeorgeBurnsAndGracieAllenShow-TripToPalmSprings/BurnsAllPalmSprings.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

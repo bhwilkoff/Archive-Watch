@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "diario-noche-1991",
+  "title": "Diario noche",
+  "yearStart": 1991,
+  "yearEnd": 1991,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/diario-noche-1991-11-07",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "diario-noche-1991-11-07",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Diario noche - 7 de noviembre, 1991",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/diario-noche-1991-11-07",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "DIario noche Matias Prats 07 11 1991.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 179319578,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/diario-noche-1991-11-07/DIario noche Matias Prats 07 11 1991.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

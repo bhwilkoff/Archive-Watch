@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "the-graham-kennedy-show-1960",
+  "title": "The Graham Kennedy Show",
+  "yearStart": 1960,
+  "yearEnd": 1975,
+  "overview": "The Graham Kennedy Show was an Australian talk show that debuted on 19 September 1972, on the Nine Network.\n\nOn 23 December 1969, host Graham Kennedy has quit as host of In Melbourne Tonight, exhausted, and rested for two years. In spite of his fame and fortune, he later described that period as \"years of misery\". After a special on 2 March 1972, he returned with this series.\n\nKennedy sparked controversy after a \"crow-call\", which sounded highly reminiscent of the word fuck, was broadcast in March 1975. Forced to pre-record from that point on, he abruptly departed following GTV-9 censorship of the 16 April 1975 edition.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Nine Network"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-graham-kennedy-show",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Graham Kennedy Show",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3667,
+          "videoFile": {
+            "name": "The Graham Kennedy Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 376292122,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-graham-kennedy-show/The Graham Kennedy Show.mp4"
+        },
+        {
+          "archiveID": "the-graham-kennedy-show-16-april-1975",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Graham Kennedy Show - 16 April 1975",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 4704,
+          "videoFile": {
+            "name": "The Graham Kennedy Show - 16 April 1975.mp4",
+            "format": "h.264",
+            "sizeBytes": 486109257,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-graham-kennedy-show-16-april-1975/The Graham Kennedy Show - 16 April 1975.mp4"
+        },
+        {
+          "archiveID": "the-graham-kennedy-show-19-february-1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Graham Kennedy Show - 19 February 1960",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3339,
+          "videoFile": {
+            "name": "The Graham Kennedy Show - 19 February 1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 327744079,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-graham-kennedy-show-19-february-1960/The Graham Kennedy Show - 19 February 1960.mp4"
+        },
+        {
+          "archiveID": "the-graham-kennedy-show-26-june-1973",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Graham Kennedy Show - 26 June 1973",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 4107,
+          "videoFile": {
+            "name": "The Graham Kennedy Show - 26 June 1973.mp4",
+            "format": "h.264",
+            "sizeBytes": 401555352,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-graham-kennedy-show-26-june-1973/The Graham Kennedy Show - 26 June 1973.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

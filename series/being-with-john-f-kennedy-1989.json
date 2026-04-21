@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "being-with-john-f-kennedy-1989",
+  "title": "Being With John F Kennedy",
+  "yearStart": 1989,
+  "yearEnd": 1989,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/being-with-john-f-kennedy-1989",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "being-with-john-f-kennedy-1989",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Being With John F Kennedy - Nancy Dickerson",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/being-with-john-f-kennedy-1989",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Being with John F Kennedy - 1989.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 2115296222,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/being-with-john-f-kennedy-1989/Being with John F Kennedy - 1989.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

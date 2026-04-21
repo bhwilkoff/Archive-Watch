@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "cisco-kid-1950",
+  "title": "Cisco Kid",
+  "yearStart": 1950,
+  "yearEnd": 1950,
+  "overview": "The Cisco Kid is a half-hour American Western television series starring Duncan Renaldo in the title role, The Cisco Kid, and Leo Carrillo as the jovial sidekick, Pancho. Cisco and Pancho were technically desperados, wanted for unspecified crimes, but instead viewed by the poor as Robin Hood figures who assisted the downtrodden when law enforcement officers proved corrupt or unwilling to help. It was also the first television series to be filmed in color, although few viewers saw it in color until the 1960s.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/11/29903.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Cisco Kid",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/11/29903.jpg",
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Cisco Kid_S01E08_Convict Story.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 427612364,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco Kid_S01E08_Convict Story.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

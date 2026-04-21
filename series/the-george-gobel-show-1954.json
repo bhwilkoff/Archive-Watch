@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "seriesID": "the-george-gobel-show-1954",
+  "title": "The George Gobel Show",
+  "yearStart": 1954,
+  "yearEnd": 1955,
+  "overview": "The George Gobel Show is an American television series hosted George Gobel that aired on NBC from 1954 to 1960.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS",
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GeorgeGobelFayeEmerson1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"The George Gobel Show\" - 4 December 1954",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1545,
+          "videoFile": {
+            "name": "GeorgeGobel-FayeEmerson (1).mp4",
+            "format": "h.264",
+            "sizeBytes": 160732415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeorgeGobelFayeEmerson1/GeorgeGobel-FayeEmerson (1).mp4"
+        },
+        {
+          "archiveID": "theGeorgeGobelShow-2October1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The George Gobel Show'' - 2 October 1954",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1763,
+          "videoFile": {
+            "name": "TheGeorgeGobelShow2October1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 182206943,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theGeorgeGobelShow-2October1954/TheGeorgeGobelShow2October1954.mp4"
+        },
+        {
+          "archiveID": "GeorgeGobel22January1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The George Gobel Show'' - 22 January 1955",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1757,
+          "videoFile": {
+            "name": "georgegobel22Jan1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 182639473,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeorgeGobel22January1955/georgegobel22Jan1955.mp4"
+        },
+        {
+          "archiveID": "gobel",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The George Gobel Show'' - 23 April 1955",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1573,
+          "videoFile": {
+            "name": "gobel.mp4",
+            "format": "h.264",
+            "sizeBytes": 163741577,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/gobel/gobel.mp4"
+        },
+        {
+          "archiveID": "TheGeorgeGobelShow-JefferyHunter",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The George Gobel Show'' - 5 February 1955",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1682,
+          "videoFile": {
+            "name": "TheGeorgeGobelShow-5February1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 174251672,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheGeorgeGobelShow-JefferyHunter/TheGeorgeGobelShow-5February1955.mp4"
+        },
+        {
+          "archiveID": "TheGeorgeGobelShow9October1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The George Gobel Show'' - 9 October 1954",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1547,
+          "videoFile": {
+            "name": "The George Gobel Show - 9 October 1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 161085879,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheGeorgeGobelShow9October1954/The George Gobel Show - 9 October 1954.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6
+}

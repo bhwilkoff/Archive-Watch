@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "jack-casting-for-television-special-1960",
+  "title": "Jack Casting For Television Special",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/JackBennyProgram-11x11.JackCastingForTelevisionSpecial",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JackBennyProgram-11x11.JackCastingForTelevisionSpecial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Casting For Television Special",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBennyProgram-11x11.JackCastingForTelevisionSpecial",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "JackBennyProgram-11x11.JackCastingForTelevisionSpecial.mp4",
+            "format": "h.264",
+            "sizeBytes": 151578332,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBennyProgram-11x11.JackCastingForTelevisionSpecial/JackBennyProgram-11x11.JackCastingForTelevisionSpecial.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

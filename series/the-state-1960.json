@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "seriesID": "the-state-1960",
+  "title": "The State",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "The State is a sketch-comedy television show combing bizarre characters and scenarios to present sketches that won the hearts of its target teenaged audience.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/umNUBcqpuwpnLzihvROZoWn8X5C.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/1cv277m1NiTcOnzCsoysDPD9UUT.jpg",
+  "genres": [],
+  "networks": [
+    "MTV"
+  ],
+  "creator": "Michael Showalter",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-state-season-4-commentary-audio-track-subtitles-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The State - Season 4 - Commentary Audio Track & Subtitles - MKV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/umNUBcqpuwpnLzihvROZoWn8X5C.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The State - S04E07.mp4",
+            "format": "h.264",
+            "sizeBytes": 144322740,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-state-season-4-commentary-audio-track-subtitles-mkv/The State - S04E07.mp4"
+        },
+        {
+          "archiveID": "the-state-season-4-mkv",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The State - Season 4 - MKV",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/umNUBcqpuwpnLzihvROZoWn8X5C.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The State - S04E07.mp4",
+            "format": "h.264",
+            "sizeBytes": 144626462,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-state-season-4-mkv/The State - S04E07.mp4"
+        },
+        {
+          "archiveID": "the-state-season-9-43rd-annual-all-star-halloween-special-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The State - Season 9 - 43rd Annual All-Star Halloween Special - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/umNUBcqpuwpnLzihvROZoWn8X5C.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The State - S09 - 43rd Annual All-Star Halloween Special.mp4",
+            "format": "h.264",
+            "sizeBytes": 277999078,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-state-season-9-43rd-annual-all-star-halloween-special-xvid-avi/The State - S09 - 43rd Annual All-Star Halloween Special.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 3
+}

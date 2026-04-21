@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "d-day-1960",
+  "title": "D-Day",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": "When a natural disaster strikes Seoul, a team of medical doctors and emergency personnel struggle to deal with its aftermath.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/yjbxBWHSujFRH5iyQuiDea1aaEt.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/erV14ZUSBIc7YTqY8nWAisO0c70.jpg",
+  "genres": [],
+  "networks": [
+    "JTBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "VAS_15_D-DAY",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "D-Day",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/yjbxBWHSujFRH5iyQuiDea1aaEt.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "VAS_15_D-DAY.mp4",
+            "format": "h.264",
+            "sizeBytes": 157664606,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/VAS_15_D-DAY/VAS_15_D-DAY.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

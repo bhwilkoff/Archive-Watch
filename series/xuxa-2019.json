@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "seriesID": "xuxa-2019",
+  "title": "Xuxa",
+  "yearStart": 2019,
+  "yearEnd": 2019,
+  "overview": "\"Xuxa\" was the name of the Brazilian entertainer's weekday self-titled children's television series that ran in syndication in the United States during the 1993-1994 season and was distributed by MTM Enterprises. Today 20th Television owns the rights to all 65 episodes. In 1994 the series enjoyed a two-year run on The Family Channel until 1996. The series was based on her similar popular children's series that was televised in Brazil and Latin America.\n\nThe series was initially broadcast by 124 stations across the country. The shows were produced at Studio 36 of CBS Television City in Los Angeles. 65 episodes were taped for its only season of the show. Taping of the episodes was done in a 5-week period in the summer of 1993.\n\nHelping Xuxa on the show were the Pixies, the Mellizas, Jelly, Jam, and ten \"child wranglers\" for the 150 kids on set. The series also featured E. E. Bell as Jelly the Panda, Mark Caso as Jam the Jaguar, Natasha Pearce as Paquita, and Jeff Dunham.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "XuxaEpisode11993",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Xuxa: Episode 1 (1993)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Xuxa Episode 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 139557684,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/XuxaEpisode11993/Xuxa Episode 1.mp4"
+        },
+        {
+          "archiveID": "XuxaEpisode21993",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Xuxa: Episode 2 (1993)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Xuxa Episode 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 139231968,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/XuxaEpisode21993/Xuxa Episode 2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2
+}

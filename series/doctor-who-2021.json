@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "doctor-who-2021",
+  "title": "Doctor Who",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": "The Doctor is a Time Lord: a 900 year old alien with 2 hearts, part of a gifted civilization who mastered time travel. The Doctor saves planets for a living—more of a hobby actually, and the Doctor's very, very good at it.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/w8enSKCf6Zm0topeQ2XPccDqsqp.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/vcFW09U4834DyFOeRZpsx9x1D3S.jpg",
+  "genres": [],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": "Sydney Newman",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "doctor-who-the-evil-of-the-daleks-1967-animated-color",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Doctor Who - The Evil of the Daleks (1967) [ANIMATED; COLOR]",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/w8enSKCf6Zm0topeQ2XPccDqsqp.jpg",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 517895532,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/doctor-who-the-evil-of-the-daleks-1967-animated-color/Episode 2.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

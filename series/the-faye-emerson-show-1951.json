@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-faye-emerson-show-1951",
+  "title": "The Faye Emerson Show",
+  "yearStart": 1951,
+  "yearEnd": 1951,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/faye-emerson-1951",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "faye-emerson-1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''The Faye Emerson Show\" - 30 March 1951",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/faye-emerson-1951",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 827,
+          "videoFile": {
+            "name": "faye.mp4",
+            "format": "h.264",
+            "sizeBytes": 86251270,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/faye-emerson-1951/faye.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

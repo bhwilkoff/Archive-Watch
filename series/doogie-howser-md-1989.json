@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "seriesID": "doogie-howser-md-1989",
+  "title": "Doogie Howser, M.D",
+  "yearStart": 1989,
+  "yearEnd": 1992,
+  "overview": "Doogie Howser is a doctor. He is also a 16-year-old genius who graduated college at age 10 and finished medical school at age 14. But he is still a teenager, with normal teenage friends and problems. But unlike a normal teenager, he is just learning to drive while also consulting on serious medical cases like heart transplants.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/uNGrGq7tJ1GiKUsfnchC07l0Q2M.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/jIXDWBeCUEu0ttzjHBJC4sA8LzR.jpg",
+  "genres": [],
+  "networks": [
+    "ABC"
+  ],
+  "creator": "David E. Kelley",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "doogie-howser-m.d.-season-1-of-4-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Doogie Howser, M.D. - Season 1 of 4 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uNGrGq7tJ1GiKUsfnchC07l0Q2M.jpg",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Doogie Howser, M.D. - S01E01 - Pilot.mp4",
+            "format": "h.264",
+            "sizeBytes": 151652336,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/doogie-howser-m.d.-season-1-of-4-xvid-avi/Doogie Howser, M.D. - S01E01 - Pilot.mp4"
+        },
+        {
+          "archiveID": "doogie-howser-m.d.-season-2-of-4-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Doogie Howser, M.D. - Season 2 of 4 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uNGrGq7tJ1GiKUsfnchC07l0Q2M.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Doogie Howser, M.D. - S02E09 - Nautilus For Naught.mp4",
+            "format": "h.264",
+            "sizeBytes": 148152400,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/doogie-howser-m.d.-season-2-of-4-xvid-avi/Doogie Howser, M.D. - S02E09 - Nautilus For Naught.mp4"
+        },
+        {
+          "archiveID": "doogie-howser-m.d.-season-3-of-4-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Doogie Howser, M.D. - Season 3 of 4 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uNGrGq7tJ1GiKUsfnchC07l0Q2M.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Doogie Howser, M.D. - S03E01 - The Summer of '91.mp4",
+            "format": "h.264",
+            "sizeBytes": 147314481,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/doogie-howser-m.d.-season-3-of-4-xvid-avi/Doogie Howser, M.D. - S03E01 - The Summer of '91.mp4"
+        },
+        {
+          "archiveID": "doogie-howser-m.d.-season-4-of-4-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Doogie Howser, M.D. - Season 4 of 4 - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uNGrGq7tJ1GiKUsfnchC07l0Q2M.jpg",
+          "airDate": null,
+          "year": 1992,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Doogie Howser, M.D. - S04E12 - The Mother of All Fishing Trips.mp4",
+            "format": "h.264",
+            "sizeBytes": 146539391,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/doogie-howser-m.d.-season-4-of-4-xvid-avi/Doogie Howser, M.D. - S04E12 - The Mother of All Fishing Trips.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4
+}

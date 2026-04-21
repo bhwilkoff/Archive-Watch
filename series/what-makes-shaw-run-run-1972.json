@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "what-makes-shaw-run-run-1972",
+  "title": "What Makes Shaw Run Run",
+  "yearStart": 1972,
+  "yearEnd": 1972,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/what-makes-shaw-run-run-1972-whickers-orient-s-01e-01",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "what-makes-shaw-run-run-1972-whickers-orient-s-01e-01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "What Makes Shaw Run Run (1972) - Whicker's Orient S01E01",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/what-makes-shaw-run-run-1972-whickers-orient-s-01e-01",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "What makes Shaw Run Run (1972) - Whicker's Orient s01e01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 209388170,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/what-makes-shaw-run-run-1972-whickers-orient-s-01e-01/What makes Shaw Run Run (1972) - Whicker's Orient s01e01.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-15th-annual-daytime-emmy-awards-1988",
+  "title": "The 15th Annual Daytime Emmy Awards",
+  "yearStart": 1988,
+  "yearEnd": 1988,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/15th-annual-daytime-emmy-awards-1988",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "15th-annual-daytime-emmy-awards-1988",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The 15th Annual Daytime Emmy Awards - Peter Marshall",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/15th-annual-daytime-emmy-awards-1988",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "15th Annual Daytime Emmy Awards - 1988.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 954688653,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/15th-annual-daytime-emmy-awards-1988/15th Annual Daytime Emmy Awards - 1988.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

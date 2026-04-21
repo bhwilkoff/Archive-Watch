@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "clueless-199699-tv-1996",
+  "title": "Clueless (1996–99) TV",
+  "yearStart": 1996,
+  "yearEnd": 1996,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/clueless-1996-99",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "clueless-1996-99",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Clueless (1996–99) TV series - Rachel Blanchard",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/clueless-1996-99",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Clueless Season 2 - 22 eps/clueless-_season_02_-_episode_19 not 18 Let's Stay Together  - youtuber TotallyCluelessTV.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 298840480,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/clueless-1996-99/Clueless Season 2 - 22 eps/clueless-_season_02_-_episode_19 not 18 Let's Stay Together  - youtuber TotallyCluelessTV.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

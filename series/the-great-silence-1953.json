@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "the-great-silence-1953",
+  "title": "The Great Silence",
+  "yearStart": 1953,
+  "yearEnd": 1953,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/TOT_The_Great_Silence",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TOT_The_Great_Silence",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Great Silence",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TOT_The_Great_Silence",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TOT_The_Great_Silence.mp4",
+            "format": "h.264",
+            "sizeBytes": 164745843,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TOT_The_Great_Silence/TOT_The_Great_Silence.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

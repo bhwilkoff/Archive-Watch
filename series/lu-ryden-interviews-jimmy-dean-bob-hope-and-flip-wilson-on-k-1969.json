@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "lu-ryden-interviews-jimmy-dean-bob-hope-and-flip-wilson-on-k-1969",
+  "title": "Lu Ryden interviews Jimmy Dean, Bob Hope, and Flip Wilson on KNTV, circa 1969",
+  "yearStart": 1969,
+  "yearEnd": 1969,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/hsj2023-17_kntv_ryden_jimmy_dean",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "hsj2023-17_kntv_ryden_jimmy_dean",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Lu Ryden interviews Jimmy Dean, Bob Hope, and Flip Wilson on KNTV, circa 1969",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/hsj2023-17_kntv_ryden_jimmy_dean",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "hsj2023-17_kntv_ryden_jimmy_dean.mp4",
+            "format": "h.264",
+            "sizeBytes": 79842402,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/hsj2023-17_kntv_ryden_jimmy_dean/hsj2023-17_kntv_ryden_jimmy_dean.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

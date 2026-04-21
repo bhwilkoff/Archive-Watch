@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "seriesID": "to-tell-the-truth-1967",
+  "title": "To Tell the Truth",
+  "yearStart": 1967,
+  "yearEnd": 1967,
+  "overview": "Five-day-a-week syndicated revival of one of Goodson-Todman's most durable and longest-lived formats: A celebrity panel determines which of three contestants is the actual person associated with a given story.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "CBS"
+  ],
+  "creator": "Bill Todman",
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "toTellTheTruth-May221967",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "''To Tell the Truth'' - May 22, 1967",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1754,
+          "videoFile": {
+            "name": "ToTellTheTruth1967.mp4",
+            "format": "h.264",
+            "sizeBytes": 172588495,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/toTellTheTruth-May221967/ToTellTheTruth1967.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}

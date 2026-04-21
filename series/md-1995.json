@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "seriesID": "md-1995",
+  "title": "M@D",
+  "yearStart": 1995,
+  "yearEnd": 1995,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/madtv-s-01-e-10",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "madtv-s-01-e-10",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "M@D s01",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/madtv-s-01-e-10",
+          "airDate": null,
+          "year": 1995,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MADtv - S01 E10 .mp4",
+            "format": "MPEG4",
+            "sizeBytes": 385194536,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/madtv-s-01-e-10/MADtv - S01 E10 .mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1
+}
