@@ -4,11 +4,14 @@
   "title": "Firing-Line",
   "yearStart": 1995,
   "yearEnd": 1996,
-  "overview": null,
+  "overview": "Firing Line was an American public affairs show founded and hosted by conservative William F. Buckley, Jr., founder and publisher of National Review magazine. Its 1,504 episodes over 33 years made Firing Line the longest-running public affairs show in television history with a single host. The erudite program, which featured many of the most prominent intellectuals and public figures in the United States, won an Emmy Award in 1969.",
   "posterURL": "https://image.tmdb.org/t/p/w500/f2X5r0mEaIA6K89qDjMwEUJxCx4.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [],
+  "networks": [
+    "PBS",
+    "Syndication"
+  ],
   "creator": null,
   "seasons": [
     {

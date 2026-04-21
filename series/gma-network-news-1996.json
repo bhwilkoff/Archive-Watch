@@ -4,11 +4,13 @@
   "title": "GMA Network News",
   "yearStart": 1996,
   "yearEnd": 1999,
-  "overview": null,
+  "overview": "GMA Network News is the former late-night English newscast of GMA Network from January 6, 1992 to 1998 and became the first Filipino-language late-night television newscast from 1998 until July 30, 1999 on weeknights and June 30, 2002 on weekends.",
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [],
+  "networks": [
+    "GMA Network"
+  ],
   "creator": null,
   "seasons": [
     {

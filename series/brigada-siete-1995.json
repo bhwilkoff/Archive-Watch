@@ -4,11 +4,13 @@
   "title": "Brigada Siete",
   "yearStart": 1995,
   "yearEnd": 1998,
-  "overview": null,
+  "overview": "Brigada Siete is an investigative news television show in the Philippines on GMA Network from December 5, 1993 to September 29, 2001. The show was revived in 2011 and retitled as Brigada.",
   "posterURL": null,
   "backdropURL": null,
   "genres": [],
-  "networks": [],
+  "networks": [
+    "GMA Network"
+  ],
   "creator": null,
   "seasons": [
     {

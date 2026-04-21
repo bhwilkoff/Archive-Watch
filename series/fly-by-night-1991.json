@@ -4,70 +4,18 @@
   "title": "Fly by Night",
   "yearStart": 1991,
   "yearEnd": 1991,
-  "overview": null,
+  "overview": "Fly by Night is a Canadian adventure series co-produced by France, Canada and The United States that aired for one season in 1991 and was part of CBS' Crimetime After Primetime in the United States. The show stars David James Elliott as Mack, François Guétary as Jean-Philippe Pasteur, both pilots for a small time airline \"Slick Air\" owned by Sally Slick.",
   "posterURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
   "backdropURL": null,
   "genres": [],
-  "networks": [],
-  "creator": null,
+  "networks": [
+    "CBS"
+  ],
+  "creator": "George Geiger",
   "seasons": [
     {
       "seasonNumber": null,
       "episodes": [
-        {
-          "archiveID": "fly-by-night-04",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Fly by Night - 04: Bing, Bang, Boom",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
-          "airDate": null,
-          "year": 1991,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Fly By Night - 04.mp4",
-            "format": "h.264",
-            "sizeBytes": 242114901,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/fly-by-night-04/Fly By Night - 04.mp4"
-        },
-        {
-          "archiveID": "fly-by-night-06",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Fly by Night - 06: Affaire de Coeur",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
-          "airDate": null,
-          "year": 1991,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Fly By Night - 06.mp4",
-            "format": "h.264",
-            "sizeBytes": 239498128,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/fly-by-night-06/Fly By Night - 06.mp4"
-        },
-        {
-          "archiveID": "fly-by-night-07",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Fly by Night - 07: Include Me Out",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
-          "airDate": null,
-          "year": 1991,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Fly By Night - 07.mp4",
-            "format": "h.264",
-            "sizeBytes": 241134849,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/fly-by-night-07/Fly By Night - 07.mp4"
-        },
         {
           "archiveID": "fly-by-night-08",
           "seasonNumber": null,
@@ -85,15 +33,74 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/fly-by-night-08/Fly By Night - 08.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "fly-by-night-04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Bing, Bang, Boom",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
+          "airDate": "1991-04-25",
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fly By Night - 04.mp4",
+            "format": "h.264",
+            "sizeBytes": 242114901,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fly-by-night-04/Fly By Night - 04.mp4"
+        },
+        {
+          "archiveID": "fly-by-night-06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Affaire de Coeur",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
+          "airDate": "1991-05-09",
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fly By Night - 06.mp4",
+            "format": "h.264",
+            "sizeBytes": 239498128,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fly-by-night-06/Fly By Night - 06.mp4"
+        },
+        {
+          "archiveID": "fly-by-night-07",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Include Me Out",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
+          "airDate": "1991-05-16",
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fly By Night - 07.mp4",
+            "format": "h.264",
+            "sizeBytes": 241134849,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fly-by-night-07/Fly By Night - 07.mp4"
         },
         {
           "archiveID": "fly-by-night-11",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Fly by Night - 11: Furs Flying",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Furs Flying",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
-          "airDate": null,
+          "airDate": "1991-07-11",
           "year": 1991,
           "runtimeSeconds": null,
           "videoFile": {
@@ -106,12 +113,12 @@
         },
         {
           "archiveID": "fly-by-night-13",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Fly by Night - 13: Manhunt",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Manhunt",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/wuAelsKhltim2jofKBcbSJMsguD.jpg",
-          "airDate": null,
+          "airDate": "1991-07-25",
           "year": 1991,
           "runtimeSeconds": null,
           "videoFile": {

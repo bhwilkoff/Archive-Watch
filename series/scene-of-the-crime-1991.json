@@ -4,11 +4,16 @@
   "title": "Scene of the Crime",
   "yearStart": 1991,
   "yearEnd": 1991,
-  "overview": null,
+  "overview": "Tatort is a long-running German/Austrian/Swiss, crime television series set in various parts of these countries. The show is broadcast on the channels of ARD in Germany, ORF in Austria and SF1 in Switzerland.",
   "posterURL": "https://image.tmdb.org/t/p/w500/yh43TKi9himQWhzrlWBxV8WjsFn.jpg",
-  "backdropURL": null,
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/lUrtMjiunomHPDC2sQNIxswbmdU.jpg",
   "genres": [],
-  "networks": [],
+  "networks": [
+    "ORF 1",
+    "Das Erste",
+    "SRF 1",
+    "ORF 2"
+  ],
   "creator": null,
   "seasons": [
     {
