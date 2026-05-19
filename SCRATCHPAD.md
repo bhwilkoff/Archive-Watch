@@ -34,6 +34,22 @@ Model does not apply here.
 
 ---
 
+## When to add a binding design doc
+
+The project has grown past ~5 views (Home, Browse, Detail, Player,
+Settings, Search, TV series shelf, …). A `tvOS-DESIGN.md` binding
+design doc would be earning its keep — quote the rule before
+proposing any new view / sheet / overlay / shelf type. Invoke
+`binding-design-doc-discipline` when adding it.
+
+Until that doc exists, `docs/tvos-playbook.md` is the closest thing
+this project has to a binding spec — consult it first for any tvOS
+UI change. The playbook lives in user memory (see CLAUDE.md "How we
+build" table) and should be the first stop before iterating on
+focus / layout / animation bugs.
+
+---
+
 ## Milestones
 
 ### M0 — Project Setup
@@ -63,7 +79,9 @@ Model does not apply here.
 > AVPlayer transport controls with resume-on-reopen, and can hit
 > "Surprise Me" to be sent to a random film.
 
-- **Learning check**: [x] Deepens understanding [x] Invites participation [x] Supports agency
+- **Learning check** (via `learning-orientation-design` skill):
+  [x] Deepens understanding [x] Invites participation [x] Supports agency
+  [ ] Clarity over cleverness
 - **Acceptance criteria**:
   - [ ] Home reads `featured.json` from GitHub Pages and renders curated + dynamic shelves
   - [ ] Every card shows a TMDb-sourced poster (not Archive thumb) for titles with IMDb IDs
