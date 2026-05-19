@@ -1,7 +1,37 @@
 # Archive Watch — Architecture & Technology Decisions
 
-Entries are ordered by date. This file is **append-only** — never edit or
-remove past decisions. Platform noted where specific; unlabeled = both.
+Entries are ordered by date. This file is **append-only** — never
+edit or remove past decisions. Platform noted where specific;
+unlabeled = both.
+
+## Format
+
+- **Entries 001–015** use the older "Decision / Rationale /
+  Alternatives / Trade-offs" format. They stay as-is.
+- **Entries 016 onward** use the lead-with-WHY format — see the
+  `architectural-decision-log` skill. The new entry template:
+
+  ```
+  ## NNN — Short imperative title
+  *Date: YYYY-MM-DD*
+
+  One paragraph stating the concrete decision. Lead with WHAT in
+  specific terms — the first sentence is the choice.
+
+  **Why**: the constraint, past incident, or alternative-rejected
+  that makes this choice make sense.
+
+  **How to apply**: when the next developer encounters this
+  decision, what should they do or not do?
+
+  (Optional) **Consequences**: forward-looking implications.
+  ```
+
+Each new entry must answer: *"what would the next developer get
+wrong if they didn't know this?"* — if the answer is "nothing," the
+entry isn't earning its keep.
+
+Invoke `/decision` to log a new entry.
 
 ---
 

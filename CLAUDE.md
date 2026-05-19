@@ -1,365 +1,278 @@
 # Archive Watch — Claude Code Project Context
 
-## A Note on Why We Build
+## Why we build
 
-Before writing a single line of code, take a moment to understand the
-orientation of this work. Every feature in this app is built in service of
-human learning and growth — not to replace thinking, but to deepen it. At
-each decision point, ask: Does this design invite the user to engage more
-fully, think more critically, or connect more meaningfully? If a feature
-makes a person more passive, reconsider it. If it opens a door to curiosity
-or collaboration, prioritize it. The goal is never a slick product — it is a
-tool that makes someone more human.
+Every feature in this app is built in service of human learning and
+growth — not to replace thinking, but to deepen it. At each decision
+point, ask: does this design invite the user to engage more fully,
+think more critically, or connect more meaningfully? If a feature
+makes a person more passive, reconsider it. If it opens a door to
+curiosity or collaboration, prioritize it. The goal is never a slick
+product — it is a tool that makes someone more human.
 
----
-
-## Debugging and Diagnostic Philosophy
-
-**Do not iterate blindly on behavior you cannot observe.** When a feature
-does not work correctly and the root cause is not immediately clear from
-reading the code, the first move is always diagnostics — not another
-implementation attempt.
-
-### Rule: Instrument before iterating
-
-1. **Add console diagnostics immediately.** One round of real data is worth
-   more than ten rounds of guessing.
-2. **Design diagnostics to answer a specific question.** Write down what you
-   expect to see vs. what would indicate the bug.
-3. **Isolate layers.** Verify each layer independently before changing any.
-4. **For iOS interaction bugs, add a temporary visual overlay** when the user
-   cannot easily share a console.
-5. **Remove all diagnostics before considering a fix complete.**
+**Before implementing any feature**, invoke the
+`learning-orientation-design` skill — the four-question test that
+operationalizes this paragraph.
 
 ---
 
-## What This App Does
+## How we build
 
-**Archive Watch** is a tvOS (Apple TV) app that turns the Internet Archive's
-vast public-domain moving-image collection — feature films, classic TV,
-newsreels, silent cinema, animation, ephemeral industrial films — into a
-cinematheque-style browsing and viewing experience. Titles are enriched
-with posters, cast, synopses, and genres sourced from TMDb (with Wikidata,
-Wikimedia Commons, and the Library of Congress as fallbacks), so archival
-content is presented with the same care and visual dignity as a modern
-streaming service. The audience is curious viewers who would rather
-wander a well-stocked repertory cinema than doomscroll a recommendation
-feed.
+This project follows a methodology that lives in **global skills**
+(`~/.claude/skills/`). Don't re-derive these patterns; invoke the
+skill when its trigger matches.
 
-**Primary platform: tvOS 17+.** The Apple TV app is the product.
+| When | Skill |
+|---|---|
+| Starting any feature change | `feature-shipping-discipline` |
+| Proposing UI / IA work | `binding-design-doc-discipline` |
+| Designing any view (tvOS or web) | `mobile-first-density-design` + `native-platform-first` |
+| Adding a list / grid / sheet / shelf | `universal-feature-states` |
+| Logging an architecture decision | `architectural-decision-log` |
+| Any tvOS UI / focus / animation work | consult `docs/tvos-playbook.md` first; then invoke the relevant `all-ios-skills:*` |
+| User pushback after 3+ iterations of "still broken" | `3d-feature-debug-loop` |
 
-The `index.html` / `css/` / `js/` web scaffold in this repo is retained
-for a future **companion editorial dashboard** — a tiny static page
-published via GitHub Pages where curators maintain the "Editor's Picks"
-JSON that the tvOS app fetches. It is not a consumer-facing viewer, and
-the Dual-Platform Feature Parity Model below does **not** apply in the
-usual sense.
+iOS framework depth lives under `all-ios-skills:<name>` — most still
+apply to tvOS (`swiftui-patterns`, `swiftui-navigation`, `swiftdata`,
+`ios-networking`, `swiftui-liquid-glass`, `app-intents`,
+`app-store-review`, `codable-patterns`, etc.). Design skills live
+under `KUI:<name>`. The global skills list is the source of truth —
+don't enumerate skills in this file beyond the triggers above.
+
+### Archive Watch-specific guardrails (tvOS)
+
+These came from real iteration on this project and are not in any
+global skill. The fuller catalog of tvOS patterns is in
+`docs/tvos-playbook.md` — read it before iterating on focus,
+sidebar, navigation, or animation bugs.
+
+- **Never `buttonStyle(.plain)` on tvOS** — destroys focusability.
+  Use `.borderless` or a custom `ButtonStyle`.
+- **SourceKit phantom errors are stale index, not real.** Cross-file
+  "Cannot find … in scope" warnings on tvOS often disappear after a
+  clean build. Trust `xcodebuild`, not the editor squiggles.
+- **`@Query` macro can cascade unrelated "Cannot find X in scope"
+  errors** across views in the same file. If you see a cascade of
+  resolution errors after touching a view that uses `@Query`, the
+  macro is the cause — move data fetching out of that view (see
+  commit `e62601c`).
+- **Reset a tab's `NavigationPath` when the user leaves it via the
+  sidebar** — otherwise tab state pollutes the next visit (commit
+  `a8188fe`).
+- **Initial-focus views (`HeroCarousel`, first-tab landings) must
+  imperatively claim focus on appear** — relying on default focus
+  alone is unreliable on tvOS (commit `1f789b1`).
+- **Consolidate Home-only components inside `HomeView.swift`**
+  when SourceKit cannot resolve them cleanly across split files
+  (commit `f7fe380`).
 
 ---
 
-## Platforms
+## Debugging philosophy
 
-### Feature Parity Model
+**Do not iterate blindly on behavior you cannot observe.** When a
+feature does not work correctly and the root cause is not immediately
+clear from reading the code, the first move is diagnostics — not
+another implementation attempt.
 
-Both platforms implement the same core feature set. Platform-specific
-implementation choices are acceptable and expected. What should stay in sync:
+1. Add observability before trying another implementation
+2. Design diagnostics to answer a specific question — write down what
+   you expect to see vs. what would indicate the bug
+3. Isolate layers — verify each independently before changing any
+4. For tvOS interaction bugs (focus, animation, video) the user
+   cannot easily share a console for, add a temporary on-screen
+   debug overlay
+5. Remove diagnostics before declaring a fix complete
 
-- Which views/features exist
-- Core UX flows
-- Design language and color tokens
-- API usage patterns
+If user pushback returns after 3+ iterations of "still broken,"
+that's the signal to invoke `3d-feature-debug-loop` and reset to
+research-agent + observable-evidence discipline.
 
 ---
 
-## Web App
+## What this app does
 
-### Tech Stack
+**Archive Watch** is a tvOS (Apple TV) app that turns the Internet
+Archive's vast public-domain moving-image collection — feature films,
+classic TV, newsreels, silent cinema, animation, ephemeral industrial
+films — into a cinematheque-style browsing and viewing experience.
+Titles are enriched with posters, cast, synopses, and genres sourced
+from TMDb (with Wikidata, Wikimedia Commons, and the Library of
+Congress as fallbacks), so archival content is presented with the
+same care and visual dignity as a modern streaming service. The
+audience is curious viewers who would rather wander a well-stocked
+repertory cinema than doomscroll a recommendation feed.
 
-- **Rendering:** Vanilla HTML/JS — no framework, no build step required
-- **Styling:** Custom CSS (mobile-first, CSS custom properties for theming)
-- **API:** <!-- FILL IN: Your API approach -->
-- **Auth:** <!-- FILL IN: Your auth approach -->
-- **Deployment:** GitHub Pages static hosting (branch: main, root: /)
+**Primary platform: tvOS 17+ (currently building against tvOS 26 /
+Liquid Glass).** The Apple TV app is the product.
 
-### Key Directories
+The `index.html` / `css/` / `js/` web scaffold in this repo is
+retained as a **companion editorial dashboard** — a small static
+page served via GitHub Pages where the curator maintains
+`featured.json` and runs `build-catalog.html` to generate the
+`catalog.json` seed the tvOS app consumes. It is not a
+consumer-facing viewer, and the template's Dual-Platform Feature
+Parity Model does **not** apply here.
 
-- `/` — Root: index.html, CLAUDE.md, SCRATCHPAD.md, DECISIONS.md
-- `/css/` — Stylesheets (styles.css is the single main stylesheet)
-- `/js/` — JavaScript modules (app.js, api.js)
-- `/assets/` — Static assets (icons, images)
+---
 
-### How to Run Locally
+## Web app (editorial dashboard only)
 
-```
-open index.html
-# or
-python3 -m http.server 8080  # then visit http://localhost:8080
-```
+**Stack**: Vanilla HTML/JS — no framework, no build step. Custom
+CSS, mobile-first. GitHub Pages static hosting, branch `main`,
+root `/`.
 
-### How to Deploy
+**Key directories**:
+- `/` — root: `index.html`, `whats-new.html`, `build-catalog.html`,
+  `featured.json`, `catalog.json`, working docs
+- `/css/styles.css` — single main stylesheet
+- `/js/api.js`, `/js/app.js`, `/js/build-catalog.js`,
+  `/js/whats-new.js` — API abstraction + view system per tool
+- `/assets/` — static assets (icon master, previews)
 
-1. Push changes to `main` branch
-2. GitHub Pages serves from root of `main` automatically
-3. Live URL: <!-- FILL IN -->
+**Run locally**: `python3 -m http.server 8080` → visit
+http://localhost:8080. Deploy: push to `main`; GitHub Pages serves
+automatically.
 
-### Web Conventions
-
-- All API calls go through `js/api.js` — never call `fetch` directly from other files
-- Auth state is managed exclusively in a single module
-- CSS custom properties (variables) are defined in `:root` in `styles.css`
-- Mobile-first: all media queries use `min-width` breakpoints
-- Semantic HTML throughout — use `<article>`, `<section>`, `<nav>`, `<button>`
-- No inline styles — all styling via CSS classes
+**Conventions** (the load-bearing ones — see skills for the rest):
+- All Archive.org / TMDb calls through `js/api.js` — never `fetch`
+  directly elsewhere
+- CSS custom properties in `:root` in `styles.css`
+- Mobile-first; all media queries use `min-width`
+- No inline styles
 - Error states must be user-visible (not just console logs)
-- **Navigation**: All nav items live inside `#channels-sidebar`
-- **IntersectionObserver cleanup**: Any `IntersectionObserver` created for a
-  view must be disconnected when leaving that view to prevent memory leaks
-- **View system**: Use `showView(name)` to switch between views; each view is
-  a `<section>` with `hidden` attribute toggled
+- IntersectionObservers created per-view are disconnected on view
+  switch
+- Use `showView(name)` to switch views; each view is a `<section>`
+  with `hidden` toggled
 
-### Web Constraints
-
-- GitHub Pages static deployment only — no server runtime, no Node.js
-- Zero-cost tools only — no paid APIs, no paid hosting
-- No build pipeline — everything must work as plain HTML/CSS/JS
-
-### Do Not Touch (Web)
-
-- `.git/` directory
-- GitHub Pages deployment settings
+**Safari layout pitfall** (cross-project):
+`body { height: 100dvh; display: flex; flex-direction: column;
+overflow: hidden; }` with `main { flex: 1; overflow-y: auto;
+min-height: 0; }`. NO `viewport-fit=cover`. NO `position: fixed`
+overlays — they break Safari's compositor at the Dynamic Island.
 
 ---
 
-## iOS App
+## tvOS app
 
-### Tech Stack
+**Stack**: Swift 6, SwiftUI (`@Observable`, tvOS 17+, currently
+running on tvOS 26 with Liquid Glass), SwiftData for local
+persistence, URLSession direct to Archive / TMDb / Wikidata
+(no third-party packages).
 
-- **Language / UI:** Swift 6, SwiftUI (`@Observable`, iOS 17+)
-- **Local persistence:** SwiftData
-- **Auth storage:** Keychain via Security framework
-- **API:** <!-- FILL IN: Your API approach -->
-- **Fonts:** <!-- FILL IN: Custom fonts if any -->
-- **Deployment:** Xcode build → App Store Connect → TestFlight / App Store
-
-### Project Structure — Xcode Cloud Compatible
-
-The `.xcodeproj` lives at the **repository root** so Xcode Cloud finds it
-automatically. No subdirectory nesting, no spaces in project names.
+**Project structure** — Xcode Cloud compatible:
 
 ```
 /                              ← repo root
-├── AppName.xcodeproj/         ← Xcode project at root (Xcode Cloud requirement)
-├── AppName/                   ← iOS source code
-│   ├── App/                   ← Entry point, app delegate
-│   ├── Models/                ← Data models
-│   ├── Views/                 ← SwiftUI views (one subfolder per feature)
-│   ├── Components/            ← Reusable UI components
-│   ├── Networking/            ← API client
-│   ├── Store/                 ← @Observable global state
-│   ├── Resources/Fonts/       ← Custom font files
-│   ├── Assets.xcassets/       ← App icons, colors, images
-│   └── Info.plist
-├── AppVersion.xcconfig        ← Shared version numbers (both targets read this)
+├── ArchiveWatch.xcodeproj/    ← at root (Xcode Cloud requirement)
+├── ArchiveWatch/
+│   ├── App/                   ← entry point
+│   ├── Models/                ← ContentItem, Taxonomy, CollectionRegistry
+│   ├── Views/                 ← SwiftUI views (one folder per feature)
+│   ├── Components/            ← HeroCarousel, ShelfRow, DecadeTilesRow, …
+│   ├── Networking/            ← ArchiveClient, TMDbClient, WikidataClient
+│   ├── Services/              ← EnrichmentService, SeedCatalog
+│   └── Resources/
+├── AppVersion.xcconfig        ← shared version numbers
+├── Secrets.xcconfig           ← gitignored; TMDB_BEARER_TOKEN
 ├── ci_scripts/                ← Xcode Cloud build scripts
-│   └── ci_post_clone.sh
-├── index.html                 ← Web app (GitHub Pages serves from root)
-├── css/                       ← Web stylesheets
-├── js/                        ← Web JavaScript
-└── assets/                    ← Shared static assets
+├── docs/                      ← research + tvOS playbook
+├── index.html                 ← editorial dashboard
+├── catalog.json               ← bundled seed catalog
+├── featured.json              ← curator picks + dynamic shelves
+└── tools/                     ← validation + enrichment scripts
 ```
 
-### How to Create the Xcode Project
+**Critical conventions**:
 
-1. Open Xcode → File → New → Project → iOS → App
-2. Product Name: `AppName` (no spaces — critical for Xcode Cloud)
-3. **Save location: the repository root** (not a subdirectory)
-4. Interface: SwiftUI, Language: Swift
-5. In project settings, add `AppVersion.xcconfig` to both Debug and Release
-   configurations (Project → Info → Configurations → set config file)
-6. Verify: `AppName.xcodeproj` should be directly in the repo root
+- **All API calls through a shared singleton** — never URLSession
+  directly from views
+- **Global nav state in `@Observable` store** with `NavigationPath`
+  per tab; reset a tab's path when the user leaves it via the sidebar
+- **Version numbers via `AppVersion.xcconfig` only** — never edit
+  through Xcode identity panel (creates per-target overrides)
+- **tvOS 17+ minimum** — currently targeting tvOS 26 / Liquid Glass
+- **No third-party Swift packages** — Apple frameworks only
+- **`Secrets.xcconfig` is gitignored** — TMDB bearer token lives
+  there; never commit secrets
 
-### iOS Conventions (Learned from Production)
-
-- All API calls go through a shared client singleton — never call `URLSession` directly from views
-- Auth state owned exclusively by one manager — views read via `@Environment`
-- Global navigation state lives in an `@Observable` store with `NavigationPath`
-- All views use `.toolbarBackground(.regularMaterial, for: .navigationBar)` +
-  `.toolbarBackground(.visible, for: .navigationBar)` to prevent content
-  scrolling behind the nav bar
-- **Sidebar header**: use `VStack` with `.background()` modifier — never a
-  `ZStack` with a `Color` sibling (layout-greedy, expands to fill height)
-- **fullScreenCover with data**: use `fullScreenCover(item:)` with an
-  `Identifiable` carrier struct. Never use `fullScreenCover(isPresented:)` +
-  separate `@State` arrays (SwiftUI may evaluate content before state applies)
-- **Image grid cells**: always constrain both width AND height before
-  `.clipped()`. `scaledToFill()` without width constraint overflows columns
-- **VideoPlayer animation crash**: wrap `VideoThumbnailView` (or any view
-  containing `AVPlayerViewController`) with `.transaction { $0.animation = nil }`
-  to block SwiftUI animation propagation into AVKit
-- **Video fullscreen**: present `AVPlayerViewController` directly via UIKit
-  `present(_:animated:completion:)` — NOT via SwiftUI `fullScreenCover`.
-  Create a fresh `AVPlayer` at current seek position to avoid shared-player conflicts
-- **Image resize for uploads**: keep a single shared static resize function.
-  Never duplicate resize logic across compose and inline-reply paths
-- **Share sheet with Safari**: use `UIActivityViewController` presented via
-  UIKit with a custom `UIActivity` subclass for "Open in Safari". SwiftUI's
-  `ShareLink` and `.sheet`-wrapped `UIActivityViewController` both suppress
-  Safari when presented from within a WKWebView context
-- **URLCache**: configure at app launch with large capacity (100 MB memory /
-  500 MB disk) to persist `AsyncImage` and `URLSession` responses
-- **Seen posts**: use in-memory `@State` `Set<String>` cache instead of
-  `@Query` to avoid ForEach cascade re-renders on every SwiftData insert
-- **NSFW filtering**: add `isAdultContent` computed property on your post
-  model checking labels. Apply in all feed merge steps. Keep search
-  intentionally unfiltered (user controls via toggle)
-- **Hybrid feeds**: when merging multiple API feeds, fetch in parallel with
-  `async let`, deduplicate by URI, sort by trending score. Secondary feeds
-  use `try?` so failures never break the primary source
-- **Version numbers**: use `AppVersion.xcconfig` at repo root with
-  `MARKETING_VERSION` and `CURRENT_PROJECT_VERSION`. Both targets reference
-  it. Never edit versions via the Xcode identity panel (creates per-target
-  overrides that cause drift)
-
-### iOS Constraints
-
-- iOS 17+ minimum deployment target
-- No third-party Swift packages — use only Apple frameworks
-- Keychain for all credential storage — never UserDefaults for secrets
+For SwiftUI patterns, navigation, animation, performance — invoke
+`all-ios-skills:<name>`. For Liquid Glass (tvOS 26+) see
+`all-ios-skills:swiftui-liquid-glass`. For tvOS-specific patterns
+not in any global skill — focus management, sidebar behavior, hero
+carousels, the `@Query` cascade gotcha — consult
+`docs/tvos-playbook.md`.
 
 ---
 
-## Shared Design System
+## Shared design system
 
-### Design Tokens (both platforms)
+**Brand chrome** (used in both dashboard + tvOS):
 
-<!-- FILL IN: Your color palette -->
-```
-Accent:          #FF5C35   — buttons, active states
-Blue:            #0047FF   — links, interactive elements
-Near-black:      #0A0A0A   — borders and shadows
-Background:      #FFFFFF
-Border:          #E0E0E0
+```css
+:root {
+  --color-primary:    #FF5C35;  /* marquee orange (Feature Film + CTA) */
+  --color-accent:     #0047FF;  /* links, interactive */
+  --color-bg:         #FFFFFF;
+  --color-text:       #0A0A0A;
+  --color-border:     #E0E0E0;
+}
 ```
 
-<!-- FILL IN: Your design rules -->
+**Per-category semantic accents** (content meaning only, see
+DECISIONS 013): Feature Film `#FF5C35`, Classic TV `#2D5BFF`,
+Silent Era `#C9A66B`, Animation `#FF4D8D`, Newsreel `#8A8F98`,
+Documentary `#3FA796`, Ephemeral `#7C5BBA`, Short Film `#E8A317`.
+
+The split is binding — never use a brand color for content meaning,
+never use a semantic color for chrome.
+
+**Typography hierarchy**: three weights × two sizes = six levels.
+Refuse a seventh; refactor instead. See `mobile-first-density-design`
+for the discipline.
+
+**Density rule**: density comes from removing chrome, not adding
+decoration. On tvOS the analogue is *focus does the work* — the
+focused card is the chrome; surrounding cards should be quiet.
 
 ---
 
-## Standing Instructions for Claude
+## When to create a binding design doc
 
-### Learning Orientation — Six Criteria
+This project has grown past ~5 views (Home, Browse, Detail, Player,
+Settings, Search, TV series shelf, …). A `tvOS-DESIGN.md` binding
+design doc would be earning its keep — quote the rule before
+proposing any new view / sheet / overlay / shelf type. Invoke
+`binding-design-doc-discipline` when adding it.
 
-Evaluate before implementing any feature:
-
-1. **Does it deepen understanding?** Active engagement, not passive delivery
-2. **Does it invite participation?** Ask something of the user
-3. **Does it support human agency?** Make people more capable, not dependent
-4. **Clarity over cleverness** — simpler implementation always wins
-5. **Accessible by default** — WCAG AA from line one
-6. **Responsive from the start** — mobile-first, test at 375px before 1440px
-
-### Autonomous Work Guidelines
-
-- When uncertain between approaches, document in DECISIONS.md and choose simpler
-- No feature additions beyond what's requested
-- Only fix the bug, don't refactor surrounding code
-- If a feature conflicts with learning-orientation values, surface the conflict
+Until that doc exists, `docs/tvos-playbook.md` is the closest thing
+this project has to a binding spec — consult it first for any tvOS
+UI change.
 
 ---
 
----
+## Standing instructions
 
-## Claude Skills Reference
-
-The following Claude Code skills were used in Bsky Dreams development and
-are available for this project. Invoke them via the Skill tool or by name.
-
-### UI/UX Design — Killer UI (KUI)
-
-These skills live in `.claude/skills/killer-ui/` and `.claude/commands/KUI/`.
-
-| Skill | When to use |
-|---|---|
-| `KUI:system` | Create a design system (palette, typography, spacing, components) |
-| `KUI:brand` | Develop brand identity (strategy, visual language, logo direction) |
-| `KUI:screen` | Design screens following platform-native patterns |
-| `KUI:review` | Full design critique (heuristic evaluation, visual hierarchy) |
-| `KUI:code` | Convert designs into production-ready accessible frontend code |
-| `KUI:a11y` | WCAG 2.2 AA accessibility audit with remediation plan |
-| `KUI:darkmode` | Audit and fix dark mode issues (contrast, inverted colors) |
-| `KUI:trends` | Research current design trends for any industry |
-| `KUI:figma` | Generate Figma-ready specs (auto-layout, components, tokens) |
-
-**Used for**: Bsky Dreams' neubrutalist + Memphis design system, dark mode
-implementation, accessibility compliance, component patterns.
-
-### App Store Assets
-
-| Skill | When to use |
-|---|---|
-| `app-store-screenshots` | Generate App Store screenshot pages and promotional assets |
-
-**Used for**: Bsky Dreams App Store listing screenshots and promotional text.
-
-### iOS Development — all-ios-skills
-
-40+ specialized iOS skills available. Most relevant for app development:
-
-| Skill | When to use |
-|---|---|
-| `all-ios-skills:swiftui-patterns` | MV architecture, state management, environment |
-| `all-ios-skills:swiftui-navigation` | NavigationStack, NavigationPath, deep linking |
-| `all-ios-skills:swiftui-animation` | Animations, transitions, matched geometry |
-| `all-ios-skills:swiftui-gestures` | Gesture handling, custom recognizers |
-| `all-ios-skills:swiftui-performance` | Audit and improve runtime performance |
-| `all-ios-skills:swiftdata` | Data persistence with SwiftData |
-| `all-ios-skills:ios-networking` | URLSession, async/await networking |
-| `all-ios-skills:ios-security` | Keychain, CryptoKit, secure storage |
-| `all-ios-skills:ios-accessibility` | VoiceOver, Dynamic Type, accessibility |
-| `all-ios-skills:storekit` | In-app purchases and subscriptions |
-| `all-ios-skills:live-activities` | Live Activities and Dynamic Island |
-| `all-ios-skills:widgetkit` | Home screen and Lock Screen widgets |
-| `all-ios-skills:app-intents` | Siri, Shortcuts, and App Intents |
-| `all-ios-skills:push-notifications` | Push notification implementation |
-| `all-ios-skills:photos-camera-media` | Photo picking, camera, media handling |
-| `all-ios-skills:swift-concurrency` | Async/await, actors, Swift 6 concurrency |
-| `all-ios-skills:swift-testing` | Swift Testing framework, test migration |
-| `all-ios-skills:debugging-instruments` | LLDB, Memory Graph, Instruments profiling |
-| `all-ios-skills:app-store-review` | App Store review prep, rejection prevention |
-| `all-ios-skills:codable-patterns` | JSON encoding/decoding patterns |
-| `all-ios-skills:swiftui-liquid-glass` | Liquid Glass effects (iOS 26+) |
-
-**Used for**: Bsky Dreams' SwiftUI architecture, gesture handling
-(ConstellationView), SwiftData persistence, Keychain auth, AVKit video
-playback, photo picking with resize, App Store submission.
-
-### Web Development
-
-| Skill | When to use |
-|---|---|
-| `frontend-design` | Production-grade frontend interfaces |
-| `ui-ux-pro-max` | UI/UX design with 50 styles, 21 palettes, 50 font pairings |
-| `killer-ui` | Comprehensive UI skill set |
-
-### Code Quality
-
-| Skill | When to use |
-|---|---|
-| `simplify` | Review changed code for reuse, quality, and efficiency |
-| `claude-api` | Build apps with Claude API or Anthropic SDK |
-
-### How to Use Skills
-
-Skills are invoked when relevant to your task. You can also request them
-directly: "Use the KUI:system skill to create a design system" or "Run
-the app-store-review skill to check for rejection risks."
-
-For iOS skills, prefix with `all-ios-skills:` — e.g., "Use
-all-ios-skills:swiftui-performance to audit the feed scroll performance."
+- **Read the relevant skill before re-deriving a pattern.** The
+  global skills exist because the patterns came from real iteration.
+- **Commit messages quote the user's request verbatim** when
+  applicable. See `feature-shipping-discipline`.
+- **DECISIONS.md leads with WHY, not WHAT** for entries 016+;
+  entries 001–015 use the older Decision / Rationale / Alternatives /
+  Trade-offs format and remain as-is — append-only is the rule.
+- **Don't add features beyond what's requested.** Fix only the bug.
+- **Don't refactor surrounding code.** Scoped diffs.
+- **Default to writing no comments.** Only add one when the WHY is
+  non-obvious — a hidden constraint, a subtle invariant, a workaround
+  for a specific bug.
+- **No emojis in code or commits** unless explicitly requested.
 
 ---
 
-## Current State
+## Current state
 
-See @SCRATCHPAD.md for per-platform feature status and planned work.
-See @DECISIONS.md for all architecture decisions (web and iOS).
+See @SCRATCHPAD.md for active milestone + tvOS feature status.
+See @DECISIONS.md for architecture decisions.
+See `docs/tvos-playbook.md` for tvOS-specific patterns learned the
+hard way on this project.
