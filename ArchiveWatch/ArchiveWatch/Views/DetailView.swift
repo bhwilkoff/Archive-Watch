@@ -51,7 +51,7 @@ struct DetailView: View {
             .background(Color.black)
             .fullScreenCover(isPresented: $isPlaying) {
                 if let url = item.videoURLParsed {
-                    PlayerScreen(url: url, archiveID: item.archiveID)
+                    PlayerScreen(url: url, archiveID: item.archiveID, catalogItem: item)
                 }
             }
             .defaultFocus($focusTarget, .play, priority: .userInitiated)
@@ -371,6 +371,7 @@ struct DetailView: View {
 struct PlayerScreen: View {
     let url: URL
     let archiveID: String
+    var catalogItem: Catalog.Item? = nil
     @Environment(\.modelContext) private var modelContext
     @State private var player: AVPlayer?
     @State private var timeObserver: Any?
@@ -379,7 +380,7 @@ struct PlayerScreen: View {
         ZStack {
             Color.black.ignoresSafeArea()
             if let player {
-                VideoPlayer(player: player)
+                AVPlayerContainer(player: player)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
             }
@@ -389,8 +390,11 @@ struct PlayerScreen: View {
     }
 
     private func setupPlayer() {
-        let item = AVPlayerItem(url: url)
-        let p = AVPlayer(playerItem: item)
+        let playerItem = AVPlayerItem(url: url)
+        if let catalogItem {
+            playerItem.externalMetadata = makeExternalMetadata(for: catalogItem)
+        }
+        let p = AVPlayer(playerItem: playerItem)
         player = p
 
         let archiveID = self.archiveID
