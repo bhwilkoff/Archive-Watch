@@ -273,16 +273,39 @@ focus / layout / animation bugs.
   (6 commits), each verified to build clean on the tvOS 26.5 sim; app
   launches, Home + Settings + native player all confirmed on-sim. NOT
   pushed.
-- **The one wall hit**: the Top Shelf extension (Decision 015 / M4) needs
-  a new app-extension target + App Group entitlement — can't be created
-  safely by hand-editing `project.pbxproj`. Full ready-to-drop-in code +
-  exact Xcode steps are in `docs/top-shelf-setup.md`. That doc also
-  carries the `Info.plist` (URL scheme + `NSUserActivityTypes`) +
-  `.onOpenURL` deep-link routing needed to finish "Add to Up Next" and
-  Top Shelf item taps.
-- **Next**: (owner) create the Top Shelf target + App Group per the doc;
-  add the `Info.plist` URL-types entry. (code) layered-parallax icon,
-  BGAppRefreshTask for What's New, optional catalog slimming.
+- **Second wave (same session) — finished the documented backlog**, all
+  committed on `v1-hardening`, each built clean + (where visible)
+  sim-verified:
+  - **Manual `Info.plist`** (GENERATE_INFOPLIST_FILE = NO): archivewatch://
+    URL scheme, `NSUserActivityTypes` (completes Up Next), BG task IDs +
+    `UIBackgroundModes`. Deep links route via `ContentView.onOpenURL` →
+    `IntentInbox` → RootView.
+  - **Top Shelf snapshot writer** + invisible `TopShelfUpdater` (App
+    Group, no-ops until the group exists) + **BGAppRefreshTask** (SwiftUI
+    `.backgroundTask`, armed on background).
+  - **Top Shelf extension target created by hand in `project.pbxproj`**
+    (`ArchiveWatchTopShelf`, TVTopShelfContentProvider) + **App Group**
+    `group.com.bhwilkoff.archivewatch` on both targets + entitlements.
+    Verified: `xcodebuild -list` shows both targets; the `.appex` embeds
+    in `PlugIns/` with NSExtensionPointIdentifier `com.apple.tv-top-shelf`;
+    full build clean on sim. (Ruby `xcodeproj` gem unavailable + would
+    risk the objectVersion-77 synchronized groups, so the pbxproj was
+    edited directly.)
+  - **Layered-parallax app icon** (Back orange / Middle film frame /
+    Front moon) for App Icon + App Store imagestacks; Top Shelf flat.
+    At rest identical to the flat icon; actool-validated.
+  - **Catalog slimmed 74.5MB → 33.9MB** (`tools/slim-catalog.py`) by
+    dropping 1.17M `fav-*` pseudo-collections from both catalogs.
+- **State left**: M1/M2/M3 features + the M4 Top Shelf/Up Next/BG-refresh
+  surfaces all landed on `v1-hardening` (~13 commits), built clean on the
+  tvOS 26.5 sim. NOT pushed — owner to review, build in Xcode, and test on
+  Apple TVs.
+- **Only owner step remaining for full Top Shelf on-device**: enable the
+  App Group capability for the App ID in the Apple Developer account (sim
+  needs nothing). See `docs/top-shelf-setup.md`.
+- **Next (future)**: confirm the layered-icon parallax + Top Shelf on real
+  hardware; make the `tools/` catalog pipeline drop `fav-*` at the source;
+  App Store screenshots + metadata for submission.
 
 ### 2026-04-17 — Archive Watch foundation
 - **State found**: Empty dual-app template on `claude/archive-org-apple-tv-5bKXB`
