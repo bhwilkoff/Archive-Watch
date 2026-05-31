@@ -17,9 +17,24 @@ final class IntentInbox {
     private init() {}
 
     enum Request: Equatable {
-        case surprise        // jump to the Surprise tab
-        case randomFilm      // play/open a random playable film
-        case randomCategory  // open a random category's browse view
+        case surprise              // jump to the Surprise tab
+        case randomFilm            // play/open a random playable film
+        case randomCategory        // open a random category's browse view
+        case openItem(String)      // open a specific title by archiveID (deep link / Top Shelf)
+    }
+
+    /// Parse an `archivewatch://` deep link into a request. Returns nil for
+    /// anything we don't recognise.
+    static func request(for url: URL) -> Request? {
+        guard url.scheme == "archivewatch" else { return nil }
+        switch url.host {
+        case "item":   let id = url.lastPathComponent
+                       return id.isEmpty ? nil : .openItem(id)
+        case "surprise":        return .surprise
+        case "random":          return .randomFilm
+        case "randomcategory":  return .randomCategory
+        default:                return nil
+        }
     }
 
     /// Set by an AppIntent; consumed (set back to nil) by RootView.

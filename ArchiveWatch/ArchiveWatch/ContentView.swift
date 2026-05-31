@@ -16,6 +16,14 @@ struct ContentView: View {
             }
         }
         .preferredColorScheme(.dark)
+        // Deep links (archivewatch://item/{id}, /surprise, …) from Top
+        // Shelf taps and App Intents. Drop into the same inbox the App
+        // Intents use; RootView consumes it once the catalog is loaded.
+        .onOpenURL { url in
+            if let request = IntentInbox.request(for: url) {
+                IntentInbox.shared.request = request
+            }
+        }
     }
 }
 
