@@ -4,18 +4,21 @@ Decision 015 calls for a Top Shelf extension (`.sectioned`) surfacing
 Continue Watching + Editor's Picks + What's New when Archive Watch is
 focused on the tvOS Home Screen.
 
-**Why this is a doc and not a commit:** a Top Shelf extension is a
-separate *app-extension target* with its own bundle, Info.plist, and an
-**App Group** entitlement shared with the main app. Creating a target
-means rewriting `project.pbxproj` (target graph, build phases, an
-embed-extension copy phase, container proxies). Doing that by hand —
-especially in this project's *synchronized file groups* layout — risks
-leaving the `.xcodeproj` unopenable. It's a 10-minute job in Xcode and a
-fragile one by text edit, so the code is ready below and the wiring is
-manual.
+> **STATUS (2026-05-31): IMPLEMENTED in-repo.** The extension target
+> (`ArchiveWatchTopShelf`), the App Group (`group.com.bhwilkoff.archivewatch`)
+> on both targets, the provider, the snapshot writer, deep links, and the
+> background refresh are all committed on branch `v1-hardening` and build
+> clean on the tvOS 26.5 simulator (the `project.pbxproj` was edited by
+> hand). The steps below are kept as reference / a rebuild guide.
+>
+> **The one thing left for the owner:** the App Group capability must be
+> enabled for this App ID in your Apple Developer account for **device /
+> TestFlight** builds. With Automatic signing + a team set, Xcode usually
+> registers `group.com.bhwilkoff.archivewatch` on the first device build;
+> if device signing complains, toggle App Groups in Signing & Capabilities
+> for both targets. Simulator builds need nothing extra.
 
-All code here is **complete and builds** once the target + App Group
-exist; nothing else is required.
+What follows is the original setup guide, now matching what's in the repo.
 
 ---
 
