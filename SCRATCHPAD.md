@@ -2,26 +2,58 @@
 
 ## Current State
 
-- **Status**: M0 mostly done — Xcode project creation is the only blocker. Editorial pipeline, What's New ticker, app icon master, tvOS integration plan, seed catalog pipeline all shipped.
-- **Active milestone**: M0 → M1
-- **Last session**: 2026-04-19 — categorization schema (collection registry), seed catalog generator (browser), SeedCatalog Swift loader, first-launch prime wiring
-- **Next actions**:
-  1. **(Owner, any device)** Push to GitHub Pages (Settings → Pages → main branch root) so the dashboard + build-catalog + what's-new ticker are live
-  2. **(Owner, any device)** Once live, open `build-catalog.html` on your phone or laptop, paste your TMDb v4 bearer token, hit Build. Download the resulting `catalog.json` and commit it to the repo root.
-  3. **(Owner, at desk)** Create Xcode tvOS project at repo root (Product Name: `ArchiveWatch`, no spaces, tvOS 17+)
-  4. Move Swift files from `ios/` into the Xcode-created `ArchiveWatch/` group, then delete `ios/`
-  5. Add `catalog.json` and `collections.json` to the app bundle as resources (copy to bundle root; SeedCatalog + CollectionRegistry read them via `Bundle.main`)
-  6. Create `Secrets.xcconfig` (gitignored) with `TMDB_BEARER_TOKEN`
-  7. Run `tools/validate-pipeline.sh --tmdb` to sanity-check TMDb match rate
-- **Open questions** (resolved):
-  - Adult content filtered by default? **Yes** — Decision 012
-  - Per-category accent colors? **Yes** — Decision 013
-  - Random actions in M1? **Yes** — Decision 014
-  - App icon direction? **Photographic film frame on bold category color** — see `docs/design/app-icon.md`
-  - Serif body type? **Yes — stylized + bold** (Fraunces in dashboard; New York or similar on tvOS, prototype on panel)
+> **NOTE (2026-05-31):** This scratchpad had drifted ~6 weeks behind the
+> code. The sections below were rewritten to match the actual repo state
+> after a full audit. The Milestone checklists further down still reflect
+> the original M0–M4 plan and are being reconciled feature-by-feature.
+
+- **Status**: tvOS app is **well past M0** and deep into M1–M3 territory.
+  The Xcode project exists at `ArchiveWatch/ArchiveWatch.xcodeproj`, builds
+  **clean** on the tvOS 26.5 simulator (Xcode 26, exit 0), and ships a
+  **25,417-item bundled `catalog.json`** (≈74 MB; 25,000 playable, 99%
+  with posters, 86% synopsis, 41% TMDb, 27% IMDb). Implemented and working:
+  Home (hero carousel + category/decade tiles + dynamic shelves + Hidden
+  Gems + Director shelves + Continue Watching + Favorites shelves), Movies
+  (Browse grid + facet chips + sort), TV Shows (series cards →
+  season/episode drill-in → prev/next episode player), Collections,
+  Search, Surprise (3 random actions, Decision 014), Detail (hero +
+  metadata + More Like This), AVKit player with SwiftData resume.
+  Navigation is tvOS-26 native `TabView(.sidebarAdaptable)` + per-tab
+  `NavigationStack`.
+- **Active milestone**: M1/M2/M3 largely landed in code → now a **v1.0
+  hardening pass** to make it App-Store-submittable.
+- **Last session**: 2026-05-31 — full audit + v1.0 hardening pass (see
+  Session Log).
+- **Confirmed gaps blocking a clean v1.0 submission** (this session's work):
+  1. **No Settings/About surface at all** — and TMDb attribution is
+     *required* by Decision 007 / TMDb terms. Also missing: adult-content
+     toggle (Decision 012), donate-to-Archive link (Decision 010).
+  2. **Adult-content filter not enforced** — `featured.json.adultCollections`
+     exists but is never read in Swift; Decision 012's default-on filter
+     is currently off.
+  3. **App icon assets are empty** — `App Icon & Top Shelf Image.brandassets`
+     has the imagestack scaffolding but **zero PNGs**. Hard archive/submit
+     blocker. (Master SVGs exist at `assets/app-icon/`.)
+  4. **No `PrivacyInfo.xcprivacy`** privacy manifest — App Store requirement.
+  5. **Loading / error / empty states** thin — `AppStore.loadError` is set
+     but never surfaced to the user.
+- **Non-issues found during audit** (do NOT re-investigate):
+  - Playback is **fine** — `downloadURL` is baked into the catalog at
+    build time (`itemsPlayable: 25000`); `EnrichmentService` /
+    `DerivativePicker` are intentionally unused at runtime.
+  - Random/Surprise actions are built and wired (better than docs implied).
+  - Collections tab already shows only curated `CollectionMetadata.all`
+    IDs, so `fav-<username>` pseudo-collections don't leak into the UI.
 - **Open questions** (still open):
-  - Which still goes in the v1 app icon? Méliès moon recommended; needs owner sign-off
-  - Silent preview loop on Detail focus — ship without, or generate 10s clips server-side via GitHub Actions?
+  - Which still goes in the v1 app icon? Méliès moon master is rendered
+    this session; owner to confirm or swap a photographic 1902 still.
+  - Silent preview loop on Detail focus — ship without, or generate 10s
+    clips server-side via GitHub Actions?
+  - `.xcodeproj` lives at `ArchiveWatch/ArchiveWatch.xcodeproj`, two levels
+    deep — Decision 002 wants it at repo root for Xcode Cloud. Fine for
+    local builds + side-loading; revisit before wiring Xcode Cloud CI.
+  - Bundled `catalog.json` is ≈74 MB (fav-* collaborative-filter
+    collections inflate it). Acceptable for now; candidate for slimming.
 
 ---
 
@@ -197,6 +229,34 @@ focus / layout / animation bugs.
 ---
 
 ## Session Log
+
+### 2026-05-31 — Full audit + v1.0 hardening pass
+- **State found**: this scratchpad was ~6 weeks stale (claimed M0 blocked
+  on "create the Xcode project"). Reality: app builds clean on tvOS 26.5,
+  ~44 Swift files, six-tab shell, 25k-item catalog, TV-series support,
+  Surprise actions — effectively M1–M3 in code. Corrected the playback
+  scare (field is `downloadURL`, `itemsPlayable: 25000` — playback is
+  fine). Build env note: default `xcode-select` points at
+  CommandLineTools; use `DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer`.
+- **Work done** (all builds exit 0 on the Apple TV 4K sim):
+  1. Rewrote Current State to match reality.
+  2. **Adult filter enforced (Decision 012)** — `AppStore.hideAdultContent`
+     (default on, persisted) applied once in `rebuildDerived()` to a new
+     `visibleItems` source; every direct `catalog.items` reader migrated
+     (Home hero, Search, Surprise ×3, Collections, Detail "More Like This").
+     `"fav-"` excluded from adult markers.
+  3. **Settings/About tab** (new `SettingsView` + Router/RootView wiring):
+     required verbatim TMDb notice (007), source credits, mature toggle
+     (012), donate QR + archive.org/donate (010), version.
+  4. **`PrivacyInfo.xcprivacy`** — no tracking/collection; UserDefaults CA92.1.
+  5. **App icon + Top Shelf PNGs** generated from the master SVG via
+     `tools/render-app-icon.sh` (qlmanage + sips — no rsvg/magick on this
+     box); authored the `.brandassets` Contents.json. Flat single-layer
+     for v1; layered parallax is later polish.
+  6. Version 0.1.0 (1) → 0.2.0 (2).
+- **State left**: v1.0-hardening landed on branch `v1-hardening`. Next:
+  layered-parallax icon, M2 deep-link routing + App Intents/NSUserActivity,
+  Top Shelf extension (M4), optional catalog slimming.
 
 ### 2026-04-17 — Archive Watch foundation
 - **State found**: Empty dual-app template on `claude/archive-org-apple-tv-5bKXB`

@@ -32,7 +32,7 @@ struct HomeView: View {
     @State private var shelfSeed: UInt64 = UInt64.random(in: 0..<UInt64.max)
 
     private var heroItems: [Catalog.Item] {
-        guard let all = store.catalog?.items else { return [] }
+        let all = store.visibleItems
         let pool = all.filter {
             $0.hasDesignedArtwork &&
             ($0.backdropURLParsed != nil || $0.posterURLParsed != nil)

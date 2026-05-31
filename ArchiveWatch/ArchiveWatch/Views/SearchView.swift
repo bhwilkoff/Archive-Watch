@@ -7,7 +7,8 @@ struct SearchView: View {
 
     private var results: [Catalog.Item] {
         let q = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        guard q.count >= 2, let items = store.catalog?.items else { return [] }
+        let items = store.visibleItems
+        guard q.count >= 2, !items.isEmpty else { return [] }
         return items.filter { item in
             item.title.lowercased().contains(q) ||
             (item.director?.lowercased().contains(q) ?? false) ||

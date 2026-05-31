@@ -268,9 +268,10 @@ struct DetailView: View {
     }
 
     private var relatedItems: [Catalog.Item] {
-        guard let catalog = store.catalog else { return [] }
+        let pool = store.visibleItems
+        guard !pool.isEmpty else { return [] }
         var scored: [(Catalog.Item, Int)] = []
-        for other in catalog.items where other.archiveID != item.archiveID {
+        for other in pool where other.archiveID != item.archiveID {
             var score = 0
             if let d = item.director, !d.isEmpty, d == other.director { score += 100 }
             let sharedCollections = Set(item.collections).intersection(other.collections)
