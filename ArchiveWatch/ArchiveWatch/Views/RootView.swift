@@ -17,6 +17,7 @@ import SwiftUI
 struct RootView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    private let inbox = IntentInbox.shared
 
     var body: some View {
         @Bindable var router = router
@@ -60,6 +61,33 @@ struct RootView: View {
         }
         .tabViewStyle(.sidebarAdaptable)
         .preferredColorScheme(.dark)
+        // Siri / Shortcuts requests (Decision 015). Handle one set before
+        // we appeared (cold launch via "Hey Siri…") and any set while live.
+        .task { handleIntent(inbox.request) }
+        .onChange(of: inbox.request) { _, req in handleIntent(req) }
+    }
+
+    /// Route a Siri/Shortcuts request into the live navigation state.
+    private func handleIntent(_ request: IntentInbox.Request?) {
+        guard let request else { return }
+        switch request {
+        case .surprise:
+            router.surprisePath = NavigationPath()
+            router.tab = .surprise
+        case .randomFilm:
+            if let film = store.visibleItems.filter({ $0.videoURLParsed != nil }).randomElement() {
+                router.homePath = NavigationPath()
+                router.tab = .home
+                router.homePath.append(film)
+            }
+        case .randomCategory:
+            if let category = store.featured?.categories.randomElement() {
+                router.browsePath = NavigationPath()
+                router.tab = .browse
+                router.browsePath.append(BrowseFilter(category: category.id))
+            }
+        }
+        inbox.request = nil
     }
 
     /// Sidebar tab selection always lands at that tab's root view.
