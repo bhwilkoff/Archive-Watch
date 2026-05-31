@@ -1,0 +1,48 @@
+<svg viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg" width="1000" height="600">
+<defs>
+  <defs>
+    <!-- Background vignette: darkens corners ~6-8% -->
+    <radialGradient id="bgVignette" cx="50%" cy="50%" r="75%">
+      <stop offset="0%"   stop-color="rgba(0,0,0,0)"/>
+      <stop offset="70%"  stop-color="rgba(0,0,0,0)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0.18)"/>
+    </radialGradient>
+
+    <!-- Sprocket hole gradient — slight inner-shadow feel -->
+    <linearGradient id="sprocketShade" x1="0%" y1="0%" x2="0%" y2="100%">
+</defs>
+<g transform="translate(200,0) scale(0.5859375)">
+  <!-- ============================================
+       1. Background — bold accent color, full bleed
+       ============================================ -->
+  <rect x="0" y="0" width="1024" height="1024" fill="#FF5C35"/>
+
+  <!-- 2. Vignette overlay -->
+  <rect x="0" y="0" width="1024" height="1024" fill="url(#bgVignette)"/>
+
+  <!-- ============================================
+       3. Film frame — sprocket strip + photo gutter
+
+       Layout:
+         Total composite: 720 × 620
+         x = (1024 - 720) / 2 = 152
+         y = (1024 - 620) / 2 = 202
+
+         Top sprocket strip:    y = 202..242  (40px)
+         Photo area:            y = 242..782  (540px)
+         Bottom sprocket strip: y = 782..822  (40px)
+       ============================================ -->
+  <g>
+    <!-- Top sprocket strip -->
+    <rect x="152" y="202" width="720" height="40" fill="url(#sprocketShade)"/>
+    <!-- Bottom sprocket strip -->
+    <rect x="152" y="782" width="720" height="40" fill="url(#sprocketShade)"/>
+
+    <!--
+      Sprocket holes (perforations) — 10 across, evenly spaced.
+      Each hole: 44px wide × 22px tall, vertically centered in
+      its 40px strip (y = 211..233 for top, 791..813 for bottom).
+    -->
+    <g fill="#FF5C35">
+      <!-- Top row of perforations -->
+</g></svg>
