@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(AppStore.self) private var store
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         Group {
@@ -23,6 +24,10 @@ struct ContentView: View {
             if let request = IntentInbox.request(for: url) {
                 IntentInbox.shared.request = request
             }
+        }
+        // Arm the What's New background refresh when we go to the background.
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .background { BackgroundRefresh.schedule() }
         }
     }
 }
