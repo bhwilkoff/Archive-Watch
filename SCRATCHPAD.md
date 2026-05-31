@@ -254,9 +254,35 @@ focus / layout / animation bugs.
      box); authored the `.brandassets` Contents.json. Flat single-layer
      for v1; layered parallax is later polish.
   6. Version 0.1.0 (1) → 0.2.0 (2).
-- **State left**: v1.0-hardening landed on branch `v1-hardening`. Next:
-  layered-parallax icon, M2 deep-link routing + App Intents/NSUserActivity,
-  Top Shelf extension (M4), optional catalog slimming.
+- **Native tvOS 26 pass** (same session, after the user asked to confirm
+  modern-tvOS / native-API usage): audit found the app was *already* well
+  modernized — `FocusableStyles` uses native `.glassEffect` Liquid Glass +
+  `@Environment(\.isFocused)` everywhere, plus native `.buttonStyle(.card)`,
+  `.searchable`, `TabView(.sidebarAdaptable)`, `@FocusState`. Genuine
+  changes made:
+  - GlassPolish + episode-player transport → native `.glassEffect` (the
+    last `.ultraThinMaterial` holdouts).
+  - Settings rebuilt on native `Form`/`Section`/`Toggle` + nav title.
+  - **Playback → `AVPlayerViewController`** (UIViewControllerRepresentable)
+    with `externalMetadata` so the native Info panel / scrubber / Now
+    Playing show title + synopsis + genre. Verified on-sim.
+  - **App Intents + Siri** (Decision 015): Surprise Me / Random Film /
+    Random Category via `AppShortcutsProvider` → `IntentInbox` → RootView.
+  - **NSUserActivity** on Detail (Siri/Spotlight/Handoff).
+- **State left**: all of the above committed on branch `v1-hardening`
+  (6 commits), each verified to build clean on the tvOS 26.5 sim; app
+  launches, Home + Settings + native player all confirmed on-sim. NOT
+  pushed.
+- **The one wall hit**: the Top Shelf extension (Decision 015 / M4) needs
+  a new app-extension target + App Group entitlement — can't be created
+  safely by hand-editing `project.pbxproj`. Full ready-to-drop-in code +
+  exact Xcode steps are in `docs/top-shelf-setup.md`. That doc also
+  carries the `Info.plist` (URL scheme + `NSUserActivityTypes`) +
+  `.onOpenURL` deep-link routing needed to finish "Add to Up Next" and
+  Top Shelf item taps.
+- **Next**: (owner) create the Top Shelf target + App Group per the doc;
+  add the `Info.plist` URL-types entry. (code) layered-parallax icon,
+  BGAppRefreshTask for What's New, optional catalog slimming.
 
 ### 2026-04-17 — Archive Watch foundation
 - **State found**: Empty dual-app template on `claude/archive-org-apple-tv-5bKXB`
