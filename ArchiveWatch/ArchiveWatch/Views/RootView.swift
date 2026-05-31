@@ -86,6 +86,12 @@ struct RootView: View {
                 router.tab = .browse
                 router.browsePath.append(BrowseFilter(category: category.id))
             }
+        case .openItem(let id):
+            if let item = store.catalog?.items.first(where: { $0.archiveID == id }) {
+                router.homePath = NavigationPath()
+                router.tab = .home
+                router.homePath.append(item)
+            }
         }
         inbox.request = nil
     }
