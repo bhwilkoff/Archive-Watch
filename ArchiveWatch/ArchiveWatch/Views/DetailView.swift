@@ -13,6 +13,7 @@ enum DetailFocusTarget: Hashable {
 }
 
 struct DetailView: View {
+    static let viewingActivityType = "com.bhwilkoff.archivewatch.viewing"
     let item: Catalog.Item
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
@@ -49,6 +50,18 @@ struct DetailView: View {
                 }
             }
             .background(Color.black)
+            // NSUserActivity (Decision 015): advertises the open title to
+            // Siri suggestions, Spotlight, and Handoff. Full "Add to Up
+            // Next" additionally needs `NSUserActivityTypes` declared in
+            // Info.plist with this type string (see SCRATCHPAD next steps).
+            .userActivity(Self.viewingActivityType, isActive: true) { activity in
+                activity.title = item.title
+                activity.userInfo = ["archiveID": item.archiveID]
+                activity.persistentIdentifier = item.archiveID
+                activity.isEligibleForHandoff = true
+                activity.isEligibleForSearch = true
+                activity.isEligibleForPrediction = true
+            }
             .fullScreenCover(isPresented: $isPlaying) {
                 if let url = item.videoURLParsed {
                     PlayerScreen(url: url, archiveID: item.archiveID, catalogItem: item)
