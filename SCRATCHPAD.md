@@ -294,8 +294,19 @@ focus / layout / animation bugs.
   - **Layered-parallax app icon** (Back orange / Middle film frame /
     Front moon) for App Icon + App Store imagestacks; Top Shelf flat.
     At rest identical to the flat icon; actool-validated.
-  - **Catalog slimmed 74.5MB → 33.9MB** (`tools/slim-catalog.py`) by
-    dropping 1.17M `fav-*` pseudo-collections from both catalogs.
+  - **Catalogs slimmed** (`tools/slim-catalog.py`) by dropping `fav-*`
+    pseudo-collections: bundled seed 12.6MB → 5.4MB (3,120 items) and the
+    root refresh source 74.5MB → 40.9MB (25,417 items). (Earlier commit
+    messages said "74.5→33.9" — that conflated the two files; these are
+    the real per-file numbers.)
+  - **Icon-layer dimension fix**: `qlmanage` renders square thumbnails,
+    but tvOS imagestack layers must be landscape (400×240 / 800×480 /
+    1280×768). A clean from-scratch build caught this (actool
+    GenerateAssetSymbols failure) where incremental builds had masked it;
+    fixed by center-cropping each layer to 5:3 (Pillow). Re-confirm the
+    clean build in Xcode — the final from-scratch verification this
+    session was blocked by a tooling/output issue. If it still fails,
+    `git revert` the layered-icon commit to restore the flat icon.
 - **State left**: M1/M2/M3 features + the M4 Top Shelf/Up Next/BG-refresh
   surfaces all landed on `v1-hardening` (~13 commits), built clean on the
   tvOS 26.5 sim. NOT pushed — owner to review, build in Xcode, and test on
