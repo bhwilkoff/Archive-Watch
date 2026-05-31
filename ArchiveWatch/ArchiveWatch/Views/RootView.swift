@@ -61,6 +61,9 @@ struct RootView: View {
         }
         .tabViewStyle(.sidebarAdaptable)
         .preferredColorScheme(.dark)
+        // Keeps the Top Shelf snapshot (App Group) in sync with the
+        // catalog + watch progress. No-ops until the App Group exists.
+        .background { TopShelfUpdater() }
         // Siri / Shortcuts requests (Decision 015). Handle one set before
         // we appeared (cold launch via "Hey Siri…") and any set while live.
         .task { handleIntent(inbox.request) }
