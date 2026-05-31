@@ -55,12 +55,12 @@ struct DetailView: View {
             // Next" additionally needs `NSUserActivityTypes` declared in
             // Info.plist with this type string (see SCRATCHPAD next steps).
             .userActivity(Self.viewingActivityType, isActive: true) { activity in
+                // Note: persistentIdentifier + isEligibleForPrediction are
+                // iOS-only; on tvOS only handoff + search are available.
                 activity.title = item.title
                 activity.userInfo = ["archiveID": item.archiveID]
-                activity.persistentIdentifier = item.archiveID
                 activity.isEligibleForHandoff = true
                 activity.isEligibleForSearch = true
-                activity.isEligibleForPrediction = true
             }
             .fullScreenCover(isPresented: $isPlaying) {
                 if let url = item.videoURLParsed {
