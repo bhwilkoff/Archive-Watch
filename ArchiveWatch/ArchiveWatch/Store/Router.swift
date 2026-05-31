@@ -14,7 +14,7 @@ import SwiftUI
 final class Router {
 
     enum Tab: String, CaseIterable, Identifiable, Hashable {
-        case home, browse, tvShows, collections, search, surprise
+        case home, browse, tvShows, collections, search, surprise, settings
         var id: String { rawValue }
 
         var title: String {
@@ -25,6 +25,7 @@ final class Router {
             case .collections: return "Collections"
             case .search:      return "Search"
             case .surprise:    return "Surprise"
+            case .settings:    return "Settings"
             }
         }
 
@@ -36,6 +37,7 @@ final class Router {
             case .collections: return "square.stack.3d.up.fill"
             case .search:      return "magnifyingglass"
             case .surprise:    return "dice.fill"
+            case .settings:    return "gearshape.fill"
             }
         }
     }
@@ -52,6 +54,7 @@ final class Router {
     var collectionsPath = NavigationPath()
     var searchPath = NavigationPath()
     var surprisePath = NavigationPath()
+    var settingsPath = NavigationPath()
 
     /// Push any Hashable destination onto the active tab's stack.
     /// Callers pass the concrete value (Catalog.Item, BrowseFilter)
@@ -64,6 +67,7 @@ final class Router {
         case .collections: collectionsPath.append(destination)
         case .search:      searchPath.append(destination)
         case .surprise:    surprisePath.append(destination)
+        case .settings:    settingsPath.append(destination)
         }
     }
 
@@ -76,6 +80,7 @@ final class Router {
         case .collections: if !collectionsPath.isEmpty { collectionsPath.removeLast() }
         case .search:      if !searchPath.isEmpty      { searchPath.removeLast() }
         case .surprise:    if !surprisePath.isEmpty    { surprisePath.removeLast() }
+        case .settings:    if !settingsPath.isEmpty    { settingsPath.removeLast() }
         }
     }
 }

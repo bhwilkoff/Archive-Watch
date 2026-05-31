@@ -52,6 +52,11 @@ struct RootView: View {
                     SurpriseView().attachDestinations()
                 }
             }
+            Tab("Settings", systemImage: "gearshape.fill", value: Router.Tab.settings) {
+                NavigationStack(path: $router.settingsPath) {
+                    SettingsView().attachDestinations()
+                }
+            }
         }
         .tabViewStyle(.sidebarAdaptable)
         .preferredColorScheme(.dark)
@@ -88,6 +93,7 @@ struct RootView: View {
         case .collections: router.collectionsPath = NavigationPath()
         case .search:      router.searchPath = NavigationPath()
         case .surprise:    router.surprisePath = NavigationPath()
+        case .settings:    router.settingsPath = NavigationPath()
         }
     }
 }
