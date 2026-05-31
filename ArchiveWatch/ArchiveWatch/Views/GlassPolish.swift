@@ -1,46 +1,40 @@
 import SwiftUI
 
-// Liquid Glass helpers for tvOS 26. With the deployment target bumped
-// to 26, these are unconditional — no `if #available` fallbacks.
+// Liquid Glass helpers (tvOS 26+).
 //
-// Liquid Glass is the tvOS 26 design language (WWDC 2025 "Meet Liquid
-// Glass"). It replaces flat materials with refractive depth that
-// adapts to whatever's behind it — perfect for a cinematheque app
-// where hero posters and backdrops sit behind most chrome.
+// The app's deployment target is tvOS 26.0, so we use Apple's native
+// `.glassEffect` material directly — no `.ultraThinMaterial` stand-in,
+// no hand-drawn stroke. Centralized so chips, the sort picker, and
+// overlays share one glass vocabulary and inherit the system's adaptive
+// vibrancy + focus treatment instead of each view faking blur.
 //
-// Canonical API surface:
-//   .glassEffect()                              // default glass
-//   .glassEffect(.regular)                      // standard strength
-//   .glassEffect(.clear)                        // translucent variant
-//   .glassEffect(.regular, in: Capsule())       // shaped
-//   .glassEffect(.regular.tint(.orange), in:)   // tinted
-//   .glassEffect(.regular.interactive(), in:)   // focus/press-reactive
-//   GlassEffectContainer { ... }                // group glass views so
-//                                               // they morph together
+// Per the Liquid Glass guidance: glass is for floating chrome (chips,
+// controls, overlays), never for large content areas, and multiple
+// adjacent glass elements should sit in a `GlassEffectContainer`.
+
+struct GlassBackground<S: Shape>: ViewModifier {
+    let shape: S
+    /// When true (e.g. an active filter chip) the glass takes the
+    /// category accent as a subtle tint so selection reads at 10 feet.
+    let isOn: Bool
+    let accent: Color
+
+    func body(content: Content) -> some View {
+        content
+            .glassEffect(
+                isOn ? .regular.tint(accent.opacity(0.55)) : .regular,
+                in: shape
+            )
+    }
+}
 
 extension View {
-
-    /// Tinted Liquid Glass — glass + accent bleed. Use for selected
-    /// states where a color cue is wanted.
-    func liquidGlassTinted<S: Shape>(_ tint: Color, in shape: S) -> some View {
-        self.glassEffect(.regular.tint(tint), in: shape)
+    func glassBackground<S: Shape>(shape: S, isOn: Bool, accent: Color) -> some View {
+        self.modifier(GlassBackground(shape: shape, isOn: isOn, accent: accent))
     }
 
-    /// Interactive Liquid Glass for buttons — animates on focus/press.
-    func liquidGlassInteractive<S: Shape>(in shape: S) -> some View {
-        self.glassEffect(.regular.interactive(), in: shape)
-    }
-
-    /// Legacy bridge used by SortPicker and chip call sites before the
-    /// refactor. Maps isOn → tinted glass, off → clear glass. Keep so
-    /// we can ship the upgrade without touching every call site at once.
-    func glassBackground<S: InsettableShape & Shape>(shape: S, isOn: Bool, accent: Color) -> some View {
-        Group {
-            if isOn {
-                self.glassEffect(.regular.tint(accent), in: shape)
-            } else {
-                self.glassEffect(.regular, in: shape)
-            }
-        }
+    // Convenience for the common capsule chip case.
+    func glassChip(isOn: Bool, accent: Color) -> some View {
+        glassBackground(shape: Capsule(), isOn: isOn, accent: accent)
     }
 }
