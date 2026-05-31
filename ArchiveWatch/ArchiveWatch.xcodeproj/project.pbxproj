@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		B7AC53E22F93BA0500F50803 /* featured.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E12F93BA0500F50803 /* featured.json */; };
 		B7AC53E62F93BA0500F50803 /* collections.json in Resources */ = {isa = PBXBuildFile; fileRef = B7AC53E52F93BA0500F50803 /* collections.json */; };
+		DD00000000000000000000B2 /* ArchiveWatchTopShelf.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,12 +17,18 @@
 		B7AC53E02F93BA0500F50803 /* AppVersion.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = AppVersion.xcconfig; path = ../AppVersion.xcconfig; sourceTree = "<group>"; };
 		B7AC53E12F93BA0500F50803 /* featured.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = featured.json; path = ../featured.json; sourceTree = "<group>"; };
 		B7AC53E52F93BA0500F50803 /* collections.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = collections.json; path = ../docs/taxonomy/collections.json; sourceTree = "<group>"; };
+		DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ArchiveWatchTopShelf.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B7AC53CF2F93BA0300F50803 /* ArchiveWatch */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ArchiveWatch;
+			sourceTree = "<group>";
+		};
+		DD00000000000000000000A2 /* ArchiveWatchTopShelf */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ArchiveWatchTopShelf;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -34,7 +41,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD00000000000000000000A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DD00000000000000000000B1 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DD00000000000000000000B2 /* ArchiveWatchTopShelf.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXGroup section */
 		B7AC53C42F93BA0300F50803 = {
@@ -44,6 +72,7 @@
 				B7AC53E12F93BA0500F50803 /* featured.json */,
 				B7AC53E52F93BA0500F50803 /* collections.json */,
 				B7AC53CF2F93BA0300F50803 /* ArchiveWatch */,
+				DD00000000000000000000A2 /* ArchiveWatchTopShelf */,
 				B7AC53CE2F93BA0300F50803 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				B7AC53CD2F93BA0300F50803 /* ArchiveWatch.app */,
+				DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,10 +96,12 @@
 				B7AC53C92F93BA0300F50803 /* Sources */,
 				B7AC53CA2F93BA0300F50803 /* Frameworks */,
 				B7AC53CB2F93BA0300F50803 /* Resources */,
+				DD00000000000000000000B1 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				DD00000000000000000000B4 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				B7AC53CF2F93BA0300F50803 /* ArchiveWatch */,
@@ -80,6 +112,27 @@
 			productName = ArchiveWatch;
 			productReference = B7AC53CD2F93BA0300F50803 /* ArchiveWatch.app */;
 			productType = "com.apple.product-type.application";
+		};
+		DD00000000000000000000A3 /* ArchiveWatchTopShelf */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD00000000000000000000A4 /* Build configuration list for PBXNativeTarget "ArchiveWatchTopShelf" */;
+			buildPhases = (
+				DD00000000000000000000A7 /* Sources */,
+				DD00000000000000000000A8 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				DD00000000000000000000A2 /* ArchiveWatchTopShelf */,
+			);
+			name = ArchiveWatchTopShelf;
+			packageProductDependencies = (
+			);
+			productName = ArchiveWatchTopShelf;
+			productReference = DD00000000000000000000A1 /* ArchiveWatchTopShelf.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -92,6 +145,9 @@
 				LastUpgradeCheck = 2640;
 				TargetAttributes = {
 					B7AC53CC2F93BA0300F50803 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					DD00000000000000000000A3 = {
 						CreatedOnToolsVersion = 26.4;
 					};
 				};
@@ -111,6 +167,7 @@
 			projectRoot = "";
 			targets = (
 				B7AC53CC2F93BA0300F50803 /* ArchiveWatch */,
+				DD00000000000000000000A3 /* ArchiveWatchTopShelf */,
 			);
 		};
 /* End PBXProject section */
@@ -135,7 +192,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DD00000000000000000000A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD00000000000000000000B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD00000000000000000000A3 /* ArchiveWatchTopShelf */;
+			targetProxy = DD00000000000000000000B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXContainerItemProxy section */
+		DD00000000000000000000B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7AC53C52F93BA0300F50803 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD00000000000000000000A3;
+			remoteInfo = ArchiveWatchTopShelf;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin XCBuildConfiguration section */
 		B7AC53D62F93BA0500F50803 /* Debug */ = {
@@ -266,6 +348,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ArchiveWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2G756LY8N;
 				ENABLE_PREVIEWS = YES;
@@ -295,6 +378,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ArchiveWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2G756LY8N;
 				ENABLE_PREVIEWS = YES;
@@ -319,6 +403,59 @@
 			};
 			name = Release;
 		};
+		DD00000000000000000000A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ArchiveWatchTopShelf.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				MARKETING_VERSION = 1.0;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2G756LY8N;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "ArchiveWatchTopShelf-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ArchiveWatch.app.ArchiveWatch.TopShelf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
+		DD00000000000000000000A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ArchiveWatchTopShelf.entitlements;
+				CURRENT_PROJECT_VERSION = 1;
+				MARKETING_VERSION = 1.0;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L2G756LY8N;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "ArchiveWatchTopShelf-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ArchiveWatch.app.ArchiveWatch.TopShelf;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 26.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -336,6 +473,15 @@
 			buildConfigurations = (
 				B7AC53D92F93BA0500F50803 /* Debug */,
 				B7AC53DA2F93BA0500F50803 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD00000000000000000000A4 /* Build configuration list for PBXNativeTarget "ArchiveWatchTopShelf" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD00000000000000000000A5 /* Debug */,
+				DD00000000000000000000A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
