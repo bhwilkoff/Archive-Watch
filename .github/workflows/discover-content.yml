@@ -1,14 +1,17 @@
 name: Discover + ingest PD content
 
-# Daily pipeline that grows the catalog with newly-discovered public-domain
-# films. Two stages (see docs/research/omdb-and-pd-discovery.md):
+# Daily pipeline that grows the catalog. Three stages
+# (see docs/research/omdb-and-pd-discovery.md):
 #   1. discover — Wikidata SPARQL for PD films (Internet Archive ID + IMDb
 #      ID) not yet in our catalogs → refreshes the candidate queue.
 #      Read-only; never touches the catalogs.
 #   2. ingest  — drain a daily-capped batch: validate each candidate
 #      against live Archive metadata, pick a playable derivative, classify,
-#      enrich via OMDb, append to both catalogs. Commits directly to main
-#      (purely additive — new playable titles).
+#      enrich via OMDb, append to both catalogs.
+#   3. tv-backfill — prune junk-clustered series, then grow under-populated
+#      TV shows by searching Archive for more episodes (Archive's
+#      inconsistent upload naming splits one show across thin "series").
+# All purely additive; commits directly to main.
 
 on:
   schedule:
@@ -30,6 +33,10 @@ on:
         description: 'Also ingest low rights-confidence candidates'
         required: false
         default: 'false'
+      tv_max_series:
+        description: 'Max TV series to backfill episodes for this run'
+        required: false
+        default: '40'
 
 concurrency:
   # Shared group with omdb-backfill — both push to main, so they must
@@ -68,13 +75,25 @@ jobs:
             ${{ github.event.inputs.include_low_confidence == 'true' && '--include-low-confidence' || '' }} \
             | tee ingest.log
 
+      - name: Backfill TV episodes (prune junk + grow under-populated series)
+        run: |
+          # Target the most under-populated real series first (<=8 eps),
+          # where the relative gains are largest. Pruning runs once up front.
+          python tools/backfill_tv_episodes.py \
+            --prune \
+            --min-episodes 8 \
+            --max-series ${{ github.event.inputs.tv_max_series || '40' }} \
+            | tee tv.log
+
       - name: Summary
         run: |
-          echo "## Discover + ingest" >> $GITHUB_STEP_SUMMARY
+          echo "## Discover + ingest + TV backfill" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-          tail -8 discover.log >> $GITHUB_STEP_SUMMARY
+          tail -6 discover.log >> $GITHUB_STEP_SUMMARY
           echo '---' >> $GITHUB_STEP_SUMMARY
-          tail -12 ingest.log >> $GITHUB_STEP_SUMMARY
+          tail -10 ingest.log >> $GITHUB_STEP_SUMMARY
+          echo '---' >> $GITHUB_STEP_SUMMARY
+          tail -12 tv.log >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Commit if changed
@@ -85,14 +104,15 @@ jobs:
           git add shared/editorial/discovery_candidates.json \
                   shared/editorial/omdb_cache.json \
                   catalog.json \
-                  ArchiveWatch/ArchiveWatch/catalog.json
+                  ArchiveWatch/ArchiveWatch/catalog.json \
+                  series/
 
           if git diff --cached --quiet; then
-            echo "No changes — nothing discovered or ingested."
+            echo "No changes — nothing discovered, ingested, or backfilled."
             exit 0
           fi
 
-          git commit -m "Discover + ingest PD content (${{ github.run_id }})"
+          git commit -m "Discover + ingest + TV backfill (${{ github.run_id }})"
 
           # Push with rebase-retry (see omdb-backfill.yml for rationale).
           # The shared catalog-writers concurrency group serializes us with
