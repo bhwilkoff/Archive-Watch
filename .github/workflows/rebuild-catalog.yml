@@ -22,8 +22,8 @@ jobs:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: '20'
 
@@ -45,7 +45,7 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Open PR if changed
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v7
         with:
           commit-message: "Weekly catalog refresh"
           title: "Catalog refresh — ${{ github.run_id }}"
