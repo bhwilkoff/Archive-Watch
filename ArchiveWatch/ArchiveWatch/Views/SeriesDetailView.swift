@@ -57,6 +57,13 @@ struct SeriesDetailView: View {
                 loadError = true
             }
             isLoading = false
+            // Claim initial focus on the first episode once the grid has
+            // rendered (playbook §2: initial-focus views must imperatively
+            // claim focus; the yield lets the LazyVGrid build first).
+            if let first = loaded?.seasons.first?.episodes.first?.archiveID {
+                try? await Task.sleep(for: .milliseconds(60))
+                focusedEpisode = first
+            }
         }
     }
 
