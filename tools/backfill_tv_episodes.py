@@ -36,15 +36,21 @@ from pathlib import Path
 
 import requests
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import archive_lib as A  # noqa: E402
+
 REPO = Path(__file__).resolve().parent.parent
 SERIES_DIR   = REPO / "series"
 FULL_CATALOG = REPO / "catalog.json"
 SEED_CATALOG = REPO / "ArchiveWatch" / "ArchiveWatch" / "catalog.json"
 
-ADV_SEARCH   = "https://archive.org/advancedsearch.php"
-ARCHIVE_META = "https://archive.org/metadata/"
-ARCHIVE_DL   = "https://archive.org/download/"
+ADV_SEARCH   = A.ADV_SEARCH
 UA = "ArchiveWatch-TVBackfill/1.0 (https://github.com/bhwilkoff/Archive-Watch; learningischange.com)"
+
+# Shared Archive helpers.
+archive_meta = A.archive_meta
+pick_video = A.pick_video
+runtime_seconds = A.runtime_from_file
 
 # Season/episode parsers, in priority order. Handles s01e02, S1 E2,
 # s-01-e-02, 1x02.
@@ -53,7 +59,6 @@ SE_PATTERNS = [
     re.compile(r"\b(\d{1,2})x(\d{1,3})\b"),
 ]
 EP_ONLY = re.compile(r"\b(?:Episode|Ep)\s*#?\s*(\d{1,3})\b", re.IGNORECASE)
-VIDEO_RE = re.compile(r"(mp4|h\.?264|mpeg-?4|matroska|webm|quicktime|512kb|ogg video)")
 
 # Words to strip from a series title to get a robust Archive search term.
 NOISE = re.compile(
@@ -103,8 +108,17 @@ def search_term(series_title, year_start):
 
 
 def adv_search(term, rows=400, session=None):
+    # Broad series search, restricted to TV collections (keeps the noise
+    # down for a generic show name).
     q = f'title:({term}) AND mediatype:movies AND (collection:classic_tv OR collection:television)'
-    r = (session or requests).get(
+    return adv_search_raw(q, session or requests, rows=rows)
+
+
+def adv_search_raw(q, session, rows=20):
+    """Raw advancedsearch — no TV-collection filter. Used by the per-want
+    episode search, where a specific episode may live outside the TV
+    collections."""
+    r = session.get(
         ADV_SEARCH,
         params={"q": q, "fl[]": ["identifier", "title", "year"],
                 "rows": rows, "output": "json"},
@@ -113,56 +127,6 @@ def adv_search(term, rows=400, session=None):
     if not r.ok:
         return []
     return r.json().get("response", {}).get("docs", [])
-
-
-def archive_meta(iaid, session):
-    r = session.get(ARCHIVE_META + iaid, headers={"User-Agent": UA}, timeout=40)
-    if r.status_code != 200:
-        raise RuntimeError(f"HTTP {r.status_code}")
-    return r.json()
-
-
-def pick_video(files):
-    vids = [f for f in files if VIDEO_RE.search((f.get("format") or "").lower())
-            or (f.get("name") or "").lower().endswith((".mp4", ".m4v", ".webm", ".mkv"))]
-    if not vids:
-        return None
-
-    def fmt(f):
-        return (f.get("format") or "").lower()
-
-    def deriv(f):
-        return (f.get("source") or "").lower() == "derivative"
-
-    tiers = [
-        lambda f: deriv(f) and ("h.264" in fmt(f) or "h264" in fmt(f)),
-        lambda f: deriv(f) and "mp4" in fmt(f),
-        lambda f: deriv(f) and "512kb" in fmt(f) and "mpeg4" in fmt(f),
-        lambda f: deriv(f) and ("mpeg4" in fmt(f) or "mpeg-4" in fmt(f)),
-        lambda f: deriv(f) and ("webm" in fmt(f) or "matroska" in fmt(f)),
-        lambda f: ("mp4" in fmt(f) or "h.264" in fmt(f)),
-        lambda f: True,
-    ]
-    for pred in tiers:
-        m = [f for f in vids if pred(f)]
-        if m:
-            return max(m, key=lambda f: int(f.get("size") or 0))
-    return None
-
-
-def runtime_seconds(vf):
-    rt = vf.get("length")
-    if not rt:
-        return None
-    parts = str(rt).split(":")
-    try:
-        if len(parts) == 3:
-            return int(parts[0]) * 3600 + int(parts[1]) * 60 + int(float(parts[2]))
-        if len(parts) == 2:
-            return int(parts[0]) * 60 + int(float(parts[1]))
-        return int(float(parts[0]))
-    except ValueError:
-        return None
 
 
 def build_episode(iaid, doc, meta):
@@ -195,7 +159,7 @@ def build_episode(iaid, doc, meta):
             "sizeBytes": int(vf.get("size") or 0),
             "tier": 1,
         },
-        "downloadURL": ARCHIVE_DL + iaid + "/" + requests.utils.quote(vf["name"]),
+        "downloadURL": A.download_url(iaid, vf["name"]),
     }
 
 
@@ -222,35 +186,75 @@ def regroup_seasons(all_eps):
     return seasons
 
 
-def backfill_one(path, session, *, dry_run, throttle, per_series_cap):
-    doc = json.loads(path.read_text(encoding="utf-8"))
-    have = existing_archive_ids(doc)
-    flat = [e for s in doc.get("seasons", []) for e in s.get("episodes", [])]
+def _norm_ep_title(t):
+    """Normalize an episode title for matching (drop SxxExx + punctuation)."""
+    t = (t or "").lower()
+    t = re.sub(r"[Ss]\d{1,2}\s*[\-\.\s]*[Ee]\d{1,3}", " ", t)
+    t = re.sub(r"[^a-z0-9 ]+", " ", t)
+    return " ".join(t.split())
 
-    term = search_term(doc.get("title"), doc.get("yearStart"))
-    if not term:
-        return 0
-    try:
-        docs = adv_search(term, session=session)
-    except Exception:  # noqa: BLE001
-        return 0
 
-    # Candidate IDs: parseable S/E, not already present.
-    cand = []
-    for d in docs:
-        iaid = d.get("identifier")
-        if not iaid or iaid in have:
-            continue
-        s, e = parse_se(d.get("title", ""))
-        if s is None and e is None:
-            continue
-        cand.append(d)
-    if not cand:
-        return 0
+def per_want_search(doc, series_wants, have, session, *, throttle, cap):
+    """Search Archive for the SPECIFIC episodes this series is missing
+    (from the wants queue), validating each match against the wanted
+    season/episode or episode title. Returns (episodes_to_add, filled_set).
+
+    This is more precise than the broad series search: it targets named
+    gaps and confirms the found item is actually that episode, so it can
+    reach episodes the broad search misses (differently-named uploads)."""
+    if not series_wants:
+        return [], set()
+    show = search_term(doc.get("title"), doc.get("yearStart"))
+    if not show:
+        return [], set()
 
     added = []
-    for d in cand[:per_series_cap]:
-        iaid = d["identifier"]
+    filled = set()
+    for w in series_wants[:cap]:
+        sn, en = w["season"], w["episode"]
+        ep_title = w.get("title") or ""
+        # Two targeted queries: by SxxExx, and by episode title.
+        queries = [
+            f'title:({show}) AND title:(s0{sn}e0{en} OR s{sn}e{en} OR '
+            f's-0{sn}-e-0{en} OR {sn}x{en:02d}) AND mediatype:movies',
+        ]
+        if ep_title and "episode #" not in ep_title.lower():
+            queries.append(f'title:({show} {ep_title}) AND mediatype:movies')
+        match_doc = None
+        for q in queries:
+            try:
+                docs = adv_search_raw(q, session)
+            except Exception:  # noqa: BLE001
+                continue
+            for d in docs[:5]:
+                iaid = d.get("identifier")
+                if not iaid or iaid in have:
+                    continue
+                dt_ = d.get("title", "")
+                ds, de = parse_se(dt_)
+                # Accept ONLY if the parsed S/E matches exactly, OR the
+                # episode title matches strongly (>=80% of the wanted
+                # title's words present) with no conflicting S/E. The
+                # strict title bar avoids false-positives like a generic
+                # "The Renegades" upload getting pinned to S1E8.
+                se_ok = (ds == sn and de == en)
+                want_words = set(_norm_ep_title(ep_title).split())
+                cand_words = set(_norm_ep_title(dt_).split())
+                title_ok = False
+                if want_words and len(want_words) >= 2:
+                    overlap = len(want_words & cand_words) / len(want_words)
+                    title_ok = (overlap >= 0.8 and (ds is None or ds == sn)
+                                and (de is None or de == en))
+                if se_ok or title_ok:
+                    match_doc = d
+                    break
+            if match_doc:
+                break
+        if not match_doc:
+            time.sleep(throttle)
+            continue
+
+        iaid = match_doc["identifier"]
         try:
             meta = archive_meta(iaid, session)
         except Exception:  # noqa: BLE001
@@ -258,11 +262,65 @@ def backfill_one(path, session, *, dry_run, throttle, per_series_cap):
             continue
         if meta.get("metadata", {}).get("mediatype") not in (None, "movies", "video"):
             time.sleep(throttle); continue
-        ep = build_episode(iaid, d, meta)
+        ep = build_episode(iaid, match_doc, meta)
         if ep:
+            # Force the correct S/E from the want (the upload's own title
+            # may be ambiguous, but the want came from OMDb's canonical list).
+            ep["seasonNumber"] = sn
+            ep["episodeNumber"] = en
+            if not ep.get("title") or len(ep["title"]) < 4:
+                ep["title"] = ep_title
             added.append(ep)
             have.add(iaid)
+            filled.add((sn, en))
         time.sleep(throttle)
+    return added, filled
+
+
+def backfill_one(path, session, *, dry_run, throttle, per_series_cap, series_wants=None):
+    doc = json.loads(path.read_text(encoding="utf-8"))
+    have = existing_archive_ids(doc)
+    flat = [e for s in doc.get("seasons", []) for e in s.get("episodes", [])]
+
+    added = []
+
+    # Stage 1 — targeted per-want search (precise; reaches named gaps).
+    if series_wants:
+        want_added, _ = per_want_search(doc, series_wants, have, session,
+                                        throttle=throttle, cap=per_series_cap)
+        added.extend(want_added)
+
+    # Stage 2 — broad series-title search (catches episodes not in the
+    # wants queue, e.g. shows OMDb couldn't resolve).
+    term = search_term(doc.get("title"), doc.get("yearStart"))
+    if term:
+        try:
+            docs = adv_search(term, session=session)
+        except Exception:  # noqa: BLE001
+            docs = []
+        cand = []
+        for d in docs:
+            iaid = d.get("identifier")
+            if not iaid or iaid in have:
+                continue
+            s, e = parse_se(d.get("title", ""))
+            if s is None and e is None:
+                continue
+            cand.append(d)
+        for d in cand[:per_series_cap]:
+            iaid = d["identifier"]
+            try:
+                meta = archive_meta(iaid, session)
+            except Exception:  # noqa: BLE001
+                time.sleep(throttle)
+                continue
+            if meta.get("metadata", {}).get("mediatype") not in (None, "movies", "video"):
+                time.sleep(throttle); continue
+            ep = build_episode(iaid, d, meta)
+            if ep:
+                added.append(ep)
+                have.add(iaid)
+            time.sleep(throttle)
 
     if not added:
         return 0, set()
@@ -418,6 +476,14 @@ def main():
     n_wanted = sum(1 for w in wants.get("wants", []) if w.get("status") == "wanted") if wants else 0
     print(f"[tv-backfill] {len(files):,} series in scope; processing up to "
           f"{args.max_series} ({n_wanted:,} episodes wanted across queue)", flush=True)
+
+    # Index wanted episodes by seriesID so each series gets its own gap list.
+    wants_by_series = {}
+    if wants:
+        for w in wants.get("wants", []):
+            if w.get("status") == "wanted":
+                wants_by_series.setdefault(w["seriesID"], []).append(w)
+
     session = requests.Session()
     series_counts = {}
     filled_by_series = {}
@@ -426,7 +492,8 @@ def main():
     for path in files[:args.max_series]:
         before = json.loads(path.read_text(encoding="utf-8")).get("episodesCount", 0)
         added, filled = backfill_one(path, session, dry_run=args.dry_run,
-                                     throttle=args.throttle, per_series_cap=args.per_series_cap)
+                                     throttle=args.throttle, per_series_cap=args.per_series_cap,
+                                     series_wants=wants_by_series.get(path.stem))
         if added:
             grown += 1
             total_added += added
