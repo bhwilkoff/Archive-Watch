@@ -32,8 +32,10 @@ on:
         default: 'false'
 
 concurrency:
-  # Never two at once — they'd race the same candidate queue + commit target.
-  group: discover-content
+  # Shared group with omdb-backfill — both push to main, so they must
+  # serialize (a concurrent run rejected a push the first time). Also
+  # prevents two discover runs racing the candidate queue.
+  group: catalog-writers
   cancel-in-progress: false
 
 jobs:
@@ -91,4 +93,15 @@ jobs:
           fi
 
           git commit -m "Discover + ingest PD content (${{ github.run_id }})"
-          git push
+
+          # Push with rebase-retry (see omdb-backfill.yml for rationale).
+          # The shared catalog-writers concurrency group serializes us with
+          # the OMDb job; a rejected push means main merely advanced, so a
+          # plain rebase replays our commit. Fail loudly on a real conflict.
+          for attempt in 1 2 3 4 5; do
+            if git push; then echo "pushed (attempt $attempt)"; exit 0; fi
+            echo "push rejected; rebasing onto latest main (attempt $attempt)…"
+            git pull --rebase origin main || { git rebase --abort; exit 1; }
+            sleep $((RANDOM % 5 + 2))
+          done
+          echo "::error::could not push after retries"; exit 1

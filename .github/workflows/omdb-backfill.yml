@@ -26,9 +26,11 @@ on:
         default: 'false'
 
 concurrency:
-  # Never run two of these in parallel — they'd race each other on the
-  # same 1000/day OMDb budget AND the same git commit target.
-  group: omdb-backfill
+  # Shared group across ALL catalog-mutating workflows (omdb-backfill +
+  # discover-content) so they never push to main at the same time — that
+  # race rejected a push the first time both ran together. Also keeps two
+  # OMDb runs from racing the 1000/day budget.
+  group: catalog-writers
   cancel-in-progress: false
 
 jobs:
@@ -96,4 +98,18 @@ jobs:
           fi
 
           git commit -m "OMDb artwork backfill (${{ github.run_id }})"
-          git push
+
+          # Push with rebase-retry. The shared `catalog-writers` concurrency
+          # group keeps the catalog-mutating jobs from running at once, so a
+          # rejected push here means main merely advanced (e.g. a docs
+          # commit) — a plain rebase replays our single commit cleanly. No
+          # -X theirs (that can silently drop our additive edits in a
+          # rebase); if a rebase ever truly conflicts we fail loudly rather
+          # than guess.
+          for attempt in 1 2 3 4 5; do
+            if git push; then echo "pushed (attempt $attempt)"; exit 0; fi
+            echo "push rejected; rebasing onto latest main (attempt $attempt)…"
+            git pull --rebase origin main || { git rebase --abort; exit 1; }
+            sleep $((RANDOM % 5 + 2))
+          done
+          echo "::error::could not push after retries"; exit 1
