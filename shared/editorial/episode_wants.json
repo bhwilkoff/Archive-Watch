@@ -1,0 +1,1283 @@
+{
+  "schema": 1,
+  "updated_at": "2026-06-01T04:25:38Z",
+  "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
+  "stats": {
+    "total": 127,
+    "wanted": 127,
+    "fulfilled": 0,
+    "series_with_gaps": 5
+  },
+  "wants": [
+    {
+      "seriesID": "all-creatures-great-and-small-1978-1988",
+      "seriesTitle": "All Creatures Great and Small (1978",
+      "season": 1,
+      "episode": 1,
+      "title": "Raptors",
+      "episodeImdbID": "tt3624964",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "all-creatures-great-and-small-1978-1988",
+      "seriesTitle": "All Creatures Great and Small (1978",
+      "season": 1,
+      "episode": 2,
+      "title": "All About Dogs",
+      "episodeImdbID": "tt3625020",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1951",
+      "seriesTitle": "Beat the Clock",
+      "season": 1,
+      "episode": 16,
+      "title": "Episode #1.16",
+      "episodeImdbID": "tt17010922",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1951",
+      "seriesTitle": "Beat the Clock",
+      "season": 1,
+      "episode": 19,
+      "title": "Episode #1.19",
+      "episodeImdbID": "tt17010982",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1951",
+      "seriesTitle": "Beat the Clock",
+      "season": 1,
+      "episode": 21,
+      "title": "Episode #1.21",
+      "episodeImdbID": "tt12157294",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1951",
+      "seriesTitle": "Beat the Clock",
+      "season": 2,
+      "episode": 1,
+      "title": "Episode #2.1",
+      "episodeImdbID": "tt12310436",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1951",
+      "seriesTitle": "Beat the Clock",
+      "season": 2,
+      "episode": 21,
+      "title": "Episode #2.21",
+      "episodeImdbID": "tt17039028",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1951",
+      "seriesTitle": "Beat the Clock",
+      "season": 2,
+      "episode": 25,
+      "title": "Episode #2.25",
+      "episodeImdbID": "tt17039172",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1951",
+      "seriesTitle": "Beat the Clock",
+      "season": 2,
+      "episode": 27,
+      "title": "Episode #2.27",
+      "episodeImdbID": "tt12197696",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 1,
+      "episode": 4,
+      "title": "Audrey Meadows",
+      "episodeImdbID": "tt23873562",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 1,
+      "episode": 16,
+      "title": "Vivian Vance",
+      "episodeImdbID": "tt6441562",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 1,
+      "title": "Dorothy Collins, Zsa Zsa Gabor",
+      "episodeImdbID": "tt5882448",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 2,
+      "title": "Paul Winchell",
+      "episodeImdbID": "tt8967740",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 3,
+      "title": "Dorothy Collins",
+      "episodeImdbID": "tt5896838",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 4,
+      "title": "Dorothy Collins, Wally Cox, Chaz Chase",
+      "episodeImdbID": "tt8967742",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 5,
+      "title": "Dorothy Collins, Al Kelly, Irwin Kostal",
+      "episodeImdbID": "tt8968752",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 6,
+      "title": "Dorothy Collins, Al Kelly, Irwin Kostal",
+      "episodeImdbID": "tt8968760",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 7,
+      "title": "Dorothy Collins, Irwin Kostal, Bob Monkhouse",
+      "episodeImdbID": "tt8968774",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 8,
+      "title": "Dorothy Collins, Irwin Kostal, Bob Monkhouse",
+      "episodeImdbID": "tt8968782",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 9,
+      "title": "Dorothy Collins, Irwin Kostal",
+      "episodeImdbID": "tt8968790",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 10,
+      "title": "Dorothy Collins, Irwin Kostal",
+      "episodeImdbID": "tt8968796",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 11,
+      "title": "Dorothy Collins, Vivian Vance, Sid Raymond, Lisa Tondi",
+      "episodeImdbID": "tt8968810",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 12,
+      "title": "Dorothy Collins, Sid Ramin, Lisa Tondi",
+      "episodeImdbID": "tt8968840",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 13,
+      "title": "Dorothy Collins, Mickey Rooney, Sid Ramin",
+      "episodeImdbID": "tt8968850",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 14,
+      "title": "Dorothy Collins, Jayne Mansfield, Sid Raymond",
+      "episodeImdbID": "tt8968854",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 15,
+      "title": "Dorothy Collins, Ben Joelson, Sid Raymond",
+      "episodeImdbID": "tt8968866",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 16,
+      "title": "Dorothy Collins, Ben Joelson, Sid Raymond",
+      "episodeImdbID": "tt8968894",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 17,
+      "title": "Jimmy Dean, Vivian Vance, Al Kelly, Sid Raymond",
+      "episodeImdbID": "tt8968936",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 18,
+      "title": "Jimmy Dean, Vivian Vance, Al Kelly, Sid Raymond",
+      "episodeImdbID": "tt8968960",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 19,
+      "title": "Dorothy Collins, Sid Raymond",
+      "episodeImdbID": "tt8968998",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 20,
+      "title": "Dorothy Collins, Sid Raymond",
+      "episodeImdbID": "tt8969026",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 22,
+      "title": "Sid Raymond",
+      "episodeImdbID": "tt8969164",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 23,
+      "title": "Dorothy Collins, Wally Cox, Sid Raymond",
+      "episodeImdbID": "tt8969208",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 24,
+      "title": "Dorothy Collins, Wally Cox, Sid Raymond",
+      "episodeImdbID": "tt8969254",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 25,
+      "title": "Sid Raymond",
+      "episodeImdbID": "tt8969276",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 26,
+      "title": "Sid Ramin",
+      "episodeImdbID": "tt8969278",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 27,
+      "title": "Dorothy Collins, Tom O'Malley, Sid Raymond",
+      "episodeImdbID": "tt8969302",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 28,
+      "title": "Dorothy Collins, Sid Raymond",
+      "episodeImdbID": "tt8969326",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 29,
+      "title": "Sid Raymond",
+      "episodeImdbID": "tt8969330",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 30,
+      "title": "Sid Raymond",
+      "episodeImdbID": "tt8969334",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 31,
+      "title": "Dorothy Collins, Sid Raymond",
+      "episodeImdbID": "tt8969404",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 32,
+      "title": "Dorothy Collins, Sid Raymond",
+      "episodeImdbID": "tt8969430",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 33,
+      "title": "Dorothy Collins, Wally Cox, Sid Raymond",
+      "episodeImdbID": "tt8969446",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 34,
+      "title": "Dorothy Collins, Wally Cox, Sid Raymond",
+      "episodeImdbID": "tt8969452",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 35,
+      "title": "Dorothy Collins, Sid Raymond",
+      "episodeImdbID": "tt8970874",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 36,
+      "title": "Dorothy Collins, Betty White, Sid Raymond",
+      "episodeImdbID": "tt8970878",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 37,
+      "title": "Wally Cox, Sid Raymond",
+      "episodeImdbID": "tt8970888",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 2,
+      "episode": 38,
+      "title": "Wally Cox, Sid Raymond",
+      "episodeImdbID": "tt8970894",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 3,
+      "title": "Betty Johnson, Sid Raymond, Nat Shenkman",
+      "episodeImdbID": "tt8971106",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 5,
+      "title": "Barney Noto Scares Candid Camera",
+      "episodeImdbID": "tt4739116",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 8,
+      "title": "Chester Morris, Sid Raymond, Marilyn Vanderbur",
+      "episodeImdbID": "tt9010072",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 9,
+      "title": "Betty Johnson, Sid Ramin",
+      "episodeImdbID": "tt9010214",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 10,
+      "title": "Betty Johnson, Sid Ramin",
+      "episodeImdbID": "tt9010222",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 11,
+      "title": "Marilyn Van Derbur, Sid Ramin",
+      "episodeImdbID": "tt9010226",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 12,
+      "title": "Marilyn Van Derbur, Sid Ramin",
+      "episodeImdbID": "tt9010232",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 13,
+      "title": "Julius La Rosa, Betty Johnson, Sid Ramin",
+      "episodeImdbID": "tt9010238",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 14,
+      "title": "Julius La Rosa, Betty Johnson, Sid Ramin",
+      "episodeImdbID": "tt9010242",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 15,
+      "title": "Carol Lawrence, Leroy Anderson, Sid Ramin",
+      "episodeImdbID": "tt9010248",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 16,
+      "title": "Carol Lawrence, Leroy Anderson, Sid Ramin",
+      "episodeImdbID": "tt9014512",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 17,
+      "title": "Sid Ramin, Marilyn Van Derbur",
+      "episodeImdbID": "tt9014520",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 18,
+      "title": "Marilyn Van Derbur, Sid Ramin",
+      "episodeImdbID": "tt9015836",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 19,
+      "title": "Kaye Ballard, Marge Champion, Sid Ramin",
+      "episodeImdbID": "tt9014534",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 20,
+      "title": "Marge Champion, Kaye Ballard, Sid Ramin",
+      "episodeImdbID": "tt9015830",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 21,
+      "title": "Jack Paar, Marge Greene, Sid Ramin, Fredricka Weber",
+      "episodeImdbID": "tt9015856",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 22,
+      "title": "Marge Greene, Jack Paar, Sid Ramin, Fredricka Weber",
+      "episodeImdbID": "tt9015904",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 23,
+      "title": "Alan King, Marcy Lynn",
+      "episodeImdbID": "tt9015912",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 24,
+      "title": "Alan King, Janice Zuro",
+      "episodeImdbID": "tt9015922",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 25,
+      "title": "Lassie, Sid Ramin",
+      "episodeImdbID": "tt9015936",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 26,
+      "title": "Lassie, Sid Ramin",
+      "episodeImdbID": "tt9015938",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 27,
+      "title": "Orson Bean, Mindy Carson, Sid Ramin",
+      "episodeImdbID": "tt9015994",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 28,
+      "title": "Mindy Carson, Orson Bean, Sid Ramin",
+      "episodeImdbID": "tt9016002",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 29,
+      "title": "Chester Morris, Jack Paar, Sid Ramin",
+      "episodeImdbID": "tt9016034",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 30,
+      "title": "Jack Paar, Chester Morris, Sid Ramin",
+      "episodeImdbID": "tt9016704",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 31,
+      "title": "Gretchen Wyler, Marilyn Van Derbur, Sid Ramin",
+      "episodeImdbID": "tt9016772",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 32,
+      "title": "Gretchen Wyler, Marilyn Van Derbur, Sid Ramin",
+      "episodeImdbID": "tt9016830",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 33,
+      "title": "Maureen O'Sullivan, Susan Strasberg, Sid Ramin",
+      "episodeImdbID": "tt9016910",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 34,
+      "title": "Marty Ingels, Robert Merrill, The Dees Triplets, Sid Ramin, Suzanne Storrs",
+      "episodeImdbID": "tt9016954",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 35,
+      "title": "Chester Morris, Sid Ramin, Carmel Quinn",
+      "episodeImdbID": "tt9017022",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 36,
+      "title": "Chester Morris, Sid Ramin, Carmel Quinn",
+      "episodeImdbID": "tt9017030",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 37,
+      "title": "Jinx Falkenburg, Carmel Quinn, Sid Ramin",
+      "episodeImdbID": "tt9017074",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 3,
+      "episode": 38,
+      "title": "Jinx Falkenburg, Carmel Quinn, Sid Ramin",
+      "episodeImdbID": "tt9017116",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 4,
+      "episode": 1,
+      "title": "Dees Triplets, Marty Ingels, Robert Merrill, Sid Ramin, Suzanne Storrs",
+      "episodeImdbID": "tt6072990",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 4,
+      "episode": 4,
+      "title": "Sleeping insurance clients",
+      "episodeImdbID": "tt11482856",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 7,
+      "episode": 3,
+      "title": "Fish earrings; replacing coffee with &quot;coffee substitute&quot;; crazy payroll deductions; switch bowling ball machine",
+      "episodeImdbID": "tt10881960",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 7,
+      "episode": 4,
+      "title": "The White Knight; Job Intercom Bob; Old Folks Fashion Show; Five Dollar Friend Fannie; Monkey on Head",
+      "episodeImdbID": "tt11477930",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 7,
+      "episode": 6,
+      "title": "Photo Machine; Horse Race Tips; Kilts; English Kids; Men's Restroom Mannequin; Billboard Guy; Finger Bowls; Old Smokey Song",
+      "episodeImdbID": "tt11478162",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 7,
+      "episode": 7,
+      "title": "Baby Bottles Babies; Drama's Mirror Girl; Boy's Long Hair; Tulsa Kids; Kids Buttoning Sweaters; Sweet Adelines Ladies",
+      "episodeImdbID": "tt11478166",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 7,
+      "episode": 11,
+      "title": "Trampoline Guy; Dog Food Commercial; Kids' Late Excuses; Water Conservation; My Country 'Tis of Thee",
+      "episodeImdbID": "tt11478210",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 7,
+      "episode": 12,
+      "title": "Fannie interviews a football player; a secretary with nothing to do; children talk about their lunches; a fresh customer",
+      "episodeImdbID": "tt11478216",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "candid-camera-2022",
+      "seriesTitle": "Candid Camera",
+      "season": 7,
+      "episode": 14,
+      "title": "Exploding soap; conflict at a trailer company; a boy makes funny faces; a broken ice cream dispenser that won't stop dispensing",
+      "episodeImdbID": "tt6348996",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 1,
+      "title": "The Saint in Manhattan",
+      "episodeImdbID": "tt0300442",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 2,
+      "title": "Kung Fu: The Next Generation",
+      "episodeImdbID": "tt0093372",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 3,
+      "title": "Changing Patterns",
+      "episodeImdbID": "tt0910609",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 4,
+      "title": "Mickey and Nora",
+      "episodeImdbID": "tt0245282",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 5,
+      "title": "Puppetman",
+      "episodeImdbID": "tt0821142",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 6,
+      "title": "Sawdust",
+      "episodeImdbID": "tt0184880",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 8,
+      "title": "Doctors Wilde",
+      "episodeImdbID": "tt0249475",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 9,
+      "title": "Mabel and Max",
+      "episodeImdbID": "tt0911191",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 11,
+      "title": "The Time of Their Lives",
+      "episodeImdbID": "tt0534269",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 12,
+      "title": "Infiltrator",
+      "episodeImdbID": "tt0163007",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 14,
+      "title": "Day to Day",
+      "episodeImdbID": "tt0915048",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 15,
+      "title": "Sirens",
+      "episodeImdbID": "tt0915050",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 19,
+      "title": "Sons of Gunz",
+      "episodeImdbID": "tt0783586",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 2,
+      "episode": 3,
+      "title": "Old Money",
+      "episodeImdbID": "tt0534267",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 2,
+      "episode": 5,
+      "title": "Baby on Board",
+      "episodeImdbID": "tt0534265",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 2,
+      "episode": 12,
+      "title": "Sniff",
+      "episodeImdbID": "tt0927225",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 2,
+      "episode": 14,
+      "title": "Roughhouse",
+      "episodeImdbID": "tt0534268",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 2,
+      "episode": 15,
+      "title": "Mad Avenue",
+      "episodeImdbID": "tt0284761",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 2,
+      "episode": 17,
+      "title": "Tickets, Please",
+      "episodeImdbID": "tt0185720",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1988",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 3,
+      "episode": 6,
+      "title": "American Nuclear",
+      "episodeImdbID": "tt0096805",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 1,
+      "episode": 4,
+      "title": "Lady on the Brink",
+      "episodeImdbID": "tt0539627",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 1,
+      "episode": 6,
+      "title": "Runaway",
+      "episodeImdbID": "tt0539639",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 1,
+      "episode": 11,
+      "title": "The Mask of Vengeance",
+      "episodeImdbID": "tt0539656",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 1,
+      "episode": 12,
+      "title": "The Murder Game",
+      "episodeImdbID": "tt0539657",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 1,
+      "episode": 13,
+      "title": "The Princess in the Tower",
+      "episodeImdbID": "tt0539659",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 1,
+      "episode": 17,
+      "title": "Don't Believe a Word She Says",
+      "episodeImdbID": "tt0539615",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 1,
+      "episode": 18,
+      "title": "Laugh Till I Die",
+      "episodeImdbID": "tt0539628",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 1,
+      "episode": 21,
+      "title": "Melody for Murder",
+      "episodeImdbID": "tt0539629",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 1,
+      "episode": 23,
+      "title": "The Gift",
+      "episodeImdbID": "tt0539653",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 1,
+      "episode": 28,
+      "title": "Goodbye, Griff",
+      "episodeImdbID": "tt0539618",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 2,
+      "episode": 1,
+      "title": "Portrait of a Man Running",
+      "episodeImdbID": "tt0539634",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 2,
+      "episode": 4,
+      "title": "Waiting for Jocko",
+      "episodeImdbID": "tt0539671",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 2,
+      "episode": 9,
+      "title": "The Two of Us",
+      "episodeImdbID": "tt0539664",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 2,
+      "episode": 21,
+      "title": "The Heart Is a Handout",
+      "episodeImdbID": "tt0539619",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 2,
+      "episode": 23,
+      "title": "A Chant of Silence",
+      "episodeImdbID": "tt0539604",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 2,
+      "episode": 24,
+      "title": "Trial by Midnight",
+      "episodeImdbID": "tt0539669",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "checkmate-1961",
+      "seriesTitle": "Checkmate",
+      "season": 2,
+      "episode": 25,
+      "title": "Ride a Wild Horse",
+      "episodeImdbID": "tt0539638",
+      "status": "wanted",
+      "added_at": "2026-06-01T04:25:38Z"
+    }
+  ]
+}
