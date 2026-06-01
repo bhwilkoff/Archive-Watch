@@ -590,6 +590,39 @@ Mapping the above to our app's concrete decisions already logged in DECISIONS.md
 
 ---
 
+## 11. Persistence — the tvOS writable-directory trap
+
+tvOS apps **cannot write to `Application Support` or `Documents`** — only
+`Library/Caches` and `tmp` are writable in the app's own container. The
+simulator is lenient and lets Application Support writes through, so this
+class of bug **passes every simulator test and crashes only on real
+hardware** (`NSCocoaErrorDomain 513`, EPERM "Operation not permitted").
+Found the hard way on first device install (crash at
+`CatalogRefreshService.swift:24`).
+
+Rules:
+
+- **Never `FileManager.url(for: .applicationSupportDirectory, …, create: true)`**
+  — it throws on device. Use
+  `FileManager.urls(for: .cachesDirectory, in: .userDomainMask).first`
+  (non-throwing) for any file cache. Re-fetchable data (downloaded catalog,
+  per-series JSON) belongs in Caches anyway.
+- **Never `try!` a directory/file creation.** A filesystem permission error
+  becomes a fatal crash. Use `try?` + a fallback.
+- **SwiftData / Core Data default store is Application Support → it crashes
+  on device too.** Don't rely on `.modelContainer(for:)`. Build the container
+  with an explicit `ModelConfiguration(groupContainer: .identifier(…))` (App
+  Group — writable, persistent, shared with the Top Shelf extension), and
+  fall back to `ModelContainer(for: schema)` then an in-memory store so the
+  app always launches. See `ArchiveWatchApp.makeModelContainer()`.
+- **The App Group container IS writable on tvOS** (and survives, unlike
+  Caches which the system may purge). It's the right home for anything that
+  must persist — favorites, watch progress, the Top Shelf snapshot JSON.
+- Anything in Caches can be purged under storage pressure; treat it as a
+  performance cache, not a source of truth.
+
+---
+
 ## Five unbreakable rules (the backstops)
 
 When in doubt, check against these:
@@ -602,4 +635,4 @@ When in doubt, check against these:
 
 ---
 
-*Playbook last reviewed: 2026-04-19. Revisit after each WWDC.*
+*Playbook last reviewed: 2026-06-01. Revisit after each WWDC.*
