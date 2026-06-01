@@ -62,6 +62,15 @@ DEFAULT_COLLECTIONS = [
     "short_films",
     "newsandpublicaffairs",
     "documentary_films",
+    # Government / public-domain collections that fill weak categories
+    # (newsreel, ephemeral, documentary were badly under-populated). All are
+    # PD or US-gov works — no rights risk. Verified counts (2026-06) in parens.
+    "FedFlix",              # US-gov PD films (~13.5k)
+    "nasa",                 # NASA films, PD (~13.5k)
+    "ephemera",             # industrial / educational ephemera (~21k)
+    "universal_newsreels",  # classic newsreels (~600)
+    "computerchronicles",   # Computer Chronicles, classic PD TV (~630)
+    "academic_films",       # educational / documentary (~470)
 ]
 
 
