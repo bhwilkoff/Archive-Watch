@@ -63,6 +63,9 @@ struct ContinueWatchingRow: View {
                 }
                 .scrollClipDisabled()
             }
+            // One focus-traversal unit so vertical moves between this row
+            // and its neighbours (hero above, shelves below) land cleanly.
+            .focusSection()
         }
     }
 }
