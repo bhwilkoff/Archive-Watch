@@ -8,9 +8,11 @@ name: Discover + ingest PD content
 #   2. ingest  — drain a daily-capped batch: validate each candidate
 #      against live Archive metadata, pick a playable derivative, classify,
 #      enrich via OMDb, append to both catalogs.
-#   3. tv-backfill — prune junk-clustered series, then grow under-populated
-#      TV shows by searching Archive for more episodes (Archive's
-#      inconsistent upload naming splits one show across thin "series").
+#   3. episode-wants — resolve each series to its canonical episode list
+#      (via OMDb) and queue the specific episodes we're missing.
+#   4. tv-backfill — prune junk-clustered series, then grow under-populated
+#      TV shows by searching Archive for more episodes (prioritising series
+#      with known gaps from the wants queue, and marking wants fulfilled).
 # All purely additive; commits directly to main.
 
 on:
@@ -35,6 +37,10 @@ on:
         default: 'false'
       tv_max_series:
         description: 'Max TV series to backfill episodes for this run'
+        required: false
+        default: '40'
+      wants_max_series:
+        description: 'Max TV series to resolve canonical episode lists for'
         required: false
         default: '40'
 
@@ -75,10 +81,22 @@ jobs:
             ${{ github.event.inputs.include_low_confidence == 'true' && '--include-low-confidence' || '' }} \
             | tee ingest.log
 
+      - name: Build episode-wants queue (canonical lists from OMDb)
+        env:
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+        run: |
+          # Resolve each series to its IMDb ID, pull the canonical episode
+          # list, and queue the episodes we're missing. Series are cached
+          # after first resolve, so this drains the unresolved ones daily.
+          python tools/build_episode_wants.py \
+            --max-series ${{ github.event.inputs.wants_max_series || '40' }} \
+            | tee wants.log
+
       - name: Backfill TV episodes (prune junk + grow under-populated series)
         run: |
-          # Target the most under-populated real series first (<=8 eps),
-          # where the relative gains are largest. Pruning runs once up front.
+          # Prunes junk series, prioritises series with known gaps (from the
+          # wants queue), grows under-populated series, and marks fulfilled
+          # wants. Targets <=8-episode series first for the biggest wins.
           python tools/backfill_tv_episodes.py \
             --prune \
             --min-episodes 8 \
@@ -90,10 +108,12 @@ jobs:
           echo "## Discover + ingest + TV backfill" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
           tail -6 discover.log >> $GITHUB_STEP_SUMMARY
-          echo '---' >> $GITHUB_STEP_SUMMARY
-          tail -10 ingest.log >> $GITHUB_STEP_SUMMARY
-          echo '---' >> $GITHUB_STEP_SUMMARY
-          tail -12 tv.log >> $GITHUB_STEP_SUMMARY
+          echo '--- ingest ---' >> $GITHUB_STEP_SUMMARY
+          tail -8 ingest.log >> $GITHUB_STEP_SUMMARY
+          echo '--- episode wants ---' >> $GITHUB_STEP_SUMMARY
+          tail -4 wants.log >> $GITHUB_STEP_SUMMARY
+          echo '--- tv backfill ---' >> $GITHUB_STEP_SUMMARY
+          tail -10 tv.log >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Commit if changed
@@ -103,6 +123,7 @@ jobs:
 
           git add shared/editorial/discovery_candidates.json \
                   shared/editorial/omdb_cache.json \
+                  shared/editorial/episode_wants.json \
                   catalog.json \
                   ArchiveWatch/ArchiveWatch/catalog.json \
                   series/
