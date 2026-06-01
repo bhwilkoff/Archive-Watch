@@ -12,6 +12,29 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Burns-Allen-Show_S2E7_Christmas",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The George Burns and Gracie Allen Show: S2E7, Christmas Episode (DVD Quality)",
+          "overview": "(DVD Quality)\n\nAir Date: December 20, 1951.\nMamie is back with the girls to visit for the holidays.",
+          "stillURL": "https://archive.org/services/img/Burns-Allen-Show_S2E7_Christmas",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1737,
+          "videoFile": {
+            "name": "Burns-Allen-Show_S2E7_Christmas.mp4",
+            "format": "h.264",
+            "sizeBytes": 168270301,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Burns-Allen-Show_S2E7_Christmas/Burns-Allen-Show_S2E7_Christmas.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": null,
       "episodes": [
         {
@@ -71,5 +94,5 @@
       ]
     }
   ],
-  "episodesCount": 3
+  "episodesCount": 4
 }

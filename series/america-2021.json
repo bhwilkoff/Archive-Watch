@@ -12,6 +12,29 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "america-says-s3-e1",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "America Says (July 22, 2019 | S3 E1): The Superfans/Football Moms",
+          "overview": "America Says S3 E1<div>Aired December 24, 2021 at 1:30PM ET on Game Show Network</div>",
+          "stillURL": "https://archive.org/services/img/america-says-s3-e1",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "YouCut_20211229_063159065.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 369980181,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/america-says-s3-e1/YouCut_20211229_063159065.ia.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": null,
       "episodes": [
         {
@@ -71,5 +94,5 @@
       ]
     }
   ],
-  "episodesCount": 3
+  "episodesCount": 4
 }
