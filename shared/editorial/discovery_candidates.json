@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-01T04:10:29Z",
+  "updated_at": "2026-06-01T04:25:36Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
     "total": 7582,
     "new_this_run": 0,
-    "awaiting_ingest": 7570,
+    "awaiting_ingest": 7565,
     "with_archive_id": 736,
     "rights_high_confidence": 6831
   },
@@ -217,7 +217,7 @@
       "imdbID": "tt0020442",
       "pdFlagged": false,
       "rightsConfidence": "high",
-      "status": "new",
+      "status": "no_video",
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
@@ -228,7 +228,7 @@
       "imdbID": "tt0019901",
       "pdFlagged": false,
       "rightsConfidence": "high",
-      "status": "new",
+      "status": "no_video",
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
@@ -239,7 +239,7 @@
       "imdbID": "tt0018737",
       "pdFlagged": false,
       "rightsConfidence": "high",
-      "status": "new",
+      "status": "no_video",
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
