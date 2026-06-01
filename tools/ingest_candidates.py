@@ -28,10 +28,12 @@ Usage:
 """
 
 import argparse
+import concurrent.futures as cf
 import datetime as dt
 import json
 import re
 import sys
+import threading
 import time
 from pathlib import Path
 
@@ -230,6 +232,18 @@ def main():
                     help="Max high-confidence candidates WITHOUT an Archive id "
                          "to resolve by title+year this run (default 120). "
                          "0 disables the resolver.")
+    ap.add_argument("--workers", type=int, default=1,
+                    help="Concurrent Archive fetchers (1 = sequential; raise to "
+                         "drain a big queue fast — Archive metadata has no hard cap).")
+    ap.add_argument("--chunk", type=int, default=400,
+                    help="Checkpoint catalogs after each chunk (resumable).")
+    ap.add_argument("--no-seed", action="store_true",
+                    help="Add only to the full catalog, not the bundled seed "
+                         "(keeps the app bundle lean; users get new items via "
+                         "the GitHub Pages refresh). Use for bulk drains.")
+    ap.add_argument("--skip-omdb", action="store_true",
+                    help="Don't call OMDb during ingest — add items as archiveOnly "
+                         "and let enrich_movies (TMDb, uncapped) fill metadata later.")
     args = ap.parse_args()
 
     if not CANDIDATES.exists():
@@ -245,8 +259,19 @@ def main():
     omdb_key = L.load_omdb_key(SECRETS_PATH)
 
     have = existing_archive_ids(full_catalog, seed_catalog)
-    session = requests.Session()
     now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    if args.skip_omdb:
+        omdb_key = None
+
+    # Per-thread HTTP session (requests.Session isn't safe to share across
+    # threads); used when --workers > 1.
+    _tl = threading.local()
+    def sess():
+        s = getattr(_tl, "s", None)
+        if s is None:
+            s = requests.Session(); _tl.s = s
+        return s
+    session = sess()
 
     # ── Resolver pass ──────────────────────────────────────────────────
     # High-confidence PD candidates with NO Archive id (the ~6,800 that
@@ -262,23 +287,27 @@ def main():
                       and (args.include_low_confidence or c.get("rightsConfidence") == "high")]
         # Prefer older (more likely genuinely PD) titles first.
         unresolved.sort(key=lambda c: (c.get("year") or 9999))
+        batch = unresolved[:args.resolve_limit]
         resolved_n = miss_n = 0
-        for cand in unresolved[:args.resolve_limit]:
+
+        def resolve_one(cand):
             try:
-                iaid, score, doc = A.resolve_title(cand["title"], cand.get("year"), session)
+                iaid, score, _ = A.resolve_title(cand["title"], cand.get("year"), sess())
+                return (cand, iaid, score)
             except Exception:  # noqa: BLE001
-                iaid = None
-            if iaid and iaid not in have:
-                cand["iaid"] = iaid
-                cand["resolvedVia"] = "title"
-                cand["resolveScore"] = score
-                resolved_n += 1
-            else:
-                cand["status"] = "unresolved"
-                miss_n += 1
-            time.sleep(args.throttle)
-        print(f"[ingest] title-resolver: matched {resolved_n} / "
-              f"{min(len(unresolved), args.resolve_limit)} "
+                return (cand, None, None)
+
+        with cf.ThreadPoolExecutor(max_workers=max(1, args.workers)) as ex:
+            for cand, iaid, score in ex.map(resolve_one, batch):
+                if iaid and iaid not in have:
+                    cand["iaid"] = iaid
+                    cand["resolvedVia"] = "title"
+                    cand["resolveScore"] = score
+                    resolved_n += 1
+                else:
+                    cand["status"] = "unresolved"
+                    miss_n += 1
+        print(f"[ingest] title-resolver: matched {resolved_n} / {len(batch)} "
               f"({miss_n} no Archive match)", flush=True)
 
     # Pick the queue: status "new", now has an IA id (native or resolved),
@@ -290,56 +319,64 @@ def main():
           f"{'any' if args.include_low_confidence else 'high'} confidence)", flush=True)
 
     ingested = no_video = skipped = errored = 0
-    new_items = []
+    queue = workable[:args.max_items]
 
-    for cand in workable[:args.max_items]:
+    def write_all():
+        if args.dry_run:
+            return
+        cand_doc["candidates"] = candidates
+        cand_doc["updated_at"] = now
+        dump_json(FULL_CATALOG, full_catalog)
+        if not args.no_seed:
+            dump_json(SEED_CATALOG, seed_catalog)
+        dump_json(CACHE_PATH, omdb_cache)
+        dump_json(CANDIDATES, cand_doc)
+
+    def fetch(cand):
         iaid = cand["iaid"]
         if iaid in have or iaid.rsplit(".", 1)[0] in have:
-            cand["status"] = "duplicate"
-            skipped += 1
-            continue
+            return (cand, None, "dup")
         try:
-            meta = archive_meta(iaid, session)
+            return (cand, archive_meta(iaid, sess()), "ok")
         except Exception as e:  # noqa: BLE001
-            cand["status"] = "error"
-            cand["error"] = str(e)
-            errored += 1
-            time.sleep(args.throttle)
-            continue
+            return (cand, None, "error:" + str(e))
 
-        item, reason = build_item(cand, meta, session, omdb_key, omdb_cache, now)
-        if item is None:
-            cand["status"] = reason          # no_video / adult_collection / not_video_mediatype
-            no_video += 1
-            time.sleep(args.throttle)
-            continue
+    # Parallel-fetch Archive metadata per chunk, then build/append serially and
+    # checkpoint — so a big drain is fast (Archive metadata has no hard cap)
+    # and resumable. OMDb (rate-capped) is skipped under --skip-omdb; those
+    # items go in as archiveOnly and enrich_movies (TMDb) fills them later.
+    for start in range(0, len(queue), args.chunk):
+        chunk = queue[start:start + args.chunk]
+        with cf.ThreadPoolExecutor(max_workers=max(1, args.workers)) as ex:
+            fetched = list(ex.map(fetch, chunk))
+        chunk_items = []
+        for cand, meta, status in fetched:
+            if status == "dup":
+                cand["status"] = "duplicate"; skipped += 1; continue
+            if status.startswith("error"):
+                cand["status"] = "error"; cand["error"] = status[6:]; errored += 1; continue
+            item, reason = build_item(cand, meta, sess(), omdb_key, omdb_cache, now)
+            if item is None:
+                cand["status"] = reason; no_video += 1; continue
+            iaid = cand["iaid"]
+            if iaid in have:                 # de-dup within the concurrent chunk
+                cand["status"] = "duplicate"; skipped += 1; continue
+            have.add(iaid)
+            chunk_items.append(item)
+            cand["status"] = "ingested"; cand["ingested_at"] = now; ingested += 1
+        full_catalog["items"].extend(chunk_items)
+        if not args.no_seed:
+            seed_catalog["items"].extend(chunk_items)
+        write_all()
+        print(f"[ingest] {min(start + len(chunk), len(queue))}/{len(queue)} processed · "
+              f"+{ingested} ingested · {no_video} no-video · {skipped} dup · {errored} err",
+              flush=True)
 
-        new_items.append(item)
-        have.add(iaid)
-        cand["status"] = "ingested"
-        cand["ingested_at"] = now
-        ingested += 1
-        print(f"  + {iaid:45.45} [{item['contentType']}] "
-              f"{'OMDb' if item.get('hasRealArtwork') else 'archive-art'}", flush=True)
-        time.sleep(args.throttle)
-
-    cand_doc["candidates"] = candidates
-    cand_doc["updated_at"] = now
-
-    if not args.dry_run and new_items:
-        full_catalog["items"].extend(new_items)
-        seed_catalog["items"].extend(new_items)
-        dump_json(FULL_CATALOG, full_catalog)
-        dump_json(SEED_CATALOG, seed_catalog)
-        dump_json(CACHE_PATH, omdb_cache)
-        dump_json(CANDIDATES, cand_doc)
-    elif not args.dry_run:
-        # Still persist candidate status changes (no_video, error, dup).
-        dump_json(CANDIDATES, cand_doc)
-        dump_json(CACHE_PATH, omdb_cache)
-
+    if not queue:
+        write_all()   # persist resolver status changes even with nothing to ingest
     print(f"[ingest] done: +{ingested} ingested, {no_video} no-video/skip, "
-          f"{skipped} dup, {errored} err", flush=True)
+          f"{skipped} dup, {errored} err"
+          f"{' (full-only)' if args.no_seed else ''}", flush=True)
     return 0
 
 

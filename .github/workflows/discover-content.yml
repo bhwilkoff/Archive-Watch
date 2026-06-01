@@ -31,7 +31,7 @@ on:
       max_items:
         description: 'Max candidates to ingest this run'
         required: false
-        default: '60'
+        default: '900'
       include_low_confidence:
         description: 'Also ingest low rights-confidence candidates'
         required: false
@@ -55,7 +55,15 @@ on:
       resolve_limit:
         description: 'Max IA-id-less candidates to resolve by title+year'
         required: false
-        default: '120'
+        default: '600'
+      tv_discover_per_collection:
+        description: 'Max items to mine per TV collection/subject query'
+        required: false
+        default: '800'
+      repair_limit:
+        description: 'Max unplayable derivatives to re-pick to MP4 this run'
+        required: false
+        default: '500'
       loc_max_items:
         description: 'Max new Library of Congress films to ingest'
         required: false
@@ -104,15 +112,27 @@ jobs:
             --pd-day-years ${{ github.event.inputs.pd_day_years || '1928,1929,1930' }} \
             | tee arch_discover.log
 
-      - name: Ingest a daily batch (with title resolver)
-        env:
-          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+      - name: Discover new TV shows (grow the canonical-TV queue)
         run: |
-          # Resolves PD-flagged candidates that lack an Archive id to a
-          # playable item by title+year (--resolve-limit), then ingests.
+          # Mines TV collections + TV-subject searches for items we don't yet
+          # have and appends them to shared/editorial/tv_discovery.json. The
+          # weekly tv-canonical workflow drains this into canonical series.
+          python tools/discover_tv_shows.py \
+            --per-collection ${{ github.event.inputs.tv_discover_per_collection || '800' }} \
+            | tee tvdisc.log
+
+      - name: Ingest a daily batch (parallel; title resolver)
+        run: |
+          # Resolves PD-flagged candidates lacking an Archive id by title+year,
+          # then ingests — parallel (Archive metadata has no hard cap), full
+          # catalog only (keeps the bundled seed lean; users get new items via
+          # the Pages refresh), and OMDb-free (items land as archiveOnly and
+          # enrich_movies (TMDb, uncapped) fills metadata in the OMDb workflow).
+          # This lets the cap be high enough to actually drain the queue.
           python tools/ingest_candidates.py \
-            --max-items ${{ github.event.inputs.max_items || '60' }} \
-            --resolve-limit ${{ github.event.inputs.resolve_limit || '120' }} \
+            --max-items ${{ github.event.inputs.max_items || '900' }} \
+            --resolve-limit ${{ github.event.inputs.resolve_limit || '600' }} \
+            --workers 6 --no-seed --skip-omdb \
             ${{ github.event.inputs.include_low_confidence == 'true' && '--include-low-confidence' || '' }} \
             | tee ingest.log
 
@@ -149,6 +169,16 @@ jobs:
             --max-series ${{ github.event.inputs.tv_max_series || '40' }} \
             | tee tv.log
 
+      - name: Repair unplayable derivatives (.ogv -> MP4 guard)
+        run: |
+          # Idempotent: skips items already on a playable MP4, so this is cheap
+          # most days and only does work for freshly-ingested Ogg/MKV items.
+          # Capped so a bad day can't balloon into thousands of Archive calls;
+          # it catches up over subsequent runs.
+          python tools/repair_derivatives.py \
+            --limit ${{ github.event.inputs.repair_limit || '500' }} \
+            | tee repair.log
+
       - name: Stamp public-domain rights evidence
         run: |
           # Records WHY each title is PD (pre-1930 = by age; source-flagged;
@@ -162,6 +192,8 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
           echo '--- wikidata discover ---'   >> $GITHUB_STEP_SUMMARY; tail -4 discover.log >> $GITHUB_STEP_SUMMARY
           echo '--- archive collections ---' >> $GITHUB_STEP_SUMMARY; tail -4 arch_discover.log >> $GITHUB_STEP_SUMMARY
+          echo '--- tv discovery ---'         >> $GITHUB_STEP_SUMMARY; tail -6 tvdisc.log >> $GITHUB_STEP_SUMMARY
+          echo '--- derivative repair ---'     >> $GITHUB_STEP_SUMMARY; tail -3 repair.log >> $GITHUB_STEP_SUMMARY
           echo '--- ingest (+resolver) ---'  >> $GITHUB_STEP_SUMMARY; tail -8 ingest.log >> $GITHUB_STEP_SUMMARY
           [ -f loc.log ] && { echo '--- library of congress ---' >> $GITHUB_STEP_SUMMARY; tail -3 loc.log >> $GITHUB_STEP_SUMMARY; }
           echo '--- episode wants ---'        >> $GITHUB_STEP_SUMMARY; tail -3 wants.log >> $GITHUB_STEP_SUMMARY
@@ -177,6 +209,7 @@ jobs:
           git add shared/editorial/discovery_candidates.json \
                   shared/editorial/omdb_cache.json \
                   shared/editorial/episode_wants.json \
+                  shared/editorial/tv_discovery.json \
                   catalog.json \
                   ArchiveWatch/ArchiveWatch/catalog.json \
                   series/
