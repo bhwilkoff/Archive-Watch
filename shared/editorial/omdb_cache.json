@@ -1,6 +1,107 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-04-21T02:51:18Z",
-  "entries": {}
+  "updated_at": "2026-06-01T02:56:07Z",
+  "entries": {
+    "tt0007613": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0008133": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYTIwMGVmNTAtOGMxMC00ZTYzLWI1ZTQtZGIzZDhiM2MxZDdkXkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0011541": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjdlNTkxZmYtYWY1NC00YjFiLWEyMjAtNjZlOWNhNGQ2NGRhXkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0012364": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNGVmY2EyZTktYzUwMy00YTU1LWJhZDYtNjIwYTFhMTZhOTVhXkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0013025": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZGZjNGNlZmUtOWFjZC00ZDVhLTg4M2UtNmUyOWJhODhjZWU0XkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0017925": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTVhM2Y1MDUtMDkxYi00Y2UxLWI2MTMtZjMzYTY4ODM4MGIzXkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0018675": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDQ4NzI5MzY1Ml5BMl5BanBnXkFtZTgwODEwMTgxMjE@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0018873": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZWRjZmRjNjAtYzY4ZC00ZDQ5LTk4ODMtZDljNzI1MTUwOGU5XkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0019278": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTVkNmNiNzItYjM2Ni00ZTE4LTg0NDUtZGNmNTQ3MjYyY2FiXkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0019422": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODhlNGQyZTAtNGE0ZS00OWVhLTkzODQtOTBiMmQ2ODZjNzI2XkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0022552": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYjVkYjY2MzgtZWE1ZC00NTA1LWJkMGUtYjcxM2U4ZGMyMWU0XkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0023669": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BM2Q1YmQyNTktYTZiNi00NzkzLWFlNzMtZGE2NDNmYTYxNmYyXkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0024187": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMDMxYjFmZmQtYzY1NS00NjlkLWI5ZjAtODlhYTM0ODZmMjA1XkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0024494": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTQ0ZGU1NDMtYTZkMi00NWQxLTgxY2YtMzU3M2I5ZmQ2NzU5XkEyXkFqcGdeQXVyNDYzMDk2NDU@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0024886": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYmM4YjAxZmQtNTc4My00NGQ5LWFhMDMtMzQ3OWQyMGE0ZDg5XkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0025665": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMGM0ZTBhMWUtMjM1NS00MTU2LWExZGMtNDM2ODc4ZDg1NTBkXkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0028461": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjRjYzAwYTEtZGMxNi00ODI3LWE2MjYtYTkwNzFlM2RjMGM0XkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0029716": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BY2Y2ODcyZmUtOWJmZS00M2Y2LWJlNDUtY2JjNmFjN2ZmMDdhL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNzQzNDEyOQ@@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0033451": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzA4NDYyM2QtYTkzMS00MGZkLWE3M2YtOTc5YTA2NDVjYzA4XkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0033973": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODU1M2EyMTItMDA5Ni00NmYwLTg4OTUtYzg4Nzg5MzhjOTAwXkEyXkFqcGc@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0034355": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZTNmYzNmOTEtYWU2NC00MzRmLWIzNmMtMjVlNTk0ZWI4ZjVmXkEyXkFqcGdeQXVyMjI3MDczMjI@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0035558": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzg2YTY5MWItYmM5YS00NTc0LTkxYmMtYTVjNGVjZmIwNDAzXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0036058": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTgwYWQyMzctMjg2ZC00MTlmLWE4NjItNmFhOTcxMGVkY2RjXkEyXkFqcGdeQXVyNDQ3NjcyMjI@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0132619": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjYzNzY2ZDQtNTJkMy00Y2Q4LWE5NTMtZTFkYWU0MmZkMjQwXkEyXkFqcGdeQXVyOTI2MjI5MQ@@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0135180": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzIxMzdlMTEtMTQwNC00ZWZjLTk5MzQtODVlNjgzNjM2Zjk4XkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_SX300.jpg",
+      "fetched_at": "2026-06-01T02:56:07Z"
+    }
+  }
 }
