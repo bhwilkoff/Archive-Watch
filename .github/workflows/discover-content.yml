@@ -48,6 +48,10 @@ on:
         description: 'Max items to mine per Internet Archive collection'
         required: false
         default: '600'
+      pd_day_years:
+        description: 'Publication years to mine as Public Domain Day feed'
+        required: false
+        default: '1928,1929,1930'
       resolve_limit:
         description: 'Max IA-id-less candidates to resolve by title+year'
         required: false
@@ -89,14 +93,15 @@ jobs:
             --limit ${{ github.event.inputs.discover_limit || '8000' }} \
             | tee discover.log
 
-      - name: Discover candidates (Internet Archive PD collections)
+      - name: Discover candidates (Archive collections + Public Domain Day)
         run: |
           # Mines feature_films / silent_films / classic_tv / prelinger /
-          # animation / film_noir etc. — every candidate is already a
-          # playable Archive item. Complements Wikidata (which flags rights
-          # but often lacks a playable id).
+          # animation / film_noir etc. (every hit already playable) PLUS a
+          # Public-Domain-Day feed: films published in just-entered PD years
+          # (1928–1930), which catches titles outside the curated collections.
           python tools/discover_archive_collections.py \
             --per-collection ${{ github.event.inputs.arch_per_collection || '600' }} \
+            --pd-day-years ${{ github.event.inputs.pd_day_years || '1928,1929,1930' }} \
             | tee arch_discover.log
 
       - name: Ingest a daily batch (with title resolver)
@@ -144,6 +149,13 @@ jobs:
             --max-series ${{ github.event.inputs.tv_max_series || '40' }} \
             | tee tv.log
 
+      - name: Stamp public-domain rights evidence
+        run: |
+          # Records WHY each title is PD (pre-1930 = by age; source-flagged;
+          # or source-unverified for the 1929-63 non-renewal window). Sound
+          # + conservative — see tools/rights_evidence.py.
+          python tools/rights_evidence.py | tee rights.log
+
       - name: Summary
         run: |
           echo "## Daily content pipeline" >> $GITHUB_STEP_SUMMARY
@@ -154,6 +166,7 @@ jobs:
           [ -f loc.log ] && { echo '--- library of congress ---' >> $GITHUB_STEP_SUMMARY; tail -3 loc.log >> $GITHUB_STEP_SUMMARY; }
           echo '--- episode wants ---'        >> $GITHUB_STEP_SUMMARY; tail -3 wants.log >> $GITHUB_STEP_SUMMARY
           echo '--- tv backfill ---'          >> $GITHUB_STEP_SUMMARY; tail -8 tv.log >> $GITHUB_STEP_SUMMARY
+          echo '--- rights evidence ---'       >> $GITHUB_STEP_SUMMARY; tail -3 rights.log >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Commit if changed

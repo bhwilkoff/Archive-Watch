@@ -78,16 +78,16 @@ def load_existing_ids():
     return ia
 
 
-def scrape_collection(coll, session, *, per_collection, min_downloads):
-    """Cursor-paginate a collection via the scrape API, newest-popular
-    first. Yields dicts with identifier/title/year/downloads."""
+def scrape_query(q, session, *, limit, min_downloads):
+    """Cursor-paginate any scrape query, most-downloaded first. Yields
+    dicts with identifier/title/year/downloads/subject."""
     cursor = None
     got = 0
-    while got < per_collection:
+    while got < limit:
         params = {
-            "q": f"collection:{coll} AND mediatype:movies",
+            "q": q,
             "fields": "identifier,title,year,downloads,subject",
-            "count": min(500, per_collection - got),
+            "count": min(500, limit - got),
             "sorts": "downloads desc",
         }
         if cursor:
@@ -108,12 +108,18 @@ def scrape_collection(coll, session, *, per_collection, min_downloads):
                 pass
             yield it
             got += 1
-            if got >= per_collection:
+            if got >= limit:
                 return
         cursor = data.get("cursor")
         if not cursor:
             return
         time.sleep(0.3)
+
+
+def scrape_collection(coll, session, *, per_collection, min_downloads):
+    """Mine one Archive collection (movies only), most-downloaded first."""
+    yield from scrape_query(f"collection:{coll} AND mediatype:movies", session,
+                            limit=per_collection, min_downloads=min_downloads)
 
 
 def year_of(it):
@@ -130,6 +136,13 @@ def main():
     ap.add_argument("--min-downloads", type=int, default=200,
                     help="Popularity floor — skips obscure/broken uploads "
                          "(default 200).")
+    ap.add_argument("--pd-day-years", default="1928,1929,1930",
+                    help="Comma-separated publication years to mine as a "
+                         "Public-Domain-Day feed (films of these years are "
+                         "PD by age). Default: the most recently entered. "
+                         "Empty string disables.")
+    ap.add_argument("--pd-day-cap", type=int, default=400,
+                    help="Max items per PD-Day year (default 400).")
     args = ap.parse_args()
 
     collections = (args.collections.split(",") if args.collections
@@ -153,6 +166,31 @@ def main():
     now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
     added = 0
 
+    def add_candidate(it, *, source, collection=None):
+        iaid = it.get("identifier")
+        if not iaid:
+            return False
+        if iaid in have_ia or iaid.rsplit(".", 1)[0] in have_ia:
+            return False
+        if iaid in existing:
+            return False
+        existing[iaid] = {
+            "iaid": iaid,
+            "title": it.get("title") or iaid,
+            "year": year_of(it),
+            "imdbID": None,
+            "wikidataQID": None,
+            "pdFlagged": True,
+            "rightsConfidence": "high",
+            "source": source,
+            "archiveCollection": collection,
+            "status": "new",
+            "discovered_at": now,
+        }
+        have_ia.add(iaid)
+        return True
+
+    # Feed 1 — curated PD collections.
     for coll in collections:
         coll = coll.strip()
         if not coll:
@@ -161,33 +199,24 @@ def main():
         for it in scrape_collection(coll, session,
                                     per_collection=args.per_collection,
                                     min_downloads=args.min_downloads):
-            iaid = it.get("identifier")
-            if not iaid:
-                continue
-            if iaid in have_ia or iaid.rsplit(".", 1)[0] in have_ia:
-                continue
-            if iaid in existing:
-                continue
-            yr = year_of(it)
-            # Rights confidence: these curated PD collections are high by
-            # default; pre-cutoff year is extra strong.
-            existing[iaid] = {
-                "iaid": iaid,
-                "title": it.get("title") or iaid,
-                "year": yr,
-                "imdbID": None,
-                "wikidataQID": None,
-                "pdFlagged": True,
-                "rightsConfidence": "high",
-                "source": "archive_collection",
-                "archiveCollection": coll,
-                "status": "new",
-                "discovered_at": now,
-            }
-            have_ia.add(iaid)
-            added += 1
-            c_added += 1
+            if add_candidate(it, source="archive_collection", collection=coll):
+                added += 1
+                c_added += 1
         print(f"  collection:{coll:24} +{c_added} new", flush=True)
+
+    # Feed 2 — Public Domain Day: films published in a just-entered PD year
+    # (e.g. 1930 entered US PD on 2026-01-01). PD by age, regardless of
+    # collection — catches films outside the curated collections above.
+    pd_years = [y.strip() for y in (args.pd_day_years or "").split(",") if y.strip()]
+    for yr in pd_years:
+        y_added = 0
+        q = f"mediatype:movies AND year:{yr}"
+        for it in scrape_query(q, session, limit=args.pd_day_cap,
+                               min_downloads=args.min_downloads):
+            if add_candidate(it, source="public_domain_day"):
+                added += 1
+                y_added += 1
+        print(f"  pd-day:{yr:>27} +{y_added} new", flush=True)
 
     # Re-order: archive-collection candidates (already playable) and
     # high-confidence first.
