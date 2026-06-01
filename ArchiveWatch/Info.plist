@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Complete Info.plist (GENERATE_INFOPLIST_FILE = NO). Bundle id, version,
+  and the TMDb token stay driven by build-setting variables so nothing
+  drifts from AppVersion.xcconfig / Secrets.xcconfig. The custom keys
+  below can't be expressed as INFOPLIST_KEY_* settings:
+    • CFBundleURLTypes     — archivewatch:// deep links (Top Shelf + intents)
+    • NSUserActivityTypes  — Detail NSUserActivity / "Add to Up Next"
+    • BGTaskSchedulerPermittedIdentifiers + UIBackgroundModes — What's New refresh
+-->
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    <key>CFBundleExecutable</key>
+    <string>$(EXECUTABLE_NAME)</string>
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>$(PRODUCT_NAME)</string>
+    <key>CFBundlePackageType</key>
+    <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+    <key>CFBundleShortVersionString</key>
+    <string>$(MARKETING_VERSION)</string>
+    <key>CFBundleVersion</key>
+    <string>$(CURRENT_PROJECT_VERSION)</string>
+    <key>TMDB_BEARER_TOKEN</key>
+    <string>$(TMDB_BEARER_TOKEN)</string>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>com.bhwilkoff.archivewatch.deeplink</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>archivewatch</string>
+            </array>
+        </dict>
+    </array>
+    <key>NSUserActivityTypes</key>
+    <array>
+        <string>com.bhwilkoff.archivewatch.viewing</string>
+    </array>
+    <key>BGTaskSchedulerPermittedIdentifiers</key>
+    <array>
+        <string>com.bhwilkoff.archivewatch.refresh</string>
+    </array>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>fetch</string>
+        <string>processing</string>
+    </array>
+</dict>
+</plist>
