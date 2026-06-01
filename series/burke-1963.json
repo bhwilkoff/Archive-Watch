@@ -14,29 +14,6 @@
   "creator": "Ivan Goff",
   "seasons": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "BurkesLaw",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Burke's Law",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/ePKRW7T0RCgzSzuVJPwHxcqBPXG.jpg",
-          "airDate": null,
-          "year": 1963,
-          "runtimeSeconds": 3062,
-          "videoFile": {
-            "name": "BurkesLawWhoKilledJasonShaw_512kb.mp4",
-            "format": "512Kb MPEG4",
-            "sizeBytes": 222466136,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/BurkesLaw/BurkesLawWhoKilledJasonShaw_512kb.mp4"
-        }
-      ]
-    },
-    {
       "seasonNumber": 1,
       "episodes": [
         {
@@ -81,7 +58,76 @@
           "downloadURL": "https://archive.org/download/burkes-law-tv-1965-colorized-s02e30-who-killed-the-jackpot/Burke's Law TV 1965 colorized s02e30 Who Killed the Jackpot.mp4"
         }
       ]
+    },
+    {
+      "seasonNumber": 18,
+      "episodes": [
+        {
+          "archiveID": "family-feud-s18-e177",
+          "seasonNumber": 18,
+          "episodeNumber": 177,
+          "title": "Family Feud (May 9, 2017, 1 | S18 E177): Wilson/Burke",
+          "overview": "Family Feud S18 E177<div>Aired August 7, 2022 at 10:00PM ET on Game Show Network</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s18-e177",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1797,
+          "videoFile": {
+            "name": "GSN20220807_220000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 231400307,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s18-e177/GSN20220807_220000.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 21,
+      "episodes": [
+        {
+          "archiveID": "family-feud-s21-e50",
+          "seasonNumber": 21,
+          "episodeNumber": 50,
+          "title": "Family Feud (October 28, 2019, 2 | S21 E50): Flowers/Burke",
+          "overview": "Family Feud S21 E50<div>Aired June 24, 2022 at 9:00PM ET on Game Show Network</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s21-e50",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1801,
+          "videoFile": {
+            "name": "GSN20220624_210000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 231985614,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s21-e50/GSN20220624_210000.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BurkesLaw",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Burke's Law",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ePKRW7T0RCgzSzuVJPwHxcqBPXG.jpg",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3062,
+          "videoFile": {
+            "name": "BurkesLawWhoKilledJasonShaw_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 222466136,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BurkesLaw/BurkesLawWhoKilledJasonShaw_512kb.mp4"
+        }
+      ]
     }
   ],
-  "episodesCount": 3
+  "episodesCount": 5
 }

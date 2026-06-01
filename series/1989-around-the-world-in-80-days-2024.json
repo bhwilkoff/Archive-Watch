@@ -71,7 +71,30 @@
           "downloadURL": "https://archive.org/download/1989.-around-the-world-in-80-days-part-3/1989. Around the World in 80 Days (Part 3).mp4"
         }
       ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "1981.-the-fonz-and-the-happy-days-gang-s-02-e-09-around-the-world-in-80-ways",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "1981. The Fonz and the Happy Days Gang - S02E09 - Around the World in 80 Ways",
+          "overview": "<div>Après que Cupcake ait choisi le mauvais niveau pour réduire la taille de la machine à remonter le temps et l'avoir perdue dans une coupe, Fonzie et sa bande doivent participer au concours du Tour du monde en 80 jours de Jules Verne où Phileas Fogg n'est pas dans la course...</div><div>Neuvième épisode de la saison 2 de la série animée <i>The Fonz and the Happy Days Gang</i> réalisé par George Gordon, Carl Urbano et Rudy Zamora en 1981.</div><div><br /></div>",
+          "stillURL": "https://archive.org/services/img/1981.-the-fonz-and-the-happy-days-gang-s-02-e-09-around-the-world-in-80-ways",
+          "airDate": null,
+          "year": 2024,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "1981. The Fonz and the Happy Days Gang - S02E09 - Around the World in 80 Ways.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 197386478,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1981.-the-fonz-and-the-happy-days-gang-s-02-e-09-around-the-world-in-80-ways/1981.%20The%20Fonz%20and%20the%20Happy%20Days%20Gang%20-%20S02E09%20-%20Around%20the%20World%20in%2080%20Ways.mp4"
+        }
+      ]
     }
   ],
-  "episodesCount": 3
+  "episodesCount": 4
 }
