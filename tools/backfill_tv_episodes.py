@@ -265,7 +265,7 @@ def backfill_one(path, session, *, dry_run, throttle, per_series_cap):
         time.sleep(throttle)
 
     if not added:
-        return 0
+        return 0, set()
 
     flat.extend(added)
     doc["seasons"] = regroup_seasons(flat)
@@ -277,7 +277,53 @@ def backfill_one(path, session, *, dry_run, throttle, per_series_cap):
 
     if not dry_run:
         path.write_text(json.dumps(doc, ensure_ascii=False, indent=2), encoding="utf-8")
-    return len(added)
+    # Report the (season, episode) tuples we added so the caller can mark
+    # the corresponding episode-wants fulfilled.
+    filled = {(e.get("seasonNumber"), e.get("episodeNumber"))
+              for e in added
+              if e.get("seasonNumber") is not None and e.get("episodeNumber") is not None}
+    return len(added), filled
+
+
+WANTS_PATH = REPO / "shared" / "editorial" / "episode_wants.json"
+
+
+def load_wants():
+    """Load the episode-wants queue (built by build_episode_wants.py), or
+    None if it doesn't exist yet."""
+    if not WANTS_PATH.exists():
+        return None
+    try:
+        return json.loads(WANTS_PATH.read_text(encoding="utf-8"))
+    except (ValueError, OSError):
+        return None
+
+
+def mark_wants_fulfilled(wants, filled_by_series):
+    """Flip matching wants to status=fulfilled. filled_by_series maps
+    seriesID → set of (season, episode) tuples we just added. Returns count
+    fulfilled and rewrites the queue file."""
+    now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
+    n = 0
+    for w in wants.get("wants", []):
+        if w.get("status") != "wanted":
+            continue
+        got = filled_by_series.get(w["seriesID"])
+        if got and (w["season"], w["episode"]) in got:
+            w["status"] = "fulfilled"
+            w["fulfilled_at"] = now
+            n += 1
+    if n:
+        wants["stats"] = {
+            "total": len(wants["wants"]),
+            "wanted": sum(1 for x in wants["wants"] if x["status"] == "wanted"),
+            "fulfilled": sum(1 for x in wants["wants"] if x["status"] == "fulfilled"),
+            "series_with_gaps": len({x["seriesID"] for x in wants["wants"]
+                                     if x["status"] == "wanted"}),
+        }
+        wants["updated_at"] = now
+        WANTS_PATH.write_text(json.dumps(wants, ensure_ascii=False, indent=2), encoding="utf-8")
+    return n
 
 
 def prune_junk_series(dry_run=False):
@@ -361,25 +407,43 @@ def main():
         # Smallest first — biggest relative wins.
         files = sorted(small, key=lambda p: json.loads(p.read_text())["episodesCount"])
 
-    print(f"[tv-backfill] {len(files):,} series in scope; processing up to {args.max_series}", flush=True)
+    # If a wants queue exists, prioritise series that have known gaps —
+    # those are the ones where a search is most likely to pay off.
+    wants = load_wants()
+    if wants and not args.series and not args.min_episodes:
+        gap_series = {w["seriesID"] for w in wants.get("wants", [])
+                      if w.get("status") == "wanted"}
+        files.sort(key=lambda p: (p.stem not in gap_series,))
+
+    n_wanted = sum(1 for w in wants.get("wants", []) if w.get("status") == "wanted") if wants else 0
+    print(f"[tv-backfill] {len(files):,} series in scope; processing up to "
+          f"{args.max_series} ({n_wanted:,} episodes wanted across queue)", flush=True)
     session = requests.Session()
     series_counts = {}
+    filled_by_series = {}
     grown = total_added = 0
 
     for path in files[:args.max_series]:
         before = json.loads(path.read_text(encoding="utf-8")).get("episodesCount", 0)
-        added = backfill_one(path, session, dry_run=args.dry_run,
-                             throttle=args.throttle, per_series_cap=args.per_series_cap)
+        added, filled = backfill_one(path, session, dry_run=args.dry_run,
+                                     throttle=args.throttle, per_series_cap=args.per_series_cap)
         if added:
             grown += 1
             total_added += added
             after = before + added
             series_counts[path.stem] = after
+            if filled:
+                filled_by_series[path.stem] = filled
             print(f"  + {path.stem:50.50} {before} → {after} (+{added})", flush=True)
 
     if not args.dry_run and series_counts:
         cat_changed = update_catalog_counts(series_counts)
         print(f"[tv-backfill] updated {cat_changed} catalog series-card counts", flush=True)
+
+    # Mark fulfilled wants.
+    if wants and filled_by_series and not args.dry_run:
+        n_filled = mark_wants_fulfilled(wants, filled_by_series)
+        print(f"[tv-backfill] marked {n_filled} episode-wants fulfilled", flush=True)
 
     print(f"[tv-backfill] done: grew {grown} series, +{total_added} episodes", flush=True)
     return 0
