@@ -1,0 +1,104 @@
+{
+ "version": 2,
+ "seriesID": "our-miss-brooks-1952",
+ "tvmazeID": 44555,
+ "title": "Our Miss Brooks",
+ "yearStart": 1952,
+ "yearEnd": 1956,
+ "overview": "Teaching at Madison High, Madison has difficulty to end meets. She is always in conflict with the principal while trying to help her students.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/216/540479.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "OurMissBrooks-MadisonMascot",
+     "seasonNumber": 3,
+     "episodeNumber": 28,
+     "title": "Madison Mascot",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+     "airDate": "1955-05-20",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "OurMissBrooks-MadisonMascot.mp4",
+      "format": "h.264",
+      "sizeBytes": 131501771,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/OurMissBrooks-MadisonMascot/OurMissBrooks-MadisonMascot.mp4"
+    },
+    {
+     "archiveID": "OurMissBrooks-TheBigJump",
+     "seasonNumber": 3,
+     "episodeNumber": 29,
+     "title": "The Big Jump",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+     "airDate": "1955-05-27",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "OurMissBrooks-TheBigJump.mp4",
+      "format": "h.264",
+      "sizeBytes": 132902117,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/OurMissBrooks-TheBigJump/OurMissBrooks-TheBigJump.mp4"
+    },
+    {
+     "archiveID": "OurMissBrooks-HomeCookedMeal",
+     "seasonNumber": 3,
+     "episodeNumber": 30,
+     "title": "Home Cooked Meal",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+     "airDate": "1955-06-03",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "OurMissBrooks-HomeCookedMeal.mp4",
+      "format": "h.264",
+      "sizeBytes": 150315457,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/OurMissBrooks-HomeCookedMeal/OurMissBrooks-HomeCookedMeal.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "OurMissBrooks-ThisIsYourPast",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Our Miss Brooks - This is Your Past",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+     "airDate": null,
+     "year": 1955,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "OurMissBrooks-ThisIsYourPast.mp4",
+      "format": "h.264",
+      "sizeBytes": 150067845,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/OurMissBrooks-ThisIsYourPast/OurMissBrooks-ThisIsYourPast.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 4,
+ "canonicalEpisodesCount": 130
+}

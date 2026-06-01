@@ -1,0 +1,448 @@
+{
+ "version": 2,
+ "seriesID": "sherlock-holmes-1954",
+ "tvmazeID": 22618,
+ "title": "Sherlock Holmes",
+ "yearStart": 1954,
+ "yearEnd": 1955,
+ "overview": "Based on the characters created by Arthur Conan Doyle: Dr. John Watson returns from Afghanistan, and decides to share lodgings in Baker Street with Sherlock Holmes, an acquaintance of one of Watson's own friends. Not long afterward, Holmes brings Watson with him when he solves a murder case that has confused Inspector Lestrade. Watson soon becomes Holmes's friend, assistant, and chronicler, as the private detective takes on one baffling case after another.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/544/1362262.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Crime",
+  "Mystery"
+ ],
+ "networks": [
+  "Syndication"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
+    {
+     "archiveID": "s01e01.The.Speckled.Band",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Sherlock Holmes (1964) TV Series",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/eroaHmsBZXTsL64oo72Yi3eJaiz.jpg",
+     "airDate": null,
+     "year": 1964,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "s01e01.The.Speckled.Band.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 105116138,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/s01e01.The.Speckled.Band/s01e01.The.Speckled.Band.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseoftheCunninghamHeritage",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "The Case of the Cunningham Heritage",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/538/1346582.jpg",
+     "airDate": "1954-10-18",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "TheCaseoftheCunninghamHeritage.mp4",
+      "format": "h.264",
+      "sizeBytes": 161421930,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheCunninghamHeritage/TheCaseoftheCunninghamHeritage.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseofLadyBeryl",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Case of Lady Beryl",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/541/1354281.jpg",
+     "airDate": "1954-10-25",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "TheCaseofLadyBeryl.mp4",
+      "format": "h.264",
+      "sizeBytes": 160648031,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseofLadyBeryl/TheCaseofLadyBeryl.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseofthePennsylvaniaGun",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "The Case of the Pennsylvania Gun",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/545/1364748.jpg",
+     "airDate": "1954-11-01",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "TheCaseofthePennsylvaniaGun.mp4",
+      "format": "h.264",
+      "sizeBytes": 159946275,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseofthePennsylvaniaGun/TheCaseofthePennsylvaniaGun.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseoftheTexasCowgirl",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Case of the Texas Cowgirl",
+     "overview": "A cowgirl comes into her hotel room and finds a dead man. So she asks Sherlock to investigate.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/553/1384055.jpg",
+     "airDate": "1954-11-08",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "TheCaseoftheTexasCowgirl.mp4",
+      "format": "h.264",
+      "sizeBytes": 160376045,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheTexasCowgirl/TheCaseoftheTexasCowgirl.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseoftheBelligerentGhost",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "The Case of the Belligerent Ghost",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/564/1410365.jpg",
+     "airDate": "1954-11-15",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "TheCaseoftheBelligerentGhost.mp4",
+      "format": "h.264",
+      "sizeBytes": 159037400,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheBelligerentGhost/TheCaseoftheBelligerentGhost.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseoftheShyBallerina",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "The Case of the Shy Ballerina",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/566/1415159.jpg",
+     "airDate": "1954-11-22",
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "TheCaseoftheShyBallerina.mp4",
+      "format": "h.264",
+      "sizeBytes": 153503727,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheShyBallerina/TheCaseoftheShyBallerina.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseOfTheGreystoneInscription",
+     "seasonNumber": 1,
+     "episodeNumber": 16,
+     "title": "The Case of the Greystone Inscription",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/580/1452273.jpg",
+     "airDate": "1955-01-31",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "SherlockHolmes-TheCaseOfTheGreystoneInscription.mp4",
+      "format": "h.264",
+      "sizeBytes": 159907725,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseOfTheGreystoneInscription/SherlockHolmes-TheCaseOfTheGreystoneInscription.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseOfTheDeadlyProphecy1955",
+     "seasonNumber": 1,
+     "episodeNumber": 22,
+     "title": "The Case of the Deadly Prophecy",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/587/1467664.jpg",
+     "airDate": "1955-03-14",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "SherlockHolmes-TheCaseOfTheDeadlyProphecy1955.mp4",
+      "format": "h.264",
+      "sizeBytes": 166363807,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseOfTheDeadlyProphecy1955/SherlockHolmes-TheCaseOfTheDeadlyProphecy1955.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "SherlockHolmes-CaseOfTheBlindMansBluff",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sherlock Holmes - Case of the Blind Mans Bluff",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/lT8ywU0IjG0Ui0anPXpksvf7dPw.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1594,
+     "videoFile": {
+      "name": "SherlockHolmes-CaseOfTheBlindMansBluff.mp4",
+      "format": "h.264",
+      "sizeBytes": 158005092,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-CaseOfTheBlindMansBluff/SherlockHolmes-CaseOfTheBlindMansBluff.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseOfHarryCrocker",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sherlock Holmes - The Case of Harry Crocker",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/lT8ywU0IjG0Ui0anPXpksvf7dPw.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1566,
+     "videoFile": {
+      "name": "SherlockHolmes-TheCaseOfHarryCrocker.mp4",
+      "format": "h.264",
+      "sizeBytes": 155307547,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseOfHarryCrocker/SherlockHolmes-TheCaseOfHarryCrocker.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseOfTheCarelessSuffragette",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sherlock Holmes - The Case of the Careless Suffragette",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/lT8ywU0IjG0Ui0anPXpksvf7dPw.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1596,
+     "videoFile": {
+      "name": "SherlockHolmes-1x20-CaseOfTheCarelessSuffragette.mp4",
+      "format": "h.264",
+      "sizeBytes": 160639882,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseOfTheCarelessSuffragette/SherlockHolmes-1x20-CaseOfTheCarelessSuffragette.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseOfTheFrenchInterpreter_714",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sherlock Holmes - The Case of the French Interpreter",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/lT8ywU0IjG0Ui0anPXpksvf7dPw.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1605,
+     "videoFile": {
+      "name": "SherlockHolmes-TheCaseOfTheFrenchInterpreter.mp4",
+      "format": "h.264",
+      "sizeBytes": 160707449,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseOfTheFrenchInterpreter_714/SherlockHolmes-TheCaseOfTheFrenchInterpreter.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseOfTheRedHeadedLeague",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sherlock Holmes - The Case of the Red Headed League",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/lT8ywU0IjG0Ui0anPXpksvf7dPw.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1604,
+     "videoFile": {
+      "name": "SherlockHolmes-TheCaseOfTheRedHeadedLeague.mp4",
+      "format": "h.264",
+      "sizeBytes": 157806587,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseOfTheRedHeadedLeague/SherlockHolmes-TheCaseOfTheRedHeadedLeague.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseOfTheSingingViolin",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sherlock Holmes - The Case of the Singing Violin",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/lT8ywU0IjG0Ui0anPXpksvf7dPw.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1590,
+     "videoFile": {
+      "name": "SherlockHolmes-TheCaseOfTheSingingViolin.mp4",
+      "format": "h.264",
+      "sizeBytes": 158900397,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseOfTheSingingViolin/SherlockHolmes-TheCaseOfTheSingingViolin.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseOfTheThistleKiller",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sherlock Holmes - The Case of the Thistle Killer",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/lT8ywU0IjG0Ui0anPXpksvf7dPw.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1587,
+     "videoFile": {
+      "name": "SherlockHolmes-CaseOfTheThistleKiller.mp4",
+      "format": "h.264",
+      "sizeBytes": 159768223,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseOfTheThistleKiller/SherlockHolmes-CaseOfTheThistleKiller.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseOfTheVanishedDetective",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sherlock Holmes - The Case of the Vanished Detective",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/lT8ywU0IjG0Ui0anPXpksvf7dPw.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1594,
+     "videoFile": {
+      "name": "SherlockHolmes-CaseOfTheVanishedDetective.mp4",
+      "format": "h.264",
+      "sizeBytes": 164723795,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseOfTheVanishedDetective/SherlockHolmes-CaseOfTheVanishedDetective.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseOfTheWinthropLegend",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sherlock Holmes - The Case of the Winthrop Legend",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/lT8ywU0IjG0Ui0anPXpksvf7dPw.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1616,
+     "videoFile": {
+      "name": "SherlockHolmes-TheCaseOfTheWinthropLegend.mp4",
+      "format": "h.264",
+      "sizeBytes": 160045591,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseOfTheWinthropLegend/SherlockHolmes-TheCaseOfTheWinthropLegend.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheManWhoDisappearedfailedPilot",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sherlock Holmes - The Man Who Disappeared (Failed Pilot)",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/SherlockHolmes-TheManWhoDisappearedfailedPilot",
+     "airDate": null,
+     "year": 1951,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "SherlockHolmes-TheManWhoDisappeared_512kb.mp4",
+      "format": "512Kb MPEG4",
+      "sizeBytes": 112158765,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheManWhoDisappearedfailedPilot/SherlockHolmes-TheManWhoDisappeared_512kb.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheMotherHubbardCase",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sherlock Holmes - The Mother Hubbard Case",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/lT8ywU0IjG0Ui0anPXpksvf7dPw.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1587,
+     "videoFile": {
+      "name": "SherlockHolmes-TheMotherHubbardCase.mp4",
+      "format": "h.264",
+      "sizeBytes": 155740760,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheMotherHubbardCase/SherlockHolmes-TheMotherHubbardCase.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmesTheChristmasPudding",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sherlock Holmes: The Christmas Pudding",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/eroaHmsBZXTsL64oo72Yi3eJaiz.jpg",
+     "airDate": null,
+     "year": 1955,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Sh-23TheChristmasPudding-1955.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 159820943,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmesTheChristmasPudding/Sh-23TheChristmasPudding-1955.ia.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes1954",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Adventures of Sherlock Holmes (1954)",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/SherlockHolmes1954",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Sherlock Holmes 25 The Case Of The Violent Suitor.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 124888817,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes1954/Sherlock%20Holmes%2025%20The%20Case%20Of%20The%20Violent%20Suitor.mp4"
+    },
+    {
+     "archiveID": "the-adventures-of-sherlock-holmes-1984_202303",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Adventures of Sherlock Holmes (1984)",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/6WxfaKH4KkruJROkoto84xIpVAf.jpg",
+     "airDate": null,
+     "year": 1984,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Adventures of Sherlock Holmes S1E06 - The Speckled Band.mp4",
+      "format": "h.264",
+      "sizeBytes": 308557325,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-1984_202303/The Adventures of Sherlock Holmes S1E06 - The Speckled Band.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 23,
+ "canonicalEpisodesCount": 39
+}

@@ -1,0 +1,430 @@
+{
+ "version": 2,
+ "seriesID": "man-with-a-camera-1958",
+ "tvmazeID": 38770,
+ "title": "Man with a Camera",
+ "yearStart": 1958,
+ "yearEnd": 1960,
+ "overview": "Mike Kovac is a former World War II combat photographer freelancing in New York City who specializes in getting the photographs other lensmen can't. By assisting newspapers, insurance companies, the police and private individuals, Kovac gets himself into plenty of troubles involving criminals of every kind.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/168/420618.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Crime",
+  "Mystery"
+ ],
+ "networks": [
+  "ABC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
+    {
+     "archiveID": "SecondAvenueAssassin",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Second Avenue Assassin",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1958-10-10",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera1x01SecondAvenueAssassin.mp4",
+      "format": "h.264",
+      "sizeBytes": 150384357,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SecondAvenueAssassin/ManWithACamera1x01SecondAvenueAssassin.mp4"
+    },
+    {
+     "archiveID": "TheWarning_49",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "The Warning",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1958-10-17",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera1x02TheWarning.mp4",
+      "format": "h.264",
+      "sizeBytes": 151655187,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheWarning_49/ManWithACamera1x02TheWarning.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-ProfileOfAKiller",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Profile of a Killer",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1958-10-24",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera1x03ProfileOfAKiller.mp4",
+      "format": "h.264",
+      "sizeBytes": 152970287,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-ProfileOfAKiller/ManWithACamera1x03ProfileOfAKiller.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-Close-upOnViolence",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "Close-Up on Violence",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1958-10-31",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera1x04Close-upOnViolence.mp4",
+      "format": "h.264",
+      "sizeBytes": 154002204,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-Close-upOnViolence/ManWithACamera1x04Close-upOnViolence.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-Turntable",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Turntable",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1958-11-07",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera1x05Turntable.mp4",
+      "format": "h.264",
+      "sizeBytes": 151623247,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-Turntable/ManWithACamera1x05Turntable.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-DoubleNegative",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Double Negative",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1958-11-21",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera1x07DoubleNegative.mp4",
+      "format": "h.264",
+      "sizeBytes": 152225697,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-DoubleNegative/ManWithACamera1x07DoubleNegative.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-AnotherBarrier",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Another Barrier",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1958-11-28",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera1x06AnotherBarrier.mp4",
+      "format": "h.264",
+      "sizeBytes": 151842126,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-AnotherBarrier/ManWithACamera1x06AnotherBarrier.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-BlindSpot",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Blind Spot",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1958-12-05",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera01x08BlindSpot.mp4",
+      "format": "h.264",
+      "sizeBytes": 150609672,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-BlindSpot/ManWithACamera01x08BlindSpot.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-TwoStringsOfPearls",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Two Strings of Pearls",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1958-12-12",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera01x09TwoStringsOfPearls.mp4",
+      "format": "h.264",
+      "sizeBytes": 154970448,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-TwoStringsOfPearls/ManWithACamera01x09TwoStringsOfPearls.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-SixFacesOfSatan",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Six Faces of Satan",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1958-12-19",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera1x10SixFacesOfSatan.mp4",
+      "format": "h.264",
+      "sizeBytes": 152054490,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-SixFacesOfSatan/ManWithACamera1x10SixFacesOfSatan.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-LadyOnTheLoose",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Lady on the Loose",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1958-12-26",
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera1x11LadyOnTheLoose.mp4",
+      "format": "h.264",
+      "sizeBytes": 154655568,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-LadyOnTheLoose/ManWithACamera1x11LadyOnTheLoose.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-TheLastPortrait",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "The Last Portrait",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1959-01-02",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera1x12TheLastPortrait.mp4",
+      "format": "h.264",
+      "sizeBytes": 150484253,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-TheLastPortrait/ManWithACamera1x12TheLastPortrait.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-TheFaceOfMurder",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "The Face of Murder",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1959-01-09",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera1x13TheFaceOfMurder.mp4",
+      "format": "h.264",
+      "sizeBytes": 157565547,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-TheFaceOfMurder/ManWithACamera1x13TheFaceOfMurder.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-MuteEvidence",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "Mute Evidence",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1959-01-16",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera-1x14-MuteEvidence.mp4",
+      "format": "h.264",
+      "sizeBytes": 148906181,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-MuteEvidence/ManWithACamera-1x14-MuteEvidence.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-TheBigSqueeze",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "The Big Squeeze",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1959-01-23",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera-TheBigSqueeze.mp4",
+      "format": "h.264",
+      "sizeBytes": 149843544,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-TheBigSqueeze/ManWithACamera-TheBigSqueeze.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
+    {
+     "archiveID": "ManWithACamera-TheKiller",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "The Killer",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1959-10-19",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera-2x01-TheKiller1959.mp4",
+      "format": "h.264",
+      "sizeBytes": 152583733,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-TheKiller/ManWithACamera-2x01-TheKiller1959.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-Eyewitness",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "Eyewitness",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1959-10-26",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera-Eyewitness.mp4",
+      "format": "h.264",
+      "sizeBytes": 150891319,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-Eyewitness/ManWithACamera-Eyewitness.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-TheManBelow",
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "The Man Below",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1959-11-02",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera-TheManBelow.mp4",
+      "format": "h.264",
+      "sizeBytes": 151048767,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-TheManBelow/ManWithACamera-TheManBelow.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-BlackLight",
+     "seasonNumber": 2,
+     "episodeNumber": 4,
+     "title": "Black Light",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1959-11-09",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera-BlackLight.mp4",
+      "format": "h.264",
+      "sizeBytes": 154057612,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-BlackLight/ManWithACamera-BlackLight.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-ThePositiveNegative",
+     "seasonNumber": 2,
+     "episodeNumber": 5,
+     "title": "The Positive Negative",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1959-11-16",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera-ThePositiveNegative.mp4",
+      "format": "h.264",
+      "sizeBytes": 151072235,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-ThePositiveNegative/ManWithACamera-ThePositiveNegative.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-Missing",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "Missing",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1959-11-23",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera-Missing.mp4",
+      "format": "h.264",
+      "sizeBytes": 151235775,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-Missing/ManWithACamera-Missing.mp4"
+    },
+    {
+     "archiveID": "ManWithACamera-LiveTarget",
+     "seasonNumber": 2,
+     "episodeNumber": 7,
+     "title": "Live Target",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/bN06OQUZHEwgG9QepP3lvofqdxj.jpg",
+     "airDate": "1959-12-07",
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "ManWithACamera-LiveTarget.mp4",
+      "format": "h.264",
+      "sizeBytes": 141151238,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/ManWithACamera-LiveTarget/ManWithACamera-LiveTarget.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 22,
+ "canonicalEpisodesCount": 29
+}

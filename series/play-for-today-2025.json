@@ -1,0 +1,81 @@
+{
+ "version": 2,
+ "seriesID": "play-for-today-2025",
+ "tvmazeID": 87988,
+ "title": "Play for Today",
+ "yearStart": 2025,
+ "yearEnd": null,
+ "overview": "Inspired by the iconic Play for Today format, each production will champion new voices and focus on bringing low-income talent into the spotlight behind the scenes in writing, directing and production roles.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/597/1493612.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama"
+ ],
+ "networks": [
+  "5"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "play-for-today-home-sweet-home-1982",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Play For Today - Home Sweet Home (1982)",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/tDlFADSlbAiIshWZfdkb1g7QNUk.jpg",
+     "airDate": null,
+     "year": 2024,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Play for Today - Home Sweet Home (1982).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 272472937,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/play-for-today-home-sweet-home-1982/Play for Today - Home Sweet Home (1982).mp4"
+    },
+    {
+     "archiveID": "play-for-today-the-piano",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Play For Today - The Piano (1971)",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/tDlFADSlbAiIshWZfdkb1g7QNUk.jpg",
+     "airDate": null,
+     "year": 2024,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Play for Today - The Piano.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 103775981,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/play-for-today-the-piano/Play for Today - The Piano.ia.mp4"
+    },
+    {
+     "archiveID": "play-for-today-the-reporters",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Play For Today - The Reporters (1972)",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/tDlFADSlbAiIshWZfdkb1g7QNUk.jpg",
+     "airDate": null,
+     "year": 2024,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Play for Today - The Reporters .ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 216124857,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/play-for-today-the-reporters/Play for Today - The Reporters .ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 4
+}

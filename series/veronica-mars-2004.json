@@ -1,0 +1,129 @@
+{
+ "version": 2,
+ "seriesID": "veronica-mars-2004",
+ "tvmazeID": 473,
+ "title": "Veronica Mars",
+ "yearStart": 2004,
+ "yearEnd": 2019,
+ "overview": "In the wealthy, seaside community of Neptune, the rich and powerful make the rules. They own the town and are desperately trying to keep their dirty little secrets just that... secret. Unfortunately for them, there's Veronica Mars, a smart, fearless private investigator dedicated to solving the town's toughest mysteries. During the day, Veronica studies hard, but by night, she helps her father Keith with his private investigator business, sneaking through back alleys and scoping out no-tell motels with a telescopic-lens camera in an attempt to uncover the California beach town's darkest secrets.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/9/24539.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Crime",
+  "Mystery"
+ ],
+ "networks": [
+  "Hulu"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
+    {
+     "archiveID": "VeronicaSClosetVeronicaSBlackoutS1E17",
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "Kanes and Abel's",
+     "overview": "Veronica investigates who at school is doing everything possible to distract Sabrina from studying and wreck her grades in an obvious attempt to sabotage her chances at becoming valedictorian.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513676.jpg",
+     "airDate": "2005-04-05",
+     "year": 2005,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Veronica_s-Closet-Veronica_s-Blackout-_S1E17_.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 300487162,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaSBlackoutS1E17/Veronica_s-Closet-Veronica_s-Blackout-_S1E17_.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
+    {
+     "archiveID": "VeronicaSClosetVeronicaGetsHerClosetBackS3E1",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "Normal Is the Watchword",
+     "overview": "After the summer fireworks caused by a dangerous confrontation with Lilly Kane's murderer and a surprising visitor at her door, Veronica attempts to settle into \"normal\" life, complete with a new after-school job and a return to the popular fold at Neptune High, but she gets pulled back into the investigation business when Wallace is kicked off the basketball team for testing positive for drugs.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513682.jpg",
+     "airDate": "2005-09-28",
+     "year": 2005,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 189374015,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaGetsHerClosetBackS3E1/Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4"
+    },
+    {
+     "archiveID": "VeronicaSClosetVeronicaSGreatModelSearchS2E3",
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "Cheatty Cheatty Bang Bang",
+     "overview": "Cassidy \"Beaver\" Casablancas believes that his sexy stepmother Kendall is cheating on his father, so he hires Veronica to investigate the situation, but neither are prepared for what they find.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513684.jpg",
+     "airDate": "2005-10-12",
+     "year": 2005,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Veronica_s-Closet-Veronica_s-Great-Model-Search-_S2E3_.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 238977469,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaSGreatModelSearchS2E3/Veronica_s-Closet-Veronica_s-Great-Model-Search-_S2E3_.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "veronicascloset",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Veronica's Closet (1997-2000) complete series",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/veronicascloset",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "S03E08 - Veronica's Sliding Doors.mp4",
+      "format": "h.264",
+      "sizeBytes": 129870119,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/veronicascloset/S03E08 - Veronica's Sliding Doors.mp4"
+    },
+    {
+     "archiveID": "VeronicaSClosetSilentPartnerS1Finale",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Veronica's Closet- Silent Partner (S1 Finale)",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/VeronicaSClosetSilentPartnerS1Finale",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Veronica_s-Closet-Silent-Partner-_S1-Finale_.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 274820813,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/VeronicaSClosetSilentPartnerS1Finale/Veronica_s-Closet-Silent-Partner-_S1-Finale_.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 5,
+ "canonicalEpisodesCount": 72
+}

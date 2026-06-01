@@ -1,0 +1,46 @@
+{
+ "version": 2,
+ "seriesID": "the-challenge-1998",
+ "tvmazeID": 2100,
+ "title": "The Challenge",
+ "yearStart": 1998,
+ "yearEnd": null,
+ "overview": "Set in the middle of the jungle, \"The Challenge: War of the Worlds 2\" returns to a classic team format; 14 Brits will battle it out against 14 Americans for their share of the $1 million-dollar prize.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/589/1473887.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Adventure"
+ ],
+ "networks": [
+  "MTV"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 41,
+   "episodes": [
+    {
+     "archiveID": "Robin_Hood_07_The_Challenge",
+     "seasonNumber": 41,
+     "episodeNumber": 3,
+     "title": "I Am The Challenge",
+     "overview": "One player's game is at risk, while their partner's competitiveness rears its ugly head and wishes it hadn't. The challenge tests the players' swimming skills for the first time.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/596/1490447.jpg",
+     "airDate": "2025-08-13",
+     "year": 2025,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Robin_Hood_07_The_Challenge.mp4",
+      "format": "h.264",
+      "sizeBytes": 155694806,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Robin_Hood_07_The_Challenge/Robin_Hood_07_The_Challenge.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 637
+}

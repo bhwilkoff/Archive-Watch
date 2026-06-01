@@ -1,0 +1,125 @@
+{
+ "version": 2,
+ "seriesID": "checkmate-1960",
+ "tvmazeID": 17743,
+ "title": "Checkmate",
+ "yearStart": 1960,
+ "yearEnd": 1962,
+ "overview": "Checkmatewas a detective drama series that aired on CBS from 1960-1962.Don Corey and Jed Sills operate Checkmate, Inc., a detective agency in San Francisco. Helping them protect the lives of their clients is British criminologist, Carl Hyatt.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/59/149378.jpg",
+ "backdropURL": null,
+ "genres": [],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
+    {
+     "archiveID": "AdventuresOfRobinHoodep9Checkmate",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "The Dark Divide",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/AdventuresOfRobinHoodep9Checkmate",
+     "airDate": "1960-11-19",
+     "year": 1960,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Adventures of Robin Hood (ep 9 Checkmate).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 507059909,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/AdventuresOfRobinHoodep9Checkmate/Adventures%20of%20Robin%20Hood%20%28ep%209%20Checkmate%29.mp4"
+    },
+    {
+     "archiveID": "CheckmateTheHumanTouch1961",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "The Human Touch",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/8EPt8QG4e4qbw2lIHySMPYFdhUE.jpg",
+     "airDate": "1961-01-14",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Checkmate-theHumanTouch.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 310345653,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/CheckmateTheHumanTouch1961/Checkmate-theHumanTouch.ia.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
+    {
+     "archiveID": "Checkmate--Nice_Guys_Finish_Last",
+     "seasonNumber": 2,
+     "episodeNumber": 10,
+     "title": "Nice Guys Finish Last",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/8EPt8QG4e4qbw2lIHySMPYFdhUE.jpg",
+     "airDate": "1961-12-13",
+     "year": 1961,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Checkmate210_Nice_Guys_Finish_Last.mp4",
+      "format": "h.264",
+      "sizeBytes": 278261889,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Checkmate--Nice_Guys_Finish_Last/Checkmate210_Nice_Guys_Finish_Last.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "Robin_Hood_09_Checkmate",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Checkmate",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/8EPt8QG4e4qbw2lIHySMPYFdhUE.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Robin_Hood_09_Checkmate.mp4",
+      "format": "h.264",
+      "sizeBytes": 150568178,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Robin_Hood_09_Checkmate/Robin_Hood_09_Checkmate.mp4"
+    },
+    {
+     "archiveID": "Heart_Is_a_Handout--Checkmate",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Heart Is a Handout (Checkmate)",
+     "overview": "<p align=\"center\">\n<img src=\"https://archive.org/download/Heart_Is_a_Handout--Checkmate/Checkmate_pic_1.jpg\" alt=\"Checkmate_pic_1.jpg\" /></p>\n\n<font size=\"+.2\">\n\nThe Checkmate team swings into action to protect the life of a rich man who is living as a hobo.\n\naired 7 March 1962 \nSeason 2; Episode 21\n\nThe episode is split into two parts:\nHeart_Is_a_Handout--Checkmate-1\nHeart_Is_a_Handout--Checkmate-2\n\n[The \"MPEG4\" files are the source files. Download them if your player can handle h.265 (HEVC).]</font>",
+     "stillURL": "https://archive.org/services/img/Heart_Is_a_Handout--Checkmate",
+     "airDate": null,
+     "year": 1962,
+     "runtimeSeconds": 1625,
+     "videoFile": {
+      "name": "Heart_Is_a_Handout--Checkmate-1.mp4",
+      "format": "h.264",
+      "sizeBytes": 168947523,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Heart_Is_a_Handout--Checkmate/Heart_Is_a_Handout--Checkmate-1.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 5,
+ "canonicalEpisodesCount": 70
+}

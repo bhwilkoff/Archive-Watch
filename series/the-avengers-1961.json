@@ -1,0 +1,65 @@
+{
+ "version": 2,
+ "seriesID": "the-avengers-1961",
+ "tvmazeID": 1929,
+ "title": "The Avengers",
+ "yearStart": 1961,
+ "yearEnd": 1969,
+ "overview": "Urbane John Steed and a variety of partners work for an elite organization tasked with investigating criminal and espionage matters within the UK. Their opponents use everything from standard techniques to robots and other science fiction gadgetry.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/543/1357959.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Action",
+  "Crime"
+ ],
+ "networks": [
+  "ITV1"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "the-avengers-s-4e-1",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Avengers - Complete Season 4 (24 Episodes) (restored, colorized) (1966, TV series)",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fQ4GHecDFEAmJcwc10zUrdIDLFd.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "the avengers s4e2.mp4",
+      "format": "h.264",
+      "sizeBytes": 431304534,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the avengers s4e2.mp4"
+    },
+    {
+     "archiveID": "the-avengers-s-5e-1-restored-720p-hd",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Avengers - Complete Season 5 (24 Episodes) (restored, in color) (1967, TV series)",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fQ4GHecDFEAmJcwc10zUrdIDLFd.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "the avengers-s5e12restored-720p-hd.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 360714400,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the avengers-s5e12restored-720p-hd.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 161
+}

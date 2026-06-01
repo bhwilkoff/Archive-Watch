@@ -1,0 +1,97 @@
+{
+ "version": 2,
+ "seriesID": "general-monash-and-me-peter-greste-on-australia-s-greatest-commander-2018",
+ "tvmazeID": 33995,
+ "title": "General Monash and Me: Peter Greste on Australia's Greatest Commander",
+ "yearStart": 2018,
+ "yearEnd": 2018,
+ "overview": "Monash is a towering figure in Australia's story of World War 1; he is celebrated as one of the great tacticians of the Great War with his innovative battle tactics helping to break the stalemate on the Western Front.A raft of contemporary biographies builds on this mystique, but how accurate are their accounts of him as a commander of the AIF? Was he, as his critics claim, vain, impulsive, egotistical, and prone to exaggeration? Award winning journalist Peter Greste plays detective and military analyst, unearthing pr ivate letters, diary entries and army records from protagonists on both sides of the conflict to reveal a much richer and more detailed picture of Monash.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/153/382616.jpg",
+ "backdropURL": null,
+ "genres": [],
+ "networks": [
+  "ABC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "FederalMenCaseOfTheReadyGuns",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Federal Men: Case of the Ready Guns",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/FederalMenCaseOfTheReadyGuns",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "FederalMen-caseOfTheReadyGuns.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 156001713,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/FederalMenCaseOfTheReadyGuns/FederalMen-caseOfTheReadyGuns.ia.mp4"
+    },
+    {
+     "archiveID": "FederalTheCaseOfTheCharteredChiseler",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Federal Men: The Case of the Chartered Chiseler",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/FederalTheCaseOfTheCharteredChiseler",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1557,
+     "videoFile": {
+      "name": "FederalMen-theCaseOfTheCharteredChiseler.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 157602003,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/FederalTheCaseOfTheCharteredChiseler/FederalMen-theCaseOfTheCharteredChiseler.ia.mp4"
+    },
+    {
+     "archiveID": "FederalMenTheCaseOfTheIronCurtain",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Federal Men: The Case of the Iron Curtain",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/FederalMenTheCaseOfTheIronCurtain",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1542,
+     "videoFile": {
+      "name": "FederalMen-caseOfTheIronCurtain.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 156330055,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/FederalMenTheCaseOfTheIronCurtain/FederalMen-caseOfTheIronCurtain.ia.mp4"
+    },
+    {
+     "archiveID": "FederalMenTheManOutside",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Federal Men: The Man Outside",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/FederalMenTheManOutside",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1555,
+     "videoFile": {
+      "name": "FederalMen-theManOutside.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 157132820,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/FederalMenTheManOutside/FederalMen-theManOutside.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 4,
+ "canonicalEpisodesCount": 2
+}

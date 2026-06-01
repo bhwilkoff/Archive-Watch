@@ -427,3 +427,46 @@ research doc (`docs/research/tvos-home-screen-integration.md`)
 captures the full implementation plan including known gotchas
 (extension memory limits, image-size requirements, deep-link
 defensiveness).
+
+---
+
+## 016 — Canonical TV spine from TVmaze; Archive items map onto it
+*Date: 2026-06-01*
+
+TV is built around a canonical series→season→episode spine fetched from
+TVmaze (free, no API key), with our Archive items mapped onto canonical
+episodes. `tools/build_canonical_tv.py` resolves each show to TVmaze
+(disambiguating by year), pulls the authoritative episode list, maps our
+items by `SxE`/episode-number/fuzzy-title, re-picks each mapped item's
+H.264 MP4 derivative, and emits `series/{slug}.json` (version 2, with
+`tvmazeID` + `canonicalEpisodesCount`). `tools/reconcile_tv_catalog.py`
+then rebuilds the catalog's tv-series cards from those files, drops
+singles that became episodes, and reclassifies whole-show single files to
+`tv-special`. Result: 1,467 mixed "tv-series" cards → 366 real series
+(233 canonical + 133 preserved non-TVmaze clusters) + 1,029 reclassified
+single items.
+
+**Why**: the old pipeline synthesised "series" by clustering Archive
+items on filename similarity. That produced 1,064 single items mislabelled
+as series, real shows truncated to a few episodes, and episodes with no
+real S/E numbers, titles, overviews, air dates, or artwork (46–66%
+missing). Movies don't have this problem because one Archive item == one
+title; TV needs an external authority for structure. TVmaze provides
+complete episode lists with stills/summaries and needs no key; year-based
+disambiguation separates same-named shows (1980 vs 2024 Shōgun).
+
+**How to apply**: don't reintroduce filename-based series clustering. New
+TV shows enter through the canonical builder. A show that doesn't resolve
+on TVmaze (foreign, compilation, channel, ephemera) is NOT a series —
+keep its existing clustered file if it has real episodes, otherwise leave
+its items as single playable cards. A matched show with items we can't
+align still becomes a series (canonical series-level metadata + items as
+best-effort episodes) — never demote a real multi-episode show to a
+single. Series JSON is fetched from GitHub Pages at runtime, so new/
+renamed `series/*.json` only take effect after a push to `main`.
+
+**Consequences**: TVmaze becomes a fourth runtime-relevant data source
+(build-time only). `canonicalEpisodesCount` vs available count feeds the
+episode-wants backfill (what to look for on Archive next). TMDb can later
+supplement episode artwork for old shows where TVmaze stills are sparse,
+if `TMDB_BEARER_TOKEN` is added.

@@ -1,0 +1,153 @@
+{
+ "version": 2,
+ "seriesID": "the-dick-van-dyke-show-1961",
+ "tvmazeID": 3327,
+ "title": "The Dick Van Dyke Show",
+ "yearStart": 1961,
+ "yearEnd": 1966,
+ "overview": "The Dick Van Dyke Show centers on the personal and professional lives of Rob Petrie, a writer for the fictional \"Alan Brady Show\". The non-stop laughs revolved around Rob's relationships with with fellow writers Buddy Sorrell and Sally Rogers, and producer Mel Cooley. At home, we also got to chuckle (and sometimes cry) over Rob's antics involving his wife, son, and neighbors.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/17/44051.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "TheDickVanDykeShow",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Dick Van Dyke Show",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/w2Tcx36ybQEczP5zkUhPwaehgeL.jpg",
+     "airDate": null,
+     "year": 1962,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The-Dick_Van_Dyke-Show-10-24-62.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 153410418,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/TheDickVanDykeShow/The-Dick_Van_Dyke-Show-10-24-62.ia.mp4"
+    },
+    {
+     "archiveID": "the-dick-van-dyke-show-blu-ray-extras",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Dick Van Dyke Show - Blu-Ray Extras",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/w2Tcx36ybQEczP5zkUhPwaehgeL.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Dick Van Dyke Show Remembered.mp4",
+      "format": "h.264",
+      "sizeBytes": 289726703,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-blu-ray-extras/The Dick Van Dyke Show Remembered.mp4"
+    },
+    {
+     "archiveID": "the-dick-van-dyke-show-season-1-of-5-mkv",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Dick Van Dyke Show - Season 1 of 5 - MKV",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/w2Tcx36ybQEczP5zkUhPwaehgeL.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Dick Van Dyke Show - S01E18.mp4",
+      "format": "h.264",
+      "sizeBytes": 160060242,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-season-1-of-5-mkv/The Dick Van Dyke Show - S01E18.mp4"
+    },
+    {
+     "archiveID": "the-dick-van-dyke-show-season-3-of-5-mkv",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Dick Van Dyke Show - Season 3 of 5 - MKV",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/w2Tcx36ybQEczP5zkUhPwaehgeL.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Dick Van Dyke Show - S03E03.mp4",
+      "format": "h.264",
+      "sizeBytes": 160724207,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-season-3-of-5-mkv/The Dick Van Dyke Show - S03E03.mp4"
+    },
+    {
+     "archiveID": "the-dick-van-dyke-show-season-4-of-5-mkv",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Dick Van Dyke Show - Season 4 of 5 - MKV",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/w2Tcx36ybQEczP5zkUhPwaehgeL.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Dick Van Dyke Show - S04E25.mp4",
+      "format": "h.264",
+      "sizeBytes": 159426042,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-season-4-of-5-mkv/The Dick Van Dyke Show - S04E25.mp4"
+    },
+    {
+     "archiveID": "the-dick-van-dyke-show-season-5-of-5-mkv",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Dick Van Dyke Show - Season 5 of 5 - MKV",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/w2Tcx36ybQEczP5zkUhPwaehgeL.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Dick Van Dyke Show - S05E06.mp4",
+      "format": "h.264",
+      "sizeBytes": 160026054,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-dick-van-dyke-show-season-5-of-5-mkv/The Dick Van Dyke Show - S05E06.mp4"
+    },
+    {
+     "archiveID": "The_Dick_van_Dyke_Show",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Dick Van Dyke Show TV-Show",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/The_Dick_van_Dyke_Show",
+     "airDate": null,
+     "year": 1961,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "A_MANS_TEETH_ARE_NOT_HIS_OWN.mp4",
+      "format": "h.264",
+      "sizeBytes": 151988276,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/The_Dick_van_Dyke_Show/A_MANS_TEETH_ARE_NOT_HIS_OWN.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 7,
+ "canonicalEpisodesCount": 158
+}
