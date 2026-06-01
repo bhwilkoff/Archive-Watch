@@ -162,6 +162,24 @@
      "downloadURL": "https://archive.org/download/space-patrol-edit/Space Patrol - edit.mp4"
     },
     {
+     "archiveID": "space-patrol-s-01e-01-low-480x-360p",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Space Patrol 1950 TV Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1950,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Space Patrol S05e02 Web of Arachna.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 176794412,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/space-patrol-s-01e-01-low-480x-360p/Space%20Patrol%20S05e02%20Web%20of%20Arachna.ia.mp4"
+    },
+    {
      "archiveID": "SpacePatrol1951",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -182,6 +200,6 @@
    ]
   }
  ],
- "episodesCount": 8,
+ "episodesCount": 9,
  "canonicalEpisodesCount": 210
 }

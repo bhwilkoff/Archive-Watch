@@ -223,6 +223,24 @@
      "downloadURL": "https://archive.org/download/BurnsAndAllenGracieGivesAWedding/BurnsAndAllen-gracieGivesAWedding.ia.mp4"
     },
     {
+     "archiveID": "georgeburnsandgracieallen_202307",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The George Burns and Gracie Allen Show",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The George Burns and Gracie Allen Show/Season 2/17 Gracie's Redecoration Scheme.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 202429145,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/georgeburnsandgracieallen_202307/The%20George%20Burns%20and%20Gracie%20Allen%20Show/Season%202/17%20Gracie%27s%20Redecoration%20Scheme.ia.mp4"
+    },
+    {
      "archiveID": "TheGeorgeBurnsAndGracieAllenShow-Football",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -279,6 +297,6 @@
    ]
   }
  ],
- "episodesCount": 14,
+ "episodesCount": 15,
  "canonicalEpisodesCount": 291
 }

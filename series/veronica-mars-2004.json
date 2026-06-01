@@ -45,24 +45,6 @@
    "seasonNumber": 2,
    "episodes": [
     {
-     "archiveID": "VeronicaSClosetVeronicaGetsHerClosetBackS3E1",
-     "seasonNumber": 2,
-     "episodeNumber": 1,
-     "title": "Normal Is the Watchword",
-     "overview": "After the summer fireworks caused by a dangerous confrontation with Lilly Kane's murderer and a surprising visitor at her door, Veronica attempts to settle into \"normal\" life, complete with a new after-school job and a return to the popular fold at Neptune High, but she gets pulled back into the investigation business when Wallace is kicked off the basketball team for testing positive for drugs.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513682.jpg",
-     "airDate": "2005-09-28",
-     "year": 2005,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 189374015,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaGetsHerClosetBackS3E1/Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4"
-    },
-    {
      "archiveID": "VeronicaSClosetVeronicaSGreatModelSearchS2E3",
      "seasonNumber": 2,
      "episodeNumber": 3,
@@ -79,6 +61,29 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaSGreatModelSearchS2E3/Veronica_s-Closet-Veronica_s-Great-Model-Search-_S2E3_.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "VeronicaSClosetVeronicaGetsHerClosetBackS3E1",
+     "seasonNumber": 3,
+     "episodeNumber": 1,
+     "title": "Welcome Wagon",
+     "overview": "Veronica is in true form from the moment she and boyfriend Logan, along with close friends Wallace and Mac, set foot on the campus of Hearst College. Wallace enlists Veronica's help when his new roommate, Piz, has all his belongings stolen. While working on Piz's case, Veronica learns that the campus serial rapist has struck again. Meanwhile, Keith runs into trouble while transporting a recently released convict across the country to reunite him with Kendall.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513704.jpg",
+     "airDate": "2006-10-03",
+     "year": 2006,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 189374015,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaGetsHerClosetBackS3E1/Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4"
     }
    ]
   },

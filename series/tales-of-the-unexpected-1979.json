@@ -164,10 +164,28 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries8-9/Tales of the Unexpected - 901 - skeleton in the cupboard.mp4"
+    },
+    {
+     "archiveID": "tales-of-the-unexpected-1979-88",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Tales of the Unexpected (1979 - 88) Complete Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1979,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Tales of the Unexpected (1979 - 88)/Series 5 (1982 - 83)/063 - 05x12 - death in the morning.mp4",
+      "format": "h.264",
+      "sizeBytes": 160185202,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/tales-of-the-unexpected-1979-88/Tales%20of%20the%20Unexpected%20%281979%20-%2088%29/Series%205%20%281982%20-%2083%29/063%20-%2005x12%20-%20death%20in%20the%20morning.mp4"
     }
    ]
   }
  ],
- "episodesCount": 8,
+ "episodesCount": 9,
  "canonicalEpisodesCount": 112
 }

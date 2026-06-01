@@ -22,6 +22,42 @@
    "seasonNumber": null,
    "episodes": [
     {
+     "archiveID": "all-creatures-great-and-small-series-7",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "All Creatures Great and Small (1978 Final Series 7)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1990,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "All Creatures Great and Small S07E13 - Brotherly Love  (Christmas Special 1990).mp4",
+      "format": "h.264",
+      "sizeBytes": 524233955,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-7/All%20Creatures%20Great%20and%20Small%20S07E13%20-%20Brotherly%20Love%20%20%28Christmas%20Special%201990%29.mp4"
+    },
+    {
+     "archiveID": "all-creatures-great-and-small-series-3_202303",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "All Creatures Great and Small (1978 Series 3)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1979,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "All Creatures Great and Small S03E15 - The Lord God Made Them All (1983 Christmas Special).mp4",
+      "format": "h.264",
+      "sizeBytes": 526752345,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-3_202303/All%20Creatures%20Great%20and%20Small%20S03E15%20-%20The%20Lord%20God%20Made%20Them%20All%20%281983%20Christmas%20Special%29.mp4"
+    },
+    {
      "archiveID": "all-creatures-great-and-small-series-4",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -78,6 +114,6 @@
    ]
   }
  ],
- "episodesCount": 3,
+ "episodesCount": 5,
  "canonicalEpisodesCount": 87
 }

@@ -44,6 +44,24 @@
    "seasonNumber": null,
    "episodes": [
     {
+     "archiveID": "the-outer-limits-1995_202304",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Outer Limits (1995)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Outer Limits (1995)/Season 1/The.Outer.Limits.The.New.Series.S01E01-02.DVDRip.XviD-SAiNTS.mp4",
+      "format": "h.264",
+      "sizeBytes": 551988070,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-outer-limits-1995_202304/The%20Outer%20Limits%20%281995%29/Season%201/The.Outer.Limits.The.New.Series.S01E01-02.DVDRip.XviD-SAiNTS.mp4"
+    },
+    {
      "archiveID": "the-outer-limits-s-1e-1-1963-colorized",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -82,6 +100,6 @@
    ]
   }
  ],
- "episodesCount": 3,
+ "episodesCount": 4,
  "canonicalEpisodesCount": 49
 }

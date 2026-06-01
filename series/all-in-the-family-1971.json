@@ -1,0 +1,82 @@
+{
+ "version": 2,
+ "seriesID": "all-in-the-family-1971",
+ "tvmazeID": 1784,
+ "title": "All in the Family",
+ "yearStart": 1971,
+ "yearEnd": 1979,
+ "overview": "All in the Family centered around the Bunker family who lived in a home located at 704 Houser Street in Queens, New York. Archie Bunker was the main character, and what a character he was. He was televisons most famous bigot, crass and down right rude. Yet he was loveable, with a soft side just beneath the surface. Edith Bunker was his somewhat dizzy wife whom he called \"Dingbat\". Edith put up with Archie and had qualities about her that made her one of television's most unforgetable characters. Also living in the Bunker household were Archie and Edith's daughter, Gloria, and her husband Mike, or \"Meathead\".",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/605/1513713.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Family"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "all-in-the-family-norman-lears-picks-vhs-mkv-encode",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "All In The Family (VHS Rip from TVLand - Norman Lear's Picks)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1971,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "All In The Family - Norman Lear's Picks (VHS) MKV Encode.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 1719218001,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/all-in-the-family-norman-lears-picks-vhs-mkv-encode/All%20In%20The%20Family%20-%20Norman%20Lear%27s%20Picks%20%28VHS%29%20MKV%20Encode.mp4"
+    },
+    {
+     "archiveID": "allinthefamily-4",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "All in the Family (2 hrs.)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1974,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Allinthefamily4.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 2295343689,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/allinthefamily-4/Allinthefamily4.mp4"
+    },
+    {
+     "archiveID": "allinthe-family-special-at-end",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "All in the Family (5 hrs.)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1973,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "AllintheFamily special at end.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 5800759363,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/allinthe-family-special-at-end/AllintheFamily%20special%20at%20end.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 210
+}

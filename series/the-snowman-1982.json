@@ -1,0 +1,46 @@
+{
+ "version": 2,
+ "seriesID": "the-snowman-1982",
+ "tvmazeID": 65563,
+ "title": "The Snowman",
+ "yearStart": 1982,
+ "yearEnd": 2012,
+ "overview": "The Snowman, created and illustrated by Raymond Briggs, is one of the world's most popular and iconic picture books which perfectly captures the wonder and innocence of childhood. This timeless and magical tale tells a story of imagination and friendship as well as love and loss.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/433/1083855.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Adventure",
+  "Children"
+ ],
+ "networks": [
+  "Channel 4"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1982,
+   "episodes": [
+    {
+     "archiveID": "TheSnowman_201305",
+     "seasonNumber": 1982,
+     "episodeNumber": 1,
+     "title": "The Snowman",
+     "overview": "This timeless and magical tale tells a story of imagination and friendship as well as love and loss.",
+     "stillURL": null,
+     "airDate": "1982-12-26",
+     "year": 1982,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Snowman .mp4",
+      "format": "h.264",
+      "sizeBytes": 187071819,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TheSnowman_201305/The%20Snowman%20.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 2
+}

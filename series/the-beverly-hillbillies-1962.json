@@ -23,24 +23,6 @@
      "archiveID": "thebeverlyhillbilliestheclampettsstrikeoilhq",
      "seasonNumber": 1,
      "episodeNumber": 1,
-     "title": "The Beverly Hillbillies - The Clampetts Strike Oil S01 E01",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/sEZs4szkwBXIK3DOm37MnQN9fIe.jpg",
-     "airDate": null,
-     "year": 1962,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Beverly Hillbillies - The Clampetts Strike Oil HQ.mp4",
-      "format": "h.264",
-      "sizeBytes": 201133508,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/thebeverlyhillbilliestheclampettsstrikeoilhq/The Beverly Hillbillies - The Clampetts Strike Oil HQ.mp4"
-    },
-    {
-     "archiveID": "aqn-3-jci-oqpyb-uymm-vuq-jtr-2-k-0p-rt-qjt-6ym-0-uvl-d-7-auot-9-ju-pc-bz-o-mae-t",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
      "title": "The Clampetts Strike Oil",
      "overview": "Jed Clampett is told by a representative of an oil company that the swamp behind his shack is full of oil. (The oil company employee has been hauled in by Jed's daughter Elly May who asks whether she can keep him.) Later, Mr. Brewster, the head of the oil company, does a deal with Jed. Jed tells Cousin Pearl that he'll receive 25 to 100 of \"some new kind of dollar.\" Pearl, thinking Jed has been \"slickered\", asks what kind of dollar he's talking about. \"Million dollars,\" Granny, Jed's mother-in-law, replies. \"Jed, you're a millionaire,\" Pearl says. \"Yeah, that's what that Brewster fella said.\" Pearl convinces Jed to move to Beverly Hills, California (she pronounces it \"Cal-i-forn-ee\") and volunteers her son, Jethro, to drive Jed, Elly May and Granny there. Upon arriving, Granny complains the hills aren't that high. Jed says at least there are hills and \"we'll be among our own kind of people.\" The Clampett clan mistakes their new home for a prison and the groundskeepers for prisoners. The Clampetts end up in jail, but Milburn Drysdale, their new banker, gets them freed. But, as Drysdale tries to take the Clampetts to their new mansion, the foursome flee, fearing they're going to prison.",
      "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190209.jpg",
@@ -48,12 +30,12 @@
      "year": 1962,
      "runtimeSeconds": 1800,
      "videoFile": {
-      "name": "AQN3JciOQPybUymmVUqJTR2K0pRtQJt6ym0UVlD7AUOT9JuPcBz-oMAeTYT_JlS5s450eUZacLKGcSrlM6Yrp6Ks.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 150677529,
+      "name": "The Beverly Hillbillies - The Clampetts Strike Oil HQ.mp4",
+      "format": "h.264",
+      "sizeBytes": 201133508,
       "tier": 2
      },
-     "downloadURL": "https://archive.org/download/aqn-3-jci-oqpyb-uymm-vuq-jtr-2-k-0p-rt-qjt-6ym-0-uvl-d-7-auot-9-ju-pc-bz-o-mae-t/AQN3JciOQPybUymmVUqJTR2K0pRtQJt6ym0UVlD7AUOT9JuPcBz-oMAeTYT_JlS5s450eUZacLKGcSrlM6Yrp6Ks.mp4"
+     "downloadURL": "https://archive.org/download/thebeverlyhillbilliestheclampettsstrikeoilhq/The Beverly Hillbillies - The Clampetts Strike Oil HQ.mp4"
     },
     {
      "archiveID": "thebeverlyhillbilliesgettingsettledhq",
@@ -169,6 +151,24 @@
      "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep13_Home_For_Christmas/BH13_Home_For_Christmas.mp4"
     },
     {
+     "archiveID": "TheBeverlyHillbillies",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Beverly Hillbillies",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Beverly Hillbillies/Season 1/The Beverly Hillbillies - S01E36 - Jethro's Friend.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 238416599,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TheBeverlyHillbillies/The%20Beverly%20Hillbillies/Season%201/The%20Beverly%20Hillbillies%20-%20S01E36%20-%20Jethro%27s%20Friend.mp4"
+    },
+    {
      "archiveID": "The_Beverly_Hillbillies",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -185,10 +185,28 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/The_Beverly_Hillbillies/The_Clampets_Strike_Oil.mp4"
+    },
+    {
+     "archiveID": "aqn-3-jci-oqpyb-uymm-vuq-jtr-2-k-0p-rt-qjt-6ym-0-uvl-d-7-auot-9-ju-pc-bz-o-mae-t",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Clampetts Strike Oil",
+     "overview": "Jed Clampett is told by a representative of an oil company that the swamp behind his shack is full of oil. (The oil company employee has been hauled in by Jed's daughter Elly May who asks whether she can keep him.) Later, Mr. Brewster, the head of the oil company, does a deal with Jed. Jed tells Cousin Pearl that he'll receive 25 to 100 of \"some new kind of dollar.\" Pearl, thinking Jed has been \"slickered\", asks what kind of dollar he's talking about. \"Million dollars,\" Granny, Jed's mother-in-law, replies. \"Jed, you're a millionaire,\" Pearl says. \"Yeah, that's what that Brewster fella said.\" Pearl convinces Jed to move to Beverly Hills, California (she pronounces it \"Cal-i-forn-ee\") and volunteers her son, Jethro, to drive Jed, Elly May and Granny there. Upon arriving, Granny complains the hills aren't that high. Jed says at least there are hills and \"we'll be among our own kind of people.\" The Clampett clan mistakes their new home for a prison and the groundskeepers for prisoners. The Clampetts end up in jail, but Milburn Drysdale, their new banker, gets them freed. But, as Drysdale tries to take the Clampetts to their new mansion, the foursome flee, fearing they're going to prison.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/476/1190209.jpg",
+     "airDate": null,
+     "year": 1962,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "AQN3JciOQPybUymmVUqJTR2K0pRtQJt6ym0UVlD7AUOT9JuPcBz-oMAeTYT_JlS5s450eUZacLKGcSrlM6Yrp6Ks.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 150677529,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/aqn-3-jci-oqpyb-uymm-vuq-jtr-2-k-0p-rt-qjt-6ym-0-uvl-d-7-auot-9-ju-pc-bz-o-mae-t/AQN3JciOQPybUymmVUqJTR2K0pRtQJt6ym0UVlD7AUOT9JuPcBz-oMAeTYT_JlS5s450eUZacLKGcSrlM6Yrp6Ks.mp4"
     }
    ]
   }
  ],
- "episodesCount": 9,
+ "episodesCount": 10,
  "canonicalEpisodesCount": 274
 }

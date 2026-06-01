@@ -25,24 +25,6 @@
      "archiveID": "s01e01.The.Speckled.Band",
      "seasonNumber": 1,
      "episodeNumber": 1,
-     "title": "Sherlock Holmes (1964) TV Series",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/eroaHmsBZXTsL64oo72Yi3eJaiz.jpg",
-     "airDate": null,
-     "year": 1964,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "s01e01.The.Speckled.Band.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 105116138,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/s01e01.The.Speckled.Band/s01e01.The.Speckled.Band.mp4"
-    },
-    {
-     "archiveID": "SherlockHolmes-TheCaseoftheCunninghamHeritage",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
      "title": "The Case of the Cunningham Heritage",
      "overview": null,
      "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/538/1346582.jpg",
@@ -50,12 +32,12 @@
      "year": 1954,
      "runtimeSeconds": 1800,
      "videoFile": {
-      "name": "TheCaseoftheCunninghamHeritage.mp4",
-      "format": "h.264",
-      "sizeBytes": 161421930,
-      "tier": 2
+      "name": "s01e01.The.Speckled.Band.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 105116138,
+      "tier": 1
      },
-     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheCunninghamHeritage/TheCaseoftheCunninghamHeritage.mp4"
+     "downloadURL": "https://archive.org/download/s01e01.The.Speckled.Band/s01e01.The.Speckled.Band.mp4"
     },
     {
      "archiveID": "SherlockHolmes-TheCaseofLadyBeryl",
@@ -387,6 +369,24 @@
      "downloadURL": "https://archive.org/download/SherlockHolmes-TheMotherHubbardCase/SherlockHolmes-TheMotherHubbardCase.mp4"
     },
     {
+     "archiveID": "sherlock-holmes-tv",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Sherlock Holmes TV",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Sherlock Holmes THE VIOLENT SUITOR.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 121122467,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/sherlock-holmes-tv/Sherlock%20Holmes%20THE%20VIOLENT%20SUITOR.mp4"
+    },
+    {
      "archiveID": "SherlockHolmesTheChristmasPudding",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -439,10 +439,28 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-1984_202303/The Adventures of Sherlock Holmes S1E06 - The Speckled Band.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseoftheCunninghamHeritage",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Case of the Cunningham Heritage",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/538/1346582.jpg",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "TheCaseoftheCunninghamHeritage.mp4",
+      "format": "h.264",
+      "sizeBytes": 161421930,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheCunninghamHeritage/TheCaseoftheCunninghamHeritage.mp4"
     }
    ]
   }
  ],
- "episodesCount": 23,
+ "episodesCount": 24,
  "canonicalEpisodesCount": 39
 }

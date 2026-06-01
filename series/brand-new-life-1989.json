@@ -111,8 +111,31 @@
      "downloadURL": "https://archive.org/download/brand-new-life.s-01e-05.even-housekeepers-sing-the-blues.vhsrip/brand new life.s01e05.even housekeepers sing the blues.vhsrip.mp4"
     }
    ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "brand-new-life-honeymooners",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Brand New Life ( Honeymooners)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Brand New Life (Honeymooners).mp4",
+      "format": "h.264",
+      "sizeBytes": 602489566,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/brand-new-life-honeymooners/Brand%20New%20Life%20%28Honeymooners%29.mp4"
+    }
+   ]
   }
  ],
- "episodesCount": 5,
+ "episodesCount": 6,
  "canonicalEpisodesCount": 5
 }

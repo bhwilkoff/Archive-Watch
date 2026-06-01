@@ -1,0 +1,86 @@
+{
+ "version": 2,
+ "seriesID": "many-happy-returns-1964",
+ "tvmazeID": 41830,
+ "title": "Many Happy Returns",
+ "yearStart": 1964,
+ "yearEnd": 1965,
+ "overview": "Light sitcom about the return window of a department store and the unrelenting guy who runs it.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/379/948936.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
+    {
+     "archiveID": "ManyHappyReturnsEp.11TheHouseDivided",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "The House Divided",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1964-12-02",
+     "year": 1964,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Many-Happy-Returns-_Ep.-11-The-House-Divided_.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 213980369,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ManyHappyReturnsEp.11TheHouseDivided/Many-Happy-Returns-_Ep.-11-The-House-Divided_.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "ManyHappyReturnsPREMIERE",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Many Happy Returns (PREMIERE)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Many-Happy-Returns-_PREMIERE_.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 197935654,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ManyHappyReturnsPREMIERE/Many-Happy-Returns-_PREMIERE_.mp4"
+    },
+    {
+     "archiveID": "TOT_Many_Happy_Returns",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Many Happy Returns (aka: Invaders at Ground Zero)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1952,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "TOT_Many_Happy_Returns.mp4",
+      "format": "h.264",
+      "sizeBytes": 168676266,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TOT_Many_Happy_Returns/TOT_Many_Happy_Returns.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 26
+}

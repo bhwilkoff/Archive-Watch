@@ -38,6 +38,24 @@
      "downloadURL": "https://archive.org/download/last-of-the-summer-wine-s-1-e-02-short-back-and-palais-glide/Last of the Summer Wine S1E02 - Short Back and Palais Glide.mp4"
     },
     {
+     "archiveID": "last-of-the-summer-wine-series-01",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Last of the Summer Wine (Series 1)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1973,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Short Back & Palais Guide S01Ep02.mp4",
+      "format": "h.264",
+      "sizeBytes": 175813875,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/last-of-the-summer-wine-series-01/Short%20Back%20%26%20Palais%20Guide%20S01Ep02.mp4"
+    },
+    {
      "archiveID": "last-of-the-summer-wine-series-12",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -184,6 +202,6 @@
    ]
   }
  ],
- "episodesCount": 9,
+ "episodesCount": 10,
  "canonicalEpisodesCount": 293
 }

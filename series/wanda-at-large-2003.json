@@ -1,0 +1,63 @@
+{
+ "version": 2,
+ "seriesID": "wanda-at-large-2003",
+ "tvmazeID": 15728,
+ "title": "Wanda at Large",
+ "yearStart": 2003,
+ "yearEnd": 2003,
+ "overview": "Wanda Hawkins is a stand up comic who is also working as a correspondent on a political talk show in Wshington, D.C. while at home, Wanda must manage her sister-in-law who is raising two children.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/53/132697.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "FOX"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "wanda-at-large-2003",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Wanda at Large (2003–)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 2003,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Wanda at Large (2003–) watch on TUBI -Wanda Sykes/Season 1 - 4 of 6 eps/Wanda at Large S01-E06 - Alma Mater.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 135263298,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/wanda-at-large-2003/Wanda%20at%20Large%20%282003%E2%80%93%29%20watch%20on%20TUBI%20-Wanda%20Sykes/Season%201%20-%204%20of%206%20eps/Wanda%20at%20Large%20S01-E06%20-%20Alma%20Mater.mp4"
+    },
+    {
+     "archiveID": "vts-01-1_20240725_0301",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Wanda at Large (3 episodes)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 2003,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "VTS_02_1.mp4",
+      "format": "h.264",
+      "sizeBytes": 184631767,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/vts-01-1_20240725_0301/VTS_02_1.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 19
+}

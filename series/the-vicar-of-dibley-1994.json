@@ -1,0 +1,63 @@
+{
+ "version": 2,
+ "seriesID": "the-vicar-of-dibley-1994",
+ "tvmazeID": 1530,
+ "title": "The Vicar of Dibley",
+ "yearStart": 1994,
+ "yearEnd": 2015,
+ "overview": "Award-winning sitcom starring Dawn French who is assigned as the Vicar of the rural parish of Dibley.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/8/21325.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "BBC One"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "vo-d-s-01-e-04-the-window-and-the-weather.avi",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "1994 Vicker of Dibley Complete Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1994,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "VoD S03E02 Winter.avi.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 222267501,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/vo-d-s-01-e-04-the-window-and-the-weather.avi/VoD%20S03E02%20Winter.avi.mp4"
+    },
+    {
+     "archiveID": "vicar-of-dibley-s-01-e-01-arrival.avi",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Complete Vicar Of Dibley",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Vicar Of Dibley S04E01 The Handsome Stranger.mp4",
+      "format": "h.264",
+      "sizeBytes": 320708851,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/vicar-of-dibley-s-01-e-01-arrival.avi/Vicar%20Of%20Dibley%20S04E01%20The%20Handsome%20Stranger.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 14
+}

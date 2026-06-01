@@ -1,0 +1,65 @@
+{
+ "version": 2,
+ "seriesID": "mary-kate-and-ashley-in-action-2001",
+ "tvmazeID": 18516,
+ "title": "Mary-Kate and Ashley in Action!",
+ "yearStart": 2001,
+ "yearEnd": 2002,
+ "overview": "Mary-Kate and Ashley in Action! was an animated series that aired on ABC.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/63/157937.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Adventure",
+  "Children"
+ ],
+ "networks": [
+  "ABC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "mary-kate-ashley-in-action-2001-animated-show",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Mary Kate & Ashley In Action",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 2001,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Mary-Kate & Ashley In Action! E15 Big Trouble.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 467748484,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/mary-kate-ashley-in-action-2001-animated-show/Mary-Kate%20%26%20Ashley%20In%20Action%21%20E15%20Big%20Trouble.ia.mp4"
+    },
+    {
+     "archiveID": "mary-kate-and-ashley-que-divertida-es-la-neu-babala-valencia-catala",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Mary-Kate and Ashley in Action! (Valencian dub, 2009)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 2009,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Mary_Kate_and_Ashley_Què_divertida_és_la_neu!_babala_valencià_català.mp4",
+      "format": "h.264",
+      "sizeBytes": 134712846,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/mary-kate-and-ashley-que-divertida-es-la-neu-babala-valencia-catala/Mary_Kate_and_Ashley_Qu%C3%A8_divertida_%C3%A9s_la_neu%21_babala_valenci%C3%A0_catal%C3%A0.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 26
+}
