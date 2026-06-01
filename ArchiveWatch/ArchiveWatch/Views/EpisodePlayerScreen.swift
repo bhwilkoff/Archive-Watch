@@ -121,7 +121,7 @@ struct EpisodePlayerScreen: View {
                 .font(.system(size: 22, weight: .semibold))
                 .foregroundStyle(isEnabled ? .white : .white.opacity(0.3))
                 .frame(width: 64, height: 64)
-                .background(.ultraThinMaterial, in: Circle())
+                .glassEffect(in: Circle())
         }
         .buttonStyle(.card)
         .disabled(!isEnabled)

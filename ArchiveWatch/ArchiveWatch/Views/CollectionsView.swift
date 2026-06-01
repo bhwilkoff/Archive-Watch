@@ -13,7 +13,7 @@ struct CollectionsView: View {
         // CollectionMetadata.all so CollectionsView + BrowseView never
         // drift. Order follows the shared catalog.
         CollectionMetadata.all.map { entry in
-            let matching = store.catalog?.items.filter { $0.collections.contains(entry.id) } ?? []
+            let matching = store.visibleItems.filter { $0.collections.contains(entry.id) }
             return CollectionCardData(
                 id: entry.id,
                 title: entry.title,

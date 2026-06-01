@@ -20,5 +20,8 @@ struct ArchiveWatchApp: App {
                 .environment(router)
         }
         .modelContainer(for: [ContentItem.self, WatchProgress.self, Favorite.self])
+        .backgroundTask(.appRefresh(BackgroundRefresh.identifier)) {
+            await BackgroundRefresh.run()
+        }
     }
 }

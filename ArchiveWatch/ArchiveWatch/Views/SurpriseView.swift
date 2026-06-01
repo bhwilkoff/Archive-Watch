@@ -89,7 +89,7 @@ struct RandomMovieCard: View {
     let seed: Int
 
     private var pick: Catalog.Item? {
-        randomItem(from: playablePool(store.catalog?.items), seed: UInt64(seed))
+        randomItem(from: playablePool(store.visibleItems), seed: UInt64(seed))
     }
 
     var body: some View {
@@ -124,7 +124,7 @@ struct RandomCategoryCard: View {
         var rng = SplitMix(seed: UInt64(seed &+ 7))
         let shuffledCats = cats.shuffled(using: &rng)
         for c in shuffledCats {
-            let pool = playablePool(store.catalog?.items).filter { $0.contentType == c.id }
+            let pool = playablePool(store.visibleItems).filter { $0.contentType == c.id }
             if let pick = randomItem(from: pool, seed: UInt64(seed &+ 7)) {
                 return (c, pick)
             }
@@ -160,7 +160,8 @@ struct RandomDecadeCard: View {
     let seed: Int
 
     private var pick: (decade: Int, item: Catalog.Item)? {
-        guard let items = store.catalog?.items else { return nil }
+        let items = store.visibleItems
+        guard !items.isEmpty else { return nil }
         var rng = SplitMix(seed: UInt64(seed &+ 13))
         let decades = Array(Set(items.compactMap { $0.decade })).shuffled(using: &rng)
         for d in decades {

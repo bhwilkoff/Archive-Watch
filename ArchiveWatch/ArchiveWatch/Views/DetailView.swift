@@ -13,6 +13,7 @@ enum DetailFocusTarget: Hashable {
 }
 
 struct DetailView: View {
+    static let viewingActivityType = "com.bhwilkoff.archivewatch.viewing"
     let item: Catalog.Item
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
@@ -49,9 +50,21 @@ struct DetailView: View {
                 }
             }
             .background(Color.black)
+            // NSUserActivity (Decision 015): advertises the open title to
+            // Siri suggestions, Spotlight, and Handoff. Full "Add to Up
+            // Next" additionally needs `NSUserActivityTypes` declared in
+            // Info.plist with this type string (see SCRATCHPAD next steps).
+            .userActivity(Self.viewingActivityType, isActive: true) { activity in
+                // Note: persistentIdentifier + isEligibleForPrediction are
+                // iOS-only; on tvOS only handoff + search are available.
+                activity.title = item.title
+                activity.userInfo = ["archiveID": item.archiveID]
+                activity.isEligibleForHandoff = true
+                activity.isEligibleForSearch = true
+            }
             .fullScreenCover(isPresented: $isPlaying) {
                 if let url = item.videoURLParsed {
-                    PlayerScreen(url: url, archiveID: item.archiveID)
+                    PlayerScreen(url: url, archiveID: item.archiveID, catalogItem: item)
                 }
             }
             .defaultFocus($focusTarget, .play, priority: .userInitiated)
@@ -289,9 +302,10 @@ struct DetailView: View {
     }
 
     private var relatedItems: [Catalog.Item] {
-        guard let catalog = store.catalog else { return [] }
+        let pool = store.visibleItems
+        guard !pool.isEmpty else { return [] }
         var scored: [(Catalog.Item, Int)] = []
-        for other in catalog.items where other.archiveID != item.archiveID {
+        for other in pool where other.archiveID != item.archiveID {
             var score = 0
             if let d = item.director, !d.isEmpty, d == other.director { score += 100 }
             let sharedCollections = Set(item.collections).intersection(other.collections)
@@ -391,6 +405,7 @@ struct DetailView: View {
 struct PlayerScreen: View {
     let url: URL
     let archiveID: String
+    var catalogItem: Catalog.Item? = nil
     @Environment(\.modelContext) private var modelContext
     @State private var player: AVPlayer?
     @State private var timeObserver: Any?
@@ -399,7 +414,7 @@ struct PlayerScreen: View {
         ZStack {
             Color.black.ignoresSafeArea()
             if let player {
-                VideoPlayer(player: player)
+                AVPlayerContainer(player: player)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
             }
@@ -409,8 +424,11 @@ struct PlayerScreen: View {
     }
 
     private func setupPlayer() {
-        let item = AVPlayerItem(url: url)
-        let p = AVPlayer(playerItem: item)
+        let playerItem = AVPlayerItem(url: url)
+        if let catalogItem {
+            playerItem.externalMetadata = makeExternalMetadata(for: catalogItem)
+        }
+        let p = AVPlayer(playerItem: playerItem)
         player = p
 
         let archiveID = self.archiveID

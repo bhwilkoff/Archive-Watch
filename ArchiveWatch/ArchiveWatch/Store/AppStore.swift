@@ -10,6 +10,29 @@ final class AppStore {
     var featured: Featured?
     var loadError: String?
 
+    // Decision 012: items in adult-content collections are filtered out by
+    // default on this shared 10-foot device; a Settings toggle opts back
+    // in. Persisted so the choice survives launches. Flipping it re-derives
+    // every shelf/grid through the same single chokepoint (rebuildDerived)
+    // as a catalog assignment, so the filter can never be half-applied.
+    var hideAdultContent: Bool = AppStore.loadHideAdultDefault() {
+        didSet {
+            UserDefaults.standard.set(hideAdultContent, forKey: Self.hideAdultKey)
+            rebuildDerived()
+        }
+    }
+    private static let hideAdultKey = "hideAdultContent"
+    private static func loadHideAdultDefault() -> Bool {
+        // First launch (no stored value) → ON. Default-deny for a TV.
+        guard UserDefaults.standard.object(forKey: hideAdultKey) != nil else { return true }
+        return UserDefaults.standard.bool(forKey: hideAdultKey)
+    }
+
+    /// The catalog's items with the adult filter already applied. THIS is
+    /// what every view should read instead of `catalog.items` directly, so
+    /// the Decision 012 filter cannot be bypassed by a view that forgets.
+    private(set) var visibleItems: [Catalog.Item] = []
+
     // Derived structures, rebuilt once per catalog assignment so
     // downstream views never re-filter 31k items on body recompute.
     // The old pattern — computed `items(forShelf:)` scanning catalog
@@ -25,11 +48,21 @@ final class AppStore {
     private(set) var seriesCards: [Catalog.Item] = []
 
     private func rebuildDerived() {
-        guard let items = catalog?.items else {
+        guard let allItems = catalog?.items else {
             shelfMembers = [:]; availableDecades = []; decadeCounts = [:]
             topGenres = []; browseableItems = []; seriesCards = []
+            visibleItems = []
             return
         }
+
+        // Apply the Decision 012 adult filter ONCE, here, so every derived
+        // structure below — and `visibleItems` that views read — is built
+        // from the same already-filtered set.
+        let markers = adultMarkers
+        let items: [Catalog.Item] = (hideAdultContent && !markers.isEmpty)
+            ? allItems.filter { !Self.isAdult($0, markers: markers) }
+            : allItems
+        self.visibleItems = items
 
         // Split series cards from everything else — they have different
         // semantics (no direct playable URL, route to SeriesDetailView).
@@ -146,6 +179,27 @@ final class AppStore {
     func accentColor(forCategory id: String?) -> Color {
         guard let id, let hex = featured?.category(id: id)?.accent else { return .accentColor }
         return Color(hex: hex) ?? .accentColor
+    }
+
+    // MARK: - Adult-content filter (Decision 012)
+
+    /// Adult-content markers from `featured.json.adultCollections`, lowercased.
+    /// We deliberately drop the `"fav-"` entry: it's a per-user favorites
+    /// prefix that nearly every popular title carries, not an adult signal —
+    /// treating it as one would hide most of the catalog. Falls back to a
+    /// built-in marker list if `featured.json` omits the field.
+    private var adultMarkers: [String] {
+        let raw = featured?.adultCollections
+            ?? ["pron", "adult", "erotica", "sexploitation", "nudism", "mature-content"]
+        return raw.map { $0.lowercased() }.filter { $0 != "fav-" }
+    }
+
+    /// True when any of the item's collection ids contains an adult marker.
+    private static func isAdult(_ item: Catalog.Item, markers: [String]) -> Bool {
+        item.collections.contains { col in
+            let c = col.lowercased()
+            return markers.contains { c.contains($0) }
+        }
     }
 }
 

@@ -17,6 +17,7 @@ import SwiftUI
 struct RootView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    private let inbox = IntentInbox.shared
 
     var body: some View {
         @Bindable var router = router
@@ -52,9 +53,50 @@ struct RootView: View {
                     SurpriseView().attachDestinations()
                 }
             }
+            Tab("Settings", systemImage: "gearshape.fill", value: Router.Tab.settings) {
+                NavigationStack(path: $router.settingsPath) {
+                    SettingsView().attachDestinations()
+                }
+            }
         }
         .tabViewStyle(.sidebarAdaptable)
         .preferredColorScheme(.dark)
+        // Keeps the Top Shelf snapshot (App Group) in sync with the
+        // catalog + watch progress. No-ops until the App Group exists.
+        .background { TopShelfUpdater() }
+        // Siri / Shortcuts requests (Decision 015). Handle one set before
+        // we appeared (cold launch via "Hey Siri…") and any set while live.
+        .task { handleIntent(inbox.request) }
+        .onChange(of: inbox.request) { _, req in handleIntent(req) }
+    }
+
+    /// Route a Siri/Shortcuts request into the live navigation state.
+    private func handleIntent(_ request: IntentInbox.Request?) {
+        guard let request else { return }
+        switch request {
+        case .surprise:
+            router.surprisePath = NavigationPath()
+            router.tab = .surprise
+        case .randomFilm:
+            if let film = store.visibleItems.filter({ $0.videoURLParsed != nil }).randomElement() {
+                router.homePath = NavigationPath()
+                router.tab = .home
+                router.homePath.append(film)
+            }
+        case .randomCategory:
+            if let category = store.featured?.categories.randomElement() {
+                router.browsePath = NavigationPath()
+                router.tab = .browse
+                router.browsePath.append(BrowseFilter(category: category.id))
+            }
+        case .openItem(let id):
+            if let item = store.catalog?.items.first(where: { $0.archiveID == id }) {
+                router.homePath = NavigationPath()
+                router.tab = .home
+                router.homePath.append(item)
+            }
+        }
+        inbox.request = nil
     }
 
     /// Sidebar tab selection always lands at that tab's root view.
@@ -88,6 +130,7 @@ struct RootView: View {
         case .collections: router.collectionsPath = NavigationPath()
         case .search:      router.searchPath = NavigationPath()
         case .surprise:    router.surprisePath = NavigationPath()
+        case .settings:    router.settingsPath = NavigationPath()
         }
     }
 }
