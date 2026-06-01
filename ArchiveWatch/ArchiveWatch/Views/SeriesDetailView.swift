@@ -158,7 +158,13 @@ struct SeriesDetailView: View {
 
     private var episodeCountLabel: String? {
         let n = series?.episodesCount ?? seriesCard.episodesCount ?? 0
-        return n > 0 ? "\(n) episode\(n == 1 ? "" : "s")" : nil
+        guard n > 0 else { return nil }
+        // "32 of 431 episodes" when we know the full canonical run and have a
+        // partial set — communicates completeness and that more are coming.
+        if let total = series?.canonicalEpisodesCount, total > n {
+            return "\(n) of \(total) episodes"
+        }
+        return "\(n) episode\(n == 1 ? "" : "s")"
     }
 
     private var seasonCountLabel: String? {
@@ -195,7 +201,25 @@ struct SeriesDetailView: View {
             episodeGrid(
                 episodes: series.seasons[safe: selectedSeasonIndex]?.episodes ?? [],
             )
-            .padding(.bottom, 80)
+            partialFooter(series: series)
+                .padding(.bottom, 80)
+        }
+    }
+
+    /// When we have only part of a show's canonical run, say so plainly —
+    /// it sets the expectation that the library keeps growing.
+    @ViewBuilder
+    private func partialFooter(series: Series) -> some View {
+        if let total = series.canonicalEpisodesCount,
+           let have = series.episodesCount, total > have {
+            HStack(spacing: 10) {
+                Image(systemName: "arrow.triangle.2.circlepath")
+                Text("\(have) of \(total) episodes available — more are added as they surface in the archive.")
+            }
+            .font(.system(size: 18, weight: .medium))
+            .foregroundStyle(.white.opacity(0.45))
+            .padding(.horizontal, 80)
+            .padding(.top, 28)
         }
     }
 
