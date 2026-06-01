@@ -59,9 +59,15 @@ final class AppStore {
         // structure below — and `visibleItems` that views read — is built
         // from the same already-filtered set.
         let markers = adultMarkers
-        let items: [Catalog.Item] = (hideAdultContent && !markers.isEmpty)
+        let filtered: [Catalog.Item] = (hideAdultContent && !markers.isEmpty)
             ? allItems.filter { !Self.isAdult($0, markers: markers) }
             : allItems
+        // Collapse duplicate uploads of the same film — Archive often has the
+        // same title 3-5x (original, colorized, HD, iPod...). They share an
+        // IMDb id, so we surface the single best copy and hide the rest from
+        // every derived list at once. Catalog data is untouched (the alternate
+        // uploads remain available); only the displayed set is deduped.
+        let items = Self.dedupedByIMDb(filtered)
         self.visibleItems = items
 
         // Split series cards from everything else — they have different
@@ -104,6 +110,35 @@ final class AppStore {
             .prefix(24)
             .map { $0.key }
         self.shelfMembers = shelves
+    }
+
+    /// Keep the best single item per IMDb id; items without an IMDb id are all
+    /// kept (we can't tell them apart). "Best" prefers a designed poster, full
+    /// enrichment, a playable MP4, then vote count — with archiveID as a final
+    /// stable tiebreak so the chosen copy never flickers between launches.
+    static func dedupedByIMDb(_ items: [Catalog.Item]) -> [Catalog.Item] {
+        func score(_ i: Catalog.Item) -> (Int, Int, String) {
+            var r = 0
+            if i.hasDesignedArtwork { r += 8 }
+            if i.enrichmentTier == "fullyEnriched" { r += 4 }
+            if (i.downloadURL ?? "").lowercased().hasSuffix(".mp4") { r += 2 }
+            if i.runtimeSeconds != nil { r += 1 }
+            return (r, i.imdbVotes ?? 0, i.archiveID)
+        }
+        var best: [String: Catalog.Item] = [:]
+        for it in items {
+            guard let id = it.imdbID, !id.isEmpty else { continue }
+            if let cur = best[id] {
+                if score(it) > score(cur) { best[id] = it }
+            } else {
+                best[id] = it
+            }
+        }
+        let winners = Set(best.values.map(\.archiveID))
+        return items.filter { it in
+            guard let id = it.imdbID, !id.isEmpty else { return true }
+            return winners.contains(it.archiveID)
+        }
     }
 
     func loadBundledData() async {

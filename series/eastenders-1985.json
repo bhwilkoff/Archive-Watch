@@ -38,24 +38,6 @@
      "downloadURL": "https://archive.org/download/east-enders-episode-1168-8-august-1995_202403/EastEnders Episode 1168 (8 August 1995).mp4"
     },
     {
-     "archiveID": "east-enders-episode-1169-10-august-1995_202403",
-     "seasonNumber": null,
-     "episodeNumber": 116,
-     "title": "EastEnders: Episode 1169 (10 August 1995)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/z4jgyI5TpoRZiJTNchkVkMrGQyz.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "EastEnders Episode 1169 (10 August 1995).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 103236179,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/east-enders-episode-1169-10-august-1995_202403/EastEnders Episode 1169 (10 August 1995).mp4"
-    },
-    {
      "archiveID": "east-enders-episode-1171-15-august-1995_202403",
      "seasonNumber": null,
      "episodeNumber": 117,
@@ -72,24 +54,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/east-enders-episode-1171-15-august-1995_202403/EastEnders Episode 1171 (15 August 1995).mp4"
-    },
-    {
-     "archiveID": "east-enders-episode-1172-17-august-1995_202403",
-     "seasonNumber": null,
-     "episodeNumber": 117,
-     "title": "EastEnders: Episode 1172 (17 August 1995)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/z4jgyI5TpoRZiJTNchkVkMrGQyz.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "EastEnders Episode 1172 (17 August 1995).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 86393593,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/east-enders-episode-1172-17-august-1995_202403/EastEnders Episode 1172 (17 August 1995).mp4"
     },
     {
      "archiveID": "east-enders-episode-1246-5-february-1996_202403",
@@ -184,6 +148,6 @@
    ]
   }
  ],
- "episodesCount": 9,
+ "episodesCount": 7,
  "canonicalEpisodesCount": 7253
 }

@@ -151,24 +151,6 @@
      "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-2x-e-1-31-october-1985/Alas Smith and Jones - S2xE1 (31 October 1985).ia.mp4"
     },
     {
-     "archiveID": "alas-smith-and-jones-s-4x-e-1-15-october-1987",
-     "seasonNumber": null,
-     "episodeNumber": 1,
-     "title": "Alas Smith and Jones - Series 4, Episode 1 (1987)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
-     "airDate": null,
-     "year": 1987,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Alas Smith and Jones - S4xE1 (15 October 1987).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 175991945,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-4x-e-1-15-october-1987/Alas Smith and Jones - S4xE1 (15 October 1987).ia.mp4"
-    },
-    {
      "archiveID": "alas-smith-and-jones-s-2x-e-2-7-november-1985",
      "seasonNumber": null,
      "episodeNumber": 2,
@@ -185,24 +167,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-2x-e-2-7-november-1985/Alas Smith and Jones - S2xE2 (7 November 1985).ia.mp4"
-    },
-    {
-     "archiveID": "alas-smith-and-jones-s-3x-e-2-25-september-1986",
-     "seasonNumber": null,
-     "episodeNumber": 2,
-     "title": "Alas Smith and Jones - Series 3, Episode 2 (1986)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
-     "airDate": null,
-     "year": 1986,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Alas Smith and Jones - S3xE2 (25 September 1986).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 180917653,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-3x-e-2-25-september-1986/Alas Smith and Jones - S3xE2 (25 September 1986).ia.mp4"
     },
     {
      "archiveID": "alas-smith-and-jones-s-2x-e-3-14-november-1985",
@@ -223,24 +187,6 @@
      "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-2x-e-3-14-november-1985/Alas Smith and Jones - S2xE3 (14 November 1985).ia.mp4"
     },
     {
-     "archiveID": "alas-smith-and-jones-s-3x-e-3-2-october-1986",
-     "seasonNumber": null,
-     "episodeNumber": 3,
-     "title": "Alas Smith and Jones - Series 3, Episode 3 (1986)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
-     "airDate": null,
-     "year": 1986,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Alas Smith and Jones - S3xE3 (2 October 1986).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 86701595,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-3x-e-3-2-october-1986/Alas Smith and Jones - S3xE3 (2 October 1986).mp4"
-    },
-    {
      "archiveID": "alas-smith-and-jones-s-1x-e-4-21-february-1984-alt-version",
      "seasonNumber": null,
      "episodeNumber": 4,
@@ -257,42 +203,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-1x-e-4-21-february-1984-alt-version/Alas Smith and Jones - S1xE4 (21 February 1984, alt version).ia.mp4"
-    },
-    {
-     "archiveID": "alas-smith-and-jones-s-2x-e-4-21-november-1985",
-     "seasonNumber": null,
-     "episodeNumber": 4,
-     "title": "Alas Smith and Jones - Series 2, Episode 4 (1985)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
-     "airDate": null,
-     "year": 1985,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Alas Smith and Jones - S2xE4 (21 November 1985).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 165301272,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-2x-e-4-21-november-1985/Alas Smith and Jones - S2xE4 (21 November 1985).ia.mp4"
-    },
-    {
-     "archiveID": "alas-smith-and-jones-s-3x-e-4-9-october-1986",
-     "seasonNumber": null,
-     "episodeNumber": 4,
-     "title": "Alas Smith and Jones - Series 3, Episode 4 (1986)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
-     "airDate": null,
-     "year": 1986,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Alas Smith and Jones - S3xE4 (9 October 1986).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 173248526,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-3x-e-4-9-october-1986/Alas Smith and Jones - S3xE4 (9 October 1986).ia.mp4"
     },
     {
      "archiveID": "alas-smith-and-jones-s-2x-e-5-28-november-1985",
@@ -313,24 +223,6 @@
      "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-2x-e-5-28-november-1985/Alas Smith and Jones - S2xE5 (28 November 1985).ia.mp4"
     },
     {
-     "archiveID": "alas-smith-and-jones-s-3x-e-5-16-october-1986",
-     "seasonNumber": null,
-     "episodeNumber": 5,
-     "title": "Alas Smith and Jones - Series 3, Episode 5 (1986)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
-     "airDate": null,
-     "year": 1986,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Alas Smith and Jones - S3xE5 (16 October 1986).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 86789169,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-3x-e-5-16-october-1986/Alas Smith and Jones - S3xE5 (16 October 1986).mp4"
-    },
-    {
      "archiveID": "alas-smith-and-jones-s-2x-e-6-5-december-1985",
      "seasonNumber": null,
      "episodeNumber": 6,
@@ -347,24 +239,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-2x-e-6-5-december-1985/Alas Smith and Jones - S2xE6 (5 December 1985).ia.mp4"
-    },
-    {
-     "archiveID": "alas-smith-and-jones-s-3x-e-6-23-october-1986",
-     "seasonNumber": null,
-     "episodeNumber": 6,
-     "title": "Alas Smith and Jones - Series 3, Episode 6 (1986)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/nBOcE8rzWngAo4lTGJGXRu0vipE.jpg",
-     "airDate": null,
-     "year": 1986,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Alas Smith and Jones - S3xE6 (23 October 1986).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 83590948,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/alas-smith-and-jones-s-3x-e-6-23-october-1986/Alas Smith and Jones - S3xE6 (23 October 1986).mp4"
     },
     {
      "archiveID": "alas-smith-and-jones-s-4x-e-7-26-november-1987",
@@ -495,6 +369,6 @@
    ]
   }
  ],
- "episodesCount": 26,
+ "episodesCount": 19,
  "canonicalEpisodesCount": 62
 }

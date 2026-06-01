@@ -57,24 +57,6 @@
      "downloadURL": "https://archive.org/download/OSBS01E02NightOfApril14/OSB S01E02 Night of April 14.mp4"
     },
     {
-     "archiveID": "S1E2NightOfApril14",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Night of April 14th",
-     "overview": "A young Englishwoman is suddenly wracked by dreams of drowning in the ocean. She is stunned when her fiancée tells her that he has prepared a surprise honeymoon trip for them--they're sailing to New York on the passenger liner Titanic.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/n3womWGRt0AYES9xx3G3BwqWgQy.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S1E2 - Night of April 14.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 163295445,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S1E2NightOfApril14/S1E2%20-%20Night%20of%20April%2014.mp4"
-    },
-    {
      "archiveID": "S1E3EMERGENCYONLY",
      "seasonNumber": 1,
      "episodeNumber": 3,
@@ -397,24 +379,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/S1E21FrontRunner/S1E21 - front runner.mp4"
-    },
-    {
-     "archiveID": "OneStepBeyondTheRiddle",
-     "seasonNumber": 1,
-     "episodeNumber": 22,
-     "title": "The Riddle",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/iGGkp7xWB4Hk5Qtj7fyuSsyP2kK.jpg",
-     "airDate": "1959-06-16",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "OneStepBeyondTheRiddle.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 125057850,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/OneStepBeyondTheRiddle/OneStepBeyondTheRiddle.ia.mp4"
     },
     {
      "archiveID": "S1E22THERIDDLE",
@@ -1766,6 +1730,6 @@
    ]
   }
  ],
- "episodesCount": 96,
+ "episodesCount": 94,
  "canonicalEpisodesCount": 97
 }
