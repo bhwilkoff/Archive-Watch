@@ -1,1 +1,0 @@
-[validate] missing file: catalog=False featured=True
