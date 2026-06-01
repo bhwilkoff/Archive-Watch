@@ -129,9 +129,102 @@ def fetch_omdb(imdb_id, api_key, session, *, full_plot=True):
     }
 
 
+def _parse_people(v, limit=10):
+    s = _clean(v)
+    if not s:
+        return []
+    return [p.strip() for p in s.split(",") if p.strip()][:limit]
+
+
+def _parse_year(v):
+    s = _clean(v)
+    if not s:
+        return None
+    m = re.search(r"(\d{4})", s)
+    return int(m.group(1)) if m else None
+
+
+def fetch_omdb_full(api_key, session, *, imdb_id=None, title=None, year=None,
+                    full_plot=True):
+    """Fetch one OMDb record by IMDb ID (i=) OR by title (t=). Returns a
+    superset of fetch_omdb's dict that ALSO carries identity fields needed to
+    enrich an item that has no IMDb ID yet:
+
+        imdb_id, title, year, director, actors (list[str]), genres (list[str])
+
+    Returns None when OMDb has no match; raises RuntimeError on quota/HTTP.
+    This is the movie analog of resolving a show to TVmaze by title+year."""
+    params = {"apikey": api_key, "plot": "full" if full_plot else "short"}
+    if imdb_id:
+        params["i"] = imdb_id
+    elif title:
+        params["t"] = title
+        if year:
+            params["y"] = str(year)
+    else:
+        return None
+    r = session.get(OMDB_API, params=params,
+                    headers={"User-Agent": USER_AGENT}, timeout=20)
+    if r.status_code == 401:
+        raise RuntimeError("OMDb daily quota exhausted (HTTP 401)")
+    if r.status_code != 200:
+        raise RuntimeError(f"HTTP {r.status_code}")
+    d = r.json()
+    if str(d.get("Response", "")).lower() != "true":
+        return None
+    # Only accept movies/series, not episodes, for title lookups.
+    runtime = _clean(d.get("Runtime"))
+    runtime_min = None
+    if runtime:
+        m = re.match(r"(\d+)", runtime)
+        if m:
+            runtime_min = int(m.group(1))
+    return {
+        "imdb_id":        _clean(d.get("imdbID")),
+        "title":          _clean(d.get("Title")),
+        "year":           _parse_year(d.get("Year")),
+        "poster_url":     _clean(d.get("Poster")),
+        "imdb_rating":    _float_rating(d.get("imdbRating")),
+        "imdb_votes":     _int_votes(d.get("imdbVotes")),
+        "content_rating": _clean(d.get("Rated")),
+        "plot":           _clean(d.get("Plot")),
+        "writer":         _clean(d.get("Writer")),
+        "director":       _clean(d.get("Director")),
+        "actors":         _parse_people(d.get("Actors")),
+        "genres":         [g.strip() for g in (_clean(d.get("Genre")) or "").split(",") if g.strip()],
+        "runtime_min":    runtime_min,
+        "omdb_type":      _clean(d.get("Type")),
+    }
+
+
 # ---------------------------------------------------------------------------
 # Apply to a catalog item
 # ---------------------------------------------------------------------------
+
+def apply_identity(item, rec):
+    """Fill an item's IDENTITY fields (imdbID, cast, director, genres, year)
+    from an OMDb record — only where currently empty, so we never clobber
+    better data. Pairs with apply_rich (poster/rating/plot/runtime). Returns
+    True if anything changed."""
+    if not rec:
+        return False
+    changed = False
+    if rec.get("imdb_id") and not item.get("imdbID"):
+        item["imdbID"] = rec["imdb_id"]; changed = True
+    if rec.get("director") and not item.get("director"):
+        item["director"] = rec["director"]; changed = True
+    if rec.get("genres") and not item.get("genres"):
+        item["genres"] = rec["genres"]; changed = True
+    if rec.get("year") and not item.get("year"):
+        item["year"] = rec["year"]
+        item["decade"] = rec["year"] // 10 * 10
+        changed = True
+    if rec.get("actors") and not item.get("cast"):
+        item["cast"] = [{"name": n, "character": None, "order": i,
+                         "profilePath": None}
+                        for i, n in enumerate(rec["actors"])]
+        changed = True
+    return changed
 
 def apply_rich(item, rec):
     """Apply a normalized OMDb record to a single catalog item in place.
