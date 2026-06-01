@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-06-01T02:56:07Z",
+  "updated_at": "2026-06-01T03:47:58Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -102,6 +102,207 @@
     "tt0135180": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMzIxMzdlMTEtMTQwNC00ZWZjLTk5MzQtODVlNjgzNjM2Zjk4XkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_SX300.jpg",
       "fetched_at": "2026-06-01T02:56:07Z"
+    },
+    "tt0000300": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZGEzZTQ4YjctZThlZi00ODIxLWJjNzctYjliMzc1YTE2ZjFiXkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_SX300.jpg",
+      "imdb_rating": 6.9,
+      "imdb_votes": 1380,
+      "content_rating": null,
+      "plot": "An easel holds a sketch pad upon which Blackton draws a cartoonish face of a man. He makes the cartoon react by giving it wine, cigars, and a top hat. Objects magically go into the drawing--becoming part of the cartoon image, and out of the drawing--becoming physical objects again.",
+      "runtime_min": 2,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000309": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTg0NTc2ZjUtNjM5YS00OWUxLWEwMmUtODU5MjQwYzNhOTNmXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.1,
+      "imdb_votes": 1043,
+      "content_rating": "Not Rated",
+      "plot": "On a seemingly safe and dusty rural road frequented by horses and their carriages, a two-seated automobile is moving erratically. And then unexpectedly, in one glorious point-of-view shot, the vehicle dashes full-speed into an ill-starred passer-by, as the film ends with a rather enigmatic punchline: \"Oh, mother will be pleased.\" Without a doubt, the man saw stars.",
+      "runtime_min": 1,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000399": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjAzNTI3MzI0Nl5BMl5BanBnXkFtZTcwMzQ1MTYzMw@@._V1_SX300.jpg",
+      "imdb_rating": 6.1,
+      "imdb_votes": 827,
+      "content_rating": "Not Rated",
+      "plot": "Porter's sequential continuity editing links several shots to form a narrative of the famous fairy tale story of Jack and his magic beanstalk. Borrowing on cinematographic methods reminiscent of 'Georges Melies', Porter uses animation, double exposure, and trick photography to illustrate the fairy's apparitions, Jack's dream, and the fast growing beanstalk.",
+      "runtime_min": 10,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000420": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODQyZWYxZWYtNDRmZC00ZjQxLTlhZGQtM2JmZGNlYjViNGU5XkEyXkFqcGdeQXVyNDk0MDg4NDk@._V1_SX300.jpg",
+      "imdb_rating": 6.2,
+      "imdb_votes": 2833,
+      "content_rating": null,
+      "plot": "Alice dozes in a garden, awakened by a dithering white rabbit in waistcoat with pocket watch. She follows him down a hole and finds herself in a hall of many doors. A key opens a small door: eventually, she's through into a garden where a dog awaits. Later, in the rabbit's home, her size is again a problem. She tries to help a nanny with a howling baby, then a Cheshire cat directs her to a tea party where the Mad Hatter and March Hare dunk a dormouse. Expelled from the party, Alice happens on a royal processional: all the cards in the deck precede the Queen of Hearts, who welcomes then turns on Alice and calls on the royal executioner. Alice must run for her life.",
+      "runtime_min": 9,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000439": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOWUwMWMxZjEtNTMzNy00NDc4LWEyNjktYzRjZjQ4MGI4ZDZhXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 7.3,
+      "imdb_votes": 21493,
+      "content_rating": "TV-G",
+      "plot": "Among the earliest existing films in American cinema - notable as an early film to present a narrative story to tell - it depicts a group of outlaws who hold up a train and rob the passengers. They are then pursued by a Sheriff's posse. Several scenes have color included - all hand tinted.",
+      "runtime_min": 11,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000447": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYzJkYTE3NjItZWE5Ni00YzAwLTg5YWMtNDhhMTM0Njk1ZDc0XkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.4,
+      "imdb_votes": 2770,
+      "content_rating": "Not Rated",
+      "plot": "Porter's sequential continuity editing links several shots to form a narrative of firemen responding to a house fire. They leave the station with their horse drawn pumper, arrive on the scene, and effect the safe rescue of a woman from the burning house. But wait, she tells them of her child yet asleep in the burning bedroom . . .",
+      "runtime_min": 6,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000465": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTZkMDAwYWQtZGU5Mi00MmU5LWJhNTItMGQ5M2NjNWM4ZmRkXkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_SX300.jpg",
+      "imdb_rating": 7.3,
+      "imdb_votes": 1724,
+      "content_rating": "Not Rated",
+      "plot": "In this spectacular, meticulously hand-coloured movie which incorporates a plethora of never-seen-before special effects, interchanging panoramas and soft dissolves, the indefatigable director Georges Méliès presents a free adaptation of the popular theatre play \"La Biche au Bois\" by the brothers Cogniard. Following the announcement of the espousal of the beautiful young Princess Azurine and the noble Prince Bel-Azor, a baleful old witch casts a fiery and sulphurous curse on the innocent woman, and then aided by her evil minions, captures her and takes off on a blazing gilded chariot. But the valiant Prince along with the Fairy Godmother, Aurora, pursue the sorceress, from the unfathomable chasms of the eternal sea to great Neptune's realm, and finally, the abominable witch's impregnable castle. Who shall stand in the way of love?",
+      "runtime_min": 16,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000471": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjAzNTI3MzI0Nl5BMl5BanBnXkFtZTcwMzQ1MTYzMw@@._V1_SX300.jpg",
+      "imdb_rating": 5.2,
+      "imdb_votes": 520,
+      "content_rating": "Not Rated",
+      "plot": "Based on the novel by Harriet Beecher Stowe: Eliza, a slave who has a young child, pleads with Tom, another slave, to escape with her. Tom does not leave, but Eliza flees with her child. After getting some help to escape the slave traders who are looking for her, she then must try to cross the icy Ohio River if she wants to be free. Meanwhile, Tom is sold from one master to another, and his fortunes vary widely.",
+      "runtime_min": 13,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000488": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTMzMDcxMjgyNl5BMl5BanBnXkFtZTcwOTgxNjg4Mg@@._V1_SX300.jpg",
+      "imdb_rating": 6.9,
+      "imdb_votes": 842,
+      "content_rating": "Unrated",
+      "plot": "Thanks to the Fresh Air Fund, a slum child escapes his drunken mother for a day's outing in the country. Upon arriving, he and the other children are told a story about a mythical land of no pain. Rather then return to the slum at day's end, the lad seeks to journey to that beautiful land beyond the sunset.",
+      "runtime_min": 14,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000495": {
+      "poster_url": null,
+      "imdb_rating": 6.0,
+      "imdb_votes": 129,
+      "content_rating": null,
+      "plot": "Captivated by a vision of beckoning women, a man dives into the ocean, and soon finds himself walking on the ocean floor. After encountering numerous sea creatures, he comes to a giant oyster. When the oyster is opened, a strange adventure begins for the diver.",
+      "runtime_min": 12,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000497": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTNmODE1YmEtMmRjZS00ZjdkLWIxNDctMDgzNTAxN2NmOWQyXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 5.1,
+      "imdb_votes": 92,
+      "content_rating": null,
+      "plot": "A woman arriving at a train station is unaware that a nearby stranger is closely eyeing her and her purse as she leaves her carriage. As she waits for her train, the same stranger lurks nearby on the platform, so that he can make sure to sit in the same compartment with her. When the train gets underway and the woman dozes off, the stranger reveals his ill intentions.",
+      "runtime_min": 5,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000498": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjc0NWJjY2QtODAzZi00MDAyLTg3YjctYWFmODMxMzNlZDc5XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 1295,
+      "content_rating": "Not Rated",
+      "plot": "Rescued by Rover is a film about a dog. Not only is it a film about a dog it is also a film about the kidnaping of a young baby by an old woman. With these two classical Hollywood ingredients and some stunning dialogue, (It's silent!), Rescued by Rover really hits a nerve. The repeated shots provide some interest in what, surprisingly, is an entertaining example of early cinema, canine heroics and a man wearing mascara.",
+      "runtime_min": 7,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000516": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYmQ4Y2ZjODYtOTQyNy00OTI1LThkMjgtYmI4YzBlMDA5ZThmXkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 1069,
+      "content_rating": null,
+      "plot": "According to the rapid strides that electricity is making in this wonderful age we are not surprised to see in this picture an ideal hotel of the future in which everything is done by electricity. We see a couple entering the hostelry and, after registering, the clerk touches a button and away goes the baggage on to the elevator, which stops at the proper floors and the grips enter the room without the aid of anyone. Many amusing incidents follow. Finally they pay the penalty for all the latest improvements, for something goes wrong with the electric plant in the cellar and mixes the whole place up. We see all the furnishings start to turn in all directions and the unfortunate guests find themselves in the midst of the affray. They manage to get to the door and are tumbled out and rolled across the street till out of the reach of the magnetic force, where they pick up their belongings and hurry home, vowing never to enter another electric hotel.",
+      "runtime_min": 8,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000519": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNTllYmRjMGEtMTdmYS00ZTA1LWIxZDMtZTY0MmExNWE1ZTMwXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.7,
+      "imdb_votes": 438,
+      "content_rating": "Not Rated",
+      "plot": "A well-dressed woman leaves her home and takes a carriage to a department store. While she is in the store, she steals several items, and is caught by store employees. Meanwhile, a poor woman with two small children steals a loaf of bread out of desperation, and she is quickly caught and arrested. Both women are taken to the police station and then into court, to see what penalty each of them must face.",
+      "runtime_min": 8,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000525": {
+      "poster_url": null,
+      "imdb_rating": 5.4,
+      "imdb_votes": 53,
+      "content_rating": null,
+      "plot": "Three friends on their way to deliver a payroll stop for a few drinks. Two of them decide to stay for a while, but the third sets out to deliver the payroll by himself. When he never shows up, one of the friends who stayed behind is arrested for his murder and sentenced to hang.",
+      "runtime_min": 7,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000534": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BODM3Mjc1M2UtZTk4OC00NzJlLWI4MTgtMTI3Y2E0YmFlMmZiXkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 1301,
+      "content_rating": null,
+      "plot": "A magical glowing white motorcar dismembers policemen, drives up buildings, flies through outer space and can transform into a horse and carriage. This was a British effort to top Melies at his Sci-Fi/fantasy/comedy trick films.",
+      "runtime_min": 3,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000546": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZWFmZmRjZjQtYzhkNi00NWUzLWFjZjEtMmE4YzNkZTRjMjJlXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.7,
+      "imdb_votes": 2044,
+      "content_rating": "Not Rated",
+      "plot": "Adapted from Winsor McCay's films and comics of the period, this film follows the established theme: the \"Rarebit Fiend\" gorges himself on rarebit and thus suffers spectacular hallucinatory dreams.",
+      "runtime_min": 7,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000557": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNDRhMmNkMGYtYTBhMi00ODA1LTk2NDYtMDAyNDYzYTA5ZjlmXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
+      "imdb_rating": 4.7,
+      "imdb_votes": 140,
+      "content_rating": "Not Rated",
+      "plot": "Captain Clearfield, a wealthy landlord, assaults Kathleen with the help of an accomplice, but Terence O'More arrives in time to break up the attack. Clearfield then tries to get his way by intimidating Kathleen and her father, but again help arrives in time. Clearfield and his accomplice then come up with their most violent plan yet.",
+      "runtime_min": 15,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000565": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTI0NTQ1ODU5OF5BMl5BanBnXkFtZTcwNjU1ODAwMQ@@._V1_SX300.jpg",
+      "imdb_rating": 6.2,
+      "imdb_votes": 629,
+      "content_rating": null,
+      "plot": "It's December 24th, and 'Santa Claus' is busy feeding his reindeer and finishing up the toys that he will soon deliver. Meanwhile, the children in a large family hang their stockings over the fireplace, and then are put to bed. But the restless children cannot sleep, and they soon start a lively pillow fight. Back at his workshop, Santa loads up everything and begins his journey.",
+      "runtime_min": 9,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
+    },
+    "tt0000567": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjQ4MmJkZjktMDQyMi00YWY5LTg0MWEtMjllMDJmNzdkNmRkXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.8,
+      "imdb_votes": 1498,
+      "content_rating": "Not Rated",
+      "plot": "Two travelers are tormented by Satan from inn to inn and eventually experience a buggy ride through the heavens courtesy of the Devil before he takes one of them down to Hell and roasts him on a spit.",
+      "runtime_min": 17,
+      "fetched_at": "2026-06-01T03:47:58Z",
+      "schema": 2
     }
-  }
+  },
+  "schema": 2
 }
