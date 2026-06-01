@@ -83,6 +83,25 @@ const VERBOSE         = !!args.verbose;
 
 function int(v, d) { const n = parseInt(v, 10); return Number.isFinite(n) ? n : d; }
 
+// ─── Logging ────────────────────────────────────────────────────────
+//
+// Declared BEFORE the Inputs section because `info()` is called during
+// input loading (e.g. the "no TMDB token" notice below). `isTTY` is a
+// `const`, so referencing it from info()/dim() before this point throws
+// a temporal-dead-zone ReferenceError — which is exactly what broke the
+// Rebuild-catalog GitHub Action ("Cannot access 'isTTY' before
+// initialization").
+
+const isTTY = process.stderr.isTTY;
+function info(msg) { process.stderr.write(`${dim('·')} ${msg}\n`); }
+function ok(msg)   { process.stderr.write(`${green('✓')} ${msg}\n`); }
+function warn(msg) { process.stderr.write(`${yellow('!')} ${msg}\n`); }
+function fail(msg) { process.stderr.write(`${red('✗')} ${msg}\n`); }
+function dim(s)    { return isTTY ? `\x1b[2m${s}\x1b[0m` : s; }
+function green(s)  { return isTTY ? `\x1b[32m${s}\x1b[0m` : s; }
+function yellow(s) { return isTTY ? `\x1b[33m${s}\x1b[0m` : s; }
+function red(s)    { return isTTY ? `\x1b[31m${s}\x1b[0m` : s; }
+
 // ─── Inputs ─────────────────────────────────────────────────────────
 
 const featured = JSON.parse(await fs.readFile(path.join(REPO_ROOT, 'featured.json'), 'utf8'));
@@ -109,18 +128,6 @@ async function readXcconfig(p) {
     return out;
   } catch { return null; }
 }
-
-// ─── Logging ────────────────────────────────────────────────────────
-
-const isTTY = process.stderr.isTTY;
-function info(msg) { process.stderr.write(`${dim('·')} ${msg}\n`); }
-function ok(msg)   { process.stderr.write(`${green('✓')} ${msg}\n`); }
-function warn(msg) { process.stderr.write(`${yellow('!')} ${msg}\n`); }
-function fail(msg) { process.stderr.write(`${red('✗')} ${msg}\n`); }
-function dim(s)    { return isTTY ? `\x1b[2m${s}\x1b[0m` : s; }
-function green(s)  { return isTTY ? `\x1b[32m${s}\x1b[0m` : s; }
-function yellow(s) { return isTTY ? `\x1b[33m${s}\x1b[0m` : s; }
-function red(s)    { return isTTY ? `\x1b[31m${s}\x1b[0m` : s; }
 
 // ─── Archive client ─────────────────────────────────────────────────
 

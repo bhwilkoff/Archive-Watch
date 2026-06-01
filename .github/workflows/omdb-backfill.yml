@@ -37,12 +37,15 @@ jobs:
     permissions:
       contents: write    # to commit updated catalogs + cache
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
-          cache: pip
+          # NOTE: no `cache: pip` — that requires a requirements.txt /
+          # pyproject.toml to hash, which this repo doesn't have, and its
+          # absence failed the whole job. A single `pip install requests`
+          # is fast enough that caching isn't worth adding a manifest.
 
       - name: Install dependencies
         run: pip install requests
@@ -51,12 +54,23 @@ jobs:
         env:
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
         run: |
+          # Gracefully no-op (green, not red) when the OMDB_KEY secret
+          # isn't configured. Add it under Settings → Secrets → Actions to
+          # enable the backfill; until then this job just reports skipped.
+          if [ -z "$OMDB_KEY" ]; then
+            echo "OMDB_KEY secret not set — skipping backfill (this is not an error)."
+            echo "skipped=true" >> "$GITHUB_OUTPUT"
+            echo "## OMDb backfill: skipped (no OMDB_KEY secret)" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
           python tools/omdb_backfill.py \
             --max-calls ${{ github.event.inputs.max_calls || '950' }} \
             ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
             | tee backfill.log
+        id: backfill
 
       - name: Stats summary
+        if: steps.backfill.outputs.skipped != 'true' && hashFiles('backfill.log') != ''
         run: |
           echo "## OMDb backfill" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
@@ -64,7 +78,7 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Commit if changed
-        if: github.event.inputs.dry_run != 'true'
+        if: github.event.inputs.dry_run != 'true' && steps.backfill.outputs.skipped != 'true'
         run: |
           # No-op if nothing changed. Otherwise commit directly to main —
           # this workflow's changes are purely additive (cache + poster
