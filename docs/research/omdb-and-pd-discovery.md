@@ -250,14 +250,28 @@ wants fulfilled.
 Shared Archive logic (metadata, derivative picker, search, resolver) lives
 in `tools/archive_lib.py`; OMDb logic in `tools/omdb_lib.py`.
 
+### Rights evidence + Public Domain Day (2026-06-01 update)
+
+- **Rights evidence** (`rights_evidence.py`) — stamps `rightsStatus` +
+  `rightsEvidence` per title: `pre_1930` (PD by age — the solid test;
+  ~4,675 films), `source_flagged` (Wikidata P6216 / curated PD collection),
+  `source_licensed` (CC), or `source_unverified` for the 1929–1963
+  non-renewal window. **NYPL `cce-renewals` was investigated and rejected**
+  as a renewal source: it's Class-A *book* registrations with essentially
+  no motion pictures, so a film's absence from it proves nothing — using it
+  would be misleading. We assert only what's sound and flag the rest
+  honestly as unverified.
+- **Public Domain Day feed** (in `discover_archive_collections.py
+  --pd-day-years`) — mines Archive movies published in just-entered PD
+  years (1928–1930), catching titles outside the curated collections.
+  ~64% of sampled 1930 films were new to us. (RerunCentury was evaluated
+  but its catalog is JS-rendered with no static Archive links — not
+  scrapable in CI without a headless browser; skipped.)
+
 ### Still open / future
 
-- **NYPL `cce-renewals` rights evidence** — stamp `rightsStatus` with
-  copyright-renewal evidence for 1929–1963 titles (deprioritised: current
-  feeds are already rights-conservative — PD-flagged, pre-1930, or curated
-  PD collections). Finds no new content, only firms up provenance.
-- **RerunCentury (TV)** + **annual Public Domain Day** lists as extra feeds.
 - A **TMDb bearer-token secret** would let `build_episode_wants` resolve
   canonical lists for shows OMDb lacks, and pull episode stills/overviews.
+- A headless-browser RerunCentury scraper (TV) if PD-TV coverage needs it.
 
 *Source list lives in this session's research notes; key URLs inline above.*
