@@ -213,19 +213,47 @@ end-to-end on the simulator + against live APIs:
 - **Workflow** — `.github/workflows/discover-content.yml` runs both stages
   daily (03:42 UTC, after the OMDb backfill) and commits additively.
 
-### Known limitation + next steps
+### Sourcing — now multi-source (2026-06-01 update)
 
-- **Only ~63 high-confidence candidates carry an Internet Archive ID**;
-  the other ~6,800 PD-flagged films have no P724 on Wikidata. To reach
-  them, add a **title+year → Archive scrape-API resolver** in the ingest
-  step (search `mediatype:movies` for a matching item), which would unlock
-  thousands more. This is the highest-leverage follow-up.
-- **Medium:** ingest NYPL `cce-renewals` into a local lookup so we can
-  stamp `rightsStatus` with renewal *evidence* for 1929–1963 titles,
-  instead of relying on Wikidata's PD flag alone.
-- **Medium:** add the annual Public Domain Day list + RerunCentury (TV) as
-  additional discovery feeds.
-- **Larger:** wire LoC National Screening Room (`?fo=json`, MP4) +
-  Prelinger `collection:prelinger` as additional providers.
+Discovery is no longer Wikidata-only. The daily `discover-content` workflow
+now runs these feeds, all verified live:
+
+- **Wikidata** (`discover_wikidata_pd.py`) — PD-flagged + Archive-id films.
+- **Internet Archive collections** (`discover_archive_collections.py`) —
+  mines `feature_films` (28k), `silent_films` (3.5k), `classic_tv` (11k),
+  `prelinger` (10k), animation, film_noir, etc. Every hit is already a
+  playable Archive item. ~32% of `feature_films` were new to us.
+- **Title+year → Archive resolver** (`archive_lib.resolve_title`, used by
+  `ingest_candidates.py --resolve-limit`) — the previously-documented
+  highest-leverage unlock. Matches the ~6,800 PD-flagged Wikidata films
+  that lack a P724 id to a playable Archive item by title+year, scored
+  with a confidence floor + clip/YouTube penalties. Verified 9–10/10 on
+  famous PD films (Metropolis, Nosferatu, Caligari, Detour, Plan 9…).
+- **Library of Congress National Screening Room** (`discover_loc.py`) —
+  ~1,294 US-gov PD films served as downloadable MP4 from loc.gov, generally
+  NOT on the Internet Archive. Self-contained items (one call → MP4 +
+  duration + poster). archiveID namespaced `loc:{id}`. Verified the MP4 is
+  directly playable (HTTP 200, video/mp4).
+
+TV episode sourcing now uses a **canonical wants queue**
+(`build_episode_wants.py` → `episode_wants.json`): each series is resolved
+to its OMDb canonical episode list, the gap is queued, and
+`backfill_tv_episodes.py` searches Archive **per wanted episode** (by
+SxxExx and by episode title) in addition to the broad series search —
+reaching differently-named uploads the broad search misses, and marking
+wants fulfilled.
+
+Shared Archive logic (metadata, derivative picker, search, resolver) lives
+in `tools/archive_lib.py`; OMDb logic in `tools/omdb_lib.py`.
+
+### Still open / future
+
+- **NYPL `cce-renewals` rights evidence** — stamp `rightsStatus` with
+  copyright-renewal evidence for 1929–1963 titles (deprioritised: current
+  feeds are already rights-conservative — PD-flagged, pre-1930, or curated
+  PD collections). Finds no new content, only firms up provenance.
+- **RerunCentury (TV)** + **annual Public Domain Day** lists as extra feeds.
+- A **TMDb bearer-token secret** would let `build_episode_wants` resolve
+  canonical lists for shows OMDb lacks, and pull episode stills/overviews.
 
 *Source list lives in this session's research notes; key URLs inline above.*

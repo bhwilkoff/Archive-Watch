@@ -1,18 +1,19 @@
 name: Discover + ingest PD content
 
-# Daily pipeline that grows the catalog. Three stages
-# (see docs/research/omdb-and-pd-discovery.md):
-#   1. discover — Wikidata SPARQL for PD films (Internet Archive ID + IMDb
-#      ID) not yet in our catalogs → refreshes the candidate queue.
-#      Read-only; never touches the catalogs.
-#   2. ingest  — drain a daily-capped batch: validate each candidate
-#      against live Archive metadata, pick a playable derivative, classify,
-#      enrich via OMDb, append to both catalogs.
-#   3. episode-wants — resolve each series to its canonical episode list
-#      (via OMDb) and queue the specific episodes we're missing.
-#   4. tv-backfill — prune junk-clustered series, then grow under-populated
-#      TV shows by searching Archive for more episodes (prioritising series
-#      with known gaps from the wants queue, and marking wants fulfilled).
+# Daily pipeline that grows the catalog from multiple public-domain
+# sources (see docs/research/omdb-and-pd-discovery.md):
+#   1. discover (Wikidata) — PD films by copyright flag / Archive id.
+#   2. discover (Archive collections) — mine feature_films / silent_films /
+#      classic_tv / prelinger / animation / film_noir; every hit is already
+#      a playable Archive item.
+#   3. ingest — drain the candidate queue: resolve IA-id-less candidates to
+#      a playable item by title+year, validate, classify, enrich via OMDb.
+#   4. Library of Congress — ingest US-gov PD films (downloadable MP4),
+#      generally not on the Internet Archive.
+#   5. episode-wants — resolve each series to its canonical episode list
+#      (OMDb) and queue the specific episodes we're missing.
+#   6. tv-backfill — prune junk series, then grow under-populated shows via
+#      per-want + broad Archive search; mark wants fulfilled.
 # All purely additive; commits directly to main.
 
 on:
@@ -43,6 +44,18 @@ on:
         description: 'Max TV series to resolve canonical episode lists for'
         required: false
         default: '40'
+      arch_per_collection:
+        description: 'Max items to mine per Internet Archive collection'
+        required: false
+        default: '600'
+      resolve_limit:
+        description: 'Max IA-id-less candidates to resolve by title+year'
+        required: false
+        default: '120'
+      loc_max_items:
+        description: 'Max new Library of Congress films to ingest'
+        required: false
+        default: '30'
 
 concurrency:
   # Shared group with omdb-backfill — both push to main, so they must
@@ -72,14 +85,35 @@ jobs:
             --limit ${{ github.event.inputs.discover_limit || '8000' }} \
             | tee discover.log
 
-      - name: Ingest a daily batch
+      - name: Discover candidates (Internet Archive PD collections)
+        run: |
+          # Mines feature_films / silent_films / classic_tv / prelinger /
+          # animation / film_noir etc. — every candidate is already a
+          # playable Archive item. Complements Wikidata (which flags rights
+          # but often lacks a playable id).
+          python tools/discover_archive_collections.py \
+            --per-collection ${{ github.event.inputs.arch_per_collection || '600' }} \
+            | tee arch_discover.log
+
+      - name: Ingest a daily batch (with title resolver)
         env:
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
         run: |
+          # Resolves PD-flagged candidates that lack an Archive id to a
+          # playable item by title+year (--resolve-limit), then ingests.
           python tools/ingest_candidates.py \
             --max-items ${{ github.event.inputs.max_items || '60' }} \
+            --resolve-limit ${{ github.event.inputs.resolve_limit || '120' }} \
             ${{ github.event.inputs.include_low_confidence == 'true' && '--include-low-confidence' || '' }} \
             | tee ingest.log
+
+      - name: Discover + ingest Library of Congress films
+        run: |
+          # ~1,294 US-government PD films served as downloadable MP4 from
+          # loc.gov — generally NOT on the Internet Archive, so net-new.
+          python tools/discover_loc.py \
+            --max-items ${{ github.event.inputs.loc_max_items || '30' }} \
+            | tee loc.log
 
       - name: Build episode-wants queue (canonical lists from OMDb)
         env:
@@ -105,15 +139,14 @@ jobs:
 
       - name: Summary
         run: |
-          echo "## Discover + ingest + TV backfill" >> $GITHUB_STEP_SUMMARY
+          echo "## Daily content pipeline" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
-          tail -6 discover.log >> $GITHUB_STEP_SUMMARY
-          echo '--- ingest ---' >> $GITHUB_STEP_SUMMARY
-          tail -8 ingest.log >> $GITHUB_STEP_SUMMARY
-          echo '--- episode wants ---' >> $GITHUB_STEP_SUMMARY
-          tail -4 wants.log >> $GITHUB_STEP_SUMMARY
-          echo '--- tv backfill ---' >> $GITHUB_STEP_SUMMARY
-          tail -10 tv.log >> $GITHUB_STEP_SUMMARY
+          echo '--- wikidata discover ---'   >> $GITHUB_STEP_SUMMARY; tail -4 discover.log >> $GITHUB_STEP_SUMMARY
+          echo '--- archive collections ---' >> $GITHUB_STEP_SUMMARY; tail -4 arch_discover.log >> $GITHUB_STEP_SUMMARY
+          echo '--- ingest (+resolver) ---'  >> $GITHUB_STEP_SUMMARY; tail -8 ingest.log >> $GITHUB_STEP_SUMMARY
+          echo '--- library of congress ---' >> $GITHUB_STEP_SUMMARY; tail -3 loc.log >> $GITHUB_STEP_SUMMARY
+          echo '--- episode wants ---'        >> $GITHUB_STEP_SUMMARY; tail -3 wants.log >> $GITHUB_STEP_SUMMARY
+          echo '--- tv backfill ---'          >> $GITHUB_STEP_SUMMARY; tail -8 tv.log >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Commit if changed

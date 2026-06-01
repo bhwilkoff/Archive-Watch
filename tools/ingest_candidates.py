@@ -39,6 +39,7 @@ import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import omdb_lib as L  # noqa: E402
+import archive_lib as A  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 FULL_CATALOG = REPO / "catalog.json"
@@ -47,12 +48,11 @@ CANDIDATES   = REPO / "shared" / "editorial" / "discovery_candidates.json"
 CACHE_PATH   = REPO / "shared" / "editorial" / "omdb_cache.json"
 SECRETS_PATH = REPO / "Secrets.xcconfig"
 
-ARCHIVE_META = "https://archive.org/metadata/"
-ARCHIVE_DL   = "https://archive.org/download/"
-UA = "ArchiveWatch-Ingest/1.0 (https://github.com/bhwilkoff/Archive-Watch; learningischange.com)"
+ARCHIVE_DL = A.ARCHIVE_DL
 
-VIDEO_RE = re.compile(r"(mp4|h\.?264|mpeg-?4|matroska|webm|quicktime|512kb|ogg video)")
-ADULT_MARKERS = {"pron", "adult", "erotica", "sexploitation", "nudism"}
+# Archive helpers now live in archive_lib (shared with backfill_tv_episodes).
+archive_meta = A.archive_meta
+pick_video = A.pick_video
 
 
 def load_json(p):
@@ -62,47 +62,6 @@ def dump_json(p, data):
     tmp = p.with_suffix(p.suffix + ".tmp")
     tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     tmp.replace(p)
-
-
-# ---------------------------------------------------------------------------
-# Archive
-# ---------------------------------------------------------------------------
-
-def archive_meta(iaid, session):
-    r = session.get(ARCHIVE_META + iaid, headers={"User-Agent": UA}, timeout=40)
-    if r.status_code != 200:
-        raise RuntimeError(f"HTTP {r.status_code}")
-    return r.json()
-
-
-# Derivative ranking: h.264 MP4 > other MP4 > 512Kb MPEG4 > other MPEG4 >
-# webm/mkv > original. Mirrors DerivativePicker.swift / build-catalog.mjs.
-def pick_video(files):
-    vids = [f for f in files if VIDEO_RE.search((f.get("format") or "").lower())
-            or (f.get("name") or "").lower().endswith((".mp4", ".m4v", ".webm", ".mkv"))]
-    if not vids:
-        return None
-
-    def fmt(f):
-        return (f.get("format") or "").lower()
-
-    def is_deriv(f):
-        return (f.get("source") or "").lower() == "derivative"
-
-    tiers = [
-        lambda f: is_deriv(f) and ("h.264" in fmt(f) or "h264" in fmt(f)),
-        lambda f: is_deriv(f) and "mp4" in fmt(f),
-        lambda f: is_deriv(f) and "512kb" in fmt(f) and "mpeg4" in fmt(f),
-        lambda f: is_deriv(f) and ("mpeg4" in fmt(f) or "mpeg-4" in fmt(f)),
-        lambda f: is_deriv(f) and ("webm" in fmt(f) or "matroska" in fmt(f)),
-        lambda f: ("mp4" in fmt(f) or "h.264" in fmt(f)),
-        lambda f: True,
-    ]
-    for pred in tiers:
-        matches = [f for f in vids if pred(f)]
-        if matches:
-            return max(matches, key=lambda f: int(f.get("size") or 0))
-    return None
 
 
 def classify(collections, subjects, runtime_sec, year):
@@ -150,7 +109,7 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
         return None, "no_video"
 
     collections = [c.lower() for c in as_list(md.get("collection"))]
-    if any(any(m in c for m in ADULT_MARKERS) for c in collections):
+    if A.is_adult(collections):
         return None, "adult_collection"
 
     subjects = as_list(md.get("subject"))
@@ -179,7 +138,7 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
         except ValueError:
             runtime_sec = None
 
-    download_url = ARCHIVE_DL + iaid + "/" + requests.utils.quote(vf["name"])
+    download_url = A.download_url(iaid, vf["name"])
 
     item = {
         "archiveID": iaid,
@@ -267,6 +226,10 @@ def main():
                     help="Resolve + classify but don't write catalogs.")
     ap.add_argument("--throttle", type=float, default=0.3,
                     help="Seconds between Archive fetches (default 0.3).")
+    ap.add_argument("--resolve-limit", type=int, default=120,
+                    help="Max high-confidence candidates WITHOUT an Archive id "
+                         "to resolve by title+year this run (default 120). "
+                         "0 disables the resolver.")
     args = ap.parse_args()
 
     if not CANDIDATES.exists():
@@ -285,7 +248,41 @@ def main():
     session = requests.Session()
     now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
 
-    # Pick the queue: status "new", has an IA id, right confidence.
+    # ── Resolver pass ──────────────────────────────────────────────────
+    # High-confidence PD candidates with NO Archive id (the ~6,800 that
+    # Wikidata flags PD but lacks a P724) get matched to a playable Archive
+    # item by title+year. This is the big unlock — without it those films
+    # are undiscoverable. Each candidate is resolved at most once: success
+    # stamps `iaid` + resolvedVia="title"; a miss marks status="unresolved"
+    # so we don't re-search it every day.
+    if args.resolve_limit:
+        unresolved = [c for c in candidates
+                      if c.get("status") == "new" and not c.get("iaid")
+                      and c.get("title")
+                      and (args.include_low_confidence or c.get("rightsConfidence") == "high")]
+        # Prefer older (more likely genuinely PD) titles first.
+        unresolved.sort(key=lambda c: (c.get("year") or 9999))
+        resolved_n = miss_n = 0
+        for cand in unresolved[:args.resolve_limit]:
+            try:
+                iaid, score, doc = A.resolve_title(cand["title"], cand.get("year"), session)
+            except Exception:  # noqa: BLE001
+                iaid = None
+            if iaid and iaid not in have:
+                cand["iaid"] = iaid
+                cand["resolvedVia"] = "title"
+                cand["resolveScore"] = score
+                resolved_n += 1
+            else:
+                cand["status"] = "unresolved"
+                miss_n += 1
+            time.sleep(args.throttle)
+        print(f"[ingest] title-resolver: matched {resolved_n} / "
+              f"{min(len(unresolved), args.resolve_limit)} "
+              f"({miss_n} no Archive match)", flush=True)
+
+    # Pick the queue: status "new", now has an IA id (native or resolved),
+    # right confidence.
     workable = [c for c in candidates
                 if c.get("status") == "new" and c.get("iaid")
                 and (args.include_low_confidence or c.get("rightsConfidence") == "high")]
