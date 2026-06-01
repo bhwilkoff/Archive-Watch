@@ -28,11 +28,12 @@ Usage:
 """
 
 import argparse
+import concurrent.futures as cf
 import datetime as dt
 import json
 import re
 import sys
-import time
+import threading
 from pathlib import Path
 
 import requests
@@ -91,10 +92,18 @@ def needs_enrichment(it):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--max-calls", type=int, default=900,
-                    help="OMDb call budget this run (free tier ~1000/day).")
-    ap.add_argument("--throttle", type=float, default=0.1)
+                    help="Max items to attempt this run (OMDb free tier ~1000/day; "
+                         "TMDb has no cap so set this high for a bulk pass).")
+    ap.add_argument("--workers", type=int, default=8,
+                    help="Concurrent fetchers (TMDb has no hard rate limit; "
+                         "keep ~1 for OMDb's daily cap).")
+    ap.add_argument("--chunk", type=int, default=800,
+                    help="Checkpoint after each chunk (resumable on interrupt).")
+    ap.add_argument("--throttle", type=float, default=0.0)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
+    if args.workers > 1:
+        args.throttle = 0.0   # concurrency paces us; per-call sleep not needed
 
     tmdb = T.load_tmdb_token(SECRETS)
     key = O.load_omdb_key(SECRETS)
@@ -117,56 +126,80 @@ def main():
           f"(budget {args.max_calls} calls){' DRY-RUN' if args.dry_run else ''}",
           flush=True)
 
-    session = requests.Session()
     now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
-    calls = enriched = hits = 0
+    work = candidates[:args.max_calls]
+    tried = enriched = hits = 0
 
-    for it in candidates:
-        if calls >= args.max_calls:
-            break
+    # Per-thread HTTP session (requests.Session isn't safe to share across
+    # threads). TMDb has no hard rate limit, so we fan out the network-bound
+    # resolves; OMDb runs should pass --workers 1 to respect the daily cap.
+    _tl = threading.local()
+    def sess():
+        s = getattr(_tl, "s", None)
+        if s is None:
+            s = requests.Session(); _tl.s = s
+        return s
+
+    def fetch(it):
         q = clean_movie_title(it.get("title"))
         if not q:
-            cache[it["archiveID"]] = {"imdb_id": None, "fetched_at": now}
-            continue
-        calls += 1
+            return (it, None, "skip")
         try:
             if source == "tmdb":
-                rec = T.resolve(q, it.get("year"), tmdb, session)
-            else:
-                rec = O.fetch_omdb_full(key, session, title=q, year=it.get("year"))
-        except RuntimeError as e:
-            print(f"[enrich-movies] stopping: {e} (after {calls} calls)", flush=True)
-            break
-        time.sleep(args.throttle)
-        if not rec or rec.get("omdb_type") == "episode":
-            cache[it["archiveID"]] = {"imdb_id": None, "fetched_at": now}
-            continue
-        hits += 1
-        if not args.dry_run:
-            def apply_all(target):
-                c = O.apply_identity(target, rec) | O.apply_rich(target, rec)
-                if rec.get("tmdb_id") and not target.get("tmdbID"):
-                    target["tmdbID"] = rec["tmdb_id"]; c = True
-                if target.get("imdbID") or target.get("artworkSource") == "tmdb":
-                    target["enrichmentTier"] = "fullyEnriched"
-                return c
-            changed_it = apply_all(it)
-            twin = seed_by_id.get(it["archiveID"])   # mirror onto bundled seed
-            if twin is not None:
-                apply_all(twin)
-            if changed_it:
-                enriched += 1
-        cache[it["archiveID"]] = {"imdb_id": rec.get("imdb_id"),
-                                  "tmdb_id": rec.get("tmdb_id"), "fetched_at": now}
+                return (it, T.resolve(q, it.get("year"), tmdb, sess()), "ok")
+            return (it, O.fetch_omdb_full(key, sess(), title=q, year=it.get("year")), "ok")
+        except RuntimeError:
+            return (it, None, "fatal")   # auth/quota — stop after this chunk
 
-    print(f"[enrich-movies] calls={calls} omdb-hits={hits} items-enriched={enriched}",
-          flush=True)
+    def apply_all(target, rec):
+        c = O.apply_identity(target, rec) | O.apply_rich(target, rec)
+        if rec.get("tmdb_id") and not target.get("tmdbID"):
+            target["tmdbID"] = rec["tmdb_id"]; c = True
+        if target.get("imdbID") or target.get("artworkSource") == "tmdb":
+            target["enrichmentTier"] = "fullyEnriched"
+        return c
 
-    if not args.dry_run:
+    def checkpoint():
+        if args.dry_run:
+            return
         dump(FULL_CATALOG, full)
         dump(SEED_CATALOG, seed)
         CACHE.parent.mkdir(parents=True, exist_ok=True)
         dump(CACHE, cache)
+
+    stop = False
+    for start in range(0, len(work), args.chunk):
+        if stop:
+            break
+        batch = work[start:start + args.chunk]
+        with cf.ThreadPoolExecutor(max_workers=max(1, args.workers)) as ex:
+            results = list(ex.map(fetch, batch))
+        for it, rec, status in results:
+            tried += 1
+            if status == "fatal":
+                stop = True
+                continue
+            if not rec or rec.get("omdb_type") == "episode":
+                cache[it["archiveID"]] = {"imdb_id": None, "fetched_at": now}
+                continue
+            hits += 1
+            if not args.dry_run:
+                if apply_all(it, rec):
+                    enriched += 1
+                twin = seed_by_id.get(it["archiveID"])   # mirror onto bundled seed
+                if twin is not None:
+                    apply_all(twin, rec)
+            cache[it["archiveID"]] = {"imdb_id": rec.get("imdb_id"),
+                                      "tmdb_id": rec.get("tmdb_id"), "fetched_at": now}
+        checkpoint()   # resumable: cache + catalogs persisted every chunk
+        print(f"[enrich-movies] {tried}/{len(work)} tried · hits={hits} · "
+              f"enriched={enriched}{' · STOPPING (auth/quota)' if stop else ''}",
+              flush=True)
+
+    print(f"[enrich-movies] done: tried={tried} hits={hits} enriched={enriched}"
+          f"{' (dry-run)' if args.dry_run else ''}", flush=True)
+    if not args.dry_run:
+        checkpoint()
         print("[enrich-movies] wrote catalogs + cache")
     return 0
 
