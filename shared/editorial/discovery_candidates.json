@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-01T03:38:14Z",
+  "updated_at": "2026-06-01T03:52:24Z",
   "description": "Public-domain film candidates discovered via Wikidata (P724 Internet Archive ID + P6216 public-domain flag), not yet in our catalogs. Drained by tools/ingest_candidates.py.",
   "stats": {
     "total": 7582,
-    "new_this_run": 7582,
+    "new_this_run": 0,
     "awaiting_ingest": 7582,
     "with_archive_id": 736,
     "rights_high_confidence": 6831
@@ -18,8 +18,9 @@
       "imdbID": "tt2982784",
       "pdFlagged": true,
       "rightsConfidence": "high",
-      "status": "new",
-      "discovered_at": "2026-06-01T03:38:14Z"
+      "status": "ingested",
+      "discovered_at": "2026-06-01T03:38:14Z",
+      "ingested_at": "2026-06-01T03:52:24Z"
     },
     {
       "wikidataQID": "Q7419986",
@@ -29,8 +30,9 @@
       "imdbID": "tt0138074",
       "pdFlagged": true,
       "rightsConfidence": "high",
-      "status": "new",
-      "discovered_at": "2026-06-01T03:38:14Z"
+      "status": "ingested",
+      "discovered_at": "2026-06-01T03:38:14Z",
+      "ingested_at": "2026-06-01T03:52:24Z"
     },
     {
       "wikidataQID": "Q1185312",
@@ -40,7 +42,7 @@
       "imdbID": "tt0056983",
       "pdFlagged": true,
       "rightsConfidence": "high",
-      "status": "new",
+      "status": "no_video",
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
@@ -51,7 +53,7 @@
       "imdbID": "tt0056923",
       "pdFlagged": true,
       "rightsConfidence": "high",
-      "status": "new",
+      "status": "no_video",
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
@@ -62,8 +64,9 @@
       "imdbID": "tt0259898",
       "pdFlagged": true,
       "rightsConfidence": "high",
-      "status": "new",
-      "discovered_at": "2026-06-01T03:38:14Z"
+      "status": "ingested",
+      "discovered_at": "2026-06-01T03:38:14Z",
+      "ingested_at": "2026-06-01T03:52:24Z"
     },
     {
       "wikidataQID": "Q105086328",
@@ -73,8 +76,9 @@
       "imdbID": "tt0498986",
       "pdFlagged": true,
       "rightsConfidence": "high",
-      "status": "new",
-      "discovered_at": "2026-06-01T03:38:14Z"
+      "status": "ingested",
+      "discovered_at": "2026-06-01T03:38:14Z",
+      "ingested_at": "2026-06-01T03:52:24Z"
     },
     {
       "wikidataQID": "Q1196288",
@@ -84,8 +88,9 @@
       "imdbID": "tt0048613",
       "pdFlagged": true,
       "rightsConfidence": "high",
-      "status": "new",
-      "discovered_at": "2026-06-01T03:38:14Z"
+      "status": "ingested",
+      "discovered_at": "2026-06-01T03:38:14Z",
+      "ingested_at": "2026-06-01T03:52:24Z"
     },
     {
       "wikidataQID": "Q1129503",
@@ -95,8 +100,9 @@
       "imdbID": "tt0045826",
       "pdFlagged": true,
       "rightsConfidence": "high",
-      "status": "new",
-      "discovered_at": "2026-06-01T03:38:14Z"
+      "status": "ingested",
+      "discovered_at": "2026-06-01T03:38:14Z",
+      "ingested_at": "2026-06-01T03:52:24Z"
     },
     {
       "wikidataQID": "Q300809",
@@ -106,7 +112,7 @@
       "imdbID": "tt0045467",
       "pdFlagged": true,
       "rightsConfidence": "high",
-      "status": "new",
+      "status": "no_video",
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
@@ -117,8 +123,9 @@
       "imdbID": "tt12281560",
       "pdFlagged": true,
       "rightsConfidence": "high",
-      "status": "new",
-      "discovered_at": "2026-06-01T03:38:14Z"
+      "status": "ingested",
+      "discovered_at": "2026-06-01T03:38:14Z",
+      "ingested_at": "2026-06-01T03:52:24Z"
     },
     {
       "wikidataQID": "Q369346",
@@ -128,8 +135,9 @@
       "imdbID": "tt0022867",
       "pdFlagged": true,
       "rightsConfidence": "high",
-      "status": "new",
-      "discovered_at": "2026-06-01T03:38:14Z"
+      "status": "ingested",
+      "discovered_at": "2026-06-01T03:38:14Z",
+      "ingested_at": "2026-06-01T03:52:24Z"
     },
     {
       "wikidataQID": "Q5301097",
@@ -139,7 +147,7 @@
       "imdbID": "tt0020838",
       "pdFlagged": true,
       "rightsConfidence": "high",
-      "status": "new",
+      "status": "no_video",
       "discovered_at": "2026-06-01T03:38:14Z"
     },
     {
