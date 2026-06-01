@@ -184,18 +184,48 @@ hundreds of playable PD films we don't yet have, at near-zero cost.
 
 ---
 
-## Suggested next steps (not yet built — research only)
+## Status — what's now BUILT (2026-06-01)
 
-- **Quick win, low risk:** extend `tools/omdb_backfill.py` to also capture
-  `imdbRating`, `imdbVotes`, `Rated`, and a full-plot fallback into the
-  catalog + cache (one extra parse, no added quota). Add the optional
-  Swift fields. → richer Detail screens + better shelf ranking, daily.
-- **Medium:** a `tools/discover_wikidata_pd.py` that runs the SPARQL
-  `P724` query, diffs against our existing `archiveID`s, and emits
-  candidate new items for the catalog builder to enrich.
-- **Medium:** ingest NYPL `cce-renewals` into a local lookup so the
-  builder can stamp `rightsStatus` with evidence instead of heuristics.
-- **Larger:** wire LoC National Screening Room + Prelinger
-  `collection:prelinger` as additional `bestSourceType` providers.
+The first two legs of the pipeline are implemented and verified
+end-to-end on the simulator + against live APIs:
+
+- **Rich OMDb enrichment** — `tools/omdb_lib.py` (shared fetch/apply) +
+  rewritten `tools/omdb_backfill.py`. Now captures **imdbRating,
+  imdbVotes, contentRating, full-plot fallback, runtime** for EVERY
+  IMDb-keyed item (cache schema v2; v1 poster-only entries get a one-time
+  rich re-fetch). Guard rails: never overwrites designed art or a good
+  synopsis. Swift `Catalog.Item` gained `imdbRating/imdbVotes/
+  contentRating/synopsisSource` (+ `imdbRatingDisplay`/`imdbVotesDisplay`
+  helpers); DetailView shows an IMDb gold-star rating chip + content-rating
+  badge.
+- **Discovery** — `tools/discover_wikidata_pd.py`: SPARQL feeds A (films
+  with Internet Archive ID P724) + B (films flagged PD, P6216=Q19652),
+  diffed against our catalogs. First run found **7,582 new candidates**
+  (6,831 high rights-confidence). Adds a `rightsConfidence` (high =
+  PD-flagged or pre-1930; low = incidental recent upload) so low-confidence
+  uploads sort to the back and are skipped by default.
+- **Ingest** — `tools/ingest_candidates.py`: drains the candidate queue
+  daily-capped, **validates each against live Archive metadata** (stale
+  Wikidata IA IDs → skipped, never retried), picks a playable derivative,
+  classifies, enriches via OMDb, appends to both catalogs. Verified: 6/8
+  test candidates produced fully-formed playable items; 2 correctly
+  rejected as no-video.
+- **Workflow** — `.github/workflows/discover-content.yml` runs both stages
+  daily (03:42 UTC, after the OMDb backfill) and commits additively.
+
+### Known limitation + next steps
+
+- **Only ~63 high-confidence candidates carry an Internet Archive ID**;
+  the other ~6,800 PD-flagged films have no P724 on Wikidata. To reach
+  them, add a **title+year → Archive scrape-API resolver** in the ingest
+  step (search `mediatype:movies` for a matching item), which would unlock
+  thousands more. This is the highest-leverage follow-up.
+- **Medium:** ingest NYPL `cce-renewals` into a local lookup so we can
+  stamp `rightsStatus` with renewal *evidence* for 1929–1963 titles,
+  instead of relying on Wikidata's PD flag alone.
+- **Medium:** add the annual Public Domain Day list + RerunCentury (TV) as
+  additional discovery feeds.
+- **Larger:** wire LoC National Screening Room (`?fo=json`, MP4) +
+  Prelinger `collection:prelinger` as additional providers.
 
 *Source list lives in this session's research notes; key URLs inline above.*

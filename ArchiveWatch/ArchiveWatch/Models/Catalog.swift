@@ -76,6 +76,15 @@ struct Catalog: Decodable, Sendable {
         let networks: [String]?
         let creator: String?
 
+        // OMDb rich fields (tools/omdb_backfill.py). Optional so old
+        // catalogs decode unchanged. imdbRating/Votes feed shelf ranking
+        // and a "Top Rated" surface; contentRating complements the
+        // Decision-012 adult filter with a real MPAA/TV signal.
+        let imdbRating: Double?
+        let imdbVotes: Int?
+        let contentRating: String?
+        let synopsisSource: String?
+
         var id: String { archiveID }
         var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
         var backdropURLParsed: URL? { backdropURL.flatMap(URL.init(string:)) }
@@ -99,6 +108,20 @@ struct Catalog: Decodable, Sendable {
         var displaySynopsis: String? {
             guard let raw = synopsis, !raw.isEmpty else { return nil }
             return HTMLStripper.strip(raw)
+        }
+
+        /// "7.8" — IMDb rating formatted for display, or nil if unrated.
+        var imdbRatingDisplay: String? {
+            guard let r = imdbRating, r > 0 else { return nil }
+            return String(format: "%.1f", r)
+        }
+
+        /// Compact vote count, e.g. "149K", "21K", "1.4K", "302".
+        var imdbVotesDisplay: String? {
+            guard let v = imdbVotes, v > 0 else { return nil }
+            if v >= 1_000_000 { return String(format: "%.1fM", Double(v) / 1_000_000) }
+            if v >= 1_000     { return "\(v / 1000)K" }
+            return "\(v)"
         }
 
         /// Human byline for the Detail screen. For features: director. For TV: network.
