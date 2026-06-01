@@ -51,3 +51,4 @@ Secrets.xcconfig
 .claude/scheduled_tasks.lock
 video_registry.db
 __pycache__/
+tools/validation_report.txt
