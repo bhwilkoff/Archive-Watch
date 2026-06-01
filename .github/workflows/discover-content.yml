@@ -56,6 +56,10 @@ on:
         description: 'Max new Library of Congress films to ingest'
         required: false
         default: '30'
+      run_loc:
+        description: 'Run the LoC feed (only works off a residential IP — loc.gov 403s CI)'
+        required: false
+        default: 'false'
 
 concurrency:
   # Shared group with omdb-backfill — both push to main, so they must
@@ -108,12 +112,15 @@ jobs:
             | tee ingest.log
 
       - name: Discover + ingest Library of Congress films
+        # loc.gov blocks datacenter IPs (incl. GitHub runners) with a 403,
+        # so this only does real work on a residential IP / self-hosted
+        # runner. Manual-dispatch-only to avoid a daily no-op; the script
+        # also skips cleanly on 403 if it ever does run here.
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.run_loc == 'true'
         run: |
-          # ~1,294 US-government PD films served as downloadable MP4 from
-          # loc.gov — generally NOT on the Internet Archive, so net-new.
           python tools/discover_loc.py \
             --max-items ${{ github.event.inputs.loc_max_items || '30' }} \
-            | tee loc.log
+            | tee loc.log || true
 
       - name: Build episode-wants queue (canonical lists from OMDb)
         env:
@@ -144,7 +151,7 @@ jobs:
           echo '--- wikidata discover ---'   >> $GITHUB_STEP_SUMMARY; tail -4 discover.log >> $GITHUB_STEP_SUMMARY
           echo '--- archive collections ---' >> $GITHUB_STEP_SUMMARY; tail -4 arch_discover.log >> $GITHUB_STEP_SUMMARY
           echo '--- ingest (+resolver) ---'  >> $GITHUB_STEP_SUMMARY; tail -8 ingest.log >> $GITHUB_STEP_SUMMARY
-          echo '--- library of congress ---' >> $GITHUB_STEP_SUMMARY; tail -3 loc.log >> $GITHUB_STEP_SUMMARY
+          [ -f loc.log ] && { echo '--- library of congress ---' >> $GITHUB_STEP_SUMMARY; tail -3 loc.log >> $GITHUB_STEP_SUMMARY; }
           echo '--- episode wants ---'        >> $GITHUB_STEP_SUMMARY; tail -3 wants.log >> $GITHUB_STEP_SUMMARY
           echo '--- tv backfill ---'          >> $GITHUB_STEP_SUMMARY; tail -8 tv.log >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY

@@ -233,7 +233,11 @@ now runs these feeds, all verified live:
   ~1,294 US-gov PD films served as downloadable MP4 from loc.gov, generally
   NOT on the Internet Archive. Self-contained items (one call → MP4 +
   duration + poster). archiveID namespaced `loc:{id}`. Verified the MP4 is
-  directly playable (HTTP 200, video/mp4).
+  directly playable (HTTP 200, video/mp4). **Caveat: loc.gov returns 403 to
+  GitHub Actions / datacenter IPs**, so this feed is `workflow_dispatch`-
+  gated (`run_loc=true`) and only does real work from a residential IP or
+  a self-hosted runner — run it locally to pull LoC films into the catalog.
+  The script skips cleanly on 403 either way.
 
 TV episode sourcing now uses a **canonical wants queue**
 (`build_episode_wants.py` → `episode_wants.json`): each series is resolved
