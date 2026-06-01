@@ -1,0 +1,65 @@
+{
+ "version": 2,
+ "seriesID": "coronet-blue-1967",
+ "tvmazeID": 39927,
+ "title": "Coronet Blue",
+ "yearStart": 1967,
+ "yearEnd": 1967,
+ "overview": "A man wakes up with amnesia, and has no memory of who he is or why people want him dead. Taking the name \"Michael Alden\", the man sets out to find out who he is and why the mysterious \"Greybeards\" want him dead.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/176/440439.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Thriller",
+  "Mystery"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "CoronetBlue",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Coronet Blue",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/gNCFlL5MgRK2m4O8nNxDLeFS9Ef.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Tv-CoronetBlue1967CbsNetworkPromo.mp4",
+      "format": "h.264",
+      "sizeBytes": 1382358,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/CoronetBlue/Tv-CoronetBlue1967CbsNetworkPromo.mp4"
+    },
+    {
+     "archiveID": "Coronet-Blue-1967-Series",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Coronet Blue (1967) - Complete Series",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/gNCFlL5MgRK2m4O8nNxDLeFS9Ef.jpg",
+     "airDate": null,
+     "year": 1967,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Coronet Blue (13 of 13)/S01E06 - Man Running.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 306491403,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Coronet-Blue-1967-Series/Coronet Blue (13 of 13)/S01E06 - Man Running.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 13
+}

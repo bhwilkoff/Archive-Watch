@@ -1,0 +1,82 @@
+{
+ "version": 2,
+ "seriesID": "wally-gator-1962",
+ "tvmazeID": 21930,
+ "title": "Wally Gator",
+ "yearStart": 1962,
+ "yearEnd": 1963,
+ "overview": "Wally Gator is about Wally, an alligator who thinks that he is human. He is most satisfied when he is at the zoo, where his home is. Mr. Twiddles is the zookeeper that keeps an eye on Wally because sometimes, Wally escapes to see what life is like outside of his home. Characters Wally Gator (Daws Butler): Wally Gator enjoys staying at the zoo, but sometimes he just wants to see what the outside world is like. Mr. Twiddle (Don Messick): Mr. Twiddles is the zookeeper. He is always busy because he is trying to stop Wally from leaving the zoo. Wally Gator Opening Theme Wally Gator is a swinging alligator in the swamp, he's the greatest perculator when he really starts to romp. There has never been a greater operator in the swamp, see ya later, Wally Gator!",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/79/198421.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Children"
+ ],
+ "networks": [
+  "Syndication"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "Wallys_Pen_Pal--Ozzie-Harriet",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Wally's Pen Pal (Ozzie & Harriet)",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/Wallys_Pen_Pal--Ozzie-Harriet",
+     "airDate": null,
+     "year": 1963,
+     "runtimeSeconds": 1515,
+     "videoFile": {
+      "name": "Wallys_Pen_Pal--Ozzie-Harriet.mp4",
+      "format": "h.264",
+      "sizeBytes": 157294483,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Wallys_Pen_Pal--Ozzie-Harriet/Wallys_Pen_Pal--Ozzie-Harriet.mp4"
+    },
+    {
+     "archiveID": "Wallys_TV_Set--Ozzie-Harriet",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Wally's TV Set (Ozzie & Harriet)",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/Wallys_TV_Set--Ozzie-Harriet",
+     "airDate": null,
+     "year": 1964,
+     "runtimeSeconds": 1526,
+     "videoFile": {
+      "name": "Wallys_TV_Set--Ozzie-Harriet.mp4",
+      "format": "h.264",
+      "sizeBytes": 158462314,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Wallys_TV_Set--Ozzie-Harriet/Wallys_TV_Set--Ozzie-Harriet.mp4"
+    },
+    {
+     "archiveID": "Wallys_Traffic_Ticket--Ozzie-Harriet",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Wally's Traffic Ticket (Ozzie & Harriet)",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/Wallys_Traffic_Ticket--Ozzie-Harriet",
+     "airDate": null,
+     "year": 1966,
+     "runtimeSeconds": 1320,
+     "videoFile": {
+      "name": "Wallys_Traffic_Ticket--Ozzie-Harriet.mp4",
+      "format": "h.264",
+      "sizeBytes": 137108805,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Wallys_Traffic_Ticket--Ozzie-Harriet/Wallys_Traffic_Ticket--Ozzie-Harriet.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 52
+}

@@ -1,0 +1,145 @@
+{
+ "version": 2,
+ "seriesID": "playhouse-90-1956",
+ "tvmazeID": 21854,
+ "title": "Playhouse 90",
+ "yearStart": 1956,
+ "yearEnd": 1960,
+ "overview": "Playhouse 90 was an anthology drama series that aired on CBS from 1956 to 1960.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/78/196808.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
+    {
+     "archiveID": "Playhouse90-ThePlotToKillStalinPart2",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Requiem for a Heavyweight",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+     "airDate": "1956-10-11",
+     "year": 1956,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Playhouse90-ThePlotToKillStalin9-25-58Part2_512kb.mp4",
+      "format": "512Kb MPEG4",
+      "sizeBytes": 191871969,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Playhouse90-ThePlotToKillStalinPart2/Playhouse90-ThePlotToKillStalin9-25-58Part2_512kb.mp4"
+    },
+    {
+     "archiveID": "Playhouse_90--The_Comedian",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "The Comedian",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+     "airDate": "1957-02-14",
+     "year": 1957,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Playhouse90--The_Comedian.mp4",
+      "format": "h.264",
+      "sizeBytes": 389947963,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Playhouse_90--The_Comedian/Playhouse90--The_Comedian.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "Plathouse90-ThePlotToKillStalinPart1",
+     "seasonNumber": 3,
+     "episodeNumber": 1,
+     "title": "The Plot to Kill Stalin",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+     "airDate": "1958-09-25",
+     "year": 1958,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Playhouse90-ThePlotToKillStalin9-25-58Part1.mp4",
+      "format": "h.264",
+      "sizeBytes": 248139995,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Plathouse90-ThePlotToKillStalinPart1/Playhouse90-ThePlotToKillStalin9-25-58Part1.mp4"
+    },
+    {
+     "archiveID": "Playhouse90--Days_of_Wine_and_Roses",
+     "seasonNumber": 3,
+     "episodeNumber": 2,
+     "title": "Days of Wine and Roses",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+     "airDate": "1958-10-02",
+     "year": 1958,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Playhouse90--Days_of_Wine_and_Roses.mp4",
+      "format": "h.264",
+      "sizeBytes": 491600140,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Playhouse90--Days_of_Wine_and_Roses/Playhouse90--Days_of_Wine_and_Roses.mp4"
+    },
+    {
+     "archiveID": "heart-of-darkness-roddy-mc-dowall-and-boris-karloff",
+     "seasonNumber": 3,
+     "episodeNumber": 7,
+     "title": "Heart of Darkness",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+     "airDate": "1958-11-06",
+     "year": 1958,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Heart of Darkness (Roddy McDowall and Boris Karloff).mp4",
+      "format": "h.264",
+      "sizeBytes": 528275286,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/heart-of-darkness-roddy-mc-dowall-and-boris-karloff/Heart of Darkness (Roddy McDowall and Boris Karloff).mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "playhouse-90-requiem-for-a-heavyweight-playhouse-90-live-theater-colorized-576p-sd",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Playhouse 90 – Requiem for a Heavyweight (colorized) (1962, mystery, imdb score: 8.3)",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/6srGbszH8amK1JiJRS2YzRcoDVw.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "playhouse 90-requiem for a heavyweight-playhouse 90 live theater-colorized-576p-sd.mp4",
+      "format": "h.264",
+      "sizeBytes": 505907428,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/playhouse-90-requiem-for-a-heavyweight-playhouse-90-live-theater-colorized-576p-sd/playhouse 90-requiem for a heavyweight-playhouse 90 live theater-colorized-576p-sd.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 6,
+ "canonicalEpisodesCount": 133
+}

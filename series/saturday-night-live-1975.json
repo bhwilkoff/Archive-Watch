@@ -1,606 +1,2951 @@
 {
-  "version": 1,
-  "seriesID": "saturday-night-live-1975",
-  "title": "Saturday Night Live",
-  "yearStart": 1975,
-  "yearEnd": 1979,
-  "overview": "A late-night live television sketch comedy and variety show created by Lorne Michaels. The show's comedy sketches, which parody contemporary culture and politics, are performed by a large and varying cast of repertory and newer cast members. Each episode is hosted by a celebrity guest, who usually delivers an opening monologue and performs in sketches with the cast, and features performances by a musical guest.",
-  "posterURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
-  "backdropURL": "https://image.tmdb.org/t/p/w1280/sSAX59Kf01lBRkBW4UcIL4kIoIm.jpg",
-  "genres": [],
-  "networks": [
-    "NBC"
-  ],
-  "creator": "Dick Ebersol",
-  "seasons": [
+ "version": 2,
+ "seriesID": "saturday-night-live-1975",
+ "tvmazeID": 361,
+ "title": "Saturday Night Live",
+ "yearStart": 1975,
+ "yearEnd": null,
+ "overview": "Saturday Night Live is an Emmy Award-winning late-night comedy showcase.Since its inception in 1975, \"SNL\" has launched the careers of many of the brightest comedy performers of their generation. As The New York Times noted on the occasion of the show's Emmy-winning 25th Anniversary special in 1999, \"in defiance of both time and show business convention, 'SNL' is still the most pervasive influence on the art of comedy in contemporary culture.\" At the close of the century, \"Saturday Night Live\" placed seventh on Entertainment Weekly's list of the Top 100 Entertainers of the past fifty years.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/589/1474771.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Music"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "saturday-night-live-april-22-1978-s-3-e-18",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Saturday Night Live - April 22, 1978",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
-          "airDate": null,
-          "year": 1978,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live- April 22, 1978 (S3E18).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 668993868,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-april-22-1978-s-3-e-18/Saturday Night Live- April 22, 1978 (S3E18).mp4"
-        }
-      ]
+     "archiveID": "saturday-night-live-s-01-e-07-richard-pryor-gil-scott-heron-december-13-1975_202501",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Richard Pryor / Gil-Scott Heron",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/277/694162.jpg",
+     "airDate": "1975-12-13",
+     "year": 1975,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live - S01E07 - Richard Pryor & Gil-Scott Heron (December 13, 1975).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 383750402,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-07-richard-pryor-gil-scott-heron-december-13-1975_202501/Saturday Night Live - S01E07 - Richard Pryor & Gil-Scott Heron (December 13, 1975).mp4"
     },
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "saturday-night-live-s-01-e-06-lily-tomlin-tomlin-with-howard-shore-the-all-nurse",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "Lily Tomlin",
-          "overview": "Live from New York, it's... Lily Tomlin\n\nSketches Include: Beethoven Part 1, Jaws III, Bell-Hop, Edith Ann Skates, Beethoven Part 2, Spud Beer, Patty, Jim Henson's Muppets, Beethoven Part 3, Hard Hats, Speed, Margo's Dance Palace",
-          "stillURL": "https://image.tmdb.org/t/p/w300/ngtacXDlEnVSMVEsYELUJC8T5rI.jpg",
-          "airDate": "1975-11-22",
-          "year": 1975,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live - S01E06 - Lily Tomlin, Tomlin with Howard Shore & the All Nurse Band (November 22, 1975).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 375099406,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-06-lily-tomlin-tomlin-with-howard-shore-the-all-nurse/Saturday Night Live - S01E06 - Lily Tomlin, Tomlin with Howard Shore & the All Nurse Band (November 22, 1975).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-01-e-07-richard-pryor-gil-scott-heron-december-13-1975_202501",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "Richard Pryor with Gil Scott-Heron",
-          "overview": "Live From New York, it's... Richard Pryor!\n\nSketches Include: Samurai Hotel, Looks At Books, Line-Up #1, Word Association, Pong, They're Taking Over, Line-Up #2, L-Pill, Jim Henson's Muppets, Line-Up #3, Exorcist II, Assassination",
-          "stillURL": "https://image.tmdb.org/t/p/w300/pu5rxY1hVmiJf6xiMEFvV86cbdq.jpg",
-          "airDate": "1975-12-13",
-          "year": 1975,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live - S01E07 - Richard Pryor & Gil-Scott Heron (December 13, 1975).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 383750402,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-07-richard-pryor-gil-scott-heron-december-13-1975_202501/Saturday Night Live - S01E07 - Richard Pryor & Gil-Scott Heron (December 13, 1975).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-01-e-19-madeline-kahn-carly-simon-may-8-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 19,
-          "title": "Madeline Kahn with Carly Simon",
-          "overview": "Live from New York, it's Chevy Chase!   Sketches are \"Ronald Reagan's Jam Session,\" Not for Ladies Only, Wilderness Comedian, \"Slumber Party,\" Bride of Frankenstein, \"Fondue Pots for Namibia,\" \"The Muppets Can Reunite the Beatles,\" New York's My Home (film), \"Super Absordent Dry Hose,\" and \"The Final Days.\" Carly Simon performs You're So Vain.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/5jwbN6rWo3Mwuu5mePE0vaDrtXO.jpg",
-          "airDate": "1976-05-08",
-          "year": 1976,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live - S01E19 - Madeline Kahn & Carly Simon (May 8, 1976).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 382464061,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-19-madeline-kahn-carly-simon-may-8-1976/Saturday Night Live - S01E19 - Madeline Kahn & Carly Simon (May 8, 1976).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-01-e-21-buck-henry-gordon-lightfoot-garrett-morris-may-22-1976",
-          "seasonNumber": 1,
-          "episodeNumber": 21,
-          "title": "Buck Henry with Gordon Lightfoot",
-          "overview": "Live from New York, It's...Chevy Chase\n\nSketches include--Emmy winner Chevy tries to get Laraine todo the fall, Samurai Tailor, \"Talk Back!\", \"Dell Stator's Toad Ranch Resturaunt\", \"Looks at Books\", The Crowd Audition, Peter Lemon Moodring, \"Not For Ladies Only\", Lorne Micheals offer to the Beatles.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/kIPdxemTqNz1ecAYmm8cWI3hUGf.jpg",
-          "airDate": "1976-05-22",
-          "year": 1976,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live - S01E21 - Buck Henry, Gordon Lightfoot & Garrett Morris (May 22, 1976).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 389031699,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-21-buck-henry-gordon-lightfoot-garrett-morris-may-22-1976/Saturday Night Live - S01E21 - Buck Henry, Gordon Lightfoot & Garrett Morris (May 22, 1976).mp4"
-        }
-      ]
+     "archiveID": "saturday-night-live-s-01-e-19-madeline-kahn-carly-simon-may-8-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Madeline Kahn / Carly Simon",
+     "overview": "Madeline Kahn hosts with musical guest Carly Simon.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/261/653626.jpg",
+     "airDate": "1976-05-08",
+     "year": 1976,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live - S01E19 - Madeline Kahn & Carly Simon (May 8, 1976).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 382464061,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-19-madeline-kahn-carly-simon-may-8-1976/Saturday Night Live - S01E19 - Madeline Kahn & Carly Simon (May 8, 1976).mp4"
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "saturday-night-live-s-02-e-02-norman-lear-boz-scaggs",
-          "seasonNumber": 2,
-          "episodeNumber": 2,
-          "title": "Norman Lear/Boz Scaggs",
-          "overview": "Live from New York, It's...Chevy Chase (On telephone)\n\nSketches include-- Gilda plans to do the fall, Jimmy Carter speaks on sexual performance in the White House, Chevy's Girls, Trial sitcom--\"The Snakehandling O'Sheas\", Joseph Franklin--The Metric Clock, Abusive Divorce Lawyer, Rhodesian Peace Talks.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/iMesutSH4HnexgpTkaGzJRpijWA.jpg",
-          "airDate": "1976-09-25",
-          "year": 1976,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S02E02 Norman Lear, Boz Scaggs.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 671222187,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-02-e-02-norman-lear-boz-scaggs/Saturday Night Live S02E02 Norman Lear, Boz Scaggs.mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-02e-05-steve-martin-10-23-1976",
-          "seasonNumber": 2,
-          "episodeNumber": 5,
-          "title": "Steve Martin/Kinky Friedman",
-          "overview": "Sketches include \"Yankees Lose,\" \"Jeopardy 1999,\" \"Speak Out For Milk\", \"The Beatnik Club,\" \"Ted Baxter Kills Mary Richards,\" \"Looks at Books,\" and \"Mysteries in Medicine.\"\n\nKinky Friedman performed \"Dear Abby.\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/dL369RKWxdV8lbW68bPQemehU3k.jpg",
-          "airDate": "1976-10-23",
-          "year": 1976,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live - S02e05 - Steve Martin (10-23-1976).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 672854963,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-05-steve-martin-10-23-1976/Saturday Night Live - S02e05 - Steve Martin (10-23-1976).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-02-e-06-buck-henry-the-band",
-          "seasonNumber": 2,
-          "episodeNumber": 6,
-          "title": "Buck Henry/The Band",
-          "overview": "Sketches include-- Trick or Treating Land Shark, \"Not For Ladies Only\", Samurai Stockbroker, Garrett Morris's Family History, Debate 76, Super Bass-O-Matic 77, \"The OintMENt\", Mr. Mike's Least Loved Bedtime Tales, Houdini's Ghost.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/rSoMbb7m9F8Up4PzaxBedqhwjTI.jpg",
-          "airDate": "1976-10-30",
-          "year": 1976,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S02E06 Buck Henry, The Band.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 675952176,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-02-e-06-buck-henry-the-band/Saturday Night Live S02E06 Buck Henry, The Band.mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-02-e-08-paul-simon-george-harrison-11-20-1976",
-          "seasonNumber": 2,
-          "episodeNumber": 8,
-          "title": "Paul Simon/Paul Simon, George Harrison",
-          "overview": "Live from New York, It's...George Harrison\n\nSketches include-- Paul Simon meets pauper Chevy Chase on sidewalk while Lorne talks with George Harrison, Quarry, \"Baba Wawa at Large\", The Twilight Zone, Billy Paul, \"Tomorrow with Tom Synder\".",
-          "stillURL": "https://image.tmdb.org/t/p/w300/9uvw1MjMqaOugnwde1rYPiwh6L6.jpg",
-          "airDate": "1976-11-20",
-          "year": 1976,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live - S02E08 - Paul Simon, George Harrison (11-20-1976).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 668262705,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-02-e-08-paul-simon-george-harrison-11-20-1976/Saturday Night Live - S02E08 - Paul Simon, George Harrison (11-20-1976).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-02e-10-candice-bergen-frank-zappa-12-11-1976_202501",
-          "seasonNumber": 2,
-          "episodeNumber": 10,
-          "title": "Candice Bergen/Frank Zappa",
-          "overview": "Live from New York, it's... Gilda Radner!\n\nSketches include: \"Patty Hearst At Home,\" \"Jimmy Carter Can't Keep His Promises,\" \"Santi-Wrap,\" Consumer Probe, Fern and Friend in PSA for The Right to Extreme Stupidity League, FX-70 Cheese Slicer, The Killer Trees trailer, \"Adopt John Belushi For Christmas,\" \"Radioactive Fallout Report,\" and \"Let's Kill Gary Gilmore For Christmas.\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/pWCuEQn1465NWPgr01CtjWy5nuy.jpg",
-          "airDate": "1976-12-11",
-          "year": 1976,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live - S02e10 - Candice Bergen, Frank Zappa (12-11-1976).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 674530600,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-10-candice-bergen-frank-zappa-12-11-1976_202501/Saturday Night Live - S02e10 - Candice Bergen, Frank Zappa (12-11-1976).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-2-e-11-ralph-nader-andy-kaufman-1-15-1977",
-          "seasonNumber": 2,
-          "episodeNumber": 11,
-          "title": "Ralph Nader/George Benson",
-          "overview": "Live from New York, It's...Ralph Nader\n\nSketches include-- Ralph Nader wants to cut loose, Badmouthing Grandfather, Dress Rehearsal for Execution, The Confederate Takeover, \"Baba Wawa At Large\"\" The Coneheads, \"Youth Ask Questions\", Andy Kaufman as Elvis, Testing Party Dolls.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/o4DGSWOHMsRlsbcQKQxtQfAqyO0.jpg",
-          "airDate": "1977-01-15",
-          "year": 1977,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S2E11 - Ralph Nader, Andy Kaufman (1-15-1977).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 671795415,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-2-e-11-ralph-nader-andy-kaufman-1-15-1977/Saturday Night Live S2E11 - Ralph Nader, Andy Kaufman (1-15-1977).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-02e-19-elliott-gould-4-16-1977",
-          "seasonNumber": 2,
-          "episodeNumber": 19,
-          "title": "Elliott Gould/McGarrigle Sisters",
-          "overview": "Live From New York, It's...John Belushi!  Sketches include-- Brezhnev Wants to Appear on Carson, The Castration Walk, Nick The Lounge Singer, You've Come a Long Way, Buddy, United Face Bank, Jason and Sunshine, Pilson Feedbag Dinners.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/dInKTpJNCWwQTEKbhxMifPkDsYG.jpg",
-          "airDate": "1977-04-16",
-          "year": 1977,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live - S02e19 - Elliott Gould (4-16-1977).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 671924572,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-19-elliott-gould-4-16-1977/Saturday Night Live - S02e19 - Elliott Gould (4-16-1977).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-02e-22-buck-henry-bella-abzug-5-21-1977",
-          "seasonNumber": 2,
-          "episodeNumber": 22,
-          "title": "Buck Henry/Kenny Vance, Jennifer Warnes",
-          "overview": "Live From New York, It's...Gilda Radner\n\nSketches include-- Carter's Energy Saving Message, Buck Performs A Live Sex Act, Samurai B.M.O.C, The Shower Mike, The Coneheads Return to Remulak, Rhonda Weiss's Bridal Shower, Charles Lindbergh Meets the Land Shark.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/kdWWuk2b9moTzlP2SLLdxPCcgar.jpg",
-          "airDate": "1977-05-21",
-          "year": 1977,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live - S02e22 - Buck Henry, Bella Abzug (5-21-1977).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 669270963,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-22-buck-henry-bella-abzug-5-21-1977/Saturday Night Live - S02e22 - Buck Henry, Bella Abzug (5-21-1977).mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "saturday-night-live-s-03-e-01-steve-martin-jackson-browne-9-24-1977_202501",
-          "seasonNumber": 3,
-          "episodeNumber": 1,
-          "title": "Steve Martin/Jackson Browne",
-          "overview": "Live From New York, It's...Dan Aykroyd\n\nSketches include--\"Bert Lance National Express Card\", \"Kromega III\", \"Wild & Crazy Guys\", \"Mike McMack, Defense Lawyer\", \"Trinity 3000 Computer\", \"Great Moments In Rock & Roll\", \"Mr. U.S.A. Pageant\", \"Royal Deluxe II\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/j31JhkCkP1iIWcJI5428fjCE8QG.jpg",
-          "airDate": "1977-09-24",
-          "year": 1977,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S03E01 - Steve Martin, Jackson Browne (9-24-1977).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 694114241,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-01-steve-martin-jackson-browne-9-24-1977_202501/Saturday Night Live S03E01 - Steve Martin, Jackson Browne (9-24-1977).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-03-e-04-charles-grodin-paul-simon-art-garfunkel-10-29-1977_202505",
-          "seasonNumber": 3,
-          "episodeNumber": 4,
-          "title": "Charles Grodin/Paul Simon and The Persuaders",
-          "overview": "Live From New York, It's...John Belushi\n\nSketches include--\"Grodin Misses Dress Rehearsal\", \"Weekend Update Ad\", \"The Coneheads\", \"Long-Winded Set-Up\", \"Consumer Probe\", \"The 'Anyone Can Host' Contest\", \"Samurai Dry Cleaners\", \"Trick-or-Treating Killer Bees\", \"Judy Miller\"\", \"The Professional School of Football\", \"Incompetents\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/yESjvDce36p7OtUnb6OPSIobnQA.jpg",
-          "airDate": "1977-10-29",
-          "year": 1977,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S03E04 - Charles Grodin, Paul Simon, Art Garfunkel - (10-29-1977).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 671077926,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-04-charles-grodin-paul-simon-art-garfunkel-10-29-1977_202505/Saturday Night Live S03E04 - Charles Grodin, Paul Simon, Art Garfunkel - (10-29-1977).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-3-e-10-robert-klein-bonnie-raitt",
-          "seasonNumber": 3,
-          "episodeNumber": 10,
-          "title": "Robert Klein/Bonnie Raitt",
-          "overview": "Live From New York, It's...Paul Shaffer\n\nSketches include--\"Mr. Mike & Tina Turner Review\", \"Olympia Cafe\", \"The X-Police\", \"Nick Winters\", \"Nerds Album\", \"Frogs Look At Film \", \"Giant Lobster Attack Warning\", \"Rhonda Weiss\", \"Attack Of The Giant Lobsters\", \"Lobsters Wreck The Studio\"\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/9F4xT99Z9GpFWCE18ltoEBLeHWr.jpg",
-          "airDate": "1978-01-28",
-          "year": 1978,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S3E10 Robert Klein, Bonnie Raitt.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 703714408,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-3-e-10-robert-klein-bonnie-raitt/Saturday Night Live S3E10 Robert Klein, Bonnie Raitt.mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-03-e-12-o.-j.-simpson-ashford-simpson-2-25-1978_202505",
-          "seasonNumber": 3,
-          "episodeNumber": 12,
-          "title": "O.J. Simpson/Ashford and Simpson",
-          "overview": "Live From New York, It's...Gilda Radner\n\nSketches include--\"Gilda Answers Audience Questions\", \"Samurai Night Fever\", \"Great Moments In Sports\", \"The Mohawk Master\", \"The Raid On Nicosia\", \"Voodoo\", \"The Franken & Davis Show\", \"Mandingo II\", \"E. Buzz Miller's Animal Kingdom\", \"Hertz Ad\", \"Celebrity Battle of the Sexes\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/aSwGEQryIrljOaeHlCCcVW1j252.jpg",
-          "airDate": "1978-02-25",
-          "year": 1978,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S03E12 - O.J. Simpson, Ashford & Simpson (2-25-1978).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 668493651,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-12-o.-j.-simpson-ashford-simpson-2-25-1978_202505/Saturday Night Live S03E12 - O.J. Simpson, Ashford & Simpson (2-25-1978).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-03-e-13-art-garfunkel-stephen-bishop",
-          "seasonNumber": 3,
-          "episodeNumber": 13,
-          "title": "Art Garfunkel/Stephen Bishop",
-          "overview": "Live From New York, It's...Gilda Radner\n\nSketches include--\"Modern Crimes\", \"Kromega III\", \"Tomorrow\", \"Miracle In Chicago\", \"Stage Door Guard\", \"Looks At Books\", \"Don't Look Back In Anger\", \"Looking For Mr. Goodbar Playset\"\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/oojSlKALlgM7uvvgTAMj7NVCEe7.jpg",
-          "airDate": "1978-03-11",
-          "year": 1978,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S03E13 Art Garfunkel, Stephen Bishop.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 670087228,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-13-art-garfunkel-stephen-bishop/Saturday Night Live S03E13 Art Garfunkel, Stephen Bishop.mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-03-e-15-christopher-lee-richard-belzer-meatloaf-3-25-1978_202505",
-          "seasonNumber": 3,
-          "episodeNumber": 15,
-          "title": "Christopher Lee/Meat Loaf",
-          "overview": "Live From New York, It's...John Belushi\n\nSketches include--\"Kevin Scott\", \"Movie Trailers\", \"My Fair Lady\", \"Mr. Death\", \"Anwar Sadat\", \"Cold As Ice\", \"Dell Stator's Rabbit Hut\", \"Vampire Hunters\", \"Richard Belzer\", \"Mr. Bill Goes To The Circus\"\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/n3pVeCzD36zJ6vcfdB6pRqDIF9.jpg",
-          "airDate": "1978-03-25",
-          "year": 1978,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S03E15 - Christopher Lee, Richard Belzer, Meatloaf (3-25-1978).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 674162042,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-15-christopher-lee-richard-belzer-meatloaf-3-25-1978_202505/Saturday Night Live S03E15 - Christopher Lee, Richard Belzer, Meatloaf (3-25-1978).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-03-e-16-michael-palin-eugene-record",
-          "seasonNumber": 3,
-          "episodeNumber": 16,
-          "title": "Michael Palin/Eugene Record",
-          "overview": "Live From New York, It's...Dan Aykroyd\n\nSketches include--\"Oscar Awards\", \"Little Chocolate Donuts\", \"Tax Deductions\", \"H&L Brock\", \"Great Escape\", \"Nerds Piano Lesson\", \"The Case of the Scarlet Membrane\", \"Good Time At Party\", \"Mr. Bill Pays His Taxes\", \"Danger Probe\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/55ojuqqIlQ68b6WJqCO85GByGDL.jpg",
-          "airDate": "1978-04-08",
-          "year": 1978,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S03E16 Michael Palin, Eugene Record.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 675484022,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-16-michael-palin-eugene-record/Saturday Night Live S03E16 Michael Palin, Eugene Record.mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-03-e-19-richard-dreyfuss-jimmy-buffett-5-13-1978_202501",
-          "seasonNumber": 3,
-          "episodeNumber": 19,
-          "title": "Richard Dreyfuss/Jimmy Buffett",
-          "overview": "Live From New York, It's...Bill Murray\n\nSketches include--\"Paraquat\", \"Cone Encounters of the Third Kind\", \"Sex Test\", \"Nick 'Springs'\", \"Annoying Lovers' Traits\", \"The David Susskind Show\",  \"Father Guido Sarducci\",",
-          "stillURL": "https://image.tmdb.org/t/p/w300/2iZQa2qfsPvCmX6cqk9SrtSKatB.jpg",
-          "airDate": "1978-05-13",
-          "year": 1978,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S03E19 - Richard Dreyfuss, Jimmy Buffett (5-13-1978).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 683399366,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-19-richard-dreyfuss-jimmy-buffett-5-13-1978_202501/Saturday Night Live S03E19 - Richard Dreyfuss, Jimmy Buffett (5-13-1978).mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 4,
-      "episodes": [
-        {
-          "archiveID": "saturday-night-live-s-04-e-02-fred-willard-devo-10-14-1978_202501",
-          "seasonNumber": 4,
-          "episodeNumber": 2,
-          "title": "Fred Willard/Devo",
-          "overview": "Sketches include--\"Honker in the Audience\", \"Two Guys Who Are Lawyers\", \"Aging Stuntman Cliff Preston\", \"One-Night-Stand vs. Phone Talk\", \"Mr. Bill Goes To N.Y.\", \"Bobbi Farber\", \"Crossroads\", \"Scotch Boutique\", \"Booji Boy\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/1KdlEoDpjwcbY0Us2HOzEOQ6tys.jpg",
-          "airDate": "1978-10-14",
-          "year": 1978,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S04E02 - Fred Willard, Devo (10-14-1978).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 687549600,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-04-e-02-fred-willard-devo-10-14-1978_202501/Saturday Night Live S04E02 - Fred Willard, Devo (10-14-1978).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-4-e-04-steve-martin-van-morrison",
-          "seasonNumber": 4,
-          "episodeNumber": 4,
-          "title": "Steve Martin/Van Morrison",
-          "overview": "Live from New York, it's...President Dan Aykroyd!  Sketches include  \"A Message From the President of the United States\", \"Where's the Cracker, Steve?\", \"Elvis Presley's Coat\", \"What If?\", \"Theodoric of York, Medieval Judge\", \"Festrunk Brothers at a Fox Bar,\" \"The Nerds at the Hospital\", \"Looks At Books\", and \"Annoying Waiter\".",
-          "stillURL": "https://image.tmdb.org/t/p/w300/dUqrUMQ5MN6tr5bCTvDqSwMcbxP.jpg",
-          "airDate": "1978-11-04",
-          "year": 1978,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S4E04 Steve Martin, Van Morrison.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 684066522,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-04-steve-martin-van-morrison/Saturday Night Live S4E04 Steve Martin, Van Morrison.mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-4-e-08-eric-idle-kate-bush-12-09-1978",
-          "seasonNumber": 4,
-          "episodeNumber": 8,
-          "title": "Eric Idle/Kate Bush",
-          "overview": "Sketches include \"Telepsychic Ray,\" \"Julia Child,\" \"Madrigal,\" \"The Woman He Loved,\" \"What Do You?\", \"Candy Slice,\" \"Consumer Probe,\" \"Singing Dog Agent,\" and \"Cochise at Oxford\".",
-          "stillURL": "https://image.tmdb.org/t/p/w300/jkSV73jxJnWoqCj3VsygtlYH0MC.jpg",
-          "airDate": "1978-12-09",
-          "year": 1978,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S4E08 - Eric Idle, Kate Bush (12-09-1978).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 674225158,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-08-eric-idle-kate-bush-12-09-1978/Saturday Night Live S4E08 - Eric Idle, Kate Bush (12-09-1978).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-4-e-10-michael-palin-the-doobie-brothers-01-27-1979",
-          "seasonNumber": 4,
-          "episodeNumber": 10,
-          "title": "Michael Palin/The Doobie Brothers",
-          "overview": "Sketches include \"State of the Union Address: Preparation I,\" \"Palin's Socks Monologue,\" \"Mr. Brighton Returns to the Nerds,\" \"Miles Cowperthwaite, Part One,\" \"What If Superman Grew Up in Germany?\" and \"Name the Bats.\"  Weekend Update features \"Chico Escuela's Super Bowl Recap\" and \"Father Guido Sarducci's Bill for The Last Brunch.\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/c62e5tlpFgJPvL7OEtDedbdhXj2.jpg",
-          "airDate": "1979-01-27",
-          "year": 1979,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S4E10 - Michael Palin, The Doobie Brothers (01-27-1979).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 671302672,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-10-michael-palin-the-doobie-brothers-01-27-1979/Saturday Night Live S4E10 - Michael Palin, The Doobie Brothers (01-27-1979).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-04-e-12-rick-nelson-judy-collins-02-17-1979_202501",
-          "seasonNumber": 4,
-          "episodeNumber": 12,
-          "title": "Rick Nelson/Judy Collins",
-          "overview": "Live from New York, it's...John Belushi!\n\nSketches include \"WGN Morning Show,\" \"The Twilight Zone,\" \"Helium,\" \"¿Quien Es Mas Macho?,\" and \"Rock Against Yeast '79.\"\n\nJudy Collins performed \"Hard Times for Lovers.\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/2X491a8WG9xqshTEm59njRstnw8.jpg",
-          "airDate": "1979-02-17",
-          "year": 1979,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S04E12 - Rick Nelson, Judy Collins (02-17-1979).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 680521739,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-04-e-12-rick-nelson-judy-collins-02-17-1979_202501/Saturday Night Live S04E12 - Rick Nelson, Judy Collins (02-17-1979).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-04-e-14-gary-busey-03-10-1979_202501",
-          "seasonNumber": 4,
-          "episodeNumber": 14,
-          "title": "Gary Busey/Gary Busey with Rick Danko and Paul Butterfield, Eubie Blake",
-          "overview": "Live from New York, it's...John Belushi!   Sketches include: \"Breaking the Ice with Belushi\" \"Billy Carter\" \"Women's Problems\" \"The Unsung Heroes of Rock n Roll\" \"The Slopjockey\" \"Bill Murray Talks With Mrs. Ed.\"  Gregory Hines joins Eubie Blake in singing Low-down Blues, I'm Just Simply Full Of Jazz and I'm Just Wild About Harry.   Busey and Paul Butterfield perform Stay All Night.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/tbmiKJw7PuQGvHGaSbSi65OxlZM.jpg",
-          "airDate": "1979-03-10",
-          "year": 1979,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S04E14 - Gary Busey (03-10-1979).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 700677686,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-04-e-14-gary-busey-03-10-1979_202501/Saturday Night Live S04E14 - Gary Busey (03-10-1979).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-4-e-15-margot-kidder-the-chieftains-03-17-1979",
-          "seasonNumber": 4,
-          "episodeNumber": 15,
-          "title": "Margot Kidder/The Chieftains",
-          "overview": "Live from New York, it's...John Belushi!   Sketches include \"WGN Radio Live at Doyle's Tavern,\" \"The Navy,\" \"Fred Garvin: Male Prostitute,\" \"St. Mickey's Knights of Columbus,\" \"Superhero Party,\" The Franken and Davis Show, \"Men's Problems,\" and The Mr. Bill Show. The Chieftains perform If I Had Maggie In The Woods and Morning Dew.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/q1aGIRY7a0Fl2F6KVn9AAWOb7X8.jpg",
-          "airDate": "1979-03-17",
-          "year": 1979,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S4E15 - Margot Kidder, The Chieftains (03-17-1979).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 683269047,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-15-margot-kidder-the-chieftains-03-17-1979/Saturday Night Live S4E15 - Margot Kidder, The Chieftains (03-17-1979).mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-4-e-16-richard-benjamin-04-07-1979",
-          "seasonNumber": 4,
-          "episodeNumber": 16,
-          "title": "Richard Benjamin/Rickie Lee Jones",
-          "overview": "Sketches include \"The Pepsi Syndrome,\" \"The Nerds In Love,\" and \"Scottish Restaurant.\" Jones performs his hit \"Chuck E's In Love.\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/rYY1NVSOtaV2bKABquPuMo4wMOI.jpg",
-          "airDate": "1979-04-07",
-          "year": 1979,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S4E16 - Richard Benjamin (04-07-1979).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 676662844,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-16-richard-benjamin-04-07-1979/Saturday Night Live S4E16 - Richard Benjamin (04-07-1979).mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 5,
-      "episodes": [
-        {
-          "archiveID": "saturday-night-live-s-05-e-04-buck-henry-tom-petty-and-the-heartbreakers_202505",
-          "seasonNumber": 5,
-          "episodeNumber": 4,
-          "title": "Buck Henry/Tom Petty and the Heartbreakers",
-          "overview": "Sketches include \"\"Rush Home to the Bathroom,\"\" \"\"Find the Popes in the Pizza Contest drawing,\"\" \"\"Nerds #12,\"\" \"\"Harley's Bristol Cream\"\" and \"\"Banshee\"\" commercial parodies, and one of Aviva Slesin's \"\"First Love\"\" films.",
-          "stillURL": "https://image.tmdb.org/t/p/w300/lDBKMaRTwK3PCRJSCbziULVnVsf.jpg",
-          "airDate": "1979-11-10",
-          "year": 1979,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S05E04 - Buck Henry, Tom Petty and the Heartbreakers.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 672695600,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-05-e-04-buck-henry-tom-petty-and-the-heartbreakers_202505/Saturday Night Live S05E04 - Buck Henry, Tom Petty and the Heartbreakers.mp4"
-        },
-        {
-          "archiveID": "saturday-night-live-s-05-e-06-howard-hesseman-randy-newman_202501",
-          "seasonNumber": 5,
-          "episodeNumber": 6,
-          "title": "Howard Hesseman/Randy Newman",
-          "overview": "Sketches include the \"\"Steve Marvin Radio Show\"\" and the debut of \"\"The Al Franken Decade.\"\"",
-          "stillURL": "https://image.tmdb.org/t/p/w300/2QLuVXgRjSnuyvU20KrijfEoArH.jpg",
-          "airDate": "1979-12-08",
-          "year": 1979,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Saturday Night Live S05E06 - Howard Hesseman, Randy Newman.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 673887249,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/saturday-night-live-s-05-e-06-howard-hesseman-randy-newman_202501/Saturday Night Live S05E06 - Howard Hesseman, Randy Newman.mp4"
-        }
-      ]
+     "archiveID": "saturday-night-live-s-01-e-21-buck-henry-gordon-lightfoot-garrett-morris-may-22-1976",
+     "seasonNumber": 1,
+     "episodeNumber": 21,
+     "title": "Buck Henry / Gordon Lightfoot",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/277/694175.jpg",
+     "airDate": "1976-05-22",
+     "year": 1976,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live - S01E21 - Buck Henry, Gordon Lightfoot & Garrett Morris (May 22, 1976).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 389031699,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-21-buck-henry-gordon-lightfoot-garrett-morris-may-22-1976/Saturday Night Live - S01E21 - Buck Henry, Gordon Lightfoot & Garrett Morris (May 22, 1976).mp4"
     }
-  ],
-  "episodesCount": 31
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-02-e-02-norman-lear-boz-scaggs",
+     "seasonNumber": 2,
+     "episodeNumber": 2,
+     "title": "Norman Lear / Boz Scaggs",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/277/694594.jpg",
+     "airDate": "1976-09-25",
+     "year": 1976,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S02E02 Norman Lear, Boz Scaggs.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 671222187,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-02-e-02-norman-lear-boz-scaggs/Saturday Night Live S02E02 Norman Lear, Boz Scaggs.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-02e-05-steve-martin-10-23-1976",
+     "seasonNumber": 2,
+     "episodeNumber": 5,
+     "title": "Steve Martin / Kinky Friedman",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/277/694597.jpg",
+     "airDate": "1976-10-23",
+     "year": 1976,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live - S02e05 - Steve Martin (10-23-1976).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 672854963,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-05-steve-martin-10-23-1976/Saturday Night Live - S02e05 - Steve Martin (10-23-1976).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-02-e-06-buck-henry-the-band",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "Buck Henry / The Band",
+     "overview": "Buck Henry hosts SNL for the third time and is accidentally cut by John Belushi; The Band Performs.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/277/694598.jpg",
+     "airDate": "1976-10-30",
+     "year": 1976,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S02E06 Buck Henry, The Band.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 675952176,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-02-e-06-buck-henry-the-band/Saturday Night Live S02E06 Buck Henry, The Band.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-02-e-08-paul-simon-george-harrison-11-20-1976",
+     "seasonNumber": 2,
+     "episodeNumber": 8,
+     "title": "Paul Simon / Paul Simon, George Harrison",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/277/694600.jpg",
+     "airDate": "1976-11-20",
+     "year": 1976,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live - S02E08 - Paul Simon, George Harrison (11-20-1976).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 668262705,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-02-e-08-paul-simon-george-harrison-11-20-1976/Saturday Night Live - S02E08 - Paul Simon, George Harrison (11-20-1976).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-02e-10-candice-bergen-frank-zappa-12-11-1976_202501",
+     "seasonNumber": 2,
+     "episodeNumber": 10,
+     "title": "Candice Bergen / Frank Zappa",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/277/694602.jpg",
+     "airDate": "1976-12-11",
+     "year": 1976,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live - S02e10 - Candice Bergen, Frank Zappa (12-11-1976).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 674530600,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-10-candice-bergen-frank-zappa-12-11-1976_202501/Saturday Night Live - S02e10 - Candice Bergen, Frank Zappa (12-11-1976).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-2-e-11-ralph-nader-andy-kaufman-1-15-1977",
+     "seasonNumber": 2,
+     "episodeNumber": 11,
+     "title": "Ralph Nader / George Benson",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/277/694603.jpg",
+     "airDate": "1977-01-15",
+     "year": 1977,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S2E11 - Ralph Nader, Andy Kaufman (1-15-1977).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 671795415,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-2-e-11-ralph-nader-andy-kaufman-1-15-1977/Saturday Night Live S2E11 - Ralph Nader, Andy Kaufman (1-15-1977).mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-03-e-01-steve-martin-jackson-browne-9-24-1977_202501",
+     "seasonNumber": 3,
+     "episodeNumber": 1,
+     "title": "Steve Martin / Jackson Browne",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696942.jpg",
+     "airDate": "1977-09-24",
+     "year": 1977,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S03E01 - Steve Martin, Jackson Browne (9-24-1977).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 694114241,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-01-steve-martin-jackson-browne-9-24-1977_202501/Saturday Night Live S03E01 - Steve Martin, Jackson Browne (9-24-1977).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-03-e-04-charles-grodin-paul-simon-art-garfunkel-10-29-1977_202505",
+     "seasonNumber": 3,
+     "episodeNumber": 4,
+     "title": "Charles Grodin / Paul Simon and The Persuasions",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696945.jpg",
+     "airDate": "1977-10-29",
+     "year": 1977,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S03E04 - Charles Grodin, Paul Simon, Art Garfunkel - (10-29-1977).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 671077926,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-04-charles-grodin-paul-simon-art-garfunkel-10-29-1977_202505/Saturday Night Live S03E04 - Charles Grodin, Paul Simon, Art Garfunkel - (10-29-1977).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-3-e-10-robert-klein-bonnie-raitt",
+     "seasonNumber": 3,
+     "episodeNumber": 10,
+     "title": "Robert Klein / Bonnie Raitt",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696957.jpg",
+     "airDate": "1978-01-28",
+     "year": 1978,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S3E10 Robert Klein, Bonnie Raitt.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 703714408,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-3-e-10-robert-klein-bonnie-raitt/Saturday Night Live S3E10 Robert Klein, Bonnie Raitt.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-03-e-12-o.-j.-simpson-ashford-simpson-2-25-1978_202505",
+     "seasonNumber": 3,
+     "episodeNumber": 12,
+     "title": "O.J. Simpson / Ashford & Simpson",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696959.jpg",
+     "airDate": "1978-02-25",
+     "year": 1978,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S03E12 - O.J. Simpson, Ashford & Simpson (2-25-1978).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 668493651,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-12-o.-j.-simpson-ashford-simpson-2-25-1978_202505/Saturday Night Live S03E12 - O.J. Simpson, Ashford & Simpson (2-25-1978).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-03-e-13-art-garfunkel-stephen-bishop",
+     "seasonNumber": 3,
+     "episodeNumber": 13,
+     "title": "Art Garfunkel / Stephen Bishop",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696960.jpg",
+     "airDate": "1978-03-11",
+     "year": 1978,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S03E13 Art Garfunkel, Stephen Bishop.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 670087228,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-13-art-garfunkel-stephen-bishop/Saturday Night Live S03E13 Art Garfunkel, Stephen Bishop.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-03-e-15-christopher-lee-richard-belzer-meatloaf-3-25-1978_202505",
+     "seasonNumber": 3,
+     "episodeNumber": 15,
+     "title": "Christopher Lee / Meat Loaf",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696962.jpg",
+     "airDate": "1978-03-25",
+     "year": 1978,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S03E15 - Christopher Lee, Richard Belzer, Meatloaf (3-25-1978).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 674162042,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-15-christopher-lee-richard-belzer-meatloaf-3-25-1978_202505/Saturday Night Live S03E15 - Christopher Lee, Richard Belzer, Meatloaf (3-25-1978).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-03-e-16-michael-palin-eugene-record",
+     "seasonNumber": 3,
+     "episodeNumber": 16,
+     "title": "Michael Palin / Eugene Record",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696963.jpg",
+     "airDate": "1978-04-08",
+     "year": 1978,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S03E16 Michael Palin, Eugene Record.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 675484022,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-16-michael-palin-eugene-record/Saturday Night Live S03E16 Michael Palin, Eugene Record.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-03-e-19-richard-dreyfuss-jimmy-buffett-5-13-1978_202501",
+     "seasonNumber": 3,
+     "episodeNumber": 19,
+     "title": "Richard Dreyfuss / Jimmy Buffett",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696966.jpg",
+     "airDate": "1978-05-13",
+     "year": 1978,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S03E19 - Richard Dreyfuss, Jimmy Buffett (5-13-1978).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 683399366,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-19-richard-dreyfuss-jimmy-buffett-5-13-1978_202501/Saturday Night Live S03E19 - Richard Dreyfuss, Jimmy Buffett (5-13-1978).mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-04-e-02-fred-willard-devo-10-14-1978_202501",
+     "seasonNumber": 4,
+     "episodeNumber": 2,
+     "title": "Fred Willard / Devo",
+     "overview": "Host Fred Willard; Devo performs. Sketches include--\"Honker in the Audience,\" \"Two Guys Who Are Lawyers,\" \"Aging Stuntman Cliff Preston,\" \"One-Night-Stand vs. Phone Talk,\" \"Mr. Bill Goes To N.Y.,\" \"Bobbi Farber,\" \"Crossroads,\" \"Scotch Boutique,\" and \"Booji Boy.\"",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696970.jpg",
+     "airDate": "1978-10-14",
+     "year": 1978,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S04E02 - Fred Willard, Devo (10-14-1978).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 687549600,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-04-e-02-fred-willard-devo-10-14-1978_202501/Saturday Night Live S04E02 - Fred Willard, Devo (10-14-1978).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-4-e-04-steve-martin-van-morrison",
+     "seasonNumber": 4,
+     "episodeNumber": 4,
+     "title": "Steve Martin / Van Morrison",
+     "overview": "Host Steve Martin; Van Morrison performs. Live from New York, it's ... President Dan Aykroyd! Sketches include \"A Message From the President of the United States,\" \"Where's the Cracker, Steve?\" \"Elvis Presley's Coat,\" \"What If?,\" \"Theodoric of York, Medieval Judge,\" \"Festrunk Brothers at a Fox Bar,\" \"The Nerds at the Hospital,\" \"Looks At Books,\" and \"Annoying Waiter.\"",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696971.jpg",
+     "airDate": "1978-11-04",
+     "year": 1978,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S4E04 Steve Martin, Van Morrison.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 684066522,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-04-steve-martin-van-morrison/Saturday Night Live S4E04 Steve Martin, Van Morrison.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-4-e-08-eric-idle-kate-bush-12-09-1978",
+     "seasonNumber": 4,
+     "episodeNumber": 8,
+     "title": "Eric Idle / Kate Bush",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696985.jpg",
+     "airDate": "1978-12-09",
+     "year": 1978,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S4E08 - Eric Idle, Kate Bush (12-09-1978).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 674225158,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-08-eric-idle-kate-bush-12-09-1978/Saturday Night Live S4E08 - Eric Idle, Kate Bush (12-09-1978).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-4-e-10-michael-palin-the-doobie-brothers-01-27-1979",
+     "seasonNumber": 4,
+     "episodeNumber": 10,
+     "title": "Michael Palin / The Doobie Brothers",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696987.jpg",
+     "airDate": "1979-01-27",
+     "year": 1979,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S4E10 - Michael Palin, The Doobie Brothers (01-27-1979).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 671302672,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-10-michael-palin-the-doobie-brothers-01-27-1979/Saturday Night Live S4E10 - Michael Palin, The Doobie Brothers (01-27-1979).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-04-e-12-rick-nelson-judy-collins-02-17-1979_202501",
+     "seasonNumber": 4,
+     "episodeNumber": 12,
+     "title": "Rick Nelson / Judy Collins",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696989.jpg",
+     "airDate": "1979-02-17",
+     "year": 1979,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S04E12 - Rick Nelson, Judy Collins (02-17-1979).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 680521739,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-04-e-12-rick-nelson-judy-collins-02-17-1979_202501/Saturday Night Live S04E12 - Rick Nelson, Judy Collins (02-17-1979).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-04-e-14-gary-busey-03-10-1979_202501",
+     "seasonNumber": 4,
+     "episodeNumber": 14,
+     "title": "Gary Busey / Gary Busey with Rick Danko and Paul Butterfield, Eubie Blake",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696991.jpg",
+     "airDate": "1979-03-10",
+     "year": 1979,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S04E14 - Gary Busey (03-10-1979).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 700677686,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-04-e-14-gary-busey-03-10-1979_202501/Saturday Night Live S04E14 - Gary Busey (03-10-1979).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-4-e-15-margot-kidder-the-chieftains-03-17-1979",
+     "seasonNumber": 4,
+     "episodeNumber": 15,
+     "title": "Margot Kidder / The Chieftains",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696992.jpg",
+     "airDate": "1979-03-17",
+     "year": 1979,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S4E15 - Margot Kidder, The Chieftains (03-17-1979).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 683269047,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-15-margot-kidder-the-chieftains-03-17-1979/Saturday Night Live S4E15 - Margot Kidder, The Chieftains (03-17-1979).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-4-e-16-richard-benjamin-04-07-1979",
+     "seasonNumber": 4,
+     "episodeNumber": 16,
+     "title": "Richard Benjamin / Rickie Lee Jones",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696993.jpg",
+     "airDate": "1979-04-07",
+     "year": 1979,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S4E16 - Richard Benjamin (04-07-1979).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 676662844,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-4-e-16-richard-benjamin-04-07-1979/Saturday Night Live S4E16 - Richard Benjamin (04-07-1979).mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 5,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-05-e-04-buck-henry-tom-petty-and-the-heartbreakers_202505",
+     "seasonNumber": 5,
+     "episodeNumber": 4,
+     "title": "Buck Henry / Tom Petty & the Heartbreakers",
+     "overview": "Bucky Henry hosts; Tom Petty and the Heartbreakers perform.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/697027.jpg",
+     "airDate": "1979-11-10",
+     "year": 1979,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S05E04 - Buck Henry, Tom Petty and the Heartbreakers.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 672695600,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-05-e-04-buck-henry-tom-petty-and-the-heartbreakers_202505/Saturday Night Live S05E04 - Buck Henry, Tom Petty and the Heartbreakers.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-05-e-06-howard-hesseman-randy-newman_202501",
+     "seasonNumber": 5,
+     "episodeNumber": 6,
+     "title": "Howard Hesseman / Randy Newman",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/697029.jpg",
+     "airDate": "1979-12-08",
+     "year": 1979,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S05E06 - Howard Hesseman, Randy Newman.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 673887249,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-05-e-06-howard-hesseman-randy-newman_202501/Saturday Night Live S05E06 - Howard Hesseman, Randy Newman.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-05-e-17-strother-martin-the-specials_202503",
+     "seasonNumber": 5,
+     "episodeNumber": 17,
+     "title": "Strother Martin / The Specials",
+     "overview": "Host Strother Martin and musical guests The Specials. Sketches include invasion of Brain Snatchers and French Camp.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/697040.jpg",
+     "airDate": "1980-04-19",
+     "year": 1980,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S05E17 - Strother Martin, The Specials.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 673371093,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-05-e-17-strother-martin-the-specials_202503/Saturday Night Live S05E17 - Strother Martin, The Specials.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-05-e-20-buck-henry-andrew-gold_202505",
+     "seasonNumber": 5,
+     "episodeNumber": 20,
+     "title": "Buck Henry / Andrew Gold",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/697043.jpg",
+     "airDate": "1980-05-24",
+     "year": 1980,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S05E20 - Buck Henry, Andrew Gold.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 678577379,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-05-e-20-buck-henry-andrew-gold_202505/Saturday Night Live S05E20 - Buck Henry, Andrew Gold.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 8,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-08-e-19-stevie-wonder_202501",
+     "seasonNumber": 8,
+     "episodeNumber": 19,
+     "title": "Stevie Wonder",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/gqC00oyFEW1j0bD4YAdNGuDMfWi.jpg",
+     "airDate": "1983-05-07",
+     "year": 1983,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S08E19 - Stevie Wonder.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 661288260,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-08-e-19-stevie-wonder_202501/Saturday Night Live S08E19 - Stevie Wonder.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 9,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-09-e-11-don-rickles-billy-idol_202501",
+     "seasonNumber": 9,
+     "episodeNumber": 11,
+     "title": "Don Rickles / Billy Idol",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/jpAqyeeJ4JCY1v952OYBsHpTnxM.jpg",
+     "airDate": "1984-01-28",
+     "year": 1984,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S09E11 - Don Rickles, Billy Idol.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 669774148,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-09-e-11-don-rickles-billy-idol_202501/Saturday Night Live S09E11 - Don Rickles, Billy Idol.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 10,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-10-e-04-michael-mc-kean-chaka-khan-the-folksmen-november-3-1984",
+     "seasonNumber": 10,
+     "episodeNumber": 4,
+     "title": "Michael McKean / Chaka Khan, The Folksmen",
+     "overview": "Michael McKean hosts with musical guests Chaka Khan and The Folksmen.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/uFPuebY7Ci52ygz55eBPrAEJOoj.jpg",
+     "airDate": "1984-11-03",
+     "year": 1984,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S10E04 - Michael McKean & Chaka Khan, The Folksmen (November 3, 1984).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 547576961,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-10-e-04-michael-mc-kean-chaka-khan-the-folksmen-november-3-1984/Saturday Night Live S10E04 - Michael McKean & Chaka Khan, The Folksmen (November 3, 1984).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-10-e-06-ed-asner-the-kinks_202502",
+     "seasonNumber": 10,
+     "episodeNumber": 6,
+     "title": "Ed Asner / The Kinks",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/vNTr7GzstbLeKiKlVOQIs8MLta2.jpg",
+     "airDate": "1984-11-17",
+     "year": 1984,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S10E06 Ed Asner, The Kinks.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 390843777,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-10-e-06-ed-asner-the-kinks_202502/Saturday Night Live S10E06 Ed Asner, The Kinks.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-10-e-16-christopher-reeve-santana-april-6-1985",
+     "seasonNumber": 10,
+     "episodeNumber": 16,
+     "title": "Christopher Reeve / Santana",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/u03kBjdcDzgR3C6y1MqikZnscZ5.jpg",
+     "airDate": "1985-04-06",
+     "year": 1985,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S10E16 - Christopher Reeve & Santana (April 6, 1985).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 400777885,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-10-e-16-christopher-reeve-santana-april-6-1985/Saturday Night Live S10E16 - Christopher Reeve & Santana (April 6, 1985).mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 11,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-11-e-13-george-wendt-francis-ford-copolla-phillip-glass_202505",
+     "seasonNumber": 11,
+     "episodeNumber": 13,
+     "title": "George Wendt / Philip Glass",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/7idhnKHXFR0vqZv3bfJTUyGxXbG.jpg",
+     "airDate": "1986-03-22",
+     "year": 1986,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S11E13 - George Wendt, Francis Ford Copolla, Phillip Glass.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 676227608,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-11-e-13-george-wendt-francis-ford-copolla-phillip-glass_202505/Saturday Night Live S11E13 - George Wendt, Francis Ford Copolla, Phillip Glass.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 12,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-12-e-05-robin-williams-paul-simon_202501",
+     "seasonNumber": 12,
+     "episodeNumber": 5,
+     "title": "Robin Williams / Paul Simon",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/dLUWOOeBDwspFDs3rpRQe9dp22w.jpg",
+     "airDate": "1986-11-22",
+     "year": 1986,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S12E05 - Robin Williams, Paul Simon.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 662115274,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-12-e-05-robin-williams-paul-simon_202501/Saturday Night Live S12E05 - Robin Williams, Paul Simon.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-12-e-14-bill-murray-percy-sledge-march-21-1987",
+     "seasonNumber": 12,
+     "episodeNumber": 14,
+     "title": "Bill Murray / Percy Sledge",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/qqgGybPpdjmYwZd0wspplzDjna8.jpg",
+     "airDate": "1987-03-21",
+     "year": 1987,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S12E14 - Bill Murray & Percy Sledge (March 21, 1987).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 400083679,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-12-e-14-bill-murray-percy-sledge-march-21-1987/Saturday Night Live S12E14 - Bill Murray & Percy Sledge (March 21, 1987).mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 13,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-13-e-01-steve-martin-sting_202503",
+     "seasonNumber": 13,
+     "episodeNumber": 1,
+     "title": "Steve Martin / Sting",
+     "overview": "Steve Martin hosts with musical guest Sting.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/2YEF0DhApBrAdfH93Xda2nbKNEa.jpg",
+     "airDate": "1987-10-17",
+     "year": 1987,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S13E01 - Steve Martin, Sting.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 664974689,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-13-e-01-steve-martin-sting_202503/Saturday Night Live S13E01 - Steve Martin, Sting.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-13-e-04-robert-mitchum-simply-red_202505",
+     "seasonNumber": 13,
+     "episodeNumber": 4,
+     "title": "Robert Mitchum / Simply Red",
+     "overview": "Sketches include The Mountain Man and the commercial parodies Compulsion and Beaty Bath.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/fyYIfVKiEds3Eigu0Sr1C3oGhm9.jpg",
+     "airDate": "1987-11-14",
+     "year": 1987,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S13E04 - Robert Mitchum, Simply Red.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 678837247,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-13-e-04-robert-mitchum-simply-red_202505/Saturday Night Live S13E04 - Robert Mitchum, Simply Red.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-13-e-08-paul-simon-linda-ronstadt_202501",
+     "seasonNumber": 13,
+     "episodeNumber": 8,
+     "title": "Paul Simon / Linda Ronstadt & Mariachi Vargas",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/cx6kVcm7GAd9GzZBlTij1pM3q31.jpg",
+     "airDate": "1987-12-19",
+     "year": 1987,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S13E08 - Paul Simon, Linda Ronstadt.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 674434978,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-13-e-08-paul-simon-linda-ronstadt_202501/Saturday Night Live S13E08 - Paul Simon, Linda Ronstadt.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-13-e-10-carl-weathers-robbie-robertson_202503",
+     "seasonNumber": 13,
+     "episodeNumber": 10,
+     "title": "Carl Weathers / Robbie Robertson",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/qQHHMtyZ0n4jqmACybB5KO0AwBJ.jpg",
+     "airDate": "1988-01-30",
+     "year": 1988,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S13E10 - Carl Weathers, Robbie Robertson.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 682538452,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-13-e-10-carl-weathers-robbie-robertson_202503/Saturday Night Live S13E10 - Carl Weathers, Robbie Robertson.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-13-e-12-tom-hanks-randy-travis_202501",
+     "seasonNumber": 13,
+     "episodeNumber": 12,
+     "title": "Tom Hanks / Randy Travis",
+     "overview": "Tom Hanks hosts with musical guest Randy Travis.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/tAPWRfRKTSnt436ITZQtBWaeSbS.jpg",
+     "airDate": "1988-02-20",
+     "year": 1988,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S13E12 - Tom Hanks, Randy Travis.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 664053614,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-13-e-12-tom-hanks-randy-travis_202501/Saturday Night Live S13E12 - Tom Hanks, Randy Travis.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 14,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-14-e-01-tom-hanks-keith-richards-october-8-1988",
+     "seasonNumber": 14,
+     "episodeNumber": 1,
+     "title": "Tom Hanks / Keith Richards",
+     "overview": "Tom Hanks hosts and Keith Richards performs. Sketches include \"Pumping Up With Hans and Franz,\" \"ABC Presents Debate '88,\" \"Mr. Short Term Memory,\" \"Jew, Not a Jew,\" and \"The Pat Stevens Show.\" \"First Citiwide Change Bank: Our business is making change\", \"Tom Hanks Bullying Kids: Never-Before-Seen Outtakes from the movie BIG\", \"Class of 1978 Ten Year Reunion: Two Sad Losers Want To Score With The Ladies\".",
+     "stillURL": "https://image.tmdb.org/t/p/w300/hct0bOB8POh3UALxbvckcJcHr7t.jpg",
+     "airDate": "1988-10-08",
+     "year": 1988,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E01 - Tom Hanks & Keith Richards (October 8, 1988).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 2411664559,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-01-tom-hanks-keith-richards-october-8-1988/Saturday Night Live S14E01 - Tom Hanks & Keith Richards (October 8, 1988).ia.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-03-john-larroquette-randy-newman_202501",
+     "seasonNumber": 14,
+     "episodeNumber": 3,
+     "title": "John Larroquette / Randy Newman & Mark Knopfler",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/5TBSip1qkqnjwozpvkwnYOFj5FO.jpg",
+     "airDate": "1988-10-22",
+     "year": 1988,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E03 - John Larroquette, Randy Newman.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 679975587,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-03-john-larroquette-randy-newman_202501/Saturday Night Live S14E03 - John Larroquette, Randy Newman.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-04-matthew-modine-edie-brickell-and-new-bohemians_202501",
+     "seasonNumber": 14,
+     "episodeNumber": 4,
+     "title": "Matthew Modine / Edie Brickell & New Bohemians",
+     "overview": "Matthew Modine hosts with Edie Brickell & New Bohemians as musical guest.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/kA3uvDtPLr5mK4WvyOakGD6yz9v.jpg",
+     "airDate": "1988-11-05",
+     "year": 1988,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E04 - Matthew Modine, Edie Brickell and New Bohemians.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 686435909,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-04-matthew-modine-edie-brickell-and-new-bohemians_202501/Saturday Night Live S14E04 - Matthew Modine, Edie Brickell and New Bohemians.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-06-john-lithgow-tracy-chapman_202502",
+     "seasonNumber": 14,
+     "episodeNumber": 6,
+     "title": "John Lithgow / Tracy Chapman",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/xpaPrx3tw173z66n0EjnOm0xiXo.jpg",
+     "airDate": "1988-11-19",
+     "year": 1988,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E06 John Lithgow, Tracy Chapman.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 680366521,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-06-john-lithgow-tracy-chapman_202502/Saturday Night Live S14E06 John Lithgow, Tracy Chapman.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-07-danny-devito-the-bangles_202503",
+     "seasonNumber": 14,
+     "episodeNumber": 7,
+     "title": "Danny DeVito / The Bangles",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/qXbUaerkaQ5BRIhU0Hq9NNknIoi.jpg",
+     "airDate": "1988-12-03",
+     "year": 1988,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E07 - Danny Devito, The Bangles.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 866235630,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-07-danny-devito-the-bangles_202503/Saturday Night Live S14E07 - Danny Devito, The Bangles.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-08-kevin-kline-bobby-mc-ferrin_202501",
+     "seasonNumber": 14,
+     "episodeNumber": 8,
+     "title": "Kevin Kline / Bobby McFerrin",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/A8WOpxN1CftpxqLGroYoZ7Ag8vZ.jpg",
+     "airDate": "1988-12-10",
+     "year": 1988,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E08 - Kevin Kline, Bobby McFerrin.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 1558017246,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-08-kevin-kline-bobby-mc-ferrin_202501/Saturday Night Live S14E08 - Kevin Kline, Bobby McFerrin.ia.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-10-john-malkovich-anita-baker_202501",
+     "seasonNumber": 14,
+     "episodeNumber": 10,
+     "title": "John Malkovich / Anita Baker",
+     "overview": "John Malkovich hosts; Anita Baker performs.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/vizojwl4NCoWJTgOox9P0yA795G.jpg",
+     "airDate": "1989-01-21",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E10 - John Malkovich, Anita Baker.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 670017766,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-10-john-malkovich-anita-baker_202501/Saturday Night Live S14E10 - John Malkovich, Anita Baker.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-12-ted-danson-luther-vandross_202502",
+     "seasonNumber": 14,
+     "episodeNumber": 12,
+     "title": "Ted Danson / Luther Vandross",
+     "overview": "Ted Danson hosts with musical guest Luther Vandross.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/7bgIeLuizSOC2YaUXpkXdSTJ5CE.jpg",
+     "airDate": "1989-01-28",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E12 Ted Danson, Luther Vandross.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 1446135713,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-12-ted-danson-luther-vandross_202502/Saturday Night Live S14E12 Ted Danson, Luther Vandross.ia.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-13-leslie-nielsen-cowboy-junkies_202502",
+     "seasonNumber": 14,
+     "episodeNumber": 13,
+     "title": "Leslie Nielsen / Cowboy Junkies",
+     "overview": "Leslie Nielsen hosts with musical guest Cowboy Junkies.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/552/1380011.jpg",
+     "airDate": "1989-02-18",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E13 Leslie Nielsen, Cowboy Junkies.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 903462976,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-13-leslie-nielsen-cowboy-junkies_202502/Saturday Night Live S14E13 Leslie Nielsen, Cowboy Junkies.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-14-glenn-close-the-gypsy-kings_202501",
+     "seasonNumber": 14,
+     "episodeNumber": 14,
+     "title": "Glenn Close / Gipsy Kings",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/qu7d1tiv7A1jxmA67h67tgiS49J.jpg",
+     "airDate": "1989-02-25",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E14 - Glenn Close, The Gypsy Kings.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 675997220,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-14-glenn-close-the-gypsy-kings_202501/Saturday Night Live S14E14 - Glenn Close, The Gypsy Kings.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-15-mary-tyler-moore-elvis-costello_202501",
+     "seasonNumber": 14,
+     "episodeNumber": 15,
+     "title": "Mary Tyler Moore / Elvis Costello",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/mmGXKPtr1XQiSgKMcYoByj7pfj5.jpg",
+     "airDate": "1989-03-25",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E15 - Mary Tyler Moore, Elvis Costello.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 652873964,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-15-mary-tyler-moore-elvis-costello_202501/Saturday Night Live S14E15 - Mary Tyler Moore, Elvis Costello.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-16-mel-gibson-living-colour_202502",
+     "seasonNumber": 14,
+     "episodeNumber": 16,
+     "title": "Mel Gibson / Living Colour",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/a9W2z6RxXvzSgkcbReNL2wt1pmG.jpg",
+     "airDate": "1989-04-01",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E16 Mel Gibson, Living Colour.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 648444366,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-16-mel-gibson-living-colour_202502/Saturday Night Live S14E16 Mel Gibson, Living Colour.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-17-dolly-parton_202505",
+     "seasonNumber": 14,
+     "episodeNumber": 17,
+     "title": "Dolly Parton",
+     "overview": "Dolly Parton hosts and performs.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/7bi0nz66rc9KzVhyjCU1rJzhl5c.jpg",
+     "airDate": "1989-04-15",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E17 - Dolly Parton.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 647103916,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-17-dolly-parton_202505/Saturday Night Live S14E17 - Dolly Parton.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-19-wayne-gretzky-fine-young-cannibals_202502",
+     "seasonNumber": 14,
+     "episodeNumber": 19,
+     "title": "Wayne Gretzky / Fine Young Cannibals",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/4yu9cAbCeiG9wCmw6TPv6qPcDdw.jpg",
+     "airDate": "1989-05-13",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E19 Wayne Gretzky, Fine Young Cannibals.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 669418011,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-19-wayne-gretzky-fine-young-cannibals_202502/Saturday Night Live S14E19 Wayne Gretzky, Fine Young Cannibals.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-14-e-20-steve-martin-tom-petty-and-the-heartbreakers-may-20-1989",
+     "seasonNumber": 14,
+     "episodeNumber": 20,
+     "title": "Steve Martin / Tom Petty & the Heartbreakers",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/xAOnhEwJjMyZ8A01pR9smSq1EHz.jpg",
+     "airDate": "1989-05-20",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S14E20 - Steve Martin & Tom Petty and the Heartbreakers (May 20, 1989).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 515972943,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-14-e-20-steve-martin-tom-petty-and-the-heartbreakers-may-20-1989/Saturday Night Live S14E20 - Steve Martin & Tom Petty and the Heartbreakers (May 20, 1989).mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 15,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-15-e-02-rick-moranis-rickie-lee-jones_202501",
+     "seasonNumber": 15,
+     "episodeNumber": 2,
+     "title": "Rick Moranis / Rickie Lee Jones",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/taBROBe3Y2lffIUwGUHqSDENWm2.jpg",
+     "airDate": "1989-10-07",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S15E02 - Rick Moranis, Rickie Lee Jones.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 647499808,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-15-e-02-rick-moranis-rickie-lee-jones_202501/Saturday Night Live S15E02 - Rick Moranis, Rickie Lee Jones.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-15-e-04-james-woods-don-henley_202501",
+     "seasonNumber": 15,
+     "episodeNumber": 4,
+     "title": "James Woods / Don Henley",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1989-10-28",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S15E04 - James Woods, Don Henley.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 664600905,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-15-e-04-james-woods-don-henley_202501/Saturday Night Live S15E04 - James Woods, Don Henley.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-15-e-05-chris-evert-eurythmics_202501",
+     "seasonNumber": 15,
+     "episodeNumber": 5,
+     "title": "Chris Evert / Eurythmics",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1989-11-11",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S15E05 - Chris Evert, Eurythmics.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 652659343,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-15-e-05-chris-evert-eurythmics_202501/Saturday Night Live S15E05 - Chris Evert, Eurythmics.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-15-e-06-woody-harrelson-david-byrne_202505",
+     "seasonNumber": 15,
+     "episodeNumber": 6,
+     "title": "Woody Harrelson / David Byrne",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1989-11-18",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S15E06 - Woody Harrelson, David Byrne.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 664448049,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-15-e-06-woody-harrelson-david-byrne_202505/Saturday Night Live S15E06 - Woody Harrelson, David Byrne.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-15-e-07-john-goodman-k-d-lang-and-the-reclines_202501",
+     "seasonNumber": 15,
+     "episodeNumber": 7,
+     "title": "John Goodman / k.d. lang & The Reclines",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1989-12-02",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S15E07 - John Goodman, K D Lang and the Reclines.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 2041794300,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-15-e-07-john-goodman-k-d-lang-and-the-reclines_202501/Saturday Night Live S15E07 - John Goodman, K D Lang and the Reclines.ia.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-15-e-08-robert-wagner-linda-ronstadt-aaron-neville_202501",
+     "seasonNumber": 15,
+     "episodeNumber": 8,
+     "title": "Robert Wagner / Linda Ronstadt & Aaron Neville",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1989-12-09",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S15E08 - Robert Wagner, Linda Ronstadt, Aaron Neville.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 664282178,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-15-e-08-robert-wagner-linda-ronstadt-aaron-neville_202501/Saturday Night Live S15E08 - Robert Wagner, Linda Ronstadt, Aaron Neville.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-15-e-09-andie-mac-dowell-tracy-chapman-december-16-1989",
+     "seasonNumber": 15,
+     "episodeNumber": 9,
+     "title": "Andie MacDowell / Tracy Chapman",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1989-12-16",
+     "year": 1989,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S15E09 - Andie MacDowell & Tracy Chapman (December 16, 1989).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 526829646,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-15-e-09-andie-mac-dowell-tracy-chapman-december-16-1989/Saturday Night Live S15E09 - Andie MacDowell & Tracy Chapman (December 16, 1989).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-15-e-10-ed-oneill-harry-connick-jr_202502",
+     "seasonNumber": 15,
+     "episodeNumber": 10,
+     "title": "Ed O'Neill / Harry Connick, Jr.",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1990-01-13",
+     "year": 1990,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S15E10 Ed O'neill, Harry Connick, Jr.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 665866857,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-15-e-10-ed-oneill-harry-connick-jr_202502/Saturday Night Live S15E10 Ed O'neill, Harry Connick, Jr.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-15-e-11-christopher-walken-bonnie-raitt-january-20-1990",
+     "seasonNumber": 15,
+     "episodeNumber": 11,
+     "title": "Christopher Walken / Bonnie Raitt",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1990-01-20",
+     "year": 1990,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S15E11 - Christopher Walken & Bonnie Raitt (January 20, 1990).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 552613621,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-15-e-11-christopher-walken-bonnie-raitt-january-20-1990/Saturday Night Live S15E11 - Christopher Walken & Bonnie Raitt (January 20, 1990).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-15-e-13-tom-hanks-aerosmith_202505",
+     "seasonNumber": 15,
+     "episodeNumber": 13,
+     "title": "Tom Hanks / Aerosmith",
+     "overview": "Tom Hanks hosts with musical guest Aerosmith.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1990-02-17",
+     "year": 1990,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S15E13 - Tom Hanks, Aerosmith.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 463635164,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-15-e-13-tom-hanks-aerosmith_202505/Saturday Night Live S15E13 - Tom Hanks, Aerosmith.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-15-e-14-fred-savage-technotronic_202502",
+     "seasonNumber": 15,
+     "episodeNumber": 14,
+     "title": "Fred Savage / Technotronic",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1990-02-24",
+     "year": 1990,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S15E14 Fred Savage, Technotronic.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 1208429774,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-15-e-14-fred-savage-technotronic_202502/Saturday Night Live S15E14 Fred Savage, Technotronic.ia.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-15-e-15-rob-lowe-the-pogues_202501",
+     "seasonNumber": 15,
+     "episodeNumber": 15,
+     "title": "Rob Lowe / The Pogues",
+     "overview": "Rob Lowe hosts with musical guest The Pogues.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1990-03-17",
+     "year": 1990,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S15E15 - Rob Lowe, The Pogues.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 653401097,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-15-e-15-rob-lowe-the-pogues_202501/Saturday Night Live S15E15 - Rob Lowe, The Pogues.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-15-e-18-alec-baldwin-the-b-52s-april-21-1990",
+     "seasonNumber": 15,
+     "episodeNumber": 18,
+     "title": "Alec Baldwin / The B-52's",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1990-04-21",
+     "year": 1990,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S15E18 - Alec Baldwin & The B-52's (April 21, 1990).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 405297084,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-15-e-18-alec-baldwin-the-b-52s-april-21-1990/Saturday Night Live S15E18 - Alec Baldwin & The B-52's (April 21, 1990).mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 16,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-16-e-01-kyle-maclachlan-sinead-o-connor_202501",
+     "seasonNumber": 16,
+     "episodeNumber": 1,
+     "title": "Kyle MacLachlan / Sinead O'Connor",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1990-09-29",
+     "year": 1990,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S16E01 - Kyle Maclachlan, Sinead O'Connor.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 677974674,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-16-e-01-kyle-maclachlan-sinead-o-connor_202501/Saturday Night Live S16E01 - Kyle Maclachlan, Sinead O'Connor.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-16-e-02-susan-lucci-hothouse-flowers_202502",
+     "seasonNumber": 16,
+     "episodeNumber": 2,
+     "title": "Susan Lucci / Hothouse Flowers",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1990-10-06",
+     "year": 1990,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S16E02 Susan Lucci, Hothouse Flowers.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 685003902,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-16-e-02-susan-lucci-hothouse-flowers_202502/Saturday Night Live S16E02 Susan Lucci, Hothouse Flowers.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-16-e-04-patrick-swayze-mariah-carey_202501",
+     "seasonNumber": 16,
+     "episodeNumber": 4,
+     "title": "Patrick Swayze / Mariah Carey",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1990-10-27",
+     "year": 1990,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S16E04 - Patrick Swayze, Mariah Carey.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 394193077,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-16-e-04-patrick-swayze-mariah-carey_202501/Saturday Night Live S16E04 - Patrick Swayze, Mariah Carey.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-16-e-07-john-goodman-faith-no-more_202501",
+     "seasonNumber": 16,
+     "episodeNumber": 7,
+     "title": "John Goodman / Faith No More",
+     "overview": "John Goodman hosts and Faith No More performs.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1990-12-01",
+     "year": 1990,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S16E07 - John Goodman, Faith No More.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 675716978,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-16-e-07-john-goodman-faith-no-more_202501/Saturday Night Live S16E07 - John Goodman, Faith No More.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-16-e-08-tom-hanks-edie-brickell-new-bohemians_202501",
+     "seasonNumber": 16,
+     "episodeNumber": 8,
+     "title": "Tom Hanks / Edie Brickell & New Bohemians",
+     "overview": "Tom Hanks hosts for the fifth time. Edie Brickell & New Bohemians are musical guests.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1990-12-08",
+     "year": 1990,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S16E08 - Tom Hanks, Edie Brickell & New Bohemians.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 677687442,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-16-e-08-tom-hanks-edie-brickell-new-bohemians_202501/Saturday Night Live S16E08 - Tom Hanks, Edie Brickell & New Bohemians.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-16-e-10-joe-mantegna-vanilla-ice_202501",
+     "seasonNumber": 16,
+     "episodeNumber": 10,
+     "title": "Joe Mantegna / Vanilla Ice",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1991-01-12",
+     "year": 1991,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S16E10 - Joe Mantegna, Vanilla Ice.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 688891878,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-16-e-10-joe-mantegna-vanilla-ice_202501/Saturday Night Live S16E10 - Joe Mantegna, Vanilla Ice.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-16-e-11-sting_202502",
+     "seasonNumber": 16,
+     "episodeNumber": 11,
+     "title": "Sting",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1991-01-19",
+     "year": 1991,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S16E11 Sting.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 688417153,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-16-e-11-sting_202502/Saturday Night Live S16E11 Sting.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-16-e-13-roseanne-barr-deee-lite_202502",
+     "seasonNumber": 16,
+     "episodeNumber": 13,
+     "title": "Roseanne Barr / Deee-Lite",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1991-02-16",
+     "year": 1991,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S16E13 Roseanne Barr, Deee-lite.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 660174090,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-16-e-13-roseanne-barr-deee-lite_202502/Saturday Night Live S16E13 Roseanne Barr, Deee-lite.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-16-e-20-george-wendt-elvis-costello_202501",
+     "seasonNumber": 16,
+     "episodeNumber": 20,
+     "title": "George Wendt / Elvis Costello",
+     "overview": "George Wendt hosts with musical guest Elvis Costello.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1991-05-18",
+     "year": 1991,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S16E20 - George Wendt, Elvis Costello.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 681252731,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-16-e-20-george-wendt-elvis-costello_202501/Saturday Night Live S16E20 - George Wendt, Elvis Costello.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 17,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-17-e-01-michael-jordan-public-enemy_202501",
+     "seasonNumber": 17,
+     "episodeNumber": 1,
+     "title": "Michael Jordan / Public Enemy",
+     "overview": "Michael Jordan hosts; Public Enemy performs.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/l75z8REnoApQYCrk6vkqA7kK7n2.jpg",
+     "airDate": "1991-09-28",
+     "year": 1991,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S17E01 - Michael Jordan, Public Enemy.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 680309325,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-17-e-01-michael-jordan-public-enemy_202501/Saturday Night Live S17E01 - Michael Jordan, Public Enemy.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-17-e-03-kirstie-alley-tom-petty-the-heartbreakers_202501",
+     "seasonNumber": 17,
+     "episodeNumber": 3,
+     "title": "Kirstie Alley / Tom Petty & the Heartbreakers",
+     "overview": "Kirstie Alley hosts with musical guest Tom Petty & the Heartbreakers.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/ufoQXnkhM8boA1up0ijQDpOyKzx.jpg",
+     "airDate": "1991-10-12",
+     "year": 1991,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S17E03 - Kirstie Alley, Tom Petty & The Heartbreakers.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 685573993,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-17-e-03-kirstie-alley-tom-petty-the-heartbreakers_202501/Saturday Night Live S17E03 - Kirstie Alley, Tom Petty & The Heartbreakers.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-17-e-05-kiefer-sutherland-skid-row_202501",
+     "seasonNumber": 17,
+     "episodeNumber": 5,
+     "title": "Kiefer Sutherland / Skid Row",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/dpfiLiSYL0NjgeXDEm9f6OlXfLt.jpg",
+     "airDate": "1991-11-02",
+     "year": 1991,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S17E05 - Kiefer Sutherland, Skid Row.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 708901115,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-17-e-05-kiefer-sutherland-skid-row_202501/Saturday Night Live S17E05 - Kiefer Sutherland, Skid Row.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-17-e-06-linda-hamilton-mariah-carey_202501",
+     "seasonNumber": 17,
+     "episodeNumber": 6,
+     "title": "Linda Hamilton / Mariah Carey",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/5uhINZyYe4ZRaVj8aakoizxBv27.jpg",
+     "airDate": "1991-11-16",
+     "year": 1991,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S17E06 - Linda Hamilton, Mariah Carey.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 676138515,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-17-e-06-linda-hamilton-mariah-carey_202501/Saturday Night Live S17E06 - Linda Hamilton, Mariah Carey.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-17-e-10-rob-morrow-nirvana-january-11-1992",
+     "seasonNumber": 17,
+     "episodeNumber": 10,
+     "title": "Rob Morrow / Nirvana",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/wZHEdIcJIJXblzy0mC59rlpyG9w.jpg",
+     "airDate": "1992-01-11",
+     "year": 1992,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live - S17E10 - Rob Morrow & Nirvana (January 11, 1992).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 538796920,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-17-e-10-rob-morrow-nirvana-january-11-1992/Saturday Night Live - S17E10 - Rob Morrow & Nirvana (January 11, 1992).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-17-e-12-susan-dey-c-c-music-factory_202501",
+     "seasonNumber": 17,
+     "episodeNumber": 12,
+     "title": "Susan Dey / C+C Music Factory",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/3hJH8Zrm7fO1TRFtgXfqOXCZlKr.jpg",
+     "airDate": "1992-02-08",
+     "year": 1992,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S17E12 - Susan Dey, C+C Music Factory.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 678862505,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-17-e-12-susan-dey-c-c-music-factory_202501/Saturday Night Live S17E12 - Susan Dey, C+C Music Factory.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-17-e-13-jason-priestley-teenage-fanclub_202501",
+     "seasonNumber": 17,
+     "episodeNumber": 13,
+     "title": "Jason Priestley / Teenage Fan Club",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/tE2RtAokw4AqHID8yPIZSqs0znM.jpg",
+     "airDate": "1992-02-15",
+     "year": 1992,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S17E13 - Jason Priestley, Teenage Fanclub.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 679561135,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-17-e-13-jason-priestley-teenage-fanclub_202501/Saturday Night Live S17E13 - Jason Priestley, Teenage Fanclub.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-17-e-15-john-goodman-garth-brooks_202505",
+     "seasonNumber": 17,
+     "episodeNumber": 15,
+     "title": "John Goodman / Garth Brooks",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/tDKpNFySMJpoVWzfGM0DgtOK0Vp.jpg",
+     "airDate": "1992-03-14",
+     "year": 1992,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S17E15 - John Goodman, Garth Brooks.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 679535037,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-17-e-15-john-goodman-garth-brooks_202505/Saturday Night Live S17E15 - John Goodman, Garth Brooks.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-17-e-18-jerry-seinfeld-annie-lennox_202412",
+     "seasonNumber": 17,
+     "episodeNumber": 18,
+     "title": "Jerry Seinfeld / Annie Lennox",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/8CpdhN9GvntprskQcRNEgZYtK68.jpg",
+     "airDate": "1992-04-18",
+     "year": 1992,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S17E18 - Jerry Seinfeld, Annie Lennox.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 676420793,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-17-e-18-jerry-seinfeld-annie-lennox_202412/Saturday Night Live S17E18 - Jerry Seinfeld, Annie Lennox.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-17-e-19-tom-hanks-bruce-springsteen_202501",
+     "seasonNumber": 17,
+     "episodeNumber": 19,
+     "title": "Tom Hanks / Bruce Springsteen",
+     "overview": "Tom Hanks hosts with musical guest Bruce Springsteen.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/jylavdpuvY4Rf6Y3YNjjifXY6pi.jpg",
+     "airDate": "1992-05-09",
+     "year": 1992,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S17E19 - Tom Hanks, Bruce Springsteen.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 679555824,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-17-e-19-tom-hanks-bruce-springsteen_202501/Saturday Night Live S17E19 - Tom Hanks, Bruce Springsteen.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 18,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-18-e-03-joe-pesci-spin-doctors_202501",
+     "seasonNumber": 18,
+     "episodeNumber": 3,
+     "title": "Joe Pesci / Spin Doctors",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1992-10-10",
+     "year": 1992,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S18E03 - Joe Pesci, Spin Doctors.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 665767128,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-18-e-03-joe-pesci-spin-doctors_202501/Saturday Night Live S18E03 - Joe Pesci, Spin Doctors.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-18-e-04-christopher-walken-arrested-development_202412",
+     "seasonNumber": 18,
+     "episodeNumber": 4,
+     "title": "Christopher Walken / Arrested Development",
+     "overview": "Christopher Walken hosted with musical guest Arrested Development.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/4z6qBq4dcDIsAe2TnayGptKM7Ba.jpg",
+     "airDate": "1992-10-24",
+     "year": 1992,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S18E04 - Christopher Walken, Arrested Development.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 610736975,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-18-e-04-christopher-walken-arrested-development_202412/Saturday Night Live S18E04 - Christopher Walken, Arrested Development.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-18-e-06-michael-keaton-morrissey_202505",
+     "seasonNumber": 18,
+     "episodeNumber": 6,
+     "title": "Michael Keaton / Morrissey",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/y1XScVZkN8WlCgxVIensBWHDUZr.jpg",
+     "airDate": "1992-11-14",
+     "year": 1992,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S18E06 - Michael Keaton, Morrissey.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 667484440,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-18-e-06-michael-keaton-morrissey_202505/Saturday Night Live S18E06 - Michael Keaton, Morrissey.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-18-e-07-sinbad-sade_202501",
+     "seasonNumber": 18,
+     "episodeNumber": 7,
+     "title": "Sinbad / Sade",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/gMTUN3bJ30qPr60UKsRQljfjRFI.jpg",
+     "airDate": "1992-11-21",
+     "year": 1992,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S18E07 - Sinbad, Sade.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 559921361,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-18-e-07-sinbad-sade_202501/Saturday Night Live S18E07 - Sinbad, Sade.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-18-e-08-tom-arnold-neil-young_202505",
+     "seasonNumber": 18,
+     "episodeNumber": 8,
+     "title": "Tom Arnold / Neil Young",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/wT6HVnAEtPX9OngwbuYLCfw0EEs.jpg",
+     "airDate": "1992-12-05",
+     "year": 1992,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S18E08 - Tom Arnold, Neil Young.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 607935239,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-18-e-08-tom-arnold-neil-young_202505/Saturday Night Live S18E08 - Tom Arnold, Neil Young.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-18-e-11-harvey-keitel-madonna_202501",
+     "seasonNumber": 18,
+     "episodeNumber": 11,
+     "title": "Harvey Keitel / Madonna",
+     "overview": "Harvey Keitel hosts with Madonna as musical guest.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/ljUCAXrdGuG4l1yU9ZIk49UpUA4.jpg",
+     "airDate": "1993-01-16",
+     "year": 1993,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S18E11 - Harvey Keitel, Madonna.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 660003152,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-18-e-11-harvey-keitel-madonna_202501/Saturday Night Live S18E11 - Harvey Keitel, Madonna.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-18-e-13-alec-baldwin-paul-mc-cartney_202501",
+     "seasonNumber": 18,
+     "episodeNumber": 13,
+     "title": "Alec Baldwin / Paul McCartney",
+     "overview": "Alec Baldwin hosts with musical guest Paul McCartney.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/vrXLwHbbgldUC24mpXyF9MCIso9.jpg",
+     "airDate": "1993-02-13",
+     "year": 1993,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S18E13 - Alec Baldwin, Paul McCartney.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 661800893,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-18-e-13-alec-baldwin-paul-mc-cartney_202501/Saturday Night Live S18E13 - Alec Baldwin, Paul McCartney.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-18-e-14-bill-murray-sting_202505",
+     "seasonNumber": 18,
+     "episodeNumber": 14,
+     "title": "Bill Murray / Sting",
+     "overview": "Host Bill Murray; Sting performs. Sketches include: \"Bill Clinton,\" \"Hibernol,\" \"The Whipmaster,\" \"Frequent Flyer,\" \"I'm Chillin',\" \"Tommy Two-Tap,\" \"Coffee Talk With Linda Richman,\" and \"Deep Thoughts by Jack Handey.\"",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/257/642930.jpg",
+     "airDate": "1993-02-20",
+     "year": 1993,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S18E14 - Bill Murray, Sting.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 665757841,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-18-e-14-bill-murray-sting_202505/Saturday Night Live S18E14 - Bill Murray, Sting.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-18-e-16-miranda-richardson-soul-asylum_202501",
+     "seasonNumber": 18,
+     "episodeNumber": 16,
+     "title": "Miranda Richardson / Soul Asylum",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/tbwFClDDTkRYXdmIF3gTKbgeKil.jpg",
+     "airDate": "1993-03-20",
+     "year": 1993,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S18E16 - Miranda Richardson, Soul Asylum.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 656866917,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-18-e-16-miranda-richardson-soul-asylum_202501/Saturday Night Live S18E16 - Miranda Richardson, Soul Asylum.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-18-e-18-kirstie-alley-lenny-kravitz_202502",
+     "seasonNumber": 18,
+     "episodeNumber": 18,
+     "title": "Kirstie Alley / Lenny Kravitz",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/uclzGk2fm38RiNDCmrgPAZVvgw4.jpg",
+     "airDate": "1993-04-24",
+     "year": 1993,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S18E18 Kirstie Alley, Lenny Kravitz.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 655250422,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-18-e-18-kirstie-alley-lenny-kravitz_202502/Saturday Night Live S18E18 Kirstie Alley, Lenny Kravitz.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-18-e-19-christina-applegate-midnight-oil_202501",
+     "seasonNumber": 18,
+     "episodeNumber": 19,
+     "title": "Christina Applegate / Midnight Oil",
+     "overview": "Christina Applegate hosts and Midnight Oil performs.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/ygoPA5e7Ksph8ivGICyqE1vLdAP.jpg",
+     "airDate": "1993-05-15",
+     "year": 1993,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S18E19 - Christina Applegate, Midnight Oil.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 651057753,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-18-e-19-christina-applegate-midnight-oil_202501/Saturday Night Live S18E19 - Christina Applegate, Midnight Oil.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 19,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-19-e-04-john-malkovich-billy-joel_202501",
+     "seasonNumber": 19,
+     "episodeNumber": 4,
+     "title": "John Malkovich / Billy Joel",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/nPjIATQjpKs0PQXi0UGTyjUBAqU.jpg",
+     "airDate": "1993-10-23",
+     "year": 1993,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S19E04 - John Malkovich, Billy Joel.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 664510029,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-19-e-04-john-malkovich-billy-joel_202501/Saturday Night Live S19E04 - John Malkovich, Billy Joel.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-19-e-12-patrick-stewart-salt-n-pepa_202501",
+     "seasonNumber": 19,
+     "episodeNumber": 12,
+     "title": "Patrick Stewart / Salt-N-Pepa",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/i1OY1v2CZ5vYpwx3ABgya0mr4oQ.jpg",
+     "airDate": "1994-02-12",
+     "year": 1994,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S19E12 - Patrick Stewart, Salt-n-Pepa.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 675401598,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-19-e-12-patrick-stewart-salt-n-pepa_202501/Saturday Night Live S19E12 - Patrick Stewart, Salt-n-Pepa.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-19-e-20-heather-locklear-janet-jackson_202505",
+     "seasonNumber": 19,
+     "episodeNumber": 20,
+     "title": "Heather Locklear / Janet Jackson",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/lQDhjW9uY52kn49RdFvENbmovcQ.jpg",
+     "airDate": "1994-05-14",
+     "year": 1994,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S19E20 - Heather Locklear, Janet Jackson.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 663484723,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-19-e-20-heather-locklear-janet-jackson_202505/Saturday Night Live S19E20 - Heather Locklear, Janet Jackson.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 20,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-20-e-04-dana-carvey-edie-brickell_202505",
+     "seasonNumber": 20,
+     "episodeNumber": 4,
+     "title": "Dana Carvey / Edie Brickell",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/gTUKFI54Z5uDyzZlwrtrVL6gP6Z.jpg",
+     "airDate": "1994-10-22",
+     "year": 1994,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S20E04 - Dana Carvey, Edie Brickell.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 666171842,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-20-e-04-dana-carvey-edie-brickell_202505/Saturday Night Live S20E04 - Dana Carvey, Edie Brickell.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-20-e-08-alec-baldwin-beastie-boys_202502",
+     "seasonNumber": 20,
+     "episodeNumber": 8,
+     "title": "Alec Baldwin / Beastie Boys",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/62fwBU4Z1iWerrsBgAIQ46OsgDK.jpg",
+     "airDate": "1994-12-10",
+     "year": 1994,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S20E08 Alec Baldwin, Beastie Boys.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 667365240,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-20-e-08-alec-baldwin-beastie-boys_202502/Saturday Night Live S20E08 Alec Baldwin, Beastie Boys.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-20-e-12-bob-newhart-desree_202502",
+     "seasonNumber": 20,
+     "episodeNumber": 12,
+     "title": "Bob Newhart / Des'ree",
+     "overview": "Bob Newhart hosts with musical guest Des'ree.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/2Tb4Cs2gemXqxBgueIDxf5JyrBW.jpg",
+     "airDate": "1995-02-11",
+     "year": 1995,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S20E12 Bob Newhart, Des'ree.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 666929580,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-20-e-12-bob-newhart-desree_202502/Saturday Night Live S20E12 Bob Newhart, Des'ree.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 21,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-21-e-03-david-schwimmer-natalie-merchant_202501",
+     "seasonNumber": 21,
+     "episodeNumber": 3,
+     "title": "David Schwimmer / Natalie Merchant",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/ge32no7Ao5j8UJUbLUnFNkx9nN4.jpg",
+     "airDate": "1995-10-21",
+     "year": 1995,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S21E03 - David Schwimmer, Natalie Merchant.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 661303121,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-21-e-03-david-schwimmer-natalie-merchant_202501/Saturday Night Live S21E03 - David Schwimmer, Natalie Merchant.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-21-e-07-anthony-edwards-foo-fighters_202501",
+     "seasonNumber": 21,
+     "episodeNumber": 7,
+     "title": "Anthony Edwards / Foo Fighters",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/bKNqR6hZpmie13OaWe7NnkKJ0gJ.jpg",
+     "airDate": "1995-12-02",
+     "year": 1995,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S21E07 - Anthony Edwards, Foo Fighters.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 669592176,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-21-e-07-anthony-edwards-foo-fighters_202501/Saturday Night Live S21E07 - Anthony Edwards, Foo Fighters.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-21-e-08-david-alan-grier-silverchair_202501",
+     "seasonNumber": 21,
+     "episodeNumber": 8,
+     "title": "David Alan Grier / Silverchair",
+     "overview": "David Alan Grier hosts and with musical guest Silverchair.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/AmLqiBN7mQi8qxJwoEbap6ragCs.jpg",
+     "airDate": "1995-12-09",
+     "year": 1995,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S21E08 - David Alan Grier, Silverchair.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 666158093,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-21-e-08-david-alan-grier-silverchair_202501/Saturday Night Live S21E08 - David Alan Grier, Silverchair.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-21-e-10-christopher-walken-joan-osborne_202501",
+     "seasonNumber": 21,
+     "episodeNumber": 10,
+     "title": "Christopher Walken / Joan Osborne",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/3xAeNxD2K5XknS5R9xtE4WABaT3.jpg",
+     "airDate": "1996-01-13",
+     "year": 1996,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S21E10 - Christopher Walken, Joan Osborne.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 667114632,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-21-e-10-christopher-walken-joan-osborne_202501/Saturday Night Live S21E10 - Christopher Walken, Joan Osborne.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-21-e-12-danny-aiello-coolio_202505",
+     "seasonNumber": 21,
+     "episodeNumber": 12,
+     "title": "Danny Aiello / Coolio",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/421JOu1WfFKCj6VrdJfgqK4v4m2.jpg",
+     "airDate": "1996-02-10",
+     "year": 1996,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S21E12 - Danny Aiello, Coolio.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 661216522,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-21-e-12-danny-aiello-coolio_202505/Saturday Night Live S21E12 - Danny Aiello, Coolio.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-21-e-15-john-goodman-everclear_202501",
+     "seasonNumber": 21,
+     "episodeNumber": 15,
+     "title": "John Goodman / Everclear",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/oE6fjFULV0rmy1emw77zHMXMNvb.jpg",
+     "airDate": "1996-03-16",
+     "year": 1996,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S21E15 - John Goodman, Everclear.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 670226218,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-21-e-15-john-goodman-everclear_202501/Saturday Night Live S21E15 - John Goodman, Everclear.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-21-e-16-phil-hartman-gin-blossoms_202501",
+     "seasonNumber": 21,
+     "episodeNumber": 16,
+     "title": "Phil Hartman / Gin Blossoms",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/siuAeEBVIwmbobARTpKfFY4rSOO.jpg",
+     "airDate": "1996-03-23",
+     "year": 1996,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S21E16 - Phil Hartman-Gin Blossoms.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 661288013,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-21-e-16-phil-hartman-gin-blossoms_202501/Saturday Night Live S21E16 - Phil Hartman-Gin Blossoms.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-21-e-17-steve-forbes-rage-against-the-machine_202501",
+     "seasonNumber": 21,
+     "episodeNumber": 17,
+     "title": "Steve Forbes / Rage Against the Machine",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/vtAD7EabMk5U1H9wn14TN3cX4Tf.jpg",
+     "airDate": "1996-04-13",
+     "year": 1996,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S21E17 - Steve Forbes, Rage Against The Machine.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 674744970,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-21-e-17-steve-forbes-rage-against-the-machine_202501/Saturday Night Live S21E17 - Steve Forbes, Rage Against The Machine.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-21-e-18-teri-hatcher-the-dave-matthews-band_202502",
+     "seasonNumber": 21,
+     "episodeNumber": 18,
+     "title": "Teri Hatcher / Dave Matthews Band",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/tWIHMhwNRDN5Sd19vyjcBwUi43c.jpg",
+     "airDate": "1996-04-20",
+     "year": 1996,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S21E18 Teri Hatcher, The Dave Matthews Band.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 669253278,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-21-e-18-teri-hatcher-the-dave-matthews-band_202502/Saturday Night Live S21E18 Teri Hatcher, The Dave Matthews Band.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-21-e-20-jim-carrey-soundgarden_202501",
+     "seasonNumber": 21,
+     "episodeNumber": 20,
+     "title": "Jim Carrey / Soundgarden",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/tKdhHwDGMciRltxb06yCMpKALG0.jpg",
+     "airDate": "1996-05-18",
+     "year": 1996,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S21E20 - Jim Carrey, Soundgarden.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 669290921,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-21-e-20-jim-carrey-soundgarden_202501/Saturday Night Live S21E20 - Jim Carrey, Soundgarden.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 22,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-22-e-04-dana-carvey-dr-dre_202501",
+     "seasonNumber": 22,
+     "episodeNumber": 4,
+     "title": "Dana Carvey / Dr. Dre",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/y3toAQs7LS5gFsgNBE1aGcxav3X.jpg",
+     "airDate": "1996-10-26",
+     "year": 1996,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S22E04 Dana Carvey, Dr Dre.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 665852817,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-22-e-04-dana-carvey-dr-dre_202501/Saturday Night Live S22E04 Dana Carvey, Dr Dre.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-22-e-05-chris-rock-the-wallflowers_202501",
+     "seasonNumber": 22,
+     "episodeNumber": 5,
+     "title": "Chris Rock / The Wallflowers",
+     "overview": "Chris Rock hosts and The Wallflowers perform.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/mejnFnLFbp4ETyRwHIDf5p9vGmh.jpg",
+     "airDate": "1996-11-02",
+     "year": 1996,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S22E05 Chris Rock, The Wallflowers.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 662630956,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-22-e-05-chris-rock-the-wallflowers_202501/Saturday Night Live S22E05 Chris Rock, The Wallflowers.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-22-e-06-robert-downey-jr.-fiona-apple_202501",
+     "seasonNumber": 22,
+     "episodeNumber": 6,
+     "title": "Robert Downey Jr. / Fiona Apple",
+     "overview": "Robert Downey, Jr. hosts with musical guest Fiona Apple; special appearance by Evander Holyfield and Bob Dole.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/wvhFZr4WUAkjCCdgR5Bqz9LdieK.jpg",
+     "airDate": "1996-11-16",
+     "year": 1996,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S22E06 Robert Downey Jr., Fiona Apple.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 674377416,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-22-e-06-robert-downey-jr.-fiona-apple_202501/Saturday Night Live S22E06 Robert Downey Jr., Fiona Apple.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-22-e-07-phil-hartman-bush_202501",
+     "seasonNumber": 22,
+     "episodeNumber": 7,
+     "title": "Phil Hartman / Bush",
+     "overview": "Phil Hartman hosts with musical guest Bush; special appearance by Rodney Dangerfield.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/f612ZfRVNYSKnnlcPRhJIOfR40I.jpg",
+     "airDate": "1996-11-23",
+     "year": 1996,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S22E07 Phil Hartman, Bush.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 670460205,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-22-e-07-phil-hartman-bush_202501/Saturday Night Live S22E07 Phil Hartman, Bush.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-22-e-08-martin-short-no-doubt_202501",
+     "seasonNumber": 22,
+     "episodeNumber": 8,
+     "title": "Martin Short / No Doubt",
+     "overview": "Martin Short hosts with musical guest No Doubt.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/283/707906.jpg",
+     "airDate": "1996-12-07",
+     "year": 1996,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S22E08 Martin Short, No Doubt.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 665116568,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-22-e-08-martin-short-no-doubt_202501/Saturday Night Live S22E08 Martin Short, No Doubt.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-22-e-10-kevin-spacey-beck_202501",
+     "seasonNumber": 22,
+     "episodeNumber": 10,
+     "title": "Kevin Spacey / Beck",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1997-01-11",
+     "year": 1997,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S22E10 Kevin Spacey, Beck.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 662064894,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-22-e-10-kevin-spacey-beck_202501/Saturday Night Live S22E10 Kevin Spacey, Beck.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-22-e-11-david-allen-grier-snoop-dogg_202502",
+     "seasonNumber": 22,
+     "episodeNumber": 11,
+     "title": "David Alan Grier / Snoop Doggy Dogg",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1997-01-18",
+     "year": 1997,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S22E11 David Allen Grier, Snoop Dogg.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 675458177,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-22-e-11-david-allen-grier-snoop-dogg_202502/Saturday Night Live S22E11 David Allen Grier, Snoop Dogg.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-22-e-14-alec-baldwin-tina-turner_202505",
+     "seasonNumber": 22,
+     "episodeNumber": 14,
+     "title": "Alec Baldwin / Tina Turner",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/9VZZG39OlS7kjm4YnSXF9ltugBx.jpg",
+     "airDate": "1997-02-22",
+     "year": 1997,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S22E14 Alec Baldwin, Tina Turner.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 663052614,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-22-e-14-alec-baldwin-tina-turner_202505/Saturday Night Live S22E14 Alec Baldwin, Tina Turner.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-22-e-16-mike-myers-aerosmith_202505",
+     "seasonNumber": 22,
+     "episodeNumber": 16,
+     "title": "Mike Myers / Aerosmith",
+     "overview": "Mike Myers hosts with musical guest Aerosmith.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/mSMSVX9R0NQ7NihuUzGZDWQFffo.jpg",
+     "airDate": "1997-03-22",
+     "year": 1997,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S22E16 Mike Myers, Aerosmith.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 682380156,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-22-e-16-mike-myers-aerosmith_202505/Saturday Night Live S22E16 Mike Myers, Aerosmith.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-22-e-17-rob-lowe-the-spice-girls_202501",
+     "seasonNumber": 22,
+     "episodeNumber": 17,
+     "title": "Rob Lowe / Spice Girls",
+     "overview": "Rob Lowe hosts with musical guest the Spice Girls. Special guests are Joe Pesci and Robert De Niro.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/2RYIwD46xMwjHyL1fAi5fFXtxQp.jpg",
+     "airDate": "1997-04-12",
+     "year": 1997,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S22E17 Rob Lowe, The Spice Girls.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 675020461,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-22-e-17-rob-lowe-the-spice-girls_202501/Saturday Night Live S22E17 Rob Lowe, The Spice Girls.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-22-e-19-john-goodman-jewel_202501",
+     "seasonNumber": 22,
+     "episodeNumber": 19,
+     "title": "John Goodman / Jewel",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/ibm6cASi1OjlKKOmnuL5eNlgPX9.jpg",
+     "airDate": "1997-05-10",
+     "year": 1997,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S22E19 John Goodman, Jewel.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 680397372,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-22-e-19-john-goodman-jewel_202501/Saturday Night Live S22E19 John Goodman, Jewel.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 23,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-23-e-01-sylvester-stallone-jamiroquai_202502",
+     "seasonNumber": 23,
+     "episodeNumber": 1,
+     "title": "Sylvester Stallone / Jamiroquai",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/tMikRwKAj9onM46IuqlT6nE75Dq.jpg",
+     "airDate": "1997-09-27",
+     "year": 1997,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S23E01 Sylvester Stallone, Jamiroquai.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 662111473,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-23-e-01-sylvester-stallone-jamiroquai_202502/Saturday Night Live S23E01 Sylvester Stallone, Jamiroquai.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-23-e-07-rudy-giuliani-sarah-mclachlan_202501",
+     "seasonNumber": 23,
+     "episodeNumber": 7,
+     "title": "Rudy Giuliani / Sarah McLachlan",
+     "overview": "Sketches include Rita's Thanksgiving, St. Monica's Spelling Bee and Friggin' Giuliani.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/tToYRgItO3gsmxZQZvSz6qOtgAE.jpg",
+     "airDate": "1997-11-22",
+     "year": 1997,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S23E07 Rudy Giuliani, Sarah Mclachlan.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 672136526,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-23-e-07-rudy-giuliani-sarah-mclachlan_202501/Saturday Night Live S23E07 Rudy Giuliani, Sarah Mclachlan.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-23-e-08-nathan-lane-metallica_202502",
+     "seasonNumber": 23,
+     "episodeNumber": 8,
+     "title": "Nathan Lane / Metallica",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/pr8TrcpQiA7zQSRqyKpm65bD1VM.jpg",
+     "airDate": "1997-12-06",
+     "year": 1997,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S23E08 Nathan Lane, Metallica.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 673042183,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-23-e-08-nathan-lane-metallica_202502/Saturday Night Live S23E08 Nathan Lane, Metallica.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-23-e-09-helen-hunt-hanson_202501",
+     "seasonNumber": 23,
+     "episodeNumber": 9,
+     "title": "Helen Hunt / Hanson",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/8oVCdoIseCGcuuWhUt1BQp63KLD.jpg",
+     "airDate": "1997-12-13",
+     "year": 1997,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S23E09 Helen Hunt, Hanson.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 676788484,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-23-e-09-helen-hunt-hanson_202501/Saturday Night Live S23E09 Helen Hunt, Hanson.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-23-e-12-john-goodman-paula-cole_202501",
+     "seasonNumber": 23,
+     "episodeNumber": 12,
+     "title": "John Goodman / Paula Cole",
+     "overview": "Sketches include Morning Latte and Martha Stewart Living.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/3vCINgniDNKjxTGSH8YNg5chvBt.jpg",
+     "airDate": "1998-02-07",
+     "year": 1998,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S23E12 John Goodman, Paula Cole.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 675922480,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-23-e-12-john-goodman-paula-cole_202501/Saturday Night Live S23E12 John Goodman, Paula Cole.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-23-e-14-garth-brooks_202501",
+     "seasonNumber": 23,
+     "episodeNumber": 14,
+     "title": "Garth Brooks",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/dcTeaFkPqJjVmc67r1XL2zNjWfH.jpg",
+     "airDate": "1998-02-28",
+     "year": 1998,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S23E14 Garth Brooks.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 661710668,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-23-e-14-garth-brooks_202501/Saturday Night Live S23E14 Garth Brooks.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-23-e-16-julianne-moore-backstreet-boys_202502",
+     "seasonNumber": 23,
+     "episodeNumber": 16,
+     "title": "Julianne Moore / Backstreet Boys",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/uvDYZPNT5IHCHKjx4iSMMgNVcFU.jpg",
+     "airDate": "1998-03-14",
+     "year": 1998,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S23E16 Julianne Moore, Backstreet Boys.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 659913846,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-23-e-16-julianne-moore-backstreet-boys_202502/Saturday Night Live S23E16 Julianne Moore, Backstreet Boys.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-23-e-17-steve-buscemi-third-eye-blind_202501",
+     "seasonNumber": 23,
+     "episodeNumber": 17,
+     "title": "Steve Buscemi / Third Eye Blind",
+     "overview": "Steve Buscemi hosts with musical guest, Third Eye Blind. Sketches include \"Viewers Choose Clinton Coverage,\" \"Alice in Wonderland,\" \"Morning Latte,\" \"Goth Talk,\" \"Stuff We Made,\" \"Judge Judy,\" \"Job Interviews,\" and \"I Took a Gay Guy to the Prom.\"",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/306/765570.jpg",
+     "airDate": "1998-04-04",
+     "year": 1998,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S23E17 Steve Buscemi, Third Eye Blind.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 668955397,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-23-e-17-steve-buscemi-third-eye-blind_202501/Saturday Night Live S23E17 Steve Buscemi, Third Eye Blind.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 24,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-24-e-01-cameron-diaz-the-smashing-pumpkins-september-26-1998",
+     "seasonNumber": 24,
+     "episodeNumber": 1,
+     "title": "Cameron Diaz / The Smashing Pumpkins",
+     "overview": "Cameron Diaz hosts with musical guest Smashing Pumpkins.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/2XmlQMo0PJ8QMHa4dHxv2TE1fbm.jpg",
+     "airDate": "1998-09-26",
+     "year": 1998,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S24E01 - Cameron Diaz & The Smashing Pumpkins (September 26, 1998).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 1641485386,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-01-cameron-diaz-the-smashing-pumpkins-september-26-1998/Saturday Night Live S24E01 - Cameron Diaz & The Smashing Pumpkins (September 26, 1998).ia.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-24-e-03-lucy-lawless-elliott-smith_202502",
+     "seasonNumber": 24,
+     "episodeNumber": 3,
+     "title": "Lucy Lawless / Elliott Smith",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/oUJTUV7haO3E1iWbzvTjQAoPXSk.jpg",
+     "airDate": "1998-10-17",
+     "year": 1998,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S24E03 Lucy Lawless, Elliott Smith.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 653011573,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-03-lucy-lawless-elliott-smith_202502/Saturday Night Live S24E03 Lucy Lawless, Elliott Smith.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-24-e-05-david-spade-eagle-eye-cherry_202502",
+     "seasonNumber": 24,
+     "episodeNumber": 5,
+     "title": "David Spade / Eagle-Eye Cherry",
+     "overview": "David Spade hosts with musical guest Eagle-Eye Cherry.Sketches include David Spade in Therapy, Mack North and Felicity Shoot.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/tCYNfAr6jv6RhvigQPxM7d3kNZ7.jpg",
+     "airDate": "1998-11-07",
+     "year": 1998,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S24E05 David Spade, Eagle-Eye Cherry.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 670596969,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-05-david-spade-eagle-eye-cherry_202502/Saturday Night Live S24E05 David Spade, Eagle-Eye Cherry.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-24-e-06-joan-allen-jewel_202501",
+     "seasonNumber": 24,
+     "episodeNumber": 6,
+     "title": "Joan Allen / Jewel",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/zguch5XIAscCnG2vJK3sbTPcFOT.jpg",
+     "airDate": "1998-11-14",
+     "year": 1998,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S24E06 Joan Allen, Jewel.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 666915100,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-06-joan-allen-jewel_202501/Saturday Night Live S24E06 Joan Allen, Jewel.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-24-e-10-bill-paxton-beck_202502",
+     "seasonNumber": 24,
+     "episodeNumber": 10,
+     "title": "Bill Paxton / Beck",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/a9Urag9btUnWMWt1yAR5Lobmh0V.jpg",
+     "airDate": "1999-01-09",
+     "year": 1999,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S24E10 Bill Paxton, Beck.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 670699333,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-10-bill-paxton-beck_202502/Saturday Night Live S24E10 Bill Paxton, Beck.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-24-e-11-james-van-der-beek-everlast_202505",
+     "seasonNumber": 24,
+     "episodeNumber": 11,
+     "title": "James Van Der Beek / Everlast",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/pDgmY3oZSIgc8XIngsmzDlV66c9.jpg",
+     "airDate": "1999-01-16",
+     "year": 1999,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S24E11 James Van Der Beek, Everlast.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 665344069,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-11-james-van-der-beek-everlast_202505/Saturday Night Live S24E11 James Van Der Beek, Everlast.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-24-e-13-brendan-fraser-busta-rhymes_202502",
+     "seasonNumber": 24,
+     "episodeNumber": 13,
+     "title": "Brendan Fraser / Busta Rhymes & The Roots",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/5j0PTdH5yrpB4rU4tEqwav9o7wX.jpg",
+     "airDate": "1999-02-13",
+     "year": 1999,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S24E13 Brendan Fraser, Busta Rhymes.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 670108581,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-13-brendan-fraser-busta-rhymes_202502/Saturday Night Live S24E13 Brendan Fraser, Busta Rhymes.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-24-e-15-ray-romano-the-corrs_202501",
+     "seasonNumber": 24,
+     "episodeNumber": 15,
+     "title": "Ray Romano / The Corrs",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/ni8zEoKYo2xd1lo95H4Xkf7RiLQ.jpg",
+     "airDate": "1999-03-13",
+     "year": 1999,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S24E15 Ray Romano, The Corrs.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 668491191,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-15-ray-romano-the-corrs_202501/Saturday Night Live S24E15 Ray Romano, The Corrs.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-24-e-17-john-goodman-tom-petty_202501",
+     "seasonNumber": 24,
+     "episodeNumber": 17,
+     "title": "John Goodman / Tom Petty & the Heartbreakers",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1999-04-10",
+     "year": 1999,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S24E17 John Goodman, Tom Petty.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 670056862,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-17-john-goodman-tom-petty_202501/Saturday Night Live S24E17 John Goodman, Tom Petty.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-24-e-19-sarah-michelle-gellar-backstreet-boys_202505",
+     "seasonNumber": 24,
+     "episodeNumber": 19,
+     "title": "Sarah Michelle Gellar / Backstreet Boys",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": "1999-05-15",
+     "year": 1999,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S24E19 Sarah Michelle Gellar, Backstreet Boys.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 668957138,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-19-sarah-michelle-gellar-backstreet-boys_202505/Saturday Night Live S24E19 Sarah Michelle Gellar, Backstreet Boys.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 25,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-25-e-01-jerry-seinfeld-david-bowie-october-2-1999",
+     "seasonNumber": 25,
+     "episodeNumber": 1,
+     "title": "Jerry Seinfeld / David Bowie",
+     "overview": "Jerry Seinfeld hosts with musical guest David Bowie.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/4AfOkALnXojB8I6AXOi4dkh7Sdv.jpg",
+     "airDate": "1999-10-02",
+     "year": 1999,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S25E01 - Jerry Seinfeld & David Bowie (October 2, 1999).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 388829452,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-25-e-01-jerry-seinfeld-david-bowie-october-2-1999/Saturday Night Live S25E01 - Jerry Seinfeld & David Bowie (October 2, 1999).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-25-e-06-jennifer-aniston-sting_202501",
+     "seasonNumber": 25,
+     "episodeNumber": 6,
+     "title": "Jennifer Aniston / Sting",
+     "overview": "Jennifer Aniston hosts with musical guest Sting.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/8QuUvoY12vmcRZ16nBgxPG7mc6N.jpg",
+     "airDate": "1999-11-20",
+     "year": 1999,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S25E06 Jennifer Aniston, Sting.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 668583603,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-25-e-06-jennifer-aniston-sting_202501/Saturday Night Live S25E06 Jennifer Aniston, Sting.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-24-e-09-alec-baldwin-luciano-pavarotti-vanessa-williams_202501",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Alec Baldwin/Luciano Pavarotti & Vanessa Williams",
+     "overview": "Sketches include \"\"A Message From The President,\"\" \"\"Morning Latte,\"\" \"\"Six-Year-Old Cassidy,\"\" \"\"Delicious Dish,\"\" \"\"Bill Clinton's Impeachment Hearings,\"\" \"\"10-10-1776-5-28-1830-242-3-316-68-22\"\", \"\"TV Funhouse: The Harlem Globetrotters\"\", and \"\"Talkin' About Bill Brasky.\"\"",
+     "stillURL": "https://image.tmdb.org/t/p/w300/qMbri5y5VcmaxUdY3joTxx0olRy.jpg",
+     "airDate": null,
+     "year": 1998,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Saturday Night Live S24E09 Alec Baldwin, Luciano Pavarotti, Vanessa Williams.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 672871373,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-09-alec-baldwin-luciano-pavarotti-vanessa-williams_202501/Saturday Night Live S24E09 Alec Baldwin, Luciano Pavarotti, Vanessa Williams.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-02e-22-buck-henry-bella-abzug-5-21-1977",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Buck Henry/Kenny Vance, Jennifer Warnes",
+     "overview": "Live From New York, It's...Gilda Radner\n\nSketches include-- Carter's Energy Saving Message, Buck Performs A Live Sex Act, Samurai B.M.O.C, The Shower Mike, The Coneheads Return to Remulak, Rhonda Weiss's Bridal Shower, Charles Lindbergh Meets the Land Shark.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/kdWWuk2b9moTzlP2SLLdxPCcgar.jpg",
+     "airDate": null,
+     "year": 1977,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Saturday Night Live - S02e22 - Buck Henry, Bella Abzug (5-21-1977).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 669270963,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-22-buck-henry-bella-abzug-5-21-1977/Saturday Night Live - S02e22 - Buck Henry, Bella Abzug (5-21-1977).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-02e-19-elliott-gould-4-16-1977",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Elliott Gould/McGarrigle Sisters",
+     "overview": "Live From New York, It's...John Belushi!  Sketches include-- Brezhnev Wants to Appear on Carson, The Castration Walk, Nick The Lounge Singer, You've Come a Long Way, Buddy, United Face Bank, Jason and Sunshine, Pilson Feedbag Dinners.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/dInKTpJNCWwQTEKbhxMifPkDsYG.jpg",
+     "airDate": null,
+     "year": 1977,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Saturday Night Live - S02e19 - Elliott Gould (4-16-1977).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 671924572,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-19-elliott-gould-4-16-1977/Saturday Night Live - S02e19 - Elliott Gould (4-16-1977).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-25-e-05-garth-brooks-chris-gaines_202502",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Garth Brooks",
+     "overview": "Sketches include \"\"Gun Convention,\"\" \"\"James Bond,\"\" \"\"Hickory Farms Audio Visual Project,\"\" \"\"Tracy Morgan and Garth Brooks,\"\" \"\"Warner Lambert/America Home Products Merger,\"\" \"\"Express Flowers,\"\" \"\"Mango,\"\" \"\"Devil Can't Wrte No Love Songs,\"\" \"\"Simma Da Na,\"\" and \"\"WXLU News.\"\"",
+     "stillURL": "https://image.tmdb.org/t/p/w300/gNVvmCvZ3vEBaOg1vHWEnqyDoV3.jpg",
+     "airDate": null,
+     "year": 1999,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Saturday Night Live S25E05 Garth Brooks, Chris Gaines.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 661688598,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-25-e-05-garth-brooks-chris-gaines_202502/Saturday Night Live S25E05 Garth Brooks, Chris Gaines.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-01-e-06-lily-tomlin-tomlin-with-howard-shore-the-all-nurse",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Lily Tomlin",
+     "overview": "Live from New York, it's... Lily Tomlin\n\nSketches Include: Beethoven Part 1, Jaws III, Bell-Hop, Edith Ann Skates, Beethoven Part 2, Spud Beer, Patty, Jim Henson's Muppets, Beethoven Part 3, Hard Hats, Speed, Margo's Dance Palace",
+     "stillURL": "https://image.tmdb.org/t/p/w300/ngtacXDlEnVSMVEsYELUJC8T5rI.jpg",
+     "airDate": null,
+     "year": 1975,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Saturday Night Live - S01E06 - Lily Tomlin, Tomlin with Howard Shore & the All Nurse Band (November 22, 1975).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 375099406,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-06-lily-tomlin-tomlin-with-howard-shore-the-all-nurse/Saturday Night Live - S01E06 - Lily Tomlin, Tomlin with Howard Shore & the All Nurse Band (November 22, 1975).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-25-e-03-norm-macdonald-dr-dre-snopp-dogg-and-eminem_202501",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Norm MacDonald/Dr. Dre",
+     "overview": "Sketches include \"\"Rudy Giuliani,\"\" \"\"Martha Stewart Living,\"\" \"\"Yankees History,\"\" \"\"Celebrity Jeopardy,\"\" \"\"NBC Crosstalk,\"\" \"\"Larry King,\"\" \"\"Michael Jaxon,\"\" and \"\"Inside the Actor's Studio.\"\"",
+     "stillURL": "https://image.tmdb.org/t/p/w300/7pSnFrQwGuDl4HK3MyrJoDqY4hi.jpg",
+     "airDate": null,
+     "year": 1999,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Saturday Night Live S25E03 Norm Macdonald, Dr Dre, Snopp Dogg And Eminem.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 666657218,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-25-e-03-norm-macdonald-dr-dre-snopp-dogg-and-eminem_202501/Saturday Night Live S25E03 Norm Macdonald, Dr Dre, Snopp Dogg And Eminem.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-april-22-1978-s-3-e-18",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Saturday Night Live - April 22, 1978",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
+     "airDate": null,
+     "year": 1978,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Saturday Night Live- April 22, 1978 (S3E18).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 668993868,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-april-22-1978-s-3-e-18/Saturday Night Live- April 22, 1978 (S3E18).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-7-e-07-tim-curry-meat-loaf",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Tim Curry/Meat Loaf",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/pZWmpLyWN6EDXjmZTyJTAnt4H17.jpg",
+     "airDate": null,
+     "year": 1981,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Saturday Night Live S7E07 Tim Curry, Meat Loaf.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 677455443,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-7-e-07-tim-curry-meat-loaf/Saturday Night Live S7E07 Tim Curry, Meat Loaf.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-12-e-08-william-shatner-lone-justice-buster-poindexter",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "William Shatner/Lone Justice",
+     "overview": "Live from New York, it's... William Shatner!\n\nSketches include \"The Mute Marine,\" \"Star Trek Seafood,\" \"Star Trek Convention,\" \"TJ Hooker,\" \"Sweeney Sisters Christmas,\" \"It's A Wonderful Life: The Lost Ending\" \"Frankie Toussaint\" (film), and \"Look at That!\"\n\nLone Justice performed \"Shelter\" and \"I Found Love.\" Buster Poindexter performed \"Zat You, Santa?\"",
+     "stillURL": "https://image.tmdb.org/t/p/w300/xrBQo98w4pRfKY6oMIEYix7Tmzi.jpg",
+     "airDate": null,
+     "year": 1986,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Saturday Night Live S12E08 - William Shatner & Lone Justice & Buster Poindexter.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 522609582,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-12-e-08-william-shatner-lone-justice-buster-poindexter/Saturday Night Live S12E08 - William Shatner & Lone Justice & Buster Poindexter.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 156,
+ "canonicalEpisodesCount": 1008
 }

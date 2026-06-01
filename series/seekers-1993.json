@@ -1,0 +1,100 @@
+{
+ "version": 2,
+ "seriesID": "seekers-1993",
+ "tvmazeID": 51219,
+ "title": "Seekers",
+ "yearStart": 1993,
+ "yearEnd": 1993,
+ "overview": "Seekers is about a police officer who disappears, and when his wife tries to find him, she discovers... another wife. They team up to search for him. It was written by the celebrated novelist and screenwriter Lynda La Plante who also wrote the book of the same name.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/695232.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Mystery"
+ ],
+ "networks": [
+  "ITV1"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "SpeakersCornerOctober1990",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Speakers' Corner - October 1990 - Full Episode",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/SpeakersCornerOctober1990",
+     "airDate": null,
+     "year": 1990,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Citytv Speakers Corner October 1990-OQU79g7dy_E.mp4",
+      "format": "h.264",
+      "sizeBytes": 174191973,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SpeakersCornerOctober1990/Citytv Speakers Corner October 1990-OQU79g7dy_E.mp4"
+    },
+    {
+     "archiveID": "SpeakersCorner1991Recording1",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Speakers' Corner 1991 (Recording 1)",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/SpeakersCorner1991Recording1",
+     "airDate": null,
+     "year": 1991,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Speakers' Corner 1991 (Recording 1).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 41268013,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/SpeakersCorner1991Recording1/Speakers%27%20Corner%201991%20%28Recording%201%29.mp4"
+    },
+    {
+     "archiveID": "SpeakersCorner1991Recording2",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Speakers' Corner 1991 (Recording 2)",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/SpeakersCorner1991Recording2",
+     "airDate": null,
+     "year": 1991,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Speakers' Corner 1991 (Recording 2).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 39113299,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/SpeakersCorner1991Recording2/Speakers%27%20Corner%201991%20%28Recording%202%29.mp4"
+    },
+    {
+     "archiveID": "SpeakersCorner1991Recording3Short",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Speakers' Corner 1991 (Recording 3 - Short)",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/SpeakersCorner1991Recording3Short",
+     "airDate": null,
+     "year": 1991,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Speakers' Corner 1991 (Recording 3 - short).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 8105640,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/SpeakersCorner1991Recording3Short/Speakers%27%20Corner%201991%20%28Recording%203%20-%20short%29.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 4,
+ "canonicalEpisodesCount": 2
+}

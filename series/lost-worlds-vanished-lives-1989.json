@@ -1,0 +1,205 @@
+{
+ "version": 2,
+ "seriesID": "lost-worlds-vanished-lives-1989",
+ "tvmazeID": 13068,
+ "title": "Lost Worlds, Vanished Lives",
+ "yearStart": 1989,
+ "yearEnd": 1989,
+ "overview": "Lost Worlds, Vanished Lives is a four-part BBC documentary series about the discovery of fossils. It was written and presented by David Attenborough.With the help of expert palaeontologists, fossil hunters and (for the time) modern animation techniques, Attenborough attempts to show how life evolved in Earth's distant past. To do so, he travels the globe to visit the world's most famous fossil sites.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/44/112351.jpg",
+ "backdropURL": null,
+ "genres": [],
+ "networks": [
+  "BBC Two"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "AlmostLiveS7",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Almost Live! - Season 7",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+     "airDate": null,
+     "year": 1990,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "7x11 - Dec 15, 1990.mp4",
+      "format": "h.264",
+      "sizeBytes": 141605000,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/AlmostLiveS7/7x11 - Dec 15, 1990.mp4"
+    },
+    {
+     "archiveID": "AlmostLiveS10",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Almost Live! Season 10",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+     "airDate": null,
+     "year": 1993,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "10x06-Mormon Mission Triathlon.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 152386109,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/AlmostLiveS10/10x06-Mormon%20Mission%20Triathlon.mp4"
+    },
+    {
+     "archiveID": "AlmostLiveS11",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Almost Live! Season 11",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+     "airDate": null,
+     "year": 1994,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "11x13-ERR.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 145774870,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/AlmostLiveS11/11x13-ERR.mp4"
+    },
+    {
+     "archiveID": "AlmostLiveS12",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Almost Live! Season 12",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+     "airDate": null,
+     "year": 1995,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "12x24-Earthquake '96 Update.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 152317953,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/AlmostLiveS12/12x24-Earthquake%20%2796%20Update.mp4"
+    },
+    {
+     "archiveID": "AlmostLiveS13",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Almost Live! Season 13",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+     "airDate": null,
+     "year": 1996,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "13x20-The Keister Bunny.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 146035874,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/AlmostLiveS13/13x20-The%20Keister%20Bunny.mp4"
+    },
+    {
+     "archiveID": "AlmostLiveS14",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Almost Live! Season 14",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+     "airDate": null,
+     "year": 1997,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "14x20-Daylight Savings Time PSA.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 146709358,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/AlmostLiveS14/14x20-Daylight%20Savings%20Time%20PSA.mp4"
+    },
+    {
+     "archiveID": "AlmostLiveS15",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Almost Live! Season 15",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+     "airDate": null,
+     "year": 1998,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "15x25-Safeco Field of Dreams.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 142302391,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/AlmostLiveS15/15x25-Safeco%20Field%20of%20Dreams.mp4"
+    },
+    {
+     "archiveID": "AlmostLiveS6",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Almost Live! Season 6",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+     "airDate": null,
+     "year": 1989,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "6x26-Random Personality PSA.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 148565930,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/AlmostLiveS6/6x26-Random Personality PSA.ia.mp4"
+    },
+    {
+     "archiveID": "AlmostLiveS8",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Almost Live! Season 8",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+     "airDate": null,
+     "year": 1991,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "8x18-Great Chefs of Tukwila.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 160206256,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/AlmostLiveS8/8x18-Great%20Chefs%20of%20Tukwila.mp4"
+    },
+    {
+     "archiveID": "AlmostLiveS9",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Almost Live! Season 9",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/mF1US0KO8oznRUEQnrSmJKL7WAh.jpg",
+     "airDate": null,
+     "year": 1992,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "9x26-Australian Rules Golf.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 152827304,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/AlmostLiveS9/9x26-Australian%20Rules%20Golf.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 10,
+ "canonicalEpisodesCount": 4
+}

@@ -1,0 +1,117 @@
+{
+ "version": 2,
+ "seriesID": "piping-live-2008",
+ "tvmazeID": 10383,
+ "title": "Piping Live",
+ "yearStart": 2008,
+ "yearEnd": 2008,
+ "overview": "A taste of what can be seen during the annual Piping Live festival in Glasgow.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/87958.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Music"
+ ],
+ "networks": [
+  "BBC Alba"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "firing-line-tv-show-1966",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Firing Line - TV Show - 1966",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/f2X5r0mEaIA6K89qDjMwEUJxCx4.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Firing Line - The Republican Party and Mr. Nixon (1974).mp4",
+      "format": "h.264",
+      "sizeBytes": 367798251,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/firing-line-tv-show-1966/Firing Line - The Republican Party and Mr. Nixon (1974).mp4"
+    },
+    {
+     "archiveID": "FiringLineThatcherGMA7",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Firing-Line - An Interview with Margaret Thatcher - January 29, 1996",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/f2X5r0mEaIA6K89qDjMwEUJxCx4.jpg",
+     "airDate": null,
+     "year": 1996,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Firingline.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 409929853,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/FiringLineThatcherGMA7/Firingline.ia.mp4"
+    },
+    {
+     "archiveID": "FiringLineCorazonAquinoInterview",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Firing-Line - Interview with Corazon Aquino",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/f2X5r0mEaIA6K89qDjMwEUJxCx4.jpg",
+     "airDate": null,
+     "year": 1995,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "lv_0_20230428150200.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 326226274,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/FiringLineCorazonAquinoInterview/lv_0_20230428150200.ia.mp4"
+    },
+    {
+     "archiveID": "FiringLineLoidaInterview",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Firing-Line - Interview with Loida Lewis",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/f2X5r0mEaIA6K89qDjMwEUJxCx4.jpg",
+     "airDate": null,
+     "year": 1995,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "lv_0_20230429020612.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 260948134,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/FiringLineLoidaInterview/lv_0_20230429020612.ia.mp4"
+    },
+    {
+     "archiveID": "FiringLineFVRGMA7",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Firing-Line - President Fidel V. Ramos Interview",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/f2X5r0mEaIA6K89qDjMwEUJxCx4.jpg",
+     "airDate": null,
+     "year": 1995,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "FiringLineFVR.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 381739641,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/FiringLineFVRGMA7/FiringLineFVR.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 5,
+ "canonicalEpisodesCount": 38
+}
