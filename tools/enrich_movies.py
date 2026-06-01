@@ -39,6 +39,7 @@ import requests
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import omdb_lib as O  # noqa: E402
+import tmdb_lib as T  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 FULL_CATALOG = REPO / "catalog.json"
@@ -95,10 +96,15 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
+    tmdb = T.load_tmdb_token(SECRETS)
     key = O.load_omdb_key(SECRETS)
-    if not key:
-        print("[enrich-movies] no OMDB_KEY — skipping (set the secret to run).")
+    source = "tmdb" if tmdb else ("omdb" if key else None)
+    if not source:
+        print("[enrich-movies] no TMDB_BEARER_TOKEN or OMDB_KEY — skipping.")
         return 0
+    print(f"[enrich-movies] source = {source.upper()}"
+          f"{' (no daily cap, bulk-capable)' if source=='tmdb' else ' (~1000/day cap)'}",
+          flush=True)
 
     full = load(FULL_CATALOG)
     seed = load(SEED_CATALOG)
@@ -124,7 +130,10 @@ def main():
             continue
         calls += 1
         try:
-            rec = O.fetch_omdb_full(key, session, title=q, year=it.get("year"))
+            if source == "tmdb":
+                rec = T.resolve(q, it.get("year"), tmdb, session)
+            else:
+                rec = O.fetch_omdb_full(key, session, title=q, year=it.get("year"))
         except RuntimeError as e:
             print(f"[enrich-movies] stopping: {e} (after {calls} calls)", flush=True)
             break
@@ -134,19 +143,21 @@ def main():
             continue
         hits += 1
         if not args.dry_run:
-            ch1 = O.apply_identity(it, rec)
-            ch2 = O.apply_rich(it, rec)
-            if it.get("imdbID"):
-                it["enrichmentTier"] = "fullyEnriched"
-            # Mirror onto the seed catalog if the item is bundled.
-            twin = seed_by_id.get(it["archiveID"])
+            def apply_all(target):
+                c = O.apply_identity(target, rec) | O.apply_rich(target, rec)
+                if rec.get("tmdb_id") and not target.get("tmdbID"):
+                    target["tmdbID"] = rec["tmdb_id"]; c = True
+                if target.get("imdbID") or target.get("artworkSource") == "tmdb":
+                    target["enrichmentTier"] = "fullyEnriched"
+                return c
+            changed_it = apply_all(it)
+            twin = seed_by_id.get(it["archiveID"])   # mirror onto bundled seed
             if twin is not None:
-                O.apply_identity(twin, rec); O.apply_rich(twin, rec)
-                if twin.get("imdbID"):
-                    twin["enrichmentTier"] = "fullyEnriched"
-            if ch1 or ch2:
+                apply_all(twin)
+            if changed_it:
                 enriched += 1
-        cache[it["archiveID"]] = {"imdb_id": rec.get("imdb_id"), "fetched_at": now}
+        cache[it["archiveID"]] = {"imdb_id": rec.get("imdb_id"),
+                                  "tmdb_id": rec.get("tmdb_id"), "fetched_at": now}
 
     print(f"[enrich-movies] calls={calls} omdb-hits={hits} items-enriched={enriched}",
           flush=True)

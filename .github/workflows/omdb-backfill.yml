@@ -75,17 +75,18 @@ jobs:
             | tee backfill.log
         id: backfill
 
-      - name: Enrich archive-only movies (title -> IMDb resolution)
-        if: steps.backfill.outputs.skipped != 'true'
+      - name: Enrich archive-only movies (title -> metadata resolution)
+        if: always()
         env:
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
+          TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
         run: |
-          # The other half of the daily OMDb budget: resolve movies that have
-          # NO IMDb id yet (title+year lookup) to recover full metadata. Once
-          # resolved they flow into omdb_backfill on later days. Capped so the
-          # two steps together stay under the 1000/day free tier.
+          # Resolve movies that have NO IMDb id yet (title+year lookup) to
+          # recover full metadata. Prefers TMDb (no daily cap, better art) when
+          # TMDB_BEARER_TOKEN is set; falls back to OMDb otherwise. Runs even if
+          # the OMDb backfill step skipped (TMDb path is independent of OMDb).
           python tools/enrich_movies.py \
-            --max-calls ${{ github.event.inputs.enrich_calls || '350' }} \
+            --max-calls ${{ github.event.inputs.enrich_calls || '4000' }} \
             ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
             | tee enrich.log || true
 
@@ -98,7 +99,7 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Commit if changed
-        if: github.event.inputs.dry_run != 'true' && steps.backfill.outputs.skipped != 'true'
+        if: github.event.inputs.dry_run != 'true'
         run: |
           # No-op if nothing changed. Otherwise commit directly to main —
           # this workflow's changes are purely additive (cache + poster
