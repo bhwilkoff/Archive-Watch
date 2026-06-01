@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-01T04:25:38Z",
+  "updated_at": "2026-06-01T11:32:23Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 127,
-    "wanted": 127,
+    "total": 420,
+    "wanted": 420,
     "fulfilled": 0,
-    "series_with_gaps": 5
+    "series_with_gaps": 9
   },
   "wants": [
     {
@@ -1278,6 +1278,2936 @@
       "episodeImdbID": "tt0539638",
       "status": "wanted",
       "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 1,
+      "episode": 13,
+      "title": "Jag E Type",
+      "episodeImdbID": "tt10905622",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 2,
+      "episode": 13,
+      "title": "Multipla",
+      "episodeImdbID": "tt1763409",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 3,
+      "episode": 1,
+      "title": "57 Heaven!",
+      "episodeImdbID": "tt1748930",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 3,
+      "episode": 2,
+      "title": "Going Platinum!",
+      "episodeImdbID": "tt1748931",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 3,
+      "episode": 3,
+      "title": "The British Are Coming!",
+      "episodeImdbID": "tt1748932",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 3,
+      "episode": 4,
+      "title": "The Cover Girls Are Back!",
+      "episodeImdbID": "tt1746795",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 3,
+      "episode": 6,
+      "title": "Road Trip!",
+      "episodeImdbID": "tt1758064",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 3,
+      "episode": 7,
+      "title": "Tent Find the New Barn Find?",
+      "episodeImdbID": "tt1764865",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 3,
+      "episode": 8,
+      "title": "Wayne Won't You Buy Me a Mercedes Benz?",
+      "episodeImdbID": "tt2101529",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 3,
+      "episode": 10,
+      "title": "The Quest for Perfection",
+      "episodeImdbID": "tt1909913",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 3,
+      "episode": 11,
+      "title": "The Lemons Are Coming!",
+      "episodeImdbID": "tt2078017",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 3,
+      "episode": 12,
+      "title": "Now That's a Duesy!",
+      "episodeImdbID": "tt1901662",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 3,
+      "episode": 13,
+      "title": "Monterey Madness",
+      "episodeImdbID": "tt10905610",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 4,
+      "episode": 13,
+      "title": "Bigger in Texas",
+      "episodeImdbID": "tt2132629",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 5,
+      "episode": 2,
+      "title": "Hershey",
+      "episodeImdbID": "tt2320317",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 5,
+      "episode": 17,
+      "title": "Wayne's Apprentice",
+      "episodeImdbID": "tt2448990",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 5,
+      "episode": 21,
+      "title": "Still Racy",
+      "episodeImdbID": "tt2516038",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 5,
+      "episode": 27,
+      "title": "Happy Birthday!",
+      "episodeImdbID": "tt2623264",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 6,
+      "episode": 4,
+      "title": "Packards",
+      "episodeImdbID": "tt2907754",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 6,
+      "episode": 21,
+      "title": "Wayne Meets Triplets",
+      "episodeImdbID": "tt3346094",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 7,
+      "episode": 2,
+      "title": "A Lawnmower Has More Horsepower",
+      "episodeImdbID": "tt5981876",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 7,
+      "episode": 4,
+      "title": "F Is for Ferrari",
+      "episodeImdbID": "tt5929892",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 7,
+      "episode": 5,
+      "title": "American All Stars",
+      "episodeImdbID": "tt5981760",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 7,
+      "episode": 15,
+      "title": "Need for Speed(ster)!",
+      "episodeImdbID": "tt10117010",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 7,
+      "episode": 17,
+      "title": "Studebaker Time Machine",
+      "episodeImdbID": "tt6068950",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 7,
+      "episode": 18,
+      "title": "Million Dollar Find",
+      "episodeImdbID": "tt6570900",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 7,
+      "episode": 19,
+      "title": "Here Kitty, Kitty",
+      "episodeImdbID": "tt6570936",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 7,
+      "episode": 21,
+      "title": "Auburns Have More Fun",
+      "episodeImdbID": "tt6966624",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 7,
+      "episode": 22,
+      "title": "Ultra Rare Rides",
+      "episodeImdbID": "tt6032132",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 2,
+      "title": "Whip It Good",
+      "episodeImdbID": "tt5322026",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 3,
+      "title": "Beetle Mania",
+      "episodeImdbID": "tt5165526",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 6,
+      "title": "Big Brass Ones",
+      "episodeImdbID": "tt5882016",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 7,
+      "title": "The Foot Long",
+      "episodeImdbID": "tt5245380",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 10,
+      "title": "It's All About the Race",
+      "episodeImdbID": "tt5321898",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 12,
+      "title": "It's a Size Joke",
+      "episodeImdbID": "tt5827508",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 13,
+      "title": "American Shopper",
+      "episodeImdbID": "tt5881990",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 14,
+      "title": "A Collectors Collection",
+      "episodeImdbID": "tt5806730",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 15,
+      "title": "A Diamond in the Rough",
+      "episodeImdbID": "tt5818836",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 16,
+      "title": "Little Racers, Big Dollars",
+      "episodeImdbID": "tt5827434",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 17,
+      "title": "This Porsche Is Shot",
+      "episodeImdbID": "tt5813422",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 18,
+      "title": "Rain Man Buick",
+      "episodeImdbID": "tt5830628",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 19,
+      "title": "Along Came a Spider",
+      "episodeImdbID": "tt5847612",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 20,
+      "title": "A 40 Year Secret Shelby GT",
+      "episodeImdbID": "tt5865796",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 21,
+      "title": "King of the HIll",
+      "episodeImdbID": "tt5956834",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 22,
+      "title": "American Muscle",
+      "episodeImdbID": "tt5981912",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 23,
+      "title": "Hot Wheels",
+      "episodeImdbID": "tt5996230",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 8,
+      "episode": 24,
+      "title": "The Search for My Dad's Car",
+      "episodeImdbID": "tt5975964",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 1,
+      "title": "Road to Minerva",
+      "episodeImdbID": "tt6680458",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 2,
+      "title": "A-List B Cars",
+      "episodeImdbID": "tt6689056",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 3,
+      "title": "Bearcar Boys & Porsche Toys",
+      "episodeImdbID": "tt6745272",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 4,
+      "title": "Every Ferrari Has a SAAB Story",
+      "episodeImdbID": "tt6775964",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 5,
+      "title": "Ford GT40 vs. Ferrari Take Two",
+      "episodeImdbID": "tt6776130",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 6,
+      "title": "Stellar Stangeuellini; Boss Bandini",
+      "episodeImdbID": "tt6801550",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 7,
+      "title": "Wayne's Good Karma(Ann) Ghias",
+      "episodeImdbID": "tt6846552",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 9,
+      "title": "ReVere's Wild Ride",
+      "episodeImdbID": "tt6889166",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 10,
+      "title": "Restoring a Stutz Special",
+      "episodeImdbID": "tt7262400",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 12,
+      "title": "No Choke, No Smoke",
+      "episodeImdbID": "tt7286288",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 13,
+      "title": "You Can Hear the Supercharger",
+      "episodeImdbID": "tt7335910",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 14,
+      "title": "FDR's Daily Driver",
+      "episodeImdbID": "tt7335922",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 15,
+      "title": "Motorcycles & a Lambo",
+      "episodeImdbID": "tt7370706",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 16,
+      "title": "Burning for a Boattail & a 944 Porsche",
+      "episodeImdbID": "tt7440824",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 17,
+      "title": "Two Racecars & Truck to Tow Them",
+      "episodeImdbID": "tt7440950",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 18,
+      "title": "SuperMopar! EPA Superbird & a Superbee",
+      "episodeImdbID": "tt7591678",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 9,
+      "episode": 19,
+      "title": "3 Abarths & a Kaiser",
+      "episodeImdbID": "tt7591842",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 13,
+      "episode": 6,
+      "title": "Ford GT40 & a Flying Banana",
+      "episodeImdbID": "tt10905774",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 14,
+      "episode": 1,
+      "title": "Commander in Chief",
+      "episodeImdbID": "tt10905810",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 14,
+      "episode": 2,
+      "title": "Wheels & Deals",
+      "episodeImdbID": "tt10905866",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 14,
+      "episode": 3,
+      "title": "XKE Marks the Spot",
+      "episodeImdbID": "tt10905898",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 14,
+      "episode": 4,
+      "title": "Hurray for Jollywood!",
+      "episodeImdbID": "tt10905922",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 15,
+      "episode": 1,
+      "title": "One Car Wonder",
+      "episodeImdbID": "tt13617818",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 15,
+      "episode": 2,
+      "title": "Wayne's Gotta Wait",
+      "episodeImdbID": "tt13618032",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 15,
+      "episode": 3,
+      "title": "No Replacement for Displacement",
+      "episodeImdbID": "tt13654674",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 16,
+      "episode": 1,
+      "title": "A Griffith Restoration",
+      "episodeImdbID": "tt13317338",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 16,
+      "episode": 2,
+      "title": "Hasta la Bristol, Baby!",
+      "episodeImdbID": "tt13386074",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 16,
+      "episode": 3,
+      "title": "The Collection Has Left the Building",
+      "episodeImdbID": "tt13439504",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 16,
+      "episode": 4,
+      "title": "Fly like an elgin",
+      "episodeImdbID": "tt14465938",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "classic-tv-1949",
+      "seriesTitle": "Classic TV",
+      "season": 16,
+      "episode": 5,
+      "title": "Great Godsal!",
+      "episodeImdbID": "tt13618124",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "cosmos-1980-1980",
+      "seriesTitle": "Cosmos 1980",
+      "season": 1,
+      "episode": 4,
+      "title": "Heaven and Hell",
+      "episodeImdbID": "tt0759808",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "cosmos-1980-1980",
+      "seriesTitle": "Cosmos 1980",
+      "season": 1,
+      "episode": 5,
+      "title": "Blues for a Red Planet",
+      "episodeImdbID": "tt0759805",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "cosmos-1980-1980",
+      "seriesTitle": "Cosmos 1980",
+      "season": 1,
+      "episode": 6,
+      "title": "Travellers' Tales",
+      "episodeImdbID": "tt0759813",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "cosmos-1980-1980",
+      "seriesTitle": "Cosmos 1980",
+      "season": 1,
+      "episode": 7,
+      "title": "The Backbone of Night",
+      "episodeImdbID": "tt0759811",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "cosmos-1980-1980",
+      "seriesTitle": "Cosmos 1980",
+      "season": 1,
+      "episode": 8,
+      "title": "Journeys in Space and Time",
+      "episodeImdbID": "tt0759809",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "cosmos-1980-1980",
+      "seriesTitle": "Cosmos 1980",
+      "season": 1,
+      "episode": 9,
+      "title": "The Lives of the Stars",
+      "episodeImdbID": "tt0760463",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "cosmos-1980-1980",
+      "seriesTitle": "Cosmos 1980",
+      "season": 1,
+      "episode": 10,
+      "title": "The Edge of Forever",
+      "episodeImdbID": "tt0760462",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "cosmos-1980-1980",
+      "seriesTitle": "Cosmos 1980",
+      "season": 1,
+      "episode": 11,
+      "title": "The Persistence of Memory",
+      "episodeImdbID": "tt0760464",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "cosmos-1980-1980",
+      "seriesTitle": "Cosmos 1980",
+      "season": 1,
+      "episode": 12,
+      "title": "Encyclopaedia Galactica",
+      "episodeImdbID": "tt0759806",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "cosmos-1980-1980",
+      "seriesTitle": "Cosmos 1980",
+      "season": 1,
+      "episode": 13,
+      "title": "Who Speaks for Earth?",
+      "episodeImdbID": "tt0760465",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 1,
+      "episode": 18,
+      "title": "Land of the Free",
+      "episodeImdbID": "tt0556653",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 2,
+      "episode": 1,
+      "title": "The Diamond Babe",
+      "episodeImdbID": "tt0556778",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 2,
+      "episode": 3,
+      "title": "Solomon in All His Glory",
+      "episodeImdbID": "tt0556739",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 2,
+      "episode": 7,
+      "title": "One in a Hundred",
+      "episodeImdbID": "tt0556692",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 2,
+      "episode": 14,
+      "title": "Husband Pro-Tem",
+      "episodeImdbID": "tt0556640",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 2,
+      "episode": 18,
+      "title": "Mr. Godiva",
+      "episodeImdbID": "tt0556681",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 3,
+      "episode": 2,
+      "title": "Eleven Thousand Miners Can't Be Wrong",
+      "episodeImdbID": "tt0556603",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 3,
+      "episode": 3,
+      "title": "Halfway Girl",
+      "episodeImdbID": "tt0556630",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 3,
+      "episode": 4,
+      "title": "Black Bart",
+      "episodeImdbID": "tt0556563",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 3,
+      "episode": 5,
+      "title": "The Light on the Mountain",
+      "episodeImdbID": "tt0948887",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 3,
+      "episode": 7,
+      "title": "Sequoia",
+      "episodeImdbID": "tt0556725",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 3,
+      "episode": 10,
+      "title": "Death and Taxes",
+      "episodeImdbID": "tt0556593",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 3,
+      "episode": 11,
+      "title": "Riggs and Riggs",
+      "episodeImdbID": "tt0556716",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 3,
+      "episode": 12,
+      "title": "Million Dollar Wedding",
+      "episodeImdbID": "tt0556674",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 3,
+      "episode": 13,
+      "title": "Love 'Em and Leave 'Em",
+      "episodeImdbID": "tt0556667",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 3,
+      "episode": 14,
+      "title": "The Seventh Day",
+      "episodeImdbID": "tt0556877",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 3,
+      "episode": 18,
+      "title": "I Am Joaquin",
+      "episodeImdbID": "tt0556641",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 4,
+      "episode": 2,
+      "title": "The Valencia Cake",
+      "episodeImdbID": "tt0556892",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 4,
+      "episode": 3,
+      "title": "A Killing in Diamonds",
+      "episodeImdbID": "tt0556540",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 4,
+      "episode": 12,
+      "title": "Nevada's Plymouth Rock",
+      "episodeImdbID": "tt0556683",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 4,
+      "episode": 13,
+      "title": "The Hoodoo Mine",
+      "episodeImdbID": "tt0556809",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 4,
+      "episode": 14,
+      "title": "Mr. Bigfoot",
+      "episodeImdbID": "tt0556680",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 4,
+      "episode": 15,
+      "title": "Escape",
+      "episodeImdbID": "tt0556608",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 4,
+      "episode": 17,
+      "title": "Bill Bottle's Birthday",
+      "episodeImdbID": "tt0556559",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 5,
+      "episode": 1,
+      "title": "Faro Bill's Layout",
+      "episodeImdbID": "tt0556611",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 5,
+      "episode": 2,
+      "title": "The Bear Flag",
+      "episodeImdbID": "tt0556761",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 5,
+      "episode": 9,
+      "title": "Mercer Girl",
+      "episodeImdbID": "tt0556673",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 5,
+      "episode": 11,
+      "title": "The Trial of Red Haskell",
+      "episodeImdbID": "tt0556887",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 5,
+      "episode": 12,
+      "title": "The Washington Elm",
+      "episodeImdbID": "tt0556895",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 5,
+      "episode": 13,
+      "title": "The Rosebush of Tombstone",
+      "episodeImdbID": "tt0556870",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 6,
+      "episode": 4,
+      "title": "Arsenic Springs",
+      "episodeImdbID": "tt0556555",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 6,
+      "episode": 5,
+      "title": "Fifty Years a Mystery",
+      "episodeImdbID": "tt0556614",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 6,
+      "episode": 6,
+      "title": "Fifteen Paces to Fame",
+      "episodeImdbID": "tt0556613",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 6,
+      "episode": 9,
+      "title": "The Last Bad Man",
+      "episodeImdbID": "tt0556823",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 6,
+      "episode": 14,
+      "title": "Birth of a Boom",
+      "episodeImdbID": "tt0556560",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 6,
+      "episode": 17,
+      "title": "Auto Intoxication",
+      "episodeImdbID": "tt0556556",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 6,
+      "episode": 24,
+      "title": "The Girl Who Walked with a Giant",
+      "episodeImdbID": "tt0556790",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 7,
+      "episode": 1,
+      "title": "Head of the House",
+      "episodeImdbID": "tt0556634",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 7,
+      "episode": 5,
+      "title": "The Red Flannel Shirt",
+      "episodeImdbID": "tt0556860",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 7,
+      "episode": 10,
+      "title": "The Gambler and the Lady",
+      "episodeImdbID": "tt0556786",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 7,
+      "episode": 12,
+      "title": "Old Gabe",
+      "episodeImdbID": "tt0556688",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 7,
+      "episode": 15,
+      "title": "A Bullet for the Captain",
+      "episodeImdbID": "tt0556532",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 7,
+      "episode": 16,
+      "title": "A Town Is Born",
+      "episodeImdbID": "tt0556546",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 7,
+      "episode": 17,
+      "title": "Sailor on a Horse",
+      "episodeImdbID": "tt0556718",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 7,
+      "episode": 22,
+      "title": "Price of a Passport",
+      "episodeImdbID": "tt0556708",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 7,
+      "episode": 24,
+      "title": "The Invaders",
+      "episodeImdbID": "tt0556812",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 7,
+      "episode": 27,
+      "title": "Old Blue",
+      "episodeImdbID": "tt0556687",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 7,
+      "episode": 29,
+      "title": "The Talking Wire",
+      "episodeImdbID": "tt0556883",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 7,
+      "episode": 31,
+      "title": "Half a Loaf",
+      "episodeImdbID": "tt0556629",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 2,
+      "title": "\"Gates Ajar\" Morgan",
+      "episodeImdbID": "tt0556621",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 5,
+      "title": "Fair Exchange",
+      "episodeImdbID": "tt0556610",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 6,
+      "title": "The Scalpel and the Gun",
+      "episodeImdbID": "tt0556876",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 8,
+      "title": "Hang 'Em High",
+      "episodeImdbID": "tt0556632",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 12,
+      "title": "Lady of the Press",
+      "episodeImdbID": "tt0556651",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 13,
+      "title": "The Reluctant Gun",
+      "episodeImdbID": "tt0556864",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 15,
+      "title": "The Devil's Due",
+      "episodeImdbID": "tt0556777",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 16,
+      "title": "Money to Burn",
+      "episodeImdbID": "tt0556679",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 18,
+      "title": "A Wedding Dress",
+      "episodeImdbID": "tt0556897",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 25,
+      "title": "The Man on the Road",
+      "episodeImdbID": "tt0556670",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 27,
+      "title": "The General Who Disappeared",
+      "episodeImdbID": "tt0556787",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 30,
+      "title": "A Woman's Rights",
+      "episodeImdbID": "tt0556547",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 31,
+      "title": "Eagle in the Rocks",
+      "episodeImdbID": "tt0556601",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 33,
+      "title": "Emma Is Coming",
+      "episodeImdbID": "tt0556604",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 34,
+      "title": "Human Sacrifice",
+      "episodeImdbID": "tt0556639",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 36,
+      "title": "Mission to the Mountains",
+      "episodeImdbID": "tt0556678",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 37,
+      "title": "The Great Lounsberry Scoop",
+      "episodeImdbID": "tt0556795",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 8,
+      "episode": 38,
+      "title": "Somewhere in the Vultures",
+      "episodeImdbID": "tt2142860",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 9,
+      "episode": 2,
+      "title": "Splinter Station",
+      "episodeImdbID": "tt0556742",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 9,
+      "episode": 5,
+      "title": "Learnin' at Dirty Devil",
+      "episodeImdbID": "tt0556655",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 9,
+      "episode": 6,
+      "title": "Yankee Confederate",
+      "episodeImdbID": "tt0556934",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 9,
+      "episode": 8,
+      "title": "Extra Guns",
+      "episodeImdbID": "tt0556609",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 9,
+      "episode": 13,
+      "title": "City of Widows",
+      "episodeImdbID": "tt0556577",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 9,
+      "episode": 16,
+      "title": "The Salt War",
+      "episodeImdbID": "tt0556875",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 9,
+      "episode": 19,
+      "title": "South of Horror Flats",
+      "episodeImdbID": "tt0556741",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 9,
+      "episode": 22,
+      "title": "Dead Men's Tale",
+      "episodeImdbID": "tt0556587",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 9,
+      "episode": 26,
+      "title": "Loophole",
+      "episodeImdbID": "tt0556663",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 9,
+      "episode": 28,
+      "title": "The Stolen City",
+      "episodeImdbID": "tt0556880",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 9,
+      "episode": 29,
+      "title": "General Without a Cause",
+      "episodeImdbID": "tt0556536",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 10,
+      "episode": 1,
+      "title": "Queen of Spades",
+      "episodeImdbID": "tt0556710",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 10,
+      "episode": 9,
+      "title": "A Bullet for the D.A.",
+      "episodeImdbID": "tt0556533",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 10,
+      "episode": 10,
+      "title": "The Watch",
+      "episodeImdbID": "tt0556896",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 10,
+      "episode": 14,
+      "title": "Experiment in Fear",
+      "episodeImdbID": "tt0959696",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 10,
+      "episode": 15,
+      "title": "Miracle at Whiskey Gulch",
+      "episodeImdbID": "tt0556676",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 10,
+      "episode": 17,
+      "title": "Justice at Jackson Creek",
+      "episodeImdbID": "tt0556645",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 10,
+      "episode": 18,
+      "title": "Preacher with a Past",
+      "episodeImdbID": "tt0556707",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 10,
+      "episode": 20,
+      "title": "A Matter of Honor",
+      "episodeImdbID": "tt0556542",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 10,
+      "episode": 22,
+      "title": "Girl with a Gun",
+      "episodeImdbID": "tt0556622",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 10,
+      "episode": 24,
+      "title": "The Unshakable Man",
+      "episodeImdbID": "tt0556891",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 10,
+      "episode": 26,
+      "title": "La Tules",
+      "episodeImdbID": "tt0556648",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 1,
+      "title": "The Hangtown Fry",
+      "episodeImdbID": "tt0556633",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 4,
+      "title": "Fort Bowie: Urgent",
+      "episodeImdbID": "tt0556617",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 8,
+      "title": "The Grass Man",
+      "episodeImdbID": "tt0556626",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 9,
+      "title": "Davy's Friend",
+      "episodeImdbID": "tt0556586",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 11,
+      "title": "The Vintage Years",
+      "episodeImdbID": "tt0556893",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 12,
+      "title": "The Private Mint of Clark, Gruber and Co.",
+      "episodeImdbID": "tt0556856",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 13,
+      "title": "Loss of Faith",
+      "episodeImdbID": "tt0556664",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 15,
+      "title": "Stubborn Mule Hill",
+      "episodeImdbID": "tt0556747",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 16,
+      "title": "A Gun Is Not a Gentleman",
+      "episodeImdbID": "tt0556539",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 18,
+      "title": "The Debt",
+      "episodeImdbID": "tt0556776",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 20,
+      "title": "Grotto of Death",
+      "episodeImdbID": "tt0556628",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 21,
+      "title": "Diamond Jim Brady",
+      "episodeImdbID": "tt0556597",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 24,
+      "title": "Coffin for a Coward",
+      "episodeImdbID": "tt0556581",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 25,
+      "title": "Shadow of Violence",
+      "episodeImdbID": "tt0556726",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 11,
+      "episode": 26,
+      "title": "The Melancholy Gun",
+      "episodeImdbID": "tt0556845",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 12,
+      "episode": 1,
+      "title": "Thar She Blows",
+      "episodeImdbID": "tt0556755",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 12,
+      "episode": 2,
+      "title": "Measure of a Man",
+      "episodeImdbID": "tt0556672",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 12,
+      "episode": 3,
+      "title": "A Kingdom for a Horse",
+      "episodeImdbID": "tt0556647",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 12,
+      "episode": 4,
+      "title": "Diamond Field Jack",
+      "episodeImdbID": "tt0556596",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 12,
+      "episode": 5,
+      "title": "Deadly Decision",
+      "episodeImdbID": "tt0556589",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 12,
+      "episode": 11,
+      "title": "Graydon's Charge",
+      "episodeImdbID": "tt0556627",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 12,
+      "episode": 16,
+      "title": "The Westside of Heaven",
+      "episodeImdbID": "tt0556898",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 12,
+      "episode": 17,
+      "title": "Hastings Cut-off",
+      "episodeImdbID": "tt0959697",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 12,
+      "episode": 20,
+      "title": "The Last Stagecoach Robbery",
+      "episodeImdbID": "tt0556826",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 12,
+      "episode": 22,
+      "title": "Trial at Belle's Springs",
+      "episodeImdbID": "tt0556916",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 12,
+      "episode": 23,
+      "title": "After the OK Corral",
+      "episodeImdbID": "tt0556550",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 12,
+      "episode": 24,
+      "title": "The Quiet and the Fury",
+      "episodeImdbID": "tt0556857",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 12,
+      "episode": 25,
+      "title": "See the Elephant and Hear the Owl",
+      "episodeImdbID": "tt0556721",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 13,
+      "episode": 3,
+      "title": "Big John and the Rainmaker",
+      "episodeImdbID": "tt0556557",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 13,
+      "episode": 6,
+      "title": "The Hero of Fort Halleck",
+      "episodeImdbID": "tt0556635",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 13,
+      "episode": 7,
+      "title": "The Left Hand Is Damned",
+      "episodeImdbID": "tt0556828",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 13,
+      "episode": 11,
+      "title": "A Bargain Is for Keeping",
+      "episodeImdbID": "tt0556529",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 13,
+      "episode": 14,
+      "title": "A Bell for Volcano",
+      "episodeImdbID": "tt0556530",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 13,
+      "episode": 16,
+      "title": "The Race at Cherry Creek",
+      "episodeImdbID": "tt0556858",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 13,
+      "episode": 18,
+      "title": "Raid on the San Francisco Mint",
+      "episodeImdbID": "tt0556714",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 13,
+      "episode": 19,
+      "title": "Magic Locket",
+      "episodeImdbID": "tt0556668",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 13,
+      "episode": 22,
+      "title": "No Gun Behind His Badge",
+      "episodeImdbID": "tt0556684",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 13,
+      "episode": 26,
+      "title": "Birthright",
+      "episodeImdbID": "tt0556561",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 14,
+      "episode": 3,
+      "title": "The Lawless Have Laws",
+      "episodeImdbID": "tt0556827",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 14,
+      "episode": 4,
+      "title": "The Great Turkey War",
+      "episodeImdbID": "tt0556797",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 14,
+      "episode": 7,
+      "title": "No Place for a Lady",
+      "episodeImdbID": "tt0556685",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 14,
+      "episode": 13,
+      "title": "The Red Shawl",
+      "episodeImdbID": "tt0556863",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 14,
+      "episode": 17,
+      "title": "The Fight San Francisco Never Forgot",
+      "episodeImdbID": "tt0556782",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 14,
+      "episode": 18,
+      "title": "The Courtship of Carrie Huntington",
+      "episodeImdbID": "tt0556582",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 14,
+      "episode": 20,
+      "title": "Crullers at Sundown!",
+      "episodeImdbID": "tt0556583",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 14,
+      "episode": 21,
+      "title": "Hugh Glass Meets the Bear",
+      "episodeImdbID": "tt0556638",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 14,
+      "episode": 23,
+      "title": "The Hat That Huldah Wore",
+      "episodeImdbID": "tt0556802",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 14,
+      "episode": 24,
+      "title": "The Four Dollar Law Suit",
+      "episodeImdbID": "tt0556784",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 14,
+      "episode": 26,
+      "title": "Lady of the Plains",
+      "episodeImdbID": "tt0556650",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 15,
+      "episode": 3,
+      "title": "The Resurrection of Deadwood Dick",
+      "episodeImdbID": "tt0556866",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 15,
+      "episode": 4,
+      "title": "Brute Angel",
+      "episodeImdbID": "tt0556566",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 15,
+      "episode": 5,
+      "title": "A Sense of Justice",
+      "episodeImdbID": "tt0556724",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 15,
+      "episode": 6,
+      "title": "The Lady and the Sourdough",
+      "episodeImdbID": "tt0556821",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 15,
+      "episode": 8,
+      "title": "Samaritans, Mountain Style",
+      "episodeImdbID": "tt0556720",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 15,
+      "episode": 13,
+      "title": "A Calamity Called Jane",
+      "episodeImdbID": "tt0556534",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 15,
+      "episode": 17,
+      "title": "Halo for a Badman",
+      "episodeImdbID": "tt0556631",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 15,
+      "episode": 18,
+      "title": "A Wrangler's Last Ride",
+      "episodeImdbID": "tt0556548",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 15,
+      "episode": 24,
+      "title": "Solid Foundation",
+      "episodeImdbID": "tt0556737",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 15,
+      "episode": 26,
+      "title": "A Man Called Abraham",
+      "episodeImdbID": "tt0556541",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 16,
+      "episode": 1,
+      "title": "Shanghai Kelly's Birthday Party",
+      "episodeImdbID": "tt0556728",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 16,
+      "episode": 4,
+      "title": "The Lone Grave",
+      "episodeImdbID": "tt0556834",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 16,
+      "episode": 7,
+      "title": "Spring Rendezvous",
+      "episodeImdbID": "tt0556744",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 16,
+      "episode": 10,
+      "title": "The Indiana Girl",
+      "episodeImdbID": "tt0556810",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 16,
+      "episode": 12,
+      "title": "The Friend",
+      "episodeImdbID": "tt0556785",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 16,
+      "episode": 16,
+      "title": "Britta Goes Home",
+      "episodeImdbID": "tt0959045",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 16,
+      "episode": 17,
+      "title": "Bread on the Desert",
+      "episodeImdbID": "tt0556565",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 16,
+      "episode": 21,
+      "title": "A Friend Indeed",
+      "episodeImdbID": "tt0959044",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 16,
+      "episode": 22,
+      "title": "The Thirty-Caliber Town",
+      "episodeImdbID": "tt0959050",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 16,
+      "episode": 26,
+      "title": "Tall Heart, Short Temper",
+      "episodeImdbID": "tt0951617",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 17,
+      "episode": 1,
+      "title": "The Secret of the Black Prince",
+      "episodeImdbID": "tt0957664",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 17,
+      "episode": 4,
+      "title": "The Sage Hen",
+      "episodeImdbID": "tt0556873",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 17,
+      "episode": 8,
+      "title": "Lady with a Past",
+      "episodeImdbID": "tt0556652",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 17,
+      "episode": 13,
+      "title": "A Restless Man",
+      "episodeImdbID": "tt0556865",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 17,
+      "episode": 14,
+      "title": "A Gift",
+      "episodeImdbID": "tt0959692",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 17,
+      "episode": 18,
+      "title": "Here Stands Bailey",
+      "episodeImdbID": "tt0959698",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 17,
+      "episode": 23,
+      "title": "Drop Out",
+      "episodeImdbID": "tt0959695",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 17,
+      "episode": 26,
+      "title": "Jimmy Dayton's Bonanza",
+      "episodeImdbID": "tt0959700",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 18,
+      "episode": 4,
+      "title": "The Tenderfoot",
+      "episodeImdbID": "tt0556885",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 18,
+      "episode": 9,
+      "title": "The Visitor",
+      "episodeImdbID": "tt0556894",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 18,
+      "episode": 10,
+      "title": "The King of the Uvalde Road",
+      "episodeImdbID": "tt0556818",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 18,
+      "episode": 15,
+      "title": "The Dragon of Gold Hill",
+      "episodeImdbID": "tt0556779",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 18,
+      "episode": 17,
+      "title": "A Saint of Travelers",
+      "episodeImdbID": "tt0556545",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 18,
+      "episode": 19,
+      "title": "Amos and the Black Bull",
+      "episodeImdbID": "tt0556553",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 18,
+      "episode": 22,
+      "title": "A Gift from Father Tapis",
+      "episodeImdbID": "tt0556537",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 18,
+      "episode": 23,
+      "title": "Clum's Constabulary",
+      "episodeImdbID": "tt0556579",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "death-valley-days-1960",
+      "seriesTitle": "Death Valley Days",
+      "season": 18,
+      "episode": 25,
+      "title": "The Duke of Tombstone",
+      "episodeImdbID": "tt0556780",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 1,
+      "title": "Stranglehold",
+      "episodeImdbID": "tt0557146",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 2,
+      "title": "The Red Clown",
+      "episodeImdbID": "tt1065812",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 3,
+      "title": "The Phoner",
+      "episodeImdbID": "tt1136169",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 5,
+      "title": "Dream Fix",
+      "episodeImdbID": "tt1136163",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 6,
+      "title": "The Savage Payoff",
+      "episodeImdbID": "tt0557151",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 8,
+      "title": "Escape into Danger",
+      "episodeImdbID": "tt0557139",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 9,
+      "title": "Necklace of Glass",
+      "episodeImdbID": "tt1136168",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 10,
+      "title": "Scape Goat",
+      "episodeImdbID": "tt0557152",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 11,
+      "title": "Two Days to Kill",
+      "episodeImdbID": "tt0557154",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 12,
+      "title": "Queen of Diamonds",
+      "episodeImdbID": "tt0557144",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 13,
+      "title": "My Brother's Killer",
+      "episodeImdbID": "tt0557142",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 15,
+      "title": "Death Watch",
+      "episodeImdbID": "tt1137071",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 16,
+      "title": "Odds Against the Jockey",
+      "episodeImdbID": "tt1136166",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 17,
+      "title": "Dressed for the Kill",
+      "episodeImdbID": "tt0557137",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 18,
+      "title": "An Eye for an Eye",
+      "episodeImdbID": "tt0557135",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 19,
+      "title": "The Challenger",
+      "episodeImdbID": "tt0557147",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 20,
+      "title": "Across the World",
+      "episodeImdbID": "tt0557134",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 21,
+      "title": "The Showplace",
+      "episodeImdbID": "tt1136170",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 22,
+      "title": "Reasonable Doubt",
+      "episodeImdbID": "tt1137073",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 23,
+      "title": "Night of Fire",
+      "episodeImdbID": "tt1136165",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 24,
+      "title": "Saturday Lost",
+      "episodeImdbID": "tt0557145",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 27,
+      "title": "The Sound of Tears",
+      "episodeImdbID": "tt0557153",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 28,
+      "title": "Ladies Man",
+      "episodeImdbID": "tt0557141",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 29,
+      "title": "Cry Revenge",
+      "episodeImdbID": "tt1136162",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 30,
+      "title": "The Gentle Gun-Man",
+      "episodeImdbID": "tt1136167",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 31,
+      "title": "Night Light",
+      "episodeImdbID": "tt0557143",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 32,
+      "title": "Fiesta at Midnight",
+      "episodeImdbID": "tt1136164",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 33,
+      "title": "The Lieutenant Had a Son",
+      "episodeImdbID": "tt0557149",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 34,
+      "title": "Shadow of Van Gogh",
+      "episodeImdbID": "tt1088307",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 36,
+      "title": "Blind Date",
+      "episodeImdbID": "tt1136160",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
+    },
+    {
+      "seriesID": "decoy-1957",
+      "seriesTitle": "Decoy",
+      "season": 1,
+      "episode": 39,
+      "title": "The Lost Ones",
+      "episodeImdbID": "tt0557150",
+      "status": "wanted",
+      "added_at": "2026-06-01T11:32:23Z"
     }
   ]
 }
