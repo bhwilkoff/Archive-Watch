@@ -3,7 +3,7 @@
   "seriesID": "classic-tv-1949",
   "title": "Classic TV",
   "yearStart": 1949,
-  "yearEnd": 1958,
+  "yearEnd": 2021,
   "overview": null,
   "posterURL": "https://archive.org/services/img/Jeice_The_Cuddly_Warrior-Howdy-Doody-Upload-2",
   "backdropURL": null,
@@ -11,6 +11,314 @@
   "networks": [],
   "creator": null,
   "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "classic-football-on-dtssn-ep-5-super-bowl-xxi-giants-vs-broncos",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Classic Football On DTSSN Ep 5 Super Bowl XXI Giants Vs Broncos",
+          "overview": "super bowl xxi new york giants 39 denver broncons 20",
+          "stillURL": "https://archive.org/services/img/classic-football-on-dtssn-ep-5-super-bowl-xxi-giants-vs-broncos",
+          "airDate": null,
+          "year": 1987,
+          "runtimeSeconds": 5440,
+          "videoFile": {
+            "name": "Classic Football on DTSSN - Ep 5 - Super Bowl XXI - Giants vs Broncos.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 503785708,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/classic-football-on-dtssn-ep-5-super-bowl-xxi-giants-vs-broncos/Classic%20Football%20on%20DTSSN%20-%20Ep%205%20-%20Super%20Bowl%20XXI%20-%20Giants%20vs%20Broncos.mp4"
+        },
+        {
+          "archiveID": "Classic_Mary_Berry_Series_1_-_6._Episode_6_b09yn368_signed",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": " Classic Mary Berry Series 1   6. Episode 6 b09yn368 signed",
+          "overview": " Classic Mary Berry Series 1   6. Episode 6 b09yn368 signed",
+          "stillURL": "https://archive.org/services/img/Classic_Mary_Berry_Series_1_-_6._Episode_6_b09yn368_signed",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1734,
+          "videoFile": {
+            "name": "Classic_Mary_Berry_Series_1_-_6._Episode_6_b09yn368_signed.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 412953991,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Classic_Mary_Berry_Series_1_-_6._Episode_6_b09yn368_signed/Classic_Mary_Berry_Series_1_-_6._Episode_6_b09yn368_signed.mp4"
+        },
+        {
+          "archiveID": "jerry-lawlers-classic-memphis-wrestling-episode-06-22-19",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Jerry Lawler's Classic Memphis Wrestling ( Episode 06 22 19)",
+          "overview": "This one's from Jerry Lawlers youtube channel.<div><br /></div><div>https://www.youtube.com/@JerryLawlerOfficial<br /></div>",
+          "stillURL": "https://archive.org/services/img/jerry-lawlers-classic-memphis-wrestling-episode-06-22-19",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2949,
+          "videoFile": {
+            "name": "Jerry Lawler's Classic Memphis Wrestling (Episode 06_22_19).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 803110751,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jerry-lawlers-classic-memphis-wrestling-episode-06-22-19/Jerry%20Lawler%27s%20Classic%20Memphis%20Wrestling%20%28Episode%2006_22_19%29.mp4"
+        },
+        {
+          "archiveID": "jerry-lawler-s-classic-memphis-wrestling-episode-06-29-2019",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Jerry Lawler's Classic Memphis Wrestling ( Episode 06/29/2019)",
+          "overview": "From Jerry Lawler's official youtube channel.<div><br /></div><div>https://www.youtube.com/@JerryLawlerOfficial</div>",
+          "stillURL": "https://archive.org/services/img/jerry-lawler-s-classic-memphis-wrestling-episode-06-29-2019",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3079,
+          "videoFile": {
+            "name": "Jerry Lawler s Classic Memphis Wrestling (Episode 06_29_2019).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 208335609,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jerry-lawler-s-classic-memphis-wrestling-episode-06-29-2019/Jerry%20Lawler%20s%20Classic%20Memphis%20Wrestling%20%28Episode%2006_29_2019%29.mp4"
+        },
+        {
+          "archiveID": "caillou-teaches-rosie-and-classic-caillou-how-to-play-the-piano-ungrounded",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Rhianna’s CGUG Series | s01e06 | Caillou Teaches Rosie And Classic Caillou How To Play The Piano/Ungrounded | Caillou Wisconsin",
+          "overview": "Rosie and Classic Caillou want to learn how to play the piano, so Caillou teaches them.<div><br /></div><div>NOTE: This is my video.</div>",
+          "stillURL": "https://archive.org/services/img/caillou-teaches-rosie-and-classic-caillou-how-to-play-the-piano-ungrounded",
+          "airDate": null,
+          "year": 2021,
+          "runtimeSeconds": 444,
+          "videoFile": {
+            "name": "Caillou Teaches Rosie And Classic Caillou How To Play The Piano_Ungrounded.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 21974632,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/caillou-teaches-rosie-and-classic-caillou-how-to-play-the-piano-ungrounded/Caillou%20Teaches%20Rosie%20And%20Classic%20Caillou%20How%20To%20Play%20The%20Piano_Ungrounded.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode7",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Compilation of Classic TV Footage - Episode 7",
+          "overview": "The seventh edition of this series highlighting the variety of television content on the Internet Archive. Includes clips from various shows, plus many classic ads. In fact, this 29-minute video contains more commercials than actual prime-time TV shows of the eras showcased here! Um, that is a good thing, right? RIGHT?",
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode7",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 1729,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart7.mp4",
+            "format": "h.264",
+            "sizeBytes": 178452668,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode7/CompilationOfClassicTVFootagePart7.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode14",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Compilation of Classic TV Footage - Episode 14",
+          "overview": "Episode 14 of the series I produce combining clips from various classic TV series. This edition combines clips from shows representing six different broadcasters (NBC, DuMont, CBS, ABC, BBC, ITV), and also includes a complete episode of a syndicated series. Also contains a selection of classic commercials.",
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode14",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3557,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootage14.mp4",
+            "format": "h.264",
+            "sizeBytes": 368447780,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode14/CompilationOfClassicTVFootage14.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode16",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Compilation of Classic TV Footage - Episode 16",
+          "overview": "An edition in this series produced for the classic TV section of the Internet Archive, consisting of clips from various television series, a few classic commercials, and in this case, a complete (minus titles) episode of an early 1960s syndicated children's series.",
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode16",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3560,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart16.mp4",
+            "format": "h.264",
+            "sizeBytes": 369128348,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode16/CompilationOfClassicTVFootagePart16.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode19",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Compilation of Classic TV Footage - Episode 19",
+          "overview": "A collection of clips from television series.",
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode19",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3093,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart19.mp4",
+            "format": "h.264",
+            "sizeBytes": 319687851,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode19/CompilationOfClassicTVFootagePart19.mp4"
+        },
+        {
+          "archiveID": "classic-football-on-dtssn-ep-20-1958-nfl-title-game-colts-giants",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Classic Football On DTSSN Ep 20 1958 NFL Title Game Colts @ Giants",
+          "overview": "1958 national football league champions game baltimore colts 23 vs new york giants 17 in the frist overtime game",
+          "stillURL": "https://archive.org/services/img/classic-football-on-dtssn-ep-20-1958-nfl-title-game-colts-giants",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 4651,
+          "videoFile": {
+            "name": "Classic Football on DTSSN - Ep 20 - 1958 NFL Title Game -  Colts @ Giants.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 373421856,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/classic-football-on-dtssn-ep-20-1958-nfl-title-game-colts-giants/Classic%20Football%20on%20DTSSN%20-%20Ep%2020%20-%201958%20NFL%20Title%20Game%20-%20%20Colts%20%40%20Giants.mp4"
+        },
+        {
+          "archiveID": "CompilationOfClassicTvFootage-Episode20comedy",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Compilation of Classic TV Footage - Episode 20 (Comedy)",
+          "overview": "A collection of clips from public domain television series. The emphasis in this episode is on comedy. There were many types of comedy popular during the 1950s and 1960s...here are just a few of them.",
+          "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode20comedy",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3482,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart20.mp4",
+            "format": "h.264",
+            "sizeBytes": 360046913,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode20comedy/CompilationOfClassicTVFootagePart20.mp4"
+        },
+        {
+          "archiveID": "compilationOfClassicTvFootage-Episode21",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Compilation of Classic TV Footage - Episode 21",
+          "overview": "A collection of clips from public domain television series of the 1950s and 1960s. Includes excerpts from \"The Price is Right\", \"As the World Turns\", \"Beat the Clock\", \"Hancock's Half Hour\", \"Life with Elizabeth\", \"The Ed Sullivan Show\", \"Strictly for Laffs\" (unsold pilot), \"The Frank Sinatra Timex Show\", \"Tic-Tac-Dough\", and \"You Asked for It\". ",
+          "stillURL": "https://archive.org/services/img/compilationOfClassicTvFootage-Episode21",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 3140,
+          "videoFile": {
+            "name": "CompilationOfClassicTVFootagePart21.mp4",
+            "format": "h.264",
+            "sizeBytes": 324936834,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/compilationOfClassicTvFootage-Episode21/CompilationOfClassicTVFootagePart21.mp4"
+        },
+        {
+          "archiveID": "classic-football-on-dtssn-ep-26",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Classic Football On DTSSN Ep 26",
+          "overview": "football",
+          "stillURL": "https://archive.org/services/img/classic-football-on-dtssn-ep-26",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2999,
+          "videoFile": {
+            "name": "Classic Football on DTSSN - Ep 26 -  .mp4",
+            "format": "MPEG4",
+            "sizeBytes": 278632446,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/classic-football-on-dtssn-ep-26/Classic%20Football%20on%20DTSSN%20-%20Ep%2026%20-%20%20.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "america-says-s4-e70",
+          "seasonNumber": 4,
+          "episodeNumber": 70,
+          "title": "America Says (September 3, 2021 | S4 E70): Classic Rock Fans/The Chavez Family",
+          "overview": "<div>America Says S4 E70</div><div>Aired November 2, 2023 at 2:00PM ET on Game Show Network</div>",
+          "stillURL": "https://archive.org/services/img/america-says-s4-e70",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "GSN20231102_140000 (online-video-cutter.com).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 189865892,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/america-says-s4-e70/GSN20231102_140000%20%28online-video-cutter.com%29.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "the-grand-opening-us",
+          "seasonNumber": 7,
+          "episodeNumber": 21,
+          "title": "Thomas & Friends - S7E21 - The Grand Opening [US Dub with Classic Intro and Outro]",
+          "overview": "Told by Michael Brandon<div><br /></div><div>A new line is about to open on the narrow gauge railway but Skarloey ends up running late for the announcement. He worries about running late again but it ends up being worth it when Sir Topham and Lady Hatt get in trouble riding in the hot air balloon.<br /></div><div><br /></div><div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Video:</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Engines to the Rescue (Australian DVD)</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Audio:</div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">Hooray for Thomas (US DVD) (Rip by Oliver11GWR)</div></div>",
+          "stillURL": "https://archive.org/services/img/the-grand-opening-us",
+          "airDate": null,
+          "year": 2005,
+          "runtimeSeconds": 333,
+          "videoFile": {
+            "name": "The Grand Opening US.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 132127299,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-grand-opening-us/The%20Grand%20Opening%20US.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 8,
+      "episodes": [
+        {
+          "archiveID": "who-wantsto-bea-classic-millionaire-04252022",
+          "seasonNumber": 8,
+          "episodeNumber": 20,
+          "title": "Who Wants to Be a Millionaire? Classic (UK) S8E20: Jo Webb, Tony Welsh, Phil Davison",
+          "overview": "Recorded from Challenge on April 25, 2022 at 2PM PDT. Original air date: October 16, 2000.<div><br /></div><div>The episode guide says this aired in 2000, but the copyright year at the end says 2004.</div>",
+          "stillURL": "https://archive.org/services/img/who-wantsto-bea-classic-millionaire-04252022",
+          "airDate": null,
+          "year": 2000,
+          "runtimeSeconds": 3443,
+          "videoFile": {
+            "name": "WhoWantstoBeaClassicMillionaire?04252022.mp4",
+            "format": "h.264",
+            "sizeBytes": 343539456,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/who-wantsto-bea-classic-millionaire-04252022/WhoWantstoBeaClassicMillionaire%3F04252022.mp4"
+        }
+      ]
+    },
     {
       "seasonNumber": null,
       "episodes": [
@@ -71,7 +379,7 @@
       ]
     }
   ],
-  "episodesCount": 3,
+  "episodesCount": 19,
   "seriesImdbID": "tt1357604",
   "canonicalEpisodeCount": 77,
   "canonicalSeasons": 16

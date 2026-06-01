@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-01T11:32:23Z",
+  "updated_at": "2026-06-01T11:44:52Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
     "total": 420,
-    "wanted": 420,
-    "fulfilled": 0,
+    "wanted": 417,
+    "fulfilled": 3,
     "series_with_gaps": 9
   },
   "wants": [
@@ -1246,8 +1246,9 @@
       "episode": 21,
       "title": "The Heart Is a Handout",
       "episodeImdbID": "tt0539619",
-      "status": "wanted",
-      "added_at": "2026-06-01T04:25:38Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-01T04:25:38Z",
+      "fulfilled_at": "2026-06-01T11:44:52Z"
     },
     {
       "seriesID": "checkmate-1961",
@@ -1556,8 +1557,9 @@
       "episode": 21,
       "title": "Auburns Have More Fun",
       "episodeImdbID": "tt6966624",
-      "status": "wanted",
-      "added_at": "2026-06-01T11:32:23Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-01T11:32:23Z",
+      "fulfilled_at": "2026-06-01T11:44:52Z"
     },
     {
       "seriesID": "classic-tv-1949",
@@ -1706,8 +1708,9 @@
       "episode": 20,
       "title": "A 40 Year Secret Shelby GT",
       "episodeImdbID": "tt5865796",
-      "status": "wanted",
-      "added_at": "2026-06-01T11:32:23Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-01T11:32:23Z",
+      "fulfilled_at": "2026-06-01T11:44:52Z"
     },
     {
       "seriesID": "classic-tv-1949",

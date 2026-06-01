@@ -3,7 +3,7 @@
   "seriesID": "checkmate-1961",
   "title": "Checkmate",
   "yearStart": 1961,
-  "yearEnd": 1961,
+  "yearEnd": 2015,
   "overview": "Checkmate is an American detective television series starring Anthony George, Sebastian Cabot, and Doug McClure. The show aired on CBS Television from 1960 to 1962 for a total of 70 episodes and was produced by Jack Benny's production company, \"JaMco Productions\" in co-operation with Revue Studios. Guest stars included Charles Laughton, Peter Lorre, and Lee Marvin, among many other commensurately prominent performers.",
   "posterURL": "https://image.tmdb.org/t/p/w500/8EPt8QG4e4qbw2lIHySMPYFdhUE.jpg",
   "backdropURL": "https://image.tmdb.org/t/p/w1280/9zvc03mGeRtuMfAasghNTn2zapv.jpg",
@@ -14,31 +14,26 @@
   "creator": "Eric Ambler",
   "seasons": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "Robin_Hood_09_Checkmate",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Checkmate",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/8EPt8QG4e4qbw2lIHySMPYFdhUE.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Robin_Hood_09_Checkmate.mp4",
-            "format": "h.264",
-            "sizeBytes": 150568178,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Robin_Hood_09_Checkmate/Robin_Hood_09_Checkmate.mp4"
-        }
-      ]
-    },
-    {
       "seasonNumber": 1,
       "episodes": [
+        {
+          "archiveID": "AdventuresOfRobinHoodep9Checkmate",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Adventures Of Robin Hood (HQ) ep 9 Checkmate",
+          "overview": "<div>Television series that ran from 1955-1960 for a total of 144 episodes. Stars Richard Greene, Archie Duncan, Alexander Gauge, Alan Wheatley, Bernadette O’Farrell and Patricia Driscoll.</div><div><br /></div>",
+          "stillURL": "https://archive.org/services/img/AdventuresOfRobinHoodep9Checkmate",
+          "airDate": null,
+          "year": 2015,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "Adventures of Robin Hood (ep 9 Checkmate).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 507059909,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/AdventuresOfRobinHoodep9Checkmate/Adventures%20of%20Robin%20Hood%20%28ep%209%20Checkmate%29.mp4"
+        },
         {
           "archiveID": "CheckmateTheHumanTouch1961",
           "seasonNumber": 1,
@@ -79,11 +74,52 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Checkmate--Nice_Guys_Finish_Last/Checkmate210_Nice_Guys_Finish_Last.mp4"
+        },
+        {
+          "archiveID": "Heart_Is_a_Handout--Checkmate",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "The Heart Is a Handout (Checkmate)",
+          "overview": "<p align=\"center\">\n<img src=\"https://archive.org/download/Heart_Is_a_Handout--Checkmate/Checkmate_pic_1.jpg\" alt=\"Checkmate_pic_1.jpg\" /></p>\n\n<font size=\"+.2\">\n\nThe Checkmate team swings into action to protect the life of a rich man who is living as a hobo.\n\naired 7 March 1962 \nSeason 2; Episode 21\n\nThe episode is split into two parts:\nHeart_Is_a_Handout--Checkmate-1\nHeart_Is_a_Handout--Checkmate-2\n\n[The \"MPEG4\" files are the source files. Download them if your player can handle h.265 (HEVC).]</font>",
+          "stillURL": "https://archive.org/services/img/Heart_Is_a_Handout--Checkmate",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1625,
+          "videoFile": {
+            "name": "Heart_Is_a_Handout--Checkmate-1.mp4",
+            "format": "h.264",
+            "sizeBytes": 168947523,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Heart_Is_a_Handout--Checkmate/Heart_Is_a_Handout--Checkmate-1.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_09_Checkmate",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Checkmate",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8EPt8QG4e4qbw2lIHySMPYFdhUE.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Robin_Hood_09_Checkmate.mp4",
+            "format": "h.264",
+            "sizeBytes": 150568178,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_09_Checkmate/Robin_Hood_09_Checkmate.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 3,
+  "episodesCount": 5,
   "seriesImdbID": "tt0053491",
   "canonicalEpisodeCount": 17,
   "canonicalSeasons": 2
