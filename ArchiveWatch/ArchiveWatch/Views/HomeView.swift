@@ -124,38 +124,60 @@ struct HeroCarousel: View {
     let items: [Catalog.Item]
     @State private var index: Int = 0
     @State private var autoAdvance = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
+    // Claim focus exactly once (on first launch), not every time the view
+    // re-enters the hierarchy. HomeView is one big LazyVStack in a
+    // ScrollView, so the hero gets recycled on scroll and the carousel
+    // timer triggers re-renders — a bare `.task { isFocused = true }`
+    // re-fires on those and yanks focus back to the hero while the user is
+    // navigating, which made the hero feel both sticky and unreachable.
+    @State private var hasClaimedInitialFocus = false
     @FocusState private var isFocused: Bool
 
     private let heroHeight: CGFloat = 720
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            ForEach(Array(items.enumerated()), id: \.element.archiveID) { i, item in
-                HeroBanner(
-                    item: item,
-                    onMoveLeft: { step(-1) },
-                    onMoveRight: { step(+1) }
-                )
-                .opacity(i == index ? 1 : 0)
-                .allowsHitTesting(i == index)
-                .animation(Motion.heroCrossfade, value: index)
-                .focused($isFocused)
-            }
+            // Render ONLY the current banner as a focusable view. The old
+            // code overlaid all 7 banners (6 at opacity 0) and bound them
+            // all to the SAME @FocusState — opacity/allowsHitTesting don't
+            // remove focusability, so the engine saw 7 stacked candidates
+            // sharing one focus binding and couldn't route focus into "the
+            // hero" from below. One banner = one unambiguous focus target.
+            // The crossfade still animates via the .id()-keyed transition.
+            HeroBanner(
+                item: currentItem,
+                onMoveLeft: { step(-1) },
+                onMoveRight: { step(+1) }
+            )
+            .id(currentItem.archiveID)
+            .transition(.opacity.animation(Motion.heroCrossfade))
+            .focused($isFocused)
+
             pageIndicator
                 .padding(.bottom, 56)
         }
         .frame(height: heroHeight)
+        // Mark the whole hero as one focus-traversal unit so up/down moves
+        // between it and the shelves below land cleanly, instead of the
+        // engine hunting for pixel overlap across the 720pt banner.
+        .focusSection()
         .onReceive(autoAdvance) { _ in
             guard !isFocused else { return }
             step(+1)
         }
-        // Imperatively claim focus once layout settles. Without this,
-        // tvOS's TabView defaults to the sidebar on launch and the
-        // user has to manually arrow-right into the content.
+        // Claim focus ONLY on first appearance. Without this the TabView
+        // defaults to the sidebar on launch; with the once-guard it no
+        // longer steals focus back while the user is browsing shelves.
         .task {
+            guard !hasClaimedInitialFocus else { return }
+            hasClaimedInitialFocus = true
             try? await Task.sleep(for: .milliseconds(60))
             isFocused = true
         }
+    }
+
+    private var currentItem: Catalog.Item {
+        items[min(max(index, 0), items.count - 1)]
     }
 
     private func step(_ delta: Int) {
@@ -323,6 +345,11 @@ struct ShelfRow: View {
             }
             .scrollClipDisabled()
         }
+        // Each shelf is one focus-traversal unit: vertical moves jump
+        // row-to-row regardless of horizontal scroll position, so "up"
+        // from anywhere in a shelf reliably reaches the row above (and
+        // ultimately the hero).
+        .focusSection()
     }
 }
 
@@ -352,6 +379,7 @@ struct CategoryTilesRow: View {
                 .padding(.vertical, 20)
             }
         }
+        .focusSection()
     }
 }
 
@@ -431,6 +459,7 @@ struct DecadeTilesRow: View {
                 .padding(.vertical, 20)
             }
         }
+        .focusSection()
     }
 
     private func countFor(_ decade: Int) -> Int {
