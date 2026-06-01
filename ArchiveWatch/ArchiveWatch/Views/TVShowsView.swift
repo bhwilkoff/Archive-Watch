@@ -32,7 +32,12 @@ struct TVShowsView: View {
         }
         switch sort {
         case .popular:
-            return pool.sorted { ($0.popularityScore ?? 0) > ($1.popularityScore ?? 0) }
+            // Series carry no popularityScore, so fall back to how complete a
+            // show is (available episodes) — the richest series lead the grid.
+            return pool.sorted {
+                ($0.popularityScore ?? 0, $0.episodesCount ?? 0)
+                    > ($1.popularityScore ?? 0, $1.episodesCount ?? 0)
+            }
         case .alphabetical:
             return pool.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
         case .newest:
