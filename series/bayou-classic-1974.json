@@ -148,42 +148,6 @@
      "downloadURL": "https://archive.org/download/Classic_Mary_Berry_Series_1_-_6._Episode_6_b09yn368_signed/Classic_Mary_Berry_Series_1_-_6._Episode_6_b09yn368_signed.mp4"
     },
     {
-     "archiveID": "jerry-lawlers-classic-memphis-wrestling-episode-06-22-19",
-     "seasonNumber": null,
-     "episodeNumber": 6,
-     "title": "Jerry Lawler's Classic Memphis Wrestling ( Episode 06 22 19)",
-     "overview": "This one's from Jerry Lawlers youtube channel.<div><br /></div><div>https://www.youtube.com/@JerryLawlerOfficial<br /></div>",
-     "stillURL": "https://archive.org/services/img/jerry-lawlers-classic-memphis-wrestling-episode-06-22-19",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 2949,
-     "videoFile": {
-      "name": "Jerry Lawler's Classic Memphis Wrestling (Episode 06_22_19).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 803110751,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/jerry-lawlers-classic-memphis-wrestling-episode-06-22-19/Jerry%20Lawler%27s%20Classic%20Memphis%20Wrestling%20%28Episode%2006_22_19%29.mp4"
-    },
-    {
-     "archiveID": "jerry-lawler-s-classic-memphis-wrestling-episode-06-29-2019",
-     "seasonNumber": null,
-     "episodeNumber": 6,
-     "title": "Jerry Lawler's Classic Memphis Wrestling ( Episode 06/29/2019)",
-     "overview": "From Jerry Lawler's official youtube channel.<div><br /></div><div>https://www.youtube.com/@JerryLawlerOfficial</div>",
-     "stillURL": "https://archive.org/services/img/jerry-lawler-s-classic-memphis-wrestling-episode-06-29-2019",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 3079,
-     "videoFile": {
-      "name": "Jerry Lawler s Classic Memphis Wrestling (Episode 06_29_2019).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 208335609,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/jerry-lawler-s-classic-memphis-wrestling-episode-06-29-2019/Jerry%20Lawler%20s%20Classic%20Memphis%20Wrestling%20%28Episode%2006_29_2019%29.mp4"
-    },
-    {
      "archiveID": "CompilationOfClassicTvFootage-Episode7",
      "seasonNumber": null,
      "episodeNumber": 7,
@@ -272,24 +236,6 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/classic-football-on-dtssn-ep-20-1958-nfl-title-game-colts-giants/Classic%20Football%20on%20DTSSN%20-%20Ep%2020%20-%201958%20NFL%20Title%20Game%20-%20%20Colts%20%40%20Giants.mp4"
-    },
-    {
-     "archiveID": "CompilationOfClassicTvFootage-Episode20comedy",
-     "seasonNumber": null,
-     "episodeNumber": 20,
-     "title": "Compilation of Classic TV Footage - Episode 20 (Comedy)",
-     "overview": "A collection of clips from public domain television series. The emphasis in this episode is on comedy. There were many types of comedy popular during the 1950s and 1960s...here are just a few of them.",
-     "stillURL": "https://archive.org/services/img/CompilationOfClassicTvFootage-Episode20comedy",
-     "airDate": null,
-     "year": 2012,
-     "runtimeSeconds": 3482,
-     "videoFile": {
-      "name": "CompilationOfClassicTVFootagePart20.mp4",
-      "format": "h.264",
-      "sizeBytes": 360046913,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/CompilationOfClassicTvFootage-Episode20comedy/CompilationOfClassicTVFootagePart20.mp4"
     },
     {
      "archiveID": "compilationOfClassicTvFootage-Episode21",
@@ -384,6 +330,6 @@
    ]
   }
  ],
- "episodesCount": 19,
+ "episodesCount": 16,
  "canonicalEpisodesCount": 52
 }

@@ -1164,42 +1164,6 @@
      "downloadURL": "https://archive.org/download/minder-1980-se-2-ep-6-the-beer-hunter/Minder (1980) SE2 - EP6 The Beer Hunter.mp4"
     },
     {
-     "archiveID": "minder-1984-se-4-ep-6-the-car-lot-baggers",
-     "seasonNumber": null,
-     "episodeNumber": 6,
-     "title": "Minder (1984) SE4 - EP6 The Car Lot Baggers",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/4s9hiyQvTaMe1bK91HRCTgDTAoF.jpg",
-     "airDate": null,
-     "year": 1984,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Minder (1984) SE4 - EP6 The Car Lot Baggers.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 482774442,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/minder-1984-se-4-ep-6-the-car-lot-baggers/Minder (1984) SE4 - EP6 The Car Lot Baggers.mp4"
-    },
-    {
-     "archiveID": "minder-1989-se-7-ep-6-the-wrong-goodbye",
-     "seasonNumber": null,
-     "episodeNumber": 6,
-     "title": "Minder (1989) SE7 - EP6 The Wrong Goodbye",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/4s9hiyQvTaMe1bK91HRCTgDTAoF.jpg",
-     "airDate": null,
-     "year": 1989,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Minder (1989) SE7 - EP6 The Wrong Goodbye.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 403285866,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/minder-1989-se-7-ep-6-the-wrong-goodbye/Minder (1989) SE7 - EP6 The Wrong Goodbye.mp4"
-    },
-    {
      "archiveID": "minder-1984-se-4-ep-10-windows",
      "seasonNumber": null,
      "episodeNumber": 10,
@@ -1472,6 +1436,6 @@
    ]
   }
  ],
- "episodesCount": 78,
+ "episodesCount": 76,
  "canonicalEpisodesCount": 108
 }

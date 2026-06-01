@@ -346,24 +346,6 @@
      "downloadURL": "https://archive.org/download/v-the-series-1984-85-s-01e-18-secret-underground/V The Series (1984-85) s01e18 Secret Underground hevc.ia.mp4"
     },
     {
-     "archiveID": "v-the-series-1984-85-s-01e-18-the-secret-underground",
-     "seasonNumber": 1,
-     "episodeNumber": 18,
-     "title": "V The Series (1984-85) s01e18 The Secret Underground",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/v-the-series-1984-85-s-01e-18-the-secret-underground",
-     "airDate": null,
-     "year": 1985,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "V The Series (1984-85) s01e18 The Secret Underground.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 266967196,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/v-the-series-1984-85-s-01e-18-the-secret-underground/V The Series (1984-85) s01e18 The Secret Underground.ia.mp4"
-    },
-    {
      "archiveID": "v-the-series-1984-85-s-01e-19-the-return",
      "seasonNumber": 1,
      "episodeNumber": 19,
@@ -380,28 +362,10 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/v-the-series-1984-85-s-01e-19-the-return/V The Series (1984-85) s01e19 The Return.mp4"
-    },
-    {
-     "archiveID": "v-the-series-1984-85-s-01e-19-the-return_202210",
-     "seasonNumber": 1,
-     "episodeNumber": 19,
-     "title": "V The Series (1984-85) S01e19 The Return",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/v-the-series-1984-85-s-01e-19-the-return_202210",
-     "airDate": null,
-     "year": 1985,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "V The Series (1984-85) s01e19 The Return hevc.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 266145541,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/v-the-series-1984-85-s-01e-19-the-return_202210/V The Series (1984-85) s01e19 The Return hevc.ia.mp4"
     }
    ]
   }
  ],
- "episodesCount": 21,
+ "episodesCount": 19,
  "canonicalEpisodesCount": 24
 }
