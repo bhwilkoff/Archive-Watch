@@ -528,6 +528,21 @@ Sources: HIG — Remote and Controllers; Apple Support "Siri Remote"; WWDC21 #10
 - Hero content: category, title, year/runtime/byline. **No synopsis** (noisy, unread at 10ft).
 - Randomize the hero pool per-launch, not a fixed 7. Draw from top-N-by-popularity (shelf count), shuffle, take 7.
 - Below hero: 4–8 shelves typical. Continue Watching first if non-empty, Editor's Picks / For You second, then editorial.
+- **Carousel = ONE focusable surface whose content swaps — never overlay
+  all pages.** Render only the current banner (`.id(item)` + `.transition`);
+  do NOT stack all N banners in a `ZStack` with `.opacity(0)` on the
+  inactive ones. opacity / `allowsHitTesting(false)` do **not** remove
+  focusability, so N stacked banners bound to one `@FocusState` register as
+  N overlapping focus candidates and the engine can't route "up" into the
+  hero from below — focus gets stuck on the first shelf. (Cost real
+  iteration: commit `77bea61`. tvOS focus is geometric, not hierarchical.)
+- **`.focusSection()` on the hero AND each shelf row; never on the outer
+  `ScrollView`/`LazyVStack`.** Parent + child sections conflict. Sectioning
+  each row is what lets vertical moves jump row-to-row regardless of
+  horizontal scroll position.
+- **Claim initial focus exactly once** (a `hasClaimedInitialFocus` guard),
+  not in a bare `.task { isFocused = true }` — a `.task` re-fires when the
+  lazy hero is recycled on scroll and yanks focus back mid-browse.
 
 ### 9.3 Shelf design
 
