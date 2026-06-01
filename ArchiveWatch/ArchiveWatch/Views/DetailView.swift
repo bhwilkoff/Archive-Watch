@@ -128,6 +128,27 @@ struct DetailView: View {
                 .shadow(color: .black.opacity(0.5), radius: 12, y: 4)
 
             HStack(spacing: 18) {
+                if let rating = item.imdbRatingDisplay {
+                    HStack(spacing: 7) {
+                        Image(systemName: "star.fill")
+                            .font(.system(size: 22))
+                            .foregroundStyle(Color(hex: "#F5C518") ?? .yellow)  // IMDb gold
+                        Text(rating)
+                            .fontWeight(.semibold)
+                        if let votes = item.imdbVotesDisplay {
+                            Text("(\(votes))")
+                                .foregroundStyle(.white.opacity(0.5))
+                        }
+                    }
+                }
+                if let rated = item.contentRating {
+                    Text(rated)
+                        .font(.system(size: 21, weight: .semibold))
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 3)
+                        .overlay(RoundedRectangle(cornerRadius: 5)
+                            .strokeBorder(.white.opacity(0.4), lineWidth: 1.5))
+                }
                 if let year = item.year { Text(String(year)) }
                 if let r = item.runtimeSeconds, r > 0 { Text(formatRuntime(r)) }
                 if !item.genres.isEmpty {

@@ -1,0 +1,94 @@
+name: Discover + ingest PD content
+
+# Daily pipeline that grows the catalog with newly-discovered public-domain
+# films. Two stages (see docs/research/omdb-and-pd-discovery.md):
+#   1. discover — Wikidata SPARQL for PD films (Internet Archive ID + IMDb
+#      ID) not yet in our catalogs → refreshes the candidate queue.
+#      Read-only; never touches the catalogs.
+#   2. ingest  — drain a daily-capped batch: validate each candidate
+#      against live Archive metadata, pick a playable derivative, classify,
+#      enrich via OMDb, append to both catalogs. Commits directly to main
+#      (purely additive — new playable titles).
+
+on:
+  schedule:
+    # 03:42 UTC — after the OMDb backfill (02:17) so newly-ingested items
+    # with IMDb IDs can be rich-enriched the same night, and at an odd
+    # minute to dodge the cron-wave.
+    - cron: '42 3 * * *'
+  workflow_dispatch:
+    inputs:
+      discover_limit:
+        description: 'Max rows per Wikidata SPARQL feed'
+        required: false
+        default: '8000'
+      max_items:
+        description: 'Max candidates to ingest this run'
+        required: false
+        default: '60'
+      include_low_confidence:
+        description: 'Also ingest low rights-confidence candidates'
+        required: false
+        default: 'false'
+
+concurrency:
+  # Never two at once — they'd race the same candidate queue + commit target.
+  group: discover-content
+  cancel-in-progress: false
+
+jobs:
+  discover-ingest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Discover candidates (Wikidata, read-only)
+        run: |
+          python tools/discover_wikidata_pd.py \
+            --limit ${{ github.event.inputs.discover_limit || '8000' }} \
+            | tee discover.log
+
+      - name: Ingest a daily batch
+        env:
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+        run: |
+          python tools/ingest_candidates.py \
+            --max-items ${{ github.event.inputs.max_items || '60' }} \
+            ${{ github.event.inputs.include_low_confidence == 'true' && '--include-low-confidence' || '' }} \
+            | tee ingest.log
+
+      - name: Summary
+        run: |
+          echo "## Discover + ingest" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -8 discover.log >> $GITHUB_STEP_SUMMARY
+          echo '---' >> $GITHUB_STEP_SUMMARY
+          tail -12 ingest.log >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add shared/editorial/discovery_candidates.json \
+                  shared/editorial/omdb_cache.json \
+                  catalog.json \
+                  ArchiveWatch/ArchiveWatch/catalog.json
+
+          if git diff --cached --quiet; then
+            echo "No changes — nothing discovered or ingested."
+            exit 0
+          fi
+
+          git commit -m "Discover + ingest PD content (${{ github.run_id }})"
+          git push

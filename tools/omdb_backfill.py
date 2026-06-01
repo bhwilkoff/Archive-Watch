@@ -1,41 +1,44 @@
 #!/usr/bin/env python3
 """
-omdb_backfill.py — one daily pass of OMDb lookups for catalog items
-missing designed artwork, staying under the free-tier 1000 req/day.
+omdb_backfill.py — daily OMDb enrichment for every IMDb-keyed catalog item.
 
-Operates on the committed catalogs (not the 240 MB gitignored SQLite),
-so it can run unattended in GitHub Actions. Writes three files:
+Originally this only fetched posters for items missing designed art. It now
+fetches the full rich record (poster + imdbRating + imdbVotes + content
+rating + full plot + runtime) for EVERY IMDb-keyed item, so the app gets
+ratings-based ranking and richer Detail screens — see
+docs/research/omdb-and-pd-discovery.md.
 
-  - shared/editorial/omdb_cache.json       (positive + negative results)
-  - catalog.json                            (full hosted catalog, served by GH Pages)
+Stays under the free-tier 1000 req/day (default --max-calls 950). Operates
+on the committed catalogs (not the gitignored SQLite), so it runs
+unattended in GitHub Actions. Writes:
+
+  - shared/editorial/omdb_cache.json       (rich results, positive + negative)
+  - catalog.json                            (full hosted catalog)
   - ArchiveWatch/ArchiveWatch/catalog.json  (bundled seed catalog)
 
-Cache semantics:
-  - `poster_url: "https://..."` → OMDb had art; apply it.
-  - `poster_url: null`          → OMDb said no; don't retry tomorrow.
-  - `error: "message"`          → transient HTTP failure; will retry
-                                   next run.
-
-Daily budget:
-  The OMDb free tier is 1000 req/day. We default to `--max-calls 950`
-  so GitHub Actions can't accidentally tip over the limit (safer margin
-  since CI clocks may drift relative to OMDb's rollover).
+Cache (schema v2): each entry holds poster_url + the rich fields + a
+`schema` marker. Entries written by the old poster-only pipeline (schema
+< 2, or missing) are re-fetched once to pick up the rich fields, then never
+re-fetched again (unless they were a transient error). A `poster_url: null`
+v2 entry still means "OMDb has nothing" and is not retried.
 
 Usage:
-    python tools/omdb_backfill.py                     # default 950 calls
-    python tools/omdb_backfill.py --max-calls 100     # smaller sample
-    python tools/omdb_backfill.py --dry-run           # probe counts only
+    python tools/omdb_backfill.py                  # default 950 calls
+    python tools/omdb_backfill.py --max-calls 100  # smaller sample
+    python tools/omdb_backfill.py --dry-run        # probe counts only
 """
 
 import argparse
 import datetime as dt
 import json
-import os
 import sys
 import time
 from pathlib import Path
 
 import requests
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import omdb_lib as L  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 CACHE_PATH    = REPO / "shared" / "editorial" / "omdb_cache.json"
@@ -43,155 +46,110 @@ FULL_CATALOG  = REPO / "catalog.json"
 SEED_CATALOG  = REPO / "ArchiveWatch" / "ArchiveWatch" / "catalog.json"
 SECRETS_PATH  = REPO / "Secrets.xcconfig"
 
-OMDB_API = "https://www.omdbapi.com/"
-USER_AGENT = "ArchiveWatch-OMDb-Backfill/1.0 (learningischange.com) python-requests"
-DESIGNED_SOURCES = {"tmdb", "fanart", "omdb", "commons", "wikidata", "aapb"}
-
-
-# ---------------------------------------------------------------------------
-# Secrets
-# ---------------------------------------------------------------------------
-
-def load_omdb_key():
-    """GH Actions secret → local env → Secrets.xcconfig."""
-    v = os.environ.get("OMDB_KEY")
-    if v:
-        return v.strip()
-    if SECRETS_PATH.exists():
-        for line in SECRETS_PATH.read_text().splitlines():
-            if line.strip().startswith("OMDB_KEY"):
-                _, _, rhs = line.partition("=")
-                return rhs.strip()
-    return None
-
-
-# ---------------------------------------------------------------------------
-# JSON I/O
-# ---------------------------------------------------------------------------
 
 def load_json(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 def dump_json(path, data):
-    # Match the exporter's formatting: compact but readable. Stable key order
-    # so diffs in git remain small.
     tmp = path.with_suffix(path.suffix + ".tmp")
     tmp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
     tmp.replace(path)
 
 
-# ---------------------------------------------------------------------------
-# OMDb
-# ---------------------------------------------------------------------------
+def needs_fetch(entry):
+    """True if this IMDb ID should be (re)fetched.
 
-def omdb_lookup(imdb_id, api_key, session):
-    """Returns poster URL on hit, None on "no poster", or raises on transient."""
-    r = session.get(
-        OMDB_API,
-        params={"i": imdb_id, "apikey": api_key},
-        headers={"User-Agent": USER_AGENT},
-        timeout=20,
-    )
-    # 401 = daily quota exhausted. Bubble up so the caller can stop early.
-    if r.status_code == 401:
-        raise RuntimeError("OMDb daily quota exhausted (HTTP 401)")
-    if r.status_code != 200:
-        raise RuntimeError(f"HTTP {r.status_code}")
-    d = r.json()
-    if str(d.get("Response", "")).lower() != "true":
-        # Legitimate "not found" — negative cache.
-        return None
-    p = d.get("Poster")
-    if p and p != "N/A":
-        return p
-    return None
+    - No entry at all                      → fetch.
+    - Transient error last time            → retry.
+    - Pre-rich entry (schema < 2 / absent) → re-fetch once for rich fields.
+    - Rich entry (schema >= 2)             → done; skip (incl. negative).
+    """
+    if entry is None:
+        return True
+    if entry.get("error"):
+        return True
+    return int(entry.get("schema", 1)) < L.CACHE_SCHEMA_VERSION
 
-
-# ---------------------------------------------------------------------------
-# Queue builder
-# ---------------------------------------------------------------------------
 
 def collect_queue(catalogs, cache_entries):
-    """Union of every IMDb-ID'd item across both catalogs that (a) isn't
-    currently showing designed art, and (b) isn't already in the cache.
-    Seed catalog items are prioritized (they ship bundled)."""
-    # Use an ordered dict — Python preserves insertion order, so seed items
-    # inserted first are processed first.
+    """Every IMDb-ID'd item across both catalogs that needs a (re)fetch.
+    Seed-catalog items are prioritized (they ship bundled in the app)."""
     queue = {}
     for is_seed, catalog in catalogs:
         for item in catalog.get("items", []):
             imdb = item.get("imdbID")
             if not imdb:
                 continue
-            if imdb in cache_entries:
-                continue
-            src = item.get("artworkSource")
-            if src in DESIGNED_SOURCES:
+            if not needs_fetch(cache_entries.get(imdb)):
                 continue
             if imdb not in queue:
                 queue[imdb] = {"is_seed": is_seed, "title": item.get("title")}
             elif is_seed:
                 queue[imdb]["is_seed"] = True
-    # Sort: seed items first.
     return sorted(queue.items(), key=lambda kv: (not kv[1]["is_seed"], kv[0]))
 
 
-# ---------------------------------------------------------------------------
-# Catalog mutation
-# ---------------------------------------------------------------------------
-
-def apply_to_catalog(catalog, poster_by_imdb):
-    """Walk the catalog; for each item whose imdbID now has a poster in the
-    cache, overwrite poster+source+hasRealArtwork. Returns number changed."""
+def apply_cache_to_catalog(catalog, cache_entries):
+    """Apply every positive cache entry to matching catalog items.
+    Returns number of items changed."""
     n = 0
     for item in catalog.get("items", []):
         imdb = item.get("imdbID")
         if not imdb:
             continue
-        poster = poster_by_imdb.get(imdb)
-        if not poster:
+        entry = cache_entries.get(imdb)
+        if not entry or entry.get("error"):
             continue
-        # Only upgrade placeholders — never overwrite already-designed art.
-        if item.get("artworkSource") in DESIGNED_SOURCES:
-            continue
-        item["posterURL"]       = poster
-        item["artworkSource"]   = "omdb"
-        item["hasRealArtwork"]  = True
-        n += 1
+        # Reconstruct a normalized record from the cache entry.
+        rec = {
+            "poster_url":     entry.get("poster_url"),
+            "imdb_rating":    entry.get("imdb_rating"),
+            "imdb_votes":     entry.get("imdb_votes"),
+            "content_rating": entry.get("content_rating"),
+            "plot":           entry.get("plot"),
+            "runtime_min":    entry.get("runtime_min"),
+        }
+        if L.apply_rich(item, rec):
+            n += 1
     return n
 
-
-# ---------------------------------------------------------------------------
-# Main
-# ---------------------------------------------------------------------------
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--max-calls", type=int, default=950,
-                    help="Cap OMDb requests this run (OMDb free tier is 1000/day; "
-                         "default 950 leaves headroom).")
+                    help="Cap OMDb requests this run (free tier 1000/day).")
     ap.add_argument("--dry-run", action="store_true",
-                    help="Only print queue size; no HTTP, no writes.")
+                    help="Print queue size only; no HTTP, no writes.")
     ap.add_argument("--throttle", type=float, default=0.15,
-                    help="Seconds to sleep between calls (default 0.15).")
+                    help="Seconds between calls (default 0.15).")
     args = ap.parse_args()
 
-    # Load state
     cache = load_json(CACHE_PATH)
+    cache["schema"] = L.CACHE_SCHEMA_VERSION
     entries = cache.setdefault("entries", {})
     full_catalog = load_json(FULL_CATALOG)
     seed_catalog = load_json(SEED_CATALOG)
 
     queue = collect_queue([(True, seed_catalog), (False, full_catalog)], entries)
     total = len(queue)
-    print(f"[omdb-backfill] queue: {total:,} items need OMDb lookup "
-          f"(seed {sum(1 for _, v in queue if v['is_seed']):,} / "
-          f"full {sum(1 for _, v in queue if not v['is_seed']):,})", flush=True)
+    n_seed = sum(1 for _, v in queue if v["is_seed"])
+    print(f"[omdb-backfill] queue: {total:,} items need OMDb fetch "
+          f"(seed {n_seed:,} / full {total - n_seed:,})", flush=True)
 
     if args.dry_run or total == 0:
+        # Even on a no-fetch day, re-apply the cache so a schema/field
+        # change propagates into the catalogs.
+        if not args.dry_run:
+            cs = apply_cache_to_catalog(seed_catalog, entries)
+            cf = apply_cache_to_catalog(full_catalog, entries)
+            if cs or cf:
+                dump_json(SEED_CATALOG, seed_catalog)
+                dump_json(FULL_CATALOG, full_catalog)
+                print(f"[omdb-backfill] no fetches; re-applied cache: "
+                      f"+{cs} seed +{cf} full", flush=True)
         return 0
 
-    api_key = load_omdb_key()
+    api_key = L.load_omdb_key(SECRETS_PATH)
     if not api_key:
         print("[omdb-backfill] OMDB_KEY not set — cannot run", file=sys.stderr)
         return 1
@@ -202,51 +160,39 @@ def main():
 
     for i, (imdb, meta) in enumerate(queue[:args.max_calls], start=1):
         try:
-            poster = omdb_lookup(imdb, api_key, session)
+            rec = L.fetch_omdb(imdb, api_key, session)
         except RuntimeError as e:
             msg = str(e)
             if "quota" in msg.lower():
                 print(f"[omdb-backfill] stopping early: {msg}", flush=True)
                 break
-            # Transient — don't negative-cache. Skip; will retry tomorrow.
-            entries_before = entries.get(imdb)
-            if entries_before:
-                entries_before["error"] = msg
-                entries_before["last_tried"] = now
-            else:
-                entries[imdb] = {"error": msg, "last_tried": now}
+            # Transient — mark error, retry next run.
+            prev = entries.get(imdb) or {}
+            prev.update({"error": msg, "last_tried": now})
+            entries[imdb] = prev
             errored += 1
-            if i % 50 == 0:
-                print(f"  [omdb-backfill] err {errored:,} at {i}/{args.max_calls}  "
-                      f"({miss:,} miss, {got:,} hit)", flush=True)
             time.sleep(args.throttle)
             continue
 
-        if poster:
-            entries[imdb] = {"poster_url": poster, "fetched_at": now}
+        entries[imdb] = L.cache_record(rec, now)
+        if rec and rec.get("poster_url"):
             got += 1
         else:
-            entries[imdb] = {"poster_url": None, "fetched_at": now}
             miss += 1
 
         if i % 100 == 0:
-            print(f"  [omdb-backfill] {got:,} hit, {miss:,} miss, {errored:,} err  "
+            print(f"  [omdb-backfill] {got:,} hit, {miss:,} miss, {errored:,} err "
                   f"({i:,}/{min(total, args.max_calls):,})", flush=True)
         time.sleep(args.throttle)
 
     cache["updated_at"] = now
 
-    # Build the imdb → poster lookup (only positive entries) and apply.
-    poster_by_imdb = {k: v.get("poster_url")
-                      for k, v in entries.items()
-                      if v.get("poster_url")}
-
-    changed_full = apply_to_catalog(full_catalog, poster_by_imdb)
-    changed_seed = apply_to_catalog(seed_catalog, poster_by_imdb)
+    changed_seed = apply_cache_to_catalog(seed_catalog, entries)
+    changed_full = apply_cache_to_catalog(full_catalog, entries)
 
     dump_json(CACHE_PATH, cache)
-    dump_json(FULL_CATALOG, full_catalog)
     dump_json(SEED_CATALOG, seed_catalog)
+    dump_json(FULL_CATALOG, full_catalog)
 
     print(f"[omdb-backfill] done: {got:,} hit, {miss:,} miss, {errored:,} err", flush=True)
     print(f"                catalogs: +{changed_seed} seed  +{changed_full} full", flush=True)
