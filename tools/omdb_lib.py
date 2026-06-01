@@ -243,10 +243,20 @@ def apply_rich(item, rec):
     changed = False
 
     poster = rec.get("poster_url")
-    if poster and item.get("artworkSource") not in DESIGNED_SOURCES:
+    src = rec.get("artwork_source", "omdb")
+    # TMDb art outranks an existing OMDb poster; otherwise don't overwrite a
+    # designed source. (DESIGNED_SOURCES order isn't a ranking, so special-
+    # case the TMDb upgrade explicitly.)
+    cur = item.get("artworkSource")
+    can_set = (cur not in DESIGNED_SOURCES) or (src == "tmdb" and cur == "omdb")
+    if poster and can_set:
         item["posterURL"] = poster
-        item["artworkSource"] = "omdb"
+        item["artworkSource"] = src
         item["hasRealArtwork"] = True
+        changed = True
+
+    if rec.get("backdrop_url") and not item.get("backdropURL"):
+        item["backdropURL"] = rec["backdrop_url"]
         changed = True
 
     if rec.get("imdb_rating") is not None and item.get("imdbRating") != rec["imdb_rating"]:
