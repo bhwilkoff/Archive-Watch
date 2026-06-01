@@ -17,9 +17,13 @@ on:
   workflow_dispatch:
     inputs:
       max_calls:
-        description: 'Cap OMDb requests this run (free tier = 1000/day)'
+        description: 'OMDb backfill calls (rating refresh of IMDb-keyed items)'
         required: false
-        default: '950'
+        default: '600'
+      enrich_calls:
+        description: 'OMDb movie-resolution calls (title->IMDb for archive-only)'
+        required: false
+        default: '350'
       dry_run:
         description: 'Compute queue only, no HTTP or writes'
         required: false
@@ -66,10 +70,24 @@ jobs:
             exit 0
           fi
           python tools/omdb_backfill.py \
-            --max-calls ${{ github.event.inputs.max_calls || '950' }} \
+            --max-calls ${{ github.event.inputs.max_calls || '600' }} \
             ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
             | tee backfill.log
         id: backfill
+
+      - name: Enrich archive-only movies (title -> IMDb resolution)
+        if: steps.backfill.outputs.skipped != 'true'
+        env:
+          OMDB_KEY: ${{ secrets.OMDB_KEY }}
+        run: |
+          # The other half of the daily OMDb budget: resolve movies that have
+          # NO IMDb id yet (title+year lookup) to recover full metadata. Once
+          # resolved they flow into omdb_backfill on later days. Capped so the
+          # two steps together stay under the 1000/day free tier.
+          python tools/enrich_movies.py \
+            --max-calls ${{ github.event.inputs.enrich_calls || '350' }} \
+            ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
+            | tee enrich.log || true
 
       - name: Stats summary
         if: steps.backfill.outputs.skipped != 'true' && hashFiles('backfill.log') != ''
@@ -89,6 +107,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git add shared/editorial/omdb_cache.json \
+                  shared/editorial/movie_enrich_cache.json \
                   catalog.json \
                   ArchiveWatch/ArchiveWatch/catalog.json
 
@@ -97,7 +116,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "OMDb artwork backfill (${{ github.run_id }})"
+          git commit -m "OMDb enrichment: rating backfill + movie title-resolution (${{ github.run_id }})"
 
           # Push with rebase-retry. The shared `catalog-writers` concurrency
           # group keeps the catalog-mutating jobs from running at once, so a
