@@ -443,6 +443,19 @@ def gather_raw_targets(titles_filter):
                   "stillURL": it.get("posterURL"), "year": it.get("year"),
                   "runtimeSeconds": it.get("runtimeSeconds")}
             targets.append((it.get("title"), it.get("year"), [ep], "single", it["archiveID"]))
+    # Freshly-discovered TV items (discover_tv_shows.py) — new shows not yet in
+    # the catalog. downloadURL is None; the mapper re-picks the MP4 by id.
+    disc = REPO / "shared" / "editorial" / "tv_discovery.json"
+    have_targets = {t[4] for t in targets}
+    if disc.exists():
+        for it in json.loads(disc.read_text()).get("items", []):
+            aid = it.get("archiveID")
+            if not aid or aid in have_targets:
+                continue
+            ep = {"archiveID": aid, "title": it.get("title"),
+                  "downloadURL": None, "videoFile": None,
+                  "stillURL": None, "year": it.get("year"), "runtimeSeconds": None}
+            targets.append((it.get("title"), it.get("year"), [ep], "single", aid))
     if titles_filter:
         wanted = {t.strip().lower() for t in titles_filter.split(",")}
         targets = [t for t in targets if (t[0] or "").lower() in wanted]

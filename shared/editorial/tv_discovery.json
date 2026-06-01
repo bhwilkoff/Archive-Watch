@@ -1,0 +1,4888 @@
+{
+ "items": [
+  {
+   "archiveID": "TLS_Lucy_Meets_John_Wayne",
+   "title": "Lucy meets John Wayne",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "tateseason1",
+   "title": "Tate (TV Series 1960)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_And_Viv_Put_In_A_Shower",
+   "title": "Lucy And Viv Put In A Shower",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_Gets_A_Roommate",
+   "title": "Lucy Gets A Roommate",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "mahabharat-1988-tv-series",
+   "title": "Mahabharat 1988 TV series (94 episodes) - B. R. Chopra",
+   "year": 1988,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_And_George_Burns",
+   "title": "Lucy and George Burns",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1994-xx-xx-m-dumas-mon-corps-en-vacances",
+   "title": "Bas les masques - Mon Corps En Vacances - 1994",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Andy_Griffith_A_Wife_For_Andy",
+   "title": "A Wife For Andy",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "UNIVAC-AD-2",
+   "title": "Fifties Advertising: UNIVAC Computer Commercial (5 February 1956) (Ad 2 of 2)",
+   "year": 1956,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Robin_Hood_01_The_Coming_Of_Robin_Hood",
+   "title": "The Coming Of Robin Hood",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Andy_Griffith_The_Bighouse",
+   "title": "Andy Griffith The Bighouse",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_And_Carol_In_Palm_Springs",
+   "title": "Lucy And Carol In Palm Springs",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep02_Getting_Settled",
+   "title": "Beverly Hillbillies Ep02 Getting Settled",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_Gets_Caught_In_The_Draft",
+   "title": "Lucy Gets Caught In The Draft",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_Goes_To_London",
+   "title": "Lucy Flies To London",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_Meets_Tennessee_Ernie_Ford",
+   "title": "Lucy Meets Tennessee Ernie Ford",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "JokerOnHorseback",
+   "title": "Joker on Horseback",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_and_The_Submarine",
+   "title": "Lucy and the Submarine",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_The_Starmaker",
+   "title": "Lucy The Starmaker",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_Meets_The_Burles",
+   "title": "Lucy meets the Berles",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "DuMont_Set_Commercial",
+   "title": "Classic Commercial for Du Mont Laboratories Television Sets",
+   "year": 1949,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Bob_Hope_Thanks_For_The_Memories",
+   "title": "Thanks For The Memories (Bob Hope Special)",
+   "year": 1964,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_And_The_French_Movie_Star",
+   "title": "Lucy And The French Movie Star",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "s2e07_202002",
+   "title": "S 2 E 07.",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Viv_Visits_Lucy",
+   "title": "Viv Visits Lucy",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "on-the-buses-1969-73",
+   "title": "ON THE BUSES (1969-73) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_The_Bean_Queen",
+   "title": "Lucy The Bean Queen",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_Meets_Robert_Goulet",
+   "title": "Lucy Meets Robert Goulet",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucys_Barbershop_Quartet",
+   "title": "Lucys Barbershop Quartet",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_And_The_RingaDing_Ring",
+   "title": "Lucy and the RingaDing Ring",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_The_Babysitter",
+   "title": "Lucy The Babysitter",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_Gets_Jack_Bennys_Account",
+   "title": "Lucy Gets Jack Bennys Account",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Red_Skelton_CarolChanningGuest",
+   "title": "Carol Channing Guests",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Annie_Oakley_Sharp_Shootin_Annie",
+   "title": "Sharp Shootin' Annie",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_Gets_Trapped",
+   "title": "Lucy Gets Trapped",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Jack_Benny_-_Road_To_Nariobi",
+   "title": "Road To Nariobi",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Red_Skelton_AmandaBlakeGuest",
+   "title": "Amanda Blake Guests",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_and_The_Flight_Manager",
+   "title": "Lucy and The Flight Manager",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_And_The_Substitute_Secretary",
+   "title": "Lucy And The Substitute Secretary",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Andy_Griffith_The_Loaded_Goat",
+   "title": "The Loaded Goat",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "UnsoldTelevisionPilotunsolved1950sCrimeDrama",
+   "title": "Unsold Television Pilot: ''Unsolved'' (1950's Crime Drama)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_And_The_Efficiency_Expert",
+   "title": "Lucy and the Efficiency Expert",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheEdWynnShow1950",
+   "title": "The Ed Wynn show, 1950",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_Meets_Pat_Collins",
+   "title": "Lucy Meets Pat Collins",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Pinky_Lee_Show",
+   "title": "1954 Episode of \"The Pinky Lee Show\" (Classic TV)",
+   "year": 1954,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Tales_Of_Tomorrow_-_Sneak_Attack",
+   "title": "Sneak Attack",
+   "year": 1951,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_Meets_The_Law",
+   "title": "Lucy Meets The Law",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "cover_20240716_1919",
+   "title": "Star Trek TNG Complete Series 720p",
+   "year": 1987,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_And_Paul_Winchell",
+   "title": "Lucy and Paul Winchell",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Lucy_Meets_Sheldon_Leonard",
+   "title": "Lucy Meets Sheldon Leonard",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ALF-The-Complete-Series",
+   "title": "ALF The Complete Series",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "red18_ArchieMooreGuests",
+   "title": "Archie Moore as Guest",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Tales_Of_Tomorrow_-_World_Of_Water",
+   "title": "World of Water",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TOT_The_Great_Silence",
+   "title": "The Great Silence",
+   "year": 1953,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheAdventuresOfFlashGordon",
+   "title": "The Space Adventures of Flash Gordon",
+   "year": 1955,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Howdy_Doody_52",
+   "title": "Artistic Masterpiece: ''Howdy Doody'' - 1 April 1952",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TOT_Many_Happy_Returns",
+   "title": "Many Happy Returns (aka: Invaders at Ground Zero)",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Robin_Hood_44_-_The_Goldmaker",
+   "title": "Robin_Hood_44_-_The_Goldmaker",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Brigadoon1966",
+   "title": "Brigadoon (1966)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "st.-elsewhere",
+   "title": "St. Elsewhere (1982–88) medical drama -185 eps",
+   "year": 1982,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "popular-1999-2001",
+   "title": "Popular (1999-2001) WB dramedy - all 43 eps",
+   "year": 1999,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "WildlifeOnOneEp95OasisDavidAttenborough23Feb1988",
+   "title": "BBC Wildlife On One (David Attenborough) (1977-2005)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Red_Skelton_FranklinPangbornGuest",
+   "title": "Franklin Pangborn as Guest",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Red_Skelton_MarthaRayeGuest",
+   "title": "Martha Raye as Guest",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "s01e01.Doctor",
+   "title": "S02E01.Doctor",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "a-super-maquina-temporada-1",
+   "title": "A Super Máquina - Knight Rider (1982) - 1º Temporada",
+   "year": 1982,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep03_Meanwhile_Back_At_The_Cabin",
+   "title": "Meanwhile Back at the Cabin",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Sugar_Crisps_Ad1",
+   "title": "Classic Commercial for Post's Sugar Crisps",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Robin_Hood_59_-_Ambush",
+   "title": "Robin_Hood_59_-_Ambush",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Andy_Griffith_Opie_and_the_Spoiled_Kid",
+   "title": "Opie and the Spoiled Kid",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "GE_Presents_The_Bing_Crosby_Show_-_Debut",
+   "title": "GE Presents The Bing Crosby Show ep Debut",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Tales_Of_Tomorrow_-_Flight_Overdue",
+   "title": "Flight Overdue",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Main_Street_U_S_A",
+   "title": "Main Street USA",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Tales_Of_Tomorrow_-_Red_Dust",
+   "title": "Red Dust",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bbc-connections-1978",
+   "title": "Connections (James Burke / BBC Documentary Series)",
+   "year": 1978,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Tales_Of_Tomorrow_-_Test_Flight",
+   "title": "Test Flight",
+   "year": 1951,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Queen_For_A_Day",
+   "title": "1960 episode of 'Queen for a Day'",
+   "year": 1960,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "I_Married_Joan_EP79_Neighbors",
+   "title": "EP 79 Neighbors",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TOT_Read_To_Me_Herr_Docktor",
+   "title": "Read to Me Herr Doktor",
+   "year": 1953,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep04_The_Clampetts_Meet_Mrs_Drysdale",
+   "title": "The Clampetts Meet Mrs Drysdale",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "The_Liberace_Show_1955",
+   "title": "The Liberace Show From 1955",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Robin_Hood_41_-_The_Scientist",
+   "title": "Robin_Hood_41_-_The_Scientist",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Robin_Hood_55_-_The_Dream",
+   "title": "Robin_Hood_55_-_The_Dream",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Andy_Griffith_The_Robbery",
+   "title": "The Robbery",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "HowdyDoodyShrinkingMachine1958",
+   "title": "Howdy Doody Shrinking Machine 1958",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "You_Can_Change_The_World_-_1951-tv-documentary",
+   "title": "You Can Change The World",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "dick_van_dyke_show_31_never_name_a_duck",
+   "title": "The Dick Van Dyke Show #31: Never Name a Duck",
+   "year": 1962,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheHypnoticEyeEpisode7",
+   "title": "The Hypnotic Eye episode 7",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TIMETRAVELER1974",
+   "title": "TIME TRAVELER 1974",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Robin_Hood_06_A_Guest_For_The_Gallows",
+   "title": "A Guest For The Gallows",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Robin_Hood_64_Fair_Play",
+   "title": "Robin_Hood_64_Fair_Play",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "roots-1977-complete-original",
+   "title": "Roots (1977 miniseries)",
+   "year": 1977,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Dragnet_The_Big_Producer",
+   "title": "The Big Producer",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TOT_The_Bitter_Storm",
+   "title": "The Bitter Storm",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Alfred_Hitchcock_Presents_-_The_Cheyney_Vase_Dec25_1955",
+   "title": "The Cheyney Vase",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Tales_Of_Tomorrow_-_Age_Of_Peril",
+   "title": "Age Of Peril",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "yes-minister-1980-1984",
+   "title": "Yes Minister (1980 - 1984)",
+   "year": 1980,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "I_Married_Joan_EP26_The_Lady_And_The_Prizefighter",
+   "title": "EP 26 The Lady And The Prizefighter",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "captainvideo",
+   "title": "1949 episode of the TV series \"Captain Video\"",
+   "year": 1949,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "DragnetTheBigBetty",
+   "title": "Dragnet The Big Betty",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TOT_The_Fatal_Flower",
+   "title": "The Fatal Flower",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "yesminister-yesprimeminister",
+   "title": "Yes Minister & Yes, Prime Minister: The Complete Collection [PAL DVD ISO]",
+   "year": 1980,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TOT_The_Horn",
+   "title": "The Horn",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-monkees-tv-series-full-episodes",
+   "title": "The Monkees TV Series Full Episodes",
+   "year": 1966,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ER-04",
+   "title": "ER Emergencias - Temporada 4 - (AUDIO LATINO)",
+   "year": 1997,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Andy_Griffith_The_Rescue",
+   "title": "The Rescue",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ShastaSodaCommercial-Frankenstein",
+   "title": "Shasta soda commercial - Frankenstein",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "street-hawk-",
+   "title": "Street Hawk The Complete Series",
+   "year": 1985,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Tales_Of_Tomorrow_-_The_Invader",
+   "title": "The Invader",
+   "year": 1951,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep05_Jed_Buys_Stock",
+   "title": "Jed Buys Stock",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TOT_Youth_On_Tap",
+   "title": "Youth on Tap (aka: Young Blood)",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Tales_Of_Tomorrow_-_Plague_From_Space",
+   "title": "Plague from Space",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "GoodAgainstEvil",
+   "title": "Good Against Evil",
+   "year": 1977,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "columbo-pilot-episodes",
+   "title": "Columbo Pilot Episodes",
+   "year": 1968,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "The_Mickey_Rooney_Show_Misc_ep_01",
+   "title": "The Mickey Rooney Show Misc 01",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "JackBennyHour1965",
+   "title": "Jack Benny Hour (1965)",
+   "year": 1965,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep21_Jed_Plays_Soloman",
+   "title": "Jed Plays Solomon",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "PrisonersofSilence",
+   "title": "Prisoners of Silence",
+   "year": 1992,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "jenna-jameson-at-21-strips-for-howard-stern-1995-e-show-uncut",
+   "title": "Jenna Jameson (at 21) Strips For Howard Stern, 1995 E! Show Uncut",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep08_Jethro_Goes_To_School",
+   "title": "Jethro Goes To School",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Zeek_The_Amazing_Piece_of_Toast",
+   "title": "Lucky Strike Commercial from 1955 #2",
+   "year": 1955,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Dragnet_The_BigGrandma",
+   "title": "The Big Grandma",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Andy_Griffith_A_Wife_for_Andy_Upgraded_ep",
+   "title": "A Wife For Andy (upgrade)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep16_Back_To_Californy",
+   "title": "Back To Californy",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Dragnet_The_Big_Casing",
+   "title": "The Big Casing",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Dragnet_TheBigCast",
+   "title": "The Big Cast",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Andy_Griffith_Andys_English_Valet",
+   "title": "Andys English Valet",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "DuckmanComplete",
+   "title": "Duckman The Complete Series",
+   "year": 1995,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "dick_van_dyke_show_39_the_night_the_roof_fell_in",
+   "title": "The Dick Van Dyke Show #39: The Night the Roof Fell In",
+   "year": 1962,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Tales_Of_Tomorrow_-_The_Childrens_Room",
+   "title": "The Childrens Room",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep09_Ellys_First_Date",
+   "title": "Elly's First Date",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Batman1943Chapter01TheElectricalBrain",
+   "title": "Batman the 1943 serials",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1993-mireille-dumas-heliomonde",
+   "title": "Bas les masques - Heliomonde - 1993",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "manwithacamera_202002",
+   "title": "Man with a Camera (1958-1960 TV series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "dick_van_dyke_show_34_bank_book_6565696",
+   "title": "The Dick Van Dyke Show #34: Bank Book 6565696",
+   "year": 1962,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "two-of-a-kind-1998",
+   "title": "Two of a Kind (1998–99) MaryKate + Ashley Olsen",
+   "year": 1998,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep50__Christmas_At_The_Clampetts",
+   "title": "Christmas At The Clampetts",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Flash_Gordon_VCD-001",
+   "title": "Flash Gordon VCD",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Better_Than_The_Betty_Hutton_Show",
+   "title": "Classic Commercial for Kellogg's Sugar Smacks",
+   "year": 1954,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Home-Movies-Cartoon-Series",
+   "title": "Home Movies Cartoon Series",
+   "year": 1999,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep18_Jed_Saves_Drysdales_Marriage",
+   "title": "Jed Saves The Drysdale's Marriage",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ER-06",
+   "title": "ER Emergencias - Temporada 6 - (AUDIO LATINO)",
+   "year": 1999,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep19_Ellys_Animals",
+   "title": "Elly's Animals",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "a-super-maquina-temporada-2",
+   "title": "A Super Máquina - Knight Rider (1982) - 2º Temporada",
+   "year": 1982,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep11_Elly_Races_Jethrine",
+   "title": "Elly Races Jethrine",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Robin_Hood_05_Maid_Marian",
+   "title": "Maid Marion",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "dingdongschool",
+   "title": "1953 Episode of \"Ding Dong School\"",
+   "year": 1953,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Annie_Oakley_Hard_Rock_Trail",
+   "title": "Hard Rock Trail",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "You_Bet_Your_Life_Clock",
+   "title": "''You Bet Your Life with Groucho Marx'' - Secret Word Clock",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "a-ghost-story-for-christmas-1971",
+   "title": "A Ghost Story for Christmas (1971 - 78, 2005 - 13, 18 -) Complete Series inc. Whistle and I'll Come to You (1968)",
+   "year": 1971,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Tales_Of_Tomorrow_-_Time_To_Go",
+   "title": "Time to Go",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "OSB-02_Night_Of_April_14th",
+   "title": "Night of April 14th",
+   "year": 1959,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "NbcNews17march1949",
+   "title": "NBC News (17/March/1949)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep17_Jeds_Dilemma",
+   "title": "Jeds Dilemma",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheBigHands",
+   "title": "The Big Hands",
+   "year": 1953,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep10_Pygmalion_And_Elly",
+   "title": "Pygmalion And Elly",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheBigSeptemberMan",
+   "title": "The Big September Man",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "s01e04_The-Dark-Room-720p",
+   "title": "s01e04_The-Dark-Room-720p",
+   "year": 1959,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "lucyshow",
+   "title": "Episode of the Classic TV series \"The Lucy Show\" with Lucille Ball",
+   "year": 1967,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Car_Commericals_1956-1960page2",
+   "title": "Car Commericals 1958-1960",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep15_Jed_Rescues_Pearl",
+   "title": "Jed Rescues Pearl",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "SherlockHolmes1954-55",
+   "title": "Sherlock Holmes 1954-55",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheBigShow",
+   "title": "The Big Show",
+   "year": 1953,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "wishbonefullseriesremastered",
+   "title": "Wishbone (TV Series 1995–1998) REMASTERED",
+   "year": 1995,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "In-Search-Of-complete-series",
+   "title": "In Search Of... (TV series hosted by Leonard Nimoy)",
+   "year": 1977,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1958NflChampionship",
+   "title": "1958 NFL Championship",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "47_20230622",
+   "title": "The Super Girl 1979 (English Subtitles)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep12_The_Great_Feud",
+   "title": "The Great Feud",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "OSB-78_Dead_Mans_Tale",
+   "title": "Dead Man's Tale",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "playboy-secrets-of-making-love-2",
+   "title": "Playboy Secrets of Making Love 2",
+   "year": 1993,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "lionel01",
+   "title": "Astro Missel Fireing Car",
+   "year": 1962,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "PhotosbyHaroldQuatermassIIAllSixPartsCompiledintoOneFile",
+   "title": "Quatermass II - All Six Parts Compiled into One File",
+   "year": 2008,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep42_Jethros_First_Love",
+   "title": "Jethro's First Love",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TLS_Mooney_The_Monkey",
+   "title": "Mooney The Monkey",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "BbcTelevisionReceivedInNewYork-1938",
+   "title": "BBC Television received in New York - November 1938",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-seniors-family-supernanny-uk-full-episode",
+   "title": "The Seniors Family Supernanny UK FULL EPISODE",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-persuaders-1971-72",
+   "title": "The Persuaders! (1971 - 72) Complete Series",
+   "year": 1971,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "LotLFullSeries",
+   "title": "Land of the Lost Full Series (70's)",
+   "year": 1974,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Car_Commericals_1966-1970",
+   "title": "Car Commericals 1966-1970",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-lucy-show-lucy-buys-a-boat",
+   "title": "The Lucy Show ▲ 54 Hours + / 152 Episodes - Incomplete TV Series",
+   "year": 1962,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheBigLittleJesus",
+   "title": "The Big Little Jesus",
+   "year": 1953,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "VAS_01_Design_For_War",
+   "title": "Design for War",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "The_Beulah_Show",
+   "title": "'The Beulah Show' - Beulah Goes Gardening",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Dragnet_The_Big_Frame",
+   "title": "The Big Frame",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Wall_1950s-game-show",
+   "title": "1950's Television: \"You Bet Your Life with Groucho Marx\" - Secret Word ''Wall''",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "jack_benny_03_04_62",
+   "title": "Jack Benny March, 4th 1962",
+   "year": 1962,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "GangBusters195455CreatedByPhillipsH.Lord",
+   "title": "Gang Busters! (1954/55) created by Phillips H. Lord",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "hotel_202312",
+   "title": "Hotel (1983-1988) complete series",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep23_Jed_Buys_The_Freeway",
+   "title": "Jed Buys The Freeway",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "clueless-1996-99",
+   "title": "Clueless (1996–99) TV series - Rachel Blanchard",
+   "year": 1996,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Dragnet_The_Big_Phone_Call",
+   "title": "The Big Phone Call",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep22_Duke_Steals_A_Wife",
+   "title": "Duke Steals A Wife",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "The_Crow_Stairway_To_Heaven_Season_1",
+   "title": "The Crow Stairway to Heaven (RESTORED AND AI UPSCALED)",
+   "year": 1999,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-wind-in-the-willows-1983-90",
+   "title": "The Wind in the Willows (1983 - 90) Complete Film & TV Collection",
+   "year": 1983,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep38_Hair_Raising_Holiday",
+   "title": "Hair Raising Holiday",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Love_That_Bob_Ep4x24_Bob_Gets_Harvey_A_Raise",
+   "title": "Bob Gets Harvey A Raise",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "unknownWonderwowmanpilot",
+   "title": "6 Red Skelton Episodes",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "GE_Dish_Washer",
+   "title": "Classic Fifties Commercial: General Electric Dish Washer (1952)",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Jack_Benny_11_04_1951",
+   "title": "The Jack Benny Show from November 04 1951",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beverly_Hillbillies_Ep29_The_Clampetts_And_The_Dodgers",
+   "title": "The Clampetts And The Dodgers",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "AllMyChildren19901Jan02ThruAugust14-16.9Gb",
+   "title": "ALL MY CHILDREN 1990 #1 Jan 02 thru August 14 - 16.9 GB",
+   "year": 1990,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "S1E01-Life_Of_Riley-10_04_49-Tonsils_824",
+   "title": "S1E01-Life_Of_Riley-10_04_49-Tonsils",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1975NBC",
+   "title": "Classic TV: 1975 NBC ''Fall Line-Up'' Promo Special",
+   "year": 1975,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "live-net-tv-4.8.6-update",
+   "title": "Live Net TV 4.8.6 Update",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "fluxusfireplace",
+   "title": "Fluxus Fireplace",
+   "year": 2020,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "youtube-ph7oHWONq0c",
+   "title": "Christine Chubbuck Suicide Footage Tape - July 15, 1974",
+   "year": 2017,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "WRC_20010911_110000_Today",
+   "title": "Today : WRC : September 11, 2001 7:00am-9:59am EDT",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "FluxusTV-Immersed",
+   "title": "Fluxus Immersed",
+   "year": 2019,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Prison-School-",
+   "title": "Prison School Anime Complete Season 1 [Dubbed] [Uncensored] [720p]",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "nova-tv-v-1.5.0-b-mod-extra-apk-4all.com",
+   "title": "Nova TV V 1.5.0 B Mod Extra Apk 4all.com",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Ahmed_Al-Ajmi_Video_Quran_English_Sub",
+   "title": "The Complete Holy Quran recited by Sheikh Ahmed Al-Ajmi and subtitled in English in a very beautiful video format from Al-Majd TV - المصحف المرئي للشيخ أحمد العجمي مترجم للإنجليزية من قناة المجد للقرآن الكريم",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "MejoradaLaMejorSuscripcion",
+   "title": "Mejorada La Mejor Suscripcion",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "spider-mantheanimatedseries",
+   "title": "Spider-Man: The Animated Series (Complete 1994 Series) [1080p AI Upscale]",
+   "year": 1994,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "CNN_20010911_110000_CNN_Live_at_Daybreak",
+   "title": "CNN Live at Daybreak : CNN : September 11, 2001 7:00am-9:00am EDT",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "8CTAVEINTROSILVERBLUEVOLUMEDOWN",
+   "title": "Powering Public Access-INTRO",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ctvc",
+   "title": "Classic Television Commercials",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "AZT_20010911_110000_Noticiario_Hechos",
+   "title": "Noticiario Hechos : AZT : September 11, 2001 6:00am-8:30am CDT",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "WJLA_20010911_130000_Live_With_Regis_and_Kelly",
+   "title": "Live With Regis and Kelly : WJLA : September 11, 2001 9:00am-10:00am EDT",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "niazi_tvko_s_2",
+   "title": "KO-S2",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "peacock_202107",
+   "title": "peacock",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ranma-nibunnoichi-espanol-latino-y-japones",
+   "title": "Ranma½ (Español Latino y Japonés)",
+   "year": 1993,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "sakura-card-captor-en-espanol-latino",
+   "title": "Sakura Card Captor en Español Latino",
+   "year": 2008,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "MIT8.02S02",
+   "title": "MIT 8.02 Electricity and Magnetism",
+   "year": 1999,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "live-planet-tv-v-1.7-android-apks.com",
+   "title": "Live Planet Tv (v 1.7) Android Apks.com",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "EUROPATheLastBattle",
+   "title": "EUROPA – The Last Battle ~ The Full Documentary (2017)",
+   "year": 2017,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "cinema-hd-v-2.2.0-modded-by-stabiron_20200630",
+   "title": "Cinema HD V 2.2.0",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "daves-old-porn-full-series",
+   "title": "Dave's Old Porn (Full Series)",
+   "year": 2012,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ClassicT1948",
+   "title": "Classic Television Commercials (Part I)",
+   "year": 1948,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "fluxusuniverse",
+   "title": "Fluxus TV Universe",
+   "year": 2019,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "WUSA_20010911_130000_9_Eyewitness_News_at_9am",
+   "title": "9 Eyewitness News at 9am : WUSA : September 11, 2001 9:00am-10:00am EDT",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Supaidman",
+   "title": "Supaidāman",
+   "year": 1978,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "nina-hartley-pool-sex-video",
+   "title": "Nina Hartley Pool Sex Scene Video",
+   "year": 1997,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Televisi1960",
+   "title": "Television Commercials (1950s-1960s)",
+   "year": 1950,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "classic-british-tv-pack",
+   "title": "Classic British TV Pack",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "NHK_20010911_140000_Japan",
+   "title": "Japan : NHK : September 11, 2001 11:00pm-11:30pm JST",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "how-to-train-your-dragon-2010_202106",
+   "title": "HERBIE",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "AshoraTahaTv",
+   "title": "ashora taha Tv",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "cnn200109110848-0929",
+   "title": "CNN Sept. 11, 2001 8:48 am - 9:29 am",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "cnnquotetvarchivedata7.21.19_201907",
+   "title": "CNNquote TVArchive Data 7.21.19",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "NTV_20010911_135000_Chelovek_v_prohodnom_dvore",
+   "title": "Chelovek v prohodnom dvore : NTV : September 11, 2001 5:50pm-7:00pm MSD",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "NEWSW_20010911_140000_Need_to_Know",
+   "title": "Need to Know : NEWSW : September 11, 2001 10:00am-11:00am EDT",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheMessageMovieinUrdu",
+   "title": "The Message Movie (in Urdu)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "a_nightmare_on_elm_street",
+   "title": "A Nightmare on Elm Street (Full Franchise + TV Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "CNN_20010911_163000_Burden_of_Proof",
+   "title": "Burden of Proof : CNN : September 11, 2001 12:30pm-1:00pm EDT",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "kobe-tai-intense-cumshot-video",
+   "title": "Kobe Tai Intense Cumshot Uncut Video",
+   "year": 1997,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "pbsnovadocs",
+   "title": "PBS Nova Documentaries",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "LuckyStr1948_2",
+   "title": "Lucky Strike Cigarette Commercial: Square Dance",
+   "year": 1948,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "DragonTalesTVSeries",
+   "title": "Dragon Tales - TV Series (1999)",
+   "year": 1999,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "218Lingers",
+   "title": "BH-1",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "snaptv_3.9",
+   "title": "👍(͡• ͜ʖ ͡•)✌11/6/25 1000 apk send donation send giftcard amazon netflix gift greendot money packs to flipdog900@gmail.com for LIFETIME TV (>‿◠)✌",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ReadingRainbowTVSeries",
+   "title": "Reading Rainbow - TV Series (1983)",
+   "year": 1983,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "startrekcontinues_202006",
+   "title": "Star Trek Continues",
+   "year": 2013,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "disney-anthology-television-series",
+   "title": "Disney anthology television series",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "shayla-la-veaux-erotic-sex-scene-video",
+   "title": "Shayla LaVeaux Erotic Sex Scene Video",
+   "year": 1997,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "WUSA_20010911_210000_9_Eyewitness_News_at_5pm",
+   "title": "9 Eyewitness News at 5pm : WUSA : September 11, 2001 5:00pm-6:00pm EDT",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "quranarabicenglishmp4",
+   "title": "Holy Quran Translation Arabic - English News (Reciter Mishary Rashed Alafasy) MP4",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "IRAQ_20010911_160000_Iraq_Satellite_Channel",
+   "title": "Iraq Satellite Channel : IRAQ : September 11, 2001 8:00pm-8:30pm ADT",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bear-in-the-big-blue-house-live-dvd-2003",
+   "title": "All Animated Movies and TV Episodes and VHS And DVD Capture",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "BBC_20010911_210000_BBC_World_News",
+   "title": "BBC World News : BBC : September 11, 2001 10:00pm-10:29pm BST",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "101Shipment",
+   "title": "SW-3",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "zalindotvnew",
+   "title": "Zalindo Tv New",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Wonderfu1960",
+   "title": "Wonderful New World of Fords, A (1960 Ford Spot)",
+   "year": 1960,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "nbc200109110831-0912",
+   "title": "NBC Sept. 11, 2001 8:31 am - 9:12 am",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "BBC_20010911_170000_BBC_World_News",
+   "title": "BBC World News : BBC : September 11, 2001 6:00pm-6:29pm BST",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "movie-hd-505",
+   "title": "Movie HD",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "classicmonsterjam",
+   "title": "Monster Jam: Before It Sucked (2000-2013)",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "mismatched-s01",
+   "title": "Mismatched Season 1",
+   "year": 2020,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "CCF-2000",
+   "title": "VHS Recording - Cartoon Network's Cartoon Cartoon Fridays 2000 Full Broadcast",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "27A_Is_Jesus_God_Shorrosh_Arabic",
+   "title": "27AR. Is Jesus God ? Debate (Arabic)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bl5ck-cl0v3r-tv-dub-seasons-2",
+   "title": "Bl5ck Cl0v3r ( TV) ( Dub) Seasons 2",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Pingu_Season_1to6",
+   "title": "Pingu Seasons 1 to 6",
+   "year": 1986,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1954CommercialForR.d.x.WeightlossPills",
+   "title": "1954 commercial for R.D.X. weightloss pills",
+   "year": 1954,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "AlQuran_ou_alkitab_almuqadas_ayouhoma_kalam_ALLAH_truthwaytv",
+   "title": "The Noble Quran or Bible which is the Word of God?",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "HodhodTv1",
+   "title": "hodhod TV 1",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "38AR_Crucifiction_Fact_or_Fiction",
+   "title": "38AR. Crucifixion Fact or Fiction ? (Arabic)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "A.Historia.da.Eletricidade-Dublado.720p",
+   "title": "A História da Eletricidade - Dublado HD",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "PolitAdArchiveVideo",
+   "title": "PoliticalAdArchive.org",
+   "year": 2016,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheWitcherTV",
+   "title": "The Witcher (Polish TV Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1953CommercialForLuckyStrikeCigarettes",
+   "title": "1953 commercial for Lucky Strike cigarettes",
+   "year": 1953,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "LuckyStr1948",
+   "title": "Lucky Strike Cigarette Commercial: Marching Cigarettes",
+   "year": 1948,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheMiracleOn34thStreet",
+   "title": "The Miracle on 34th Street",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "chernobyl_202407",
+   "title": "chernobyl",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Mr.Bean_TV_Series",
+   "title": "Mr. Bean TV Series",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "11AR_Al-Quran_a_Miracle_of_Miracles_Arabic",
+   "title": "11AR. Al-Quran a Miracle of Miracles (Arabic)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Cheerios1960",
+   "title": "Cheerios/V-8",
+   "year": 1960,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "MostExtremeEliminationChallengeMXCSeason1",
+   "title": "Most Extreme Elimination Challenge MXC Season 1",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "SaluteYourShortsS01E01MichaelComesToCamp",
+   "title": "Salute Your Shorts",
+   "year": 1991,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1956CommercialForKodakSignet40Camera",
+   "title": "1956 commercial for Kodak Signet 40 camera",
+   "year": 1956,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "youtube-Qofb1LeZIj8",
+   "title": "Isis Fashion Awards 2022 - Part 9 (Nude Accessory Runway Catwalk Show) Wonderland",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "CNN_20010911_130000_CNN_Live_This_Morning",
+   "title": "CNN Live This Morning : CNN : September 11, 2001 9:00am-11:59am EDT",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the.dick.van.dyke.show.s02e04",
+   "title": "The Dick Van Dyke Show",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "69AR_Is_Jesus_God_Sjoberg_Arabic",
+   "title": "69AR. Is Jesus God ? (Arabic)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "WWTVSeries20072011",
+   "title": "WordWorld - TV Series (2007 - 2011)",
+   "year": 2007,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bbc200109111654-1736",
+   "title": "BBC Sept. 11, 2001 4:54 pm - 5:36 pm",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1959CommercialForBlackFlagInsectBomb",
+   "title": "1959 commercial for Black Flag insect bomb",
+   "year": 1959,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "nbc200109110954-1036",
+   "title": "NBC Sept. 11, 2001 9:54 am - 10:36 am",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1962CommercialForFreshDeodorant",
+   "title": "1962 commercial for Fresh deodorant",
+   "year": 1962,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1961CommercialForSani-flush",
+   "title": "1961 commercial for Sani-Flush",
+   "year": 1961,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "fleabag.-s-01-e-05.-hdtv.-subtitulado-esp.-sc",
+   "title": "Fleabag",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "fox5200109110831-0912",
+   "title": "FOX5 Sept. 11, 2001 8:31 am - 9:12 am",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the_scene_xvid_episode_1",
+   "title": "Welcome to the Scene: Episode 01",
+   "year": 2004,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "cbs200109110831-0912",
+   "title": "CBS Sept. 11, 2001 8:31 am - 9:12 am",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "csodalenyek-40.-mentsuk-meg-a-diotorot",
+   "title": "Csudalények Minimentők (The Wonder Pets) Rare Hungarian Dubs",
+   "year": 2006,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ClassicT1948_3",
+   "title": "Classic Television Commercials (Part III)",
+   "year": 1948,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "wheaties",
+   "title": "Classic commercial for Wheaties",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "JerrySpringerBralessBrawlers2011",
+   "title": "Jerry Springer Braless Brawlers 2011",
+   "year": 2011,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "103Villiain",
+   "title": "JM-1",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "GlitterForceArchive",
+   "title": "Glitter Force Archive",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ClassicT1948_5",
+   "title": "Classic Television Commercials (Part V)",
+   "year": 1948,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "MostExtremeEliminationChallengeMXCSeason3",
+   "title": "Most Extreme Elimination Challenge MXC Season 3",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "106Pearl",
+   "title": "LJS-1",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "dil-to-pagal-hai-1997-hindi.-untouched.-web.-dl.-720p.-avcx-264.-aac-superhit-co_202409",
+   "title": "DIL TO PAGAL HAI ( 1997) Hindi. Untouched. WEB. DL. 720p. AVCx 264. AAC ( Superhit Comedy Bollywood Film And Movie) Shahrukh Khan Bhaiyaa, Madhuri Dixit, Karishma Kapoor, Akshay Kumar Bhaiyaa",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-boondocks_202410",
+   "title": "The Boondocks The Complete series and Pilot",
+   "year": 2005,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "KathKimSeries1Episode1Sex480p",
+   "title": "Kath & Kim Series 1-4",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "JapanesePokemonOBV",
+   "title": "Pokemon Anime (Episodes 1-38) - Japanese",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bl5ck-cl0v3r-tv-dub-seasons-3",
+   "title": "Bl5ck Cl0v3r ( TV) ( Dub) Seasons 3",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "BeepBeep_TV",
+   "title": "\"BeepBeep TV\" video archive",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1960CommercialForoffInsectRepellent",
+   "title": "1960 commercial for Off insect repellent",
+   "year": 1960,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Tibemar.SpanishStar",
+   "title": "Tibemar. Spanish star",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TIYL_Laurel_And_Hardy",
+   "title": "This Is Your Life Laurel And Hardy",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "68AR_Is_the_Bible_Word_of_God_Sjoberg_Arabic",
+   "title": "68AR. Is the Bible True Word Of God ? (Arabic)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ClassicT1948_8",
+   "title": "Classic Television Commercials (Part VIII)",
+   "year": 1948,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-batman-2004-complete-1080p-bluray",
+   "title": "The Batman (2004) Complete Collection with Featurettes",
+   "year": 2004,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "RamayanEpisode-1",
+   "title": "Ramayan Episode - 1",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "abc200109110912-0954",
+   "title": "ABC Sept. 11, 2001 9:12 am - 9:54 am",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "clifford-the-big-red-dog-s-01e-20-clifford-on-parade-follow-the-leader",
+   "title": "Clifford The Big Red Dog (2000 Series) Complete Series",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Televisi1961",
+   "title": "Television Remote Control (Tuner)",
+   "year": 1961,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "theadventuresofkitcarson",
+   "title": "The Adventures of Kit Carson - PD Collection",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ClassicT1948_2",
+   "title": "Classic Television Commercials (Part II)",
+   "year": 1948,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "shiddat-2021-hindi.-untouched.-web.-dl.-720p.-avcx-264.-aac.-superhit-bollywood-_20240919",
+   "title": "Shiddat ( 2021) Hindi. Untouched. WEB. DL. 720p. AVCx 264. AAC.( Superhit Bollywood Comedy Film And Romantic Movie) Sunny Kaushal Bade Bhaiyaa, Mohit Raina Bade Bhaiyaa, Radhika Madan, Diana Penty",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "WhatIsThePurposeOfLifeTheChosenOne.info_201704",
+   "title": "The Purpose of Life (Audio / MP3)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1950CommercialForCamelCigarettesad2",
+   "title": "1950 Commercial for Camel cigarettes (Ad 2)",
+   "year": 1950,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bbc200109110834-0916",
+   "title": "BBC Sept. 11, 2001 8:34 am - 9:16 am",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Red_Skelton_VirginieGreggGuest",
+   "title": "Virginia Gregg as Guest",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheApprenticeUSSeason1",
+   "title": "The Apprentice (US) Season 1",
+   "year": 2004,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "secret-world-of-alex-mack",
+   "title": "The Secret World Of Alex Mack full series",
+   "year": 1994,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "abc200109110954-1036",
+   "title": "ABC Sept. 11, 2001 9:54 am - 10:36 am",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "The.adventures.of.Tintin.animated.series",
+   "title": "The Adventures of Tintin. (Complete)",
+   "year": 1991,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bl5ck-cl0v3r-tv-dub-seasons-1",
+   "title": "Bl5ck Cl0v3r ( TV) ( Dub) Seasons 1",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-new-alfred-hitchcock-presents-complete",
+   "title": "The New Alfred Hitchcock Presents (1985-1989)",
+   "year": 1985,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "death-note-completo-ptbr",
+   "title": "Death Note - Completo (PT-BR)",
+   "year": 2006,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "whose-line-is-it-anyway-us-s-01-webdl-1080p",
+   "title": "Whose Line Is It Anyway! (US) Season 01",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1962CommercialForGreenMintMouthwash",
+   "title": "1962 commercial for Green Mint mouthwash",
+   "year": 1962,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "33_34AR_Is_the_Bible_Gods_Word_Jimmy_Swaggart_Arabic",
+   "title": "33.34AR. Is the Bible God's Word ? (Arabic)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "red_NBC_No_Guest",
+   "title": "Red Skelton NBC no guest",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "60s70s80skidstv",
+   "title": "60s70s80skidstv",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "IMB_SF_R30_C10",
+   "title": "TV Static",
+   "year": 2007,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Little_Miss_Jr._Miss_and_Teen_Miss_Pageants_-_2013_W.C._Fair",
+   "title": "Little Miss, Jr. Miss and Teen Miss Pageants - 2013 W.C. Fair",
+   "year": 2013,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "info_tvarabs_Tv",
+   "title": "tv",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "youtube-_PUE8fYxjq8",
+   "title": "Gary Plauche Shoots Son's Kidnapper In Airport",
+   "year": 2012,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "little-bill-complete-series",
+   "title": "Little Bill Complete Series",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "carla-blake-playboy-video",
+   "title": "Carla Blake Playboy Video",
+   "year": 1997,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "17AR_Sh_Deedat_on_U_A_E_Spotlight_Arabic",
+   "title": "17AR. Sh. Deedat on U.A.E Spotlight (Arabic)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Wagon_Train_-_The_Dr._Denker_Story",
+   "title": "Wagon Train - The Dr. Denker Story",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1962CommercialForSalemCigarettes",
+   "title": "1962 commercial for Salem cigarettes",
+   "year": 1962,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "cbs200109110954-1036",
+   "title": "CBS Sept. 11, 2001 9:54 am - 10:36 am",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "azumanga-daioh-subbed-dubbed",
+   "title": "Azumanga Daioh (Subbed & Dubbed)",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Red_Skelton_GeorgeRaftGuest",
+   "title": "George Raft as Guest",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Red_Skelton_EdSullivanGuest",
+   "title": "Ed Sullivan Guests",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1954CommercialForTheRcamaster21TelevisionSet",
+   "title": "1954 Commercial for the RCA ''Master 21'' television set",
+   "year": 1954,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "101-dalmatians-1992-vhs-french-canadian-copy_202301",
+   "title": "All Animated TV and Movies and Videos and Laserdisc and DVD Capture",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TroopWithdrawalResolutionFailsInFortCollinsColorado",
+   "title": "Troop withdrawal resolution fails in Fort Collins, Colorado",
+   "year": 2007,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "octonauts-collection",
+   "title": "Octonauts Collection",
+   "year": 2010,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Petite_Miss_and_Junior_Miss_Pageants_-_2016_W.C._Fair",
+   "title": "Petite Miss and Junior Miss Pageants - 2016 W.C. Fair",
+   "year": 2016,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "playboy-video-forbidden-india-once-removed-by-playboy-due-to-controversy",
+   "title": "Playboy Video - Forbidden India (Once Removed By Playboy Due To Controversy)",
+   "year": 2012,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "whose-line-is-it-anyway-us-s-02-webdl-1080p",
+   "title": "Whose Line Is It Anyway! (US) Season 02",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "byomkeshbengalitvseries201415",
+   "title": "Byomkesh (Bengali TV series) [2014 15]",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "incredible-hulk-1994-complete-series",
+   "title": "The Incredible Hulk (1994-1996)",
+   "year": 1996,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "grandmagotrunoverbyareindeer2000_201911",
+   "title": "Grandma Got Run Over By A Reindeer (2000)",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1953liveCommercialForKixCereal",
+   "title": "1953 ''Live'' commercial for Kix cereal",
+   "year": 1953,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ZachStoneIsGonnaBeFamousFull",
+   "title": "Zach Stone Is Gonna Be Famous - Full",
+   "year": 2013,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1958ILoveLucyFordCommercials",
+   "title": "I Love Lucy Ford Commercials",
+   "year": 1958,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "WordGirlFullSeries",
+   "title": "WordGirl - Full Series",
+   "year": 2007,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "MostExtremeEliminationChallengeMXCSeason2",
+   "title": "Most Extreme Elimination Challenge MXC Season 2",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "PA6226900",
+   "title": "Animals Matter: Gay A. Bradshaw on Trans-Species Psychology",
+   "year": 2014,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "208Return",
+   "title": "IH-3",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ClassicT1948_4",
+   "title": "Classic Television Commercials (Part IV)",
+   "year": 1948,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "216_TRIBUTE_and_TIMES_OF_SHEIKH_AHMED_DEEDAT",
+   "title": "216. Tribute and Times of Sheikh Amed Deedat",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ClassicT1948_6",
+   "title": "Classic Television Commercials (Part VI)",
+   "year": 1948,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Callard_001",
+   "title": "Topless",
+   "year": 1979,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "money-heist-s-01-hindi-the-pocket-tv",
+   "title": "Money Heist S 01 Hindi The Pocket TV",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "AdultswimBumps",
+   "title": "Adult Swim Bumpers",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ClassicT1948_7",
+   "title": "Classic Television Commercials (Part VII)",
+   "year": 1948,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ClassicAuntJemimaCommercial1967",
+   "title": "Classic Aunt Jemima commercial (1967)",
+   "year": 1967,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "REDS_The_U_N_Special",
+   "title": "The UN Special",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "klovn-s1-til-s9",
+   "title": "Klovn - sæson 1 til 9",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "prehistoric-park-season-1",
+   "title": "Prehistoric Park Season 1",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "REDS_Freddie_And_The_DaVinci",
+   "title": "Freddie And The DaVinci",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1954CommercialsForWelchsFamilyWine",
+   "title": "1954 commercials for Welch's Family Wine",
+   "year": 1954,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "XcorpsActionSportsTv37.Xcorr1Seg.2",
+   "title": "Xcorps Action Sports TV #37.) XCORR 1 seg.2",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheXsNearlyComplete",
+   "title": "The X's",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "MSBTVSeries",
+   "title": "The Magic School Bus - TV Series (1994)",
+   "year": 1994,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "beastwarstransformers1080p",
+   "title": "Beast Wars: Transformers (Complete TV Series, Seasons 1-3) [1080p AI Upscale]",
+   "year": 1996,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "WJLA_20090922_110000_ABC_News_Good_Morning_America",
+   "title": "ABC News Good Morning America : WJLA : September 22, 2009 7:00am-9:00am EDT",
+   "year": 2009,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bl5ck-cl0v3r-tv-dub-seasons-4",
+   "title": "Bl5ck Cl0v3r ( TV) ( Dub) Seasons 4",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "liquid-television-complete",
+   "title": "Liquid Television - Complete Series",
+   "year": 2021,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bliptv-20131012-192854-Anewbreedcinema-PornProud365",
+   "title": "Porn Proud?",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "02e16s02e17",
+   "title": "02 E 16 S 02 E 17",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Wagon_Train_-_The_Malachi_Hobart_Story",
+   "title": "Wagon Train - The Malachi Hobart Story",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1950CommercialForGeneralElectricTelevisionSet",
+   "title": "1950 Commercial for General Electric television set",
+   "year": 1950,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "BBC_20010911_130000_BBC_World_News",
+   "title": "BBC World News : BBC : September 11, 2001 2:00pm-2:29pm BST",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "cnn200109110929-1011",
+   "title": "CNN Sept. 11, 2001 9:29 am - 10:11 am",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "knd.-op-z.-e.-r.-o..-xvi-d-p-7_202108",
+   "title": "Codename KND Seasons 1-6 + Specials",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "NTV_20010911_194000_Seychas",
+   "title": "Seychas : NTV : September 11, 2001 11:40pm-12:15am MSD",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "MyThreeSonsSeason6201905",
+   "title": "My Three Sons Season 6",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "malcolm-in-the-middle-complete-series-2000-2006",
+   "title": "Malcolm in the Middle (The Complete Series) [2000 - 2006]",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Nero-Wolfe-Mystery-Complete",
+   "title": "A Nero Wolfe Mystery - Complete",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "youtube-QQI-Egg2Xwk",
+   "title": "Jerry Springer - Too Hot for TV Vol.1 : TIV",
+   "year": 2013,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "capture-a-1684",
+   "title": "E! late night commercials, February 2004",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TOT_Seeing_Eye_Surgeon",
+   "title": "The Seeing Eye Surgeon",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1952CommercialForKelloggsShreddedWheat",
+   "title": "1952 commercial for Kellogg's Shredded Wheat",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "video_2020-03-09_04-19-13",
+   "title": "video_2020-03-09_04-19-13",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "MostExtremeEliminationChallengeMXCSeason4",
+   "title": "Most Extreme Elimination Challenge MXC Season 4",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "LightsCameraActionWiggles22minute",
+   "title": "Lights, Camera, Action, Wiggles! (26 22-minute Episodes)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "STSKTVSeries",
+   "title": "Sid The Science Kid - TV Series (2008)",
+   "year": 2008,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "iron-man-1994-complete-series",
+   "title": "Iron Man: The Animated Series (1994-1996)",
+   "year": 1994,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "The_Quran_and_the_Bible_in_the_Light_of_Science_truthwaytv",
+   "title": "The Quran and the Bible in the Light of Science",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "PA5776863",
+   "title": "The Dark Goddess: RockBitch, Part 2",
+   "year": 2014,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "barbapapa",
+   "title": "Il magico mondo dei Barbapapà",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Bloqueado",
+   "title": "Bloqueado",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "PA5778252",
+   "title": "The Dark Goddess: Sexy Videos, Part 4 [ADULT]",
+   "year": 2016,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "all-inone-1-rtgggdddddd",
+   "title": "DISCORD.CONT-FOR PERSONAL SERVICES 12/24/22 https://discord.gg/3bmcA8zU",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "DinnerForOne_559",
+   "title": "Dinner For One",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bliptv-20131013-093108-Armchairdirectors-TheLordOfTheRingsTheFellowshipOfTheRingExtendedVersio108",
+   "title": "The Lord of the Rings: The Fellowship of the Ring extended version (part 1)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "integrale_des_emissions_de_META_TV_TEPA_telechargement_metatv",
+   "title": "intégrale des émissions de Méta TV (Tépa, Patrick D'Hondt, résistance, France, Français)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "01.dvdripsvat.en",
+   "title": "The Nine Lives of Nestor Makhno (2006 tv series) (EN subtitles)",
+   "year": 2006,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "MostExtremeEliminationChallengeMXCSeason5",
+   "title": "Most Extreme Elimination Challenge MXC Season 5",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "SubliminalSexMessagesAndPornographyInAdvertisingAndCartoons",
+   "title": "Subliminal Sex Messages And Pornography In Advertising And Cartoons",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Junior_Miss_Pageant_-_2017_W.C._Fair",
+   "title": "Junior Miss Pageant - 2017 W.C. Fair",
+   "year": 2017,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1957CommercialsForTheEdsel",
+   "title": "1957 commercials for the Edsel",
+   "year": 1957,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bobobo-bo_bo-bobo",
+   "title": "BoBoBo-Bo Bo-BoBo [Blu-Ray | Dual Audio | Full Anime | 2003]",
+   "year": 2003,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "The_Rifleman_-_Outlaws_Inheritance",
+   "title": "The Rifleman - Outlaw's Inheritance",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "everwood-2002-06",
+   "title": "Everwood (2002–06) WB drama -Emily VanCamp, Chris Pratt",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "theamazingspider-man1977",
+   "title": "The Amazing Spider-Man (Complete 1977 TV Series) [Seasons 1-2]",
+   "year": 1977,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "REDS_The_Look_Awards",
+   "title": "The Look Awards",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Amigaand1985",
+   "title": "Amiga and Atari",
+   "year": 1985,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "usa-up-all-night-pom-pom-girls-6-30-89",
+   "title": "USA Up All Night 'Pom-Pom' Girls 6/30/89",
+   "year": 1989,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ned-039s-declassified-school-survival-guide-2004-season-1-3-s-01-03-480p-amzn-we",
+   "title": "NDSSG (2004-2007)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "NederlandseReclames",
+   "title": "Nederlandse Reclames",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheApprenticeUSSeason3",
+   "title": "The Apprentice (US) Season 3",
+   "year": 2005,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "What_is_Islam_truthwaytv",
+   "title": "What is Islam? by Dr. Zakir Naik",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "mash-series_202509",
+   "title": "M*A*S*H: Full Series (No Laugh Track) (Re-Upload)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "26menepisodes",
+   "title": "26 Men episodes",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "StudioOneAbrahamLincoln",
+   "title": "Studio One: Abraham Lincoln",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1960Coca-colaCommercial-Commercial2",
+   "title": "1960 Coca-Cola commercial - Commercial 2",
+   "year": 1960,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "nbc200109110912-0954",
+   "title": "NBC Sept. 11, 2001 9:12 am - 9:54 am",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "129Daughter",
+   "title": "OAH - 7",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "PA5778255",
+   "title": "The Dark Goddess: Hedy Lamarr's Ecstasy [ADULT]",
+   "year": 2016,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Concept_of_God_in_Major_Religion_truthwaytv",
+   "title": "Concept of God in Major Religion by Dr. Zakir Naik",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "dr-katz-professional-therapist-0205-bees-and-sids-dom-irerra-louis-ck",
+   "title": "Dr Katz Professional Therapist",
+   "year": 1995,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1952CommercialForChesterfieldCigarettes",
+   "title": "1952 commercial for Chesterfield cigarettes",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "21_Similarities_Between_Islam_and_Christianity_truthwaytv",
+   "title": "21. Similarities Between Islam and Christianity",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Woggie-CompleteMovie",
+   "title": "Woggie Movie",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "rl-stines-the-haunting-hour-full-series",
+   "title": "RL Stine's The Haunting Hour - Full Series",
+   "year": 2010,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Red_Skelton_MaryMcCartyGuest",
+   "title": "Mary McCarty as Guest",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "tomorrow_television",
+   "title": "Television Tomorrow",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "MCTVEpisode1MARILYNCHAMBERSTVRAREUNSOLDPILOTWPORNLEGENDSBILLMARGOLDERICEDWARDS_201902",
+   "title": "MCTV Episode 1 MARILYN CHAMBERS TV RARE UNSOLD PILOT",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Radioand1940",
+   "title": "Radio and Television",
+   "year": 1940,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "movie_206651.mp4-360",
+   "title": "MY THREE SONS SEASON 2",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "01.-im-trying-to-be-a-leader-here_202108",
+   "title": "Kid Nation",
+   "year": 2007,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "01-tv-fighting-crime",
+   "title": "🚓👮 𝑻𝙑 𝙁𝑰𝙂𝑯𝙏𝑰𝙉𝑮 𝑪𝙍𝑰𝙈𝑬👮🚓 𝙋𝒂𝙧𝒕 1",
+   "year": 1903,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "tobacco_leo23e00",
+   "title": "Virginia Slims Commercials",
+   "year": 1969,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheApprenticeUSSeason2",
+   "title": "The Apprentice (US) Season 2",
+   "year": 2004,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "whose-line-is-it-anyway-us-s-03-webdl-1080p",
+   "title": "Whose Line Is It Anyway! (US) Season 03",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TrillionDollarBet",
+   "title": "Trillion Dollar Bet",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "fox5200109112019-2101",
+   "title": "FOX5 Sept. 11, 2001 8:19 pm - 9:01 pm",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "CountrockulasTheaterForTheInsaneEpisode3",
+   "title": "Countrockula's Theater for the Insane episode 3",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "into-the-badlands-complete-series-s-01-s-03-1080p-5.1-2.0-x-264-phun-psyz",
+   "title": "Into The Badlands Complete Series ( S 01 S 03) 1080p 5.1 2.0 X 264 Phun Psyz",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "127ManOfMystery",
+   "title": "TH-2",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "CliffordTheBigRedDogTVSeries",
+   "title": "Clifford The Big Red Dog - TV Series (2000)",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "shogun.-part.-1.1980.-restored.-bluray.-1080p",
+   "title": "Shogun. Part. 1.1980. Restored. Bluray. 1080p",
+   "year": 1980,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "lazytown-hd-episodes-collection",
+   "title": "LazyTown HD Episodes Collection",
+   "year": 2004,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "CountrockulasTheaterForTheInsaneEpisode4",
+   "title": "Countrockula's Theater for the Insane episode 4",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ClosingTeGap",
+   "title": "Closing the Gap",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "PA5778249",
+   "title": "The Dark Goddess: Sexy Videos, Part 1 [ADULT]",
+   "year": 2016,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "c-tv-series-puppet-segments",
+   "title": "Caillou - TV Series (Puppet Segments) (2000 - 2003)",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "murder-she-wrote_202402",
+   "title": "MURDER, SHE WROTE",
+   "year": 1984,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "SchoolhouseRock_201809",
+   "title": "Schoolhouse Rock!",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "BillGate99",
+   "title": "Bill Gates Profile",
+   "year": 1999,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "amiga3000",
+   "title": "Amiga 3000",
+   "year": 1988,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bliptv-20131012-202543-Anewbreedcinema-HotSexTape641",
+   "title": "Hot Sex Tape",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ep8_20200923",
+   "title": "ep8",
+   "year": 2016,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-lion-king-1995-vhs_202304",
+   "title": "All Animated Movies and TV Episodes and VHS and DVD Capture Parts",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "WishYouWereHere2",
+   "title": "Yes Minister",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "on-the-air-s-1e-5",
+   "title": "ON THE AIR season 1 David Lynch Mark Frost",
+   "year": 1992,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ThatsMyBush",
+   "title": "That's My Bush!",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "simpsons-series",
+   "title": "Simpsons Series",
+   "year": 1987,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "mrs.-browns-boys-s-03-e-11-mammys-christmas-punch",
+   "title": "Mrs. Brown's Boys Seasons 1-3",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "dungeons-dragons-tv-series",
+   "title": "Dungeons & Dragons (TV series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "s-01-e-06-bardo-en-lo-de-dardo-nf-480p",
+   "title": "Casados con Hijos (2005) [480p]",
+   "year": 2005,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bliptv-20131013-124019-BadLove-MissionAccomplished546",
+   "title": "Mission Accomplished",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "that-70s-show-season-2",
+   "title": "That '70s Show Season 2 Fox",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "coupling-2000-04",
+   "title": "Coupling (2000-04) UK Comedy - all 28 eps",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "that-70s-show-season-1",
+   "title": "That '70s Show Season 1 Fox",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Ruggles",
+   "title": "Classic TV: 'The Ruggles' Christmas episode",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "so-little-time",
+   "title": "So Little Time (2001–02) sitcom",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "GracieAllen",
+   "title": "Early TV Comedy: ''Burns and Allen\" (Episode Title: Gracie's Checking Account)",
+   "year": 1950,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "filmations-ghostbusters",
+   "title": "Filmation's Ghostbusters (1986)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "20230323_20230323_1949",
+   "title": "Murphy Brown 2-10 Candice Bergen",
+   "year": 1988,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "new-video_20230625",
+   "title": "Episode 79 | Lolita (1962 & 1997) [video version]",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "JackJimminy",
+   "title": "Jack Jimminy: Porn Extra (Series 1)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "george-mildred-1976-79",
+   "title": "GEORGE & MILDRED (1976-79) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-prisoner",
+   "title": "The Prisoner",
+   "year": 1967,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "High_Society_1995-1996",
+   "title": "High Society (1995)",
+   "year": 1995,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "mulaney-season-1-tv-show-2014-mkv",
+   "title": "Mulaney - Season 1 - TV Show - 2014 - MKV",
+   "year": 2014,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Kleebob",
+   "title": "Early Television Comedy: ''Burns and Allen\" (Episode Title: 'Kleebob Card Game')",
+   "year": 1950,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "stillstanding2002",
+   "title": "Still Standing (2002-2006) complete series",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1968CBSPromoReel",
+   "title": "Rare 1968 CBS Television Network ''Fall Line-up'' Special",
+   "year": 1968,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bread-1986-91",
+   "title": "BREAD (1986-91)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "that-70s-show-season-3",
+   "title": "That '70s Show Season 3 Fox",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "casados-con-hijos-2005-1080p",
+   "title": "Casados con Hijos (2005) [1080p]",
+   "year": 2005,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "CBS-TV-Special",
+   "title": "1966 CBS ''Upcoming Fall Line-up'' Special Presentation",
+   "year": 1966,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "less-than-perfect-2002-06-sitcom",
+   "title": "Less Than Perfect (2002–06) sitcom",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ABC1974Promo",
+   "title": "1970's Pop Culture: ABC-TV 1974 \"Upcoming Fall Line-up\" Promo Reel",
+   "year": 1974,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "DustysTrail5",
+   "title": "70's TV: 'Dusty's Trail' - Love Means Bananas",
+   "year": 1973,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Beulah_3",
+   "title": "'Beulah' - The New Arrival (50's Sitcom) (Classic Television)",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1950EpisodeOftheBusterKeatonShow",
+   "title": "1950 Episode of ''The Buster Keaton Show''",
+   "year": 1950,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "duet-open-house",
+   "title": "Duet / Open House (1987-1990)",
+   "year": 1987,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "gilligans-island-complete-tv-series",
+   "title": "Gilligan's Island Complete TV Series",
+   "year": 1964,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TerryAndThePiratesPart1Of2",
+   "title": "TERRY AND THE PIRATES part 1 of 2",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Aliens-in-the-Family",
+   "title": "Aliens in the Family (1996, TGIF)",
+   "year": 1996,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "filthy-rich-1982-s-01e-01",
+   "title": "Filthy Rich (1982-83)",
+   "year": 1981,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Jeice_Murdered_My_Family",
+   "title": "Classic Crap: 'Dusty's Trail' - Duel for Daphne",
+   "year": 1973,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "life-with-louie",
+   "title": "Life with Louie",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bless-this-house-1971-76",
+   "title": "BLESS THIS HOUSE (1971-76) (Full House)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "that.70s.show.specials",
+   "title": "That '70s Show Specials",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "only-when-i-laugh-1979-82",
+   "title": "ONLY WHEN I LAUGH (1979-82) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "mary-kate-ashley-in-action-2001-animated-show",
+   "title": "Mary Kate & Ashley In Action",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "that-70s-show-season-4_202206",
+   "title": "That '70s Show Season 4 Fox",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ABC1970",
+   "title": "1970 ''Fall Preview Reel'' for ABC Television Network",
+   "year": 1970,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "The_5_Mrs_Buchanans",
+   "title": "The 5 Mrs Buchanans (1994-1995)",
+   "year": 1994,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "BewitchedPromo1970",
+   "title": "Classic Television: 1970 ABC-TV Promo for \"Bewitched\"",
+   "year": 1970,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "BigSchoolBBC",
+   "title": "Big School (BBC 2013) (Complete Series - 1 & 2)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "duty-free-1984-86",
+   "title": "DUTY FREE (1984-86) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ThePowersThatBe1992",
+   "title": "The Powers That Be (1992)",
+   "year": 1992,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "capn-nice-tv-show",
+   "title": "Captain Nice (1967)",
+   "year": 1967,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "a-fine-romance-1981-84",
+   "title": "A FINE ROMANCE (1981-84) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "doctor-in-the-house-1979",
+   "title": "DOCTOR IN THE HOUSE (1969-70) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-norm-show-480p",
+   "title": "The Norm Show (480p)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "parker-lewis-cant-lose-1990-and-ferris-bueller-the-tv-series",
+   "title": "Parker Lewis Can't Lose (1990-93) - all 73 eps & Ferris Bueller - the TV series (1990-91)",
+   "year": 1990,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TerryAndThePiratesPart2Of2",
+   "title": "TERRY AND THE PIRATES part 2 of 2",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "flo-1980-81-sitcom",
+   "title": "Flo (1980–81) sitcom - Alice spin-off - all 29 eps",
+   "year": 1980,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "jesse-1998-2000-sitcom",
+   "title": "Jesse (1998-2000) Sitcom -Christina Applegate",
+   "year": 1998,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "new-video_20230716",
+   "title": "Bonus Episode | Léon: The Professional (1994) [video version]",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Anything-but-Love-sitcom",
+   "title": "Anything but Love (1989–92) sitcom - Jamie Lee Curtis",
+   "year": 1989,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1600.-penn.-s-01-e-07.-hdtv.x-264",
+   "title": "1600 Penn TV Series Episode 1-13",
+   "year": 2012,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "OzzieHarrietIsApprovedByKingKai",
+   "title": "Classic Television Comedy: ''The Odd Bolt'' - Ozzie and Harriet",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "sequence-1-8",
+   "title": "(VHS) Toonami/Cartoon Network for August 11, 2013",
+   "year": 2013,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ILoveLucyPhilipMorrisCommercials",
+   "title": "I Love Lucy - Philip Morris Cigarette Commercials",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "that-70s-show-season-6",
+   "title": "That '70s Show Season 6 Fox",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "theconeheads1983",
+   "title": "The Coneheads (1983)",
+   "year": 1983,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "JeffFoxworthyShow",
+   "title": "The Jeff Foxworthy Show (1995-1997) complete series",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Dustys_Trail",
+   "title": "Episode of \"Dusty's Trail\" (Classic TV) (70's Sitcom)",
+   "year": 1973,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "707.-sorry-1981-88",
+   "title": "SORRY (1981-88) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "The_Tortellis",
+   "title": "The Tortellis (1987)",
+   "year": 1987,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "OzziePajamas",
+   "title": "Classic Television Comedy: ''The Pajama Game'' - Ozzie and Harriet",
+   "year": 1956,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "RumbaGracie",
+   "title": "Classic Early Television: ''Burns and Allen'' (Title: Rumba Lessons)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "dilbert-season-1-episode-05-testing",
+   "title": "The Dilbert Collection.",
+   "year": 1999,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "GeorgeParty",
+   "title": "Comedic Early Television: ''Burns and Allen'' (Episode: ''George's Birthday'')",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "townies.-s-01-e-04-the-mcp",
+   "title": "Townies (1996)",
+   "year": 1996,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "red-dwarf-bodysnatcher",
+   "title": "Red Dwarf The Bodysnatcher Collection",
+   "year": 2007,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "BarkingDog1961",
+   "title": "Classic Sitcom Comedy: ''Ozzie and Harriet'' (''The Barking Dog'', 16 November 1961)",
+   "year": 1961,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheItCrowd12",
+   "title": "The I.T Crowd Season 1 Ep 2: Calamity Jen",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Brothers_Keeper_ABC_Rarities",
+   "title": "Brother's Keeper (1998-1999, TGIF)",
+   "year": 1998,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "mind-your-language-1977_202212",
+   "title": "MIND YOUR LANGUAGE (1977-)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-golden-girls-complete-480p-x264",
+   "title": "The Golden Girls Complete 480p x264",
+   "year": 1985,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "20220204_20220204_1021",
+   "title": "The Farmer's Daughter 1963-1966",
+   "year": 1966,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "man-about-the-house-1973-76",
+   "title": "MAN ABOUT THE HOUSE (1973-76) SEASON 2-6",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "GilligansIsland1.00",
+   "title": "Gilligans Island 1.00",
+   "year": 1963,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "new-video_20230703",
+   "title": "Bonus Episode | Fly (1970) [video version]",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "tabitha_tv_series",
+   "title": "Tabitha (1977) - Complete",
+   "year": 1977,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "504.-thats-my-boy-1981-86",
+   "title": "THAT'S MY BOY (1981-86) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "black-books-tv-series-2000-2004",
+   "title": "Black Books (TV Series 2000–2004)",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "geena-davis-show",
+   "title": "The Geena Davis Show (2000)",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "what-i-like-about-you-COMPLETE",
+   "title": "What I Like About You",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Joan_Broken_Toe",
+   "title": "1950's Television: - Broken Toe - ''I Married Joan''",
+   "year": 1953,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "that-girl-1966-71-abc-sitcom",
+   "title": "That Girl (1966-71) ABC, first single-girl-in-the-city Sitcom",
+   "year": 1966,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "just-the-ten-of-us-1988-90",
+   "title": "Just the Ten of Us (1988–90) sitcom",
+   "year": 1988,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "daves-world",
+   "title": "Dave's World (1993–97) sitcom",
+   "year": 1993,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "vhs-tape-2007-11-11-wmsn-king-of-the-hill-family-guy-news-everybody-loves-raymon",
+   "title": "VHS Tape - 2007-11-11 - WMSN - King of the Hill, Family Guy, News, Everybody Loves Raymond - PBS - Painting Wild Places, For Your Home, America's Test Kitchen, Lidia's Italy, Secrets of a Chef, Healthy Flavors - WIFR - News",
+   "year": 2007,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "you-wish-1997-1998",
+   "title": "You Wish (1997-98, TGIF)",
+   "year": 1997,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Its_Your_Move_1984",
+   "title": "It's Your Move (1984) Sitcom, Jason Bateman",
+   "year": 1984,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "fired-up-1997-98",
+   "title": "Fired Up (1997-98)",
+   "year": 1997,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "myfamilybbc",
+   "title": "My Family: Complete [PAL DVD ISO]",
+   "year": 2011,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "davisruless02e01sitcom",
+   "title": "Davis Rules (1991-1992 Sitcom)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "movie-stars-1999",
+   "title": "Movie Stars (1999-2000)",
+   "year": 1999,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "everybody-loves-raymond-complete-series_20251121_0430",
+   "title": "Everybody Loves Raymond: The Complete Series",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "GracieRing",
+   "title": "Fifties Popular Culture - ''Burns and Allen'' (Episode Aired 13th March 1952)",
+   "year": 1952,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "JoanClothes",
+   "title": "1954 ''I Married Joan'' - ''The Clothes Budget' - (NBC-TV, Light Comedy)",
+   "year": 1954,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "please-sir-1968-72",
+   "title": "PLEASE SIR (1968-72) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "vicar-of-dibley-s-01-e-01-arrival.avi",
+   "title": "Complete Vicar Of Dibley",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "down-to-earth-1984",
+   "title": "Down to Earth (1984)",
+   "year": 1984,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1960sTelevisionozzieAndHarrietaLetterAboutHarriet1April",
+   "title": "1960's Television: ''Ozzie and Harriet'' (''A Letter About Harriet'', 1 April 1964)",
+   "year": 1964,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "thenewadventuresofgilligans1",
+   "title": "The New Adventures of Gilligan (Season 1)",
+   "year": 1974,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "youtube-1I8yTgdtM08",
+   "title": "Cartoon Hangout | Fairly Oddparents Season 10 Episode 1 Review",
+   "year": 2016,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "halloween-90s-sitcom-block",
+   "title": "Halloween 90's Sitcom Block",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "square-pegs-1982-83-sjp",
+   "title": "Square Pegs (1982–83) Sarah Jessica Parker",
+   "year": 1982,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "still-standing-season-1",
+   "title": "Still Standing - Season 1 (2002–03)",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "LampDavid",
+   "title": "1960's Television: ''Ozzie and Harriet'' (''A Lamp and Dave and June'', 1 February 1962)",
+   "year": 1962,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "suddenly-susan-1996-2000",
+   "title": "Suddenly Susan (1996–2000) Brooke Shields in her first regular series",
+   "year": 1996,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "MotorCycleDavidNelson",
+   "title": "1950's Pop Culture: ''Ozzie and Harriet'' (Episode Aired: 10 December 1958)",
+   "year": 1958,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "GoofTroopVol.1GoinFishinD216822PalVHS",
+   "title": "Goof Troop Vol. 1 - Goin' Fishin' (D216822 Pal/VHS)",
+   "year": 1994,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "jack-and-triumph",
+   "title": "The Jack and Triumph Show (Adult Swim TVRips and Uncensored WEBRips)",
+   "year": 2015,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1960sMainstreamCultureozzieAndHarrietaPaintingFromThePast17",
+   "title": "1960's Mainstream Culture: ''Ozzie and Harriet'' (A Painting from the Past, 17 March 1965)",
+   "year": 1965,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "allinthefamily-4",
+   "title": "All in the Family (2 hrs.)",
+   "year": 1974,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "StyleAndSubstance1998",
+   "title": "Style & Substance (1998)",
+   "year": 1998,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "out-of-practice-2005",
+   "title": "Out of Practice (2005–06) sitcom fam of doctors - 20 of 22 eps",
+   "year": 2005,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ned-and-stacey-1995-97",
+   "title": "Ned and Stacey (1995-97) sitcom - Debra Messing, Thomas Haden Church",
+   "year": 1995,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Betty_Hutton_3",
+   "title": "Classic Crap: The Betty Hutton Show - ''Rosemary's Romance''",
+   "year": 1959,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "odd-man-out-1999-2000",
+   "title": "Odd Man Out (1999-2000) Erik Von Detton, Jessica Capshaw",
+   "year": 1999,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "FlintstonesVitamins",
+   "title": "Flintstones Vitamins",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "thefamousteddyz09acaseof",
+   "title": "The Famous Teddy Z (Sitcom)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "doovere2",
+   "title": "Do Over (2002 Sitcom)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Roomies_1987",
+   "title": "Roomies (1987)",
+   "year": 1987,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "suddenly-susan-1996-2000_full",
+   "title": "Suddenly Susan (1996–2000)",
+   "year": 1996,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "george-and-leo",
+   "title": "George & Leo (1997-1998)",
+   "year": 1997,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "GirlShopRicky19TV",
+   "title": "1960's Popular Culture: ''Ozzie and Harriet'' - Girl in the Emporium (14 December 1960)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "greetingsfromtucson",
+   "title": "\"Greetings from Tucson\" (Full 2002 WB series) [HEVC.x265]",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "101.-brass-1983-90",
+   "title": "BRASS (1983-90) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "thenewadventuresofgilliganseason2",
+   "title": "The New Adventures of Gilligan (Season 2)",
+   "year": 1975,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "wb-friday-night-sabrina-raising-dad-reba-maybe-its-me-2002-04-05-kdaf-woc",
+   "title": "WB Friday Night - May 5, 2002 (WOC)",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "MaidinGermanyAgliaLtd",
+   "title": "Maid in Germany - Episode 2 (Swimsuit Edition)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "meetthefamily",
+   "title": "Unsold TV Pilot - Meet the Family",
+   "year": 1954,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "that-70s-show-season-8",
+   "title": "That '70s Show Season 8 Fox",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ADifferentWorldAllSFairSeason2Episode9",
+   "title": "A Different World- All's Fair (Season 2, Episode 9)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "rock-me-baby",
+   "title": "Rock Me Baby (2003-2004)",
+   "year": 2003,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bless-me-father-1978-81",
+   "title": "BLESS ME FATHER (1978-81) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheSimpleLife1998",
+   "title": "The Simple Life (1998)",
+   "year": 1998,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "kvwb-ch-21-kids-wb-commercials-2001",
+   "title": "KVWB Channel 21 - Kids' WB! Commercials from Early 2001",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-method_202312",
+   "title": "The Method (Season 1)",
+   "year": 2015,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "free-spirit-1989-sitcom",
+   "title": "Free Spirit (1989–90) Fantasy Sitcom - Alyson Hannigan",
+   "year": 1989,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "hot-properties",
+   "title": "Hot Properties - Complete Series",
+   "year": 2005,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-grown-ups-1999-2000",
+   "title": "Grown Ups (1999-2000) sitcom, three post-college friends",
+   "year": 1999,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "littleshop_dvd",
+   "title": "Little Shop (1991)",
+   "year": 1991,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "munroe-UnsoldPilot",
+   "title": "''Munroe'' - Unsold Pilot",
+   "year": 1963,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "gfl-s-01-e-07-like-a-virgin",
+   "title": "GFL (2001-05)",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheManlyArts",
+   "title": "1960's United States Culture: ''Ozzie and Harriet'' - The Manly Arts",
+   "year": 1961,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "WheresRaymond1954",
+   "title": "''Where's Raymond'' - Misc episode",
+   "year": 1954,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "home-improvement-complete-dvd-rip",
+   "title": "Home Improvement Complete DVD Rip",
+   "year": 1991,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "LifeWithLuigi-TheDance1953",
+   "title": "Life with Luigi - The Dance (1953)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "beavis-and-butthead-complete",
+   "title": "Beavis and Butt-Head Complete Series (1992 - Present)",
+   "year": 1992,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "ItsAlwaysJan1956",
+   "title": "''It's Always Jan'' - Guilty Conscience",
+   "year": 1956,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "two-of-a-kind-1x-12-lets-dance",
+   "title": "Two Of A Kind full Season",
+   "year": 1998,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "my-sister-sam-1986-88",
+   "title": "My Sister Sam (1986–88) sitcom -22 of 44 (12 unaired)",
+   "year": 1986,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-lovers-1970-71",
+   "title": "THE LOVERS (1970-71) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "GeorgeBurnsShowLaVieEnRose",
+   "title": "''The George Burns Show'' - La Vie En Rose (aka A Wife for Christmas)",
+   "year": 1958,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1x-01-pilot_20230920",
+   "title": "The John Larroquette Show (Nearly Complete)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "07.justlikemom",
+   "title": "Run of the House (2003 Sitcom)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "k1mkonbini",
+   "title": "K.i.m.s.C.o.n.v.e.n.i.e.n.c.e",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "mariosupershowdubladoptbr",
+   "title": "Super Mario Bros. Super Show! e Zelda - Episódios Dublados - Português Brasil",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "sesame-street-series",
+   "title": "Sesame Street Series",
+   "year": 1969,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "working-1997-99-sitcom",
+   "title": "Working (1997-99) sitcom, Fred Savage - all 39 eps",
+   "year": 1997,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "PeteAndGladys1960CbsSneakPreview",
+   "title": "Pete and Gladys 1960 CBS Sneak Preview",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "oh-no-its-selwyn-froggitt-1974-78",
+   "title": "OH NO IT'S SELWYN FROGGITT (1974-78) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "new-video_20230723",
+   "title": "Episode 83 | Salem's Lot (1979) [video version]",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "between-brothers-1997-99",
+   "title": "Between Brothers (1997-99) Black sitcom",
+   "year": 1997,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "pilot-eps-from-youtuber-the-viewing-room",
+   "title": "Pilot Eps from Youtuber The Viewing Room",
+   "year": 1996,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "only-fools-and-horses-1991",
+   "title": "Only Fools and Horses: The Second Time Around (1991)",
+   "year": 1991,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "MeetMr.Mcnutley-FashionModel1954",
+   "title": "Meet Mr. McNutley - Fashion model (1954)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "JealousJoeRandolph",
+   "title": "1950's Television: ''Ozzie and Harriet'' (Episode: ''Jealous Joe Randolph'', Aired 4 February 1959)",
+   "year": 1959,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "stark-raving-mad-1999-2000",
+   "title": "Stark Raving Mad (1999–2000) Neil Patrick Harris -all 22 eps",
+   "year": 1999,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "happy-family-2003--04",
+   "title": "Happy Family (2003–04) sitcom - all 22 eps",
+   "year": 2003,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-class-2006",
+   "title": "The Class (2006–07) sitcom - 11 of 19 eps",
+   "year": 2006,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "001-tv_202409",
+   "title": "TV shows",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-nutt-house-1989",
+   "title": "The Nutt House (1989)",
+   "year": 1989,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "fenn-street-gang-1971-73",
+   "title": "FENN STREET GANG (1971-73) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "hi-honey-im-home",
+   "title": "Hi Honey, I'm Home! (1992-93) sitcom, Julie Benz",
+   "year": 1991,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-munsters-today-season-1-3-complete",
+   "title": "The Munsters Today Season 1-3 (complete)",
+   "year": 1988,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "praisethelordfebruary31993",
+   "title": "TBN Praise the Lord Archive",
+   "year": 1990,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "SuddenlySusanColdTurkeyS1E9",
+   "title": "Suddenly Susan- Cold Turkey (S1E9)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "spaced-collectors-edition-DVD",
+   "title": "Spaced 3 Disc Collector's Edition PAL DVD",
+   "year": 2004,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "romany-jones-1972-75",
+   "title": "ROMANY JONES (1972-75) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "raising-dad-2001-02",
+   "title": "Raising Dad (2001-02) sitcom -Bob Saget, Kat Dennings, Brie Larson, Meagan Good - all 22",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "63.-bram-stokers-dracula-1992_202303",
+   "title": "Episode 63 | Bram Stoker's Dracula (1992) [video version]",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1960sCultureozzieAndHarrietepisodeThePetition6January1965",
+   "title": "1960's Culture: ''Ozzie and Harriet'' (Episode: The Petition, 6 January 1965)",
+   "year": 1965,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "DaveGolf",
+   "title": "Classic 1960's Television: ''Ozzie and Harriet'' - Dave's Golf Story (8 March 1961)",
+   "year": 1961,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "meet-the-crew-art-by-magdrawss",
+   "title": "Meet the Crew | Art by @magdrawss ​on YouTube",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "07.-of-human-bonding",
+   "title": "Shaky Ground (1992 Sitcom)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "HappyHappy",
+   "title": "LMAO: ''The Trouble with Father'' - Leave it to Stu (1953)",
+   "year": 1953,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "delta-burke-1992",
+   "title": "Delta (1992-1993)",
+   "year": 1992,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "cranford-s-1-e-5-may-1843-period-drama",
+   "title": "Cranford~S1E5~May~1843_Period Drama",
+   "year": 2008,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "cafe_americain",
+   "title": "Cafe Americain (1993-1994)",
+   "year": 1993,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-addams-family-album",
+   "title": "The Addams Family Album with John Astin (1992)",
+   "year": 1992,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Naturesexualencounters",
+   "title": "Sexual Encounters of the Floral Kind (1984)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bliptv-20131014-172104-BreakaLegTV-BreakALegTripleConversations936",
+   "title": "Break a Leg - Triple (Conversations)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "pleasedonteatthedaisies-1stseason",
+   "title": "Please Don't Eat the Daisies - Season 1 Intro",
+   "year": 1965,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "usa-high-1997",
+   "title": "USA High (1997–99) teen sitcom",
+   "year": 1997,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "glory-days-2002-and-1990",
+   "title": "Glory Days (2002) all 9 eps (AKA Demontown) - Emily VanCamp",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "some-of-my-best-friends-2001",
+   "title": "Some of My Best Friends (2001) sitcom - Jason Bateman -all 8 eps",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "13-nights-of-halloween-night-1-silent-hill-2",
+   "title": "13 Nights of Halloween: Night 1 - Silent Hill 2",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "brooklynbridge1x131415",
+   "title": "Brooklyn Bridge (1991-1993) Sitcom",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "home-to-roost-1985-90",
+   "title": "HOME TO ROOST (1985-90) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "living.-dolls.-s-01-e-02.-its.-my.-party.-360p.-ctv.-web-dl.-aac-2.0.-h.-264-qoq",
+   "title": "Living Dolls (1989 Sitcom)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "GoFish2001",
+   "title": "Go Fish (2001)",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Alice1985FinalEpisode",
+   "title": "Alice (1985 Series Finale)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "13-nights-of-halloween-night-6-project-kat-paper-lily-project-doom-until-dawn",
+   "title": "13 Nights of Halloween: Night 6 - Project Kat: Paper Lily Project, Doom, & Until Dawn",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "dag-2000",
+   "title": "DAG (2000-2001)",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheLarkins1x01WideOpenHouse",
+   "title": "The Larkins 1x 01 Wide Open House",
+   "year": 1958,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "AFarewellToFriendsADatelineSpecial20040505KXAS",
+   "title": "A Farewell To Friends (2004) WOC",
+   "year": 2004,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "106.-fairly-secret-army...-when-the-talking-had-to-stop",
+   "title": "FAIRLY SECRET ARMY (1984-86) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "kirk-1995-97",
+   "title": "KIRK (1995–97) WB Kirk Cameron",
+   "year": 1995,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "PaulFrenchGarnerHaines_3",
+   "title": "Hockey Strike Episode 6 - The Production",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "13-nights-of-halloween-night-13-five-nights-at-freddys-dragon-ball-the-breakers",
+   "title": "13 Nights of Halloween: Night 13 - Five Nights At Freddy's & Dragon Ball: The Breakers",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Open_All_Night_1981",
+   "title": "Open All Night (1981-82)",
+   "year": 1981,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheMunstersAtMarineland",
+   "title": "Marineland Carnival promo with The Munsters",
+   "year": 1965,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "thats-life-2000",
+   "title": "That's Life (2000–02) dramedy - 36 eps",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "101-pilot_202311",
+   "title": "Joey Season 1",
+   "year": 2004,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "cranford-s-1-e-3-nov-1842-period-drama",
+   "title": "Cranford~S1E3~ Nov~1842_Period Drama",
+   "year": 2008,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "new-video_20230628",
+   "title": "Bonus Episode | The Toxic Avenger (1984) [video version]",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "corner-gas-complete_202507",
+   "title": "Corner Gas (COMPLETE COLLECTION) [Slight W.I.P]",
+   "year": 2004,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "106.-ffizz...-with-friends-like-these",
+   "title": "FFIZZ (1987-89) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "23-wasted-lives",
+   "title": "The John Larroquette Show Season 01",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "13-nights-of-halloween-night-11-the-walking-dead",
+   "title": "13 Nights of Halloween: Night 11 - The Walking Dead",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "jake_effect",
+   "title": "The Jake Effect",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "13-nights-of-halloween-night-3-resident-evil-2-2019",
+   "title": "13 Nights of Halloween: Night 3 - Resident Evil 2 (2019)",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "13-nights-of-halloween-night-7-p.-t.-until-dawn",
+   "title": "13 Nights of Halloween: Night 7 - P. T. & Until Dawn",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "13-nights-of-halloween-night-4-the-walking-dead-the-final-season",
+   "title": "13 Nights of Halloween: Night 4 - The Walking Dead: The Final Season",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "strombergSpot",
+   "title": "PC-Spiel: Stromberg spielt STROMBERG",
+   "year": 2007,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "haunting-ground-part-1-thank-you-for-my-meth",
+   "title": "Haunting Ground Part 1 | Thank You for My Meth",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "freddie-2005-06",
+   "title": "Freddie (2005-06) Sitcom - Freddie Prinze Jr. + Brian Austin Green",
+   "year": 2005,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-trouble-with-normal-2006-sitcom",
+   "title": "The Trouble with Normal (2000–01) 13 eps - Paget Brewster -counseling sitcom",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "vhs-tape-1993-09-15-wftv-home-improvement-thea-moon-over-miami-coach-lottery-drawing-news",
+   "title": "VHS Tape - 1993-09-15 - WFTV - Home Improvement, Thea, Moon Over Miami, Coach, Lottery Drawing, News",
+   "year": 1993,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "greatscott06",
+   "title": "Great Scott (1992 Sitcom)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "13-nights-of-halloween-night-2-cult-of-the-lamb",
+   "title": "13 Nights of Halloween: Night 2 - Cult of the Lamb",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "amish-girls-see-airport-for-the-first-time-return-to-amish_202108",
+   "title": "Amish Girls See Airport For The First Time | Return To Amish",
+   "year": 2021,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "13-nights-of-halloween-night-10-spookys-jump-scare-mansion",
+   "title": "13 Nights of Halloween Night 10: Spooky's Jump Scare Mansion",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "JoanDavis11",
+   "title": "Actress Joan Davis in ''I Married Joan'' - The Allergy (1955, Light Comedy)",
+   "year": 1955,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "grosse-pointe-2000",
+   "title": "Grosse Pointe (2000) sitcom",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "vhs-tape-2002-usa-backdraft-fox-married-with-children-eight-bimaadiziwin-a-healt",
+   "title": "VHS Tape - 2002 - USA - Backdraft - FOX - Married with Children - Eight - Bimaadiziwin - A Healthy Way of Life - VH1 - Pink Floyd - The Wall",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1977HappyDaysFonzieLovesPinkyPromo",
+   "title": "Happy Days/Fonzie Loves Pinky promo",
+   "year": 1977,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "northern-exposure-s03",
+   "title": "Northern Exposure s03",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "all-american-girl-1994-margaret-cho",
+   "title": "All American Girl (1994) sitcom -Margaret Cho",
+   "year": 1994,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheLarkins1x07CheistmasWithTheLarkins",
+   "title": "The Larkins 1x 07 Christmas With The Larkins",
+   "year": 1958,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "jenny-1997-sitcom",
+   "title": "Jenny (1997-98) sitcom, McCarthy",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "dennisdayoldfriend",
+   "title": "''The Dennis Day Show'' - The Old Friend",
+   "year": 1953,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "untitled-video-made-with-clipchamp_20230917",
+   "title": "Episode 91 | Exorcist II: The Heretic (1977)",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "surgical-spirit-1989-95",
+   "title": "SURGICAL SPIRIT (1989-95) (Full Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-bad-girls-guide-2005-sitcom",
+   "title": "The Bad Girl's Guide (2005) sitcom - Jenny McCarthy",
+   "year": 2005,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-alien-a-thon-episode-4-alien-resurrection-1997_202308",
+   "title": "The Alien-a-Thon Episode 4 | Alien Resurrection (1997)",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "withenvy",
+   "title": "Tucker 2000 Sitcom",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "suburgatory.-s-01-e-22.-hdtv.x-264-lol.-the.-motherload",
+   "title": "Obscure sitcoms",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "Live-In",
+   "title": "Live-In CBS 1989 Sitcom",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheNewAndyGriffithShowTownSquareEp.4",
+   "title": "The New Andy Griffith Show- Town Square (Ep. 4)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "in-loving-memory-1979-86",
+   "title": "IN LOVING MEMORY (1979-86)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "undergrads",
+   "title": "Undergrads - Full Series",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "still-standing-season-2-2003-04",
+   "title": "Still Standing Season 2 (2003–04)",
+   "year": 2003,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "get-a-life-sitcom",
+   "title": "Get A Life (sitcom)",
+   "year": 1990,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "growing-pains-complete-series",
+   "title": "Growing Pains: The Complete Series",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "saturday-night-live-november-14-1992-s-18-e-7",
+   "title": "Saturday Night Live- November 14, 1992 (S18E7)",
+   "year": 2021,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "japanese-editions-of-stephen-kings-it-horror-collectibles",
+   "title": "Japanese Editions of Stephen King's It | Horror Collectibles",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "LaverneShirleyTogetherAgain2002",
+   "title": "Laverne & Shirley: Together Again (2002)",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "thegoodlifes01e06",
+   "title": "The Good Life (1994 Sitcom)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "new-video_202302",
+   "title": "Treehouse of Horror...of Babylon | Episode III - The Shinning (1994) [video version]",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "131.de-yakuza-a-amo-de-casa-112160",
+   "title": "131.De yakuza a amo de casa - 112160",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "working-girl-1990-sandra-bullock-sitcom",
+   "title": "Working Girl (1990) Sandra Bullock - sitcom adapted from the 1988 film - all 8 eps",
+   "year": 1990,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "fawlty-towers-the-germans-vhs-uk-full-tapes-1984-version",
+   "title": "Fawlty Towers The Germans (1984 UK VHS)",
+   "year": 1984,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bad-teacher-trope",
+   "title": "Bad Teacher Trope (Collection)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "vhs-tape-1993-11-06-wesh-mad-about-you-wings-seinfeld-frasier-1993-11-24-wftv-ho",
+   "title": "VHS Tape - 1993-11-06 - WESH - Mad About You, Wings, Seinfeld, Frasier - 1993-11-24 - WFTV - Home Improvement, Grace Under Fire, A Gala for the President at Ford's Theatre, News",
+   "year": 1993,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "sparks-1996-98-sitcom",
+   "title": "Sparks (1996–98) Sitcom, Kym Whitley, Terrence Howard, James Avery",
+   "year": 1996,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "stephen-king-is-a-sex-pervert-1",
+   "title": "Stephen King Is A Sex Pervert 1",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "friends.-like-me",
+   "title": "FRIENDS",
+   "year": 1994,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "being-erica--do-over",
+   "title": "Do Over (2002) Penn Badgley - all 15 eps -relives his childhood",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-duck-factory",
+   "title": "The Duck Factory",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "10.-yule-be-sorry",
+   "title": "Joe's Life (1993 Sitcom)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "10-horror-comics-to-read-this-halloween",
+   "title": "10 Horror Comics to Read This Halloween",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "BewitchedClairolCommercial",
+   "title": "Bewitched Clairol Commercial",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheNewAndyGriffithShowPREMIERE",
+   "title": "The New Andy Griffith Show (PREMIERE)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "vhs-tape-nickelodeon-nick-at-night-taxi-appreciation-week-nine-episodes-of-taxi",
+   "title": "VHS Tape - Nickelodeon - Nick at Night - Taxi Appreciation Week - Nine Episodes of Taxi",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "13-nights-of-halloween-night-12-the-walking-dead-the-final-season",
+   "title": "13 Nights of Halloween: Night 12 - The Walking Dead: The Final Season",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "campwilders01e12acloseshave",
+   "title": "Camp Wilder (1992 Sitcom)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "s-01-ceia-91",
+   "title": "S 01 Clarissa Explains It All [ 1991]",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "cranford-s-1-e-4-apr-1843-period-drama",
+   "title": "Cranford~S1E4~Apr~1843_Period Drama",
+   "year": 2008,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "10-horror-manga-to-read-this-halloween",
+   "title": "10 Horror Manga to Read This Halloween",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "down_the_shore_1992_tv_series",
+   "title": "Down the Shore (1992 TV Series)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "dennisday-partypooper",
+   "title": "''The Dennis Day Show'' - Party Pooper",
+   "year": 1954,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-squirrels-1975",
+   "title": "THE SQUIRRELS (1975-77)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "red-dwarf-1988",
+   "title": "Red Dwarf (1988)",
+   "year": 1988,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "fries-with-that",
+   "title": "Fries With That - The Complete Series",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "big-day-2006-clips",
+   "title": "Big Day (2006) ABC sitcom",
+   "year": 2006,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "sara-1985",
+   "title": "Sara (1985)",
+   "year": 1985,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "nearly-departed",
+   "title": "Nearly Departed (1989)",
+   "year": 1989,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "vhs-tape-1993.05.17-kelo-major-dad-murphy-brown-ksfy-roseanne-coach-kdlt-cheers-",
+   "title": "VHS Tape - 1993.05.17 - KELO - Major Dad, Murphy Brown - KSFY - Roseanne, Coach - KDLT - Cheers - KELO - Dr. Quinn Medicine Woman",
+   "year": 1993,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "allinthe-family-special-at-end",
+   "title": "All in the Family (5 hrs.)",
+   "year": 1973,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "cavemen-tv-series-006-cavemen-t.-v.-series-unaired-episode-10-andy-the-stand-up-part-1",
+   "title": "GEICO Cavemen",
+   "year": 2007,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "northern-exposure-s01",
+   "title": "Northern Exposure S01",
+   "year": 1990,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "in-laws-2002-2003",
+   "title": "In-Laws (2002-2003)",
+   "year": 2002,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "zoe-duncan-jack-jane-1999-2000",
+   "title": "Zoe, Duncan, Jack & Jane (1999-2000) teen sitcom - Selma Blair",
+   "year": 1999,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TerryAndThePiratesTvEpisode1",
+   "title": "TERRY AND THE PIRATES tv episode 1",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "the-people-next-door-1989",
+   "title": "The People Next Door (1989)",
+   "year": 1989,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "naeturvaktin_2007",
+   "title": "Næturvaktin [The Night Shift] (2007)",
+   "year": 2007,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "dirty-little-folder",
+   "title": "The Drawn Together Collection.",
+   "year": 2004,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "DinosaursVol.7DontDrossTheCrossD216132PalVHS",
+   "title": "Dinosaurs Vol. 7 - Don't Cross The Boss (D216132 Pal/VHS)",
+   "year": 2018,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "a-beauty-the-beast-christmas-2019-ion",
+   "title": "A Beauty & The Beast Christmas (2019*****ION)",
+   "year": 2019,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "youtube--HuEtZH6WDw",
+   "title": "Youtube: -HuEtZH6WDw - Top 40 Lost or Banned Episodes of Kid Shows",
+   "year": 2015,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "teen-angel",
+   "title": "Teen Angel",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "dumplpa-Golden_Girls_Gone_Wild",
+   "title": "Golden Girls Gone Wild!",
+   "year": 2011,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "vhs-tape-1987-kelo-tv-warm-heart-cold-feet-murder-she-wrote-romancing-the-stone-ksfy-i-love-lucy",
+   "title": "VHS Tape - 1987 - KELO-TV - Warm Heart Cold Feet, Murder She Wrote, Romancing the Stone - KSFY - I Love Lucy",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "fawlty-towers-basil-the-rat-vhs-uk-full-tapes-1984-version",
+   "title": "Fawlty Towers Basil The Rat (1984 UK VHS)",
+   "year": 1984,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "13-nights-of-halloween-night-9-the-walking-dead-the-final-season",
+   "title": "13 Nights of Halloween: Night 9 - The Walking Dead: The Final Season",
+   "year": 2022,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bagdad-cafe-1990",
+   "title": "Bagdad Cafe (1990–91) sitcom, Whoopi Goldberg - partial",
+   "year": 1990,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "bette-2000-sitcom",
+   "title": "Bette (2000-01) sitcom",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "homeboys-in-outer-space-1996",
+   "title": "Homeboys In Outer Space (1996) Sci-fi sitcom",
+   "year": 1996,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "AmenTheWeddingS04E17",
+   "title": "Amen- The Wedding (S04E17)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "still-standing-season-3-2004-05",
+   "title": "Still Standing Season 3 (2004–05)",
+   "year": 2004,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "someofmybestfriends",
+   "title": "Some Of My Best Friends",
+   "year": 2001,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "s-01-ep-09-hurricane-ricky",
+   "title": "Trailer Park Boys The Animated Series",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "odoru-kanzenban",
+   "title": "踊る大捜査線 THE MOVIE＜完全版＞",
+   "year": 2000,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "10-horror-novels-to-read-this-halloween",
+   "title": "10 Horror Novels to Read This Halloween",
+   "year": 2023,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "BabesBendMeShapeMeEpisode2",
+   "title": "Babes- Bend Me Shape Me (Episode 2)",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "TheLarkins1x02GunInLaw",
+   "title": "The Larkins 1x 02 Gun In Law",
+   "year": 1958,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "1977FutureCopThreesCompanyPromo",
+   "title": "Future Cop/Three's Company promo",
+   "year": 1977,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "american.-body.-shop.-2007",
+   "title": "American Body Shop (2007) - Complete Series",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "s-04-e-01_202304",
+   "title": "Butterflies tv show",
+   "year": null,
+   "source": "tv-discover"
+  },
+  {
+   "archiveID": "abc-50th-anniversary-bloopers-celebration-part-ii",
+   "title": "ABC 50th Anniversary Bloopers Celebration Part II",
+   "year": 2003,
+   "source": "tv-discover"
+  }
+ ]
+}
