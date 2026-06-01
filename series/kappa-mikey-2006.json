@@ -1,0 +1,65 @@
+{
+ "version": 2,
+ "seriesID": "kappa-mikey-2006",
+ "tvmazeID": 16265,
+ "title": "Kappa Mikey",
+ "yearStart": 2006,
+ "yearEnd": 2008,
+ "overview": "Kappa Mikey is a parody of Japanese anime. Mikey Simon is a teenage actor from Cleveland, Ohio who wins a scratch-off card contest and a trip to Japan to star in the country's formerly popular anime series, \"LilyMu.\" As a result, the show becomes number one in the ratings, and Mikey becomes Japan's biggest anime star. The show focuses mainly on the actors and producers' lives off the set, as Mikey's adjustments to his new environment.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/54/135683.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Action",
+  "Adventure"
+ ],
+ "networks": [
+  "Nicktoons"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "kappa-mikey-HMF-animation",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Kappa Mikey (episodes 1-33)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 2006,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Kappa Mikey S1E11- Splashomon.mp4",
+      "format": "h.264",
+      "sizeBytes": 141949102,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/kappa-mikey-HMF-animation/Kappa%20Mikey%20S1E11-%20Splashomon.mp4"
+    },
+    {
+     "archiveID": "kappa-mikey-126-the-oni-express-moonsong",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Kappa Mikey Complete Series (HQ)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 2006,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Kappa Mikey 216-217 The Karaoke Episode [Moonsong].mp4",
+      "format": "h.264",
+      "sizeBytes": 287053725,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/kappa-mikey-126-the-oni-express-moonsong/Kappa%20Mikey%20216-217%20The%20Karaoke%20Episode%20%5BMoonsong%5D.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 52
+}

@@ -629,6 +629,24 @@
      "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-15-honey-hes-not-abominable...-hes-just-misunderstood/Honey, I Shrunk the Kids(Episode 15)-zcrtbGv1uto.mp4"
     },
     {
+     "archiveID": "honey-i-shrunk-the-kids_tv-show",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Honey, I Shrunk the Kids: The TV Show (1997-2000)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1997,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Honey, I Shrunk the Kids - S01E04 - Honey, We're Stuck in the 70's.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 539972690,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids_tv-show/Honey%2C%20I%20Shrunk%20the%20Kids%20-%20S01E04%20-%20Honey%2C%20We%27re%20Stuck%20in%20the%2070%27s.ia.mp4"
+    },
+    {
      "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-19-honey-its-a-blunderful-life",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -703,6 +721,6 @@
    ]
   }
  ],
- "episodesCount": 37,
+ "episodesCount": 38,
  "canonicalEpisodesCount": 66
 }

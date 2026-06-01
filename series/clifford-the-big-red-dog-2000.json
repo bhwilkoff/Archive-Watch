@@ -1,0 +1,82 @@
+{
+ "version": 2,
+ "seriesID": "clifford-the-big-red-dog-2000",
+ "tvmazeID": 42151,
+ "title": "Clifford the Big Red Dog",
+ "yearStart": 2000,
+ "yearEnd": 2003,
+ "overview": "Clifford the Big Red Dog is a fun show aimed towards younger audiences. Clifford, a 20 foot tall red dog, plays with his dog friends, Cleo and T-Bone, and has great adventures with them. Clifford's best friend, however, is Emily Elizabeth Howard, his owner. Emily has friends of her own and all the characters live peacefully on Birdwell Island. Each Clifford the Big Red Dog episode consists of two stories, linked by a \"Speckle Story,\" a story read to Clifford by Emily Elizabeth about the adventures of a dog named Speckle. At the end of each episode is a \"big idea\" presented by Clifford, followed by a short promotional spot for one of the characters on Clifford. Also included is a short segment featuring a real kid with his/her dog.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/196/491154.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Children"
+ ],
+ "networks": [
+  "PBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "clifford-the-big-red-dog-s-01e-20-clifford-on-parade-follow-the-leader",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Clifford The Big Red Dog (2000 Series) Complete Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 2000,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Clifford The Big Red Dog - S01e20 Clifford on Parade - Follow the Leader.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 226386552,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/clifford-the-big-red-dog-s-01e-20-clifford-on-parade-follow-the-leader/Clifford%20The%20Big%20Red%20Dog%20-%20S01e20%20Clifford%20on%20Parade%20-%20Follow%20the%20Leader.ia.mp4"
+    },
+    {
+     "archiveID": "CliffordTheBigRedDogTVSeries",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Clifford The Big Red Dog - TV Series (2000)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 2000,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Clifford.The.Big.Red.Dog.S01E49E50.AMZN.WEB-DL.DDP2.0.H.264-QOQ.mp4",
+      "format": "h.264",
+      "sizeBytes": 158580961,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/CliffordTheBigRedDogTVSeries/Clifford.The.Big.Red.Dog.S01E49E50.AMZN.WEB-DL.DDP2.0.H.264-QOQ.mp4"
+    },
+    {
+     "archiveID": "CliffordTheBigRedDog2019TVSeries",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Clifford The Big Red Dog - TV Series (2019)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 2019,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Clifford.the.Big.Red.Dog.2019.S02E09.The.March.of.the.Sea.Turtles.A.Squirrely.Situation.AMZN.WEBRip.AAC2.0.x264.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 305506766,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/CliffordTheBigRedDog2019TVSeries/Clifford.the.Big.Red.Dog.2019.S02E09.The.March.of.the.Sea.Turtles.A.Squirrely.Situation.AMZN.WEBRip.AAC2.0.x264.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 130
+}

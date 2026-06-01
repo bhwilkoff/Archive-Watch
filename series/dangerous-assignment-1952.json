@@ -41,6 +41,24 @@
    "seasonNumber": null,
    "episodes": [
     {
+     "archiveID": "DangerousAssignment1952Eps1-12",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dangerous Assignment 1952 ( Eps 1-12)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "DangerousAssignmentEpisode9ThePatAndMikeStory1952Replaced.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 104033139,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/DangerousAssignment1952Eps1-12/DangerousAssignmentEpisode9ThePatAndMikeStory1952Replaced.mp4"
+    },
+    {
      "archiveID": "DangerousAssignmentTheArtTreasureStory",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -169,6 +187,6 @@
    ]
   }
  ],
- "episodesCount": 8,
+ "episodesCount": 9,
  "canonicalEpisodesCount": 10
 }

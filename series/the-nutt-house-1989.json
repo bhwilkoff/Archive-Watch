@@ -1,0 +1,63 @@
+{
+ "version": 2,
+ "seriesID": "the-nutt-house-1989",
+ "tvmazeID": 24046,
+ "title": "The Nutt House",
+ "yearStart": 1989,
+ "yearEnd": 1989,
+ "overview": "A comedy series about an irresponsible, young bon vivant who is persuaded by his eccentric grandmother to halt his spendthrift lifestyle and assume control of the family hotel, which is populated by a host of off-beat characters.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/502/1256260.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "TheNutHouse",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Nut House!!",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1964,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Nut House!!.mp4",
+      "format": "h.264",
+      "sizeBytes": 209806329,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TheNutHouse/The%20Nut%20House%21%21.mp4"
+    },
+    {
+     "archiveID": "the-nutt-house-1989",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Nutt House (1989)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1989,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "01-02 Pilot.mp4",
+      "format": "h.264",
+      "sizeBytes": 279683157,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-nutt-house-1989/01-02%20Pilot.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 10
+}

@@ -1,0 +1,65 @@
+{
+ "version": 2,
+ "seriesID": "alf-1986",
+ "tvmazeID": 848,
+ "title": "ALF",
+ "yearStart": 1986,
+ "yearEnd": 1996,
+ "overview": "One starry night in 1986, the Tanner family get an unexpected houseguest - a furry, four-foot-high Alien Life Form they call ALF, who quickly becomes part of the family.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/6/15848.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Family",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "ALF-The-Complete-Series",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "ALF The Complete Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Alf/Specials/ALF - S00E02 - Project - ALF SDTV.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 397056498,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ALF-The-Complete-Series/Alf/Specials/ALF%20-%20S00E02%20-%20Project%20-%20ALF%20SDTV.mp4"
+    },
+    {
+     "archiveID": "alf-1987-uk-vhs",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Alf (1987 UK VHS)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Alf (1987 UK VHS).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 699816383,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/alf-1987-uk-vhs/Alf%20%281987%20UK%20VHS%29.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 102
+}

@@ -36,6 +36,24 @@
      "downloadURL": "https://archive.org/download/BostonBlackieTvShow_718/VTS_03_1.mp4"
     },
     {
+     "archiveID": "BostonBlackieTvShow",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "BOSTON BLACKIE TV SHOW",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Boston_blackie_tTitle1.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 146800242,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/BostonBlackieTvShow/Boston_blackie_tTitle1.ia.mp4"
+    },
+    {
      "archiveID": "BostonBlackieTvShow1952_812",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -56,6 +74,6 @@
    ]
   }
  ],
- "episodesCount": 2,
+ "episodesCount": 3,
  "canonicalEpisodesCount": 58
 }

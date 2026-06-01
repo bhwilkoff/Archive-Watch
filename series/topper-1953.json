@@ -134,6 +134,24 @@
    "seasonNumber": null,
    "episodes": [
     {
+     "archiveID": "topper-tv-series",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Topper TV Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Topper s01e39 Georges Old Flame.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 181464785,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/topper-tv-series/Topper%20s01e39%20Georges%20Old%20Flame.ia.mp4"
+    },
+    {
      "archiveID": "Topper_Decorating",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -154,6 +172,6 @@
    ]
   }
  ],
- "episodesCount": 7,
+ "episodesCount": 8,
  "canonicalEpisodesCount": 78
 }

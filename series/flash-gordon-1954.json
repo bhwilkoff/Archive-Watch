@@ -151,10 +151,28 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/FlashGordon-TheWitchOfNeptune-1955/Flash_Gordon_Witch_of_Neptune_03_04_1955.ia.mp4"
+    },
+    {
+     "archiveID": "flash-gordon-tv-show",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Flash Gordon TV Show",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Flash Gordon S01 E20 The Witch of Neptune.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 169012343,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/flash-gordon-tv-show/Flash%20Gordon%20S01%20E20%20The%20Witch%20of%20Neptune.ia.mp4"
     }
    ]
   }
  ],
- "episodesCount": 7,
+ "episodesCount": 8,
  "canonicalEpisodesCount": 39
 }

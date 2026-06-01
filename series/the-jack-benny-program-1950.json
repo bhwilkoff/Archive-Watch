@@ -187,6 +187,24 @@
      "downloadURL": "https://archive.org/download/JackBennysSecondFarewellSpecial/Jack%20Benny%27s%20Second%20Farewell%20Special.mp4"
     },
     {
+     "archiveID": "TheJackBennyProgram3april1955",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Jack Benny Program (3/April/1955)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Jack_Benny_Groucho_04_03_1955.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 220474604,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TheJackBennyProgram3april1955/Jack_Benny_Groucho_04_03_1955.ia.mp4"
+    },
+    {
      "archiveID": "Sunday_With_Jack_Benny_-_Western_Town",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -225,6 +243,6 @@
    ]
   }
  ],
- "episodesCount": 11,
+ "episodesCount": 12,
  "canonicalEpisodesCount": 260
 }

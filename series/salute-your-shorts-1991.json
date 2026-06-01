@@ -1,0 +1,47 @@
+{
+ "version": 2,
+ "seriesID": "salute-your-shorts-1991",
+ "tvmazeID": 6304,
+ "title": "Salute Your Shorts",
+ "yearStart": 1991,
+ "yearEnd": 1992,
+ "overview": "Salute Your Shorts is about a group of kids at summer camp. The camp is run by the heard-but-never-seen Dr. Kahn. The kids spend their time trying to harass the camp counselor, Kevin \"Ug\" Lee.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/24/60451.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Drama",
+  "Comedy",
+  "Family"
+ ],
+ "networks": [
+  "Nickelodeon"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
+    {
+     "archiveID": "SaluteYourShortsS01E01MichaelComesToCamp",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Michael Comes to Camp",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1991-06-01",
+     "year": 1991,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Salute Your Shorts/Salute Your Shorts S01E07 - Toilet Seat Basketball.mp4",
+      "format": "h.264",
+      "sizeBytes": 157873473,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/SaluteYourShortsS01E01MichaelComesToCamp/Salute%20Your%20Shorts/Salute%20Your%20Shorts%20S01E07%20-%20Toilet%20Seat%20Basketball.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 26
+}

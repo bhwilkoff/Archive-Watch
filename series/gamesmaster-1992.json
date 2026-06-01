@@ -1,0 +1,43 @@
+{
+ "version": 2,
+ "seriesID": "gamesmaster-1992",
+ "tvmazeID": 4717,
+ "title": "GamesMaster",
+ "yearStart": 1992,
+ "yearEnd": 1998,
+ "overview": "GamesMaster was a British television show, screened on Channel 4 from 7th January 1992 to 3rd February 1998, and was the first-ever UK television show dedicated to computer and video games.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/21/52983.jpg",
+ "backdropURL": null,
+ "genres": [],
+ "networks": [
+  "Channel 4"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 4,
+   "episodes": [
+    {
+     "archiveID": "GamesmasterS4E18GamesmasterGoreSpecialRetailVersion",
+     "seasonNumber": 4,
+     "episodeNumber": 18,
+     "title": "GamesMaster Gore Special",
+     "overview": "This week's challenges are:Carl Wright vs. Mark Viel - Kasumi NinjaRoboCop vs. unknown opponent - highest score on Alien vs. Predator in under one minuteDermont Clarke - kill 25 monsters on Doom 2 in under two minutes",
+     "stillURL": null,
+     "airDate": "1995-01-14",
+     "year": 1995,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Gamesmaster (S4 - E18) Gamesmaster Gore Special (Retail Version).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 268127316,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/GamesmasterS4E18GamesmasterGoreSpecialRetailVersion/Gamesmaster%20%28S4%20-%20E18%29%20Gamesmaster%20Gore%20Special%20%28Retail%20Version%29.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 126
+}

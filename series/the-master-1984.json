@@ -97,10 +97,28 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/the-master-complete-series-1984/The Master S01E01 - Max.mp4"
+    },
+    {
+     "archiveID": "the-master-tv-series",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Master TV Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Master - Episode 10 The Java Tiger.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 504418186,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-master-tv-series/The%20Master%20-%20Episode%2010%20The%20Java%20Tiger.ia.mp4"
     }
    ]
   }
  ],
- "episodesCount": 4,
+ "episodesCount": 5,
  "canonicalEpisodesCount": 13
 }

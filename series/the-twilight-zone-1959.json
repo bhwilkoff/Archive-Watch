@@ -22,6 +22,24 @@
    "seasonNumber": null,
    "episodes": [
     {
+     "archiveID": "the.-twilight.-zone.-2002.-s-01.480p.-dvd-rip.-x-264.-will-1869",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Twilight Zone (2002 Version) - (480p) (Full Series)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 2002,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The.Twilight.Zone.2002.S01.480p.DvdRip.X264.Will1869/S01E01-E02.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 503216659,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the.-twilight.-zone.-2002.-s-01.480p.-dvd-rip.-x-264.-will-1869/The.Twilight.Zone.2002.S01.480p.DvdRip.X264.Will1869/S01E01-E02.ia.mp4"
+    },
+    {
      "archiveID": "the-twilight-zone-s-2-e-1-colorized-720p-hd",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -150,6 +168,6 @@
    ]
   }
  ],
- "episodesCount": 7,
+ "episodesCount": 8,
  "canonicalEpisodesCount": 156
 }

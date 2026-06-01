@@ -1711,6 +1711,42 @@
      "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieHarriet_103/012R_CHRISTMAS_MONEY.ia.mp4"
     },
     {
+     "archiveID": "TheAdventuresOfOzzieHarriet_264",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Adventures of Ozzie & Harriet",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "001_THE_RIVALS.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 120603071,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieHarriet_264/001_THE_RIVALS.ia.mp4"
+    },
+    {
+     "archiveID": "TheAdventuresOfOzzieHarriet_530",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Adventures of Ozzie & Harriet",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "010_THORNYS_GIFT.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 141885548,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieHarriet_530/010_THORNYS_GIFT.ia.mp4"
+    },
+    {
      "archiveID": "TheAdventuresOfOzzieAndHarriet_690",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -1745,10 +1781,28 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieAndHarriet_119/The-Adventures-of-Ozzie-and-Harriet-10-28-64.ia.mp4"
+    },
+    {
+     "archiveID": "ozzieandharrietozzieandharriet",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "ozzie and harriet",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "ozzie2_512kb.mp4",
+      "format": "512Kb MPEG4",
+      "sizeBytes": 110330026,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ozzieandharrietozzieandharriet/ozzie2_512kb.mp4"
     }
    ]
   }
  ],
- "episodesCount": 94,
+ "episodesCount": 97,
  "canonicalEpisodesCount": 435
 }

@@ -113,10 +113,46 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/PetticoatJunction_374/Petticoat-Junction-10-29-63.ia.mp4"
+    },
+    {
+     "archiveID": "PetticoatJunction_678",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Petticoat Junction",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1964,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Petticoat_Junction-2-4-64.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 158011693,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/PetticoatJunction_678/Petticoat_Junction-2-4-64.ia.mp4"
+    },
+    {
+     "archiveID": "PetticoatJunction_742",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Petticoat Junction",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1963,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Petticoat_Junction-11-12-63.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 159005284,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/PetticoatJunction_742/Petticoat_Junction-11-12-63.ia.mp4"
     }
    ]
   }
  ],
- "episodesCount": 5,
+ "episodesCount": 7,
  "canonicalEpisodesCount": 222
 }

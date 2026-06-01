@@ -1,0 +1,82 @@
+{
+ "version": 2,
+ "seriesID": "everybody-loves-raymond-1996",
+ "tvmazeID": 573,
+ "title": "Everybody Loves Raymond",
+ "yearStart": 1996,
+ "yearEnd": 2005,
+ "overview": "Ray Barone is a successful sportswriter who deals with his brother and parents, who happen to live across the street.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/495/1238665.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Family"
+ ],
+ "networks": [
+  "CBS"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "everybody-loves-raymond-complete-series_20251121_0430",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Everybody Loves Raymond: The Complete Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Everybody Loves Raymond S06X01 The First Six Years.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 123117035,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_20251121_0430/Everybody%20Loves%20Raymond%20S06X01%20The%20First%20Six%20Years.mp4"
+    },
+    {
+     "archiveID": "everybody-loves-raymond-complete-series_202601",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Everybody Loves Raymond: The Complete Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Everybody Loves Raymond S05E02 - Italy (Part 2).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 90237125,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202601/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
+    },
+    {
+     "archiveID": "everybody-loves-raymond-complete-series_202512",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Everybody Loves Raymond: The Complete Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Everybody Loves Raymond S05E02 - Italy (Part 2).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 90237125,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202512/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 209
+}

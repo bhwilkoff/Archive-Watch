@@ -423,8 +423,31 @@
      "downloadURL": "https://archive.org/download/ManWithACamera-LiveTarget/ManWithACamera-LiveTarget.mp4"
     }
    ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "manwithacamera_202002",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Man with a Camera (1958-1960 TV series)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "MAN WITH A CAMERA s01e04 Closeup On Violence.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 166803582,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/manwithacamera_202002/MAN%20WITH%20A%20CAMERA%20s01e04%20Closeup%20On%20Violence.ia.mp4"
+    }
+   ]
   }
  ],
- "episodesCount": 22,
+ "episodesCount": 23,
  "canonicalEpisodesCount": 29
 }

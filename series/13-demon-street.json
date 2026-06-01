@@ -1,0 +1,64 @@
+{
+ "version": 2,
+ "seriesID": "13-demon-street",
+ "tvmazeID": 34738,
+ "title": "13 Demon Street",
+ "yearStart": null,
+ "yearEnd": null,
+ "overview": "Lon Chaney Jr. was the host, introducing each episode from his 'home' at 13 Demon Street. Condemned for some shockingly atrocious crime, Chaney's purpose in relating the series' stories was to convince viewers that the crimes presented in them were worse than his, thus freeing him from his purgatory.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/144/361930.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Horror",
+  "Thriller"
+ ],
+ "networks": [
+  "Syndication"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "13_demon_street_fever_1959",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "13 Demon Street (Fever)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1959,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "demon_street_fever.mp4",
+      "format": "h.264",
+      "sizeBytes": 145567737,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/13_demon_street_fever_1959/demon_street_fever.mp4"
+    },
+    {
+     "archiveID": "13_demon_street_black_hand_1959",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "13 Demon Street (The Black Hand)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1959,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "demon_street_the_black_hand.mp4",
+      "format": "h.264",
+      "sizeBytes": 136562698,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/13_demon_street_black_hand_1959/demon_street_the_black_hand.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 13
+}

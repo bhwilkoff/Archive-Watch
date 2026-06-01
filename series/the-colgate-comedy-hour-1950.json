@@ -175,6 +175,24 @@
      "downloadURL": "https://archive.org/download/ColgateComedyHour/COLGATE_COMEDY_HOUR.mp4"
     },
     {
+     "archiveID": "ColgateComedyHourChristmasShow",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Colgate Comedy Hour (Abbott & Costello Christmas Show)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Colgate Comedy Hour (Christmas show).mp4",
+      "format": "h.264",
+      "sizeBytes": 367476288,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/ColgateComedyHourChristmasShow/Colgate%20Comedy%20Hour%20%28Christmas%20show%29.mp4"
+    },
+    {
      "archiveID": "ColgateComedyHour_AbbottCostello",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -265,6 +283,24 @@
      "downloadURL": "https://archive.org/download/ColgateComedyHourMartinAndLewisLastAppearance/ColgateComedyHour-lastMartinAndLewis.ia.mp4"
     },
     {
+     "archiveID": "TheColgateComedyHour1041953",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Colgate Comedy Hour (10/4/1953)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Colgate_Comedy_Hour_10_04_1953.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 406591547,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TheColgateComedyHour1041953/Colgate_Comedy_Hour_10_04_1953.ia.mp4"
+    },
+    {
      "archiveID": "TheColgateComedyHour-1April1951",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -321,6 +357,6 @@
    ]
   }
  ],
- "episodesCount": 16,
+ "episodesCount": 18,
  "canonicalEpisodesCount": 102
 }

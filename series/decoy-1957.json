@@ -350,6 +350,24 @@
    "seasonNumber": null,
    "episodes": [
     {
+     "archiveID": "decoy-tv-series",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Decoy TV Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Decoy S01 E26 Earthboud Satellite.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 401135222,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E26%20Earthboud%20Satellite.ia.mp4"
+    },
+    {
      "archiveID": "DecoyThePilotEpisode",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -370,6 +388,6 @@
    ]
   }
  ],
- "episodesCount": 19,
+ "episodesCount": 20,
  "canonicalEpisodesCount": 39
 }

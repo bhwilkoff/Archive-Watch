@@ -1,0 +1,47 @@
+{
+ "version": 2,
+ "seriesID": "big-guy-and-rusty-the-boy-robot-1999",
+ "tvmazeID": 19043,
+ "title": "Big Guy and Rusty the Boy Robot",
+ "yearStart": 1999,
+ "yearEnd": 2001,
+ "overview": "Based on the comic book by Frank Miller and Geof Darrow, a BGY-11 robot is created to defend America but no one knows it's just a man in a suit. He is decommissioned when Rusty - a combat robot with artifical intelligence is produced. With no experience at all, Rusty is easily defeated his first time out, but Big Guy is recalled back to action to help out the child robot and teach him about being a hero.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/66/165105.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Children",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "FOX"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 2,
+   "episodes": [
+    {
+     "archiveID": "TheBigBoys",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "The Big Boy",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "2001-02-08",
+     "year": 2001,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "drag_ep068_01-21_54_The_Big_Boys.mp4",
+      "format": "h.264",
+      "sizeBytes": 158378975,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TheBigBoys/drag_ep068_01-21_54_The_Big_Boys.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 26
+}

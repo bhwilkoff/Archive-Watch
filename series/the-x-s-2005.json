@@ -1,0 +1,65 @@
+{
+ "version": 2,
+ "seriesID": "the-x-s-2005",
+ "tvmazeID": 73892,
+ "title": "The X's",
+ "yearStart": 2005,
+ "yearEnd": 2006,
+ "overview": "They're not just four of the best secret agents in the world, they're a family. Living and working together as an elite special ops undercover unit, they possess unique talents and abilities far beyond those of mortal families. The X's work for the finest secret spy organization in the world, SUPERIOR, which is locked in an eternal struggle with SNAFU, a terrible agency of evil whose vile tentacles of badness reach everywhere. (Yes, even Cleveland.) As a covert force, the X's are second to none. They thwart evildoers. They save the world. They blow stuff up spectacularly. They argue loudly over what to watch on TV. And two of them send the other two to bed early.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/499/1248066.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Children",
+  "Espionage"
+ ],
+ "networks": [
+  "Nickelodeon"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "TheXsNearlyComplete",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The X's",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "the xs/The Haunting of Home Base.mp4",
+      "format": "h.264",
+      "sizeBytes": 187701833,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TheXsNearlyComplete/the%20xs/The%20Haunting%20of%20Home%20Base.mp4"
+    },
+    {
+     "archiveID": "thexstvrecordings",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The X's (TV Recordings in order)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 2006,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Sep-Oct 2006 Recordings (rips; premieres)/011 Quit Your Day Job-Missing Home.mp4",
+      "format": "h.264",
+      "sizeBytes": 182528964,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/thexstvrecordings/Sep-Oct%202006%20Recordings%20%28rips%3B%20premieres%29/011%20Quit%20Your%20Day%20Job-Missing%20Home.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 38
+}

@@ -381,8 +381,31 @@
      "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp30/The Adventures of Sir Lancelot Ep30 The Prince of Limerick (1956 TV Series) William Russell color.ia.mp4"
     }
    ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "The.Adventures.Of.SirLancelot",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The.Adventures.Of.Sir.Lancelot",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "29TheAdventuresOfSirLancelotthetheavesApril131957.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 120766805,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/The.Adventures.Of.SirLancelot/29TheAdventuresOfSirLancelotthetheavesApril131957.mp4"
+    }
+   ]
   }
  ],
- "episodesCount": 20,
+ "episodesCount": 21,
  "canonicalEpisodesCount": 30
 }

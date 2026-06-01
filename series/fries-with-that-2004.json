@@ -1,0 +1,64 @@
+{
+ "version": 2,
+ "seriesID": "fries-with-that-2004",
+ "tvmazeID": 44694,
+ "title": "Fries with That?",
+ "yearStart": 2004,
+ "yearEnd": 2004,
+ "overview": "Fries with That is a sitcom about the hilarious antics of a group of teens who run havoc running a fast food joint. Pattie, Robyn, Tess and Alex are way too concerned with friends, dating, body image, and the in-crowd to bother much with actually working. All the while, the assistant manager Ben is going nuts trying to get them to flip burgers and actually serve customers.",
+ "posterURL": null,
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Family"
+ ],
+ "networks": [
+  "YTV"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "fries-with-that",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Fries With That - The Complete Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Fries With That S02E25 - Robyn... and Eddy.mp4",
+      "format": "h.264",
+      "sizeBytes": 144567286,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/fries-with-that/Fries%20With%20That%20S02E25%20-%20Robyn...%20and%20Eddy.mp4"
+    },
+    {
+     "archiveID": "FriesWithThatYTV",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Fries With That? - TV Series (2004)",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 2004,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Fries With That S02E17 - The Return of a Man Called Smith.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 456938827,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FriesWithThatYTV/Fries%20With%20That%20S02E17%20-%20The%20Return%20of%20a%20Man%20Called%20Smith.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 52
+}
