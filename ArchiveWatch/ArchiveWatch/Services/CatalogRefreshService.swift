@@ -20,14 +20,13 @@ actor CatalogRefreshService {
     /// GitHub Pages settings for the repo.
     private let remoteURL = URL(string: "https://bhwilkoff.github.io/Archive-Watch/catalog.json")!
 
+    // tvOS has no writable Application Support / Documents directory — only
+    // Caches and tmp. A downloaded catalog is regenerable from network +
+    // bundle, so Caches is the correct (and only safe) home for it.
     private var cacheURL: URL {
-        let appSupport = try! FileManager.default.url(
-            for: .applicationSupportDirectory,
-            in: .userDomainMask,
-            appropriateFor: nil,
-            create: true
-        )
-        return appSupport.appendingPathComponent("catalog.json")
+        let caches = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+            ?? URL(fileURLWithPath: NSTemporaryDirectory())
+        return caches.appendingPathComponent("catalog.json")
     }
 
     /// Load the freshest catalog available: cache → bundle.

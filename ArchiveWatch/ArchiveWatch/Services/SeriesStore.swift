@@ -22,14 +22,13 @@ actor SeriesStore {
     private let baseURL = URL(string: "https://bhwilkoff.github.io/Archive-Watch/series")!
     private var inMemory: [String: Series] = [:]
 
+    // tvOS only permits writes to Caches / tmp (no Application Support).
+    // Per-series JSON is re-fetchable from GitHub Pages, so Caches is the
+    // right home.
     private var cacheDir: URL {
-        let appSupport = try! FileManager.default.url(
-            for: .applicationSupportDirectory,
-            in: .userDomainMask,
-            appropriateFor: nil,
-            create: true,
-        )
-        let dir = appSupport.appendingPathComponent("series", isDirectory: true)
+        let caches = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+            ?? URL(fileURLWithPath: NSTemporaryDirectory())
+        let dir = caches.appendingPathComponent("series", isDirectory: true)
         if !FileManager.default.fileExists(atPath: dir.path) {
             try? FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
         }
