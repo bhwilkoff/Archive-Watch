@@ -216,7 +216,17 @@ def main():
         try:
             results, pg = collection_page(session, page)
         except Exception as e:  # noqa: BLE001
-            print(f"[loc] page {page} error: {e}", flush=True)
+            msg = str(e)
+            if "403" in msg and page == args.start_page:
+                # loc.gov blocks datacenter IP ranges (incl. GitHub Actions
+                # runners). This isn't a bug — the feed simply can't run
+                # from CI. Skip cleanly; run it from a residential IP
+                # (locally or a self-hosted runner) to ingest LoC films.
+                print("[loc] loc.gov returned 403 (blocks datacenter IPs — "
+                      "expected in CI). Skipping; run locally to ingest LoC films.",
+                      flush=True)
+            else:
+                print(f"[loc] page {page} error: {msg}", flush=True)
             break
         if not results:
             break
