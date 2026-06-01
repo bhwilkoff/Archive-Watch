@@ -216,6 +216,9 @@ struct Series: Decodable, Sendable, Hashable, Identifiable {
     let creator: String?
     let seasons: [Season]
     let episodesCount: Int?
+    /// Total episodes in the canonical run (TVmaze), vs `episodesCount` which
+    /// is how many we actually have playable. Drives the "X of Y" affordance.
+    let canonicalEpisodesCount: Int?
 
     var id: String { seriesID }
     var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
