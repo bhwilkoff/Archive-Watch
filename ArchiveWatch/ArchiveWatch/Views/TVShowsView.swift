@@ -25,7 +25,7 @@ struct TVShowsView: View {
     private let cols = Array(repeating: GridItem(.fixed(240), spacing: 28), count: 5)
 
     private func computeItems() -> [Catalog.Item] {
-        let pool = store.seriesCards.filter { it in
+        let pool = store.dbSeriesCards().filter { it in
             if let d = filter.decade, it.decade != d { return false }
             if let g = filter.genre, !it.genres.contains(g) { return false }
             return true
@@ -86,7 +86,7 @@ struct TVShowsView: View {
         .onChange(of: filter) { _, _ in items = computeItems() }
         .onChange(of: sort) { _, _ in items = computeItems() }
         .onChange(of: shuffleSeed) { _, _ in items = computeItems() }
-        .onChange(of: store.seriesCards.count) { _, _ in
+        .onChange(of: store.dbGeneration) { _, _ in
             items = computeItems()
         }
     }

@@ -86,6 +86,11 @@ final class CatalogDB {
         scalarRows("SELECT value, 0 FROM meta WHERE key=?", [key]).first?.0
     }
 
+    /// Decision 012 adult filter — set from AppStore.hideAdultContent. When
+    /// true, queries exclude items the build flagged isAdult=1.
+    var hideAdult = true
+    private var adultAnd: String { hideAdult ? "AND i.isAdult = 0" : "" }
+
     // MARK: - Queries the views use
 
     /// One Home shelf, in stored position order.
@@ -114,6 +119,7 @@ final class CatalogDB {
     func browse(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
                 sort: Sort = .popular, limit: Int = 60, offset: Int = 0) -> [Catalog.Item] {
         var where_ = ["i.contentType != 'tv-series'"]
+        if hideAdult { where_.append("i.isAdult = 0") }
         var binds: [String] = []
         if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
         if let decade { where_.append("i.decade = \(decade)") }
@@ -146,7 +152,7 @@ final class CatalogDB {
             SELECT j.json FROM items_fts f
             JOIN item_json j ON j.archiveID = f.archiveID
             JOIN items i ON i.archiveID = f.archiveID
-            WHERE items_fts MATCH ?
+            WHERE items_fts MATCH ? \(adultAnd)
             ORDER BY rank
             LIMIT \(limit)
         """, [q])
@@ -170,7 +176,7 @@ final class CatalogDB {
     func related(to item: Catalog.Item, limit: Int = 20) -> [Catalog.Item] {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE i.contentType = ? AND i.archiveID != ?
+            WHERE i.contentType = ? AND i.archiveID != ? \(adultAnd)
             ORDER BY i.popularityScore DESC
             LIMIT \(limit)
         """, [item.contentType, item.archiveID])
@@ -180,15 +186,19 @@ final class CatalogDB {
 
     func decadeCounts() -> [Int: Int] {
         var out: [Int: Int] = [:]
-        for (k, v) in scalarRows("SELECT decade, COUNT(*) FROM items WHERE decade IS NOT NULL GROUP BY decade") {
+        for (k, v) in scalarRows("SELECT i.decade, COUNT(*) FROM items i WHERE i.decade IS NOT NULL \(adultAnd) GROUP BY i.decade") {
             if let d = Int(k) { out[d] = v }
         }
         return out
     }
 
     func topGenres(limit: Int = 24) -> [String] {
-        scalarRows("SELECT genre, COUNT(*) c FROM item_genres GROUP BY genre ORDER BY c DESC, genre LIMIT \(limit)")
-            .map(\.0)
+        scalarRows("""
+            SELECT g.genre, COUNT(*) c FROM item_genres g
+            JOIN items i USING(archiveID)
+            WHERE 1=1 \(adultAnd)
+            GROUP BY g.genre ORDER BY c DESC, g.genre LIMIT \(limit)
+        """).map(\.0)
     }
 
     var itemCount: Int { metaInt("itemCount") ?? 0 }
