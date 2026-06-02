@@ -1,0 +1,52 @@
+name: Publish catalog DB
+
+# Rebuilds the prebuilt SQLite catalog (Decision 017) and re-uploads it to the
+# rolling "catalog-db" GitHub Release whenever the catalog changes on main.
+# Release assets (not git) host the binary — no repo bloat, generous CDN
+# bandwidth, separate from the 100 GB/mo Pages budget.
+#
+# Path-filtered to catalog.json / series so it doesn't loop on its own runs
+# (it commits nothing — assets go to the Release, not the branch).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - catalog.json
+      - series/**
+  workflow_dispatch:
+
+concurrency:
+  group: publish-db
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write      # to upload release assets
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Build SQLite catalog
+        run: python tools/build_sqlite.py | tee db.log
+
+      - name: Summary
+        run: |
+          echo "## Catalog DB" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          tail -6 db.log >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload to rolling release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Ensure the rolling tag exists, then clobber the assets.
+          gh release view catalog-db >/dev/null 2>&1 || \
+            gh release create catalog-db --title "Catalog database (rolling)" \
+              --notes "Prebuilt SQLite catalog served to the tvOS app (Decision 017). Re-uploaded by CI."
+          gh release upload catalog-db catalog.sqlite.gz catalog-manifest.json --clobber

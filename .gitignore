@@ -52,3 +52,8 @@ Secrets.xcconfig
 video_registry.db
 __pycache__/
 tools/validation_report.txt
+
+# Prebuilt SQLite catalog — hosted via GitHub Releases, not committed (Decision 017)
+catalog.sqlite
+catalog.sqlite.gz
+catalog-manifest.json
