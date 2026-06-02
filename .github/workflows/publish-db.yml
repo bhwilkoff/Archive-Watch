@@ -43,6 +43,12 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py fetch
 
+      # Guarantee the app-facing DB is remediated no matter which writer last
+      # published the catalog (belt-and-suspenders; idempotent). This is the
+      # single chokepoint that builds what the app downloads.
+      - name: Remediate catalog data quality
+        run: python tools/remediate_catalog.py
+
       - name: Build SQLite catalog
         run: python tools/build_sqlite.py | tee db.log
 
