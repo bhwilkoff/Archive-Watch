@@ -506,3 +506,46 @@ serves a stale DB.
 truth; `AppStore` derived lists become queries. The weekly/daily pipeline
 publishes both JSON (dashboard/source) and SQLite (app). Refresh validates
 the downloaded DB (`PRAGMA integrity_check` + row-count floor) before swap.
+
+---
+
+## 018 — Full catalog.json lives in a GitHub Release, not git
+*Date: 2026-06-02*
+
+The full ~95 MB `catalog.json` (30k+ items, heading for 100k–1M) is moved OUT
+of git and hosted as a gzipped asset on a rolling `catalog-source` GitHub
+Release (~20 MB), mirroring the SQLite delivery in Decision 017. Catalog-
+mutating workflows `python tools/catalog_release.py fetch` at the start
+(download + gunzip to `./catalog.json`) and `… publish` at the end (gzip +
+clobber the release asset). Every tool keeps reading/writing the local
+`./catalog.json` unchanged. The file is gitignored. The bundled first-paint
+seed is no longer a committed 14 MB `ArchiveWatch/ArchiveWatch/catalog.json`;
+`build_sqlite.py` derives a small `seed.sqlite` (all TV-series cards + shelf
+items + top ~1,500 by popularity) directly from the full catalog.
+
+**Why**: Decision 017 made the *app* lightweight (it downloads the SQLite from
+a Release and queries on disk) but the *git repo* kept bloating — the 95 MB
+`catalog.json` was committed on every rebuild across 26 commits, pushing `.git`
+to 624 MB and `catalog.json` to the edge of GitHub's 100 MB hard push limit
+(beyond which pushes FAIL, not just warn). The full catalog is a generated
+accumulator, not hand-authored source, so it fails the "does this belong in
+git" test. Keeping it in git made every rebuild PR a ±155k-line, 95 MB diff
+that also flaked PR creation. The GitHub Pages editorial dashboard reads only
+`featured.json`, never the full catalog, so nothing user-facing depends on it
+being in the repo.
+
+**How to apply**: never re-add `catalog.json` (or a full seed
+`catalog.json`) to git — they're gitignored. New catalog-mutating tools/
+workflows must `catalog_release.py fetch` before and `publish` after. The
+editorial source of truth that DOES stay in git is small and hand-authored:
+`featured.json`, `series/*.json` spines, discovery seeds, tools, and the slim
+bundled `seed.sqlite`. Keep the seed small (it ships in the app bundle and is
+committed); bulk-ingest into the full catalog, not the seed.
+
+**Consequences**: the catalog is no longer line-diffable in git (acceptable —
+it's machine-generated). The pipeline is now stateful (download → mutate →
+upload); each workflow that mutates the catalog must serialise via the
+existing `catalog-writers` concurrency group to avoid clobbering. Git history
+was rewritten once (git filter-repo) to purge the historical `catalog.json` /
+seed blobs, reclaiming ~600 MB; this rewrote all commit hashes and required a
+force-push + fresh clones.
