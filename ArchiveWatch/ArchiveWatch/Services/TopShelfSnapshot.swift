@@ -54,9 +54,7 @@ enum TopShelfSnapshot {
     /// callers control the timestamp.
     @MainActor
     static func rebuild(store: AppStore, progress: [WatchProgress], now: Double) {
-        let items = store.visibleItems
-        guard !items.isEmpty else { return }
-        let byID = Dictionary(items.map { ($0.archiveID, $0) }, uniquingKeysWith: { a, _ in a })
+        guard store.db != nil else { return }
 
         func map(_ list: [Catalog.Item]) -> [Payload.Item] {
             list.prefix(10).map {
@@ -68,10 +66,11 @@ enum TopShelfSnapshot {
 
         var sections: [Payload.Section] = []
 
-        let continueItems = progress
+        let continueIDs = progress
             .filter { !$0.isComplete && $0.positionSeconds > 10 }
             .sorted { $0.lastWatchedAt > $1.lastWatchedAt }
-            .compactMap { byID[$0.archiveID] }
+            .map(\.archiveID)
+        let continueItems = store.dbItemsByIDs(continueIDs)
         if !continueItems.isEmpty {
             sections.append(.init(title: "Continue Watching", items: map(continueItems)))
         }
@@ -102,7 +101,7 @@ struct TopShelfUpdater: View {
     var body: some View {
         Color.clear
             .frame(width: 0, height: 0)
-            .task(id: store.catalog?.items.count ?? 0) { rebuild() }
+            .task(id: store.dbGeneration) { rebuild() }
             .onChange(of: progress.count) { _, _ in rebuild() }
     }
 

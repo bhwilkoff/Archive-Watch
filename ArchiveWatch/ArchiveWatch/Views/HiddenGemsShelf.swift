@@ -15,23 +15,7 @@ import SwiftUI
 
 struct HiddenGemsShelf: View {
     @Environment(AppStore.self) private var store
-
-    private static let qualityFloor:     Int = 60
-    private static let popularityCeiling: Int = 40
-    private static let maxItems:         Int = 20
-
-    private var items: [Catalog.Item] {
-        guard let catalog = store.catalog else { return [] }
-        return catalog.items
-            .filter { item in
-                item.hasDesignedArtwork &&
-                (item.qualityScore     ?? 0)   >= Self.qualityFloor &&
-                (item.popularityScore  ?? 100) <= Self.popularityCeiling
-            }
-            .sorted { ($0.qualityScore ?? 0) > ($1.qualityScore ?? 0) }
-            .prefix(Self.maxItems)
-            .map { $0 }
-    }
+    @State private var items: [Catalog.Item] = []
 
     private static let shelfDef = Featured.Shelf(
         id: "hidden-gems",
@@ -43,10 +27,13 @@ struct HiddenGemsShelf: View {
     )
 
     var body: some View {
-        if items.isEmpty {
-            EmptyView()
-        } else {
-            ShelfRow(shelf: Self.shelfDef, items: items)
+        Group {
+            if items.isEmpty {
+                EmptyView()
+            } else {
+                ShelfRow(shelf: Self.shelfDef, items: items)
+            }
         }
+        .task(id: store.dbGeneration) { items = store.dbHiddenGems() }
     }
 }

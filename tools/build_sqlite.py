@@ -55,6 +55,18 @@ def _adult_markers():
 
 ADULT_MARKERS = _adult_markers()
 
+# Only the curator-registered collections are browseable (CollectionsView reads
+# collection_metadata.json), so item_collections stores just those — not all
+# ~48 noisy Archive memberships per item.
+def _registered_collections():
+    try:
+        d = json.loads((REPO / "shared" / "editorial" / "collection_metadata.json").read_text())
+        return {c["id"] for c in d.get("collections", [])}
+    except Exception:
+        return set()
+
+REGISTERED_COLLECTIONS = _registered_collections()
+
 def _is_adult(it):
     for c in (it.get("collections") or []):
         cl = str(c).lower()
@@ -126,7 +138,7 @@ def create_schema(db):
       hasRealArtwork INTEGER, artworkSource TEXT, imdbID TEXT,
       imdbRating REAL, imdbVotes INTEGER, popularityScore INTEGER,
       qualityScore INTEGER, isSilentFilm INTEGER, rightsStatus TEXT,
-      contentRating TEXT, language TEXT, network TEXT,
+      contentRating TEXT, language TEXT, network TEXT, director TEXT,
       seriesID TEXT, yearEnd INTEGER, seasonsCount INTEGER, episodesCount INTEGER,
       isAdult INTEGER
     );
@@ -136,6 +148,7 @@ def create_schema(db):
     -- Full item as JSON; the app JOINs + decodes only the rows a screen shows.
     CREATE TABLE item_json (archiveID TEXT PRIMARY KEY, json TEXT);
     CREATE TABLE item_genres (archiveID TEXT, genre TEXT);
+    CREATE TABLE item_collections (archiveID TEXT, collection TEXT);
     CREATE TABLE item_shelves (shelfID TEXT, archiveID TEXT, position INTEGER);
     CREATE TABLE series (
       seriesID TEXT PRIMARY KEY, title TEXT, yearStart INTEGER, yearEnd INTEGER,
@@ -155,7 +168,7 @@ def create_schema(db):
 
 
 def populate_items(db, items):
-    item_rows, json_rows, genre_rows, shelf_rows, fts_rows = [], [], [], [], []
+    item_rows, json_rows, genre_rows, coll_rows, shelf_rows, fts_rows = [], [], [], [], [], []
     for it in items:
         aid = it["archiveID"]
         item_rows.append((
@@ -166,13 +179,17 @@ def populate_items(db, items):
             it.get("imdbVotes"), it.get("popularityScore"), it.get("qualityScore"),
             1 if (it.get("isSilentFilm") or it.get("contentType") == "silent-film") else 0,
             _t(it.get("rightsStatus")), _t(it.get("contentRating")), _t(it.get("language")),
-            _t(it.get("network")), _t(it.get("seriesID")), it.get("yearEnd"),
-            it.get("seasonsCount"), it.get("episodesCount"), _is_adult(it),
+            _t(it.get("network")), _t(it.get("director")), _t(it.get("seriesID")),
+            it.get("yearEnd"), it.get("seasonsCount"), it.get("episodesCount"),
+            _is_adult(it),
         ))
         json_rows.append((aid, json.dumps(it, ensure_ascii=False, separators=(",", ":"))))
         for g in (it.get("genres") or []):
             if g:
                 genre_rows.append((aid, g))
+        for c in (it.get("collections") or []):
+            if c and str(c) in REGISTERED_COLLECTIONS:
+                coll_rows.append((aid, str(c)))
         for s in (it.get("shelves") or []):
             shelf_rows.append((s, aid, 0))
         names = " ".join([it.get("director") or ""]
@@ -180,9 +197,10 @@ def populate_items(db, items):
                          + [it.get("producer") or ""]).strip()
         fts_rows.append((aid, it.get("title") or "", names))
 
-    db.executemany("INSERT OR IGNORE INTO items VALUES (%s)" % ",".join("?" * 24), item_rows)
+    db.executemany("INSERT OR IGNORE INTO items VALUES (%s)" % ",".join("?" * 25), item_rows)
     db.executemany("INSERT OR IGNORE INTO item_json VALUES (?,?)", json_rows)
     db.executemany("INSERT INTO item_genres VALUES (?,?)", genre_rows)
+    db.executemany("INSERT INTO item_collections VALUES (?,?)", coll_rows)
     db.executemany("INSERT INTO item_shelves VALUES (?,?,?)", shelf_rows)
     db.executemany("INSERT INTO items_fts VALUES (?,?,?)", fts_rows)
     return len(item_rows)
@@ -222,6 +240,9 @@ def create_indexes(db):
     CREATE INDEX idx_items_series   ON items(seriesID);
     CREATE INDEX idx_genres_genre   ON item_genres(genre);
     CREATE INDEX idx_genres_item    ON item_genres(archiveID);
+    CREATE INDEX idx_coll_coll      ON item_collections(collection);
+    CREATE INDEX idx_items_director ON items(director);
+    CREATE INDEX idx_items_quality  ON items(qualityScore);
     CREATE INDEX idx_shelves_shelf  ON item_shelves(shelfID);
     CREATE INDEX idx_episodes_series ON episodes(seriesID, position);
     """)

@@ -31,15 +31,17 @@ struct HomeView: View {
     // with the per-shelf id to give each shelf its own permutation.
     @State private var shelfSeed: UInt64 = UInt64.random(in: 0..<UInt64.max)
 
-    private var heroItems: [Catalog.Item] {
-        let all = store.visibleItems
-        let pool = all.filter {
+    @State private var heroItems: [Catalog.Item] = []
+
+    /// Hero pool from the DB (Decision 017): the most-popular items with real
+    /// designed artwork + a usable backdrop/poster, shuffled per launch.
+    private func loadHero() -> [Catalog.Item] {
+        let pool = store.dbBrowse(sort: .popular, limit: 200).filter {
             $0.hasDesignedArtwork &&
             ($0.backdropURLParsed != nil || $0.posterURLParsed != nil)
         }
-        let stratum = pool.sorted { $0.shelves.count > $1.shelves.count }.prefix(150)
         var rng = SplitMix(seed: UInt64(heroSeed))
-        return Array(stratum.shuffled(using: &rng).prefix(7))
+        return Array(pool.shuffled(using: &rng).prefix(7))
     }
 
     private var homeShelves: [Featured.Shelf] {
@@ -79,6 +81,7 @@ struct HomeView: View {
             .padding(.bottom, 80)
         }
         .background(Color.black.ignoresSafeArea())
+        .task(id: "\(heroSeed)-\(store.dbGeneration)") { heroItems = loadHero() }
     }
 
     private struct ShelfPayload: Identifiable {
@@ -433,11 +436,9 @@ struct CategoryTile: View {
 struct DecadeTilesRow: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    @State private var counts: [Int: Int] = [:]
 
-    private var decades: [Int] {
-        // Precomputed on AppStore — no per-body scan of 31k items.
-        store.availableDecades
-    }
+    private var decades: [Int] { counts.keys.sorted() }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -460,10 +461,11 @@ struct DecadeTilesRow: View {
             }
         }
         .focusSection()
+        .task(id: store.dbGeneration) { counts = store.dbDecadeCounts() }
     }
 
     private func countFor(_ decade: Int) -> Int {
-        store.decadeCounts[decade] ?? 0
+        counts[decade] ?? 0
     }
 }
 

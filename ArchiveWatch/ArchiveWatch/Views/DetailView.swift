@@ -302,7 +302,12 @@ struct DetailView: View {
     }
 
     private var relatedItems: [Catalog.Item] {
-        let pool = store.visibleItems
+        // Candidate pool from the DB (Decision 017): same content type +
+        // same director — then scored in-view for the best matches, instead
+        // of scanning the whole catalog.
+        var pool = store.dbRelated(to: item)
+        if let d = item.director, !d.isEmpty { pool += store.dbByDirector(d) }
+        var seen = Set([item.archiveID]); pool = pool.filter { seen.insert($0.archiveID).inserted }
         guard !pool.isEmpty else { return [] }
         var scored: [(Catalog.Item, Int)] = []
         for other in pool where other.archiveID != item.archiveID {

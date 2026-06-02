@@ -11,29 +11,17 @@ struct ContinueWatchingRow: View {
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progressRecords: [WatchProgress]
 
     private var entries: [(item: Catalog.Item, progress: WatchProgress)] {
-        guard let catalog = store.catalog else { return [] }
-        // Dedupe at build-time — the catalog SHOULD have unique
-        // archiveIDs but defending against regressions since a crash
-        // here (duplicate keys) would stop the whole UI.
-        var items: [String: Catalog.Item] = [:]
-        var seriesBySlug: [String: Catalog.Item] = [:]
-        for it in catalog.items {
-            items[it.archiveID] = it
-            if it.contentType == "tv-series", let slug = it.seriesID {
-                seriesBySlug[slug] = it
-            }
-        }
-        return progressRecords
+        // Resolve each in-progress record against the DB (Decision 017): TV
+        // episodes via their parent series card (looked up by the raw slug
+        // EpisodePlayerScreen wrote to WatchProgress.seriesID), films by id.
+        progressRecords
             .filter { !$0.isComplete && $0.positionSeconds > 10 }
             .prefix(12)
             .compactMap { record -> (Catalog.Item, WatchProgress)? in
-                // TV episodes resolve via their parent series card,
-                // looked up by the raw slug that EpisodePlayerScreen
-                // wrote to WatchProgress.seriesID.
-                if let sid = record.seriesID, let series = seriesBySlug[sid] {
+                if let sid = record.seriesID, let series = store.dbSeriesCard(slug: sid) {
                     return (series, record)
                 }
-                if let item = items[record.archiveID] {
+                if let item = store.dbItem(record.archiveID) {
                     return (item, record)
                 }
                 return nil

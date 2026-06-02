@@ -11,43 +11,24 @@ import SwiftUI
 
 struct DirectorShelvesSection: View {
     @Environment(AppStore.self) private var store
+    @State private var groups: [DirectorGroup] = []
 
-    private static let maxDirectorsShown:   Int = 4
-    private static let minFilmsPerDirector: Int = 3
-    private static let perShelfLimit:       Int = 20
-
-    private struct Group: Identifiable {
+    private struct DirectorGroup: Identifiable {
         let id: String           // director name = stable id
         let name: String
         let items: [Catalog.Item]
         let category: String     // dominant contentType, for accent colour
     }
 
-    private var groups: [Group] {
-        guard let catalog = store.catalog else { return [] }
-        var byDirector: [String: [Catalog.Item]] = [:]
-        for item in catalog.items {
-            guard let director = item.director,
-                  !director.isEmpty,
-                  item.hasDesignedArtwork else { continue }
-            byDirector[director, default: []].append(item)
+    /// Top directors come from a grouped DB query; each shelf is a second
+    /// query for that director's films (Decision 017).
+    private func loadGroups() -> [DirectorGroup] {
+        store.dbTopDirectors().compactMap { d in
+            let films = store.dbByDirector(d.name)
+            guard !films.isEmpty else { return nil }
+            return DirectorGroup(id: d.name, name: d.name, items: films,
+                         category: dominantCategory(for: films))
         }
-        return byDirector
-            .filter { $0.value.count >= Self.minFilmsPerDirector }
-            .map { (name, films) in
-                let sorted = films.sorted {
-                    ($0.popularityScore ?? 0) > ($1.popularityScore ?? 0)
-                }
-                return Group(
-                    id: name,
-                    name: name,
-                    items: Array(sorted.prefix(Self.perShelfLimit)),
-                    category: dominantCategory(for: films)
-                )
-            }
-            .sorted { $0.items.count > $1.items.count }
-            .prefix(Self.maxDirectorsShown)
-            .map { $0 }
     }
 
     // Pick the category that appears most often across the director's
@@ -62,10 +43,19 @@ struct DirectorShelvesSection: View {
     }
 
     var body: some View {
-        if groups.isEmpty {
-            EmptyView()
-        } else {
-            VStack(alignment: .leading, spacing: 48) {
+        Group {
+            if groups.isEmpty {
+                EmptyView()
+            } else {
+                directorShelves
+            }
+        }
+        .task(id: store.dbGeneration) { groups = loadGroups() }
+    }
+
+    @ViewBuilder
+    private var directorShelves: some View {
+        VStack(alignment: .leading, spacing: 48) {
                 Text("Directors")
                     .font(.title.bold())
                     .foregroundStyle(.white)
@@ -81,7 +71,6 @@ struct DirectorShelvesSection: View {
                     )
                     ShelfRow(shelf: shelf, items: group.items)
                 }
-            }
         }
     }
 }

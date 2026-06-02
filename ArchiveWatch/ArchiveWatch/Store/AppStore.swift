@@ -168,14 +168,20 @@ final class AppStore {
         // until catalog loads".
         let bundleStart = Date()
         do {
+            // featured.json is small (categories + shelf metadata) and stays
+            // JSON. The catalog ITSELF is no longer decoded into memory — the
+            // SQLite DB (seed → downloaded full) is the source now (Decision
+            // 017). This is the memory win: we never hold ~26k full items in RAM.
             featured = try CatalogLoader.loadFeatured()
-            catalog = try CatalogLoader.loadCatalog()
-            print("[AppStore] bundle loaded in \(String(format: "%.2fs", Date().timeIntervalSince(bundleStart)))")
-            // Open the bundled seed DB for instant first paint (Decision 017).
+            print("[AppStore] featured loaded in \(String(format: "%.2fs", Date().timeIntervalSince(bundleStart)))")
+            // Open the bundled seed DB for instant first paint.
             if let seed = Bundle.main.path(forResource: "seed", ofType: "sqlite"),
                let seedDB = CatalogDB(path: seed) {
                 swapDB(seedDB)
                 print("[AppStore] seed.sqlite: \(seedDB.itemCount) items")
+            } else {
+                loadError = "Missing bundled seed.sqlite"
+                return
             }
         } catch CatalogLoader.LoadError.bundleMissing(let name) {
             loadError = "Missing bundled resource: \(name)"
@@ -188,38 +194,7 @@ final class AppStore {
             return
         }
 
-        // STEP 2 — disk cache (if any). Runs detached so a slow actor
-        // hop doesn't matter. Only replace bundle if cache has at
-        // least as many items (defensive against any regression).
-        Task { [weak self] in
-            guard let cached = await CatalogRefreshService.shared.loadDiskCache() else { return }
-            await MainActor.run {
-                guard let self else { return }
-                if cached.items.count >= (self.catalog?.items.count ?? 0) {
-                    self.catalog = cached
-                }
-            }
-        }
-
-        // STEP 3 — background refresh from GitHub Pages. Skipped when
-        // the currently-loaded catalog was generated recently (default
-        // 72h window) — no point downloading 77 MB to get the same
-        // thing back. Users still get updates when they relaunch past
-        // the freshness window, or when we publish a new catalog and
-        // the cached copy ages out.
-        let generatedAt = catalog?.generatedAt
-        Task { [weak self] in
-            let fresh = await CatalogRefreshService.shared.isFresh(generatedAt: generatedAt)
-            guard !fresh else {
-                print("[AppStore] catalog is fresh — skipping remote refresh")
-                return
-            }
-            if let updated = await CatalogRefreshService.shared.refresh() {
-                await MainActor.run { self?.catalog = updated }
-            }
-        }
-
-        // STEP 4 — full SQLite catalog (Decision 017). Open the cached DB if we
+        // Full SQLite catalog (Decision 017). Open the cached DB if we
         // already downloaded one (upgrades from the bundled seed), then fetch a
         // fresh copy from the release in the background and swap it in.
         Task { [weak self] in
@@ -274,6 +249,17 @@ final class AppStore {
     func dbDecadeCounts() -> [Int: Int] { db?.decadeCounts() ?? [:] }
     func dbTopGenres() -> [String] { db?.topGenres() ?? [] }
     func dbItemsByIDs(_ ids: [String]) -> [Catalog.Item] { db?.itemsByIDs(ids) ?? [] }
+    func dbHiddenGems() -> [Catalog.Item] { db?.hiddenGems() ?? [] }
+    func dbTopDirectors() -> [(name: String, count: Int)] { db?.topDirectors() ?? [] }
+    func dbByDirector(_ name: String) -> [Catalog.Item] { db?.byDirector(name) ?? [] }
+    func dbByCollection(_ id: String, limit: Int = 2000) -> [Catalog.Item] { db?.byCollection(id, limit: limit) ?? [] }
+    func dbCollectionCount(_ id: String) -> Int { db?.collectionCount(id) ?? 0 }
+    func dbRandomPlayable(contentType: String? = nil) -> Catalog.Item? { db?.randomPlayable(contentType: contentType) }
+    func dbSeriesCard(slug: String) -> Catalog.Item? { db?.seriesCard(slug: slug) }
+
+    /// Catalog readiness: true once any DB (seed or full) is open. Replaces the
+    /// old `catalog != nil` gate now that the JSON load is gone.
+    var isReady: Bool { db != nil }
 
     /// Accent color for a category, parsed from `featured.json`.
     func accentColor(forCategory id: String?) -> Color {
