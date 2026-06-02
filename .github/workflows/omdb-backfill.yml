@@ -42,6 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write    # to commit updated catalogs + cache
+      actions: write     # dispatch publish-db after the catalog updates
     steps:
       - uses: actions/checkout@v5
 
@@ -144,3 +145,9 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish
+
+      - name: Rebuild app DB
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run publish-db.yml
