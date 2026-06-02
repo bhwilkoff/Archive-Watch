@@ -30,6 +30,7 @@ struct SeriesDetailView: View {
     // "does nothing"). item: makes the episode the single source of truth.
     @State private var playingEpisode: Episode?
     @FocusState private var focusedEpisode: String?
+    @FocusState private var focusedSeason: Int?
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -250,10 +251,20 @@ struct SeriesDetailView: View {
                             Text(season.displayTitle)
                         }
                         .buttonStyle(ChipButtonStyle(accent: .accentColor, isOn: on))
+                        .focused($focusedSeason, equals: idx)
                     }
                 }
                 .padding(.horizontal, 80)
                 .padding(.vertical, 28)
+            }
+            // Season changes as focus moves across the chips — no extra
+            // select press (matches the Apple TV app). Focus leaving the
+            // chip row sets focusedSeason to nil, which we ignore so the
+            // grid keeps showing the season the user landed on.
+            .onChange(of: focusedSeason) { _, season in
+                if let season, season != selectedSeasonIndex {
+                    withAnimation(Motion.chrome) { selectedSeasonIndex = season }
+                }
             }
         }
     }
@@ -327,11 +338,16 @@ struct EpisodeCard: View {
         ZStack {
             Color(white: 0.08)
             if let url = episode.stillURLParsed {
+                // .fit + blurred backdrop: real 16:9 stills fill the slot,
+                // while off-aspect fallbacks (e.g. a 2:3 poster when no
+                // TVmaze still exists) show whole over a blurred fill instead
+                // of being face-cropped. (Issue #5.)
                 RemoteImage(
                     url: url,
                     targetSize: CGSize(width: 760, height: 428),
-                    contentMode: .fill,
+                    contentMode: .fit,
                     placeholder: Color(white: 0.08),
+                    blurredBackdrop: true,
                 )
             } else {
                 Image(systemName: "film")
