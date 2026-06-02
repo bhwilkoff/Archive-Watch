@@ -487725,8 +487725,8 @@
       "subjects": [],
       "mediatype": "movies",
       "language": null,
-      "imdbID": null,
-      "tmdbID": null,
+      "imdbID": "tt1982158",
+      "tmdbID": 102538,
       "wikidataQID": null,
       "tvmazeID": null,
       "videoFile": {
@@ -487736,19 +487736,28 @@
         "tier": 1
       },
       "downloadURL": "https://archive.org/download/the-space-shuttle-narrated-by-william-shatner-SvaG0xDdP8g/the-space-shuttle-narrated-by-william-shatner-SvaG0xDdP8g.mp4",
-      "posterURL": "https://archive.org/services/img/the-space-shuttle-narrated-by-william-shatner-SvaG0xDdP8g",
+      "posterURL": "https://image.tmdb.org/t/p/w780/cdH2frnCLU8BpHD2sZNZQCou97W.jpg",
       "backdropURL": null,
-      "hasRealArtwork": false,
-      "artworkSource": "archive",
+      "hasRealArtwork": true,
+      "artworkSource": "tmdb",
       "contentType": "feature-film",
-      "genres": [],
+      "genres": [
+        "Documentary"
+      ],
       "countries": [],
-      "cast": [],
-      "director": null,
+      "cast": [
+        {
+          "name": "William Shatner",
+          "character": null,
+          "order": 0,
+          "profilePath": null
+        }
+      ],
+      "director": "Guy Noffsinger",
       "producer": null,
       "seriesName": null,
       "network": null,
-      "enrichmentTier": "archiveOnly",
+      "enrichmentTier": "fullyEnriched",
       "shelves": [],
       "rightsStatus": "public_domain",
       "qualityScore": null,
@@ -488353,8 +488362,8 @@
       ],
       "mediatype": "movies",
       "language": "English",
-      "imdbID": null,
-      "tmdbID": null,
+      "imdbID": "tt1590238",
+      "tmdbID": 707539,
       "wikidataQID": null,
       "tvmazeID": null,
       "videoFile": {
@@ -488364,19 +488373,34 @@
         "tier": 1
       },
       "downloadURL": "https://archive.org/download/gov.hhs.cms.006719/gov.hhs.cms.006719_512kb.mp4",
-      "posterURL": "https://archive.org/services/img/gov.hhs.cms.006719",
+      "posterURL": "https://image.tmdb.org/t/p/w780/8tPdjzRDz5InH9ii5OZoI0VVUTl.jpg",
       "backdropURL": null,
-      "hasRealArtwork": false,
-      "artworkSource": "archive",
+      "hasRealArtwork": true,
+      "artworkSource": "tmdb",
       "contentType": "newsreel",
-      "genres": [],
+      "genres": [
+        "Documentary"
+      ],
       "countries": [],
-      "cast": [],
-      "director": null,
+      "cast": [
+        {
+          "name": "S. Epatha Merkerson",
+          "character": null,
+          "order": 0,
+          "profilePath": null
+        },
+        {
+          "name": "Anthony Fauci",
+          "character": null,
+          "order": 1,
+          "profilePath": null
+        }
+      ],
+      "director": "Lisa Laden",
       "producer": null,
       "seriesName": null,
       "network": null,
-      "enrichmentTier": "archiveOnly",
+      "enrichmentTier": "fullyEnriched",
       "shelves": [],
       "rightsStatus": "public_domain",
       "qualityScore": null,
@@ -493375,7 +493399,7 @@
       "mediatype": "movies",
       "language": "eng",
       "imdbID": null,
-      "tmdbID": null,
+      "tmdbID": 1698951,
       "wikidataQID": null,
       "tvmazeID": null,
       "videoFile": {
@@ -493385,19 +493409,19 @@
         "tier": 1
       },
       "downloadURL": "https://archive.org/download/NASA_Science_Earth_Clip42_HD/NASA_Science_Earth_Clip42_HD.mp4",
-      "posterURL": "https://archive.org/services/img/NASA_Science_Earth_Clip42_HD",
+      "posterURL": "https://image.tmdb.org/t/p/w780/syCP1Oy51vYCoId06lbVYzjJbDt.jpg",
       "backdropURL": null,
-      "hasRealArtwork": false,
-      "artworkSource": "archive",
+      "hasRealArtwork": true,
+      "artworkSource": "tmdb",
       "contentType": "short-film",
       "genres": [],
       "countries": [],
       "cast": [],
-      "director": null,
+      "director": "Shinkan Tamaki",
       "producer": null,
       "seriesName": null,
       "network": null,
-      "enrichmentTier": "archiveOnly",
+      "enrichmentTier": "fullyEnriched",
       "shelves": [],
       "rightsStatus": "public_domain",
       "qualityScore": null,
@@ -493670,8 +493694,8 @@
       ],
       "mediatype": "movies",
       "language": null,
-      "imdbID": null,
-      "tmdbID": null,
+      "imdbID": "tt0067824",
+      "tmdbID": 12481,
       "wikidataQID": null,
       "tvmazeID": null,
       "videoFile": {
@@ -493681,19 +493705,82 @@
         "tier": 1
       },
       "downloadURL": "https://archive.org/download/GMM-10128/BigBang_HD_LARGE_QT_Video_2.mp4",
-      "posterURL": "https://archive.org/services/img/GMM-10128",
-      "backdropURL": null,
-      "hasRealArtwork": false,
-      "artworkSource": "archive",
+      "posterURL": "https://image.tmdb.org/t/p/w780/9VFYDWYnAhXAgyqgs94lwNmMBbk.jpg",
+      "backdropURL": "https://image.tmdb.org/t/p/w1280/993ZXFkyHGltND6AvlrVlVsveyM.jpg",
+      "hasRealArtwork": true,
+      "artworkSource": "tmdb",
       "contentType": "short-film",
-      "genres": [],
+      "genres": [
+        "Action"
+      ],
       "countries": [],
-      "cast": [],
-      "director": null,
+      "cast": [
+        {
+          "name": "Bruce Lee",
+          "character": null,
+          "order": 0,
+          "profilePath": null
+        },
+        {
+          "name": "Maria Yi",
+          "character": null,
+          "order": 1,
+          "profilePath": null
+        },
+        {
+          "name": "James Tien Chun",
+          "character": null,
+          "order": 2,
+          "profilePath": null
+        },
+        {
+          "name": "Marilyn Bautista",
+          "character": null,
+          "order": 3,
+          "profilePath": null
+        },
+        {
+          "name": "Han Ying-Chieh",
+          "character": null,
+          "order": 4,
+          "profilePath": null
+        },
+        {
+          "name": "Tony Liu Tian-jue",
+          "character": null,
+          "order": 5,
+          "profilePath": null
+        },
+        {
+          "name": "Li Kun",
+          "character": null,
+          "order": 6,
+          "profilePath": null
+        },
+        {
+          "name": "Nora Miao",
+          "character": null,
+          "order": 7,
+          "profilePath": null
+        },
+        {
+          "name": "Kam Shan",
+          "character": null,
+          "order": 8,
+          "profilePath": null
+        },
+        {
+          "name": "Chan Chue",
+          "character": null,
+          "order": 9,
+          "profilePath": null
+        }
+      ],
+      "director": "Lo Wei",
       "producer": null,
       "seriesName": null,
       "network": null,
-      "enrichmentTier": "archiveOnly",
+      "enrichmentTier": "fullyEnriched",
       "shelves": [],
       "rightsStatus": "public_domain",
       "qualityScore": null,
@@ -495287,8 +495374,8 @@
       ],
       "mediatype": "movies",
       "language": null,
-      "imdbID": null,
-      "tmdbID": null,
+      "imdbID": "tt0378377",
+      "tmdbID": 246991,
       "wikidataQID": null,
       "tvmazeID": null,
       "videoFile": {
@@ -495298,19 +495385,40 @@
         "tier": 1
       },
       "downloadURL": "https://archive.org/download/HSF-mov-moon/moon.mp4",
-      "posterURL": "https://archive.org/services/img/HSF-mov-moon",
+      "posterURL": "https://image.tmdb.org/t/p/w780/4e4hbnXdMon08RIWkWMe9PoYvrY.jpg",
       "backdropURL": null,
-      "hasRealArtwork": false,
-      "artworkSource": "archive",
+      "hasRealArtwork": true,
+      "artworkSource": "tmdb",
       "contentType": "short-film",
-      "genres": [],
+      "genres": [
+        "Animation"
+      ],
       "countries": [],
-      "cast": [],
-      "director": null,
+      "cast": [
+        {
+          "name": "Tom Hillenbrand",
+          "character": null,
+          "order": 0,
+          "profilePath": null
+        },
+        {
+          "name": "Robert Llewellyn",
+          "character": null,
+          "order": 1,
+          "profilePath": null
+        },
+        {
+          "name": "Matt Lucas",
+          "character": null,
+          "order": 2,
+          "profilePath": null
+        }
+      ],
+      "director": "Leigh Hodgkinson",
       "producer": null,
       "seriesName": null,
       "network": null,
-      "enrichmentTier": "archiveOnly",
+      "enrichmentTier": "fullyEnriched",
       "shelves": [],
       "rightsStatus": "public_domain",
       "qualityScore": null,
