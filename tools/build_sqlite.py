@@ -252,10 +252,35 @@ SEED_CATALOG = REPO / "ArchiveWatch" / "ArchiveWatch" / "catalog.json"
 SEED_DB = REPO / "ArchiveWatch" / "ArchiveWatch" / "seed.sqlite"
 
 
-def build_db(catalog_path, out_db):
-    """Compile one catalog.json into a SQLite DB at out_db. Returns (cat,
-    n_items, n_series, n_eps)."""
-    cat = json.loads(catalog_path.read_text(encoding="utf-8"))
+# First-paint seed size. The app shows this instantly from the app bundle,
+# then swaps to the full downloaded DB within seconds (Decision 017/018), so
+# the seed only needs enough to make Home + the TV tab look populated.
+SEED_ITEM_LIMIT = 1500
+
+
+def select_seed_items(items):
+    """Pick a small first-paint subset of catalog items: every TV-series card
+    (so the TV tab works offline-first), every shelf-referenced item (so Home's
+    curated shelves paint), plus the top-N by popularity for Browse/hero. The
+    bundled seed is derived from the full catalog so we no longer commit a
+    separate 14 MB seed catalog.json (Decision 018)."""
+    chosen = {}
+    for it in items:
+        aid = it.get("archiveID")
+        if not aid:
+            continue
+        if it.get("contentType") == "tv-series" or it.get("shelves"):
+            chosen[aid] = it
+    ranked = sorted((it for it in items if it.get("archiveID")),
+                    key=lambda it: (it.get("popularityScore") or 0), reverse=True)
+    for it in ranked[:SEED_ITEM_LIMIT]:
+        chosen[it["archiveID"]] = it
+    return list(chosen.values())
+
+
+def build_db_obj(cat, out_db):
+    """Compile an in-memory catalog dict into a SQLite DB at out_db. Returns
+    (cat, n_items, n_series, n_eps)."""
     deduped = dedupe_by_imdb(cat["items"])
     if out_db.exists():
         out_db.unlink()
@@ -277,6 +302,20 @@ def build_db(catalog_path, out_db):
     return cat, n_items, n_series, n_eps
 
 
+def build_db(catalog_path, out_db):
+    """Compile a catalog.json file into a SQLite DB at out_db."""
+    return build_db_obj(json.loads(catalog_path.read_text(encoding="utf-8")), out_db)
+
+
+def build_seed_db(full_catalog_path, out_db):
+    """Build the small bundled seed DB from the FULL catalog's first-paint
+    subset — no separate committed seed catalog.json (Decision 018)."""
+    cat = json.loads(full_catalog_path.read_text(encoding="utf-8"))
+    seed = dict(cat)
+    seed["items"] = select_seed_items(cat["items"])
+    return build_db_obj(seed, out_db)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--no-gzip", action="store_true")
@@ -284,9 +323,16 @@ def main():
                     help="Build only the bundled seed.sqlite (fast, for app dev).")
     args = ap.parse_args()
 
-    # Bundled seed DB — small, ships in the app for instant first paint.
-    if SEED_CATALOG.exists():
+    # Bundled seed DB — small first-paint slice derived from the FULL catalog
+    # (Decision 018: no committed seed catalog.json). Falls back to a legacy
+    # committed seed catalog.json if the full catalog isn't present locally.
+    if FULL_CATALOG.exists():
+        build_seed_db(FULL_CATALOG, SEED_DB)
+    elif SEED_CATALOG.exists():
         build_db(SEED_CATALOG, SEED_DB)
+    else:
+        print("[sqlite] no catalog.json found to build the seed from", flush=True)
+        return 1
     if args.seed_only:
         return 0
 
