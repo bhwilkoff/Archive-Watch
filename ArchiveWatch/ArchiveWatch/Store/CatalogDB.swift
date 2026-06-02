@@ -222,9 +222,10 @@ final class CatalogDB {
     }
 
     /// Count of items in a registered collection (CollectionsView card count).
+    /// scalarRows returns (col0 text, col1 int) — put the count in col1.
     func collectionCount(_ collection: String) -> Int {
         scalarRows("""
-            SELECT COUNT(*), 0 FROM item_collections c JOIN items i USING(archiveID)
+            SELECT '', COUNT(*) FROM item_collections c JOIN items i USING(archiveID)
             WHERE c.collection = ? \(adultAnd)
         """, [collection]).first?.1 ?? 0
     }
