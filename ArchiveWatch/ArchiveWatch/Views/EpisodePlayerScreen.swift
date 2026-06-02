@@ -21,8 +21,23 @@ struct EpisodePlayerScreen: View {
     @State private var currentEpisode: Episode
     @State private var player: AVPlayer?
     @State private var timeObserver: Any?
+    @State private var statusObserver: NSKeyValueObservation?
+    @State private var timeoutTask: Task<Void, Never>?
+    @State private var playback: PlaybackState = .loading
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
+
+    // A genuinely broken item (bad/missing URL, decode failure, or a load
+    // that never readies) must not sit on an indefinite spinner — surface a
+    // clear, actionable state. (CLAUDE.md: error states must be user-visible.)
+    private enum PlaybackState: Equatable {
+        case loading
+        case ready
+        case failed(String)
+    }
+    // If the item hasn't reached readyToPlay within this window, treat it as
+    // failed. Generous: cold Archive nodes can take 8-15s to first frame.
+    private let loadTimeout: Duration = .seconds(30)
 
     init(series: Series, initialEpisode: Episode) {
         self.series = series
@@ -33,7 +48,9 @@ struct EpisodePlayerScreen: View {
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
-            if let player {
+            if case .failed(let message) = playback {
+                failureView(message)
+            } else if let player {
                 // AVPlayerViewController (same as the film player) — robust on
                 // tvOS and shows a native buffering spinner while large Archive
                 // MP4s load (8-15s for some), so a slow start doesn't read as a
@@ -56,13 +73,90 @@ struct EpisodePlayerScreen: View {
         }
     }
 
+    // MARK: - Failure state
+
+    @ViewBuilder
+    private func failureView(_ message: String) -> some View {
+        VStack(spacing: 24) {
+            Image(systemName: "exclamationmark.triangle")
+                .font(.system(size: 64))
+                .foregroundStyle(.yellow)
+            Text("Can't play this episode")
+                .font(.system(size: 38, weight: .bold))
+                .foregroundStyle(.white)
+            Text(message)
+                .font(.system(size: 24))
+                .foregroundStyle(.white.opacity(0.7))
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: 900)
+            HStack(spacing: 20) {
+                Button {
+                    teardownPlayer(finalPersist: false)
+                    playback = .loading
+                    setupPlayer(for: currentEpisode)
+                } label: {
+                    Label("Try Again", systemImage: "arrow.clockwise")
+                        .font(.system(size: 24, weight: .semibold))
+                        .padding(.horizontal, 28)
+                        .padding(.vertical, 12)
+                }
+                .buttonStyle(.borderedProminent)
+
+                Button {
+                    dismiss()
+                } label: {
+                    Text("Back")
+                        .font(.system(size: 24, weight: .semibold))
+                        .padding(.horizontal, 28)
+                        .padding(.vertical, 12)
+                }
+                .buttonStyle(.bordered)
+            }
+            .padding(.top, 12)
+        }
+    }
+
     // MARK: - Player lifecycle
 
     private func setupPlayer(for episode: Episode) {
-        guard let url = episode.videoURLParsed else { return }
+        guard let url = episode.videoURLParsed else {
+            playback = .failed("This episode doesn't have a playable video link.")
+            return
+        }
+        playback = .loading
         let item = AVPlayerItem(url: url)
         let p = AVPlayer(playerItem: item)
         player = p
+
+        // Watch the item reach readyToPlay or fail, so a broken stream becomes
+        // a visible error instead of a forever-spinner. KVO can fire off-main;
+        // hop back to the main actor before touching view state.
+        statusObserver = item.observe(\.status, options: [.new]) { observed, _ in
+            Task { @MainActor in
+                switch observed.status {
+                case .readyToPlay:
+                    playback = .ready
+                    timeoutTask?.cancel()
+                case .failed:
+                    let detail = observed.error?.localizedDescription
+                        ?? "The video couldn't be loaded."
+                    playback = .failed(detail)
+                    timeoutTask?.cancel()
+                default:
+                    break
+                }
+            }
+        }
+
+        // Backstop: if the item never readies (silent stall), fail visibly.
+        timeoutTask?.cancel()
+        timeoutTask = Task { @MainActor in
+            try? await Task.sleep(for: loadTimeout)
+            guard !Task.isCancelled else { return }
+            if playback == .loading {
+                playback = .failed("This episode is taking too long to load. The source may be temporarily unavailable.")
+            }
+        }
 
         // Seek to last-known progress for this particular episode
         let archiveID = episode.archiveID
@@ -113,6 +207,10 @@ struct EpisodePlayerScreen: View {
         player?.pause()
         player = nil
         timeObserver = nil
+        statusObserver?.invalidate()
+        statusObserver = nil
+        timeoutTask?.cancel()
+        timeoutTask = nil
     }
 
     private func persistProgress(at position: Double, duration: Double?,

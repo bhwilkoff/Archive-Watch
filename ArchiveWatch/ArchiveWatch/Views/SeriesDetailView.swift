@@ -22,8 +22,13 @@ struct SeriesDetailView: View {
     @State private var isLoading = true
     @State private var loadError = false
     @State private var selectedSeasonIndex: Int = 0
-    @State private var isPlaying = false
-    @State private var startingEpisode: Episode?
+    // Presentation is driven by the episode itself via fullScreenCover(item:)
+    // — NOT a separate isPresented Bool. Holding the episode in one @State and
+    // a presentation Bool in another races: setting both in a tap handler does
+    // not guarantee the episode is committed before the cover's content closure
+    // evaluates, so the cover could present with a nil episode (black screen,
+    // "does nothing"). item: makes the episode the single source of truth.
+    @State private var playingEpisode: Episode?
     @FocusState private var focusedEpisode: String?
 
     var body: some View {
@@ -34,9 +39,11 @@ struct SeriesDetailView: View {
             }
         }
         .background(Color.black.ignoresSafeArea())
-        .fullScreenCover(isPresented: $isPlaying) {
-            if let series, let startingEpisode {
-                EpisodePlayerScreen(series: series, initialEpisode: startingEpisode)
+        .fullScreenCover(item: $playingEpisode) { episode in
+            if let series {
+                EpisodePlayerScreen(series: series, initialEpisode: episode)
+            } else {
+                Color.black.ignoresSafeArea()
             }
         }
         .task(id: seriesCard.archiveID) {
@@ -260,8 +267,7 @@ struct SeriesDetailView: View {
         LazyVGrid(columns: episodeCols, alignment: .leading, spacing: 36) {
             ForEach(episodes) { ep in
                 EpisodeCard(episode: ep) {
-                    startingEpisode = ep
-                    isPlaying = true
+                    playingEpisode = ep
                 }
                 .focused($focusedEpisode, equals: ep.archiveID)
             }
