@@ -681,6 +681,7 @@ def main():
     rows = []
     written = 0
     reclassify = []     # archiveIDs to drop from tv-series (singles w/ no map)
+    orphan_series = []  # existing series-file slugs whose show was rejected
     seen_slugs = set()
     for sid, slot in sorted(shows.items(), key=lambda kv: -len(kv[1]["items"])):
         series, row = rebuild_show(slot["show"], slot["items"],
@@ -705,10 +706,16 @@ def main():
                 json.dumps(series, ensure_ascii=False, indent=1), encoding="utf-8")
             written += 1
         elif not series:
-            # Matched a show but couldn't place any item (whole-show singles):
-            # flag the single items for reclassification out of tv-series.
+            # Matched a show but produced no series — either a whole-show
+            # single (avail=0) or a rejected mismap (issue #7). Flag the items
+            # for reclassification, and mark any EXISTING series file folded in
+            # here as an orphan so reconcile deletes it instead of re-carding
+            # the stale/mismapped show (e.g. now-what-2002.json).
             for it in slot["items"]:
                 reclassify.append(it.get("archiveID"))
+            for ref in slot["refs"]:
+                if ref["kind"] == "series":
+                    orphan_series.append(ref["ref"])
 
     # Unmatched singles also need reclassification (they aren't series at all).
     placeable = sum(1 for r in rows if r.get("availableEps", 0) > 0)
@@ -722,6 +729,7 @@ def main():
         REPORT.write_text(json.dumps({
             "shows": rows,
             "reclassifyArchiveIDs": reclassify,
+            "orphanSeriesSlugs": orphan_series,
             "unmatched": [{"title": t, "year": y, "items": n, "kind": k, "ref": r}
                           for t, y, n, k, r in unmatched],
         }, ensure_ascii=False, indent=1))
