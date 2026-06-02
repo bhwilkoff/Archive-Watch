@@ -47,6 +47,9 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		B7AC53CF2F93BA0300F50803 /* ArchiveWatch */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				B7AC53E02F93BA0300F50803 /* Exceptions */,
+			);
 			path = ArchiveWatch;
 			sourceTree = "<group>";
 		};
@@ -56,6 +59,16 @@
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		B7AC53E02F93BA0300F50803 /* Exceptions */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				catalog.json,
+			);
+			target = B7AC53CC2F93BA0300F50803 /* ArchiveWatch */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B7AC53CA2F93BA0300F50803 /* Frameworks */ = {

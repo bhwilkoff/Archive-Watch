@@ -4,9 +4,6 @@ import SwiftUI
 @Observable
 final class AppStore {
 
-    var catalog: Catalog? {
-        didSet { rebuildDerived() }
-    }
     var featured: Featured?
     var loadError: String?
 
@@ -19,17 +16,16 @@ final class AppStore {
     /// on it can refresh via `.task(id:)`.
     private(set) var dbGeneration = 0
 
-    // Decision 012: items in adult-content collections are filtered out by
-    // default on this shared 10-foot device; a Settings toggle opts back
-    // in. Persisted so the choice survives launches. Flipping it re-derives
-    // every shelf/grid through the same single chokepoint (rebuildDerived)
-    // as a catalog assignment, so the filter can never be half-applied.
+    // Decision 012: adult-content items are hidden by default on this shared
+    // 10-foot device; a Settings toggle opts back in. The filter is an isAdult
+    // column + WHERE clause in the DB (CatalogDB.hideAdult), computed at build
+    // from featured.json.adultCollections — set on DB swap + toggle. Bumping
+    // dbGeneration re-queries every db-backed view.
     var hideAdultContent: Bool = AppStore.loadHideAdultDefault() {
         didSet {
             UserDefaults.standard.set(hideAdultContent, forKey: Self.hideAdultKey)
             db?.hideAdult = hideAdultContent
-            dbGeneration += 1            // nudge db-backed views to re-query
-            rebuildDerived()
+            dbGeneration += 1
         }
     }
     private static let hideAdultKey = "hideAdultContent"
@@ -37,119 +33,6 @@ final class AppStore {
         // First launch (no stored value) → ON. Default-deny for a TV.
         guard UserDefaults.standard.object(forKey: hideAdultKey) != nil else { return true }
         return UserDefaults.standard.bool(forKey: hideAdultKey)
-    }
-
-    /// The catalog's items with the adult filter already applied. THIS is
-    /// what every view should read instead of `catalog.items` directly, so
-    /// the Decision 012 filter cannot be bypassed by a view that forgets.
-    private(set) var visibleItems: [Catalog.Item] = []
-
-    // Derived structures, rebuilt once per catalog assignment so
-    // downstream views never re-filter 31k items on body recompute.
-    // The old pattern — computed `items(forShelf:)` scanning catalog
-    // items per call — cost 670k iterations per HomeView render (21
-    // shelves × 31k items). Now it's an O(1) dict lookup.
-    private(set) var shelfMembers: [String: [Catalog.Item]] = [:]
-    private(set) var availableDecades: [Int] = []
-    private(set) var decadeCounts: [Int: Int] = [:]
-    private(set) var topGenres: [String] = []
-    /// Everything except tv-series cards — what Browse's grid shows.
-    private(set) var browseableItems: [Catalog.Item] = []
-    /// Just the series cards — for future series-specific entry points.
-    private(set) var seriesCards: [Catalog.Item] = []
-
-    private func rebuildDerived() {
-        guard let allItems = catalog?.items else {
-            shelfMembers = [:]; availableDecades = []; decadeCounts = [:]
-            topGenres = []; browseableItems = []; seriesCards = []
-            visibleItems = []
-            return
-        }
-
-        // Apply the Decision 012 adult filter ONCE, here, so every derived
-        // structure below — and `visibleItems` that views read — is built
-        // from the same already-filtered set.
-        let markers = adultMarkers
-        let filtered: [Catalog.Item] = (hideAdultContent && !markers.isEmpty)
-            ? allItems.filter { !Self.isAdult($0, markers: markers) }
-            : allItems
-        // Collapse duplicate uploads of the same film — Archive often has the
-        // same title 3-5x (original, colorized, HD, iPod...). They share an
-        // IMDb id, so we surface the single best copy and hide the rest from
-        // every derived list at once. Catalog data is untouched (the alternate
-        // uploads remain available); only the displayed set is deduped.
-        let items = Self.dedupedByIMDb(filtered)
-        self.visibleItems = items
-
-        // Split series cards from everything else — they have different
-        // semantics (no direct playable URL, route to SeriesDetailView).
-        var series: [Catalog.Item] = []
-        var regular: [Catalog.Item] = []
-        var decadeTally: [Int: Int] = [:]
-        var genreCounts: [String: Int] = [:]
-        var shelves: [String: [Catalog.Item]] = [:]
-
-        for it in items {
-            // A real series card has a seriesID set by the exporter.
-            // Items with contentType == "tv-series" but no seriesID
-            // are individual TV-episode uploads that didn't pass
-            // clustering (singletons, uncertain titles); those belong
-            // in the regular pool so they appear in browse/search as
-            // single playable items rather than empty "series".
-            if it.contentType == "tv-series", it.seriesID != nil {
-                series.append(it)
-            } else {
-                regular.append(it)
-            }
-            if let d = it.decade { decadeTally[d, default: 0] += 1 }
-            for g in it.genres where !g.isEmpty {
-                genreCounts[g, default: 0] += 1
-            }
-            for s in it.shelves {
-                shelves[s, default: []].append(it)
-            }
-        }
-
-        self.seriesCards = series
-        self.browseableItems = regular
-        self.decadeCounts = decadeTally
-        self.availableDecades = decadeTally.keys.sorted()
-        self.topGenres = genreCounts
-            .sorted { lhs, rhs in
-                lhs.value == rhs.value ? lhs.key < rhs.key : lhs.value > rhs.value
-            }
-            .prefix(24)
-            .map { $0.key }
-        self.shelfMembers = shelves
-    }
-
-    /// Keep the best single item per IMDb id; items without an IMDb id are all
-    /// kept (we can't tell them apart). "Best" prefers a designed poster, full
-    /// enrichment, a playable MP4, then vote count — with archiveID as a final
-    /// stable tiebreak so the chosen copy never flickers between launches.
-    static func dedupedByIMDb(_ items: [Catalog.Item]) -> [Catalog.Item] {
-        func score(_ i: Catalog.Item) -> (Int, Int, String) {
-            var r = 0
-            if i.hasDesignedArtwork { r += 8 }
-            if i.enrichmentTier == "fullyEnriched" { r += 4 }
-            if (i.downloadURL ?? "").lowercased().hasSuffix(".mp4") { r += 2 }
-            if i.runtimeSeconds != nil { r += 1 }
-            return (r, i.imdbVotes ?? 0, i.archiveID)
-        }
-        var best: [String: Catalog.Item] = [:]
-        for it in items {
-            guard let id = it.imdbID, !id.isEmpty else { continue }
-            if let cur = best[id] {
-                if score(it) > score(cur) { best[id] = it }
-            } else {
-                best[id] = it
-            }
-        }
-        let winners = Set(best.values.map(\.archiveID))
-        return items.filter { it in
-            guard let id = it.imdbID, !id.isEmpty else { return true }
-            return winners.contains(it.archiveID)
-        }
     }
 
     func loadBundledData() async {
@@ -218,12 +101,9 @@ final class AppStore {
         }
     }
 
-    /// Items assigned to the given shelf id. Prefers the SQLite DB (Decision
-    /// 017) when available, falling back to the precomputed JSON dict during
-    /// the migration.
+    /// Items assigned to the given shelf id (SQLite, Decision 017).
     func items(forShelf shelfID: String) -> [Catalog.Item] {
-        if let db { return db.shelf(shelfID) }
-        return shelfMembers[shelfID] ?? []
+        db?.shelf(shelfID) ?? []
     }
 
     // MARK: - SQLite-backed queries (Decision 017)
@@ -265,27 +145,6 @@ final class AppStore {
     func accentColor(forCategory id: String?) -> Color {
         guard let id, let hex = featured?.category(id: id)?.accent else { return .accentColor }
         return Color(hex: hex) ?? .accentColor
-    }
-
-    // MARK: - Adult-content filter (Decision 012)
-
-    /// Adult-content markers from `featured.json.adultCollections`, lowercased.
-    /// We deliberately drop the `"fav-"` entry: it's a per-user favorites
-    /// prefix that nearly every popular title carries, not an adult signal —
-    /// treating it as one would hide most of the catalog. Falls back to a
-    /// built-in marker list if `featured.json` omits the field.
-    private var adultMarkers: [String] {
-        let raw = featured?.adultCollections
-            ?? ["pron", "adult", "erotica", "sexploitation", "nudism", "mature-content"]
-        return raw.map { $0.lowercased() }.filter { $0 != "fav-" }
-    }
-
-    /// True when any of the item's collection ids contains an adult marker.
-    private static func isAdult(_ item: Catalog.Item, markers: [String]) -> Bool {
-        item.collections.contains { col in
-            let c = col.lowercased()
-            return markers.contains { c.contains($0) }
-        }
     }
 }
 

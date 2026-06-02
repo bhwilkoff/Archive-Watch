@@ -22,7 +22,8 @@ enum LayoutCheck {
     /// Entry point. Call once at app launch (from RootView.onAppear)
     /// when the catalog is loaded. Logs its findings and returns.
     static func runAll(store: AppStore) {
-        guard let items = store.catalog?.items, !items.isEmpty else {
+        let items = store.dbBrowse(limit: 200)   // sample for layout checks (Decision 017)
+        guard !items.isEmpty else {
             log("skipped — catalog empty")
             return
         }
