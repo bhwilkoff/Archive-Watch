@@ -108,13 +108,10 @@ def create_schema(db):
       contentRating TEXT, language TEXT, network TEXT,
       seriesID TEXT, yearEnd INTEGER, seasonsCount INTEGER, episodesCount INTEGER
     );
-    CREATE TABLE item_detail (
-      archiveID TEXT PRIMARY KEY, synopsis TEXT, cast_json TEXT,
-      subjects_json TEXT, genres_json TEXT, countries_json TEXT,
-      backdropURL TEXT, videoFile_json TEXT, downloadURL TEXT,
-      director TEXT, producer TEXT, seriesName TEXT, creator TEXT,
-      networks_json TEXT
-    );
+    -- Full item as JSON in a side table so the lean `items` table stays small
+    -- for scalar WHERE/ORDER scans; the app JOINs this only for the handful of
+    -- rows a screen actually shows and decodes them with the existing Codable.
+    CREATE TABLE item_json (archiveID TEXT PRIMARY KEY, json TEXT);
     CREATE TABLE item_genres (archiveID TEXT, genre TEXT);
     CREATE TABLE item_shelves (shelfID TEXT, archiveID TEXT, position INTEGER);
     CREATE TABLE series (
@@ -135,7 +132,7 @@ def create_schema(db):
 
 
 def populate_items(db, items):
-    item_rows, detail_rows, genre_rows, shelf_rows, fts_rows = [], [], [], [], []
+    item_rows, json_rows, genre_rows, shelf_rows, fts_rows = [], [], [], [], []
     for it in items:
         aid = it["archiveID"]
         item_rows.append((
@@ -149,13 +146,7 @@ def populate_items(db, items):
             _t(it.get("network")), _t(it.get("seriesID")), it.get("yearEnd"),
             it.get("seasonsCount"), it.get("episodesCount"),
         ))
-        detail_rows.append((
-            aid, _t(it.get("synopsis")), jdump(it.get("cast")), jdump(it.get("subjects")),
-            jdump(it.get("genres")), jdump(it.get("countries")), _t(it.get("backdropURL")),
-            jdump(it.get("videoFile")), _t(it.get("downloadURL")), _t(it.get("director")),
-            _t(it.get("producer")), _t(it.get("seriesName")), _t(it.get("creator")),
-            jdump(it.get("networks")),
-        ))
+        json_rows.append((aid, json.dumps(it, ensure_ascii=False, separators=(",", ":"))))
         for g in (it.get("genres") or []):
             if g:
                 genre_rows.append((aid, g))
@@ -167,7 +158,7 @@ def populate_items(db, items):
         fts_rows.append((aid, it.get("title") or "", names))
 
     db.executemany("INSERT OR IGNORE INTO items VALUES (%s)" % ",".join("?" * 23), item_rows)
-    db.executemany("INSERT OR IGNORE INTO item_detail VALUES (%s)" % ",".join("?" * 14), detail_rows)
+    db.executemany("INSERT OR IGNORE INTO item_json VALUES (?,?)", json_rows)
     db.executemany("INSERT INTO item_genres VALUES (?,?)", genre_rows)
     db.executemany("INSERT INTO item_shelves VALUES (?,?,?)", shelf_rows)
     db.executemany("INSERT INTO items_fts VALUES (?,?,?)", fts_rows)
