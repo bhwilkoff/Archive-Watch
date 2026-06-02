@@ -130,18 +130,18 @@ def extract_series_title(title):
     APIs can match the show."""
     if not title: return ""
     t = str(title)
-    # 1. Quoted episode name — everything after (and including) the first
-    #    quotation mark is episode-level chrome. '"Thriller" Caldera' is
-    #    the one exception where the quote STARTS the title; handle by
-    #    stripping leading+trailing quotes first.
+    # 1. Quoted episode name — chrome that follows a quotation mark. Cut at an
+    #    inner DOUBLE quote always. Cut at a SINGLE quote ONLY when it opens a
+    #    quoted phrase (preceded by whitespace) — never at a contraction or
+    #    possessive apostrophe, which would butcher "What's My Line" -> "What",
+    #    "I've Got a Secret" -> "I", "O'Brien" -> "O".
     t_stripped = t.strip().strip('"').strip("'").strip()
-    if '"' in t_stripped or "'" in t_stripped:
-        # If there's a lingering inner quote, cut at it.
-        for q in ('"', "'"):
-            idx = t_stripped.find(q)
-            if idx > 0:
-                t_stripped = t_stripped[:idx]
-                break
+    idx = t_stripped.find('"')
+    if idx > 0:
+        t_stripped = t_stripped[:idx]
+    m = re.search(r"\s'", t_stripped)
+    if m:
+        t_stripped = t_stripped[:m.start()]
     t = t_stripped
     # 2. Cut at episode/part separators.
     for sep in (" - Episode", " - episode", " Episode #", " episode #",
