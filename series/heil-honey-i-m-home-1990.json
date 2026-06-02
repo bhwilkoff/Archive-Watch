@@ -1,68 +1,65 @@
 {
-  "version": 2,
-  "seriesID": "heil-honey-i-m-home-1990",
-  "tvmazeID": 73720,
-  "title": "Heil Honey I'm Home!",
-  "yearStart": 1990,
-  "yearEnd": 1990,
-  "overview": "Suburban dwellers, Adolf Hitler and Eva Braun, are less than pleased to discover that their new neighbours, the Goldensteins, are Jewish.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/497/1244631.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy",
-    "War",
-    "History"
-  ],
-  "networks": [
-    "Galaxy"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "heil-honey-i-m-home-1990",
+ "tvmazeID": 73720,
+ "title": "Heil Honey I'm Home!",
+ "yearStart": 1990,
+ "yearEnd": 1990,
+ "overview": "Suburban dwellers, Adolf Hitler and Eva Braun, are less than pleased to discover that their new neighbours, the Goldensteins, are Jewish.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/497/1244631.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "War",
+  "History"
+ ],
+ "networks": [
+  "Galaxy"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "heil-honey-im-home",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Heil Honey I'm Home",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1990,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Heil Honey I'm Home Full Uncut Episode.mp4",
-            "format": "h.264",
-            "sizeBytes": 148607974,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/heil-honey-im-home/Heil%20Honey%20I%27m%20Home%20Full%20Uncut%20Episode.mp4"
-        },
-        {
-          "archiveID": "heil-honey-animated-intro",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Heil Honey I'm Home (Animated Opening Titles)",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "heil honey.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 1704553,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/heil-honey-animated-intro/heil%20honey.mp4"
-        }
-      ]
+     "archiveID": "heil-honey-im-home",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Heil Honey I'm Home",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1990,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Heil Honey I'm Home Full Uncut Episode.mp4",
+      "format": "h.264",
+      "sizeBytes": 148607974,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/heil-honey-im-home/Heil%20Honey%20I%27m%20Home%20Full%20Uncut%20Episode.mp4"
+    },
+    {
+     "archiveID": "heil-honey-animated-intro",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Heil Honey I'm Home",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "heil honey.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 1704553,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/heil-honey-animated-intro/heil%20honey.mp4"
     }
-  ],
-  "episodesCount": 2,
-  "canonicalEpisodesCount": 1,
-  "seriesImdbID": "tt0259776",
-  "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 1
 }

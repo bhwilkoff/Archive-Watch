@@ -17,6 +17,29 @@
  "creator": null,
  "seasons": [
   {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "yes-minister-1980-1984",
+     "seasonNumber": 3,
+     "episodeNumber": 8,
+     "title": "Yes Minister",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1980,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Yes Minister - S03E08 - Party games.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 1134952690,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/yes-minister-1980-1984/Yes%20Minister%20-%20S03E08%20-%20Party%20games.ia.mp4"
+    }
+   ]
+  },
+  {
    "seasonNumber": null,
    "episodes": [
     {
@@ -36,24 +59,6 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/WishYouWereHere2/Yes%20Prime%20Minister/2x05%20-%20Power%20to%20the%20People.mp4"
-    },
-    {
-     "archiveID": "yes-minister-1980-1984",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Yes Minister (1980 - 1984)",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 1980,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Yes Minister - S03E08 - Party games.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 1134952690,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/yes-minister-1980-1984/Yes%20Minister%20-%20S03E08%20-%20Party%20games.ia.mp4"
     }
    ]
   }

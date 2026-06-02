@@ -270,6 +270,24 @@
    "seasonNumber": 5,
    "episodes": [
     {
+     "archiveID": "suspense-tv-show",
+     "seasonNumber": 5,
+     "episodeNumber": 13,
+     "title": "A Time of Innocence",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1952-12-02",
+     "year": 1952,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Suspense S05E13 Mr.  Matches.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 271742422,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/suspense-tv-show/Suspense%20S05E13%20Mr.%20%20Matches.ia.mp4"
+    },
+    {
      "archiveID": "Suspense--Mr_Matches",
      "seasonNumber": 5,
      "episodeNumber": 19,
@@ -400,24 +418,6 @@
   {
    "seasonNumber": null,
    "episodes": [
-    {
-     "archiveID": "suspense-tv-show",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Suspense TV Show",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Suspense S05E13 Mr.  Matches.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 271742422,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/suspense-tv-show/Suspense%20S05E13%20Mr.%20%20Matches.ia.mp4"
-    },
     {
      "archiveID": "Suspense--Far-Off_House",
      "seasonNumber": null,

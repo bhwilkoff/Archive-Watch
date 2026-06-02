@@ -42,11 +42,11 @@
     {
      "archiveID": "knight.-rider.-s-01-e-04.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
      "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Good Day at White Rock",
-     "overview": "Michael's vacation plans in a peaceful town are interrupted by a gang of malicious bikers and a frightened sheriff.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323019.jpg",
-     "airDate": "1982-10-08",
+     "episodeNumber": 4,
+     "title": "Slammin' Sammy's Stunt Show Spectacular",
+     "overview": "KITT is scheduled to participate in an auto-stunt show whose organizers fall prey to a greedy developer.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323021.jpg",
+     "airDate": "1982-10-22",
      "year": 1982,
      "runtimeSeconds": 3600,
      "videoFile": {
@@ -60,11 +60,11 @@
     {
      "archiveID": "knight.-rider.-s-01-e-05.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
      "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Slammin' Sammy's Stunt Show Spectacular",
-     "overview": "KITT is scheduled to participate in an auto-stunt show whose organizers fall prey to a greedy developer.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323021.jpg",
-     "airDate": "1982-10-22",
+     "episodeNumber": 5,
+     "title": "Just My Bill",
+     "overview": "Michael and KITT guard a controversial senator opposing water power legislation.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/529/1323022.jpg",
+     "airDate": "1982-10-29",
      "year": 1982,
      "runtimeSeconds": 3600,
      "videoFile": {
@@ -128,6 +128,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/knight.-rider.-s-01-e-08.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S01E08.BluRay.1080p.AC3.H265-d3g.mp4"
+    },
+    {
+     "archiveID": "knight-rider-s-01-e-08-1080p-blu-ray-dts-x-264-ctrl-hd",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "Trust Doesn't Rust",
+     "overview": "Michael is assigned to stop KARR, an evil prototype of KITT programmed to survive at all costs--and now on the loose.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/5FWEfZPXTDfXDT7xg5xHhXsTlQ3.jpg",
+     "airDate": null,
+     "year": 1982,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Knight Rider S01E08 1080p BluRay DTS x264-CtrlHD.mp4",
+      "format": "h.264",
+      "sizeBytes": 276912069,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/knight-rider-s-01-e-08-1080p-blu-ray-dts-x-264-ctrl-hd/Knight Rider S01E08 1080p BluRay DTS x264-CtrlHD.mp4"
     },
     {
      "archiveID": "knight.-rider.-s-01-e-09.-blu-ray.-1080p-ac-3.-h-265-d-3g",
@@ -601,6 +619,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/289355027/289355027.mp4"
+    },
+    {
+     "archiveID": "knight.-rider.-s-02-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
+     "seasonNumber": 2,
+     "episodeNumber": 13,
+     "title": "Diamonds Aren't a Girl's Best Friend",
+     "overview": "Michael heads for Mexico to trap a talent agent who's using beautiful models to smuggle diamonds into the U.S.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/sgihXKkd2uR90COEXHo8CRHHIjo.jpg",
+     "airDate": null,
+     "year": 1984,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Knight.Rider.S02E13.BluRay.1080p.AC3.H265-d3g.mp4",
+      "format": "h.264",
+      "sizeBytes": 284590167,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E13.BluRay.1080p.AC3.H265-d3g.mp4"
     },
     {
      "archiveID": "knight.-rider.-s-02-e-15.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
@@ -1529,47 +1565,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/knight.-rider.-s-04-e-22.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S04E22.BluRay.1080p.AC3.H265-d3g.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "knight.-rider.-s-02-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Diamonds Aren't a Girl's Best Friend",
-     "overview": "Michael heads for Mexico to trap a talent agent who's using beautiful models to smuggle diamonds into the U.S.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/sgihXKkd2uR90COEXHo8CRHHIjo.jpg",
-     "airDate": null,
-     "year": 1984,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Knight.Rider.S02E13.BluRay.1080p.AC3.H265-d3g.mp4",
-      "format": "h.264",
-      "sizeBytes": 284590167,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight.-rider.-s-02-e-13.-blu-ray.-1080p.-ac-3.-h-265-d-3g/Knight.Rider.S02E13.BluRay.1080p.AC3.H265-d3g.mp4"
-    },
-    {
-     "archiveID": "knight-rider-s-01-e-08-1080p-blu-ray-dts-x-264-ctrl-hd",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Trust Doesn't Rust",
-     "overview": "Michael is assigned to stop KARR, an evil prototype of KITT programmed to survive at all costs--and now on the loose.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/5FWEfZPXTDfXDT7xg5xHhXsTlQ3.jpg",
-     "airDate": null,
-     "year": 1982,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Knight Rider S01E08 1080p BluRay DTS x264-CtrlHD.mp4",
-      "format": "h.264",
-      "sizeBytes": 276912069,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/knight-rider-s-01-e-08-1080p-blu-ray-dts-x-264-ctrl-hd/Knight Rider S01E08 1080p BluRay DTS x264-CtrlHD.mp4"
     }
    ]
   }

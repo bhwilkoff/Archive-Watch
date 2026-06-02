@@ -17,18 +17,18 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 2,
    "episodes": [
     {
      "archiveID": "benson-complete-tv-series-ctv",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Benson (Complete TV Series) (CTV)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/pXQIwDfMMDF6GVJdgLm68Exm5wo.jpg",
-     "airDate": null,
-     "year": 1979,
-     "runtimeSeconds": null,
+     "seasonNumber": 2,
+     "episodeNumber": 21,
+     "title": "All Shook Up",
+     "overview": "Taking refuge during an earthquake, Benson and Clayton get to know each other better.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/406/1015472.jpg",
+     "airDate": "1981-05-15",
+     "year": 1981,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "Benson - S02E21.ia.mp4",
       "format": "h.264 IA",
@@ -36,7 +36,12 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/benson-complete-tv-series-ctv/Benson - S02E21.ia.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
      "archiveID": "benson-s-01",
      "seasonNumber": null,

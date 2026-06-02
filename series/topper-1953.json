@@ -127,16 +127,11 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/TheSmokingGhostsShow/Topper-GeorgesOldFlame1954.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+    },
     {
      "archiveID": "topper-tv-series",
-     "seasonNumber": null,
-     "episodeNumber": null,
+     "seasonNumber": 1,
+     "episodeNumber": 39,
      "title": "Topper TV Series",
      "overview": null,
      "stillURL": null,
@@ -150,7 +145,12 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/topper-tv-series/Topper%20s01e39%20Georges%20Old%20Flame.ia.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
      "archiveID": "Topper_Decorating",
      "seasonNumber": null,

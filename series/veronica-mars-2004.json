@@ -84,22 +84,17 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/VeronicaSClosetVeronicaGetsHerClosetBackS3E1/Veronica_s-Closet-Veronica-Gets-Her-Closet-Back-_S3E1_.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+    },
     {
      "archiveID": "veronicascloset",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Veronica's Closet (1997-2000) complete series",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/veronicascloset",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
+     "seasonNumber": 3,
+     "episodeNumber": 8,
+     "title": "Lord of the Pi's",
+     "overview": "Selma Rose, the wealthy grand-daughter of the founder of Hearst College and a member of the Hearst College Board of Trustees, mysteriously disappears the night before she is to cast a swing vote that will determine the fate of the Greek system on campus. Keith, with Veronica's help, is hired by Dean O'Dell to investigate the disappearance. Meanwhile, Veronica has been rehired as a photographer at the Hearst Free Press, but she and Logan fight over her involvement in the rape case.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/205/513711.jpg",
+     "airDate": "2006-11-21",
+     "year": 2006,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "S03E08 - Veronica's Sliding Doors.mp4",
       "format": "h.264",
@@ -107,12 +102,17 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/veronicascloset/S03E08 - Veronica's Sliding Doors.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
      "archiveID": "VeronicaSClosetSilentPartnerS1Finale",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Veronica's Closet- Silent Partner (S1 Finale)",
+     "title": "Veronica's Closet- Silent Partner",
      "overview": null,
      "stillURL": "https://archive.org/services/img/VeronicaSClosetSilentPartnerS1Finale",
      "airDate": null,

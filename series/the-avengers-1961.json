@@ -3,8 +3,8 @@
  "seriesID": "the-avengers-1961",
  "tvmazeID": 1929,
  "title": "The Avengers",
- "yearStart": 1963,
- "yearEnd": 2019,
+ "yearStart": 1961,
+ "yearEnd": 1969,
  "overview": "Urbane John Steed and a variety of partners work for an elite organization tasked with investigating criminal and espionage matters within the UK. Their opponents use everything from standard techniques to robots and other science fiction gadgetry.",
  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/543/1357959.jpg",
  "backdropURL": null,
@@ -25,12 +25,12 @@
      "archiveID": "wasp-bikini-scenes-the-avengers-earths-mightiest-heroes-s-01-e-20-1080p",
      "seasonNumber": 1,
      "episodeNumber": 20,
-     "title": "Wasp Bikini Scenes - The Avengers Earth's Mightiest Heroes S01E20",
-     "overview": "A compilation of Wasp's scenes with Hawkeye and the Hulk from the Avengers Earth's Mightiest Heroes episode \"The Casket of Ancient Winters\".<br />",
-     "stillURL": "https://archive.org/services/img/wasp-bikini-scenes-the-avengers-earths-mightiest-heroes-s-01-e-20-1080p",
-     "airDate": null,
-     "year": 2011,
-     "runtimeSeconds": 64,
+     "title": "Tunnel of Fear",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/584/1462249.jpg",
+     "airDate": "1961-08-05",
+     "year": 1961,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "Wasp Bikini Scenes - The Avengers Earth's Mightiest Heroes S01E20 (1080p).ia.mp4",
       "format": "h.264 IA",
@@ -42,67 +42,8 @@
    ]
   },
   {
-   "seasonNumber": 2,
-   "episodes": [
-    {
-     "archiveID": "theavengers2x12thebigthinker",
-     "seasonNumber": 2,
-     "episodeNumber": 12,
-     "title": "The Avengers 2x 12 The Big Thinker",
-     "overview": "Classic TV Series<br />",
-     "stillURL": "https://archive.org/services/img/theavengers2x12thebigthinker",
-     "airDate": null,
-     "year": 1963,
-     "runtimeSeconds": 3117,
-     "videoFile": {
-      "name": "The Avengers - 2x12 - The Big Thinker.mp4",
-      "format": "h.264",
-      "sizeBytes": 324409909,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/theavengers2x12thebigthinker/The%20Avengers%20-%202x12%20-%20The%20Big%20Thinker.mp4"
-    }
-   ]
-  },
-  {
    "seasonNumber": 3,
    "episodes": [
-    {
-     "archiveID": "theavengers3x01briefformurder",
-     "seasonNumber": 3,
-     "episodeNumber": 1,
-     "title": "The Avengers 3 X 01 Brief For Murder",
-     "overview": "Classic TV Series.<br />",
-     "stillURL": "https://archive.org/services/img/theavengers3x01briefformurder",
-     "airDate": null,
-     "year": 1963,
-     "runtimeSeconds": 3165,
-     "videoFile": {
-      "name": "The Avengers - 3X01 - Brief For Murder.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 135846472,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/theavengers3x01briefformurder/The%20Avengers%20-%203X01%20-%20Brief%20For%20Murder.mp4"
-    },
-    {
-     "archiveID": "theavengers3x12dontlookbehindyou",
-     "seasonNumber": 3,
-     "episodeNumber": 12,
-     "title": "The Avengers 3 X 12 Don't Look Behind You",
-     "overview": "Classic TV Series<br />",
-     "stillURL": "https://archive.org/services/img/theavengers3x12dontlookbehindyou",
-     "airDate": null,
-     "year": 1964,
-     "runtimeSeconds": 3113,
-     "videoFile": {
-      "name": "The Avengers - 3X12 - Don't Look Behind You.mp4",
-      "format": "h.264",
-      "sizeBytes": 324067874,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/theavengers3x12dontlookbehindyou/The%20Avengers%20-%203X12%20-%20Don%27t%20Look%20Behind%20You.mp4"
-    },
     {
      "archiveID": "S3E28THEAVENGERS",
      "seasonNumber": 3,
@@ -127,15 +68,33 @@
    "seasonNumber": 4,
    "episodes": [
     {
+     "archiveID": "the-avengers-s-4e-1",
+     "seasonNumber": 4,
+     "episodeNumber": 2,
+     "title": "The Avengers - Season 4",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fQ4GHecDFEAmJcwc10zUrdIDLFd.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "the avengers s4e2.mp4",
+      "format": "h.264",
+      "sizeBytes": 431304534,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the avengers s4e2.mp4"
+    },
+    {
      "archiveID": "theavengerss04e02thegravediggers9october1965",
      "seasonNumber": 4,
      "episodeNumber": 2,
-     "title": "The Avengers S 04 E 02 The Gravediggers 9 October 1965",
-     "overview": "This season and the next are the pinnacle of The Avengers.John Steed and Emma Peel were the best team for the series.And the scripts were witty usually rather than silly and slapstick.",
+     "title": "The Gravediggers",
+     "overview": null,
      "stillURL": "https://archive.org/services/img/theavengerss04e02thegravediggers9october1965",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 3115,
+     "airDate": "1965-10-09",
+     "year": 1965,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "The Avengers S04E02 The Gravediggers 9 October 1965.mp4",
       "format": "MPEG4",
@@ -145,51 +104,15 @@
      "downloadURL": "https://archive.org/download/theavengerss04e02thegravediggers9october1965/The%20Avengers%20S04E02%20The%20Gravediggers%209%20October%201965.mp4"
     },
     {
-     "archiveID": "the-avengers-death-at-bargain-prices-1965",
-     "seasonNumber": 4,
-     "episodeNumber": 4,
-     "title": "The Avengers Death At Bargain Prices 1965",
-     "overview": "A dead colleague leaves THE AVENGERS but one clue to his fate - a department store receipt with a Sunday date. Emma goes undercover in the Women's lingerie while Steed exposes \"Pinter's Secret\": the entire store is an atomic bomb set for wholesale carnage if Britain won't meet the dealer's price. <br />",
-     "stillURL": "https://archive.org/services/img/the-avengers-death-at-bargain-prices-1965",
-     "airDate": null,
-     "year": 1965,
-     "runtimeSeconds": 3101,
-     "videoFile": {
-      "name": "TheAvengers-DeathAtBargainPrices-1965-deinter-720p.mp4",
-      "format": "h.264",
-      "sizeBytes": 308000408,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/the-avengers-death-at-bargain-prices-1965/TheAvengers-DeathAtBargainPrices-1965-deinter-720p.mp4"
-    },
-    {
-     "archiveID": "the-avengers-castle-de-ath-1965",
-     "seasonNumber": 4,
-     "episodeNumber": 5,
-     "title": "The Avengers Castle De'ath 1965",
-     "overview": "Past and collide at Castle De'ath, where methods of modern mayhem are camouflaged within within a medieval chamber of horrors. Join the thoroughly mod Emma Peel and utterly timeless John \"McSteed\" as they fight dirk and claymore against the ancient enemies of mankind - ruthless entrepreneurs. <br />",
-     "stillURL": "https://archive.org/services/img/the-avengers-castle-de-ath-1965",
-     "airDate": null,
-     "year": 1965,
-     "runtimeSeconds": 3130,
-     "videoFile": {
-      "name": "TheAvengers-CastleDe'Ath-1965-deinter-720p.mp4",
-      "format": "h.264",
-      "sizeBytes": 310291258,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/the-avengers-castle-de-ath-1965/TheAvengers-CastleDe%27Ath-1965-deinter-720p.mp4"
-    },
-    {
      "archiveID": "the.avengers.1965.s04e09.the.hour.that.never.was",
      "seasonNumber": 4,
      "episodeNumber": 9,
-     "title": "The. Avengers. 1965. S 04 E 09. The. Hour. That. Never. Was",
-     "overview": "Classic TV Series<br />",
+     "title": "The Hour That Never Was",
+     "overview": null,
      "stillURL": "https://archive.org/services/img/the.avengers.1965.s04e09.the.hour.that.never.was",
-     "airDate": null,
+     "airDate": "1965-11-27",
      "year": 1965,
-     "runtimeSeconds": 3083,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "The.Avengers.1965.S04E09.The.Hour.That.Never.Was.mp4",
       "format": "MPEG4",
@@ -202,12 +125,12 @@
      "archiveID": "theavengerss04e13toomanychristmastrees25december1965",
      "seasonNumber": 4,
      "episodeNumber": 13,
-     "title": "The Avengers S 04 E 13 Too Many Christmas Trees ( 25 December 1965)",
-     "overview": "This is the right time of year for this festive episode.As usual for series 4 this is a very good episode.This was the first series for The Avengers made on film which really helped the show's fortunes.",
+     "title": "Too Many Christmas Trees",
+     "overview": null,
      "stillURL": "https://archive.org/services/img/theavengerss04e13toomanychristmastrees25december1965",
-     "airDate": null,
-     "year": 2019,
-     "runtimeSeconds": 3097,
+     "airDate": "1965-12-25",
+     "year": 1965,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "The_Avengers_-_S04E13_-_Too_Many_Christmas_Trees_(25_December_1965).mp4",
       "format": "MPEG4",
@@ -225,12 +148,12 @@
      "archiveID": "the.avengers.s05e07.the.living.dead",
      "seasonNumber": 5,
      "episodeNumber": 7,
-     "title": "The. Avengers. S 05 E 07. The. Living. Dead",
-     "overview": "The Avengers in color. <br />",
+     "title": "The Living Dead",
+     "overview": null,
      "stillURL": "https://archive.org/services/img/the.avengers.s05e07.the.living.dead",
-     "airDate": null,
+     "airDate": "1967-02-25",
      "year": 1967,
-     "runtimeSeconds": 3077,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "The.Avengers.S05E07.The.Living.Dead.mp4",
       "format": "h.264",
@@ -238,40 +161,17 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/the.avengers.s05e07.the.living.dead/The.Avengers.S05E07.The.Living.Dead.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "the-avengers-s-4e-1",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Avengers - Complete Season 4 (24 Episodes) (restored, colorized) (1966, TV series)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fQ4GHecDFEAmJcwc10zUrdIDLFd.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "the avengers s4e2.mp4",
-      "format": "h.264",
-      "sizeBytes": 431304534,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the avengers s4e2.mp4"
     },
     {
      "archiveID": "the-avengers-s-5e-1-restored-720p-hd",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Avengers - Complete Season 5 (24 Episodes) (restored, in color) (1967, TV series)",
+     "seasonNumber": 5,
+     "episodeNumber": 12,
+     "title": "The Superlative Seven",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/fQ4GHecDFEAmJcwc10zUrdIDLFd.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
+     "airDate": "1967-04-08",
+     "year": 1967,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "the avengers-s5e12restored-720p-hd.ia.mp4",
       "format": "h.264 IA",
@@ -281,11 +181,103 @@
      "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the avengers-s5e12restored-720p-hd.ia.mp4"
     }
    ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "theavengers2x12thebigthinker",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Avengers 2x 12 The Big Thinker",
+     "overview": "Classic TV Series<br />",
+     "stillURL": "https://archive.org/services/img/theavengers2x12thebigthinker",
+     "airDate": null,
+     "year": 1963,
+     "runtimeSeconds": 3117,
+     "videoFile": {
+      "name": "The Avengers - 2x12 - The Big Thinker.mp4",
+      "format": "h.264",
+      "sizeBytes": 324409909,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/theavengers2x12thebigthinker/The%20Avengers%20-%202x12%20-%20The%20Big%20Thinker.mp4"
+    },
+    {
+     "archiveID": "theavengers3x01briefformurder",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Avengers 3 X 01 Brief For Murder",
+     "overview": "Classic TV Series.<br />",
+     "stillURL": "https://archive.org/services/img/theavengers3x01briefformurder",
+     "airDate": null,
+     "year": 1963,
+     "runtimeSeconds": 3165,
+     "videoFile": {
+      "name": "The Avengers - 3X01 - Brief For Murder.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 135846472,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/theavengers3x01briefformurder/The%20Avengers%20-%203X01%20-%20Brief%20For%20Murder.mp4"
+    },
+    {
+     "archiveID": "theavengers3x12dontlookbehindyou",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Avengers 3 X 12 Don't Look Behind You",
+     "overview": "Classic TV Series<br />",
+     "stillURL": "https://archive.org/services/img/theavengers3x12dontlookbehindyou",
+     "airDate": null,
+     "year": 1964,
+     "runtimeSeconds": 3113,
+     "videoFile": {
+      "name": "The Avengers - 3X12 - Don't Look Behind You.mp4",
+      "format": "h.264",
+      "sizeBytes": 324067874,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/theavengers3x12dontlookbehindyou/The%20Avengers%20-%203X12%20-%20Don%27t%20Look%20Behind%20You.mp4"
+    },
+    {
+     "archiveID": "the-avengers-castle-de-ath-1965",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Avengers Castle De'ath 1965",
+     "overview": "Past and collide at Castle De'ath, where methods of modern mayhem are camouflaged within within a medieval chamber of horrors. Join the thoroughly mod Emma Peel and utterly timeless John \"McSteed\" as they fight dirk and claymore against the ancient enemies of mankind - ruthless entrepreneurs. <br />",
+     "stillURL": "https://archive.org/services/img/the-avengers-castle-de-ath-1965",
+     "airDate": null,
+     "year": 1965,
+     "runtimeSeconds": 3130,
+     "videoFile": {
+      "name": "TheAvengers-CastleDe'Ath-1965-deinter-720p.mp4",
+      "format": "h.264",
+      "sizeBytes": 310291258,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-avengers-castle-de-ath-1965/TheAvengers-CastleDe%27Ath-1965-deinter-720p.mp4"
+    },
+    {
+     "archiveID": "the-avengers-death-at-bargain-prices-1965",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Avengers Death At Bargain Prices 1965",
+     "overview": "A dead colleague leaves THE AVENGERS but one clue to his fate - a department store receipt with a Sunday date. Emma goes undercover in the Women's lingerie while Steed exposes \"Pinter's Secret\": the entire store is an atomic bomb set for wholesale carnage if Britain won't meet the dealer's price. <br />",
+     "stillURL": "https://archive.org/services/img/the-avengers-death-at-bargain-prices-1965",
+     "airDate": null,
+     "year": 1965,
+     "runtimeSeconds": 3101,
+     "videoFile": {
+      "name": "TheAvengers-DeathAtBargainPrices-1965-deinter-720p.mp4",
+      "format": "h.264",
+      "sizeBytes": 308000408,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-avengers-death-at-bargain-prices-1965/TheAvengers-DeathAtBargainPrices-1965-deinter-720p.mp4"
+    }
+   ]
   }
  ],
  "episodesCount": 13,
- "canonicalEpisodesCount": 161,
- "seriesImdbID": "tt0054518",
- "canonicalEpisodeCount": 94,
- "canonicalSeasons": 7
+ "canonicalEpisodesCount": 161
 }

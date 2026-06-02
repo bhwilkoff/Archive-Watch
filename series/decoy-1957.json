@@ -129,6 +129,24 @@
      "downloadURL": "https://archive.org/download/DecoyHighSwing/Decoy-highSwing-june31959.ia.mp4"
     },
     {
+     "archiveID": "decoy-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 26,
+     "title": "Decoy TV Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Decoy S01 E26 Earthboud Satellite.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 401135222,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E26%20Earthboud%20Satellite.ia.mp4"
+    },
+    {
      "archiveID": "DecoyEarthboundSatellite",
      "seasonNumber": 1,
      "episodeNumber": 26,
@@ -349,24 +367,6 @@
   {
    "seasonNumber": null,
    "episodes": [
-    {
-     "archiveID": "decoy-tv-series",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Decoy TV Series",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Decoy S01 E26 Earthboud Satellite.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 401135222,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E26%20Earthboud%20Satellite.ia.mp4"
-    },
     {
      "archiveID": "DecoyThePilotEpisode",
      "seasonNumber": null,

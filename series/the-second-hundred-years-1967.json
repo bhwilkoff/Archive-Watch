@@ -1,50 +1,47 @@
 {
-  "version": 2,
-  "seriesID": "the-second-hundred-years-1967",
-  "tvmazeID": 17413,
-  "title": "The Second Hundred Years",
-  "yearStart": 1967,
-  "yearEnd": 1968,
-  "overview": "Prospector Luke Carpenter was frozen in suspended animation in the year 1900 while panning for gold in Alaska. He was successfully thawed and returned home perfectly preserved at 33 years of age and a dead ringer for his 33-year-old grandson Ken. Luke moves in with his 67-year-old son Edwin, and tries to adjust to normal life while keeping his exact identity a secret.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/116/290604.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy",
-    "Adventure",
-    "Science-Fiction"
-  ],
-  "networks": [
-    "ABC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-second-hundred-years-1967",
+ "tvmazeID": 17413,
+ "title": "The Second Hundred Years",
+ "yearStart": 1967,
+ "yearEnd": 1968,
+ "overview": "Prospector Luke Carpenter was frozen in suspended animation in the year 1900 while panning for gold in Alaska. He was successfully thawed and returned home perfectly preserved at 33 years of age and a dead ringer for his 33-year-old grandson Ken. Luke moves in with his 67-year-old son Edwin, and tries to adjust to normal life while keeping his exact identity a secret.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/116/290604.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Adventure",
+  "Science-Fiction"
+ ],
+ "networks": [
+  "ABC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "the-second-hundred-years-ep.-23-dead-hand-luke-convert-video-online.com",
-          "seasonNumber": 1,
-          "episodeNumber": 23,
-          "title": "Dude Hand Luke",
-          "overview": null,
-          "stillURL": null,
-          "airDate": "1968-02-21",
-          "year": 1968,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "The Second Hundred Years (Ep. 23, Dead Hand Luke) (convert-video-online.com).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 356110751,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-second-hundred-years-ep.-23-dead-hand-luke-convert-video-online.com/The%20Second%20Hundred%20Years%20%28Ep.%2023%2C%20Dead%20Hand%20Luke%29%20%28convert-video-online.com%29.ia.mp4"
-        }
-      ]
+     "archiveID": "the-second-hundred-years-ep.-23-dead-hand-luke-convert-video-online.com",
+     "seasonNumber": 1,
+     "episodeNumber": 23,
+     "title": "Dude Hand Luke",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1968-02-21",
+     "year": 1968,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Second Hundred Years (Ep. 23, Dead Hand Luke) (convert-video-online.com).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 356110751,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-second-hundred-years-ep.-23-dead-hand-luke-convert-video-online.com/The%20Second%20Hundred%20Years%20%28Ep.%2023%2C%20Dead%20Hand%20Luke%29%20%28convert-video-online.com%29.ia.mp4"
     }
-  ],
-  "episodesCount": 1,
-  "canonicalEpisodesCount": 26,
-  "seriesImdbID": "tt0061293",
-  "canonicalEpisodeCount": 18,
-  "canonicalSeasons": 1
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 26
 }

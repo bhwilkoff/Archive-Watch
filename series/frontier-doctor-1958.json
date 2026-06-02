@@ -52,7 +52,7 @@
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
      "airDate": null,
-     "year": 1956,
+     "year": null,
      "runtimeSeconds": 1573,
      "videoFile": {
       "name": "Frontier Doctor - Danger Valley.mp4",
@@ -178,7 +178,7 @@
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
      "airDate": null,
-     "year": 1956,
+     "year": null,
      "runtimeSeconds": 1501,
      "videoFile": {
       "name": "FrontierDoctor-The Homesteaders.mp4",
@@ -214,7 +214,7 @@
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
      "airDate": null,
-     "year": 1956,
+     "year": null,
      "runtimeSeconds": 1556,
      "videoFile": {
       "name": "frontierdoctortwistedroad.mp4",
@@ -232,7 +232,7 @@
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
      "airDate": null,
-     "year": 1956,
+     "year": null,
      "runtimeSeconds": 1524,
      "videoFile": {
       "name": "Frontier Doctor - Illegal Entry.mp4",

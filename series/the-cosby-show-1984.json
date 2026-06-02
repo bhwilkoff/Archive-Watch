@@ -1,113 +1,105 @@
 {
-  "version": 2,
-  "seriesID": "the-cosby-show-1984",
-  "tvmazeID": 2084,
-  "title": "The Cosby Show",
-  "yearStart": 1990,
-  "yearEnd": 1990,
-  "overview": "The show focuses on the Huxtables, an affluent African-American family living and growing up in Brooklyn, New York.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/313/782979.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy",
-    "Family"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-cosby-show-1984",
+ "tvmazeID": 2084,
+ "title": "The Cosby Show",
+ "yearStart": 1984,
+ "yearEnd": 1992,
+ "overview": "The show focuses on the Huxtables, an affluent African-American family living and growing up in Brooklyn, New York.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/313/782979.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Family"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "kvbc-ch-3-1990-cosby-show-promo-robin-givens-episode",
-          "seasonNumber": 2,
-          "episodeNumber": 5,
-          "title": "KVBC Ch. 3 - (1990) The Cosby Show - \"Theo and the Older Woman\" Promo Commercial",
-          "overview": "This is for the syndicated version of The Cosby Show that aired on local TV stations, like KVBC Ch. 3, during the run of The Cosby Show on NBC. In this episode, Theo's situation for comedy is falling for an Older Woman, played by Robin Givens, ex-wife of Mike Tyson, part of the cast of ABC sitcom Head of the Class, and co-star with Eddie Murphy on Boomerang.",
-          "stillURL": "https://archive.org/services/img/kvbc-ch-3-1990-cosby-show-promo-robin-givens-episode",
-          "airDate": null,
-          "year": 1990,
-          "runtimeSeconds": 30,
-          "videoFile": {
-            "name": "KVBC Ch 3 - 1990 - Cosby Show Promo - Robin Givens Episode.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 11063106,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/kvbc-ch-3-1990-cosby-show-promo-robin-givens-episode/KVBC%20Ch%203%20-%201990%20-%20Cosby%20Show%20Promo%20-%20Robin%20Givens%20Episode.mp4"
-        }
-      ]
+     "archiveID": "the-cosby-show-complete-series_202512",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "Halloween",
+     "overview": "Vanessa has a boy/girl Halloween party at home. Cliff takes Rudy and her friends trick or treating.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/313/782803.jpg",
+     "airDate": "1985-10-31",
+     "year": 1985,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Cosby Show S02E06 Halloween.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 72052810,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-cosby-show-complete-series_202512/The%20Cosby%20Show%20S02E06%20Halloween.mp4"
     },
     {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "the-cosby-show-3x-03-golden-anniversary_20250802",
-          "seasonNumber": 3,
-          "episodeNumber": 3,
-          "title": "The Cosby Show 3x 03 Golden Anniversary",
-          "overview": "Cosby Show S3",
-          "stillURL": "https://archive.org/services/img/the-cosby-show-3x-03-golden-anniversary_20250802",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1480,
-          "videoFile": {
-            "name": "The Cosby Show - 3x18 - You Only Hurt the One You Love.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 151112550,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-cosby-show-3x-03-golden-anniversary_20250802/The%20Cosby%20Show%20-%203x18%20-%20You%20Only%20Hurt%20the%20One%20You%20Love.ia.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "the-cosby-show-complete-series_202512",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Cosby Show: The Complete Series",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The Cosby Show S02E06 Halloween.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 72052810,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-cosby-show-complete-series_202512/The%20Cosby%20Show%20S02E06%20Halloween.mp4"
-        },
-        {
-          "archiveID": "the-cosby-show-complete-series_202602",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Cosby Show: The Complete Series",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The Cosby Show S02E06 - Halloween.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 72052810,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-cosby-show-complete-series_202602/The%20Cosby%20Show%20S02E06%20-%20Halloween.mp4"
-        }
-      ]
+     "archiveID": "the-cosby-show-complete-series_202602",
+     "seasonNumber": 2,
+     "episodeNumber": 6,
+     "title": "The Cosby Show",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Cosby Show S02E06 - Halloween.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 72052810,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-cosby-show-complete-series_202602/The%20Cosby%20Show%20S02E06%20-%20Halloween.mp4"
     }
-  ],
-  "episodesCount": 4,
-  "canonicalEpisodesCount": 201,
-  "seriesImdbID": "tt0086687",
-  "canonicalEpisodeCount": 163,
-  "canonicalSeasons": 8
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "kvbc-ch-3-1990-cosby-show-promo-robin-givens-episode",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "KVBC Ch. 3 - The Cosby Show - \"Theo and the Older Woman\" Promo Commercial",
+     "overview": "This is for the syndicated version of The Cosby Show that aired on local TV stations, like KVBC Ch. 3, during the run of The Cosby Show on NBC. In this episode, Theo's situation for comedy is falling for an Older Woman, played by Robin Givens, ex-wife of Mike Tyson, part of the cast of ABC sitcom Head of the Class, and co-star with Eddie Murphy on Boomerang.",
+     "stillURL": "https://archive.org/services/img/kvbc-ch-3-1990-cosby-show-promo-robin-givens-episode",
+     "airDate": null,
+     "year": 1990,
+     "runtimeSeconds": 30,
+     "videoFile": {
+      "name": "KVBC Ch 3 - 1990 - Cosby Show Promo - Robin Givens Episode.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 11063106,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/kvbc-ch-3-1990-cosby-show-promo-robin-givens-episode/KVBC%20Ch%203%20-%201990%20-%20Cosby%20Show%20Promo%20-%20Robin%20Givens%20Episode.mp4"
+    },
+    {
+     "archiveID": "the-cosby-show-3x-03-golden-anniversary_20250802",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Cosby Show 3x 03 Golden Anniversary",
+     "overview": "Cosby Show S3",
+     "stillURL": "https://archive.org/services/img/the-cosby-show-3x-03-golden-anniversary_20250802",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1480,
+     "videoFile": {
+      "name": "The Cosby Show - 3x18 - You Only Hurt the One You Love.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 151112550,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-cosby-show-3x-03-golden-anniversary_20250802/The%20Cosby%20Show%20-%203x18%20-%20You%20Only%20Hurt%20the%20One%20You%20Love.ia.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 4,
+ "canonicalEpisodesCount": 201
 }

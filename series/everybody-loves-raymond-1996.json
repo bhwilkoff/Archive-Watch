@@ -18,49 +18,13 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 5,
    "episodes": [
     {
-     "archiveID": "everybody-loves-raymond-complete-series_20251121_0430",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Everybody Loves Raymond: The Complete Series",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Everybody Loves Raymond S06X01 The First Six Years.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 123117035,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_20251121_0430/Everybody%20Loves%20Raymond%20S06X01%20The%20First%20Six%20Years.mp4"
-    },
-    {
-     "archiveID": "everybody-loves-raymond-complete-series_202601",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Everybody Loves Raymond: The Complete Series",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Everybody Loves Raymond S05E02 - Italy (Part 2).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 90237125,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202601/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
-    },
-    {
      "archiveID": "everybody-loves-raymond-complete-series_202512",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Everybody Loves Raymond: The Complete Series",
+     "seasonNumber": 5,
+     "episodeNumber": 2,
+     "title": "Everybody Loves Raymond",
      "overview": null,
      "stillURL": null,
      "airDate": null,
@@ -73,6 +37,47 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202512/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
+    },
+    {
+     "archiveID": "everybody-loves-raymond-complete-series_202601",
+     "seasonNumber": 5,
+     "episodeNumber": 2,
+     "title": "Italy (2)",
+     "overview": "When Marie surprises the family with the news that she's treating them all to a two-week vacation in Rome, everybody loves the idea, except Raymond. Not willing to let his sour mood spoil it for the rest of the family, Debra, Frank, Marie, Robert and the kids go on their merry way and soak up the atmosphere, sights, smells and tastes of the city of love and try their best to ignore Ray. Meanwhile, Robert meets the girl of his dreams—she's stunningly beautiful, unbelievably sexy, and works in a gelato shop.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/495/1238546.jpg",
+     "airDate": "2000-10-02",
+     "year": 2000,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Everybody Loves Raymond S05E02 - Italy (Part 2).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 90237125,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_202601/Everybody%20Loves%20Raymond%20S05E02%20-%20Italy%20%28Part%202%29.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "everybody-loves-raymond-complete-series_20251121_0430",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Everybody Loves Raymond",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Everybody Loves Raymond S06X01 The First Six Years.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 123117035,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/everybody-loves-raymond-complete-series_20251121_0430/Everybody%20Loves%20Raymond%20S06X01%20The%20First%20Six%20Years.mp4"
     }
    ]
   }

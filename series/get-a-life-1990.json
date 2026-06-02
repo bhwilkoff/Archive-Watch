@@ -1,89 +1,81 @@
 {
-  "version": 2,
-  "seriesID": "get-a-life-1990",
-  "tvmazeID": 10662,
-  "title": "Get a Life",
-  "yearStart": 1990,
-  "yearEnd": 2019,
-  "overview": "An unconventional sitcom that follows Chris Peterson - a 30-year-old paperboy still stuck in living like a perpetual child. His bizarre understanding of reality leads to many warped adventures. A prime example of the show's surrealness was that Chris actually dies in several episodes.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89988.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "FOX"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "get-a-life-1990",
+ "tvmazeID": 10662,
+ "title": "Get a Life",
+ "yearStart": 1990,
+ "yearEnd": 1992,
+ "overview": "An unconventional sitcom that follows Chris Peterson - a 30-year-old paperboy still stuck in living like a perpetual child. His bizarre understanding of reality leads to many warped adventures. A prime example of the show's surrealness was that Chris actually dies in several episodes.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89988.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "FOX"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "the-walking-dead-of-life-s01e07",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "The Walking Dead of Life (S01E07) - Get Used To It!",
-          "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">-- This is part of AGK Adventures. This currently serves as the tenth video in the playlist. If you want to view the playlist on YouTube, go here: https://www.youtube.com/playlist?list=PLpfuuZyfAZERztKL0vdlruuHYAUsJtrhA --</span><div><span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\"><br /></span></div><div><span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">The truth about Mario is revealed. Meanwhile, Fire Mario and Lego Mario begin to see what it's actually like to be a part of Zombicon.</span></div>",
-          "stillURL": "https://archive.org/services/img/the-walking-dead-of-life-s01e07",
-          "airDate": null,
-          "year": 2019,
-          "runtimeSeconds": 1578,
-          "videoFile": {
-            "name": "the-walking-dead-of-life-s01e07.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 762789372,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-walking-dead-of-life-s01e07/the-walking-dead-of-life-s01e07.mp4"
-        }
-      ]
+     "archiveID": "get-a-life_202510",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Dadicus",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1990-10-07",
+     "year": 1990,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "03. Get a Life s1e03 - Dadicus.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 140147599,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/get-a-life_202510/03.%20Get%20a%20Life%20s1e03%20-%20Dadicus.ia.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "get-a-life_202510",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Get A Life (1990-92)",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "03. Get a Life s1e03 - Dadicus.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 140147599,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/get-a-life_202510/03.%20Get%20a%20Life%20s1e03%20-%20Dadicus.ia.mp4"
-        },
-        {
-          "archiveID": "get-a-life-sitcom",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Get A Life (sitcom)",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1990,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Get a Life s1e13 - Chris vs. Donald.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 87353405,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/get-a-life-sitcom/Get%20a%20Life%20s1e13%20-%20Chris%20vs.%20Donald.mp4"
-        }
-      ]
+     "archiveID": "the-walking-dead-of-life-s01e07",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "Drivers License",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/the-walking-dead-of-life-s01e07",
+     "airDate": "1990-11-11",
+     "year": 1990,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "the-walking-dead-of-life-s01e07.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 762789372,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/the-walking-dead-of-life-s01e07/the-walking-dead-of-life-s01e07.mp4"
+    },
+    {
+     "archiveID": "get-a-life-sitcom",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Chris vs. Donald",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1991-02-10",
+     "year": 1991,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Get a Life s1e13 - Chris vs. Donald.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 87353405,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/get-a-life-sitcom/Get%20a%20Life%20s1e13%20-%20Chris%20vs.%20Donald.mp4"
     }
-  ],
-  "episodesCount": 3,
-  "canonicalEpisodesCount": 35,
-  "seriesImdbID": "tt0098802",
-  "canonicalEpisodeCount": 31,
-  "canonicalSeasons": 2
+   ]
+  }
+ ],
+ "episodesCount": 3,
+ "canonicalEpisodesCount": 35
 }

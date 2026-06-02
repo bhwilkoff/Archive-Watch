@@ -27,7 +27,7 @@
      "overview": null,
      "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
      "airDate": null,
-     "year": 1990,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Hometime - Bathroom Plumbing.mp4",
@@ -185,7 +185,7 @@
      "archiveID": "hometime-home-of-the-future-3-5",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Hometime - Home of the Future (3/5)",
+     "title": "Hometime - Home of the Future",
      "overview": null,
      "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
      "airDate": null,
@@ -261,7 +261,7 @@
      "overview": null,
      "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/34/86987.jpg",
      "airDate": null,
-     "year": 1990,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Hometime - Plumbing.mp4",

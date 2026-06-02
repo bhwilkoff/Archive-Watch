@@ -17,18 +17,18 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 1,
    "episodes": [
     {
      "archiveID": "wanda-at-large-2003",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Wanda at Large (2003–)",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Alma Mater",
      "overview": null,
      "stillURL": null,
-     "airDate": null,
+     "airDate": "2003-04-30",
      "year": 2003,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "Wanda at Large (2003–) watch on TUBI -Wanda Sykes/Season 1 - 4 of 6 eps/Wanda at Large S01-E06 - Alma Mater.mp4",
       "format": "MPEG4",
@@ -36,12 +36,17 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/wanda-at-large-2003/Wanda%20at%20Large%20%282003%E2%80%93%29%20watch%20on%20TUBI%20-Wanda%20Sykes/Season%201%20-%204%20of%206%20eps/Wanda%20at%20Large%20S01-E06%20-%20Alma%20Mater.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
      "archiveID": "vts-01-1_20240725_0301",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Wanda at Large (3 episodes)",
+     "title": "Wanda at Large",
      "overview": null,
      "stillURL": null,
      "airDate": null,

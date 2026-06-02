@@ -17,36 +17,18 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 1,
    "episodes": [
     {
-     "archiveID": "caillou-tv-series",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Caillou - TV Series (1997 - 2010)",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 1997,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Season 1 - Caillou Goes Shopping.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 29252734,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/caillou-tv-series/Season%201%20-%20Caillou%20Goes%20Shopping.ia.mp4"
-    },
-    {
      "archiveID": "CTVSeriesAMZN19972010",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Caillou - TV Series (1997 - 2010) (AMZN)",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Caillou Hates Vegetables",
      "overview": null,
      "stillURL": null,
-     "airDate": null,
-     "year": 1997,
-     "runtimeSeconds": null,
+     "airDate": "1998-01-03",
+     "year": 1998,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "Caillou_S01E03_Caillou's Winter Wonders.ia.mp4",
       "format": "h.264 IA",
@@ -54,12 +36,17 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/CTVSeriesAMZN19972010/Caillou_S01E03_Caillou%27s%20Winter%20Wonders.ia.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
      "archiveID": "c-tv-series-puppet-segments",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Caillou - TV Series (Puppet Segments) (2000 - 2003)",
+     "seasonNumber": 2,
+     "episodeNumber": 17,
+     "title": "Caillou - TV Series",
      "overview": null,
      "stillURL": null,
      "airDate": null,
@@ -72,6 +59,29 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/c-tv-series-puppet-segments/Caillou.S02E17.Big.Brother.Caillou.480p.AMZN.WEB-DL.DD%2B2.0.x264-RTN.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "caillou-tv-series",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Caillou - TV Series",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1997,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Season 1 - Caillou Goes Shopping.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 29252734,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/caillou-tv-series/Season%201%20-%20Caillou%20Goes%20Shopping.ia.mp4"
     }
    ]
   }

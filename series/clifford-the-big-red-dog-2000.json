@@ -18,18 +18,18 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 1,
    "episodes": [
     {
      "archiveID": "clifford-the-big-red-dog-s-01e-20-clifford-on-parade-follow-the-leader",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Clifford The Big Red Dog (2000 Series) Complete Series",
+     "seasonNumber": 1,
+     "episodeNumber": 20,
+     "title": "The Best Party Ever",
      "overview": null,
      "stillURL": null,
-     "airDate": null,
+     "airDate": "2000-09-15",
      "year": 2000,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "Clifford The Big Red Dog - S01e20 Clifford on Parade - Follow the Leader.ia.mp4",
       "format": "h.264 IA",
@@ -40,14 +40,14 @@
     },
     {
      "archiveID": "CliffordTheBigRedDogTVSeries",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Clifford The Big Red Dog - TV Series (2000)",
+     "seasonNumber": 1,
+     "episodeNumber": 49,
+     "title": "Clothes Don't Make the Dog",
      "overview": null,
      "stillURL": null,
-     "airDate": null,
-     "year": 2000,
-     "runtimeSeconds": null,
+     "airDate": "2001-07-11",
+     "year": 2001,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "Clifford.The.Big.Red.Dog.S01E49E50.AMZN.WEB-DL.DDP2.0.H.264-QOQ.mp4",
       "format": "h.264",
@@ -55,17 +55,22 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/CliffordTheBigRedDogTVSeries/Clifford.The.Big.Red.Dog.S01E49E50.AMZN.WEB-DL.DDP2.0.H.264-QOQ.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
      "archiveID": "CliffordTheBigRedDog2019TVSeries",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Clifford The Big Red Dog - TV Series (2019)",
+     "seasonNumber": 2,
+     "episodeNumber": 9,
+     "title": "Magic in the Air",
      "overview": null,
      "stillURL": null,
-     "airDate": null,
-     "year": 2019,
-     "runtimeSeconds": null,
+     "airDate": "2002-05-27",
+     "year": 2002,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "Clifford.the.Big.Red.Dog.2019.S02E09.The.March.of.the.Sea.Turtles.A.Squirrely.Situation.AMZN.WEBRip.AAC2.0.x264.ia.mp4",
       "format": "h.264 IA",

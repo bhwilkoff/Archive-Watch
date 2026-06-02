@@ -46,7 +46,7 @@
      "archiveID": "america-says-s3-e1",
      "seasonNumber": 3,
      "episodeNumber": 1,
-     "title": "America Says (July 22, 2019 | S3 E1): The Superfans/Football Moms",
+     "title": "America Says : The Superfans/Football Moms",
      "overview": "America Says S3 E1<div>Aired December 24, 2021 at 1:30PM ET on Game Show Network</div>",
      "stillURL": "https://archive.org/services/img/america-says-s3-e1",
      "airDate": null,
@@ -63,6 +63,29 @@
    ]
   },
   {
+   "seasonNumber": 5,
+   "episodes": [
+    {
+     "archiveID": "AmericasWildHorses",
+     "seasonNumber": 5,
+     "episodeNumber": 14,
+     "title": "America's Wild Horses",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/AmericasWildHorses",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Nature.S05E14.Americas.Wild.Horses.1987.VHSRip.AAC2.0.x264-rattera.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 1313062276,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/AmericasWildHorses/Nature.S05E14.Americas.Wild.Horses.1987.VHSRip.AAC2.0.x264-rattera.mp4"
+    }
+   ]
+  },
+  {
    "seasonNumber": null,
    "episodes": [
     {
@@ -73,7 +96,7 @@
      "overview": null,
      "stillURL": "https://archive.org/services/img/americas-all-star-tribute-to-elizabeth-taylor-1989",
      "airDate": null,
-     "year": 1989,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Americas All-Star Tribute to Elizabeth Taylor - 1989.ia.mp4",
@@ -91,7 +114,7 @@
      "overview": null,
      "stillURL": "https://archive.org/services/img/americas-funniest-people-balancing-acts-1990",
      "airDate": null,
-     "year": 1990,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Americas Funniest People - Big Winner 2 - 1990.ia.mp4",
@@ -105,11 +128,11 @@
      "archiveID": "americas-funniest-people-november-24-1991-most",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "America's Funniest People- November 24, 1991 (most)",
+     "title": "America's Funniest People- November 24, 1991",
      "overview": null,
      "stillURL": "https://archive.org/services/img/americas-funniest-people-november-24-1991-most",
      "airDate": null,
-     "year": 2021,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "America's Funniest People- November 24, 1991 (most).ia.mp4",
@@ -127,7 +150,7 @@
      "overview": null,
      "stillURL": "https://archive.org/services/img/AmericasMostWantedLadyKiller",
      "airDate": null,
-     "year": 1991,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Lady Killer - The Most Wanted Man in America.ia.mp4",
@@ -141,11 +164,11 @@
      "archiveID": "americas-most-wanted-september-3-1989-partial",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "America's Most Wanted- September 3, 1989 (partial)",
+     "title": "America's Most Wanted- September 3, 1989",
      "overview": null,
      "stillURL": "https://archive.org/services/img/americas-most-wanted-september-3-1989-partial",
      "airDate": null,
-     "year": 2023,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "America's Most Wanted- September 3, 1989 (partial).ia.mp4",
@@ -163,7 +186,7 @@
      "overview": null,
      "stillURL": "https://archive.org/services/img/americas-toughest-assignment-199x",
      "airDate": null,
-     "year": 1990,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Americas Toughest Assignment - 199x.ia.mp4",
@@ -172,24 +195,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/americas-toughest-assignment-199x/Americas Toughest Assignment - 199x.ia.mp4"
-    },
-    {
-     "archiveID": "AmericasWildHorses",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "America's Wild Horses",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/AmericasWildHorses",
-     "airDate": null,
-     "year": 1987,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Nature.S05E14.Americas.Wild.Horses.1987.VHSRip.AAC2.0.x264-rattera.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 1313062276,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/AmericasWildHorses/Nature.S05E14.Americas.Wild.Horses.1987.VHSRip.AAC2.0.x264-rattera.mp4"
     }
    ]
   }

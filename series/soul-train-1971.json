@@ -295,10 +295,28 @@
    "seasonNumber": null,
    "episodes": [
     {
+     "archiveID": "soul-train-season-4-episode-1-wgn-airing",
+     "seasonNumber": null,
+     "episodeNumber": 1,
+     "title": "Gladys Knight & the Pips/Eddie Kendricks/The Honey Cone/Bobby Hutton",
+     "overview": "Gladys Knight & the Pips, Eddie Kendricks, The Honey Cone, Bobby Hutton",
+     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+     "airDate": null,
+     "year": 1974,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Soul Train (Season 4, Episode 1)(WGN Airing).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 288572869,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/soul-train-season-4-episode-1-wgn-airing/Soul Train (Season 4, Episode 1)(WGN Airing).mp4"
+    },
+    {
      "archiveID": "soul-train-season-2-episode-5",
      "seasonNumber": null,
      "episodeNumber": 5,
-     "title": "Soul Train (Season 2, Episode 5)(Centric Airing)",
+     "title": "Soul Train",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
      "airDate": null,
@@ -316,7 +334,7 @@
      "archiveID": "soul-train-season-2-episode-19-nhk-airing",
      "seasonNumber": null,
      "episodeNumber": 19,
-     "title": "Soul Train (Season 2, Episode 19)(NHK Airing)",
+     "title": "Soul Train",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
      "airDate": null,
@@ -334,7 +352,7 @@
      "archiveID": "soul-train-season-2-episode-22-partially-full-episode",
      "seasonNumber": null,
      "episodeNumber": 22,
-     "title": "Soul Train (Season 2, Episode 22)(Partially Full Episode)",
+     "title": "Soul Train",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
      "airDate": null,
@@ -349,10 +367,28 @@
      "downloadURL": "https://archive.org/download/soul-train-season-2-episode-22-partially-full-episode/Soul Train (Season 2, Episode 22)(Partially Full Episode).ia.mp4"
     },
     {
+     "archiveID": "soul-train-season-3-episode-26-my-q-2-airing",
+     "seasonNumber": null,
+     "episodeNumber": 26,
+     "title": "Wilson Pickett/ Curtis Mayfield/ War",
+     "overview": "Curtis Mayfield - \"We Got To Have Peace\" & \"Get Down.\" War - \"All Day Music\" & \"Slippin' Into Darkness.\" Wilson Pickett (performing live) - \"Fire and Water,\" \"I'm In Love\" and \"Don't Knock My Love.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
+     "airDate": null,
+     "year": 1974,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Soul Train (Season 3, Episode 26)(MyQ2 Airing).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 143956002,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/soul-train-season-3-episode-26-my-q-2-airing/Soul Train (Season 3, Episode 26)(MyQ2 Airing).mp4"
+    },
+    {
      "archiveID": "soul-train-season-4-episode-30-my-q-2-airing",
      "seasonNumber": null,
      "episodeNumber": 30,
-     "title": "Soul Train (Season 4, Episode 30)(MyQ2 Airing)",
+     "title": "Soul Train",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
      "airDate": null,
@@ -370,7 +406,7 @@
      "archiveID": "soul-train-season-6-episode-34-my-q-2-airing",
      "seasonNumber": null,
      "episodeNumber": 34,
-     "title": "Soul Train (Season 6, Episode 34)(MyQ2 Airing)",
+     "title": "Soul Train",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
      "airDate": null,
@@ -385,28 +421,10 @@
      "downloadURL": "https://archive.org/download/soul-train-season-6-episode-34-my-q-2-airing/Soul Train (Season 6, Episode 34)(MyQ2 Airing).mp4"
     },
     {
-     "archiveID": "soul-train-season-4-episode-1-wgn-airing",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Gladys Knight & the Pips/Eddie Kendricks/The Honey Cone/Bobby Hutton",
-     "overview": "Gladys Knight & the Pips, Eddie Kendricks, The Honey Cone, Bobby Hutton",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": null,
-     "year": 1974,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Soul Train (Season 4, Episode 1)(WGN Airing).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 288572869,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-4-episode-1-wgn-airing/Soul Train (Season 4, Episode 1)(WGN Airing).mp4"
-    },
-    {
      "archiveID": "soul-train-season-3-episodes-12-and-13",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Soul Train ( Season 3, Episodes 12 & 13)",
+     "title": "Soul Train",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
      "airDate": null,
@@ -424,7 +442,7 @@
      "archiveID": "soul-train-season-1-episodes-1-7-and-10-nhk-airing",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Soul Train (Season 1, Episodes 1, 7, And 10)(NHK Airing)",
+     "title": "Soul Train",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
      "airDate": null,
@@ -437,24 +455,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/soul-train-season-1-episodes-1-7-and-10-nhk-airing/Soul Train (Season 1, Episodes 1, 7, and 10)(NHK Airing).ia.mp4"
-    },
-    {
-     "archiveID": "soul-train-season-3-episode-26-my-q-2-airing",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Wilson Pickett/ Curtis Mayfield/ War",
-     "overview": "Curtis Mayfield - \"We Got To Have Peace\" & \"Get Down.\" War - \"All Day Music\" & \"Slippin' Into Darkness.\" Wilson Pickett (performing live) - \"Fire and Water,\" \"I'm In Love\" and \"Don't Knock My Love.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/fewCkYtJMuZmgjfIPxokh44L4Hf.jpg",
-     "airDate": null,
-     "year": 1974,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Soul Train (Season 3, Episode 26)(MyQ2 Airing).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 143956002,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/soul-train-season-3-episode-26-my-q-2-airing/Soul Train (Season 3, Episode 26)(MyQ2 Airing).mp4"
     }
    ]
   }

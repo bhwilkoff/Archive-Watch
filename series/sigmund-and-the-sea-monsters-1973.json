@@ -38,6 +38,24 @@
      "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-01_202106/Sigmund and The Sea Monsters S01E01.ia.mp4"
     },
     {
+     "archiveID": "sigmund-and-the-sea-monsters-s-01-e-03_202106",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Frankenstein Drops In",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+     "airDate": null,
+     "year": 1973,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Sigmund and The Sea Monsters S01E02.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 244966415,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-03_202106/Sigmund and The Sea Monsters S01E02.ia.mp4"
+    },
+    {
      "archiveID": "sigmund-and-the-sea-monsters-s-01-e-02_202106",
      "seasonNumber": 1,
      "episodeNumber": 2,
@@ -54,24 +72,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-02_202106/Sigmund and The Sea Monsters S01E02.ia.mp4"
-    },
-    {
-     "archiveID": "sigmund-and-the-sea-monsters-s-01-e-03_202106",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Frankenstein Drops In",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": "1973-09-22",
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Sigmund and The Sea Monsters S01E02.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 244966415,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-03_202106/Sigmund and The Sea Monsters S01E02.ia.mp4"
     },
     {
      "archiveID": "sigmund-and-the-sea-monsters-s-01-e-04",
@@ -244,7 +244,7 @@
      "archiveID": "sigmund3",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Sigmund and the Sea Monsters \"Frankenstein Drops In\" (1973)",
+     "title": "Sigmund and the Sea Monsters \"Frankenstein Drops In\"",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
      "airDate": null,

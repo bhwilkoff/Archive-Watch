@@ -19,18 +19,18 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 1,
    "episodes": [
     {
      "archiveID": "snoops-1999",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Snoops (1999) dramedy",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "Rough Justice",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/nBueEc8hon4WDDMqszTKtDaCLNN.jpg",
-     "airDate": null,
-     "year": 1999,
-     "runtimeSeconds": null,
+     "airDate": "1990-07-06",
+     "year": 1990,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "Snoops (1999)  s01e13 Swan Chant - SaveOLTL1741.mp4",
       "format": "MPEG4",
@@ -38,7 +38,12 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/snoops-1999/Snoops (1999)  s01e13 Swan Chant - SaveOLTL1741.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
      "archiveID": "snoops-1.01",
      "seasonNumber": null,
@@ -47,7 +52,7 @@
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/nBueEc8hon4WDDMqszTKtDaCLNN.jpg",
      "airDate": null,
-     "year": 1999,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Snoops - 1.01.ia.mp4",

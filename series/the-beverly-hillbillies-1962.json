@@ -126,6 +126,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep07_The_Servants/BH07_The_Servants.mp4"
+    },
+    {
+     "archiveID": "TheBeverlyHillbillies",
+     "seasonNumber": 1,
+     "episodeNumber": 36,
+     "title": "Jethro's Friend",
+     "overview": "Jed tells Granny that Jethro has invited a friend named Armstrong Dueser McHugh III to come over. Jed thinks Jethro is bringing him to meet Elly. They are surprised when Armstrong turns out to be a little boy from Jethro's school. Wilkins, the chauffeur, coddles the boy and treats him as frail. Wilkins takes out a bunch of pills for Armstrong and tries to protect him from some of Elly's critters. \"Duesy\" tells the family that his parents travel a lot so he never sees them. Later, Wilkins comes to pick up Armstrong, but Granny says he's having too much fun. Granny forces Wilkins to leave. Wilkins goes to complain to Drysdale. Jethro teaches Duesy how to swim. Elly demonstrates on the Pool Man how Dusey can protect himself from bullies. Granny teaches him how to fish and Jed plays horseshoes with him. Wilkins brings Drysdale and Miss Jane to the mansion. Wilkins finds Dusey napping with Elly's critters. When Wilkins tries to forcibly take him away, Dusey uses one of the moves Elly taught him.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/524/1312493.jpg",
+     "airDate": "1963-05-29",
+     "year": 1963,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "The Beverly Hillbillies/Season 1/The Beverly Hillbillies - S01E36 - Jethro's Friend.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 238416599,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/TheBeverlyHillbillies/The%20Beverly%20Hillbillies/Season%201/The%20Beverly%20Hillbillies%20-%20S01E36%20-%20Jethro%27s%20Friend.mp4"
     }
    ]
   },
@@ -151,28 +169,10 @@
      "downloadURL": "https://archive.org/download/Beverly_Hillbillies_Ep13_Home_For_Christmas/BH13_Home_For_Christmas.mp4"
     },
     {
-     "archiveID": "TheBeverlyHillbillies",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Beverly Hillbillies",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Beverly Hillbillies/Season 1/The Beverly Hillbillies - S01E36 - Jethro's Friend.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 238416599,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheBeverlyHillbillies/The%20Beverly%20Hillbillies/Season%201/The%20Beverly%20Hillbillies%20-%20S01E36%20-%20Jethro%27s%20Friend.mp4"
-    },
-    {
      "archiveID": "The_Beverly_Hillbillies",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "The Beverly Hillbillies TV Show",
+     "title": "The Beverly Hillbillies",
      "overview": null,
      "stillURL": "https://archive.org/services/img/The_Beverly_Hillbillies",
      "airDate": null,
