@@ -87,28 +87,28 @@ struct RandomMovieCard: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     let seed: Int
-
-    private var pick: Catalog.Item? {
-        randomItem(from: playablePool(store.visibleItems), seed: UInt64(seed))
-    }
+    @State private var pick: Catalog.Item?
 
     var body: some View {
-        if let p = pick {
-            Button { router.push(p) } label: {
-                ActionCard(
-                    title: "Random Film",
-                    subtitle: p.title,
-                    caption: p.year.map(String.init) ?? "Roll the dice.",
-                    icon: "sparkles",
-                    accent: Color(hex: "#FF5C35") ?? .orange,
-                    posterURL: p.posterURLParsed ?? p.backdropURLParsed
-                )
+        Group {
+            if let p = pick {
+                Button { router.push(p) } label: {
+                    ActionCard(
+                        title: "Random Film",
+                        subtitle: p.title,
+                        caption: p.year.map(String.init) ?? "Roll the dice.",
+                        icon: "sparkles",
+                        accent: Color(hex: "#FF5C35") ?? .orange,
+                        posterURL: p.posterURLParsed ?? p.backdropURLParsed
+                    )
+                }
+                .buttonStyle(.card)
+            } else {
+                ActionCard(title: "Random Film", subtitle: "Roll the dice.",
+                           caption: "", icon: "sparkles", accent: .orange)
             }
-            .buttonStyle(.card)
-        } else {
-            ActionCard(title: "Random Film", subtitle: "No catalog loaded",
-                       caption: "", icon: "sparkles", accent: .orange)
         }
+        .task(id: "\(seed)-\(store.dbGeneration)") { pick = store.dbRandomPlayable() }
     }
 }
 
@@ -118,21 +118,19 @@ struct RandomCategoryCard: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     let seed: Int
+    @State private var pick: (category: Featured.Category, item: Catalog.Item)?
 
-    private var pick: (category: Featured.Category, item: Catalog.Item)? {
+    private func roll() -> (category: Featured.Category, item: Catalog.Item)? {
         guard let cats = store.featured?.categories else { return nil }
         var rng = SplitMix(seed: UInt64(seed &+ 7))
-        let shuffledCats = cats.shuffled(using: &rng)
-        for c in shuffledCats {
-            let pool = playablePool(store.visibleItems).filter { $0.contentType == c.id }
-            if let pick = randomItem(from: pool, seed: UInt64(seed &+ 7)) {
-                return (c, pick)
-            }
+        for c in cats.shuffled(using: &rng) {
+            if let item = store.dbRandomPlayable(contentType: c.id) { return (c, item) }
         }
         return nil
     }
 
     var body: some View {
+        Group {
         if let p = pick {
             Button { router.push(p.item) } label: {
                 ActionCard(
@@ -149,6 +147,8 @@ struct RandomCategoryCard: View {
             ActionCard(title: "Random Category", subtitle: "—", caption: "",
                        icon: "square.grid.2x2.fill", accent: .blue)
         }
+        }
+        .task(id: "\(seed)-\(store.dbGeneration)") { pick = roll() }
     }
 }
 
@@ -159,21 +159,19 @@ struct RandomDecadeCard: View {
     @Environment(Router.self) private var router
     let seed: Int
 
-    private var pick: (decade: Int, item: Catalog.Item)? {
-        let items = store.visibleItems
-        guard !items.isEmpty else { return nil }
+    @State private var pick: (decade: Int, item: Catalog.Item)?
+
+    private func roll() -> (decade: Int, item: Catalog.Item)? {
         var rng = SplitMix(seed: UInt64(seed &+ 13))
-        let decades = Array(Set(items.compactMap { $0.decade })).shuffled(using: &rng)
-        for d in decades {
-            let pool = playablePool(items).filter { $0.decade == d }
-            if let pick = randomItem(from: pool, seed: UInt64(seed &+ 13)) {
-                return (d, pick)
-            }
+        for d in store.dbDecadeCounts().keys.shuffled(using: &rng) {
+            let pool = store.dbBrowse(decade: d, limit: 60)
+            if let item = pool.randomElement(using: &rng) { return (d, item) }
         }
         return nil
     }
 
     var body: some View {
+        Group {
         if let p = pick {
             Button { router.push(p.item) } label: {
                 ActionCard(
@@ -190,6 +188,8 @@ struct RandomDecadeCard: View {
             ActionCard(title: "Random Era", subtitle: "—", caption: "",
                        icon: "clock.arrow.circlepath", accent: .brown)
         }
+        }
+        .task(id: "\(seed)-\(store.dbGeneration)") { pick = roll() }
     }
 }
 

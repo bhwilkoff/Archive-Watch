@@ -78,7 +78,7 @@ struct RootView: View {
             router.surprisePath = NavigationPath()
             router.tab = .surprise
         case .randomFilm:
-            if let film = store.visibleItems.filter({ $0.videoURLParsed != nil }).randomElement() {
+            if let film = store.dbRandomPlayable() {
                 router.homePath = NavigationPath()
                 router.tab = .home
                 router.homePath.append(film)
@@ -90,7 +90,7 @@ struct RootView: View {
                 router.browsePath.append(BrowseFilter(category: category.id))
             }
         case .openItem(let id):
-            if let item = store.catalog?.items.first(where: { $0.archiveID == id }) {
+            if let item = store.dbItem(id) {
                 router.homePath = NavigationPath()
                 router.tab = .home
                 router.homePath.append(item)

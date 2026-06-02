@@ -182,6 +182,74 @@ final class CatalogDB {
         """, [item.contentType, item.archiveID])
     }
 
+    /// "Hidden Gems" — high craft, low traffic.
+    func hiddenGems(limit: Int = 20) -> [Catalog.Item] {
+        items("""
+            SELECT j.json FROM items i JOIN item_json j USING(archiveID)
+            WHERE i.hasRealArtwork = 1 AND i.qualityScore >= 60
+              AND i.popularityScore <= 40 \(adultAnd)
+            ORDER BY i.qualityScore DESC LIMIT \(limit)
+        """)
+    }
+
+    /// Most-prolific directors (≥ minFilms with designed art) → (name, count).
+    func topDirectors(minFilms: Int = 3, limit: Int = 4) -> [(name: String, count: Int)] {
+        scalarRows("""
+            SELECT i.director, COUNT(*) c FROM items i
+            WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1 \(adultAnd)
+            GROUP BY i.director HAVING c >= \(minFilms)
+            ORDER BY c DESC, i.director LIMIT \(limit)
+        """).map { (name: $0.0, count: $0.1) }
+    }
+
+    func byDirector(_ name: String, limit: Int = 20) -> [Catalog.Item] {
+        items("""
+            SELECT j.json FROM items i JOIN item_json j USING(archiveID)
+            WHERE i.director = ? AND i.hasRealArtwork = 1 \(adultAnd)
+            ORDER BY i.popularityScore DESC LIMIT \(limit)
+        """, [name])
+    }
+
+    /// Items in a registered collection (CollectionsView / collection browse).
+    func byCollection(_ collection: String, limit: Int = 2000) -> [Catalog.Item] {
+        items("""
+            SELECT j.json FROM item_collections c
+            JOIN item_json j ON j.archiveID = c.archiveID
+            JOIN items i ON i.archiveID = c.archiveID
+            WHERE c.collection = ? \(adultAnd)
+            ORDER BY i.popularityScore DESC LIMIT \(limit)
+        """, [collection])
+    }
+
+    /// Count of items in a registered collection (CollectionsView card count).
+    func collectionCount(_ collection: String) -> Int {
+        scalarRows("""
+            SELECT COUNT(*), 0 FROM item_collections c JOIN items i USING(archiveID)
+            WHERE c.collection = ? \(adultAnd)
+        """, [collection]).first?.1 ?? 0
+    }
+
+    /// A random playable (non-series) item, optionally of a content type.
+    func randomPlayable(contentType: String? = nil) -> Catalog.Item? {
+        var where_ = ["i.contentType != 'tv-series'"]
+        if hideAdult { where_.append("i.isAdult = 0") }
+        var binds: [String] = []
+        if let ct = contentType { where_.append("i.contentType = ?"); binds.append(ct) }
+        return items("""
+            SELECT j.json FROM items i JOIN item_json j USING(archiveID)
+            WHERE \(where_.joined(separator: " AND "))
+            ORDER BY RANDOM() LIMIT 1
+        """, binds).first
+    }
+
+    /// Resolve a TV series card by its raw slug (ContinueWatching episodes).
+    func seriesCard(slug: String) -> Catalog.Item? {
+        items("""
+            SELECT j.json FROM items i JOIN item_json j USING(archiveID)
+            WHERE i.seriesID = ? AND i.contentType = 'tv-series' LIMIT 1
+        """, [slug]).first
+    }
+
     // MARK: - Facets
 
     func decadeCounts() -> [Int: Int] {

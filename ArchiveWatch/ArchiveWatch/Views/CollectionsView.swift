@@ -7,28 +7,23 @@ import SwiftUI
 struct CollectionsView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    @State private var collectionCards: [CollectionCardData] = []
 
-    private var collectionCards: [CollectionCardData] {
-        // All collection metadata (title / blurb / accent) lives in
-        // CollectionMetadata.all so CollectionsView + BrowseView never
-        // drift. Order follows the shared catalog.
-        CollectionMetadata.all.map { entry in
-            let matching = store.visibleItems.filter { $0.collections.contains(entry.id) }
+    // Built from DB queries (Decision 017) — one count + a few poster rows per
+    // registered collection. Computed in .task so we don't query per render.
+    private func loadCards() -> [CollectionCardData] {
+        CollectionMetadata.all.compactMap { entry in
+            let count = store.dbCollectionCount(entry.id)
+            guard count >= 10 else { return nil }   // needs enough to browse
+            let posters = store.dbByCollection(entry.id, limit: 12)
+                .compactMap { $0.hasDesignedArtwork ? $0.posterURLParsed : nil }
+                .prefix(3).map { $0 }
             return CollectionCardData(
-                id: entry.id,
-                title: entry.title,
-                blurb: entry.blurb,
+                id: entry.id, title: entry.title, blurb: entry.blurb,
                 accent: Color(hex: entry.accent) ?? .accentColor,
-                itemCount: matching.count,
-                posterURLs: matching
-                    .compactMap { $0.hasDesignedArtwork ? $0.posterURLParsed : nil }
-                    .prefix(3)
-                    .map { $0 }
+                itemCount: count, posterURLs: posters
             )
         }
-        // A "collection" needs enough items to feel browseable. Under
-        // ten and it's just a list, not a collection.
-        .filter { $0.itemCount >= 10 }
     }
 
     var body: some View {
@@ -58,6 +53,7 @@ struct CollectionsView: View {
             }
         }
         .background(Color.black.ignoresSafeArea())
+        .task(id: store.dbGeneration) { collectionCards = loadCards() }
     }
 }
 

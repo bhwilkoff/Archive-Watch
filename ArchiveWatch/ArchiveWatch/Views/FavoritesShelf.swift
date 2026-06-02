@@ -12,9 +12,7 @@ struct FavoritesShelf: View {
     @Query private var favorites: [Favorite]
 
     private var items: [Catalog.Item] {
-        guard let catalog = store.catalog else { return [] }
-        let ids = Set(favorites.map(\.archiveID))
-        return catalog.items.filter { ids.contains($0.archiveID) }
+        store.dbItemsByIDs(favorites.map(\.archiveID))
     }
 
     private static let favShelf = Featured.Shelf(

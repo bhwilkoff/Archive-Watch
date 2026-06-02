@@ -8,7 +8,7 @@ struct ContentView: View {
         Group {
             if let error = store.loadError {
                 LoadErrorView(message: error)
-            } else if store.catalog != nil {
+            } else if store.isReady {
                 RootView()
             } else {
                 ProgressView("Loading catalog…")
