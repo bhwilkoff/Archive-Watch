@@ -115,6 +115,17 @@ def main():
             if f.exists():
                 f.unlink()
 
+    # 1b) Delete orphan series files whose show was REJECTED in the rebuild
+    # (mismaps like now-what-2002 / whole-show singles). build leaves the stale
+    # file on disk; without this, step 2 would re-card the bad show (issue #7).
+    orphans = [o for o in report.get("orphanSeriesSlugs", []) if o not in written_slugs]
+    print(f"[reconcile] orphan (rejected) series files to delete: {len(orphans)}")
+    if not args.dry_run:
+        for o in orphans:
+            f = SERIES_DIR / f"{o}.json"
+            if f.exists():
+                f.unlink()
+
     # 2) Load the surviving series files -> canonical cards + episode index.
     cards = []
     episode_ids = set()
