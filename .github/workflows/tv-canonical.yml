@@ -73,7 +73,13 @@ jobs:
           echo '--- repair ---'     >> $GITHUB_STEP_SUMMARY; tail -3 tvrepair.log >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
+      # create-pull-request pushes the branch reliably but its PR-creation API
+      # call intermittently 500s ("Server Error") on this repo's very large
+      # diff (95 MB catalog.json + 100k+ changed lines). Don't let that flaky
+      # call fail the whole run — a fallback below guarantees the PR exists.
       - name: Open PR if changed
+        id: cpr
+        continue-on-error: true
         uses: peter-evans/create-pull-request@v7
         with:
           commit-message: "Weekly canonical TV rebuild"
@@ -97,3 +103,26 @@ jobs:
             Merging ships the updated series JSON to GitHub Pages (served at
             runtime by SeriesStore) and the new catalog cards to all app
             instances on next launch.
+
+      # Fallback: if the branch was pushed but the PR-create API call 500'd,
+      # open the PR with gh (a plain API call that doesn't ship the diff, so it
+      # succeeds regardless of diff size). No-op when no branch / PR already
+      # exists. This is what keeps the run green on the transient Server Error.
+      - name: Ensure PR exists
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          branch="tv-canonical/${{ github.run_id }}"
+          if ! git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
+            echo "No '$branch' branch pushed — no changes to open a PR for."
+            exit 0
+          fi
+          existing=$(gh pr list --head "$branch" --state open --json number -q '.[0].number')
+          if [ -n "$existing" ]; then
+            echo "PR #$existing already open for $branch."
+            exit 0
+          fi
+          gh pr create --head "$branch" --base main \
+            --title "Canonical TV rebuild — ${{ github.run_id }}" \
+            --body "Auto-generated canonical TV rebuild (Decision 016). Opened by the fallback step after the create-pull-request API call failed; the branch content is identical. Review series count + reclassification totals before merging."
+          echo "Opened PR for $branch via fallback."
