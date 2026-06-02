@@ -1,65 +1,186 @@
 {
- "version": 2,
- "seriesID": "alf-1986",
- "tvmazeID": 848,
- "title": "ALF",
- "yearStart": 1986,
- "yearEnd": 1996,
- "overview": "One starry night in 1986, the Tanner family get an unexpected houseguest - a furry, four-foot-high Alien Life Form they call ALF, who quickly becomes part of the family.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/6/15848.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy",
-  "Family",
-  "Science-Fiction"
- ],
- "networks": [
-  "NBC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "alf-1986",
+  "tvmazeID": 848,
+  "title": "ALF",
+  "yearStart": 2026,
+  "yearEnd": 2026,
+  "overview": "One starry night in 1986, the Tanner family get an unexpected houseguest - a furry, four-foot-high Alien Life Form they call ALF, who quickly becomes part of the family.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/6/15848.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Family",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "ALF-The-Complete-Series",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "ALF The Complete Series",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Alf/Specials/ALF - S00E02 - Project - ALF SDTV.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 397056498,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/ALF-The-Complete-Series/Alf/Specials/ALF%20-%20S00E02%20-%20Project%20-%20ALF%20SDTV.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "strangers-in-the-night-alf-original-broadcast-full-episode-s-1-ep-2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Strangers In The Night ALF Original Broadcast FULL Episode S 1 Ep 2",
+          "overview": "The Tanners Family's, evening plan exclusive Alf and young Brian. However, Wary of Alf's babysitting abilities, Kate enlisted their nosy neighbour, Mrs.Ochmonek, to mind Brian.",
+          "stillURL": "https://archive.org/services/img/strangers-in-the-night-alf-original-broadcast-full-episode-s-1-ep-2",
+          "airDate": null,
+          "year": 2026,
+          "runtimeSeconds": 1489,
+          "videoFile": {
+            "name": "Strangers In The Night _ ALF _ Original Broadcast FULL Episode_ S1 Ep2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 109992782,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strangers-in-the-night-alf-original-broadcast-full-episode-s-1-ep-2/Strangers%20In%20The%20Night%20_%20ALF%20_%20Original%20Broadcast%20FULL%20Episode_%20S1%20Ep2.mp4"
+        },
+        {
+          "archiveID": "looking-for-lucky-alf-original-broadcast-full-episode-s-1-ep-3",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Looking For Lucky ALF Original Broadcast FULL Episode S 1 Ep 3",
+          "overview": "The Tanners Beloving Cat, Lucky, vanishes mysteriously. Subsequently suspension falls On Alf, the resident alien, who faces accusations of devouring the feline.",
+          "stillURL": "https://archive.org/services/img/looking-for-lucky-alf-original-broadcast-full-episode-s-1-ep-3",
+          "airDate": null,
+          "year": 2026,
+          "runtimeSeconds": 1429,
+          "videoFile": {
+            "name": "Looking For Lucky _ ALF _ Original Broadcast FULL Episode_ S1 Ep3.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 127552129,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/looking-for-lucky-alf-original-broadcast-full-episode-s-1-ep-3/Looking%20For%20Lucky%20_%20ALF%20_%20Original%20Broadcast%20FULL%20Episode_%20S1%20Ep3.mp4"
+        },
+        {
+          "archiveID": "on-the-road-again-alf-original-broadcast-full-episode-s-1-ep-11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "On The Road Again ALF Original Broadcast FULL Episode S 1 Ep 11",
+          "overview": "Alf Start Complaining After Getting Bored Inside The Rv, causing Willie to kick him out. An Angry Alf Incides To Wander Off In A Defiance ",
+          "stillURL": "https://archive.org/services/img/on-the-road-again-alf-original-broadcast-full-episode-s-1-ep-11",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1435,
+          "videoFile": {
+            "name": "On The Road Again _ ALF _ Original Broadcast FULL Episode_ S1 Ep11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 110384906,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/on-the-road-again-alf-original-broadcast-full-episode-s-1-ep-11/On%20The%20Road%20Again%20_%20ALF%20_%20Original%20Broadcast%20FULL%20Episode_%20S1%20Ep11.mp4"
+        },
+        {
+          "archiveID": "try-to-remember-restoration",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "ALF S01E16E17 - Try To Remember (Original cut restoration)",
+          "overview": "Read more over at: https://tacohitbox.com/archives/alf-forgor",
+          "stillURL": "https://archive.org/services/img/try-to-remember-restoration",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2909,
+          "videoFile": {
+            "name": "Alf S01E16E17 - Try to Remember (Original cut) [480p.MIXED.x265.AC3-toodles].mp4",
+            "format": "h.264",
+            "sizeBytes": 286123065,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/try-to-remember-restoration/Alf%20S01E16E17%20-%20Try%20to%20Remember%20%28Original%20cut%29%20%5B480p.MIXED.x265.AC3-toodles%5D.mp4"
+        },
+        {
+          "archiveID": "try-to-remember-part-1-part-2-alf-full-episode-s-1-ep-16-ep-17",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Try To Remember Part 1 & Part 2 ALF FULL Episode S 1 Ep 16 & Ep 17",
+          "overview": "When Alf Has Amnesia, the Tanners Try To Help From By Reviewing Past Event",
+          "stillURL": "https://archive.org/services/img/try-to-remember-part-1-part-2-alf-full-episode-s-1-ep-16-ep-17",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2772,
+          "videoFile": {
+            "name": "_Try To Remember - Part 1 & Part 2_ _ ALF _ FULL Episode_ S1 Ep16 & Ep17.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 372503331,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/try-to-remember-part-1-part-2-alf-full-episode-s-1-ep-16-ep-17/_Try%20To%20Remember%20-%20Part%201%20%26%20Part%202_%20_%20ALF%20_%20FULL%20Episode_%20S1%20Ep16%20%26%20Ep17.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "alf-1987-uk-vhs",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Alf (1987 UK VHS)",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Alf (1987 UK VHS).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 699816383,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/alf-1987-uk-vhs/Alf%20%281987%20UK%20VHS%29.ia.mp4"
+      "seasonNumber": 9,
+      "episodes": [
+        {
+          "archiveID": "the-chase-uk-s9-e29",
+          "seasonNumber": 9,
+          "episodeNumber": 29,
+          "title": "The Chase (31 August 2015 | S9 E29): Andy/Gina/Kelly/Alf",
+          "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">The Chase UK S9 E29</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired 13 June 2023 at 1.00AM BST on Challenge (UK)</div>",
+          "stillURL": "https://archive.org/services/img/the-chase-uk-s9-e29",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3611,
+          "videoFile": {
+            "name": "The Chase UK S9 E29.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 422456873,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-chase-uk-s9-e29/The%20Chase%20UK%20S9%20E29.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "ALF-The-Complete-Series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "ALF The Complete Series",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alf/Specials/ALF - S00E02 - Project - ALF SDTV.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 397056498,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ALF-The-Complete-Series/Alf/Specials/ALF%20-%20S00E02%20-%20Project%20-%20ALF%20SDTV.mp4"
+        },
+        {
+          "archiveID": "alf-1987-uk-vhs",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Alf (1987 UK VHS)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Alf (1987 UK VHS).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 699816383,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/alf-1987-uk-vhs/Alf%20%281987%20UK%20VHS%29.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 2,
- "canonicalEpisodesCount": 102
+  ],
+  "episodesCount": 8,
+  "canonicalEpisodesCount": 102,
+  "seriesImdbID": "tt0090390",
+  "canonicalEpisodeCount": 102,
+  "canonicalSeasons": 4
 }

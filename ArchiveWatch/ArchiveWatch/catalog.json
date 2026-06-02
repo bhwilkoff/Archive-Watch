@@ -203567,12 +203567,12 @@
         "popular-features",
         "silent-era"
       ],
-      "rightsStatus": "creative_commons",
+      "rightsStatus": "public_domain",
       "qualityScore": 55,
       "popularityScore": 64,
       "bestSourceType": "archive_org",
       "isSilentFilm": true,
-      "rightsEvidence": "source_licensed"
+      "rightsEvidence": "pre_1930"
     },
     {
       "archiveID": "Virus_Fukkatsu_no_hi",
@@ -348702,7 +348702,7 @@
       "popularityScore": 62,
       "bestSourceType": "archive_org",
       "isSilentFilm": true,
-      "rightsEvidence": "source_unverified",
+      "rightsEvidence": "pre_1930",
       "imdbRating": 8.0,
       "imdbVotes": 15311,
       "contentRating": "Not Rated"
@@ -351878,7 +351878,7 @@
       "popularityScore": 62,
       "bestSourceType": "archive_org",
       "isSilentFilm": true,
-      "rightsEvidence": "source_unverified"
+      "rightsEvidence": "pre_1930"
     },
     {
       "archiveID": "TheSheBeast",
@@ -395420,7 +395420,7 @@
       "popularityScore": 60,
       "bestSourceType": "archive_org",
       "isSilentFilm": true,
-      "rightsEvidence": "source_unverified",
+      "rightsEvidence": "pre_1930",
       "imdbRating": 7.7,
       "imdbVotes": 3431,
       "contentRating": "Not Rated"
@@ -406065,7 +406065,7 @@
       "popularityScore": 58,
       "bestSourceType": "archive_org",
       "isSilentFilm": true,
-      "rightsEvidence": "source_unverified",
+      "rightsEvidence": "pre_1930",
       "imdbRating": 7.1,
       "imdbVotes": 1876,
       "contentRating": "Not Rated"
@@ -418149,7 +418149,7 @@
       "popularityScore": 55,
       "bestSourceType": "archive_org",
       "isSilentFilm": true,
-      "rightsEvidence": "source_unverified",
+      "rightsEvidence": "pre_1930",
       "synopsisSource": "omdb",
       "imdbRating": 7.1,
       "imdbVotes": 1876,
@@ -467553,59 +467553,6 @@
       "synopsisSource": null
     },
     {
-      "archiveID": "series:227-1985",
-      "title": "227",
-      "year": 1985,
-      "decade": 1980,
-      "runtimeSeconds": null,
-      "synopsis": "Set in Washington, DC, the series follows the residents of building number 227, a solidly middle-class apartment house located in a neighbor that is rapidly becoming gentrified with posh condominiums. Gibbs plays Mary Jenkins, a no-nonsense housewife. Mary's construction supervisor husband, Lester, is a caring, dependable father to their teenage daughter, Brenda. Mary's best friend is Rose Lee Holloway, a gossipy widow. The two pals love to sit on the stoop and discuss their lives and the lives of anyone else who happens to wander by. Sandra Clark is the building's resident vamp, a sashaying mantrap whose haughty attitude often sets her at odds with down-to-earth Mary. Pearl Shay is an elderly busybody who observes all of 227's comings and goings from her perch at the window of her first floor apartment. Rounding out the building's principal residents are Calvin, Pearl's seventeen year-old grandson (and Brenda's boyfriend), and Rose's daughter Tiffany.",
-      "collections": [],
-      "subjects": [
-        "Comedy"
-      ],
-      "mediatype": "movies",
-      "language": "English",
-      "imdbID": null,
-      "tmdbID": null,
-      "wikidataQID": null,
-      "tvmazeID": 7602,
-      "videoFile": null,
-      "downloadURL": null,
-      "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/63/158609.jpg",
-      "backdropURL": null,
-      "hasRealArtwork": true,
-      "artworkSource": "tvmaze",
-      "contentType": "tv-series",
-      "genres": [
-        "Comedy"
-      ],
-      "countries": [],
-      "cast": [],
-      "director": null,
-      "producer": null,
-      "seriesName": "227",
-      "network": "NBC",
-      "enrichmentTier": "fullyEnriched",
-      "shelves": [],
-      "rightsStatus": null,
-      "qualityScore": null,
-      "popularityScore": null,
-      "bestSourceType": "tvmaze",
-      "isSilentFilm": false,
-      "seriesID": "227-1985",
-      "yearEnd": 1990,
-      "seasonsCount": 1,
-      "episodesCount": 1,
-      "networks": [
-        "NBC"
-      ],
-      "creator": null,
-      "imdbRating": null,
-      "imdbVotes": null,
-      "contentRating": null,
-      "synopsisSource": "tvmaze"
-    },
-    {
       "archiveID": "series:26-men-1957",
       "title": "26 Men",
       "year": 1957,
@@ -467860,7 +467807,7 @@
       "seriesID": "alf-1986",
       "yearEnd": 1996,
       "seasonsCount": 1,
-      "episodesCount": 2,
+      "episodesCount": 8,
       "networks": [
         "NBC"
       ],
@@ -468229,7 +468176,7 @@
       "seriesID": "angie-1979",
       "yearEnd": 1980,
       "seasonsCount": 1,
-      "episodesCount": 2,
+      "episodesCount": 4,
       "networks": [
         "ABC"
       ],
@@ -470748,7 +470695,7 @@
       "seriesID": "coronet-blue-1967",
       "yearEnd": 1967,
       "seasonsCount": 1,
-      "episodesCount": 2,
+      "episodesCount": 6,
       "networks": [
         "CBS"
       ],
@@ -471933,7 +471880,7 @@
       "seriesID": "double-trouble-1984",
       "yearEnd": 1985,
       "seasonsCount": 1,
-      "episodesCount": 1,
+      "episodesCount": 4,
       "networks": [
         "NBC"
       ],
@@ -472722,7 +472669,7 @@
       "seriesID": "fawlty-towers-1975",
       "yearEnd": 1979,
       "seasonsCount": 1,
-      "episodesCount": 2,
+      "episodesCount": 7,
       "networks": [
         "BBC Two"
       ],
@@ -473497,7 +473444,7 @@
       "seriesID": "fries-with-that-2004",
       "yearEnd": 2004,
       "seasonsCount": 1,
-      "episodesCount": 2,
+      "episodesCount": 6,
       "networks": [
         "YTV"
       ],
@@ -473807,7 +473754,7 @@
       "seriesID": "gamesmaster-1992",
       "yearEnd": 1998,
       "seasonsCount": 1,
-      "episodesCount": 1,
+      "episodesCount": 8,
       "networks": [
         "Channel 4"
       ],
@@ -474066,7 +474013,7 @@
       "seriesID": "get-a-life-1990",
       "yearEnd": 1992,
       "seasonsCount": 1,
-      "episodesCount": 2,
+      "episodesCount": 3,
       "networks": [
         "FOX"
       ],
@@ -475806,7 +475753,7 @@
       "seriesID": "kappa-mikey-2006",
       "yearEnd": 2008,
       "seasonsCount": 1,
-      "episodesCount": 2,
+      "episodesCount": 17,
       "networks": [
         "Nicktoons"
       ],
@@ -477594,7 +477541,7 @@
       "seriesID": "mary-kate-and-ashley-in-action-2001",
       "yearEnd": 2002,
       "seasonsCount": 1,
-      "episodesCount": 2,
+      "episodesCount": 6,
       "networks": [
         "ABC"
       ],
@@ -477902,7 +477849,7 @@
       "seriesID": "million-dollars-but-2015",
       "yearEnd": 2018,
       "seasonsCount": 1,
-      "episodesCount": 1,
+      "episodesCount": 4,
       "networks": [
         "Rooster Teeth"
       ],
@@ -481589,7 +481536,7 @@
       "seriesID": "spectreman-1971",
       "yearEnd": 1972,
       "seasonsCount": 1,
-      "episodesCount": 2,
+      "episodesCount": 3,
       "networks": [
         "Fuji TV"
       ],
@@ -482941,7 +482888,7 @@
       "seriesID": "the-avengers-1961",
       "yearEnd": 1969,
       "seasonsCount": 1,
-      "episodesCount": 2,
+      "episodesCount": 13,
       "networks": [
         "ITV1"
       ],
@@ -483047,7 +482994,7 @@
       "seriesID": "the-big-break-2003",
       "yearEnd": 2015,
       "seasonsCount": 1,
-      "episodesCount": 1,
+      "episodesCount": 2,
       "networks": [
         "Golf Channel"
       ],
@@ -483302,7 +483249,7 @@
       "seriesID": "the-challenge-1998",
       "yearEnd": null,
       "seasonsCount": 1,
-      "episodesCount": 1,
+      "episodesCount": 20,
       "networks": [
         "MTV"
       ],
@@ -483553,7 +483500,7 @@
       "seriesID": "the-cosby-show-1984",
       "yearEnd": 1992,
       "seasonsCount": 1,
-      "episodesCount": 2,
+      "episodesCount": 4,
       "networks": [
         "NBC"
       ],
@@ -484477,7 +484424,7 @@
       "seriesID": "the-jim-henson-hour-1989",
       "yearEnd": 1989,
       "seasonsCount": 1,
-      "episodesCount": 2,
+      "episodesCount": 4,
       "networks": [
         "NBC"
       ],
@@ -486252,7 +486199,7 @@
       "seriesID": "the-snowman-1982",
       "yearEnd": 2012,
       "seasonsCount": 1,
-      "episodesCount": 1,
+      "episodesCount": 4,
       "networks": [
         "Channel 4"
       ],
@@ -488530,7 +488477,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "mr-alemann-last-edit-original",
@@ -488579,7 +488527,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "jsc2021m000138_4k_earth_views_extended_cut_for_earth_day_-2021",
@@ -488627,7 +488576,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "resch-pamela-bach-20210430",
@@ -488677,7 +488627,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "jsc2020m000087-Down_to_Earth_A_Work_of_Art",
@@ -488728,7 +488679,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASA_SpaceX_Demo-2_Mission_Animation",
@@ -488777,7 +488729,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "iss063m261221939-NASA_SpaceX_Demo2_Douglas_Hurley_Interviews_2020_0501",
@@ -488826,7 +488779,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "jsc2020m000136_Doug_Hurley_discusses_launch_day_for_SpaceX_Demo-2_mission",
@@ -488875,7 +488829,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASA-Knowledge-Series",
@@ -488927,7 +488882,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Apollo-04_Stage_Separation.mxf",
@@ -488981,7 +488937,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "First-8K-Video-from-Space",
@@ -489034,7 +488991,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Apollo-Saturn_Stage_Separation.mxf",
@@ -489088,7 +489046,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "275CappStStephenParrTributeVideo",
@@ -489136,7 +489095,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "GMT137_08_26_Jack-Fischer_88789J_Nanoracks-137_DP014401.MXF",
@@ -489208,7 +489168,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "jsc2017m000655_Spacewalking_in_Ultra_High_Definition",
@@ -489256,7 +489217,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "DarrellRogersOnCOREInSF196264",
@@ -489312,7 +489274,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "DarrellRogersOnHPUprising",
@@ -489370,7 +489333,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "DarrellRogersOnTheBlackPanthers",
@@ -489421,7 +489385,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "USEVA29WithVoiceover150219720p",
@@ -489469,7 +489434,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ISSVideoResourceEarthViews720p",
@@ -489519,7 +489485,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ISSVideoResourceExteriorViews720p",
@@ -489569,7 +489536,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ISSVideoResourceLifeOnStation720p",
@@ -489619,7 +489587,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ISSVideoResourceSoyuz720p",
@@ -489669,7 +489638,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ISSVideoResourceScience720p",
@@ -489720,7 +489690,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ISSVideoResourceCargoVehicle720p",
@@ -489774,7 +489745,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ISSVideoResourceGroundProcessing720p",
@@ -489827,7 +489799,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ALifeWellLived",
@@ -489875,7 +489848,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-mvpd8xmNJNk",
@@ -489923,7 +489897,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-ArLEfh8GbEY",
@@ -489971,7 +489946,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "the-space-shuttle-narrated-by-william-shatner-SvaG0xDdP8g",
@@ -490026,7 +490002,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-uhYO8IOtXZo",
@@ -490074,7 +490051,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Time-lapseAstronautPhotographyOfEarth-2",
@@ -490122,7 +490100,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-kc4PuQ6tzKo",
@@ -490170,7 +490149,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-2z9Qy9rrwQU",
@@ -490218,7 +490198,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "msl20110624b-1280-i",
@@ -490266,7 +490247,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-0XaHp6QyP6c",
@@ -490314,7 +490296,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-en5OObU0ryU",
@@ -490362,7 +490345,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-0NAt6PKeUp0",
@@ -490410,7 +490394,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "mer20111010-1280-i",
@@ -490461,7 +490446,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "whatsup20111004-1280-i",
@@ -490507,7 +490493,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "neowise20110929-1280-i",
@@ -490557,7 +490544,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASAMarshallTV-Lvs_fnJ2jvY",
@@ -490605,7 +490593,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.hhs.cms.006719",
@@ -490669,7 +490658,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "OurWorldGravityInSpace",
@@ -490717,7 +490707,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "OurWorldSnowflakes",
@@ -490765,7 +490756,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASA_eClips_Our_World_Communication_HD",
@@ -490811,7 +490803,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "OurWorldWindTunnelsInAction",
@@ -490859,7 +490852,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "OurWorldJournalingInSpace",
@@ -490907,7 +490901,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "RealWorldNasaAndTheChesapeakeBay",
@@ -490955,7 +490950,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "RealWorldTheSilentAirliner",
@@ -491003,7 +490999,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASA_eClips_Real_World_Time_In_Space_HD",
@@ -491049,7 +491046,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "RealWorldAnalogTestingInExtremeEnvironmentsneemo",
@@ -491097,7 +491095,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASA_Launchpad_Earth_Systems_HD",
@@ -491143,7 +491142,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Avatar_3",
@@ -491192,7 +491192,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "RealWorldKeepingTheInternationalSpaceStationInOrbit",
@@ -491240,7 +491241,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "OurWorldSleepingOnBoardTheInternationalSpaceStation",
@@ -491288,7 +491290,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "LaunchpadNasaAndBiosphere2",
@@ -491336,7 +491339,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-4jsP_bQnLhU",
@@ -491384,7 +491388,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-51O6AqeB1QQ",
@@ -491432,7 +491437,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-Tm_WQIYO2zo",
@@ -491480,7 +491486,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-799PWvvCZms",
@@ -491528,7 +491535,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-6bBSP8xrCZ0",
@@ -491576,7 +491584,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasaames-226CB07FB5E",
@@ -491624,7 +491633,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "LaunchpadPhaseDiagramsAndWhyYouCannotMakeASnowballOnMars",
@@ -491672,7 +491682,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASAKennedy-rUks2BROvWg",
@@ -491720,7 +491731,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "OurWorldLunarRock",
@@ -491768,7 +491780,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "LaunchpadTheLighterSide",
@@ -491816,7 +491829,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASAKennedy-yoXGi6DuA6M",
@@ -491864,7 +491878,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "OtaLutz_Robotics_1280x720-i",
@@ -491910,7 +491925,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "LaunchpadSolarEclipses",
@@ -491958,7 +491974,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "LaunchpadBernoullisPrincipleOn-boardTheInternationalSpaceStation",
@@ -492006,7 +492023,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "POTUS_1080HD",
@@ -492054,7 +492072,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "CelebratingTheLifeOfMilanHerzog",
@@ -492102,7 +492121,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "edu.alaska.fnh-01284.1",
@@ -492151,7 +492171,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "edu.alaska.fnh-01281.1",
@@ -492200,7 +492221,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_022709",
@@ -492248,7 +492270,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_022309",
@@ -492296,7 +492319,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_081009",
@@ -492344,7 +492368,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_02022009",
@@ -492392,7 +492417,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_051309",
@@ -492438,7 +492464,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_110209",
@@ -492486,7 +492513,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_100909",
@@ -492532,7 +492560,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_040709",
@@ -492580,7 +492609,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_052609",
@@ -492628,7 +492658,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_060809",
@@ -492674,7 +492705,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_052809",
@@ -492722,7 +492754,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_02062009",
@@ -492768,7 +492801,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_082109",
@@ -492816,7 +492850,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_091109",
@@ -492862,7 +492897,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_101909",
@@ -492908,7 +492944,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "PartiallyRestoredVideoEventsFromTheApollo11Mission",
@@ -492958,7 +492995,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AstronautTrainingAtGoddardSpaceFlightCenter",
@@ -493006,7 +493044,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Ares1-xTestRocketLaunches",
@@ -493054,7 +493093,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_mp4",
@@ -493102,7 +493142,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AresQuarterlyProgressReport11",
@@ -493150,7 +493191,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "GMM-10481",
@@ -493199,7 +493241,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "HighDefinitionViewsOfEarth",
@@ -493247,7 +493290,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "TourTheInternationalSpaceStation",
@@ -493293,7 +493337,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "DiscoveryFlyaroundOfInternationalSpaceStation",
@@ -493339,7 +493384,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ConstellationEarthMoonMars",
@@ -493387,7 +493433,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "WideFieldCamera3ExtendingHubblesVision",
@@ -493435,7 +493482,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "whatsup20091016-1280-i",
@@ -493485,7 +493533,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_083109",
@@ -493531,7 +493580,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "whatsup20090903-1280-i",
@@ -493579,7 +493629,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ConstellationMiniFeature4",
@@ -493627,7 +493678,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "PartiallyRestoredVideoNeilArmstrongAndBuzzAldrinRaiseTheAmerican",
@@ -493677,7 +493729,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "StisRepairTheQuestForRenewedExploration",
@@ -493725,7 +493778,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AtlantisLaunchesOnHubbleRepairMission",
@@ -493771,7 +493825,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_072709",
@@ -493819,7 +493874,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AcsRepairTheChallengeToFixHubblesBestSurveyCamera",
@@ -493867,7 +493923,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "GMM-10432",
@@ -493917,7 +493974,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Sts-119Launch",
@@ -493963,7 +494021,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "CountdownToTheLastMissionToHubble",
@@ -494011,7 +494070,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ExploringPhysicsAcrossTheUniverse",
@@ -494059,7 +494119,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "VabDoorsOpeningWithTimeLapse",
@@ -494105,7 +494166,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_eclips_12302008",
@@ -494151,7 +494213,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Nasa_eClips_video",
@@ -494197,7 +494260,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASA_360_program1_HD",
@@ -494245,7 +494309,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASA_360_program2_HD",
@@ -494293,7 +494358,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASA_360_program3_HD",
@@ -494341,7 +494407,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_360",
@@ -494389,7 +494456,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASA_360_program4_HD",
@@ -494437,7 +494505,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASA_eclips",
@@ -494485,7 +494554,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "sts125vehicle13",
@@ -494531,7 +494601,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_flv",
@@ -494579,7 +494650,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASA_Space_Operations_Launch_Services_Clip15_HD",
@@ -494627,7 +494699,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "CIL-10295",
@@ -494677,7 +494750,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ksc_080707_118_launch_1080i.wmv",
@@ -494727,7 +494801,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Ares3YearProgressVideo",
@@ -494775,7 +494850,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "OrbitsAndKeplersLaws",
@@ -494820,7 +494896,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "CX_Mission_Short3b_HDweb.wmv",
@@ -494868,7 +494945,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Nasa_LP",
@@ -494914,7 +494992,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "STS-116_LaunchHD_1080i.wmv",
@@ -494965,7 +495044,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASA_Aeronautics_Green_Clip26_HD",
@@ -495013,7 +495093,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AresQuarterlyProgressReport10",
@@ -495061,7 +495142,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ksc_102407_sts120_launch_1080i.mov",
@@ -495111,7 +495193,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "LunarSurface_HD_1080i.wmv",
@@ -495159,7 +495242,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AresQuarterlyProgressReport9",
@@ -495207,7 +495291,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AresQuarterlyProgressReport8",
@@ -495255,7 +495340,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "nasa_exploration",
@@ -495303,7 +495389,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AresQuarterlyProgressReport7",
@@ -495352,7 +495439,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ShuttleProcessingMontage",
@@ -495400,7 +495488,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ksc_053108_sts124_launch_1080i.mov",
@@ -495451,7 +495540,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AstronautSuitDemo",
@@ -495497,7 +495587,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NiteAndDayOfAShuttle",
@@ -495545,7 +495636,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AVC-2008-013_1",
@@ -495594,7 +495686,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasasSpacecraftChamberOfHorrors",
@@ -495642,7 +495735,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NASA_Science_Earth_Clip42_HD",
@@ -495690,7 +495784,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ksc_020708_sts122_launch_1080i.mov",
@@ -495741,7 +495836,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Sts-125HstSm4CrewTrainingInNbl",
@@ -495789,7 +495885,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "THEMIS_Promo_HD_New_HD_720p.wmv",
@@ -495838,7 +495935,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "exp13HD_720p.wmv",
@@ -495886,7 +495984,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.chappm.pandemic",
@@ -495935,7 +496034,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "GMM-10128",
@@ -496049,7 +496149,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AresQuarterlyProgressReport3",
@@ -496097,7 +496198,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AresQuarterlyProgressReport6",
@@ -496145,7 +496247,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "SVS-3412",
@@ -496197,7 +496300,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "CIL-10156",
@@ -496246,7 +496350,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "GMM-10145",
@@ -496294,7 +496399,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "CIL-10150",
@@ -496343,7 +496449,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ProvincetownTheFirstSummer1953",
@@ -496389,7 +496496,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ArtistsOfTheSun",
@@ -496437,7 +496545,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "TheSunGallery1955-59",
@@ -496483,7 +496592,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.dhs.fema.usfa.e202",
@@ -496532,7 +496642,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "APOLLO_16MM_ONBOARD_SELECT_VIEWS",
@@ -496581,7 +496692,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AresQuarterlyProgressReport2",
@@ -496629,7 +496741,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "DOPE483",
@@ -496681,7 +496794,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.dhs.fema.usfa.e182",
@@ -496730,7 +496844,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.csb.2005.explosion",
@@ -496779,7 +496894,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaSciFiles-ReproductionMigrationAndBasicNeeds",
@@ -496827,7 +496943,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "SPITZ-ssc2005-14v1",
@@ -496879,7 +496996,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "DOPE477",
@@ -496934,7 +497052,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "APOLLO_16MM_ONBOARD_SELECT_VIEWS_long",
@@ -496981,7 +497100,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "APOLLO_16MM_ONBOARD_SELECT_VIEWS_short",
@@ -497028,7 +497148,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaConnect-Psa-Robots",
@@ -497076,7 +497197,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "international_toys_in_space",
@@ -497126,7 +497248,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "AVC-2005-012-1",
@@ -497176,7 +497299,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaConnect-Psa-PersonalSatelliteAssistant",
@@ -497224,7 +497348,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaConnect-PersonalSatelliteAssistant-TheAstronautsHelper",
@@ -497272,7 +497397,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "TimeOfFear",
@@ -497326,7 +497452,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.nwcg.nfes.2709",
@@ -497375,7 +497502,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.dol.osha.vt01760a",
@@ -497424,7 +497552,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "MSFC-0601215",
@@ -497474,7 +497603,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaSciFiles-BodySystems",
@@ -497522,7 +497652,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaSciFiles-CellsTissuesOrgansAndSystems",
@@ -497570,7 +497701,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaSciFiles-SimulatedEpidemic",
@@ -497618,7 +497750,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "HSF-mov-moon",
@@ -497687,7 +497820,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "HSF-mov-chawla",
@@ -497736,7 +497870,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaSciFiles-MoonPhases",
@@ -497784,7 +497919,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "SPITZ-ssc2003-06v1",
@@ -497832,7 +497968,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "HSF-mov-clouds",
@@ -497880,7 +498017,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "CIL-10014",
@@ -497930,7 +498068,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaConnect-Ditns-ImageSatellite",
@@ -497978,7 +498117,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "CIL-10019",
@@ -498028,7 +498168,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "SVS-2749",
@@ -498080,7 +498221,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "MSFC-0601212",
@@ -498129,7 +498271,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.ntis.ava21157vnb1",
@@ -498178,7 +498321,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaWhyFiles-HistoryOfElectricity",
@@ -498226,7 +498370,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "MSFC-0601300",
@@ -498276,7 +498421,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaSciFiles-TheFourForcesOfFlight",
@@ -498324,7 +498470,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "VE-VID-2434",
@@ -498375,7 +498522,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaConnect-Hasb-SunBasics",
@@ -498423,7 +498571,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "OSBrowse2002",
@@ -498473,7 +498622,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Preventi2002",
@@ -498523,7 +498673,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Olympics2002_2",
@@ -498573,7 +498724,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Olympics2002",
@@ -498623,7 +498775,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "OnlineTr2002",
@@ -498673,7 +498826,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "HiTechHa2002",
@@ -498723,7 +498877,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "European2002",
@@ -498773,7 +498928,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "European2002_2",
@@ -498823,7 +498979,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.frb.pa.today",
@@ -498872,7 +499029,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaSciFiles-TheScientificMethod",
@@ -498920,7 +499078,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaKsnn-SpaceFlightPhysicalChanges",
@@ -498968,7 +499127,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ikonos_zoom_hollywood",
@@ -499021,7 +499181,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaConnect-Aatc-FutureNasaTechnology_837",
@@ -499069,7 +499230,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaConnect-FunctionsAndStatistics-InternationalSpaceStation-UpToUs",
@@ -499117,7 +499279,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "LaurieBerknersSongbook",
@@ -499168,7 +499331,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "pele-frieda",
@@ -499216,7 +499380,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Wireless2001",
@@ -499266,7 +499431,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "EasyWebC2001",
@@ -499316,7 +499482,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "MP3Secre2001",
@@ -499367,7 +499534,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Computer2001_2",
@@ -499417,7 +499585,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Security2001",
@@ -499467,7 +499636,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "HomeNetw2001",
@@ -499517,7 +499687,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Creating2001",
@@ -499567,7 +499738,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "OnlineGa01.0",
@@ -499617,7 +499789,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "TVMeetsP2001",
@@ -499667,7 +499840,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "WebSurfi2001",
@@ -499717,7 +499891,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "HiTechHa2001_2",
@@ -499767,7 +499942,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Technolo2001_3",
@@ -499817,7 +499993,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Findinga2001",
@@ -499867,7 +500044,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "European2001_2",
@@ -499917,7 +500095,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ETREEuro2001_2",
@@ -499967,7 +500146,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.doj.ncj.212664.v1.6",
@@ -500016,7 +500196,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.doj.ncj.212664.v1.7",
@@ -500065,7 +500246,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.ntis.ava21026vnb1",
@@ -500114,7 +500296,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.doj.ncj.212664.v1.4",
@@ -500163,7 +500346,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.doj.ncj.212664.v1.5",
@@ -500212,7 +500396,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "gov.usmint.money",
@@ -500261,7 +500446,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "NasaSciFiles-ScientificMethod-dataCollectionAndVariables",
@@ -500309,7 +500495,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "case_of_the_barking_dogs",
@@ -500357,7 +500544,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "ReaderRabbitSingASongAdvenures_201302",
@@ -500406,7 +500594,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "Showcase2000",
@@ -500456,7 +500645,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "UsersGro2000",
@@ -500506,7 +500696,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     },
     {
       "archiveID": "FasterNe2000",
@@ -500556,7 +500747,8 @@
       "popularityScore": null,
       "bestSourceType": "archive_org",
       "isSilentFilm": false,
-      "discoverySource": "wikidata"
+      "discoverySource": "wikidata",
+      "rightsEvidence": "source_flagged"
     }
   ]
 }

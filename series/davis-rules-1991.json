@@ -1,45 +1,48 @@
 {
- "version": 2,
- "seriesID": "davis-rules-1991",
- "tvmazeID": 58597,
- "title": "Davis Rules",
- "yearStart": 1991,
- "yearEnd": 1992,
- "overview": "Dwight Davis, a widowed elementary school principal raises his three sons (Robbie, Charlie, and Ben) with the help of his wacky father Gunny Davis.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/369/924916.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  "version": 2,
+  "seriesID": "davis-rules-1991",
+  "tvmazeID": 58597,
+  "title": "Davis Rules",
+  "yearStart": 1991,
+  "yearEnd": 1992,
+  "overview": "Dwight Davis, a widowed elementary school principal raises his three sons (Robbie, Charlie, and Ben) with the help of his wacky father Gunny Davis.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/369/924916.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "davisruless02e01sitcom",
-     "seasonNumber": 2,
-     "episodeNumber": 1,
-     "title": "They're Writing Songs of Love, But Nun for Me",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1991-12-30",
-     "year": 1991,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Season 2/Davis Rules S02E01 Theyre Writing Songs of Love But Nun for Me.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 82386713,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/davisruless02e01sitcom/Season%202/Davis%20Rules%20S02E01%20Theyre%20Writing%20Songs%20of%20Love%20But%20Nun%20for%20Me.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "davisruless02e01sitcom",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "They're Writing Songs of Love, But Nun for Me",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1991-12-30",
+          "year": 1991,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 2/Davis Rules S02E01 Theyre Writing Songs of Love But Nun for Me.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 82386713,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/davisruless02e01sitcom/Season%202/Davis%20Rules%20S02E01%20Theyre%20Writing%20Songs%20of%20Love%20But%20Nun%20for%20Me.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 1,
- "canonicalEpisodesCount": 29
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 29,
+  "seriesImdbID": "tt0101078",
+  "canonicalEpisodeCount": 9,
+  "canonicalSeasons": 2
 }

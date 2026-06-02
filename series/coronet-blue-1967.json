@@ -1,65 +1,145 @@
 {
- "version": 2,
- "seriesID": "coronet-blue-1967",
- "tvmazeID": 39927,
- "title": "Coronet Blue",
- "yearStart": 1967,
- "yearEnd": 1967,
- "overview": "A man wakes up with amnesia, and has no memory of who he is or why people want him dead. Taking the name \"Michael Alden\", the man sets out to find out who he is and why the mysterious \"Greybeards\" want him dead.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/176/440439.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Thriller",
-  "Mystery"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "coronet-blue-1967",
+  "tvmazeID": 39927,
+  "title": "Coronet Blue",
+  "yearStart": 1967,
+  "yearEnd": 1967,
+  "overview": "A man wakes up with amnesia, and has no memory of who he is or why people want him dead. Taking the name \"Michael Alden\", the man sets out to find out who he is and why the mysterious \"Greybeards\" want him dead.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/176/440439.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Thriller",
+    "Mystery"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "CoronetBlue",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Coronet Blue",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/gNCFlL5MgRK2m4O8nNxDLeFS9Ef.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Tv-CoronetBlue1967CbsNetworkPromo.mp4",
-      "format": "h.264",
-      "sizeBytes": 1382358,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/CoronetBlue/Tv-CoronetBlue1967CbsNetworkPromo.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "coronet-blue-s-1-e-01-a-time-to-be-born",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Coronet Blue S1E01 - A Time To Be Born",
+          "overview": "<div><i><u><b>About the Series (8.2/10 imdb rating)<br /></b></u></i></div><div><br />Frank Converse's character (called \"Gigot\" in the first episode), is \ntold by a woman and two men that they know what he is up to, after which\n they drug him and dump him in the river. He manages to pull himself \nashore and the only words he says are \"Coronet Blue\". One visual clue as\n to where Converse's character got that phrase from was a sign on a \nnightclub he was in immediately before he was attacked: \"The Blue \nCoronet\". Suffering from amnesia due to the effects of the drug, he soon\n discovers that he has been targeted for assassination by the same \nmysterious group of killers. He adopts the name \"Michael Alden,\" a \ncombination of the name of his doctor and the name of the hospital where\n he was taken to recover. Over the remaining episodes he attempts to \ndiscover his identity and the identities of his assailants, whom he \nrefers to as \"Greybeards\". </div><div><i><u><b><br /></b></u></i></div><div><i><u><b>Coronet Blue S1E01 - A Time To Be Born</b></u></i></div><div><br /></div><div>A man called “Gigot” by an assailant is pulled from a river, but has no \nmemory of his past except two words--\"Coronet Blue\". He is rehabilitated\n and gives himself the name \"Michael Alden\" and begins his trek to \"find\n his past\" but soon realizes he is targeted for assassination. <br /></div><div><br /></div><div>=======</div><div><br /></div><div><u><i><b>Special Note:</b></i></u></div><div>The original broadcast order of Coronet Blue was pre-empted for two episodes indicated below. These two episodes were re-scheduled to be broadcast and then pre-empted yet again and subsequently never broadcast. Most online database servers indicate the two pre-empted episodes as S1E12 and S1E13, yet that was not the original scheduled broadcast order. If you want to watch these episodes in the originally intended broadcast order, use the following sequence:<br /></div><div><ol><li>S1E01 A Time to Be Born</li><li>S1E12 Where You From and What You Done? <i><b>(Pre-empted)</b></i></li><li>S1E02 The Assassins</li><li>S1E03 The Rebels</li><li>S1E13 Tomoyo <i><b>(Pre-empted)</b></i></li><li>S1E04 A Dozen Demons</li><li>S1E05 Faces</li><li>S1E06 Man Running</li><li>S1E07 A Charade for Murder</li><li>S1E08 Saturday</li><li>S1E09 Presence of Evil</li><li>S1E10 Six Months to Mars</li><li>S1E11 The Flip Side of Timmy Devon </li></ol></div>",
+          "stillURL": "https://archive.org/services/img/coronet-blue-s-1-e-01-a-time-to-be-born",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2950,
+          "videoFile": {
+            "name": "Coronet Blue - S1E01 - A Time to Be Born.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 422915006,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/coronet-blue-s-1-e-01-a-time-to-be-born/Coronet%20Blue%20-%20S1E01%20-%20A%20Time%20to%20Be%20Born.mp4"
+        },
+        {
+          "archiveID": "coronet-blue-s-1-e-02-the-assassins",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Coronet Blue S1E02 - The Assassins",
+          "overview": "<div><u><i><b>Coronet Blue S1E02 - The Assassins</b></i></u></div><div><br /></div><div>Alden is reunited with people who claim to be his parents. But when \ncertain things do not add up, he begins to wonder if they \"really are\" \nwho they say they are.\n</div>",
+          "stillURL": "https://archive.org/services/img/coronet-blue-s-1-e-02-the-assassins",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 3047,
+          "videoFile": {
+            "name": "Coronet Blue - S1E02 - The Assassins.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 436605538,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/coronet-blue-s-1-e-02-the-assassins/Coronet%20Blue%20-%20S1E02%20-%20The%20Assassins.mp4"
+        },
+        {
+          "archiveID": "coronet-blue-s-1-e-12-where-you-from-and-what-you-done",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Coronet Blue S1E12 - Where You From and What You Done",
+          "overview": "<div><u><i><b>Coronet Blue S1E12 - Where You From and What You Done</b></i></u></div><div><br />Alden meets a strange young woman who swears she knows who he is but he suspects that she is not all she appears to be. <br /></div><div><br /></div><div><div>=======</div><div><br /></div><div><u><i><b>Special Note:</b></i></u></div><div>The\n original broadcast order of Coronet Blue was pre-empted for two \nepisodes indicated below. These two episodes were re-scheduled to be \nbroadcast and then pre-empted yet again and subsequently never \nbroadcast. Most online database servers indicate the two pre-empted \nepisodes as S1E12 and S1E13, yet that was not the original scheduled \nbroadcast order. If you want to watch these episodes in the originally \nintended broadcast order, use the following sequence:<br /></div><div><ol><li>S1E01 A Time to Be Born</li><li>S1E12 Where You From and What You Done? <i><b>(Pre-empted)</b></i></li><li>S1E02 The Assassins</li><li>S1E03 The Rebels</li><li>S1E13 Tomoyo <i><b>(Pre-empted)</b></i></li><li>S1E04 A Dozen Demons</li><li>S1E05 Faces</li><li>S1E06 Man Running</li><li>S1E07 A Charade for Murder</li><li>S1E08 Saturday</li><li>S1E09 Presence of Evil</li><li>S1E10 Six Months to Mars</li><li>S1E11 The Flip Side of Timmy Devon </li></ol></div></div>",
+          "stillURL": "https://archive.org/services/img/coronet-blue-s-1-e-12-where-you-from-and-what-you-done",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 3021,
+          "videoFile": {
+            "name": "Coronet Blue - S1E12 - Where You From and What You Done.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 432931879,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/coronet-blue-s-1-e-12-where-you-from-and-what-you-done/Coronet%20Blue%20-%20S1E12%20-%20Where%20You%20From%20and%20What%20You%20Done.mp4"
+        },
+        {
+          "archiveID": "coronet-blue-s-1-e-13-tomoyo",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Coronet Blue S1E13 - Tomoyo",
+          "overview": "<div><u><i><b>Coronet Blue S1E13 - Tomoyo (Final Episode)<br /></b></i></u></div><div><br /></div><div>Alden becomes caught up in a karate group with links to the Mafia when he recognizes a young Asian woman. <br /></div><div><br /></div><div><u><i><b>Post Mortem:</b></i></u><br /></div><div>The series ended before the solution to the origins of Alden's identity was revealed, but series creator Larry Cohen later told his biographer:</div><div><br /></div><div><i>\"The actual secret is that Converse was not really an American at all. He was a Russian who had been trained to appear like an American and was sent to the U.S. as a spy. He belonged to a spy unit called 'Coronet Blue.' He decided to defect, so the Russians tried to kill him before he could give away the identities of the other Soviet agents. And nobody could really identify him because he didn't exist as an American.\"</i></div><div><br /></div><div><div>=======</div><div><br /></div><div><u><i><b>Special Note:</b></i></u></div><div>The\n original broadcast order of Coronet Blue was pre-empted for two \nepisodes indicated below. These two episodes were re-scheduled to be \nbroadcast and then pre-empted yet again and subsequently never \nbroadcast. Most online database servers indicate the two pre-empted \nepisodes as S1E12 and S1E13, yet that was not the original scheduled \nbroadcast order. If you want to watch these episodes in the originally \nintended broadcast order, use the following sequence:<br /></div><div><ol><li>S1E01 A Time to Be Born</li><li>S1E12 Where You From and What You Done? <i><b>(Pre-empted)</b></i></li><li>S1E02 The Assassins</li><li>S1E03 The Rebels</li><li>S1E13 Tomoyo <i><b>(Pre-empted)</b></i></li><li>S1E04 A Dozen Demons</li><li>S1E05 Faces</li><li>S1E06 Man Running</li><li>S1E07 A Charade for Murder</li><li>S1E08 Saturday</li><li>S1E09 Presence of Evil</li><li>S1E10 Six Months to Mars</li><li>S1E11 The Flip Side of Timmy Devon </li></ol></div></div>",
+          "stillURL": "https://archive.org/services/img/coronet-blue-s-1-e-13-tomoyo",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 3005,
+          "videoFile": {
+            "name": "Coronet Blue - S1E13 - Tomoyo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 428551158,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/coronet-blue-s-1-e-13-tomoyo/Coronet%20Blue%20-%20S1E13%20-%20Tomoyo.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "Coronet-Blue-1967-Series",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Coronet Blue (1967) - Complete Series",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/gNCFlL5MgRK2m4O8nNxDLeFS9Ef.jpg",
-     "airDate": null,
-     "year": 1967,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Coronet Blue (13 of 13)/S01E06 - Man Running.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 306491403,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Coronet-Blue-1967-Series/Coronet Blue (13 of 13)/S01E06 - Man Running.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "CoronetBlue",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Coronet Blue",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gNCFlL5MgRK2m4O8nNxDLeFS9Ef.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tv-CoronetBlue1967CbsNetworkPromo.mp4",
+            "format": "h.264",
+            "sizeBytes": 1382358,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CoronetBlue/Tv-CoronetBlue1967CbsNetworkPromo.mp4"
+        },
+        {
+          "archiveID": "Coronet-Blue-1967-Series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Coronet Blue (1967) - Complete Series",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gNCFlL5MgRK2m4O8nNxDLeFS9Ef.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Coronet Blue (13 of 13)/S01E06 - Man Running.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 306491403,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Coronet-Blue-1967-Series/Coronet Blue (13 of 13)/S01E06 - Man Running.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 2,
- "canonicalEpisodesCount": 13
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": 13,
+  "seriesImdbID": "tt0061242",
+  "canonicalEpisodeCount": 5,
+  "canonicalSeasons": 1
 }

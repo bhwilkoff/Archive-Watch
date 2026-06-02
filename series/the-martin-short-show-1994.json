@@ -1,45 +1,48 @@
 {
- "version": 2,
- "seriesID": "the-martin-short-show-1994",
- "tvmazeID": 24226,
- "title": "The Martin Short Show",
- "yearStart": 1994,
- "yearEnd": 1994,
- "overview": "Martin Short plays a husband and father who happens to star in a primetime variety show.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/92/230230.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "NBC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-martin-short-show-1994",
+  "tvmazeID": 24226,
+  "title": "The Martin Short Show",
+  "yearStart": 1994,
+  "yearEnd": 1994,
+  "overview": "Martin Short plays a husband and father who happens to star in a primetime variety show.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/92/230230.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "TheMartinShortShowEp.2TheSteveMartinShow",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "The Steve Martin Show",
-     "overview": "Marty's ecstatic when amigo Steve Martin is to guest on his show, until the wild-and-crazy superstar hits on Meg.",
-     "stillURL": null,
-     "airDate": "1994-09-20",
-     "year": 1994,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The-Martin-Short-Show-_Ep.-2_-The-Steve-Martin-Show_.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 239378911,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheMartinShortShowEp.2TheSteveMartinShow/The-Martin-Short-Show-_Ep.-2_-The-Steve-Martin-Show_.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheMartinShortShowEp.2TheSteveMartinShow",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Steve Martin Show",
+          "overview": "Marty's ecstatic when amigo Steve Martin is to guest on his show, until the wild-and-crazy superstar hits on Meg.",
+          "stillURL": null,
+          "airDate": "1994-09-20",
+          "year": 1994,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The-Martin-Short-Show-_Ep.-2_-The-Steve-Martin-Show_.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 239378911,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheMartinShortShowEp.2TheSteveMartinShow/The-Martin-Short-Show-_Ep.-2_-The-Steve-Martin-Show_.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 1,
- "canonicalEpisodesCount": 8
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 8,
+  "seriesImdbID": "tt0108851",
+  "canonicalEpisodeCount": 2,
+  "canonicalSeasons": 1
 }

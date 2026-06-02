@@ -1,63 +1,112 @@
 {
- "version": 2,
- "seriesID": "angie-1979",
- "tvmazeID": 23993,
- "title": "Angie",
- "yearStart": 1979,
- "yearEnd": 1980,
- "overview": "Philadelphia coffee shop waitress Angie Falco starts a romance with customer Bradley Benson, a pediatrician. While she assumes he is a struggling young doctor, he reveals that he is actually rebelling against his wealthy family, presumably residents in the Main Line region of the city's suburbs.The other Falco family members are Angie's mother Theresa and her younger sister Marie. Angie and Marie's father had walked out on the family many years earlier, but Theresa continued to set a place for him at the dinner table. Brad's relatives consist of his stuffy father Randall, his divorced sister, the overbearing Joyce, and Joyce's daughter Hillary. Angie forms a close bond with Hilary.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/445/1114137.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "angie-1979",
+  "tvmazeID": 23993,
+  "title": "Angie",
+  "yearStart": 1979,
+  "yearEnd": 2009,
+  "overview": "Philadelphia coffee shop waitress Angie Falco starts a romance with customer Bradley Benson, a pediatrician. While she assumes he is a struggling young doctor, he reveals that he is actually rebelling against his wealthy family, presumably residents in the Main Line region of the city's suburbs.The other Falco family members are Angie's mother Theresa and her younger sister Marie. Angie and Marie's father had walked out on the family many years earlier, but Theresa continued to set a place for him at the dinner table. Brad's relatives consist of his stuffy father Randall, his divorced sister, the overbearing Joyce, and Joyce's daughter Hillary. Angie forms a close bond with Hilary.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/445/1114137.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "angieseason1",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Angie (Season 1)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/13Q25AqWzh6Og6J9uXMvDV9gtLX.jpg",
-     "airDate": null,
-     "year": 1979,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S01E12- The Check Up.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 462902475,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/angieseason1/S01E12- The Check Up.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "catch-21-gsc-06182009",
+          "seasonNumber": 2,
+          "episodeNumber": 54,
+          "title": "Catch 21 S2E54: Miranda vs. Ilan vs. Angie",
+          "overview": "Recorded from Game Show Central on June 20, 2025 at 3:53PM PDT. Original air date: June 18, 2009.",
+          "stillURL": "https://archive.org/services/img/catch-21-gsc-06182009",
+          "airDate": null,
+          "year": 2009,
+          "runtimeSeconds": 1287,
+          "videoFile": {
+            "name": "Catch21(GSC)06182009.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 125342805,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/catch-21-gsc-06182009/Catch21%28GSC%2906182009.ia.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "angieseason2",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Angie (Season 2)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/13Q25AqWzh6Og6J9uXMvDV9gtLX.jpg",
-     "airDate": null,
-     "year": 1979,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S02E16- Theresa's Gigolo.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 617664238,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/angieseason2/S02E16- Theresa's Gigolo.mp4"
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "the-chase-uk-s5-e100",
+          "seasonNumber": 5,
+          "episodeNumber": 100,
+          "title": "The Chase (1 October 2012 | S5 E100): Liz/Lisa/Richard/Angie",
+          "overview": "<span style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">The Chase UK S5 E100</span><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">Aired 10 June 2023 at 12.00AM BST on Challenge (UK)</div>",
+          "stillURL": "https://archive.org/services/img/the-chase-uk-s5-e100",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3601,
+          "videoFile": {
+            "name": "The Chase UK S5 E100.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 467525356,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-chase-uk-s5-e100/The%20Chase%20UK%20S5%20E100.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "angieseason1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Angie (Season 1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/13Q25AqWzh6Og6J9uXMvDV9gtLX.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S01E12- The Check Up.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 462902475,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/angieseason1/S01E12- The Check Up.mp4"
+        },
+        {
+          "archiveID": "angieseason2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Angie (Season 2)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/13Q25AqWzh6Og6J9uXMvDV9gtLX.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S02E16- Theresa's Gigolo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 617664238,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/angieseason2/S02E16- Theresa's Gigolo.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 2,
- "canonicalEpisodesCount": 36
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 36,
+  "seriesImdbID": "tt0078561",
+  "canonicalEpisodeCount": 3,
+  "canonicalSeasons": 2
 }

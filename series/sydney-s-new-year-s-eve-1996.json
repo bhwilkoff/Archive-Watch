@@ -1,43 +1,45 @@
 {
- "version": 2,
- "seriesID": "sydney-s-new-year-s-eve-1996",
- "tvmazeID": 91153,
- "title": "Sydney's New Year's Eve",
- "yearStart": 1996,
- "yearEnd": null,
- "overview": null,
- "posterURL": null,
- "backdropURL": null,
- "genres": [],
- "networks": [
-  "Nine Network"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 2016,
-   "episodes": [
+  "version": 2,
+  "seriesID": "sydney-s-new-year-s-eve-1996",
+  "tvmazeID": 91153,
+  "title": "Sydney's New Year's Eve",
+  "yearStart": 1996,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Nine Network"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "Jack_Benny_New_Years_Eve",
-     "seasonNumber": 2016,
-     "episodeNumber": 3,
-     "title": "New Year's Eve",
-     "overview": null,
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/549/1373676.jpg",
-     "airDate": "2016-12-31",
-     "year": 2016,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Jack_Benny_New_Years_Eve.mp4",
-      "format": "h.264",
-      "sizeBytes": 158830832,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Jack_Benny_New_Years_Eve/Jack_Benny_New_Years_Eve.mp4"
+      "seasonNumber": 2016,
+      "episodes": [
+        {
+          "archiveID": "Jack_Benny_New_Years_Eve",
+          "seasonNumber": 2016,
+          "episodeNumber": 3,
+          "title": "New Year's Eve",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/549/1373676.jpg",
+          "airDate": "2016-12-31",
+          "year": 2016,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jack_Benny_New_Years_Eve.mp4",
+            "format": "h.264",
+            "sizeBytes": 158830832,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Jack_Benny_New_Years_Eve/Jack_Benny_New_Years_Eve.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 1,
- "canonicalEpisodesCount": 83
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 83,
+  "seriesImdbID": null,
+  "canonicalEpisodeCount": 0
 }
