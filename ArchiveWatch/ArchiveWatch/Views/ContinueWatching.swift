@@ -14,18 +14,26 @@ struct ContinueWatchingRow: View {
         // Resolve each in-progress record against the DB (Decision 017): TV
         // episodes via their parent series card (looked up by the raw slug
         // EpisodePlayerScreen wrote to WatchProgress.seriesID), films by id.
-        progressRecords
-            .filter { !$0.isComplete && $0.positionSeconds > 10 }
-            .prefix(12)
-            .compactMap { record -> (Catalog.Item, WatchProgress)? in
-                if let sid = record.seriesID, let series = store.dbSeriesCard(slug: sid) {
-                    return (series, record)
-                }
-                if let item = store.dbItem(record.archiveID) {
+        Array(
+            progressRecords
+                .filter { !$0.isComplete && $0.positionSeconds > 10 }
+                .prefix(24)
+                .compactMap { record -> (item: Catalog.Item, progress: WatchProgress)? in
+                    let resolved: Catalog.Item? =
+                        (record.seriesID.flatMap { store.dbSeriesCard(slug: $0) })
+                        ?? store.dbItem(record.archiveID)
+                    guard let item = resolved else { return nil }
+                    // Honor the adult + hidden-category filters here too: these
+                    // items are resolved by id (not via a filtered WHERE
+                    // clause), so a previously-watched adult/hidden title would
+                    // otherwise linger in Continue Watching after the filter is
+                    // turned on.
+                    if store.hideAdultContent, item.isAdult == true { return nil }
+                    if AppStore.contentTypes(for: store.hiddenCategories).contains(item.contentType) { return nil }
                     return (item, record)
                 }
-                return nil
-            }
+                .prefix(12)
+        )
     }
 
     var body: some View {

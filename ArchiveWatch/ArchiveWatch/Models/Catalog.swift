@@ -64,6 +64,11 @@ struct Catalog: Decodable, Sendable {
         // (collection membership + director whitelist + audio absence + year)
         // is far more accurate than a year threshold on the app side.
         let isSilentFilm: Bool?
+        // Build-time adult flag (Decision 012). Optional so older catalogs
+        // decode unchanged; absent → not adult. Lets views that resolve items
+        // by id (e.g. Continue Watching) honor the filter the same as the
+        // CatalogDB WHERE-clause path.
+        let isAdult: Bool?
 
         // TV series card additions. For contentType == "tv-series", the
         // `archiveID` acts as the series slug ("bonanza-1960") and the

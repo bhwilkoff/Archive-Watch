@@ -69,6 +69,12 @@ def _registered_collections():
 REGISTERED_COLLECTIONS = _registered_collections()
 
 def _is_adult(it):
+    # Honor the item-level flag set by remediate_catalog.py (subject/genre/
+    # title keyword detection — catches adult films that aren't in an adult
+    # COLLECTION, e.g. foreign sexploitation like "Carne"). Then fall back to
+    # the collection markers.
+    if it.get("isAdult"):
+        return 1
     for c in (it.get("collections") or []):
         cl = str(c).lower()
         if any(m in cl for m in ADULT_MARKERS):
