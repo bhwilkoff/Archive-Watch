@@ -91,6 +91,16 @@ final class CatalogDB {
     var hideAdult = true
     private var adultAnd: String { hideAdult ? "AND i.isAdult = 0" : "" }
 
+    /// Content-type categories the user has hidden in Settings (#4). Applied
+    /// app-wide (Home + Browse + Search) like the adult filter. Values are
+    /// app-defined contentType strings, so safe to inline.
+    var hiddenTypes: Set<String> = []
+    private var typeAnd: String {
+        guard !hiddenTypes.isEmpty else { return "" }
+        let list = hiddenTypes.map { "'\($0)'" }.joined(separator: ",")
+        return "AND i.contentType NOT IN (\(list))"
+    }
+
     /// Home-advertising gate (#6): only surface confidently-public-domain (or
     /// Creative Commons) content on the HOME screen — never items whose rights
     /// are reserved/unknown, nor public-domain-STAMPED items dated after 1977
@@ -110,7 +120,7 @@ final class CatalogDB {
             SELECT j.json FROM item_shelves s
             JOIN item_json j USING(archiveID)
             JOIN items i USING(archiveID)
-            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd)
+            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd) \(typeAnd)
             ORDER BY s.position
             LIMIT \(limit)
         """, [shelfID])
@@ -150,7 +160,7 @@ final class CatalogDB {
         return items("""
             SELECT j.json FROM items i
             JOIN item_json j USING(archiveID) \(join)
-            WHERE \(where_.joined(separator: " AND ")) \(homeOnly ? homeAnd : "")
+            WHERE \(where_.joined(separator: " AND ")) \(homeOnly ? homeAnd : "") \(typeAnd)
             ORDER BY \(order)
             LIMIT \(limit) OFFSET \(offset)
         """, binds)
@@ -164,7 +174,7 @@ final class CatalogDB {
             SELECT j.json FROM items_fts f
             JOIN item_json j ON j.archiveID = f.archiveID
             JOIN items i ON i.archiveID = f.archiveID
-            WHERE items_fts MATCH ? \(adultAnd)
+            WHERE items_fts MATCH ? \(adultAnd) \(typeAnd)
             ORDER BY rank
             LIMIT \(limit)
         """, [q])
@@ -174,7 +184,7 @@ final class CatalogDB {
     func seriesCards() -> [Catalog.Item] {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE i.contentType = 'tv-series'
+            WHERE i.contentType = 'tv-series' \(typeAnd)
             ORDER BY i.episodesCount DESC
         """)
     }
@@ -188,7 +198,7 @@ final class CatalogDB {
     func related(to item: Catalog.Item, limit: Int = 20) -> [Catalog.Item] {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE i.contentType = ? AND i.archiveID != ? \(adultAnd)
+            WHERE i.contentType = ? AND i.archiveID != ? \(adultAnd) \(typeAnd)
             ORDER BY i.popularityScore DESC
             LIMIT \(limit)
         """, [item.contentType, item.archiveID])
@@ -199,7 +209,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE i.hasRealArtwork = 1 AND i.qualityScore >= 60
-              AND i.popularityScore <= 40 \(adultAnd) \(homeAnd)
+              AND i.popularityScore <= 40 \(adultAnd) \(homeAnd) \(typeAnd)
             ORDER BY i.qualityScore DESC LIMIT \(limit)
         """)
     }
@@ -210,7 +220,7 @@ final class CatalogDB {
     func topDirectors(minFilms: Int = 3, limit: Int = 4) -> [(name: String, count: Int)] {
         scalarRows("""
             SELECT i.director, COUNT(*) c FROM items i
-            WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd)
+            WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(typeAnd)
             GROUP BY i.director HAVING c >= \(minFilms)
             ORDER BY c DESC, i.director LIMIT \(limit)
         """).map { (name: $0.0, count: $0.1) }
@@ -219,7 +229,7 @@ final class CatalogDB {
     func byDirector(_ name: String, limit: Int = 20, homeOnly: Bool = false) -> [Catalog.Item] {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE i.director = ? AND i.hasRealArtwork = 1 \(adultAnd) \(homeOnly ? homeAnd : "")
+            WHERE i.director = ? AND i.hasRealArtwork = 1 \(adultAnd) \(homeOnly ? homeAnd : "") \(typeAnd)
             ORDER BY i.popularityScore DESC LIMIT \(limit)
         """, [name])
     }
@@ -252,7 +262,7 @@ final class CatalogDB {
         if let ct = contentType { where_.append("i.contentType = ?"); binds.append(ct) }
         return items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE \(where_.joined(separator: " AND "))
+            WHERE \(where_.joined(separator: " AND ")) \(typeAnd)
             ORDER BY RANDOM() LIMIT 1
         """, binds).first
     }

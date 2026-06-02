@@ -28,6 +28,26 @@ final class AppStore {
             dbGeneration += 1
         }
     }
+    // #4: content categories the user has hidden in Settings. Maps to the
+    // CatalogDB type filter, applied app-wide. Persisted; re-queries on change.
+    var hiddenCategories: Set<String> = AppStore.loadHiddenCategories() {
+        didSet {
+            UserDefaults.standard.set(Array(hiddenCategories), forKey: Self.hiddenCategoriesKey)
+            db?.hiddenTypes = Self.contentTypes(for: hiddenCategories)
+            dbGeneration += 1
+        }
+    }
+    private static let hiddenCategoriesKey = "hiddenCategories"
+    private static func loadHiddenCategories() -> Set<String> {
+        Set(UserDefaults.standard.stringArray(forKey: hiddenCategoriesKey) ?? [])
+    }
+    /// A hidden "tv-series" category covers both series cards and tv-specials.
+    static func contentTypes(for categories: Set<String>) -> Set<String> {
+        var types = categories
+        if categories.contains("tv-series") { types.insert("tv-special") }
+        return types
+    }
+
     private static let hideAdultKey = "hideAdultContent"
     private static func loadHideAdultDefault() -> Bool {
         // First launch (no stored value) → ON. Default-deny for a TV.
@@ -113,6 +133,7 @@ final class AppStore {
 
     func swapDB(_ newDB: CatalogDB) {
         newDB.hideAdult = hideAdultContent
+        newDB.hiddenTypes = Self.contentTypes(for: hiddenCategories)
         db = newDB
         dbGeneration += 1
     }

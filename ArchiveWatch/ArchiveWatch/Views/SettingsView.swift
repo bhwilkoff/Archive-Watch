@@ -28,16 +28,30 @@ struct SettingsView: View {
     var body: some View {
         Form {
             Section {
-                Toggle(isOn: showMatureBinding) {
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text("Show Mature Collections")
-                        Text("Off by default. The Archive's catalog includes adult-leaning collections; leave this off on a shared TV.")
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
+                ForEach(store.featured?.categories ?? []) { cat in
+                    Toggle(isOn: categoryBinding(cat.id)) {
+                        Label {
+                            Text(cat.displayName)
+                        } icon: {
+                            Circle().fill(Color(hex: cat.accent) ?? .accentColor)
+                                .frame(width: 18, height: 18)
+                        }
                     }
                 }
             } header: {
-                Text("Preferences")
+                Text("Show on Home & Browse")
+            } footer: {
+                Text("Turn a category off to hide it everywhere in the app. Your favorites and Continue Watching are unaffected.")
+            }
+
+            Section {
+                Toggle(isOn: showMatureBinding) {
+                    Text("Show Mature Collections")
+                }
+            } header: {
+                Text("Mature content")
+            } footer: {
+                Text("Off by default — the Archive includes adult-leaning collections. Leave off on a shared TV.")
             }
 
             Section {
@@ -105,6 +119,17 @@ struct SettingsView: View {
         Binding(
             get: { !store.hideAdultContent },
             set: { store.hideAdultContent = !$0 }
+        )
+    }
+
+    /// Toggle shows ON when the category is VISIBLE (not in hiddenCategories).
+    private func categoryBinding(_ id: String) -> Binding<Bool> {
+        Binding(
+            get: { !store.hiddenCategories.contains(id) },
+            set: { visible in
+                if visible { store.hiddenCategories.remove(id) }
+                else { store.hiddenCategories.insert(id) }
+            }
         )
     }
 
