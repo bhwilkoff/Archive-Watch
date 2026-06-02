@@ -1,0 +1,62 @@
+name: Faststart derivative upgrade
+
+# Monthly full pass that re-picks non-.ia.mp4 mpeg4/divx ORIGINAL movies to an
+# Archive faststart .ia.mp4 derivative when one now exists, so slow-starting
+# (moov-at-EOF) uploads become instant-start (#6, Decision 019 rationale).
+#
+# Cadence is monthly on purpose: measured yield is ~0.3% today because Archive
+# hasn't backfilled most legacy remuxes yet — a daily pass would re-fetch the
+# same ~12k items for almost nothing. Run monthly so value accrues as Archive
+# derives more over time, without hammering the metadata API. The .ogv->MP4
+# repair (the must-fix case) stays in the daily discover-content job.
+
+on:
+  schedule:
+    - cron: '0 7 1 * *'   # 07:00 UTC on the 1st of each month
+  workflow_dispatch:
+    inputs:
+      throttle:
+        description: 'Per-request throttle (s)'
+        required: false
+        default: '0.15'
+
+concurrency:
+  group: catalog-writers     # serialise with the other catalog writers
+  cancel-in-progress: false
+
+jobs:
+  faststart:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write          # dispatch publish-db after the catalog updates
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Faststart re-pick (full pass)
+        run: |
+          python tools/repair_derivatives.py --faststart --skip-series \
+            --throttle ${{ github.event.inputs.throttle || '0.15' }} \
+            | tee faststart.log
+          echo "## Faststart pass" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -4 faststart.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Publish catalog to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
+
+      - name: Rebuild app DB
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run publish-db.yml
