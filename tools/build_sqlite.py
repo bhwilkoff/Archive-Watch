@@ -204,38 +204,50 @@ def create_indexes(db):
     """)
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--no-gzip", action="store_true")
-    args = ap.parse_args()
+SEED_CATALOG = REPO / "ArchiveWatch" / "ArchiveWatch" / "catalog.json"
+SEED_DB = REPO / "ArchiveWatch" / "ArchiveWatch" / "seed.sqlite"
 
-    cat = json.loads(FULL_CATALOG.read_text(encoding="utf-8"))
-    items = cat["items"]
-    print(f"[sqlite] read {len(items):,} catalog items", flush=True)
-    deduped = dedupe_by_imdb(items)
-    print(f"[sqlite] after IMDb dedup: {len(deduped):,} "
-          f"(removed {len(items) - len(deduped):,} duplicate uploads)", flush=True)
 
-    if OUT_DB.exists():
-        OUT_DB.unlink()
-    db = sqlite3.connect(OUT_DB)
+def build_db(catalog_path, out_db):
+    """Compile one catalog.json into a SQLite DB at out_db. Returns (cat,
+    n_items, n_series, n_eps)."""
+    cat = json.loads(catalog_path.read_text(encoding="utf-8"))
+    deduped = dedupe_by_imdb(cat["items"])
+    if out_db.exists():
+        out_db.unlink()
+    db = sqlite3.connect(out_db)
     create_schema(db)
     n_items = populate_items(db, deduped)
     n_series, n_eps = populate_series(db)
     create_indexes(db)
     db.execute("INSERT OR REPLACE INTO meta VALUES ('schemaVersion', ?)", (str(SCHEMA_VERSION),))
-    db.execute("INSERT OR REPLACE INTO meta VALUES ('generatedAt', ?)",
-               (cat.get("generatedAt", ""),))
+    db.execute("INSERT OR REPLACE INTO meta VALUES ('generatedAt', ?)", (cat.get("generatedAt", ""),))
     db.execute("INSERT OR REPLACE INTO meta VALUES ('itemCount', ?)", (str(n_items),))
     db.execute("INSERT OR REPLACE INTO meta VALUES ('seriesCount', ?)", (str(n_series),))
     db.commit()
     db.execute("PRAGMA optimize")
     db.execute("VACUUM")
     db.close()
-
-    raw_mb = OUT_DB.stat().st_size / 1e6
-    print(f"[sqlite] wrote {OUT_DB.name}: {raw_mb:.1f} MB "
+    print(f"[sqlite] wrote {out_db.name}: {out_db.stat().st_size/1e6:.1f} MB "
           f"({n_items:,} items, {n_series:,} series, {n_eps:,} episodes)", flush=True)
+    return cat, n_items, n_series, n_eps
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--no-gzip", action="store_true")
+    ap.add_argument("--seed-only", action="store_true",
+                    help="Build only the bundled seed.sqlite (fast, for app dev).")
+    args = ap.parse_args()
+
+    # Bundled seed DB — small, ships in the app for instant first paint.
+    if SEED_CATALOG.exists():
+        build_db(SEED_CATALOG, SEED_DB)
+    if args.seed_only:
+        return 0
+
+    # Full DB — hosted on the catalog-db release, downloaded at runtime.
+    cat, n_items, n_series, n_eps = build_db(FULL_CATALOG, OUT_DB)
 
     gz_mb = None
     if not args.no_gzip:
