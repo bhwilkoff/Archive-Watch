@@ -43,10 +43,46 @@
    "seasonNumber": null,
    "episodes": [
     {
+     "archiveID": "dr.-shrinker",
+     "seasonNumber": null,
+     "episodeNumber": 3,
+     "title": "The Shake Up",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
+     "airDate": null,
+     "year": 1976,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dr. Shrinker - Episode 3 - The Shake Up - Krofft Supershow.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 40074862,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/dr.-shrinker/Dr. Shrinker - Episode 3 - The Shake Up - Krofft Supershow.mp4"
+    },
+    {
+     "archiveID": "dr.shrinker",
+     "seasonNumber": null,
+     "episodeNumber": 4,
+     "title": "Gordie's Bird",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
+     "airDate": null,
+     "year": 1976,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dr. Shrinker - Episode 4 - Gordie's Bird - Krofft Supershow.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 35373421,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/dr.shrinker/Dr. Shrinker - Episode 4 - Gordie's Bird - Krofft Supershow.mp4"
+    },
+    {
      "archiveID": "dr-shrinker-online",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "DR SHRINKER \"Slowly I Turn\" (1976)",
+     "title": "DR SHRINKER \"Slowly I Turn\"",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
      "airDate": null,
@@ -82,7 +118,7 @@
      "archiveID": "dr-shrinker-full-series",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Dr. Shrinker - Full Series! (1976)",
+     "title": "Dr. Shrinker - Full Series!",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
      "airDate": null,
@@ -95,24 +131,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/dr-shrinker-full-series/Dr. Shrinker (1976)_ 360p.mp4"
-    },
-    {
-     "archiveID": "dr.shrinker",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Gordie's Bird",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
-     "airDate": null,
-     "year": 1976,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Dr. Shrinker - Episode 4 - Gordie's Bird - Krofft Supershow.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 35373421,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/dr.shrinker/Dr. Shrinker - Episode 4 - Gordie's Bird - Krofft Supershow.mp4"
     },
     {
      "archiveID": "dr-shrinker-krofft",
@@ -131,24 +149,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/dr-shrinker-krofft/Dr. Shrinker - The Other Brad - Krofft Supershow (1).mp4"
-    },
-    {
-     "archiveID": "dr.-shrinker",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Shake Up",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
-     "airDate": null,
-     "year": 1976,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Dr. Shrinker - Episode 3 - The Shake Up - Krofft Supershow.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 40074862,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/dr.-shrinker/Dr. Shrinker - Episode 3 - The Shake Up - Krofft Supershow.mp4"
     }
    ]
   }

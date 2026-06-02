@@ -147,6 +147,24 @@
      "downloadURL": "https://archive.org/download/OneStepBeyondTheDream/OneStepBeyondTheDream.ia.mp4"
     },
     {
+     "archiveID": "one-step-beyond-season-1-1959",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "One Step Beyond - Season 1",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+     "airDate": null,
+     "year": 1959,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "One Step Beyond - s01e08 - Premonition.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 202178122,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One Step Beyond - s01e08 - Premonition.ia.mp4"
+    },
+    {
      "archiveID": "S1E8PREMONITION",
      "seasonNumber": 1,
      "episodeNumber": 8,
@@ -385,11 +403,11 @@
      "seasonNumber": 1,
      "episodeNumber": 22,
      "title": "The Riddle",
-     "overview": "An irrational hatred in an American tourist on the Bombay-Calcutta Mail is considered in terms of metempsychosis.",
+     "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w300/iGGkp7xWB4Hk5Qtj7fyuSsyP2kK.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
+     "airDate": "1959-06-16",
+     "year": 1959,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "S1E22 - THE RIDDLE.mp4",
       "format": "h.264",
@@ -980,6 +998,24 @@
      "downloadURL": "https://archive.org/download/S2E35CONTACT/S2E35%20-%20CONTACT.mp4"
     },
     {
+     "archiveID": "one-step-beyond-season-2",
+     "seasonNumber": 2,
+     "episodeNumber": 35,
+     "title": "One Step Beyond - Season 2",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+     "airDate": null,
+     "year": 1959,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "One Step Beyond - s02e35 - Contact.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 259098137,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/one-step-beyond-season-2/One Step Beyond - s02e35 - Contact.ia.mp4"
+    },
+    {
      "archiveID": "S2E36THELONELYROOM",
      "seasonNumber": 2,
      "episodeNumber": 36,
@@ -1561,6 +1597,24 @@
      "downloadURL": "https://archive.org/download/S3E28THEAVENGERS/S3E28%20-%20THE%20AVENGERS.mp4"
     },
     {
+     "archiveID": "one-step-beyond-season-3",
+     "seasonNumber": 3,
+     "episodeNumber": 29,
+     "title": "One Step Beyond - Season 3",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+     "airDate": null,
+     "year": 1960,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "One Step Beyond - s03e29 - The Prisoner.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 381633939,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/one-step-beyond-season-3/One Step Beyond - s03e29 - The Prisoner.ia.mp4"
+    },
+    {
      "archiveID": "S3E29THEPRISONER",
      "seasonNumber": 3,
      "episodeNumber": 29,
@@ -1637,60 +1691,6 @@
   {
    "seasonNumber": null,
    "episodes": [
-    {
-     "archiveID": "one-step-beyond-season-1-1959",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "One Step Beyond - Season 1 (1959)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
-     "airDate": null,
-     "year": 1959,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "One Step Beyond - s01e08 - Premonition.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 202178122,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One Step Beyond - s01e08 - Premonition.ia.mp4"
-    },
-    {
-     "archiveID": "one-step-beyond-season-2",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "One Step Beyond - Season 2 (1959 - 1960)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
-     "airDate": null,
-     "year": 1959,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "One Step Beyond - s02e35 - Contact.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 259098137,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/one-step-beyond-season-2/One Step Beyond - s02e35 - Contact.ia.mp4"
-    },
-    {
-     "archiveID": "one-step-beyond-season-3",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "One Step Beyond - Season 3 (1960 - 1961)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
-     "airDate": null,
-     "year": 1960,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "One Step Beyond - s03e29 - The Prisoner.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 381633939,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/one-step-beyond-season-3/One Step Beyond - s03e29 - The Prisoner.ia.mp4"
-    },
     {
      "archiveID": "OSB-TheBridePossessed",
      "seasonNumber": null,

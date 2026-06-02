@@ -56,6 +56,24 @@
      "downloadURL": "https://archive.org/download/ClimaxAnErrorInChemistry/Climax-anErrorInChemistry.mp4"
     },
     {
+     "archiveID": "climax_202103",
+     "seasonNumber": 1,
+     "episodeNumber": 34,
+     "title": "Climax",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "ClimaxS01E34Dr JekyllandMrHyde.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 368584511,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/climax_202103/ClimaxS01E34Dr JekyllandMrHyde.ia.mp4"
+    },
+    {
      "archiveID": "Climax-DrJekyllAndMrHyde",
      "seasonNumber": 1,
      "episodeNumber": 34,
@@ -327,24 +345,6 @@
   {
    "seasonNumber": null,
    "episodes": [
-    {
-     "archiveID": "climax_202103",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Climax",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-     "airDate": null,
-     "year": 1954,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "ClimaxS01E34Dr JekyllandMrHyde.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 368584511,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/climax_202103/ClimaxS01E34Dr JekyllandMrHyde.ia.mp4"
-    },
     {
      "archiveID": "ClimaxJacobsAngel",
      "seasonNumber": null,

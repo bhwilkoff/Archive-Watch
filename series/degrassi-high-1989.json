@@ -408,10 +408,28 @@
    "seasonNumber": 4,
    "episodes": [
     {
+     "archiveID": "degrassi-high-s-04",
+     "seasonNumber": 4,
+     "episodeNumber": 1,
+     "title": "Degrassi High Season 4",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
+     "airDate": null,
+     "year": 1990,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Degrassi High S04E01 - A New Start (Part 1).mp4",
+      "format": "h.264",
+      "sizeBytes": 155460299,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/degrassi-high-s-04/Degrassi High S04E01 - A New Start (Part 1).mp4"
+    },
+    {
      "archiveID": "degrassi-high-s-04-e-09-sixteen-part-1",
      "seasonNumber": 4,
      "episodeNumber": 9,
-     "title": "Degrassi High S04E09 - Sixteen (Part 1)",
+     "title": "Degrassi High S04E09 - Sixteen",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
      "airDate": null,
@@ -429,7 +447,7 @@
      "archiveID": "degrassi-high-s-04-e-10-sixteen-part-2",
      "seasonNumber": 4,
      "episodeNumber": 10,
-     "title": "Degrassi High S04E10 - Sixteen (Part 2)",
+     "title": "Degrassi High S04E10 - Sixteen",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
      "airDate": null,
@@ -442,6 +460,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-10-sixteen-part-2/Degrassi High S04E10 - Sixteen (Part 2).mp4"
+    },
+    {
+     "archiveID": "degrassi-high-s-04-e-13-testing-123",
+     "seasonNumber": 4,
+     "episodeNumber": 13,
+     "title": "Testing 1...2...3",
+     "overview": "Joey is diagnosed with a learning disability.  He contemplates dropping out of high school, but changes his mind after talking to Caitlin.  Caitlin tells him to stop feeling sorry for himself, because he's not the only one with a disability, because she has to deal with having epilepsy.\n\nElsewhere, everyone cheats on a test.  The teacher says since everyone gets an A, that test must not have been hard enough, so it won't count and he'd give everyone a harder test.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/zl1Ien4a4Cq1MXdYiFzZ4RIvG3B.jpg",
+     "airDate": null,
+     "year": 1990,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Degrassi High S04E13 - Testing 1...2...3....mp4",
+      "format": "h.264",
+      "sizeBytes": 154414892,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-13-testing-123/Degrassi High S04E13 - Testing 1...2...3....mp4"
     }
    ]
   },
@@ -452,7 +488,7 @@
      "archiveID": "degrassi-high-s-05-e-01-bad-blood-part-1",
      "seasonNumber": 5,
      "episodeNumber": 1,
-     "title": "Degrassi High S05E01 - Bad Blood (Part 1)",
+     "title": "Degrassi High S05E01 - Bad Blood",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
      "airDate": null,
@@ -470,7 +506,7 @@
      "archiveID": "degrassi-high-s-05-e-02-bad-blood-part-2",
      "seasonNumber": 5,
      "episodeNumber": 2,
-     "title": "Degrassi High S05E02 - Bad Blood (Part 2)",
+     "title": "Degrassi High S05E02 - Bad Blood",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
      "airDate": null,
@@ -488,7 +524,7 @@
      "archiveID": "degrassi-high-s-05-e-10-e-11-showtime-part-1-and-2",
      "seasonNumber": 5,
      "episodeNumber": 10,
-     "title": "Degrassi High S05E10 & S05E11 - Showtime ( Part 1 And 2)",
+     "title": "Degrassi High S05E10 & S05E11 - Showtime",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
      "airDate": null,
@@ -501,34 +537,11 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-10-e-11-showtime-part-1-and-2/Degrassi High S05E10 E11 - Showtime (Part 1 and 2).mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "degrassi-high-s-04",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Degrassi High Season 4",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
-     "airDate": null,
-     "year": 1990,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Degrassi High S04E01 - A New Start (Part 1).mp4",
-      "format": "h.264",
-      "sizeBytes": 155460299,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04/Degrassi High S04E01 - A New Start (Part 1).mp4"
     },
     {
      "archiveID": "degrassi-high-s-05",
-     "seasonNumber": null,
-     "episodeNumber": null,
+     "seasonNumber": 5,
+     "episodeNumber": 10,
      "title": "Degrassi High Season 5",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
@@ -542,24 +555,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/degrassi-high-s-05/Degrassi High S05e10 E11 - Showtime (Part 1 And 2).mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-04-e-13-testing-123",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Testing 1...2...3",
-     "overview": "Joey is diagnosed with a learning disability.  He contemplates dropping out of high school, but changes his mind after talking to Caitlin.  Caitlin tells him to stop feeling sorry for himself, because he's not the only one with a disability, because she has to deal with having epilepsy.\n\nElsewhere, everyone cheats on a test.  The teacher says since everyone gets an A, that test must not have been hard enough, so it won't count and he'd give everyone a harder test.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/zl1Ien4a4Cq1MXdYiFzZ4RIvG3B.jpg",
-     "airDate": null,
-     "year": 1990,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Degrassi High S04E13 - Testing 1...2...3....mp4",
-      "format": "h.264",
-      "sizeBytes": 154414892,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-13-testing-123/Degrassi High S04E13 - Testing 1...2...3....mp4"
     }
    ]
   }

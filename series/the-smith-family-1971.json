@@ -18,18 +18,18 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 1,
    "episodes": [
     {
      "archiveID": "thesmithfamilyseason1",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Smith Family (Season 1)",
-     "overview": null,
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "Brian and the Sheriff",
+     "overview": "Brian sides with a an old lawman whose house is about to be torn down.",
      "stillURL": "https://image.tmdb.org/t/p/w500/h4wgTT6PlTKZKYKtK8Lof0vwLlK.jpg",
-     "airDate": null,
+     "airDate": "1971-03-24",
      "year": 1971,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "S01E10- Brian and the Sheriff.ia.mp4",
       "format": "h.264 IA",
@@ -37,17 +37,22 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/thesmithfamilyseason1/S01E10- Brian and the Sheriff.ia.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
      "archiveID": "thesmithfamilyseasontwo",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Smith Family (Season 2)",
+     "seasonNumber": 2,
+     "episodeNumber": 20,
+     "title": "My Mother, the Star",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/h4wgTT6PlTKZKYKtK8Lof0vwLlK.jpg",
-     "airDate": null,
-     "year": 1971,
-     "runtimeSeconds": null,
+     "airDate": "1972-05-10",
+     "year": 1972,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "S02E20- My Mother the Star-1.mp4",
       "format": "h.264",

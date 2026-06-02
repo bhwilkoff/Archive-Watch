@@ -20,28 +20,10 @@
    "seasonNumber": null,
    "episodes": [
     {
-     "archiveID": "bbc-using-a-nonce-to-sell-the-tv-licence",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "BBC - Buy a TV License by Jimmy Savile",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/bbc-using-a-nonce-to-sell-the-tv-licence",
-     "airDate": null,
-     "year": 1990,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "BBC Using a NONCE to Sell The TV Licence!-yO1T6p6YyjQ.mp4",
-      "format": "h.264",
-      "sizeBytes": 3202359,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/bbc-using-a-nonce-to-sell-the-tv-licence/BBC Using a NONCE to Sell The TV Licence!-yO1T6p6YyjQ.mp4"
-    },
-    {
      "archiveID": "DeutschPlusIIEp1Of11997",
      "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "BBC - Deutsch Plus I & II (Audio/Video) (1996)",
+     "episodeNumber": 1,
+     "title": "BBC - Deutsch Plus I & II",
      "overview": null,
      "stillURL": "https://archive.org/services/img/DeutschPlusIIEp1Of11997",
      "airDate": null,
@@ -56,86 +38,14 @@
      "downloadURL": "https://archive.org/download/DeutschPlusIIEp1Of11997/Deutsch%20Plus%20II%20Ep%201%20of%201%20%281997%29.mp4"
     },
     {
-     "archiveID": "bbc-spanish-espana-viva-10",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "BBC - España Viva (1987)",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/bbc-spanish-espana-viva-10",
-     "airDate": null,
-     "year": 1987,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "BBC Spanish España Viva 10.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 104669056,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/bbc-spanish-espana-viva-10/BBC Spanish España Viva 10.mp4"
-    },
-    {
-     "archiveID": "FrenchExperience2Ep10",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "BBC - French Experience I & II (Audio/Video) (1992)",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/FrenchExperience2Ep10",
-     "airDate": null,
-     "year": 1992,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "French Experience 2 Ep 10.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 104873452,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/FrenchExperience2Ep10/French%20Experience%202%20Ep%2010.mp4"
-    },
-    {
-     "archiveID": "bbc-hindi-urdu-bol-chaal-ep-02-of-10-1989",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "BBC - Hindi Urdu Bol Chaal (1989)",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/bbc-hindi-urdu-bol-chaal-ep-02-of-10-1989",
-     "airDate": null,
-     "year": 1989,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "BBC Hindi Urdu Bol Chaal Ep 06 of 10 [Health] (1989).mp4",
-      "format": "h.264",
-      "sizeBytes": 147168749,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/bbc-hindi-urdu-bol-chaal-ep-02-of-10-1989/BBC Hindi Urdu Bol Chaal Ep 06 of 10 [Health] (1989).mp4"
-    },
-    {
-     "archiveID": "ItalianissimoEp2InFamigliaEFraAmici",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "BBC - Italianissimo I & II (Audio/Video) (1992)",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/ItalianissimoEp2InFamigliaEFraAmici",
-     "airDate": null,
-     "year": 1992,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Italianissimo Ep 02 - In Famiglia E Fra Amici.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 99621392,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/ItalianissimoEp2InFamigliaEFraAmici/Italianissimo%20Ep%2002%20-%20In%20Famiglia%20E%20Fra%20Amici.mp4"
-    },
-    {
      "archiveID": "mexico-vivo-ep-2-of-5-indian-dance",
      "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "BBC - Mexico Vivo (1990)",
+     "episodeNumber": 1,
+     "title": "BBC - Mexico Vivo",
      "overview": null,
      "stillURL": "https://archive.org/services/img/mexico-vivo-ep-2-of-5-indian-dance",
      "airDate": null,
-     "year": 1990,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mexico Vivo Ep 1 of 5 (The Carribean Coast).mp4",
@@ -146,28 +56,46 @@
      "downloadURL": "https://archive.org/download/mexico-vivo-ep-2-of-5-indian-dance/Mexico Vivo Ep 1 of 5 (The Carribean Coast).mp4"
     },
     {
-     "archiveID": "RussianLanguageAndPeopleEp15SchoolChildren",
+     "archiveID": "ItalianissimoEp2InFamigliaEFraAmici",
      "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "BBC - Russian Language And People (Audio/Video) (1980)",
+     "episodeNumber": 2,
+     "title": "BBC - Italianissimo I & II",
      "overview": null,
-     "stillURL": "https://archive.org/services/img/RussianLanguageAndPeopleEp15SchoolChildren",
+     "stillURL": "https://archive.org/services/img/ItalianissimoEp2InFamigliaEFraAmici",
      "airDate": null,
-     "year": 1980,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
-      "name": "Russian Language and People Ep 15 School Children.mp4",
+      "name": "Italianissimo Ep 02 - In Famiglia E Fra Amici.mp4",
       "format": "MPEG4",
-      "sizeBytes": 174130204,
+      "sizeBytes": 99621392,
       "tier": 1
      },
-     "downloadURL": "https://archive.org/download/RussianLanguageAndPeopleEp15SchoolChildren/Russian%20Language%20and%20People%20Ep%2015%20School%20Children.mp4"
+     "downloadURL": "https://archive.org/download/ItalianissimoEp2InFamigliaEFraAmici/Italianissimo%20Ep%2002%20-%20In%20Famiglia%20E%20Fra%20Amici.mp4"
+    },
+    {
+     "archiveID": "bbc-hindi-urdu-bol-chaal-ep-02-of-10-1989",
+     "seasonNumber": null,
+     "episodeNumber": 6,
+     "title": "BBC - Hindi Urdu Bol Chaal",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/bbc-hindi-urdu-bol-chaal-ep-02-of-10-1989",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "BBC Hindi Urdu Bol Chaal Ep 06 of 10 [Health] (1989).mp4",
+      "format": "h.264",
+      "sizeBytes": 147168749,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/bbc-hindi-urdu-bol-chaal-ep-02-of-10-1989/BBC Hindi Urdu Bol Chaal Ep 06 of 10 [Health] (1989).mp4"
     },
     {
      "archiveID": "speaking-our-language-ep-08-telling-the-time",
      "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "BBC - Speaking Our Language [Scottish Gaelic] (1993)",
+     "episodeNumber": 8,
+     "title": "BBC - Speaking Our Language",
      "overview": null,
      "stillURL": "https://archive.org/services/img/speaking-our-language-ep-08-telling-the-time",
      "airDate": null,
@@ -182,10 +110,28 @@
      "downloadURL": "https://archive.org/download/speaking-our-language-ep-08-telling-the-time/Speaking Our Language Ep 08 Telling the Time.mp4"
     },
     {
+     "archiveID": "FrenchExperience2Ep10",
+     "seasonNumber": null,
+     "episodeNumber": 10,
+     "title": "BBC - French Experience I & II",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/FrenchExperience2Ep10",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "French Experience 2 Ep 10.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 104873452,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/FrenchExperience2Ep10/French%20Experience%202%20Ep%2010.mp4"
+    },
+    {
      "archiveID": "Suenos2AC1aUnit1Track1...",
      "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "BBC - Suenos I & II (Audio/Video) (1995)",
+     "episodeNumber": 14,
+     "title": "BBC - Suenos I & II",
      "overview": null,
      "stillURL": "https://archive.org/services/img/Suenos2AC1aUnit1Track1...",
      "airDate": null,
@@ -200,10 +146,64 @@
      "downloadURL": "https://archive.org/download/Suenos2AC1aUnit1Track1.../Suenos%20World%20Spanish%20Ep%2014%20El%20Bosque.mp4"
     },
     {
+     "archiveID": "RussianLanguageAndPeopleEp15SchoolChildren",
+     "seasonNumber": null,
+     "episodeNumber": 15,
+     "title": "BBC - Russian Language And People",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/RussianLanguageAndPeopleEp15SchoolChildren",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Russian Language and People Ep 15 School Children.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 174130204,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/RussianLanguageAndPeopleEp15SchoolChildren/Russian%20Language%20and%20People%20Ep%2015%20School%20Children.mp4"
+    },
+    {
+     "archiveID": "bbc-using-a-nonce-to-sell-the-tv-licence",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "BBC - Buy a TV License by Jimmy Savile",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/bbc-using-a-nonce-to-sell-the-tv-licence",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "BBC Using a NONCE to Sell The TV Licence!-yO1T6p6YyjQ.mp4",
+      "format": "h.264",
+      "sizeBytes": 3202359,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/bbc-using-a-nonce-to-sell-the-tv-licence/BBC Using a NONCE to Sell The TV Licence!-yO1T6p6YyjQ.mp4"
+    },
+    {
+     "archiveID": "bbc-spanish-espana-viva-10",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "BBC - España Viva",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/bbc-spanish-espana-viva-10",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "BBC Spanish España Viva 10.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 104669056,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/bbc-spanish-espana-viva-10/BBC Spanish España Viva 10.mp4"
+    },
+    {
      "archiveID": "bbc-talk-spanish-vc-1a",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "BBC - Talk Spanish (1998)",
+     "title": "BBC - Talk Spanish",
      "overview": null,
      "stillURL": "https://archive.org/services/img/bbc-talk-spanish-vc-1a",
      "airDate": null,

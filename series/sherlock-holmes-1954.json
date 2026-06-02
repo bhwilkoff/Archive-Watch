@@ -112,6 +112,24 @@
      "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheBelligerentGhost/TheCaseoftheBelligerentGhost.mp4"
     },
     {
+     "archiveID": "the-adventures-of-sherlock-holmes-1984_202303",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "The Adventures of Sherlock Holmes",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/6WxfaKH4KkruJROkoto84xIpVAf.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Adventures of Sherlock Holmes S1E06 - The Speckled Band.mp4",
+      "format": "h.264",
+      "sizeBytes": 308557325,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-1984_202303/The Adventures of Sherlock Holmes S1E06 - The Speckled Band.mp4"
+    },
+    {
      "archiveID": "SherlockHolmes-TheCaseoftheShyBallerina",
      "seasonNumber": 1,
      "episodeNumber": 6,
@@ -336,11 +354,11 @@
      "archiveID": "SherlockHolmes-TheManWhoDisappearedfailedPilot",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Sherlock Holmes - The Man Who Disappeared (Failed Pilot)",
+     "title": "Sherlock Holmes - The Man Who Disappeared",
      "overview": null,
      "stillURL": "https://archive.org/services/img/SherlockHolmes-TheManWhoDisappearedfailedPilot",
      "airDate": null,
-     "year": 1951,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "SherlockHolmes-TheManWhoDisappeared_512kb.mp4",
@@ -408,7 +426,7 @@
      "archiveID": "SherlockHolmes1954",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "The Adventures of Sherlock Holmes (1954)",
+     "title": "The Adventures of Sherlock Holmes",
      "overview": null,
      "stillURL": "https://archive.org/services/img/SherlockHolmes1954",
      "airDate": null,
@@ -421,24 +439,6 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/SherlockHolmes1954/Sherlock%20Holmes%2025%20The%20Case%20Of%20The%20Violent%20Suitor.mp4"
-    },
-    {
-     "archiveID": "the-adventures-of-sherlock-holmes-1984_202303",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Adventures of Sherlock Holmes (1984)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/6WxfaKH4KkruJROkoto84xIpVAf.jpg",
-     "airDate": null,
-     "year": 1984,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Adventures of Sherlock Holmes S1E06 - The Speckled Band.mp4",
-      "format": "h.264",
-      "sizeBytes": 308557325,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-1984_202303/The Adventures of Sherlock Holmes S1E06 - The Speckled Band.mp4"
     },
     {
      "archiveID": "SherlockHolmes-TheCaseoftheCunninghamHeritage",

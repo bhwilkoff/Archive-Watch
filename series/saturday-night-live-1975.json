@@ -21,6 +21,24 @@
    "seasonNumber": 1,
    "episodes": [
     {
+     "archiveID": "saturday-night-live-s-01-e-06-lily-tomlin-tomlin-with-howard-shore-the-all-nurse",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "Lily Tomlin / Howard Shore",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/277/694161.jpg",
+     "airDate": "1975-11-22",
+     "year": 1975,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live - S01E06 - Lily Tomlin, Tomlin with Howard Shore & the All Nurse Band (November 22, 1975).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 375099406,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-06-lily-tomlin-tomlin-with-howard-shore-the-all-nurse/Saturday Night Live - S01E06 - Lily Tomlin, Tomlin with Howard Shore & the All Nurse Band (November 22, 1975).mp4"
+    },
+    {
      "archiveID": "saturday-night-live-s-01-e-07-richard-pryor-gil-scott-heron-december-13-1975_202501",
      "seasonNumber": 1,
      "episodeNumber": 7,
@@ -186,6 +204,42 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/saturday-night-live-s-2-e-11-ralph-nader-andy-kaufman-1-15-1977/Saturday Night Live S2E11 - Ralph Nader, Andy Kaufman (1-15-1977).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-02e-19-elliott-gould-4-16-1977",
+     "seasonNumber": 2,
+     "episodeNumber": 19,
+     "title": "Elliott Gould / The McGarrigle Sisters, Roslyn Kind",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/277/694611.jpg",
+     "airDate": "1977-04-16",
+     "year": 1977,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live - S02e19 - Elliott Gould (4-16-1977).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 671924572,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-19-elliott-gould-4-16-1977/Saturday Night Live - S02e19 - Elliott Gould (4-16-1977).mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-02e-22-buck-henry-bella-abzug-5-21-1977",
+     "seasonNumber": 2,
+     "episodeNumber": 22,
+     "title": "Buck Henry / Jennifer Warnes, Kenny Vance",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/277/694614.jpg",
+     "airDate": "1977-05-21",
+     "year": 1977,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live - S02e22 - Buck Henry, Bella Abzug (5-21-1977).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 669270963,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-22-buck-henry-bella-abzug-5-21-1977/Saturday Night Live - S02e22 - Buck Henry, Bella Abzug (5-21-1977).mp4"
     }
    ]
   },
@@ -317,6 +371,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/saturday-night-live-s-03-e-16-michael-palin-eugene-record/Saturday Night Live S03E16 Michael Palin, Eugene Record.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-april-22-1978-s-3-e-18",
+     "seasonNumber": 3,
+     "episodeNumber": 18,
+     "title": "Steve Martin / The Blues Brothers",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/278/696965.jpg",
+     "airDate": "1978-04-22",
+     "year": 1978,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live- April 22, 1978 (S3E18).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 668993868,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-april-22-1978-s-3-e-18/Saturday Night Live- April 22, 1978 (S3E18).mp4"
     },
     {
      "archiveID": "saturday-night-live-s-03-e-19-richard-dreyfuss-jimmy-buffett-5-13-1978_202501",
@@ -565,6 +637,29 @@
    ]
   },
   {
+   "seasonNumber": 7,
+   "episodes": [
+    {
+     "archiveID": "saturday-night-live-s-7-e-07-tim-curry-meat-loaf",
+     "seasonNumber": 7,
+     "episodeNumber": 7,
+     "title": "Tim Curry / Meat Loaf & The Neverland Express",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/pZWmpLyWN6EDXjmZTyJTAnt4H17.jpg",
+     "airDate": "1981-12-05",
+     "year": 1981,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S7E07 Tim Curry, Meat Loaf.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 677455443,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-7-e-07-tim-curry-meat-loaf/Saturday Night Live S7E07 Tim Curry, Meat Loaf.mp4"
+    }
+   ]
+  },
+  {
    "seasonNumber": 8,
    "episodes": [
     {
@@ -712,6 +807,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/saturday-night-live-s-12-e-05-robin-williams-paul-simon_202501/Saturday Night Live S12E05 - Robin Williams, Paul Simon.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-12-e-08-william-shatner-lone-justice-buster-poindexter",
+     "seasonNumber": 12,
+     "episodeNumber": 8,
+     "title": "William Shatner / Lone Justice & Buster Poindexter",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/xrBQo98w4pRfKY6oMIEYix7Tmzi.jpg",
+     "airDate": "1986-12-20",
+     "year": 1986,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S12E08 - William Shatner & Lone Justice & Buster Poindexter.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 522609582,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-12-e-08-william-shatner-lone-justice-buster-poindexter/Saturday Night Live S12E08 - William Shatner & Lone Justice & Buster Poindexter.mp4"
     },
     {
      "archiveID": "saturday-night-live-s-12-e-14-bill-murray-percy-sledge-march-21-1987",
@@ -2628,6 +2741,24 @@
      "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-06-joan-allen-jewel_202501/Saturday Night Live S24E06 Joan Allen, Jewel.mp4"
     },
     {
+     "archiveID": "saturday-night-live-s-24-e-09-alec-baldwin-luciano-pavarotti-vanessa-williams_202501",
+     "seasonNumber": 24,
+     "episodeNumber": 9,
+     "title": "Alec Baldwin / Luciano Pavarotti",
+     "overview": "Alec Baldwin hosts with musical guest Luciano Pavarotti with Vanessa Williams.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/qMbri5y5VcmaxUdY3joTxx0olRy.jpg",
+     "airDate": "1998-12-12",
+     "year": 1998,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S24E09 Alec Baldwin, Luciano Pavarotti, Vanessa Williams.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 672871373,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-09-alec-baldwin-luciano-pavarotti-vanessa-williams_202501/Saturday Night Live S24E09 Alec Baldwin, Luciano Pavarotti, Vanessa Williams.mp4"
+    },
+    {
      "archiveID": "saturday-night-live-s-24-e-10-bill-paxton-beck_202502",
      "seasonNumber": 24,
      "episodeNumber": 10,
@@ -2759,6 +2890,42 @@
      "downloadURL": "https://archive.org/download/saturday-night-live-s-25-e-01-jerry-seinfeld-david-bowie-october-2-1999/Saturday Night Live S25E01 - Jerry Seinfeld & David Bowie (October 2, 1999).mp4"
     },
     {
+     "archiveID": "saturday-night-live-s-25-e-03-norm-macdonald-dr-dre-snopp-dogg-and-eminem_202501",
+     "seasonNumber": 25,
+     "episodeNumber": 3,
+     "title": "Norm Macdonald / Dr. Dre, Snoop Dogg, and Eminem",
+     "overview": "Norm Macdonald hosts with musical guests Dr. Dre, Snoop Dogg, and Eminem.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/7pSnFrQwGuDl4HK3MyrJoDqY4hi.jpg",
+     "airDate": "1999-10-23",
+     "year": 1999,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S25E03 Norm Macdonald, Dr Dre, Snopp Dogg And Eminem.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 666657218,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-25-e-03-norm-macdonald-dr-dre-snopp-dogg-and-eminem_202501/Saturday Night Live S25E03 Norm Macdonald, Dr Dre, Snopp Dogg And Eminem.mp4"
+    },
+    {
+     "archiveID": "saturday-night-live-s-25-e-05-garth-brooks-chris-gaines_202502",
+     "seasonNumber": 25,
+     "episodeNumber": 5,
+     "title": "Garth Brooks",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w300/gNVvmCvZ3vEBaOg1vHWEnqyDoV3.jpg",
+     "airDate": "1999-11-13",
+     "year": 1999,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Saturday Night Live S25E05 Garth Brooks, Chris Gaines.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 661688598,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/saturday-night-live-s-25-e-05-garth-brooks-chris-gaines_202502/Saturday Night Live S25E05 Garth Brooks, Chris Gaines.mp4"
+    },
+    {
      "archiveID": "saturday-night-live-s-25-e-06-jennifer-aniston-sting_202501",
      "seasonNumber": 25,
      "episodeNumber": 6,
@@ -2775,173 +2942,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/saturday-night-live-s-25-e-06-jennifer-aniston-sting_202501/Saturday Night Live S25E06 Jennifer Aniston, Sting.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "saturday-night-live-s-24-e-09-alec-baldwin-luciano-pavarotti-vanessa-williams_202501",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Alec Baldwin/Luciano Pavarotti & Vanessa Williams",
-     "overview": "Sketches include \"\"A Message From The President,\"\" \"\"Morning Latte,\"\" \"\"Six-Year-Old Cassidy,\"\" \"\"Delicious Dish,\"\" \"\"Bill Clinton's Impeachment Hearings,\"\" \"\"10-10-1776-5-28-1830-242-3-316-68-22\"\", \"\"TV Funhouse: The Harlem Globetrotters\"\", and \"\"Talkin' About Bill Brasky.\"\"",
-     "stillURL": "https://image.tmdb.org/t/p/w300/qMbri5y5VcmaxUdY3joTxx0olRy.jpg",
-     "airDate": null,
-     "year": 1998,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Saturday Night Live S24E09 Alec Baldwin, Luciano Pavarotti, Vanessa Williams.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 672871373,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/saturday-night-live-s-24-e-09-alec-baldwin-luciano-pavarotti-vanessa-williams_202501/Saturday Night Live S24E09 Alec Baldwin, Luciano Pavarotti, Vanessa Williams.mp4"
-    },
-    {
-     "archiveID": "saturday-night-live-s-02e-22-buck-henry-bella-abzug-5-21-1977",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Buck Henry/Kenny Vance, Jennifer Warnes",
-     "overview": "Live From New York, It's...Gilda Radner\n\nSketches include-- Carter's Energy Saving Message, Buck Performs A Live Sex Act, Samurai B.M.O.C, The Shower Mike, The Coneheads Return to Remulak, Rhonda Weiss's Bridal Shower, Charles Lindbergh Meets the Land Shark.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/kdWWuk2b9moTzlP2SLLdxPCcgar.jpg",
-     "airDate": null,
-     "year": 1977,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Saturday Night Live - S02e22 - Buck Henry, Bella Abzug (5-21-1977).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 669270963,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-22-buck-henry-bella-abzug-5-21-1977/Saturday Night Live - S02e22 - Buck Henry, Bella Abzug (5-21-1977).mp4"
-    },
-    {
-     "archiveID": "saturday-night-live-s-02e-19-elliott-gould-4-16-1977",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Elliott Gould/McGarrigle Sisters",
-     "overview": "Live From New York, It's...John Belushi!  Sketches include-- Brezhnev Wants to Appear on Carson, The Castration Walk, Nick The Lounge Singer, You've Come a Long Way, Buddy, United Face Bank, Jason and Sunshine, Pilson Feedbag Dinners.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/dInKTpJNCWwQTEKbhxMifPkDsYG.jpg",
-     "airDate": null,
-     "year": 1977,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Saturday Night Live - S02e19 - Elliott Gould (4-16-1977).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 671924572,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/saturday-night-live-s-02e-19-elliott-gould-4-16-1977/Saturday Night Live - S02e19 - Elliott Gould (4-16-1977).mp4"
-    },
-    {
-     "archiveID": "saturday-night-live-s-25-e-05-garth-brooks-chris-gaines_202502",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Garth Brooks",
-     "overview": "Sketches include \"\"Gun Convention,\"\" \"\"James Bond,\"\" \"\"Hickory Farms Audio Visual Project,\"\" \"\"Tracy Morgan and Garth Brooks,\"\" \"\"Warner Lambert/America Home Products Merger,\"\" \"\"Express Flowers,\"\" \"\"Mango,\"\" \"\"Devil Can't Wrte No Love Songs,\"\" \"\"Simma Da Na,\"\" and \"\"WXLU News.\"\"",
-     "stillURL": "https://image.tmdb.org/t/p/w300/gNVvmCvZ3vEBaOg1vHWEnqyDoV3.jpg",
-     "airDate": null,
-     "year": 1999,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Saturday Night Live S25E05 Garth Brooks, Chris Gaines.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 661688598,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/saturday-night-live-s-25-e-05-garth-brooks-chris-gaines_202502/Saturday Night Live S25E05 Garth Brooks, Chris Gaines.mp4"
-    },
-    {
-     "archiveID": "saturday-night-live-s-01-e-06-lily-tomlin-tomlin-with-howard-shore-the-all-nurse",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lily Tomlin",
-     "overview": "Live from New York, it's... Lily Tomlin\n\nSketches Include: Beethoven Part 1, Jaws III, Bell-Hop, Edith Ann Skates, Beethoven Part 2, Spud Beer, Patty, Jim Henson's Muppets, Beethoven Part 3, Hard Hats, Speed, Margo's Dance Palace",
-     "stillURL": "https://image.tmdb.org/t/p/w300/ngtacXDlEnVSMVEsYELUJC8T5rI.jpg",
-     "airDate": null,
-     "year": 1975,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Saturday Night Live - S01E06 - Lily Tomlin, Tomlin with Howard Shore & the All Nurse Band (November 22, 1975).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 375099406,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/saturday-night-live-s-01-e-06-lily-tomlin-tomlin-with-howard-shore-the-all-nurse/Saturday Night Live - S01E06 - Lily Tomlin, Tomlin with Howard Shore & the All Nurse Band (November 22, 1975).mp4"
-    },
-    {
-     "archiveID": "saturday-night-live-s-25-e-03-norm-macdonald-dr-dre-snopp-dogg-and-eminem_202501",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Norm MacDonald/Dr. Dre",
-     "overview": "Sketches include \"\"Rudy Giuliani,\"\" \"\"Martha Stewart Living,\"\" \"\"Yankees History,\"\" \"\"Celebrity Jeopardy,\"\" \"\"NBC Crosstalk,\"\" \"\"Larry King,\"\" \"\"Michael Jaxon,\"\" and \"\"Inside the Actor's Studio.\"\"",
-     "stillURL": "https://image.tmdb.org/t/p/w300/7pSnFrQwGuDl4HK3MyrJoDqY4hi.jpg",
-     "airDate": null,
-     "year": 1999,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Saturday Night Live S25E03 Norm Macdonald, Dr Dre, Snopp Dogg And Eminem.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 666657218,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/saturday-night-live-s-25-e-03-norm-macdonald-dr-dre-snopp-dogg-and-eminem_202501/Saturday Night Live S25E03 Norm Macdonald, Dr Dre, Snopp Dogg And Eminem.mp4"
-    },
-    {
-     "archiveID": "saturday-night-live-april-22-1978-s-3-e-18",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Saturday Night Live - April 22, 1978",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/s1cZBqbMwAF3w8S3Yo0j5nr2Yuo.jpg",
-     "airDate": null,
-     "year": 1978,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Saturday Night Live- April 22, 1978 (S3E18).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 668993868,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/saturday-night-live-april-22-1978-s-3-e-18/Saturday Night Live- April 22, 1978 (S3E18).mp4"
-    },
-    {
-     "archiveID": "saturday-night-live-s-7-e-07-tim-curry-meat-loaf",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Tim Curry/Meat Loaf",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/pZWmpLyWN6EDXjmZTyJTAnt4H17.jpg",
-     "airDate": null,
-     "year": 1981,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Saturday Night Live S7E07 Tim Curry, Meat Loaf.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 677455443,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/saturday-night-live-s-7-e-07-tim-curry-meat-loaf/Saturday Night Live S7E07 Tim Curry, Meat Loaf.mp4"
-    },
-    {
-     "archiveID": "saturday-night-live-s-12-e-08-william-shatner-lone-justice-buster-poindexter",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "William Shatner/Lone Justice",
-     "overview": "Live from New York, it's... William Shatner!\n\nSketches include \"The Mute Marine,\" \"Star Trek Seafood,\" \"Star Trek Convention,\" \"TJ Hooker,\" \"Sweeney Sisters Christmas,\" \"It's A Wonderful Life: The Lost Ending\" \"Frankie Toussaint\" (film), and \"Look at That!\"\n\nLone Justice performed \"Shelter\" and \"I Found Love.\" Buster Poindexter performed \"Zat You, Santa?\"",
-     "stillURL": "https://image.tmdb.org/t/p/w300/xrBQo98w4pRfKY6oMIEYix7Tmzi.jpg",
-     "airDate": null,
-     "year": 1986,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Saturday Night Live S12E08 - William Shatner & Lone Justice & Buster Poindexter.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 522609582,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/saturday-night-live-s-12-e-08-william-shatner-lone-justice-buster-poindexter/Saturday Night Live S12E08 - William Shatner & Lone Justice & Buster Poindexter.mp4"
     }
    ]
   }

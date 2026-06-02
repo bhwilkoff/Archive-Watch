@@ -34,21 +34,16 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/mamas-family-s-01e-01-vint-and-the-kids-move-in/Mama's Family - s01e01 - Vint and the Kids Move In.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+    },
     {
      "archiveID": "mamas-family-s-01e-02-for-better-or-for-worse_202202",
-     "seasonNumber": null,
+     "seasonNumber": 1,
      "episodeNumber": 2,
      "title": "Mama's Family | Ep. 2 | For Better or for Worse",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s01e02 - For Better or for Worse.ia.mp4",
@@ -59,14 +54,32 @@
      "downloadURL": "https://archive.org/download/mamas-family-s-01e-02-for-better-or-for-worse_202202/Mama's Family - s01e02 - For Better or for Worse.ia.mp4"
     },
     {
+     "archiveID": "mamas-family-s-01e-03-the-wedding-pt-1",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "Mama's Family | Eps. 3,4 | The Wedding",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Mama's Family - s01e03 - The Wedding Pt1.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 420109037,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/mamas-family-s-01e-03-the-wedding-pt-1/Mama's Family - s01e03 - The Wedding Pt1.ia.mp4"
+    },
+    {
      "archiveID": "mamas-family-s-01e-05-family-feud",
-     "seasonNumber": null,
+     "seasonNumber": 1,
      "episodeNumber": 5,
      "title": "Mama's Family | Ep. 5 | Family Feud",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s01e05 - Family Feud.ia.mp4",
@@ -78,13 +91,13 @@
     },
     {
      "archiveID": "mamas-family-s-01e-06-cellmates",
-     "seasonNumber": null,
+     "seasonNumber": 1,
      "episodeNumber": 6,
      "title": "Mama's Family | Ep. 6 | Cellmates",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s01e06 - Cellmates.ia.mp4",
@@ -96,13 +109,13 @@
     },
     {
      "archiveID": "mamas-family-s-01e-07-mama-gets-a-job",
-     "seasonNumber": null,
+     "seasonNumber": 1,
      "episodeNumber": 7,
      "title": "Mama's Family | Ep. 7 | Mama Gets a Job",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s01e07 - Mama Gets a Job.ia.mp4",
@@ -114,13 +127,13 @@
     },
     {
      "archiveID": "mamas-family-s-01e-08-double-standard",
-     "seasonNumber": null,
+     "seasonNumber": 1,
      "episodeNumber": 8,
      "title": "Mama's Family | Ep. 8 | Double Standard",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s01e08 - Double Standard.ia.mp4",
@@ -132,13 +145,13 @@
     },
     {
      "archiveID": "mama-s-family-s-01e-09-mama-s-boyfriend",
-     "seasonNumber": null,
+     "seasonNumber": 1,
      "episodeNumber": 9,
      "title": "Mama's Family | Ep. 9 | Mama's Boyfriend",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama s Family - s01e09 - Mama s Boyfriend.ia.mp4",
@@ -150,13 +163,13 @@
     },
     {
      "archiveID": "mamas-family-s-01e-10-fran-s-dress",
-     "seasonNumber": null,
+     "seasonNumber": 1,
      "episodeNumber": 10,
      "title": "Mama's Family | Ep. 10 | Fran's Dress",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s01e10 - Fran s Dress.ia.mp4",
@@ -168,13 +181,13 @@
     },
     {
      "archiveID": "mamas-family-s-01e-11-alien-marriage",
-     "seasonNumber": null,
+     "seasonNumber": 1,
      "episodeNumber": 11,
      "title": "Mama's Family | Ep. 11 | Alien Marriage",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s01e11 - Alien Marriage.ia.mp4",
@@ -186,13 +199,13 @@
     },
     {
      "archiveID": "mamas-family-s-01e-12-positive-thinkin",
-     "seasonNumber": null,
+     "seasonNumber": 1,
      "episodeNumber": 12,
      "title": "Mama's Family | Ep. 12 | Positive Thinking",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s01e12 - Positive Thinkin.ia.mp4",
@@ -204,13 +217,13 @@
     },
     {
      "archiveID": "mamas-family-s-01e-13-mama-s-silver",
-     "seasonNumber": null,
+     "seasonNumber": 1,
      "episodeNumber": 13,
      "title": "Mama's Family | Ep. 13 | Mama's Silver",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s01e13 - Mama s Silver.ia.mp4",
@@ -219,16 +232,21 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/mamas-family-s-01e-13-mama-s-silver/Mama's Family - s01e13 - Mama s Silver.ia.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
      "archiveID": "mamas-family-s-02e-01-flaming-forties",
-     "seasonNumber": null,
-     "episodeNumber": 14,
+     "seasonNumber": 2,
+     "episodeNumber": 1,
      "title": "Mama's Family | Ep. 14 | Flaming Forties",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s02e01 - Flaming Forties.ia.mp4",
@@ -240,13 +258,13 @@
     },
     {
      "archiveID": "mamas-family-s-02e-02-the-return-of-leonard-oates",
-     "seasonNumber": null,
-     "episodeNumber": 15,
+     "seasonNumber": 2,
+     "episodeNumber": 2,
      "title": "Mama's Family | Ep. 15 | The Return of Leonard Oates",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s02e02 - The Return of Leonard Oates.ia.mp4",
@@ -258,13 +276,13 @@
     },
     {
      "archiveID": "mamas-family-s-02e-03-country-club",
-     "seasonNumber": null,
-     "episodeNumber": 16,
+     "seasonNumber": 2,
+     "episodeNumber": 3,
      "title": "Mama's Family | Ep. 16 | Country Club",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s02e03 - Country Club.ia.mp4",
@@ -276,13 +294,13 @@
     },
     {
      "archiveID": "mamas-family-s-02e-04-naomi-and-the-stork",
-     "seasonNumber": null,
-     "episodeNumber": 17,
+     "seasonNumber": 2,
+     "episodeNumber": 4,
      "title": "Mama's Family | Ep. 17 | Naomi and the Stork",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s02e04 - Naomi and the Stork.ia.mp4",
@@ -294,13 +312,13 @@
     },
     {
      "archiveID": "mamas-family-s-02e-05-rashomama",
-     "seasonNumber": null,
-     "episodeNumber": 18,
+     "seasonNumber": 2,
+     "episodeNumber": 5,
      "title": "Mama's Family | Ep. 18 | Rashomama",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s02e05 - Rashomama.ia.mp4",
@@ -312,13 +330,13 @@
     },
     {
      "archiveID": "mamas-family-s-02e-06-obscene-call",
-     "seasonNumber": null,
-     "episodeNumber": 19,
+     "seasonNumber": 2,
+     "episodeNumber": 6,
      "title": "Mama's Family | Ep. 19 | Obscene Call",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s02e06 - Obscene Call.ia.mp4",
@@ -330,13 +348,13 @@
     },
     {
      "archiveID": "mamas-family-s-02e-07-ellen-s-boyfriend",
-     "seasonNumber": null,
-     "episodeNumber": 20,
+     "seasonNumber": 2,
+     "episodeNumber": 7,
      "title": "Mama's Family | Ep. 20 | Ellen's Boyfriend",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s02e07 - Ellen s Boyfriend.ia.mp4",
@@ -348,13 +366,13 @@
     },
     {
      "archiveID": "mamas-family-s-02e-08-aunt-gert-rides-again",
-     "seasonNumber": null,
-     "episodeNumber": 21,
+     "seasonNumber": 2,
+     "episodeNumber": 8,
      "title": "Mama's Family | Episode 21 | Gert Rides Again",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s02e08 - Aunt Gert Rides Again.ia.mp4",
@@ -366,13 +384,13 @@
     },
     {
      "archiveID": "mamas-family-s-02e-09-amateur-night",
-     "seasonNumber": null,
-     "episodeNumber": 22,
+     "seasonNumber": 2,
+     "episodeNumber": 9,
      "title": "Mama's Family | Episode 22 | Amateur Night",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s02e09 - Amateur Night.ia.mp4",
@@ -384,13 +402,13 @@
     },
     {
      "archiveID": "mamas-family-s-02e-10-the-mama-who-came-to-dinner",
-     "seasonNumber": null,
-     "episodeNumber": 23,
+     "seasonNumber": 2,
+     "episodeNumber": 10,
      "title": "Mama's Family | Episode 23 | The Mama Who Came to Dinner",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1983,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s02e10 - The Mama Who Came to Dinner.ia.mp4",
@@ -402,13 +420,13 @@
     },
     {
      "archiveID": "mamas-family-s-02e-11-mama-learns-to-drive",
-     "seasonNumber": null,
-     "episodeNumber": 24,
+     "seasonNumber": 2,
+     "episodeNumber": 11,
      "title": "Mama's Family | Episode 24 | Mama Learns to Drive",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1984,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s02e11 - Mama Learns to Drive.ia.mp4",
@@ -420,13 +438,13 @@
     },
     {
      "archiveID": "mamas-family-s-02e-12-black-belt-mama",
-     "seasonNumber": null,
-     "episodeNumber": 25,
+     "seasonNumber": 2,
+     "episodeNumber": 12,
      "title": "Mama's Family | Episode 25 | Black Belt Mama",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1984,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s02e12 - Black Belt Mama.ia.mp4",
@@ -438,13 +456,13 @@
     },
     {
      "archiveID": "mamas-family-s-02e-13-mama-buys-a-car",
-     "seasonNumber": null,
-     "episodeNumber": 26,
+     "seasonNumber": 2,
+     "episodeNumber": 13,
      "title": "Mama's Family | Episode 26 | Mama Buys A Car",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1984,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Mama's Family - s02e13 - Mama Buys a Car.ia.mp4",
@@ -453,16 +471,21 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/mamas-family-s-02e-13-mama-buys-a-car/Mama's Family - s02e13 - Mama Buys a Car.ia.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
      "archiveID": "Mama1955",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "\"Mama\" - Mama's Nursery School (50's TV Show)",
+     "title": "\"Mama\" - Mama's Nursery School",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1955,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "MamaNurserySchool1955.mp4",
@@ -476,11 +499,11 @@
      "archiveID": "Mama4",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "\"Mama\" - T.R.'s Surprise Party (1954)",
+     "title": "\"Mama\" - T.R.'s Surprise Party",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1954,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "TRsSurpriseParty1954.mp4",
@@ -494,11 +517,11 @@
      "archiveID": "Mama5",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "'Mama' - The Parade Grandstand (1955)",
+     "title": "'Mama' - The Parade Grandstand",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1955,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "TheParadeGrandstand1955.mp4",
@@ -512,7 +535,7 @@
      "archiveID": "Mama-MadameZodiac1950",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Mama - Madame Zodiac (1950)",
+     "title": "Mama - Madame Zodiac",
      "overview": null,
      "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/374/937415.jpg",
      "airDate": null,
@@ -543,24 +566,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/iRememberMama-MadameZodiak/Mama-MadameZodiak.mp4"
-    },
-    {
-     "archiveID": "mamas-family-s-01e-03-the-wedding-pt-1",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Mama's Family | Eps. 3,4 | The Wedding",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 1983,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Mama's Family - s01e03 - The Wedding Pt1.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 420109037,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/mamas-family-s-01e-03-the-wedding-pt-1/Mama's Family - s01e03 - The Wedding Pt1.ia.mp4"
     }
    ]
   }

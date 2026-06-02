@@ -105,6 +105,29 @@
    ]
   },
   {
+   "seasonNumber": 5,
+   "episodes": [
+    {
+     "archiveID": "space-patrol-s-01e-01-low-480x-360p",
+     "seasonNumber": 5,
+     "episodeNumber": 2,
+     "title": "The Web of Arachna",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1955-01-08",
+     "year": 1955,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Space Patrol S05e02 Web of Arachna.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 176794412,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/space-patrol-s-01e-01-low-480x-360p/Space%20Patrol%20S05e02%20Web%20of%20Arachna.ia.mp4"
+    }
+   ]
+  },
+  {
    "seasonNumber": null,
    "episodes": [
     {
@@ -129,7 +152,7 @@
      "archiveID": "SpacePatrol-InterplanetarySmugglers1952",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Space Patrol - Interplanetary Smugglers (1952)",
+     "title": "Space Patrol - Interplanetary Smugglers",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
      "airDate": null,
@@ -151,7 +174,7 @@
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
      "airDate": null,
-     "year": 1958,
+     "year": null,
      "runtimeSeconds": null,
      "videoFile": {
       "name": "Space Patrol - edit.mp4",
@@ -162,28 +185,10 @@
      "downloadURL": "https://archive.org/download/space-patrol-edit/Space Patrol - edit.mp4"
     },
     {
-     "archiveID": "space-patrol-s-01e-01-low-480x-360p",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Space Patrol 1950 TV Series",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 1950,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Space Patrol S05e02 Web of Arachna.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 176794412,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/space-patrol-s-01e-01-low-480x-360p/Space%20Patrol%20S05e02%20Web%20of%20Arachna.ia.mp4"
-    },
-    {
      "archiveID": "SpacePatrol1951",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Space patrol (1951)",
+     "title": "Space patrol",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
      "airDate": null,

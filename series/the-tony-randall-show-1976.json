@@ -19,18 +19,18 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 1,
    "episodes": [
     {
      "archiveID": "thetonyrandallshow1",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Tony Randall Show (Season 1)",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "Case: Money vs. Stature",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/tGiNGTd0aoVQfpdNGz16XB5GzJs.jpg",
-     "airDate": null,
+     "airDate": "1976-12-30",
      "year": 1976,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "S01E12- Case Money vs Stature.ia.mp4",
       "format": "h.264 IA",
@@ -38,17 +38,22 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/thetonyrandallshow1/S01E12- Case Money vs Stature.ia.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
      "archiveID": "thetonyrandallshowseason2",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Tony Randall Show (Season 2)",
+     "seasonNumber": 2,
+     "episodeNumber": 11,
+     "title": "Bobby vs. Michael",
      "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/tGiNGTd0aoVQfpdNGz16XB5GzJs.jpg",
-     "airDate": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/599/1499400.jpg",
+     "airDate": "1977-12-10",
      "year": 1977,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "S02E11- Bobby vs. Michael.mp4",
       "format": "MPEG4",

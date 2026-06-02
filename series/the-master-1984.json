@@ -40,6 +40,24 @@
      "downloadURL": "https://archive.org/download/TheMaster-Max/Master_max_512kb.mp4"
     },
     {
+     "archiveID": "the-master-complete-series-1984",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "The Master - 1984",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/8MGIjGfjwl22HL9G0eYOwbMqSTT.jpg",
+     "airDate": null,
+     "year": 1984,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The Master S01E01 - Max.mp4",
+      "format": "h.264",
+      "sizeBytes": 290040385,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-master-complete-series-1984/The Master S01E01 - Max.mp4"
+    },
+    {
      "archiveID": "TheMaster-OutofTimeStep",
      "seasonNumber": 1,
      "episodeNumber": 2,
@@ -74,40 +92,17 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/TheMaster-StateOfTheUnion/Master_StateoftheUnion_512kb.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "the-master-complete-series-1984",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Master - Complete Series 1984",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8MGIjGfjwl22HL9G0eYOwbMqSTT.jpg",
-     "airDate": null,
-     "year": 1984,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Master S01E01 - Max.mp4",
-      "format": "h.264",
-      "sizeBytes": 290040385,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-master-complete-series-1984/The Master S01E01 - Max.mp4"
     },
     {
      "archiveID": "the-master-tv-series",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Master TV Series",
-     "overview": null,
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "The Java Tiger",
+     "overview": "Rival factions seek a priceless statue protected by deadly booby-traps.",
      "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
+     "airDate": "1984-04-13",
+     "year": 1984,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "The Master - Episode 10 The Java Tiger.ia.mp4",
       "format": "h.264 IA",

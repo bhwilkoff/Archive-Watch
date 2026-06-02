@@ -21,6 +21,42 @@
    "seasonNumber": 1,
    "episodes": [
     {
+     "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Lock Up - - TV Series - 1959",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": " Lock Up - S01E01 - Stakeout.mp4",
+      "format": "h.264",
+      "sizeBytes": 168437341,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/ Lock Up - S01E01 - Stakeout.mp4"
+    },
+    {
+     "archiveID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Lock Up - - TV Series - 1959 - XviD AVI",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Lock Up - S01E01 - Stake Out.mp4",
+      "format": "h.264",
+      "sizeBytes": 168365892,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/Lock Up - S01E01 - Stake Out.mp4"
+    },
+    {
      "archiveID": "LockUpStakeOut",
      "seasonNumber": 1,
      "episodeNumber": 1,
@@ -782,6 +818,24 @@
      "downloadURL": "https://archive.org/download/LockUpTheFrenchAffair/LockUp-aFrenchAffair.mp4"
     },
     {
+     "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv",
+     "seasonNumber": 2,
+     "episodeNumber": 22,
+     "title": "End of Titan",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+     "airDate": "1961-02-11",
+     "year": 1961,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Lock Up - S02E22 - End of a Titan.mp4",
+      "format": "h.264",
+      "sizeBytes": 165810326,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock Up - S02E22 - End of a Titan.mp4"
+    },
+    {
      "archiveID": "LockupFugitiveFromFear",
      "seasonNumber": 2,
      "episodeNumber": 23,
@@ -1016,6 +1070,24 @@
      "downloadURL": "https://archive.org/download/LockUpTheFaceOfInnocence/LockUp-faceOfInnocence.mp4"
     },
     {
+     "archiveID": "lock-up-season-2-of-2-tv-series-1959-xvid-avi",
+     "seasonNumber": 2,
+     "episodeNumber": 37,
+     "title": "Lock Up - - TV Series - 1959 - XviD AVI",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Lock Up - S02E37 - Face Of Innocence.mp4",
+      "format": "h.264",
+      "sizeBytes": 165454658,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-xvid-avi/Lock Up - S02E37 - Face Of Innocence.mp4"
+    },
+    {
      "archiveID": "LockUpTheIntruder",
      "seasonNumber": 2,
      "episodeNumber": 38,
@@ -1039,82 +1111,10 @@
    "seasonNumber": null,
    "episodes": [
     {
-     "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up - Season 1 of 2 - TV Series - 1959 - MKV",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": " Lock Up - S01E01 - Stakeout.mp4",
-      "format": "h.264",
-      "sizeBytes": 168437341,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/ Lock Up - S01E01 - Stakeout.mp4"
-    },
-    {
-     "archiveID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up - Season 1 of 2 - TV Series - 1959 - XviD AVI",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Lock Up - S01E01 - Stake Out.mp4",
-      "format": "h.264",
-      "sizeBytes": 168365892,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/Lock Up - S01E01 - Stake Out.mp4"
-    },
-    {
-     "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up - Season 2 of 2 - TV Series - 1959 - MKV",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Lock Up - S02E22 - End of a Titan.mp4",
-      "format": "h.264",
-      "sizeBytes": 165810326,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock Up - S02E22 - End of a Titan.mp4"
-    },
-    {
-     "archiveID": "lock-up-season-2-of-2-tv-series-1959-xvid-avi",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lock Up - Season 2 of 2 - TV Series - 1959 - XviD AVI",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Lock Up - S02E37 - Face Of Innocence.mp4",
-      "format": "h.264",
-      "sizeBytes": 165454658,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-xvid-avi/Lock Up - S02E37 - Face Of Innocence.mp4"
-    },
-    {
      "archiveID": "LockUpConcreteCoffincorrectEpisode",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Lock Up: Concrete Coffin (correct episode)",
+     "title": "Lock Up: Concrete Coffin",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
      "airDate": null,

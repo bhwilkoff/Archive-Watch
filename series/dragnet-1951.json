@@ -317,6 +317,24 @@
    "seasonNumber": 7,
    "episodes": [
     {
+     "archiveID": "Dragnet1951",
+     "seasonNumber": 7,
+     "episodeNumber": 28,
+     "title": "Dragnet",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/11/29790.jpg",
+     "airDate": null,
+     "year": 1951,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Dragnet/Season 7/Dragnet (1951) - S07E28 - The Big War.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 154902685,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Dragnet1951/Dragnet/Season 7/Dragnet (1951) - S07E28 - The Big War.ia.mp4"
+    },
+    {
      "archiveID": "DragnetTheBigWar",
      "seasonNumber": 7,
      "episodeNumber": 28,
@@ -362,24 +380,6 @@
   {
    "seasonNumber": null,
    "episodes": [
-    {
-     "archiveID": "Dragnet1951",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Dragnet ( 1951)",
-     "overview": null,
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/11/29790.jpg",
-     "airDate": null,
-     "year": 1951,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Dragnet/Season 7/Dragnet (1951) - S07E28 - The Big War.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 154902685,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Dragnet1951/Dragnet/Season 7/Dragnet (1951) - S07E28 - The Big War.ia.mp4"
-    },
     {
      "archiveID": "DragnetEpisode18TheBigSeventeenwcommercials",
      "seasonNumber": null,

@@ -19,13 +19,36 @@
  "creator": null,
  "seasons": [
   {
+   "seasonNumber": 1,
+   "episodes": [
+    {
+     "archiveID": "freddys-nightmares-complete-tv-series",
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "School Daze",
+     "overview": "Steve Dart a student at Springwood High School decides to take it easy to escape stress. When he is called to the principal's office he starts having nightmares and soon discovers the high school's shocking secret. In the second half, Matt is a young Springwood High School student whose SATs are coming up soon. He begins to have strange nightmares and illusions of his life if he fails his SATs.",
+     "stillURL": "https://archive.org/services/img/freddys-nightmares-complete-tv-series",
+     "airDate": "1989-02-12",
+     "year": 1989,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Freddy's Nightmares S01E15 School Daze.mp4",
+      "format": "h.264",
+      "sizeBytes": 280975671,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/freddys-nightmares-complete-tv-series/Freddy's Nightmares S01E15 School Daze.mp4"
+    }
+   ]
+  },
+  {
    "seasonNumber": null,
    "episodes": [
     {
      "archiveID": "Freddy.s.Nightmares.1x01.No.More.Mr.Nice.Guy",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Freddy's Nightmares 1x01 No More Mr. Nice Guy [ITA]",
+     "title": "Freddy's Nightmares 1x01 No More Mr. Nice Guy",
      "overview": null,
      "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x01.No.More.Mr.Nice.Guy",
      "airDate": null,
@@ -43,7 +66,7 @@
      "archiveID": "Freddy.s.Nightmares.1x02.It.s.a.Miserable.Life",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Freddy's Nightmares 1x02 It's a Miserable Life [ITA]",
+     "title": "Freddy's Nightmares 1x02 It's a Miserable Life",
      "overview": null,
      "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x02.It.s.a.Miserable.Life",
      "airDate": null,
@@ -61,7 +84,7 @@
      "archiveID": "Freddy.s.Nightmares.1x03.Killer.Instinct",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Freddy's Nightmares 1x03 Killer Instinct [ITA]",
+     "title": "Freddy's Nightmares 1x03 Killer Instinct",
      "overview": null,
      "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x03.Killer.Instinct",
      "airDate": null,
@@ -79,7 +102,7 @@
      "archiveID": "Freddy.s.Nightmares.1x04.Freddy.s.Tricks.and.Treats",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Freddy's Nightmares 1x04 Freddy's Tricks and Treats [ITA]",
+     "title": "Freddy's Nightmares 1x04 Freddy's Tricks and Treats",
      "overview": null,
      "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x04.Freddy.s.Tricks.and.Treats",
      "airDate": null,
@@ -97,7 +120,7 @@
      "archiveID": "Freddy.s.Nightmares.1x05.Judy.Miller.Come.On.Down",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Freddy's Nightmares 1x05 Judy Miller Come On Down [ITA]",
+     "title": "Freddy's Nightmares 1x05 Judy Miller Come On Down",
      "overview": null,
      "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x05.Judy.Miller.Come.On.Down",
      "airDate": null,
@@ -115,7 +138,7 @@
      "archiveID": "Freddy.s.Nightmares.1x06.Saturday.Night.Special",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Freddy's Nightmares 1x06 Saturday Night Special [ITA]",
+     "title": "Freddy's Nightmares 1x06 Saturday Night Special",
      "overview": null,
      "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x06.Saturday.Night.Special",
      "airDate": null,
@@ -133,7 +156,7 @@
      "archiveID": "Freddy.s.Nightmares.01x07.Sister.s.Keeper",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Freddy's Nightmares 1x07 Sister's Keeper [ITA]",
+     "title": "Freddy's Nightmares 1x07 Sister's Keeper",
      "overview": null,
      "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.01x07.Sister.s.Keeper",
      "airDate": null,
@@ -151,7 +174,7 @@
      "archiveID": "Freddy.s.Nightmares.1x08.Mother.s.Day",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Freddy's Nightmares 1x08 Mother's Day [ITA]",
+     "title": "Freddy's Nightmares 1x08 Mother's Day",
      "overview": null,
      "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x08.Mother.s.Day",
      "airDate": null,
@@ -169,7 +192,7 @@
      "archiveID": "Freddy.s.Nightmares.1x09.Rebel.Without.a.Car",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Freddy's Nightmares 1x09 Rebel Without a Car [ITA]",
+     "title": "Freddy's Nightmares 1x09 Rebel Without a Car",
      "overview": null,
      "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x09.Rebel.Without.a.Car",
      "airDate": null,
@@ -187,7 +210,7 @@
      "archiveID": "Freddy.s.Nightmares.1x10.The.Bride.Wore.Red",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Freddy's Nightmares 1x10 The Bride Wore Red [ITA]",
+     "title": "Freddy's Nightmares 1x10 The Bride Wore Red",
      "overview": null,
      "stillURL": "https://archive.org/services/img/Freddy.s.Nightmares.1x10.The.Bride.Wore.Red",
      "airDate": null,
@@ -200,24 +223,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/Freddy.s.Nightmares.1x10.The.Bride.Wore.Red/Freddy.s.Nightmares.01x10.The.Bride.Wore.Red.mp4"
-    },
-    {
-     "archiveID": "freddys-nightmares-complete-tv-series",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Freddy's Nightmares Complete TV Series",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/freddys-nightmares-complete-tv-series",
-     "airDate": null,
-     "year": 1988,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Freddy's Nightmares S01E15 School Daze.mp4",
-      "format": "h.264",
-      "sizeBytes": 280975671,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/freddys-nightmares-complete-tv-series/Freddy's Nightmares S01E15 School Daze.mp4"
     }
    ]
   }

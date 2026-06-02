@@ -17,18 +17,18 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 1,
    "episodes": [
     {
      "archiveID": "degrassi-jr-high-season-01_202208",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Degrassi Junior High Season 1",
-     "overview": null,
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "The Cover-Up",
+     "overview": "Joey inadvertently helps his friend Rick when he discovers that Rick's dad beats him.",
      "stillURL": "https://image.tmdb.org/t/p/w500/fYetgZI5fkmIFsxUGqzryGmql8G.jpg",
-     "airDate": null,
+     "airDate": "1987-02-08",
      "year": 1987,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "Degrassi Jr High S01E04 - The Cover Up.mp4",
       "format": "h.264",
@@ -36,17 +36,22 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/degrassi-jr-high-season-01_202208/Degrassi Jr High S01E04 - The Cover Up.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
      "archiveID": "degrassi-jr-high-s-02",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Degrassi Junior High Season 2",
-     "overview": null,
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "Great Expectations",
+     "overview": "Joey sets his sights on Liz, a new girl with a wild haircut and new-wave clothes, which give her a reputation for promiscuity. Meanwhile, Arthur is confused after having wet dreams.",
      "stillURL": "https://image.tmdb.org/t/p/w500/fYetgZI5fkmIFsxUGqzryGmql8G.jpg",
-     "airDate": null,
+     "airDate": "1988-01-18",
      "year": 1988,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "Degrassi Jr High S02E03 - Great Expectations.m4v",
       "format": "MPEG4",
@@ -54,17 +59,22 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/degrassi-jr-high-s-02/Degrassi%20Jr%20High%20S02E03%20-%20Great%20Expectations.m4v"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
     {
      "archiveID": "degrassi-junior-high-season-03",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Degrassi Junior High Season 3",
-     "overview": null,
+     "seasonNumber": 3,
+     "episodeNumber": 15,
+     "title": "Pa-arty!",
+     "overview": "Trouble is brewing for Lucy, whose new love interest is a problem drinker; and Joey, who says he'll buy beer for a party.",
      "stillURL": "https://image.tmdb.org/t/p/w500/fYetgZI5fkmIFsxUGqzryGmql8G.jpg",
-     "airDate": null,
+     "airDate": "1989-02-27",
      "year": 1989,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "Degrassi Junior High S03E15 - Pa-arty!.mp4",
       "format": "h.264",

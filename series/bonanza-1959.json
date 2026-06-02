@@ -40,6 +40,24 @@
      "downloadURL": "https://archive.org/download/Bonanza-TheAbductionEp2x08/Bonanza-TheAbductionEp2x08.mp4"
     },
     {
+     "archiveID": "Bonanza-DeathOnSunMountain",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Death on Sun Mountain",
+     "overview": "Greedy opportunist Mark Burdette and his accomplice Early Thorne stir up trouble between the Paiute tribe and the citizens of Virginia City.  Ben discovers Burdette and Thorne are selling antelope beef to the miners and finds the price too high.  He offers the miners beef at a more reasonable price.  Burdette and Thorne retaliate by framing the Paiute's for attacks, by dressing as them and killing ranchers.  Based on a factual accounting.  Lorne Greene's first voice-over narration, and no landing constructed yet for the Ponderosa stairway.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/GVcQ0949nXRinRBFRr8v4pQRST.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2626,
+     "videoFile": {
+      "name": "BonanzaS1e02DeathOnSunMountain.mp4",
+      "format": "h.264",
+      "sizeBytes": 258647227,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Bonanza-DeathOnSunMountain/BonanzaS1e02DeathOnSunMountain.mp4"
+    },
+    {
      "archiveID": "Bonanza-TheGunmen",
      "seasonNumber": 1,
      "episodeNumber": 19,
@@ -236,6 +254,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/bonanzabitterwaterhq/Bonanza - Bitter Water HQ.mp4"
+    },
+    {
+     "archiveID": "Bonanza-BitterWater",
+     "seasonNumber": 1,
+     "episodeNumber": 29,
+     "title": "Bitter Water",
+     "overview": "Len Keith, a miner, wants to purchase some land adjacent to the Ponderosa from rancher Andy McKaren.  Andy's son, Tod, is anxious to sell.  Keith has offered him a partnership,and more importantly, he is in love with Keith's daughter.  When Ben warns Andy that a mine on the property would foul up Ponderosa water, Andy agrees not to sell the land.  Len Keith, determined to get that land, plants tick infested cattle in a Ponderosa herd to turn Andy against the Cartwrights.",
+     "stillURL": "https://image.tmdb.org/t/p/w300/l2cwEYEVO5tc0Z78WAqxxLwqb6Q.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 2964,
+     "videoFile": {
+      "name": "Bonanza_Bitter_Water_S01-E29.mp4",
+      "format": "h.264",
+      "sizeBytes": 299258037,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Bonanza-BitterWater/Bonanza_Bitter_Water_S01-E29.mp4"
     },
     {
      "archiveID": "Bonanza-FeetOfClay",
@@ -601,47 +637,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/Bonanza_-_The_Spitfire/Bonanza_-_The_Spitfire.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "Bonanza-BitterWater",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Bitter Water",
-     "overview": "Len Keith, a miner, wants to purchase some land adjacent to the Ponderosa from rancher Andy McKaren.  Andy's son, Tod, is anxious to sell.  Keith has offered him a partnership,and more importantly, he is in love with Keith's daughter.  When Ben warns Andy that a mine on the property would foul up Ponderosa water, Andy agrees not to sell the land.  Len Keith, determined to get that land, plants tick infested cattle in a Ponderosa herd to turn Andy against the Cartwrights.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/l2cwEYEVO5tc0Z78WAqxxLwqb6Q.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 2964,
-     "videoFile": {
-      "name": "Bonanza_Bitter_Water_S01-E29.mp4",
-      "format": "h.264",
-      "sizeBytes": 299258037,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Bonanza-BitterWater/Bonanza_Bitter_Water_S01-E29.mp4"
-    },
-    {
-     "archiveID": "Bonanza-DeathOnSunMountain",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Death on Sun Mountain",
-     "overview": "Greedy opportunist Mark Burdette and his accomplice Early Thorne stir up trouble between the Paiute tribe and the citizens of Virginia City.  Ben discovers Burdette and Thorne are selling antelope beef to the miners and finds the price too high.  He offers the miners beef at a more reasonable price.  Burdette and Thorne retaliate by framing the Paiute's for attacks, by dressing as them and killing ranchers.  Based on a factual accounting.  Lorne Greene's first voice-over narration, and no landing constructed yet for the Ponderosa stairway.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/GVcQ0949nXRinRBFRr8v4pQRST.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 2626,
-     "videoFile": {
-      "name": "BonanzaS1e02DeathOnSunMountain.mp4",
-      "format": "h.264",
-      "sizeBytes": 258647227,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Bonanza-DeathOnSunMountain/BonanzaS1e02DeathOnSunMountain.mp4"
     }
    ]
   }

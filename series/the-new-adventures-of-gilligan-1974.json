@@ -18,18 +18,18 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 1,
    "episodes": [
     {
      "archiveID": "thenewadventuresofgilligans1",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The New Adventures of Gilligan (Season 1)",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Off Limits",
      "overview": null,
      "stillURL": null,
-     "airDate": null,
+     "airDate": "1974-09-07",
      "year": 1974,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "S01E01- Off Limits.ia.mp4",
       "format": "h.264 IA",
@@ -37,17 +37,22 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E01-%20Off%20Limits.ia.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
      "archiveID": "thenewadventuresofgilliganseason2",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The New Adventures of Gilligan (Season 2)",
+     "seasonNumber": 2,
+     "episodeNumber": 8,
+     "title": "Moderation",
      "overview": null,
      "stillURL": null,
-     "airDate": null,
+     "airDate": "1975-10-18",
      "year": 1975,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "S02E08- Moderation.ia.mp4",
       "format": "h.264 IA",

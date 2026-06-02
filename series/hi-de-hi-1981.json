@@ -1,66 +1,63 @@
 {
-  "version": 2,
-  "seriesID": "hi-de-hi-1981",
-  "tvmazeID": 7622,
-  "title": "Hi-de-Hi!",
-  "yearStart": 1981,
-  "yearEnd": 1988,
-  "overview": "Hi-de-Hi! is a BBC television sitcom shown on BBC1 from 1980 to 1988.The location is Maplins, a fictional holiday camp, during 1959 through to the early 1960s. It was written by Jimmy Perry and David Croft, who also wrote Dad's Army and It Ain't Half Hot Mum amongst others. The title was the greeting the campers heard and in early episodes was written Hi de Hi. The series revolved around the lives of the camp's management and entertainers, most of them struggling actors or has-beens.The inspiration was the experience of one of the writers—after being demobilised from the Army, Perry was a Redcoat at Butlins, Pwllheli during the holiday season.Hi-de-Hi! is set at a holiday camp in the fictional seaside town of Crimpton-on-Sea, Essex.Loosely based on Butlins, Maplins is part of a holiday camp group owned by Joe Maplin, with Yellowcoat replacing Redcoats. Cambridge University Professor of Archaeology, Jeffrey Fairbrother, who had tired of academia, has been appointed the new Entertainment Manager. This has annoyed the Camp Host, Ted Bovis, who had expected the post.The job of Camp Comic is given to the naive but kind-hearted Spike Dixon who wants an introduction to the world of show business. Many episodes involve Ted Bovis attempting to scam the campers as well as the well-meaning Fairbrother, who also has to avoid the romantic approaches of the chief Yellowcoat and Sports Organiser, Gladys Pugh.The other main characters in the show are out-of-work actors and entertainers at the tail end of their careers. These include Fred Quilley, a disqualified jockey; Yvonne and Barry Stuart-Hargreaves, former ballroom champions; Mr Partridge, a music hall star reduced to performing Punch and Judy puppet shows, despite hating children; and Peggy Ollerenshaw, an eccentric but ambitious chalet maid who dreams of becoming a Yellowcoat.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/414/1035667.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy"
-  ],
-  "networks": [
-    "BBC Two"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "hi-de-hi-1981",
+ "tvmazeID": 7622,
+ "title": "Hi-de-Hi!",
+ "yearStart": 1981,
+ "yearEnd": 1988,
+ "overview": "Hi-de-Hi! is a BBC television sitcom shown on BBC1 from 1980 to 1988.The location is Maplins, a fictional holiday camp, during 1959 through to the early 1960s. It was written by Jimmy Perry and David Croft, who also wrote Dad's Army and It Ain't Half Hot Mum amongst others. The title was the greeting the campers heard and in early episodes was written Hi de Hi. The series revolved around the lives of the camp's management and entertainers, most of them struggling actors or has-beens.The inspiration was the experience of one of the writers—after being demobilised from the Army, Perry was a Redcoat at Butlins, Pwllheli during the holiday season.Hi-de-Hi! is set at a holiday camp in the fictional seaside town of Crimpton-on-Sea, Essex.Loosely based on Butlins, Maplins is part of a holiday camp group owned by Joe Maplin, with Yellowcoat replacing Redcoats. Cambridge University Professor of Archaeology, Jeffrey Fairbrother, who had tired of academia, has been appointed the new Entertainment Manager. This has annoyed the Camp Host, Ted Bovis, who had expected the post.The job of Camp Comic is given to the naive but kind-hearted Spike Dixon who wants an introduction to the world of show business. Many episodes involve Ted Bovis attempting to scam the campers as well as the well-meaning Fairbrother, who also has to avoid the romantic approaches of the chief Yellowcoat and Sports Organiser, Gladys Pugh.The other main characters in the show are out-of-work actors and entertainers at the tail end of their careers. These include Fred Quilley, a disqualified jockey; Yvonne and Barry Stuart-Hargreaves, former ballroom champions; Mr Partridge, a music hall star reduced to performing Punch and Judy puppet shows, despite hating children; and Peggy Ollerenshaw, an eccentric but ambitious chalet maid who dreams of becoming a Yellowcoat.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/414/1035667.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy"
+ ],
+ "networks": [
+  "BBC Two"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "hi-de-hi-1988-uk-vhs_202204",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Hi De Hi (1988 UK VHS)",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1988,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Hi-De-Hi (1988 UK VHS).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 425282606,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/hi-de-hi-1988-uk-vhs_202204/Hi-De-Hi%20%281988%20UK%20VHS%29.ia.mp4"
-        },
-        {
-          "archiveID": "hi-de-hi-1988-uk-vhs_202409",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Hi-De-Hi (1988 UK VHS)",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1988,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Hi-De-Hi (1988 UK VHS).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 548232517,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/hi-de-hi-1988-uk-vhs_202409/Hi-De-Hi%20%281988%20UK%20VHS%29.ia.mp4"
-        }
-      ]
+     "archiveID": "hi-de-hi-1988-uk-vhs_202204",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Hi De Hi",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1988,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Hi-De-Hi (1988 UK VHS).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 425282606,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/hi-de-hi-1988-uk-vhs_202204/Hi-De-Hi%20%281988%20UK%20VHS%29.ia.mp4"
+    },
+    {
+     "archiveID": "hi-de-hi-1988-uk-vhs_202409",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Hi-De-Hi",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1988,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Hi-De-Hi (1988 UK VHS).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 548232517,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/hi-de-hi-1988-uk-vhs_202409/Hi-De-Hi%20%281988%20UK%20VHS%29.ia.mp4"
     }
-  ],
-  "episodesCount": 2,
-  "canonicalEpisodesCount": 57,
-  "seriesImdbID": "tt0123349",
-  "canonicalEpisodeCount": 41,
-  "canonicalSeasons": 9
+   ]
+  }
+ ],
+ "episodesCount": 2,
+ "canonicalEpisodesCount": 57
 }

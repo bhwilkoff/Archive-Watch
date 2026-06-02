@@ -52,7 +52,7 @@
       "name": "VIDEO_TS/VTS_02_3.mp4",
       "format": "h.264",
       "sizeBytes": 132675784,
-      "tier": 2
+      "tier": 1
      },
      "downloadURL": "https://archive.org/download/lizzie-dripping-series-1-dvd/VIDEO_TS/VTS_02_3.mp4"
     },
@@ -88,7 +88,7 @@
       "name": "VIDEO_TS/VTS_02_2.mp4",
       "format": "h.264",
       "sizeBytes": 123714942,
-      "tier": 2
+      "tier": 1
      },
      "downloadURL": "https://archive.org/download/lizzie-dripping-series-2-dvd/VIDEO_TS/VTS_02_2.mp4"
     }

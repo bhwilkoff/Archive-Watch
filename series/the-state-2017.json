@@ -18,31 +18,13 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 4,
    "episodes": [
     {
-     "archiveID": "the-state-season-4-commentary-audio-track-subtitles-mkv",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The State - Season 4 - Commentary Audio Track & Subtitles - MKV",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/umNUBcqpuwpnLzihvROZoWn8X5C.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The State - S04E07.mp4",
-      "format": "h.264",
-      "sizeBytes": 144322740,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-state-season-4-commentary-audio-track-subtitles-mkv/The State - S04E07.mp4"
-    },
-    {
      "archiveID": "the-state-season-4-mkv",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The State - Season 4 - MKV",
+     "seasonNumber": 4,
+     "episodeNumber": 7,
+     "title": "The State - Season 4",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/umNUBcqpuwpnLzihvROZoWn8X5C.jpg",
      "airDate": null,
@@ -56,6 +38,29 @@
      },
      "downloadURL": "https://archive.org/download/the-state-season-4-mkv/The State - S04E07.mp4"
     },
+    {
+     "archiveID": "the-state-season-4-commentary-audio-track-subtitles-mkv",
+     "seasonNumber": 4,
+     "episodeNumber": 7,
+     "title": "The State - Season 4 - Commentary Audio Track & Subtitles",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/umNUBcqpuwpnLzihvROZoWn8X5C.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "The State - S04E07.mp4",
+      "format": "h.264",
+      "sizeBytes": 144322740,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-state-season-4-commentary-audio-track-subtitles-mkv/The State - S04E07.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
      "archiveID": "the-state-season-9-43rd-annual-all-star-halloween-special-xvid-avi",
      "seasonNumber": null,

@@ -19,31 +19,13 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 3,
    "episodes": [
     {
-     "archiveID": "all-creatures-great-and-small-series-7",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "All Creatures Great and Small (1978 Final Series 7)",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 1990,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "All Creatures Great and Small S07E13 - Brotherly Love  (Christmas Special 1990).mp4",
-      "format": "h.264",
-      "sizeBytes": 524233955,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-7/All%20Creatures%20Great%20and%20Small%20S07E13%20-%20Brotherly%20Love%20%20%28Christmas%20Special%201990%29.mp4"
-    },
-    {
      "archiveID": "all-creatures-great-and-small-series-3_202303",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "All Creatures Great and Small (1978 Series 3)",
+     "seasonNumber": 3,
+     "episodeNumber": 15,
+     "title": "All Creatures Great and Small",
      "overview": null,
      "stillURL": null,
      "airDate": null,
@@ -56,17 +38,22 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-3_202303/All%20Creatures%20Great%20and%20Small%20S03E15%20-%20The%20Lord%20God%20Made%20Them%20All%20%281983%20Christmas%20Special%29.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
     {
      "archiveID": "all-creatures-great-and-small-series-4",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "All Creatures Great and Small (1978 Series 4)",
+     "seasonNumber": 4,
+     "episodeNumber": 8,
+     "title": "The Healing Touch",
      "overview": null,
      "stillURL": "https://archive.org/services/img/all-creatures-great-and-small-series-4",
-     "airDate": null,
+     "airDate": "1988-03-06",
      "year": 1988,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "All Creatures Great and Small S04E08 - The Healing Touch.mp4",
       "format": "h.264",
@@ -74,17 +61,22 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-4/All Creatures Great and Small S04E08 - The Healing Touch.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 5,
+   "episodes": [
     {
      "archiveID": "all-creatures-great-and-small-series-5",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "All Creatures Great and Small (1978 Series 5)",
-     "overview": null,
+     "seasonNumber": 5,
+     "episodeNumber": 6,
+     "title": "A New Chapter",
+     "overview": "The Herriots prepare to move to Rowangarth and there's another emergency with Granville Bennett.",
      "stillURL": "https://archive.org/services/img/all-creatures-great-and-small-series-5",
-     "airDate": null,
+     "airDate": "1988-10-08",
      "year": 1988,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "All Creatures Great and Small S05E06 - A New Chapter.mp4",
       "format": "h.264",
@@ -92,17 +84,22 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-5/All Creatures Great and Small S05E06 - A New Chapter.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 6,
+   "episodes": [
     {
      "archiveID": "all-creatures-great-and-small-series-6",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "All Creatures Great and Small (1978 Series 6)",
-     "overview": null,
+     "seasonNumber": 6,
+     "episodeNumber": 1,
+     "title": "Here And There",
+     "overview": "Siegfried and James are left to Calum's cooking while their wives visit London. James meets Basil Courtenay, a rather upper class cow hand.",
      "stillURL": "https://archive.org/services/img/all-creatures-great-and-small-series-6",
-     "airDate": null,
+     "airDate": "1989-09-02",
      "year": 1989,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "All Creatures Great and Small S06E01 - Here and There.mp4",
       "format": "h.264",
@@ -110,6 +107,29 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-6/All Creatures Great and Small S06E01 - Here and There.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 7,
+   "episodes": [
+    {
+     "archiveID": "all-creatures-great-and-small-series-7",
+     "seasonNumber": 7,
+     "episodeNumber": 13,
+     "title": "All Creatures Great and Small",
+     "overview": null,
+     "stillURL": null,
+     "airDate": null,
+     "year": 1990,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "All Creatures Great and Small S07E13 - Brotherly Love  (Christmas Special 1990).mp4",
+      "format": "h.264",
+      "sizeBytes": 524233955,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/all-creatures-great-and-small-series-7/All%20Creatures%20Great%20and%20Small%20S07E13%20-%20Brotherly%20Love%20%20%28Christmas%20Special%201990%29.mp4"
     }
    ]
   }

@@ -17,18 +17,18 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 1,
    "episodes": [
     {
      "archiveID": "it-takes-a-worried-man-1981-season-1-of-3-xvid-avi",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "It Takes a Worried Man - 1981 - Season 1 of 3 - XviD AVI",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Endangered Species",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/lTASXLVg4KU5zqAkOSnZDjto6gQ.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
+     "airDate": "1981-10-27",
+     "year": 1981,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "It Takes a Worried Man - S01E01 - Endangered Species.mp4",
       "format": "h.264",
@@ -36,17 +36,22 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/it-takes-a-worried-man-1981-season-1-of-3-xvid-avi/It Takes a Worried Man - S01E01 - Endangered Species.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
      "archiveID": "it-takes-a-worried-man-1983-season-2-of-3-xvid-avi",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "It Takes a Worried Man - 1983 - Season 2 of 3 - XviD AVI",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "Aren't Our Policemen Wonderful",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/lTASXLVg4KU5zqAkOSnZDjto6gQ.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
+     "airDate": "1983-01-13",
+     "year": 1983,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "It Takes a Worried Man - S02E01 - Arent Our Policemen Wonderful.mp4",
       "format": "h.264",
@@ -54,17 +59,22 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/it-takes-a-worried-man-1983-season-2-of-3-xvid-avi/It Takes a Worried Man - S02E01 - Arent Our Policemen Wonderful.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
     {
      "archiveID": "it-takes-a-worried-man-1983-season-3-of-3-xvid-avi",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "It Takes a Worried Man - 1983 - Season 3 of 3 - XviD AVI",
+     "seasonNumber": 3,
+     "episodeNumber": 6,
+     "title": "Three Cheers",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/lTASXLVg4KU5zqAkOSnZDjto6gQ.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
+     "airDate": "1983-11-20",
+     "year": 1983,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "It Takes a Worried Man - S03E06 - Three Cheers.mp4",
       "format": "h.264",

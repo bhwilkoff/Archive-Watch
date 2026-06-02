@@ -40,6 +40,24 @@
      "downloadURL": "https://archive.org/download/space-1999-1/this one.ia.mp4"
     },
     {
+     "archiveID": "Space1999.Series1",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Death's Other Dominion",
+     "overview": "The Moon comes to a frozen planet inhabited by seeming immortals who invites the Alphans to join them.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/77Jn71Aw4mct3phi7wpjLdvO9U5.jpg",
+     "airDate": "1975-10-02",
+     "year": 1975,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Space 1999 S01E05 Death's Other Dominion.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 356766945,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Space1999.Series1/Space 1999 S01E05 Death's Other Dominion.ia.mp4"
+    },
+    {
      "archiveID": "space-999-8",
      "seasonNumber": 1,
      "episodeNumber": 8,
@@ -60,36 +78,18 @@
    ]
   },
   {
-   "seasonNumber": null,
+   "seasonNumber": 2,
    "episodes": [
     {
-     "archiveID": "Space1999.Series1",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Space 1999 (Complete Series 1)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/77Jn71Aw4mct3phi7wpjLdvO9U5.jpg",
-     "airDate": null,
-     "year": 1975,
-     "runtimeSeconds": 3000,
-     "videoFile": {
-      "name": "Space 1999 S01E05 Death's Other Dominion.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 356766945,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Space1999.Series1/Space 1999 S01E05 Death's Other Dominion.ia.mp4"
-    },
-    {
      "archiveID": "Space1999.Series1_201602",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Space 1999 (Complete Series 2)",
+     "seasonNumber": 2,
+     "episodeNumber": 8,
+     "title": "The Rules of Luton",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/77Jn71Aw4mct3phi7wpjLdvO9U5.jpg",
-     "airDate": null,
-     "year": 1975,
-     "runtimeSeconds": 3000,
+     "airDate": "1976-10-23",
+     "year": 1976,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "Space 1999 S02E08 The Rules of Luton.ia.mp4",
       "format": "h.264 IA",

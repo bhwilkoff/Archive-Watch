@@ -19,6 +19,183 @@
  "creator": null,
  "seasons": [
   {
+   "seasonNumber": 2,
+   "episodes": [
+    {
+     "archiveID": "lights-out-tv-series-season-2-of-4-xvid-avi",
+     "seasonNumber": 2,
+     "episodeNumber": 36,
+     "title": "Lights Out - TV Series - - XviD AVI",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Lights Out - S02E36 - Grey Reminder.mp4",
+      "format": "h.264",
+      "sizeBytes": 183500289,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/lights-out-tv-series-season-2-of-4-xvid-avi/Lights Out - S02E36 - Grey Reminder.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "lights-out-tv-series-season-3-of-4-mkv",
+     "seasonNumber": 3,
+     "episodeNumber": 25,
+     "title": "Lights Out - TV Series",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Lights Out - S03E25 - Curtain Call.mp4",
+      "format": "h.264",
+      "sizeBytes": 184096157,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/lights-out-tv-series-season-3-of-4-mkv/Lights Out - S03E25 - Curtain Call.mp4"
+    },
+    {
+     "archiveID": "LightsOut-StrangeLegacy",
+     "seasonNumber": 3,
+     "episodeNumber": 26,
+     "title": "Strange Legacy",
+     "overview": "After suffering a concussion in a car accident on the Oregon coast, Stephen Elliott is carried to the home of an old man and his beautiful daughter-in-law to recover. The young woman tells Stephen that her husband, a World War II pilot, had died the year before and left an uncompleted musical composition, a model airplane and a piece of sculpture, as well as a strange will.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Lights_Out-S3E26-Strange_Legacy-19_February_1951.mp4",
+      "format": "h.264",
+      "sizeBytes": 129777910,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/LightsOut-StrangeLegacy/Lights_Out-S3E26-Strange_Legacy-19_February_1951.mp4"
+    },
+    {
+     "archiveID": "LightsOut-TheMadDullaghen",
+     "seasonNumber": 3,
+     "episodeNumber": 32,
+     "title": "Lights Out - The Mad Dullaghen",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1338,
+     "videoFile": {
+      "name": "Lights_Out-S3E32-The_Mad_Dullaghen-2_April_1951.mp4",
+      "format": "h.264",
+      "sizeBytes": 132096634,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/LightsOut-TheMadDullaghen/Lights_Out-S3E32-The_Mad_Dullaghen-2_April_1951.mp4"
+    },
+    {
+     "archiveID": "LightsOut-ThePassageBeyond",
+     "seasonNumber": 3,
+     "episodeNumber": 44,
+     "title": "The Passage Beyond",
+     "overview": "The ghost of Lady Anne continues to walk down the stairs, knife in hand, and into the secret passage where she murdered her domineering husband. She vividly demonstrates her disapproval of Rodney's attempt to conduct an affair with a visiting friend of his wife.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1594,
+     "videoFile": {
+      "name": "Lights_Out-S3E44-The_Passage_Beyond-25_June_1951.mp4",
+      "format": "h.264",
+      "sizeBytes": 154305704,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/LightsOut-ThePassageBeyond/Lights_Out-S3E44-The_Passage_Beyond-25_June_1951.mp4"
+    },
+    {
+     "archiveID": "LightsOut-TheFacelessMan",
+     "seasonNumber": 3,
+     "episodeNumber": 50,
+     "title": "The Faceless Man",
+     "overview": "Francis Carvel visits a plastic surgeon to erase a lifetime of ugliness from his face. Now handsome, he returns to the French inn where, a year earlier, an lovely woman had spurned his affection. Complicating Carvel's plans is a new traveling companion, a disfigured man in bandages who knows everything about him.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1336,
+     "videoFile": {
+      "name": "Lights_Out-S3E50-The_Faceless_Man-6_August_1951.mp4",
+      "format": "h.264",
+      "sizeBytes": 131095138,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/LightsOut-TheFacelessMan/Lights_Out-S3E50-The_Faceless_Man-6_August_1951.mp4"
+    },
+    {
+     "archiveID": "LightsOut-TheManWithTheWatch",
+     "seasonNumber": 3,
+     "episodeNumber": 51,
+     "title": "The Man With the Watch",
+     "overview": "A New York City detective is investigating the disappearance of over 200 people. Before vanishing into thin air, each person has reported a dream involving a fat man with a bizarre watch who convinces them to join him on his planet of Aleria.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1578,
+     "videoFile": {
+      "name": "Lights_Out-S3E51-The_Man_with_the_Watch_13_August_1951.mp4",
+      "format": "h.264",
+      "sizeBytes": 151556598,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/LightsOut-TheManWithTheWatch/Lights_Out-S3E51-The_Man_with_the_Watch_13_August_1951.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
+    {
+     "archiveID": "LightsOut-ISpy",
+     "seasonNumber": 4,
+     "episodeNumber": 8,
+     "title": "I SPY",
+     "overview": "A survey taker makes a startling discovery when she visits the home of two very paranoid, eccentric, elderly collectors of odds and ends.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1334,
+     "videoFile": {
+      "name": "Lights_Out-S4E08-I_Spy-15_October_1951.mp4",
+      "format": "h.264",
+      "sizeBytes": 130167292,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/LightsOut-ISpy/Lights_Out-S4E08-I_Spy-15_October_1951.mp4"
+    },
+    {
+     "archiveID": "lights-out-tv-series-season-4-of-4-mkv",
+     "seasonNumber": 4,
+     "episodeNumber": 10,
+     "title": "Lights Out - TV Series",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Lights Out - S04E10 - The Veil.mp4",
+      "format": "h.264",
+      "sizeBytes": 141368681,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/lights-out-tv-series-season-4-of-4-mkv/Lights Out - S04E10 - The Veil.mp4"
+    }
+   ]
+  },
+  {
    "seasonNumber": null,
    "episodes": [
     {
@@ -130,24 +307,6 @@
      "downloadURL": "https://archive.org/download/LightsOut-ForReleaseToday/Lights_out_For_release_today_01_22_1951.ia.mp4"
     },
     {
-     "archiveID": "LightsOut-ISpy",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "I SPY",
-     "overview": "A survey taker makes a startling discovery when she visits the home of two very paranoid, eccentric, elderly collectors of odds and ends.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1334,
-     "videoFile": {
-      "name": "Lights_Out-S4E08-I_Spy-15_October_1951.mp4",
-      "format": "h.264",
-      "sizeBytes": 130167292,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LightsOut-ISpy/Lights_Out-S4E08-I_Spy-15_October_1951.mp4"
-    },
-    {
      "archiveID": "LightsOut-Jasper",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -184,78 +343,6 @@
      "downloadURL": "https://archive.org/download/LightsOut-JustWhatHappened/Lights_out_Just_what_happened_10_09_1950.ia.mp4"
     },
     {
-     "archiveID": "lights-out-tv-series-season-2-of-4-xvid-avi",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lights Out - TV Series - Season 2 of 4 - XviD AVI",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Lights Out - S02E36 - Grey Reminder.mp4",
-      "format": "h.264",
-      "sizeBytes": 183500289,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lights-out-tv-series-season-2-of-4-xvid-avi/Lights Out - S02E36 - Grey Reminder.mp4"
-    },
-    {
-     "archiveID": "lights-out-tv-series-season-3-of-4-mkv",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lights Out - TV Series - Season 3 of 4 - MKV",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Lights Out - S03E25 - Curtain Call.mp4",
-      "format": "h.264",
-      "sizeBytes": 184096157,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lights-out-tv-series-season-3-of-4-mkv/Lights Out - S03E25 - Curtain Call.mp4"
-    },
-    {
-     "archiveID": "lights-out-tv-series-season-4-of-4-mkv",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lights Out - TV Series - Season 4 of 4 - MKV",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Lights Out - S04E10 - The Veil.mp4",
-      "format": "h.264",
-      "sizeBytes": 141368681,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lights-out-tv-series-season-4-of-4-mkv/Lights Out - S04E10 - The Veil.mp4"
-    },
-    {
-     "archiveID": "LightsOut-TheMadDullaghen",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lights Out - The Mad Dullaghen",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1338,
-     "videoFile": {
-      "name": "Lights_Out-S3E32-The_Mad_Dullaghen-2_April_1951.mp4",
-      "format": "h.264",
-      "sizeBytes": 132096634,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LightsOut-TheMadDullaghen/Lights_Out-S3E32-The_Mad_Dullaghen-2_April_1951.mp4"
-    },
-    {
      "archiveID": "LightsOut-Mrs.Manifold",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -290,24 +377,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/LightsOut-PerchanceToDream/LightsOut-PerchanceToDream.mp4"
-    },
-    {
-     "archiveID": "LightsOut-StrangeLegacy",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Strange Legacy",
-     "overview": "After suffering a concussion in a car accident on the Oregon coast, Stephen Elliott is carried to the home of an old man and his beautiful daughter-in-law to recover. The young woman tells Stephen that her husband, a World War II pilot, had died the year before and left an uncompleted musical composition, a model airplane and a piece of sculpture, as well as a strange will.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Lights_Out-S3E26-Strange_Legacy-19_February_1951.mp4",
-      "format": "h.264",
-      "sizeBytes": 129777910,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LightsOut-StrangeLegacy/Lights_Out-S3E26-Strange_Legacy-19_February_1951.mp4"
     },
     {
      "archiveID": "LightsOut-AndAdamBegot",
@@ -382,24 +451,6 @@
      "downloadURL": "https://archive.org/download/LightsOut-TheDeal/Lights_out_The_deal_10_22_1951.ia.mp4"
     },
     {
-     "archiveID": "LightsOut-TheFacelessMan",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Faceless Man",
-     "overview": "Francis Carvel visits a plastic surgeon to erase a lifetime of ugliness from his face. Now handsome, he returns to the French inn where, a year earlier, an lovely woman had spurned his affection. Complicating Carvel's plans is a new traveling companion, a disfigured man in bandages who knows everything about him.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1336,
-     "videoFile": {
-      "name": "Lights_Out-S3E50-The_Faceless_Man-6_August_1951.mp4",
-      "format": "h.264",
-      "sizeBytes": 131095138,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LightsOut-TheFacelessMan/Lights_Out-S3E50-The_Faceless_Man-6_August_1951.mp4"
-    },
-    {
      "archiveID": "LightsOut-LostWillOfDr.Rant",
      "seasonNumber": null,
      "episodeNumber": null,
@@ -416,24 +467,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/LightsOut-LostWillOfDr.Rant/LightsOut-LostWillOfDr.rant.mp4"
-    },
-    {
-     "archiveID": "LightsOut-TheManWithTheWatch",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Man With the Watch",
-     "overview": "A New York City detective is investigating the disappearance of over 200 people. Before vanishing into thin air, each person has reported a dream involving a fat man with a bizarre watch who convinces them to join him on his planet of Aleria.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1578,
-     "videoFile": {
-      "name": "Lights_Out-S3E51-The_Man_with_the_Watch_13_August_1951.mp4",
-      "format": "h.264",
-      "sizeBytes": 151556598,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LightsOut-TheManWithTheWatch/Lights_Out-S3E51-The_Man_with_the_Watch_13_August_1951.mp4"
     },
     {
      "archiveID": "LightsOut-MartianEyes",
@@ -470,24 +503,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/LightsOut-TheMeddlers/LightsOut-TheMeddlers.mp4"
-    },
-    {
-     "archiveID": "LightsOut-ThePassageBeyond",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Passage Beyond",
-     "overview": "The ghost of Lady Anne continues to walk down the stairs, knife in hand, and into the secret passage where she murdered her domineering husband. She vividly demonstrates her disapproval of Rodney's attempt to conduct an affair with a visiting friend of his wife.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/sUX5J7lS6FnCFvUOqXCYyQPp0f9.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1594,
-     "videoFile": {
-      "name": "Lights_Out-S3E44-The_Passage_Beyond-25_June_1951.mp4",
-      "format": "h.264",
-      "sizeBytes": 154305704,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/LightsOut-ThePassageBeyond/Lights_Out-S3E44-The_Passage_Beyond-25_June_1951.mp4"
     },
     {
      "archiveID": "LightsOut-ThePattern",

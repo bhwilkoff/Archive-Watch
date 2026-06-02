@@ -18,18 +18,18 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 1,
    "episodes": [
     {
      "archiveID": "Room-222-Season-1",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Room 222 (1969) - Complete Season 1",
+     "seasonNumber": 1,
+     "episodeNumber": 14,
+     "title": "The Exchange Teacher",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/gcAILcFjcpa6YQkMuwYhXBk2pog.jpg",
-     "airDate": null,
+     "airDate": "1969-12-17",
      "year": 1969,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "Season 1/S01E14 - The Exchange Teacher.ia.mp4",
       "format": "h.264 IA",
@@ -37,17 +37,22 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/Room-222-Season-1/Season 1/S01E14 - The Exchange Teacher.ia.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
      "archiveID": "Room-222-Season-2",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Room 222 (1969) - Complete Season 2",
+     "seasonNumber": 2,
+     "episodeNumber": 7,
+     "title": "Only a Rose",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/gcAILcFjcpa6YQkMuwYhXBk2pog.jpg",
-     "airDate": null,
-     "year": 1969,
-     "runtimeSeconds": null,
+     "airDate": "1970-11-04",
+     "year": 1970,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "Room 222 Season 2/S02E07 - Only A Rose.ia.mp4",
       "format": "h.264 IA",
@@ -55,17 +60,22 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/Room-222-Season-2/Room 222 Season 2/S02E07 - Only A Rose.ia.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
     {
      "archiveID": "Room-222-Season-4",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Room 222 (1969) - Complete Season 4",
+     "seasonNumber": 4,
+     "episodeNumber": 2,
+     "title": "I Wonder if January 15 Will Ever Come Again?",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/gcAILcFjcpa6YQkMuwYhXBk2pog.jpg",
-     "airDate": null,
-     "year": 1969,
-     "runtimeSeconds": null,
+     "airDate": "1972-09-22",
+     "year": 1972,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "S04E02 - Wonder if January 15 Will Ever Come Again.ia.mp4",
       "format": "h.264 IA",
@@ -73,17 +83,22 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E02 - Wonder if January 15 Will Ever Come Again.ia.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 5,
+   "episodes": [
     {
      "archiveID": "Room-222-Season-5",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Room 222 (1969) - Complete Season 5",
+     "seasonNumber": 5,
+     "episodeNumber": 12,
+     "title": "MPG",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/gcAILcFjcpa6YQkMuwYhXBk2pog.jpg",
-     "airDate": null,
-     "year": 1969,
-     "runtimeSeconds": null,
+     "airDate": "1973-12-28",
+     "year": 1973,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "S05E12 - MPG.ia.mp4",
       "format": "h.264 IA",

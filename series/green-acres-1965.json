@@ -17,6 +17,29 @@
  "creator": null,
  "seasons": [
   {
+   "seasonNumber": 2,
+   "episodes": [
+    {
+     "archiveID": "Green_Acres_Season_2",
+     "seasonNumber": 2,
+     "episodeNumber": 19,
+     "title": "It's Human to Be Humane",
+     "overview": "Bored and looking for a project, Lisa becomes the head of the \"Hooterville Human Humane Committee\". She takes her cause to the extreme, declaring everything from duck hunting to selling chicken eggs off limits. Soon, the Douglases house is a zoo and the locals are ready to run her out of town.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186881.jpg",
+     "airDate": "1967-02-01",
+     "year": 1967,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Season 2/Green.Acres.S02E19.It's.Human.to.Be.Humane.DVDrip.XviD-Sporc.mp4",
+      "format": "h.264",
+      "sizeBytes": 159712356,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/Green_Acres_Season_2/Season%202/Green.Acres.S02E19.It%27s.Human.to.Be.Humane.DVDrip.XviD-Sporc.mp4"
+    }
+   ]
+  },
+  {
    "seasonNumber": 4,
    "episodes": [
     {
@@ -1442,7 +1465,7 @@
      "archiveID": "GreenAcresCompleteSeries",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Green Acres Complete Series",
+     "title": "Green Acres",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/1tCh5D0dyPw8tiknprgbljAAEPw.jpg",
      "airDate": null,
@@ -1452,27 +1475,9 @@
       "name": "Green Acres Season 1/Green Acres - 003 - The Decorator.mp4",
       "format": "h.264",
       "sizeBytes": 166848462,
-      "tier": 2
+      "tier": 1
      },
-     "downloadURL": "https://archive.org/download/GreenAcresCompleteSeries/Green Acres Season 1/Green Acres - 003 - The Decorator.mp4"
-    },
-    {
-     "archiveID": "Green_Acres_Season_2",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Green Acres Season 2",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1tCh5D0dyPw8tiknprgbljAAEPw.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Season 2/Green.Acres.S02E19.It's.Human.to.Be.Humane.DVDrip.XviD-Sporc.mp4",
-      "format": "h.264",
-      "sizeBytes": 159712356,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Green_Acres_Season_2/Season 2/Green.Acres.S02E19.It's.Human.to.Be.Humane.DVDrip.XviD-Sporc.mp4"
+     "downloadURL": "https://archive.org/download/GreenAcresCompleteSeries/Green%20Acres%20Season%201/Green%20Acres%20-%20003%20-%20The%20Decorator.mp4"
     }
    ]
   }

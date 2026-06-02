@@ -38,164 +38,15 @@
      "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-01-episode-06-baileys-show/WKRP In Cincinnati S01E06 Bailey's Show.mp4"
     },
     {
-     "archiveID": "wkrp-in-cincinnati-season-04-episode-15-ill-take-romance",
-     "seasonNumber": 1,
-     "episodeNumber": 15,
-     "title": "Never Leave Me, Lucille",
-     "overview": "Herb anticipates a swinging bachelor life after separating from his wife.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/509/1273437.jpg",
-     "airDate": "1979-03-05",
-     "year": 1979,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "WKRP In Cincinnati S04E15 I'll Take Romance.mp4",
-      "format": "h.264",
-      "sizeBytes": 144943672,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episode-15-ill-take-romance/WKRP In Cincinnati S04E15 I'll Take Romance.mp4"
-    },
-    {
-     "archiveID": "wkrp-in-cincinnati-season-03-episode-22-clean-up-radio-everywhere",
-     "seasonNumber": 1,
-     "episodeNumber": 22,
-     "title": "Preacher",
-     "overview": "A 300-pound wrestler-turned-preacher causes problems by selling fake religious artifacts on his Sunday morning broadcast.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/509/1273458.jpg",
-     "airDate": "1979-06-04",
-     "year": 1979,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "WKRP In Cincinnati S03E22 Clean Up Radio Everywhere.mp4",
-      "format": "h.264",
-      "sizeBytes": 144466436,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episode-22-clean-up-radio-everywhere/WKRP In Cincinnati S03E22 Clean Up Radio Everywhere.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "wkrp-in-cincinnati-season-03-episode-21-till-debt-do-us-part",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Chicken a La Russe",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2021,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "WKRP In Cincinnati S03E21 Till Debt Do Us Part.mp4",
-      "format": "h.264",
-      "sizeBytes": 144738779,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episode-21-till-debt-do-us-part/WKRP In Cincinnati S03E21 Till Debt Do Us Part.mp4"
-    },
-    {
-     "archiveID": "wkrp-in-cincinnati-season-03-episode-06-a-mile-in-my-shoes",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Lotto Fever",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "WKRP in Cincinnati S03E06 A Mile in My Shoes.mp4",
-      "format": "h.264",
-      "sizeBytes": 145093174,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episode-06-a-mile-in-my-shoes/WKRP in Cincinnati S03E06 A Mile in My Shoes.mp4"
-    },
-    {
-     "archiveID": "wkrp-in-cincinnati-season-04-episode-13-changes",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Venus, We Hardly Knew Ya",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2021,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "WKRP In Cincinnati S04E13 Changes.mp4",
-      "format": "h.264",
-      "sizeBytes": 144382535,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episode-13-changes/WKRP In Cincinnati S04E13 Changes.mp4"
-    },
-    {
-     "archiveID": "wkrp-in-cincinnati-season-02-episodes-21-22-fifty-pictures",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati Season 02 Episodes 21-22 Fifty Pictures",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "WKRP In Cincinnati S02E21-22 Fifty Pictures.mp4",
-      "format": "h.264",
-      "sizeBytes": 284447018,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-02-episodes-21-22-fifty-pictures/WKRP In Cincinnati S02E21-22 Fifty Pictures.mp4"
-    },
-    {
-     "archiveID": "wkrp-in-cincinnati-season-02-episodes-23-24-venus-risingmost-improved-station",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati Season 02 Episodes 23-24 Venus Rising/Most Improved Station",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/dP3eGvgzztqbSr73UDNLh0o35hS.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "WKRP In Cincinnati S02E23-24 Venus Rising-Most Improved Station.mp4",
-      "format": "h.264",
-      "sizeBytes": 290922822,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-02-episodes-23-24-venus-risingmost-improved-station/WKRP In Cincinnati S02E23-24 Venus Rising-Most Improved Station.mp4"
-    },
-    {
-     "archiveID": "wkrp-in-cincinnati-season-03-episodes-01-03-the-airplane-showreal-families",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati Season 03 Episodes 01-03 The Airplane Show/Real Families",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/dP3eGvgzztqbSr73UDNLh0o35hS.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "WKRP In Cincinnati S03E01-3 The Airplane Show-Real Families.mp4",
-      "format": "h.264",
-      "sizeBytes": 283865044,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-01-03-the-airplane-showreal-families/WKRP In Cincinnati S03E01-3 The Airplane Show-Real Families.mp4"
-    },
-    {
      "archiveID": "wkrp-in-cincinnati-season-1-episodes-09-10-mamas-reviewa-date-with-jennifer",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 01 Episodes 09-10 Mama's Review/A Date With Jennifer",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Mama's Review",
+     "overview": "In a clip show, Andy and Mr. Carlson recount to Mama Carlson what has been happening at the station since it switched to a rock format. This episode was designed to reintroduce audiences to the show after the two-month hiatus.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/428082.jpg",
+     "airDate": "1979-01-15",
+     "year": 1979,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP In Cincinnati S01E09-10 Mama's Review-A Date With Jennifer.mp4",
       "format": "h.264",
@@ -206,14 +57,14 @@
     },
     {
      "archiveID": "wkrp-in-cincinnati-season-01-episodes-15-16-never-leave-me-lucillei-want-to-keep-my-baby",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 01 Episodes 15-16 Never Leave Me, Lucille/I Want To Keep My Baby",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
+     "seasonNumber": 1,
+     "episodeNumber": 15,
+     "title": "Never Leave Me, Lucille",
+     "overview": "Herb anticipates a swinging bachelor life after separating from his wife.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/509/1273437.jpg",
+     "airDate": "1979-03-05",
+     "year": 1979,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP In Cincinnati S01E15-16 Never Leave Me, Lucille- I Want To Keep My Baby.mp4",
       "format": "h.264",
@@ -224,14 +75,14 @@
     },
     {
      "archiveID": "wkrp-in-cincinnati-season-01-episodes-17-18-a-commercial-breakwho-is-gordon-sims",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 01 Episodes 17-18 A Commercial Break/Who Is Gordon Sims",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
+     "seasonNumber": 1,
+     "episodeNumber": 17,
+     "title": "A Commercial Break",
+     "overview": "The staff tries to create an appealing advertising campaign for a mortician.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/509/1273445.jpg",
+     "airDate": "1979-03-26",
+     "year": 1979,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP In Cincinnati S01E17-18 A Commercial Break-Who Is Gordon Sims.mp4",
       "format": "h.264",
@@ -242,14 +93,14 @@
     },
     {
      "archiveID": "wkrp-in-cincinnati-season-01-episodes-19-20-i-do-i-do...-for-nowyoung-master-carlson",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 01 Episodes 19-20 I Do, I Do... For Now/Young Master Carlson",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "I Do, I Do... For Now",
+     "overview": "Jennifer's childhood sweetheart arrives to make her keep her vow to marry him.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/509/1273449.jpg",
+     "airDate": "1979-04-23",
+     "year": 1979,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP In Cincinnati S01E19-20 I Do, I Do... For Now-Young Master Carlson.mp4",
       "format": "h.264",
@@ -257,17 +108,22 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-01-episodes-19-20-i-do-i-do...-for-nowyoung-master-carlson/WKRP In Cincinnati S01E19-20 I Do, I Do... For Now-Young Master Carlson.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
      "archiveID": "wkrp-in-cincinnati-season-02-episodes-03-04-baseballbad-risk",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 02 Episodes 03-04 Baseball/Bad Risk",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
+     "seasonNumber": 2,
+     "episodeNumber": 3,
+     "title": "Baseball",
+     "overview": "Les arranges a softball game with rival radio station WPIG.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/428104.jpg",
+     "airDate": "1979-10-15",
+     "year": 1979,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP In Cincinnati S02E03-4 Baseball-Bad Risk.mp4",
       "format": "h.264",
@@ -278,14 +134,14 @@
     },
     {
      "archiveID": "wkrp-in-cincinnati-season-02-episodes-05-6-jennifer-falls-in-lovecarlson-for-president",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 02 Episodes 05-06 Jennifer Falls In Love/Carlson For President",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
+     "seasonNumber": 2,
+     "episodeNumber": 5,
+     "title": "Jennifer Falls in Love",
+     "overview": "Jennifer falls for a poor but handsome man.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/428110.jpg",
+     "airDate": "1979-10-29",
+     "year": 1979,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP in Cincinnati S02E05-6 Jennifer Falls In Love-Carlson For President.mp4",
       "format": "h.264",
@@ -296,14 +152,14 @@
     },
     {
      "archiveID": "wkrp-in-cincinnati-season-02-episodes-15-16-herbs-dad-put-up-or-shut-up",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 02 Episodes 15-16 Herb's Dad-Put Up Or Shut Up",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
+     "seasonNumber": 2,
+     "episodeNumber": 15,
+     "title": "Herb's Dad",
+     "overview": "Herb's father runs away from the rest home and shows up for an unwelcome visit.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/428123.jpg",
+     "airDate": "1980-01-14",
+     "year": 1980,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP In Cincinnati S02E15-16 Herb's Dad-Put Up Or Shut Up.mp4",
       "format": "h.264",
@@ -314,14 +170,14 @@
     },
     {
      "archiveID": "wkrp-in-cincinnati-season-02-episodes-17-18-the-americanization-of-ivan-less-groupe",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 02 Episodes 17-18 The Americanization Of Ivan-Les's Groupe",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
+     "seasonNumber": 2,
+     "episodeNumber": 17,
+     "title": "The Americanization of Ivan",
+     "overview": "A Soviet defector turns to Bailey for help.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/428126.jpg",
+     "airDate": "1980-01-28",
+     "year": 1980,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP In Cincinnati S02E17-18 The Americanization of Ivan-Les's Groupe.mp4",
       "format": "h.264",
@@ -332,14 +188,14 @@
     },
     {
      "archiveID": "wkrp-in-cincinnati-season-02-episodes-19-20-in-concert-the-doctor-daughter",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 02 Episodes 19-20 In Concert/The Doctor Daughter",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
+     "seasonNumber": 2,
+     "episodeNumber": 19,
+     "title": "In Concert",
+     "overview": "The entire WKRP staff is overcome with feelings of guilt and anger after a major rock concert they helped to promote results in the death of eleven concertgoers. This episode directly referenced The Who concert disaster at Cincinnati's Riverfront Coliseum on December 3, 1979.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/428130.jpg",
+     "airDate": "1980-02-11",
+     "year": 1980,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP In Cincinnati S02E19-20 In Concert-The Doctor Daughter.mp4",
       "format": "h.264",
@@ -349,15 +205,74 @@
      "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-02-episodes-19-20-in-concert-the-doctor-daughter/WKRP In Cincinnati S02E19-20 In Concert-The Doctor Daughter.mp4"
     },
     {
+     "archiveID": "wkrp-in-cincinnati-season-02-episodes-21-22-fifty-pictures",
+     "seasonNumber": 2,
+     "episodeNumber": 21,
+     "title": "Filthy Pictures (1)",
+     "overview": "Mr. Carlson learns that the photographer who took promotional photos of Jennifer secretly photographed her as she was changing.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/428133.jpg",
+     "airDate": "1980-03-03",
+     "year": 1980,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP In Cincinnati S02E21-22 Fifty Pictures.mp4",
+      "format": "h.264",
+      "sizeBytes": 284447018,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-02-episodes-21-22-fifty-pictures/WKRP In Cincinnati S02E21-22 Fifty Pictures.mp4"
+    },
+    {
+     "archiveID": "wkrp-in-cincinnati-season-02-episodes-23-24-venus-risingmost-improved-station",
+     "seasonNumber": 2,
+     "episodeNumber": 23,
+     "title": "Venus Rising",
+     "overview": "Venus is offered a higher paying job as the program director of a rival station.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/428136.jpg",
+     "airDate": "1980-03-10",
+     "year": 1980,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP In Cincinnati S02E23-24 Venus Rising-Most Improved Station.mp4",
+      "format": "h.264",
+      "sizeBytes": 290922822,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-02-episodes-23-24-venus-risingmost-improved-station/WKRP In Cincinnati S02E23-24 Venus Rising-Most Improved Station.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "wkrp-in-cincinnati-season-03-episodes-01-03-the-airplane-showreal-families",
+     "seasonNumber": 3,
+     "episodeNumber": 1,
+     "title": "The Airplane Show",
+     "overview": "Les takes it upon himself to cover the news in a World War I biplane.Flying stunts were performed by Harold Johnson, an accomplished aviator and then-serving mayor of Moraine, Ohio, just north of Cincinnati.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/428138.jpg",
+     "airDate": "1980-11-01",
+     "year": 1980,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP In Cincinnati S03E01-3 The Airplane Show-Real Families.mp4",
+      "format": "h.264",
+      "sizeBytes": 283865044,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-01-03-the-airplane-showreal-families/WKRP In Cincinnati S03E01-3 The Airplane Show-Real Families.mp4"
+    },
+    {
      "archiveID": "wkrp-in-cincinnati-season-03-episodes-04-05-the-babyhotel-oceanview",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 03 Episodes 04-05 The Baby/Hotel Oceanview",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
+     "seasonNumber": 3,
+     "episodeNumber": 4,
+     "title": "The Baby",
+     "overview": "The Carlsons' childbirth preparations appear to be wasted when Arthur gets cold feet just before entering the delivery room.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/428146.jpg",
+     "airDate": "1980-11-22",
+     "year": 1980,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP In Cincinnati S03E04-5 The Baby-Hotel Oceanview.mp4",
       "format": "h.264",
@@ -367,15 +282,33 @@
      "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-04-05-the-babyhotel-oceanview/WKRP In Cincinnati S03E04-5 The Baby-Hotel Oceanview.mp4"
     },
     {
+     "archiveID": "wkrp-in-cincinnati-season-03-episode-06-a-mile-in-my-shoes",
+     "seasonNumber": 3,
+     "episodeNumber": 6,
+     "title": "A Mile in My Shoes",
+     "overview": "When Herb is called for jury duty, Andy takes over as salesman and Venus becomes program director.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/509/1274675.jpg",
+     "airDate": "1980-12-06",
+     "year": 1980,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP in Cincinnati S03E06 A Mile in My Shoes.mp4",
+      "format": "h.264",
+      "sizeBytes": 145093174,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episode-06-a-mile-in-my-shoes/WKRP in Cincinnati S03E06 A Mile in My Shoes.mp4"
+    },
+    {
      "archiveID": "wkrp-in-cincinnati-season-03-episodes-08-09-baby-its-cold-outsidethe-painting",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 03 Episodes 08-09 Baby, It's Cold Outside/The Painting",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
+     "seasonNumber": 3,
+     "episodeNumber": 8,
+     "title": "Baby, It's Cold Inside",
+     "overview": "The station's furnace goes on the blink on a freezing day when Momma Carlson is visiting.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/427949.jpg",
+     "airDate": "1981-01-03",
+     "year": 1981,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP In Cincinnati S03E08-9 Baby, It's Cold Outside-The Painting.mp4",
       "format": "h.264",
@@ -386,14 +319,14 @@
     },
     {
      "archiveID": "wkrp-in-cincinnati-season-03-episodes-10-11-daydreamsfrog-story",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 03 Episodes 10-11 Daydreams/Frog Story",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
+     "seasonNumber": 3,
+     "episodeNumber": 10,
+     "title": "Daydreams",
+     "overview": "A jittery Mr. Carlson tries out an important speech on the staff, with interesting results.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/427952.jpg",
+     "airDate": "1981-01-17",
+     "year": 1981,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP In Cincinnati S03E10-11 Daydreams-Frog Story.mp4",
       "format": "h.264",
@@ -404,14 +337,14 @@
     },
     {
      "archiveID": "wkrp-in-cincinnati-season-03-episodes-13-14-dr.-fever-mr.-tide",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 03 Episodes 13-14 Dr. Fever & Mr. Tide",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
+     "seasonNumber": 3,
+     "episodeNumber": 13,
+     "title": "Dr. Fever and Mr. Tide (1)",
+     "overview": "Johnny takes a job as a TV disco-show host.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/427957.jpg",
+     "airDate": "1981-02-07",
+     "year": 1981,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP In Cincinnati S03E13-14 Dr. Fever & Mr. Tide.mp4",
       "format": "h.264",
@@ -421,135 +354,9 @@
      "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-13-14-dr.-fever-mr.-tide/WKRP In Cincinnati S03E13-14 Dr. Fever & Mr. Tide.mp4"
     },
     {
-     "archiveID": "wkrp-in-cincinnati-season-03-episodes-15-16-ask-jenniferi-am-woman",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 03 Episodes 15-16 Ask Jennifer/I Am Woman",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "WKRP in Cincinnati S03E15-16 Ask Jennifer-I Am Woman.mp4",
-      "format": "h.264",
-      "sizeBytes": 291254648,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-15-16-ask-jenniferi-am-woman/WKRP in Cincinnati S03E15-16 Ask Jennifer-I Am Woman.mp4"
-    },
-    {
-     "archiveID": "wkrp-in-cincinnati-season-03-episodes-17-18-secrets-of-dayton-heightsout-to-lunch",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 03 Episodes 17-18 Secrets Of Dayton Heights/Out To Lunch",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/dP3eGvgzztqbSr73UDNLh0o35hS.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "WKRP In Cincinnati S03E17-18 Secrets of Dayton Heights-Out To Lunch.mp4",
-      "format": "h.264",
-      "sizeBytes": 290421952,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-17-18-secrets-of-dayton-heightsout-to-lunch/WKRP In Cincinnati S03E17-18 Secrets of Dayton Heights-Out To Lunch.mp4"
-    },
-    {
-     "archiveID": "wkrp-in-cincinnati-season-03-episodes-19-20-a-simple-little-weddingnothing-to-fear-but...",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 03 Episodes 19-20 A Simple Little Wedding/Nothing To Fear But...",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2021,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "WKRP In Cincinnati S03E19-20 A Simple Little Wedding-Nothing to Fear But....mp4",
-      "format": "h.264",
-      "sizeBytes": 286987180,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-19-20-a-simple-little-weddingnothing-to-fear-but.../WKRP In Cincinnati S03E19-20 A Simple Little Wedding-Nothing to Fear But....mp4"
-    },
-    {
-     "archiveID": "wkrp-in-cincinnati-season-04-episodes-01-02-an-explosive-affair",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 04 Episodes 01-02 An Explosive Affair",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2021,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "WKRP In Cincinnati S04E01-02 An Explosive Affair.mp4",
-      "format": "h.264",
-      "sizeBytes": 253960176,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episodes-01-02-an-explosive-affair/WKRP In Cincinnati S04E01-02 An Explosive Affair.mp4"
-    },
-    {
-     "archiveID": "wkrp-in-cincinnati-season-04-episodes-03-04-the-unionrumors",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 04 Episodes 03-04 The Union/Rumors",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2020,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "WKRP In Cincinnati S04E03-4 The Union-Rumors.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 278963578,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episodes-03-04-the-unionrumors/WKRP In Cincinnati S04E03-4 The Union-Rumors.mp4"
-    },
-    {
-     "archiveID": "wkrp-in-cincinnati-season-04-episodes-05-06-straight-from-the-heartwhos-on-first",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 04 Episodes 05-06 Straight From The Heart/Who's On First",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2021,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "WKRP In Cincinnati S04E05-06 Straight From The Heart-Who's On First.mp4",
-      "format": "h.264",
-      "sizeBytes": 280384096,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episodes-05-06-straight-from-the-heartwhos-on-first/WKRP In Cincinnati S04E05-06 Straight From The Heart-Who's On First.mp4"
-    },
-    {
-     "archiveID": "wkrp-in-cincinnati-season-04-episodes-11-12-you-cant-go-out-of-town-againpills",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "WKRP In Cincinnati: Season 04 Episodes 11-12 You Can't Go Out Of Town Again/Pills",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2021,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "WKRP In Cincinnati S04E11-12 You Can't Go Out of Town Again-Pills.mp4",
-      "format": "h.264",
-      "sizeBytes": 279895373,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episodes-11-12-you-cant-go-out-of-town-againpills/WKRP In Cincinnati S04E11-12 You Can't Go Out of Town Again-Pills.mp4"
-    },
-    {
      "archiveID": "wkrp-s-1-e-20-young-master-carlson",
-     "seasonNumber": null,
-     "episodeNumber": null,
+     "seasonNumber": 3,
+     "episodeNumber": 13,
      "title": "WKRP in Cincinnati",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/dP3eGvgzztqbSr73UDNLh0o35hS.jpg",
@@ -565,15 +372,218 @@
      "downloadURL": "https://archive.org/download/wkrp-s-1-e-20-young-master-carlson/WKRP S3E13+E14 Dr. Fever and Mr. Tide.mp4"
     },
     {
+     "archiveID": "wkrp-in-cincinnati-season-03-episodes-15-16-ask-jenniferi-am-woman",
+     "seasonNumber": 3,
+     "episodeNumber": 15,
+     "title": "Ask Jennifer",
+     "overview": "Andy and Herb convince Mr. Carlson to program a call-in advice show.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/427959.jpg",
+     "airDate": "1981-02-14",
+     "year": 1981,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP in Cincinnati S03E15-16 Ask Jennifer-I Am Woman.mp4",
+      "format": "h.264",
+      "sizeBytes": 291254648,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-15-16-ask-jenniferi-am-woman/WKRP in Cincinnati S03E15-16 Ask Jennifer-I Am Woman.mp4"
+    },
+    {
+     "archiveID": "wkrp-in-cincinnati-season-03-episodes-17-18-secrets-of-dayton-heightsout-to-lunch",
+     "seasonNumber": 3,
+     "episodeNumber": 17,
+     "title": "Secrets of Dayton Heights",
+     "overview": "The Secret Service refuses to issue Les press credentials so he can attend a presidential press conference.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/427962.jpg",
+     "airDate": "1981-02-28",
+     "year": 1981,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP In Cincinnati S03E17-18 Secrets of Dayton Heights-Out To Lunch.mp4",
+      "format": "h.264",
+      "sizeBytes": 290421952,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-17-18-secrets-of-dayton-heightsout-to-lunch/WKRP In Cincinnati S03E17-18 Secrets of Dayton Heights-Out To Lunch.mp4"
+    },
+    {
+     "archiveID": "wkrp-in-cincinnati-season-03-episodes-19-20-a-simple-little-weddingnothing-to-fear-but...",
+     "seasonNumber": 3,
+     "episodeNumber": 19,
+     "title": "A Simple Little Wedding",
+     "overview": "Twenty-five years after their elopement, Arthur and Carmen plan a \"simple little wedding\".",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/427964.jpg",
+     "airDate": "1981-03-21",
+     "year": 1981,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP In Cincinnati S03E19-20 A Simple Little Wedding-Nothing to Fear But....mp4",
+      "format": "h.264",
+      "sizeBytes": 286987180,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episodes-19-20-a-simple-little-weddingnothing-to-fear-but.../WKRP In Cincinnati S03E19-20 A Simple Little Wedding-Nothing to Fear But....mp4"
+    },
+    {
+     "archiveID": "wkrp-in-cincinnati-season-03-episode-21-till-debt-do-us-part",
+     "seasonNumber": 3,
+     "episodeNumber": 21,
+     "title": "Till Debt Do Us Part",
+     "overview": "A surprise telephone call from his ex-wife has Johnny convinced he's finally going to be free of alimony payments.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/427976.jpg",
+     "airDate": "1981-04-05",
+     "year": 1981,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP In Cincinnati S03E21 Till Debt Do Us Part.mp4",
+      "format": "h.264",
+      "sizeBytes": 144738779,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episode-21-till-debt-do-us-part/WKRP In Cincinnati S03E21 Till Debt Do Us Part.mp4"
+    },
+    {
+     "archiveID": "wkrp-in-cincinnati-season-03-episode-22-clean-up-radio-everywhere",
+     "seasonNumber": 3,
+     "episodeNumber": 22,
+     "title": "Clean Up Radio Everywhere",
+     "overview": "A preacher who heads up a media task force to clean up radio makes WKRP his first Cincinnati stop.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/427977.jpg",
+     "airDate": "1981-04-12",
+     "year": 1981,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP In Cincinnati S03E22 Clean Up Radio Everywhere.mp4",
+      "format": "h.264",
+      "sizeBytes": 144466436,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-03-episode-22-clean-up-radio-everywhere/WKRP In Cincinnati S03E22 Clean Up Radio Everywhere.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
+    {
+     "archiveID": "wkrp-in-cincinnati-season-04-episodes-01-02-an-explosive-affair",
+     "seasonNumber": 4,
+     "episodeNumber": 1,
+     "title": "An Explosive Affair (1)",
+     "overview": "WKRP receives a bomb threat from the terrorist group \"Black Monday,\" and Andy sends Johnny and Venus to broadcast from the transmitter while the station is being searched. Meanwhile, Mr. Carlson's former secretary visits, and he misreads her desire to meet for lunch.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/427989.jpg",
+     "airDate": "1981-10-07",
+     "year": 1981,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP In Cincinnati S04E01-02 An Explosive Affair.mp4",
+      "format": "h.264",
+      "sizeBytes": 253960176,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episodes-01-02-an-explosive-affair/WKRP In Cincinnati S04E01-02 An Explosive Affair.mp4"
+    },
+    {
+     "archiveID": "wkrp-in-cincinnati-season-04-episodes-03-04-the-unionrumors",
+     "seasonNumber": 4,
+     "episodeNumber": 3,
+     "title": "The Union",
+     "overview": "While the station's employees consider unionizing, Mr. Carlson deals with feelings of betrayal.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/427991.jpg",
+     "airDate": "1981-10-21",
+     "year": 1981,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP In Cincinnati S04E03-4 The Union-Rumors.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 278963578,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episodes-03-04-the-unionrumors/WKRP In Cincinnati S04E03-4 The Union-Rumors.mp4"
+    },
+    {
+     "archiveID": "wkrp-in-cincinnati-season-04-episodes-05-06-straight-from-the-heartwhos-on-first",
+     "seasonNumber": 4,
+     "episodeNumber": 5,
+     "title": "Straight from the Heart",
+     "overview": "Herb secretly checks into a hospital for heart tests, but then sneaks out and takes Les to a 3D pornographic movie.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/427993.jpg",
+     "airDate": "1981-11-04",
+     "year": 1981,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP In Cincinnati S04E05-06 Straight From The Heart-Who's On First.mp4",
+      "format": "h.264",
+      "sizeBytes": 280384096,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episodes-05-06-straight-from-the-heartwhos-on-first/WKRP In Cincinnati S04E05-06 Straight From The Heart-Who's On First.mp4"
+    },
+    {
+     "archiveID": "wkrp-in-cincinnati-season-04-episodes-11-12-you-cant-go-out-of-town-againpills",
+     "seasonNumber": 4,
+     "episodeNumber": 11,
+     "title": "You Can't Go Out of Town Again",
+     "overview": "Mr. Carlson learns that his wife Carmen first went out with him in college only because her sorority dared her to date someone on the \"dip list.\"",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/510/1275832.jpg",
+     "airDate": "1982-01-13",
+     "year": 1982,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP In Cincinnati S04E11-12 You Can't Go Out of Town Again-Pills.mp4",
+      "format": "h.264",
+      "sizeBytes": 279895373,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episodes-11-12-you-cant-go-out-of-town-againpills/WKRP In Cincinnati S04E11-12 You Can't Go Out of Town Again-Pills.mp4"
+    },
+    {
+     "archiveID": "wkrp-in-cincinnati-season-04-episode-13-changes",
+     "seasonNumber": 4,
+     "episodeNumber": 13,
+     "title": "Changes",
+     "overview": "Venus tries to act and dress more stereotypically \"black\" to prepare for an interview with a militant magazine, whose writer turns out to be white; meanwhile, Herb adopts a classier image with Jennifer's help.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/510/1275838.jpg",
+     "airDate": "1982-01-27",
+     "year": 1982,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP In Cincinnati S04E13 Changes.mp4",
+      "format": "h.264",
+      "sizeBytes": 144382535,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episode-13-changes/WKRP In Cincinnati S04E13 Changes.mp4"
+    },
+    {
+     "archiveID": "wkrp-in-cincinnati-season-04-episode-15-ill-take-romance",
+     "seasonNumber": 4,
+     "episodeNumber": 15,
+     "title": "I'll Take Romance",
+     "overview": "Les goes out with a woman he met through a computer dating service, not realizing the service is a front for prostitution.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/510/1275845.jpg",
+     "airDate": "1982-02-17",
+     "year": 1982,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "WKRP In Cincinnati S04E15 I'll Take Romance.mp4",
+      "format": "h.264",
+      "sizeBytes": 144943672,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/wkrp-in-cincinnati-season-04-episode-15-ill-take-romance/WKRP In Cincinnati S04E15 I'll Take Romance.mp4"
+    },
+    {
      "archiveID": "wkrp-in-cincinnati-season-04-episode-22-up-and-down-the-dial-last-final-episode",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Where's Jack?",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fEuvLcPWQQeSHJemg0jB68krV5I.jpg",
-     "airDate": null,
-     "year": 2021,
-     "runtimeSeconds": null,
+     "seasonNumber": 4,
+     "episodeNumber": 22,
+     "title": "Up and Down the Dial",
+     "overview": "The new ratings arrive, and WKRP has finally become a successful station, rising to #6 in the Cincinnati market with Johnny Fever as the #1 DJ. But when a new news director shows up and says he was hired by Mama Carlson, Andy soon finds out that she plans to change the station to a 24-hour news format.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/171/428071.jpg",
+     "airDate": "1982-04-21",
+     "year": 1982,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "WKRP In Cincinnati S04E22 Up And Down The Dial (Last Final Episode).mp4",
       "format": "h.264",

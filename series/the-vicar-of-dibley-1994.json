@@ -17,18 +17,18 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 3,
    "episodes": [
     {
      "archiveID": "vo-d-s-01-e-04-the-window-and-the-weather.avi",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "1994 Vicker of Dibley Complete Series",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 1994,
-     "runtimeSeconds": null,
+     "seasonNumber": 3,
+     "episodeNumber": 2,
+     "title": "Winter",
+     "overview": "Alice solves the problem of the Christmas show by proposing that she and Hugo play Mary and Joseph in a Nativity play.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/284/710325.jpg",
+     "airDate": "1999-12-25",
+     "year": 1999,
+     "runtimeSeconds": 2400,
      "videoFile": {
       "name": "VoD S03E02 Winter.avi.mp4",
       "format": "MPEG4",
@@ -36,12 +36,17 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/vo-d-s-01-e-04-the-window-and-the-weather.avi/VoD%20S03E02%20Winter.avi.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 4,
+   "episodes": [
     {
      "archiveID": "vicar-of-dibley-s-01-e-01-arrival.avi",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Complete Vicar Of Dibley",
+     "seasonNumber": 4,
+     "episodeNumber": 1,
+     "title": "Vicar Of Dibley",
      "overview": null,
      "stillURL": null,
      "airDate": null,

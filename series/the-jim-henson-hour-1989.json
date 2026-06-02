@@ -1,108 +1,106 @@
 {
-  "version": 2,
-  "seriesID": "the-jim-henson-hour-1989",
-  "tvmazeID": 49913,
-  "title": "The Jim Henson Hour",
-  "yearStart": 1989,
-  "yearEnd": 1989,
-  "overview": "Showcasing Jim Henson's work, this prime-time anthology series ran for nine episodes in 1989 before being cancelled mid-season by NBC.Twelve episodes were produced in total, and were later released in collected form.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/269/674309.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Comedy",
-    "Children",
-    "Fantasy"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "the-jim-henson-hour-1989",
+ "tvmazeID": 49913,
+ "title": "The Jim Henson Hour",
+ "yearStart": 1989,
+ "yearEnd": 1989,
+ "overview": "Showcasing Jim Henson's work, this prime-time anthology series ran for nine episodes in 1989 before being cancelled mid-season by NBC.Twelve episodes were produced in total, and were later released in collected form.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/269/674309.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Comedy",
+  "Children",
+  "Fantasy"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "jim-henson-hour-1",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "The Jim Henson Hour EP 1 (1989)",
-          "overview": "<div>The Jim Henson Hour EP 1 (1989)<br /></div><div><br /></div>Jim Henson's last tv series playing Kermit.<div><br /></div><div>WATCH AND DOWNLOAD EPISODES FREE!</div><div><br /></div><div><a class=\"html-attribute-value html-resource-link\" href=\"https://www.wco.tv/anime/the-jim-henson-hour-1989\" style=\"font-family:monospace;white-space:pre;\" rel=\"ugc nofollow\">https://www.wco.tv/anime/the-jim-henson-hour-1989</a><br /></div><div><br /></div>",
-          "stillURL": "https://archive.org/services/img/jim-henson-hour-1",
-          "airDate": null,
-          "year": 1989,
-          "runtimeSeconds": 2835,
-          "videoFile": {
-            "name": "getvid (1)_x264_001.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 182850639,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/jim-henson-hour-1/getvid%20%281%29_x264_001.ia.mp4"
-        },
-        {
-          "archiveID": "jim-henson-hour-2",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Jim Henson Hour EP 2 (1989)",
-          "overview": "The Jim Henson Hour EP 2 (1989)<div><br /></div><div>Jim Henson's last tv series playing Kermit.</div><div><br /></div><div>WATCH AND DOWNLOAD ALL EPISODES FREE!</div><div><br /></div><div><a class=\"html-attribute-value html-resource-link\" href=\"https://www.wco.tv/anime/the-jim-henson-hour-1989\" style=\"font-family:monospace;white-space:pre;\" rel=\"ugc nofollow\">https://www.wco.tv/anime/the-jim-henson-hour-1989</a><br /></div><div><br /></div>",
-          "stillURL": "https://archive.org/services/img/jim-henson-hour-2",
-          "airDate": null,
-          "year": 1989,
-          "runtimeSeconds": 2909,
-          "videoFile": {
-            "name": "jh.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 236451926,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/jim-henson-hour-2/jh.ia.mp4"
-        }
-      ]
+     "archiveID": "jim-henson-hour-1",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Outer Space",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/jim-henson-hour-1",
+     "airDate": "1989-04-14",
+     "year": 1989,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "getvid (1)_x264_001.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 182850639,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/jim-henson-hour-1/getvid%20%281%29_x264_001.ia.mp4"
     },
     {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "the-jim-henson-hour-s-1-e-11-living-with-dinosuars",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Jim Henson Hour",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/w3ETHcUlUexcmYNN4FuLyLH6UmX.jpg",
-          "airDate": null,
-          "year": 1989,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The Jim Henson Hour S1 E11 Living With Dinosuars.mp4",
-            "format": "h.264",
-            "sizeBytes": 309720323,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-jim-henson-hour-s-1-e-11-living-with-dinosuars/The Jim Henson Hour S1 E11 Living With Dinosuars.mp4"
-        },
-        {
-          "archiveID": "04TheJimHensonHourDogCity",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Jim Henson Hour - The Complete Series",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/w3ETHcUlUexcmYNN4FuLyLH6UmX.jpg",
-          "airDate": null,
-          "year": 1989,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "04 - The Jim Henson Hour (Dog City).mp4",
-            "format": "MPEG4",
-            "sizeBytes": 303505834,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/04TheJimHensonHourDogCity/04%20-%20The%20Jim%20Henson%20Hour%20%28Dog%20City%29.mp4"
-        }
-      ]
+     "archiveID": "jim-henson-hour-2",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Oceans",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/jim-henson-hour-2",
+     "airDate": "1989-04-21",
+     "year": 1989,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "jh.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 236451926,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/jim-henson-hour-2/jh.ia.mp4"
+    },
+    {
+     "archiveID": "the-jim-henson-hour-s-1-e-11-living-with-dinosuars",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "Living with Dinosaurs",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/w3ETHcUlUexcmYNN4FuLyLH6UmX.jpg",
+     "airDate": null,
+     "year": 1989,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Jim Henson Hour S1 E11 Living With Dinosuars.mp4",
+      "format": "h.264",
+      "sizeBytes": 309720323,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-jim-henson-hour-s-1-e-11-living-with-dinosuars/The Jim Henson Hour S1 E11 Living With Dinosuars.mp4"
     }
-  ],
-  "episodesCount": 4,
-  "canonicalEpisodesCount": 12,
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
+    {
+     "archiveID": "04TheJimHensonHourDogCity",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Jim Henson Hour",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/w3ETHcUlUexcmYNN4FuLyLH6UmX.jpg",
+     "airDate": null,
+     "year": 1989,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "04 - The Jim Henson Hour (Dog City).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 303505834,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/04TheJimHensonHourDogCity/04%20-%20The%20Jim%20Henson%20Hour%20%28Dog%20City%29.mp4"
+    }
+   ]
+  }
+ ],
+ "episodesCount": 4,
+ "canonicalEpisodesCount": 12
 }

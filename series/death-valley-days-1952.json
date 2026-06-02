@@ -37,6 +37,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/Death_Valley_Days_-_Sego_Lillies/Death_Valley_Days_-_Sego_Lillies.mp4"
+    },
+    {
+     "archiveID": "death-valley-days-s-01-e-04-the-lost-pegleg-mine",
+     "seasonNumber": 1,
+     "episodeNumber": 18,
+     "title": "Land of the Free",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/miogG5V6KSOV6ijH9mE4OOXFlF1.jpg",
+     "airDate": "1953-05-26",
+     "year": 1953,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "18-Death Valley Days S01 E18 Land of the Free .ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 479544403,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/death-valley-days-s-01-e-04-the-lost-pegleg-mine/18-Death Valley Days S01 E18 Land of the Free .ia.mp4"
     }
    ]
   },
@@ -78,29 +96,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/DeathValleyDays-DearTeacher/Death_Valley_Days_-_Dear_Teacher.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "death-valley-days-s-01-e-04-the-lost-pegleg-mine",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Death Valley Days",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/miogG5V6KSOV6ijH9mE4OOXFlF1.jpg",
-     "airDate": null,
-     "year": 1952,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "18-Death Valley Days S01 E18 Land of the Free .ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 479544403,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/death-valley-days-s-01-e-04-the-lost-pegleg-mine/18-Death Valley Days S01 E18 Land of the Free .ia.mp4"
     }
    ]
   }

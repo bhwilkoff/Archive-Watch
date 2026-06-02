@@ -1,50 +1,47 @@
 {
-  "version": 2,
-  "seriesID": "manimal-1983",
-  "tvmazeID": 8868,
-  "title": "Manimal",
-  "yearStart": 1983,
-  "yearEnd": 1983,
-  "overview": "Manimal centers on the character Dr. Jonathan Chase, a shape-shifting man who possessed the ability to turn himself into any animal he chose. He used this ability to help the police solve crimes.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/31/78461.jpg",
-  "backdropURL": null,
-  "genres": [
-    "Action",
-    "Adventure",
-    "Mystery"
-  ],
-  "networks": [
-    "NBC"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "manimal-1983",
+ "tvmazeID": 8868,
+ "title": "Manimal",
+ "yearStart": 1983,
+ "yearEnd": 1983,
+ "overview": "Manimal centers on the character Dr. Jonathan Chase, a shape-shifting man who possessed the ability to turn himself into any animal he chose. He used this ability to help the police solve crimes.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/31/78461.jpg",
+ "backdropURL": null,
+ "genres": [
+  "Action",
+  "Adventure",
+  "Mystery"
+ ],
+ "networks": [
+  "NBC"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "manimal_202007",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Manimal",
-          "overview": "McKenzie teams up with Chase to stop thieves planning a heist of toxic nerve gas.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/475/1188942.jpg",
-          "airDate": "1983-09-30",
-          "year": 1983,
-          "runtimeSeconds": 5400,
-          "videoFile": {
-            "name": "Manimal - 1.mp4",
-            "format": "h.264",
-            "sizeBytes": 443361165,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/manimal_202007/Manimal - 1.mp4"
-        }
-      ]
+     "archiveID": "manimal_202007",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Manimal",
+     "overview": "McKenzie teams up with Chase to stop thieves planning a heist of toxic nerve gas.",
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/475/1188942.jpg",
+     "airDate": "1983-09-30",
+     "year": 1983,
+     "runtimeSeconds": 5400,
+     "videoFile": {
+      "name": "Manimal - 1.mp4",
+      "format": "h.264",
+      "sizeBytes": 443361165,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/manimal_202007/Manimal - 1.mp4"
     }
-  ],
-  "episodesCount": 1,
-  "canonicalEpisodesCount": 8,
-  "seriesImdbID": "tt0085051",
-  "canonicalEpisodeCount": 4,
-  "canonicalSeasons": 1
+   ]
+  }
+ ],
+ "episodesCount": 1,
+ "canonicalEpisodesCount": 8
 }

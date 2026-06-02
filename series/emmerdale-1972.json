@@ -20,10 +20,28 @@
    "seasonNumber": null,
    "episodes": [
     {
+     "archiveID": "emmerdale-episode-2478-28-january-1999_202403",
+     "seasonNumber": null,
+     "episodeNumber": 247,
+     "title": "5 January 1999",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/szh6mSPgeAqs7Ijp7YHC90oGzkt.jpg",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": null,
+     "videoFile": {
+      "name": "Emmerdale Episode 2478 (28 January 1999).mp4",
+      "format": "MPEG4",
+      "sizeBytes": 72064592,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/emmerdale-episode-2478-28-january-1999_202403/Emmerdale Episode 2478 (28 January 1999).mp4"
+    },
+    {
      "archiveID": "emmerdale-episode-2554-27-july-1999_202403",
      "seasonNumber": null,
      "episodeNumber": 255,
-     "title": "Emmerdale: Episode 2554 (27 July 1999)",
+     "title": "Emmerdale: Episode 2554",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/szh6mSPgeAqs7Ijp7YHC90oGzkt.jpg",
      "airDate": null,
@@ -41,7 +59,7 @@
      "archiveID": "emmerdale-episode-2565-18-august-1999_202403",
      "seasonNumber": null,
      "episodeNumber": 256,
-     "title": "Emmerdale: Episode 2565 (18 August 1999)",
+     "title": "Emmerdale: Episode 2565",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/szh6mSPgeAqs7Ijp7YHC90oGzkt.jpg",
      "airDate": null,
@@ -54,24 +72,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/emmerdale-episode-2565-18-august-1999_202403/Emmerdale Episode 2565 (18 August 1999).mp4"
-    },
-    {
-     "archiveID": "emmerdale-episode-2478-28-january-1999_202403",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "5 January 1999",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/szh6mSPgeAqs7Ijp7YHC90oGzkt.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Emmerdale Episode 2478 (28 January 1999).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 72064592,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/emmerdale-episode-2478-28-january-1999_202403/Emmerdale Episode 2478 (28 January 1999).mp4"
     }
    ]
   }
