@@ -470,3 +470,39 @@ renamed `series/*.json` only take effect after a push to `main`.
 episode-wants backfill (what to look for on Archive next). TMDb can later
 supplement episode artwork for old shows where TVmaze stills are sparse,
 if `TMDB_BEARER_TOKEN` is added.
+
+---
+
+## 017 — Deliver the catalog as a prebuilt SQLite DB on GitHub Pages
+*Date: 2026-06-02*
+
+The app will move from downloading + decoding a monolithic `catalog.json`
+into memory to downloading a **prebuilt `catalog.sqlite.gz`** from GitHub
+Pages, caching it in `Library/Caches`, and **querying it on disk** (read-only
+`libsqlite3` + FTS5) for Home/Browse/Search/Detail. The pipeline gains
+`tools/build_sqlite.py`; `catalog.json` stays as the editorial source of
+truth + dashboard input. Rollout is phased and non-breaking (publish SQLite
+first, migrate the app behind existing view APIs, then retire the in-app JSON
+load). Full design + research in `docs/architecture/catalog-delivery.md`.
+
+**Why**: the binding constraint is memory, not download. URLSession already
+gzip-downloads the catalog (~19 MB over the wire), but it then decompresses
+to 97 MB and decodes ~29k structs held in `@Observable` — 150–250 MB resident
+today, 500 MB–1 GB at 100k items, on a 3 GB Apple TV shared with tvOS + 4K
+AVPlayer. That is jetsam territory. GitHub Pages can't do byte-range partial
+fetch (tested: `Range:` → 200, not 206), so JSON sharding only shrinks the
+constant; SQLite query-on-disk fixes the model — resident memory becomes the
+visible rows, and it scales to 1M+ with FTS5 search. SQLite is built into
+tvOS, so this adds no third-party Swift package.
+
+**How to apply**: don't grow the in-memory `[Catalog.Item]` model as the
+catalog scales — it's an interim path. New browse/search/detail work should
+target the `CatalogDB` query layer (Phase 2+). Keep the bundled seed lean and
+bulk ingest `--no-seed`. The IMDb dedup + heavy/lean field split move into the
+SQLite export, not runtime. Version the published DB filename so the CDN never
+serves a stale DB.
+
+**Consequences**: a `CatalogDB` actor becomes the app's catalog source of
+truth; `AppStore` derived lists become queries. The weekly/daily pipeline
+publishes both JSON (dashboard/source) and SQLite (app). Refresh validates
+the downloaded DB (`PRAGMA integrity_check` + row-count floor) before swap.
