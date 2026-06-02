@@ -41,7 +41,7 @@ struct SearchView: View {
             Text("Search")
                 .font(.system(size: 54, weight: .heavy, design: .serif))
                 .foregroundStyle(.white)
-            Text("Over \(store.db?.itemCount ?? store.visibleItems.count) titles, cast, and crews.")
+            Text("Over \(store.db?.itemCount ?? 0) titles, cast, and crews.")
                 .font(.title3)
                 .foregroundStyle(.white.opacity(0.6))
         }

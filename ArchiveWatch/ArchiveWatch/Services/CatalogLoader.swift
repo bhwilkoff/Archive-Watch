@@ -7,10 +7,8 @@ enum CatalogLoader {
         case decodeFailed(String, Error)
     }
 
-    static func loadCatalog() throws -> Catalog {
-        try loadBundled("catalog", as: Catalog.self)
-    }
-
+    // The catalog itself is no longer loaded from JSON — it lives in the
+    // SQLite DB (Decision 017). Only featured.json (small) stays bundled JSON.
     static func loadFeatured() throws -> Featured {
         try loadBundled("featured", as: Featured.self)
     }
