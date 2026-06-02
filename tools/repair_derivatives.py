@@ -40,13 +40,27 @@ SEED_CATALOG = REPO / "ArchiveWatch" / "ArchiveWatch" / "catalog.json"
 SERIES_DIR = REPO / "series"
 
 
-def needs_repair(url):
+# Set by main(): also re-pick non-.ia.mp4 uploader originals for faststart.
+FASTSTART = False
+# Uploader-original formats that are often non-faststart (moov at EOF) → slow
+# start. Worth re-checking for an Archive .ia.mp4 derivative under --faststart.
+_ORIGINAL_FMT = ("mpeg4", "divx", "3gp", "msvideo", "avi")
+
+
+def needs_repair(url, fmt=None):
     if not url:
         return False
     u = url.lower().split("?")[0]
     if u.startswith("https://www.loc.gov") or "/loc/" in u:
         return False
-    return not u.endswith(PLAYABLE_EXT)
+    if not u.endswith(PLAYABLE_EXT):
+        return True   # .ogv / .mkv / .avi — unplayable, always repair
+    # --faststart: an uploader original (.mp4 but NOT Archive's .ia.mp4) may
+    # have a faststart .ia.mp4 derivative now; ensure_playable will swap if so
+    # and no-op otherwise. Scope to original-like formats to bound the work.
+    if FASTSTART and not u.endswith(".ia.mp4"):
+        return any(t in (fmt or "").lower() for t in _ORIGINAL_FMT)
+    return False
 
 
 def repair_item(it, throttle, stats):
@@ -54,7 +68,7 @@ def repair_item(it, throttle, stats):
     aid = it.get("archiveID") or ""
     if aid.startswith("loc:"):
         return False
-    if not needs_repair(it.get("downloadURL")):
+    if not needs_repair(it.get("downloadURL"), (it.get("videoFile") or {}).get("format")):
         return False
     stats["candidates"] += 1
     new_url, new_vf, changed, ok = ensure_playable(aid, it.get("downloadURL"),
@@ -76,23 +90,31 @@ def main():
     ap.add_argument("--limit", type=int, default=0, help="cap candidates (testing)")
     ap.add_argument("--throttle", type=float, default=0.25)
     ap.add_argument("--skip-series", action="store_true")
+    ap.add_argument("--faststart", action="store_true",
+                    help="also re-pick non-.ia.mp4 uploader originals (mpeg4/divx) "
+                         "for an Archive faststart derivative (slow but improves start latency)")
     args = ap.parse_args()
+
+    global FASTSTART
+    FASTSTART = args.faststart
 
     stats = {"candidates": 0, "fixed": 0, "no_mp4": 0}
     budget = args.limit or 10**9
 
-    # 1) Catalogs (dedupe re-picks across the two files by archiveID cache —
-    # ensure_playable already caches Archive metadata per id this process).
+    # 1) Catalogs. The bundled seed catalog.json is no longer in git (Decision
+    # 018) — only process catalogs that exist on disk.
     catalogs = {}
     for path in (FULL_CATALOG, SEED_CATALOG):
-        catalogs[path] = json.loads(path.read_text(encoding="utf-8"))
+        if path.exists():
+            catalogs[path] = json.loads(path.read_text(encoding="utf-8"))
 
     changed_files = set()
     for path, cat in catalogs.items():
         for it in cat["items"]:
             if stats["candidates"] >= budget:
                 break
-            if needs_repair(it.get("downloadURL")) and not (it.get("archiveID") or "").startswith("loc:"):
+            if needs_repair(it.get("downloadURL"), (it.get("videoFile") or {}).get("format")) \
+                    and not (it.get("archiveID") or "").startswith("loc:"):
                 if repair_item(it, args.throttle, stats):
                     changed_files.add(path)
         print(f"[repair] {path.name}: candidates so far={stats['candidates']} "
@@ -110,7 +132,7 @@ def main():
                 for ep in s.get("episodes", []):
                     if stats["candidates"] >= budget:
                         break
-                    if needs_repair(ep.get("downloadURL")):
+                    if needs_repair(ep.get("downloadURL"), (ep.get("videoFile") or {}).get("format")):
                         if repair_item(ep, args.throttle, stats):
                             touched = True
             if touched and not args.dry_run:

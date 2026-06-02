@@ -57,6 +57,9 @@ jobs:
           jq '.stats' catalog.json >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
 
+      - name: Remediate catalog data quality
+        run: python tools/remediate_catalog.py
+
       # No PR — the catalog isn't in git. Publish straight to the release;
       # publish-db rebuilds the app's SQLite from it on its schedule.
       - name: Publish catalog to release

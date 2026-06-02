@@ -117,9 +117,14 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
     subjects = as_list(md.get("subject"))
     title = md.get("title") or cand.get("title") or iaid
 
-    # Year: prefer Archive, fall back to candidate's Wikidata year.
+    # Year: Archive metadata.year, the candidate's Wikidata year, or a year in
+    # the title. Deliberately NOT metadata.date — that's frequently the upload/
+    # publication date, which leaked modern years (e.g. 2026) onto old films.
+    # remediate_catalog.py is the safety net for anything that still slips.
     year = None
-    for src in (md.get("year"), md.get("date"), cand.get("year")):
+    title_yr = re.search(r"\b(18[7-9]\d|19\d\d|20[0-2]\d)\b", title or "")
+    for src in (md.get("year"), cand.get("year"),
+                title_yr.group(1) if title_yr else None):
         if src:
             m = re.search(r"(\d{4})", str(src))
             if m:

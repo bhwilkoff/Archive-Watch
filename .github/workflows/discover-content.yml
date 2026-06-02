@@ -244,6 +244,11 @@ jobs:
       # Publish the mutated catalog to the catalog-source release (Decision
       # 018). Always runs — catalog changes aren't git-tracked. publish-db
       # rebuilds the SQLite from it on its schedule.
+      # Self-healing data-quality pass (year leaks, silent/animation
+      # misclass, adult flags) before the catalog goes to the release.
+      - name: Remediate catalog data quality
+        run: python tools/remediate_catalog.py
+
       - name: Publish catalog to release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
