@@ -1,45 +1,48 @@
 {
- "version": 2,
- "seriesID": "beautiful-baking-with-juliet-sear-2019",
- "tvmazeID": 44839,
- "title": "Beautiful Baking with Juliet Sear",
- "yearStart": 2019,
- "yearEnd": 2020,
- "overview": "In Beautiful Baking with Juliet Sear, Juliet whips up four delicious bakes from her studio kitchen, with each show themed around an ingredient, style of baking, calendar event or celebration.Juliet is joined by special guests, who will give their own take on the spectacular world of baking, and she'll provide plenty of recipes that cater for different dietary needs.As well as perfect autumnal treats, Juliet guides viewers through perfect party food for the party season, before turning to more health-conscious recipe ideas ready for the New Year. Plus, vegan and gluten-free friendly dishes are also on the menu.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/218/546485.jpg",
- "backdropURL": null,
- "genres": [
-  "Food"
- ],
- "networks": [
-  "ITV1"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "beautiful-baking-with-juliet-sear-2019",
+  "tvmazeID": 44839,
+  "title": "Beautiful Baking with Juliet Sear",
+  "yearStart": 2019,
+  "yearEnd": 2020,
+  "overview": "In Beautiful Baking with Juliet Sear, Juliet whips up four delicious bakes from her studio kitchen, with each show themed around an ingredient, style of baking, calendar event or celebration.Juliet is joined by special guests, who will give their own take on the spectacular world of baking, and she'll provide plenty of recipes that cater for different dietary needs.As well as perfect autumnal treats, Juliet guides viewers through perfect party food for the party season, before turning to more health-conscious recipe ideas ready for the New Year. Plus, vegan and gluten-free friendly dishes are also on the menu.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/218/546485.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Food"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "starsearch89variousfootagept.1",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Star Search '89 various footage",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/eMiNCJaox1nT7B2QVKsELpRJSBU.jpg",
-     "airDate": null,
-     "year": 2019,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Star-Search-_89-various-footage-_pt.-1_.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 544843487,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/starsearch89variousfootagept.1/Star-Search-_89-various-footage-_pt.-1_.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "starsearch89variousfootagept.1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Star Search '89 various footage",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/eMiNCJaox1nT7B2QVKsELpRJSBU.jpg",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Star-Search-_89-various-footage-_pt.-1_.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 544843487,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/starsearch89variousfootagept.1/Star-Search-_89-various-footage-_pt.-1_.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 1,
- "canonicalEpisodesCount": 10
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 10,
+  "seriesImdbID": "tt11226270",
+  "canonicalEpisodeCount": 3,
+  "canonicalSeasons": 1
 }

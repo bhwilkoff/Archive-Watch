@@ -4,7 +4,7 @@
  "tvmazeID": 25641,
  "title": "Double Trouble",
  "yearStart": 1984,
- "yearEnd": 1985,
+ "yearEnd": 2020,
  "overview": "The adventures of a pair of teenage twins were explored in this light comedy. Kate and Allison were 16, identical in appearance, but opposites in personality. Allison was the sober responsible one, and Kate the spunky troublemaker who often got them both into hot water. Pretending to be Allison was one of Kate's favorite ploys. Art was their widower father, who ran a gym and dance studio in their hometown of Des Moines, Iowa. Beth was one of his adult instructors, and Michael was Kate's boyfriend.When Double Trouble returned for a second season in December 1984, Kate and Allison had moved to New York to pursue separate careers. Kate wanted to become an actress, while her more practical sister was enrolled in the Fashion Institute of Technology studying design. They lived in a spacious town house with their kooky Aunt Margo, a successful writer of children's stories. Also living in the town house were Billy and Charles, two aspiring actors and kindred spirits of Kate's. Mr. Arrechia was an obnoxious, overbearing instructor at the Fashion Institute and Aileen was Allison's fellow student and best friend.",
  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/99/249796.jpg",
  "backdropURL": null,
@@ -36,10 +36,77 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/DoubleTroubleS1E4BadChemistry/Double-Trouble-_S1E4-Bad-Chemistry_.mp4"
+    },
+    {
+     "archiveID": "DoubleTroubleSeason1Episode5DuelingFeet1",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "Double Trouble Season 1 Episode 5 Dueling Feet[ 1]",
+     "overview": "The Foster twins enter a dance contest Kate hurts her ankle Allison feels in for her.",
+     "stillURL": "https://archive.org/services/img/DoubleTroubleSeason1Episode5DuelingFeet1",
+     "airDate": null,
+     "year": 2019,
+     "runtimeSeconds": 1363,
+     "videoFile": {
+      "name": "Double Trouble Season 1 Episode 5- Dueling Feet[1].mp4",
+      "format": "MPEG4",
+      "sizeBytes": 74883978,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/DoubleTroubleSeason1Episode5DuelingFeet1/Double%20Trouble%20Season%201%20Episode%205-%20Dueling%20Feet%5B1%5D.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
+    {
+     "archiveID": "doubletroublefunnygirls2e13partialconvertvideoonline.com",
+     "seasonNumber": 2,
+     "episodeNumber": 13,
+     "title": "Double Trouble- Funny Girl (S2E13, partial)",
+     "overview": "<div>Here's approximately half of an episode of the short-lived sitcom Double Trouble from March 1985, featuring future Family Feud host Ray Combs as a guest star. </div><div><br /></div>",
+     "stillURL": "https://archive.org/services/img/doubletroublefunnygirls2e13partialconvertvideoonline.com",
+     "airDate": null,
+     "year": 2020,
+     "runtimeSeconds": 711,
+     "videoFile": {
+      "name": "Double Trouble- Funny Girl (S2E13, partial) (convert-video-online.com).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 238970304,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/doubletroublefunnygirls2e13partialconvertvideoonline.com/Double%20Trouble-%20Funny%20Girl%20%28S2E13%2C%20partial%29%20%28convert-video-online.com%29.ia.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 6,
+   "episodes": [
+    {
+     "archiveID": "s-6-e-7-ebs-double-trouble",
+     "seasonNumber": 6,
+     "episodeNumber": 7,
+     "title": "Green Acres S6E07 Eb’s Double Trouble",
+     "overview": "Eb is attracted to the new schoolteacher when he already has a girlfriend.",
+     "stillURL": "https://archive.org/services/img/s-6-e-7-ebs-double-trouble",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 1536,
+     "videoFile": {
+      "name": "S6E7 Eb’s Double Trouble.mp4",
+      "format": "h.264",
+      "sizeBytes": 148659251,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/s-6-e-7-ebs-double-trouble/S6E7%20Eb%E2%80%99s%20Double%20Trouble.mp4"
     }
    ]
   }
  ],
- "episodesCount": 1,
- "canonicalEpisodesCount": 23
+ "episodesCount": 4,
+ "canonicalEpisodesCount": 23,
+ "seriesImdbID": "tt0086696",
+ "canonicalEpisodeCount": 8,
+ "canonicalSeasons": 2
 }

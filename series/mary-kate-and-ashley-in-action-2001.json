@@ -1,65 +1,145 @@
 {
- "version": 2,
- "seriesID": "mary-kate-and-ashley-in-action-2001",
- "tvmazeID": 18516,
- "title": "Mary-Kate and Ashley in Action!",
- "yearStart": 2001,
- "yearEnd": 2002,
- "overview": "Mary-Kate and Ashley in Action! was an animated series that aired on ABC.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/63/157937.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure",
-  "Children"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "mary-kate-and-ashley-in-action-2001",
+  "tvmazeID": 18516,
+  "title": "Mary-Kate and Ashley in Action!",
+  "yearStart": 2001,
+  "yearEnd": 2026,
+  "overview": "Mary-Kate and Ashley in Action! was an animated series that aired on ABC.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/63/157937.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Children"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "mary-kate-ashley-in-action-2001-animated-show",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Mary Kate & Ashley In Action",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 2001,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Mary-Kate & Ashley In Action! E15 Big Trouble.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 467748484,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/mary-kate-ashley-in-action-2001-animated-show/Mary-Kate%20%26%20Ashley%20In%20Action%21%20E15%20Big%20Trouble.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "mary-kate-u-0026-ashley-in-action-episode-2-gift-with-purchase",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Mary Kate U 0026 Ashley In Action! Episode 2 Gift With Purchase",
+          "overview": "ashley olsen",
+          "stillURL": "https://archive.org/services/img/mary-kate-u-0026-ashley-in-action-episode-2-gift-with-purchase",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "Mary-Kate _ Ashley In Action_ Episode 12 In a Lather.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 93984215,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mary-kate-u-0026-ashley-in-action-episode-2-gift-with-purchase/Mary-Kate%20_%20Ashley%20In%20Action_%20Episode%2012%20In%20a%20Lather.mp4"
+        },
+        {
+          "archiveID": "mary-kate-ashley-in-action-e-19-bug-off-toon-disney-august-2003-airing",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Mary Kate & Ashley In Action! E 19 Bug Off ( Toon Disney August 2003 Airing)",
+          "overview": "Mary-Kate &amp; Ashley In Action! - Cartoon show ",
+          "stillURL": "https://archive.org/services/img/mary-kate-ashley-in-action-e-19-bug-off-toon-disney-august-2003-airing",
+          "airDate": null,
+          "year": 2026,
+          "runtimeSeconds": 1693,
+          "videoFile": {
+            "name": "Mary-Kate & Ashley In Action! E19 Bug Off (ToonDisney August 2003 Airing).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 106087459,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mary-kate-ashley-in-action-e-19-bug-off-toon-disney-august-2003-airing/Mary-Kate%20%26%20Ashley%20In%20Action%21%20E19%20Bug%20Off%20%28ToonDisney%20August%202003%20Airing%29.mp4"
+        },
+        {
+          "archiveID": "mary-kate-and-ashley_202109",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Mary-Kate & Ashley in Action! (S1E20) - Dog Gone",
+          "overview": "Fisrt it was found in Hungarian language until 2018 when it was deleted, nowadays it was found by NenadSR thanks to him :)",
+          "stillURL": "https://archive.org/services/img/mary-kate-and-ashley_202109",
+          "airDate": null,
+          "year": 2002,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "episode 20 - Dog Gone (Serbian dub).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 106878576,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mary-kate-and-ashley_202109/episode%2020%20-%20Dog%20Gone%20%28Serbian%20dub%29.ia.mp4"
+        },
+        {
+          "archiveID": "videoplayback-49_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Mary-Kate and Ashley in Action!- Episode 22 Alien Encounters (Ukrainian dub)",
+          "overview": "I thought I'd re-upload this episode (because of copyright infringment) should it ever gotten lost again. Although it's in Ukrainian, the English audio can be heard if you listen as closely as you can.<div><br /></div><div>If you have a tape recording an English version of this and 6 other lost episodes of Mary-Kate and Ashley in Action! that are lost media such as Faster Food, Catch a Wave, Up in the Air, Boy Stuff, Dog Gone, and Rave Reviews please let me know in anyway you can ASAP </div><div><br /></div><div>DISCLAIMER: Copyright Disclaimer under Section 107 of the copyright act 1976, allowance is made for fair use for purposes such as criti cism, comment, news reporting, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non profit, educational or personal use tips the bal ance in favour of fair use.</div><div><br /></div><div>Mary-Kate and Ashley in Action! is owned by the Dualstar Entertainment Group LLC and WildBrain (formerly DIC Entertainment) <span style=\"background-color:rgb(255,255,255);color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;\">NO COPYRIGHT INFRINGEMENT. </span></div><div style=\"color:rgb(44,44,44);font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">All Rights Reserved. </div>",
+          "stillURL": "https://archive.org/services/img/videoplayback-49_202405",
+          "airDate": null,
+          "year": 2002,
+          "runtimeSeconds": 1348,
+          "videoFile": {
+            "name": "videoplayback-49.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 94066937,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/videoplayback-49_202405/videoplayback-49.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "mary-kate-and-ashley-que-divertida-es-la-neu-babala-valencia-catala",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Mary-Kate and Ashley in Action! (Valencian dub, 2009)",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 2009,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Mary_Kate_and_Ashley_Què_divertida_és_la_neu!_babala_valencià_català.mp4",
-      "format": "h.264",
-      "sizeBytes": 134712846,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/mary-kate-and-ashley-que-divertida-es-la-neu-babala-valencia-catala/Mary_Kate_and_Ashley_Qu%C3%A8_divertida_%C3%A9s_la_neu%21_babala_valenci%C3%A0_catal%C3%A0.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "mary-kate-ashley-in-action-2001-animated-show",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mary Kate & Ashley In Action",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2001,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mary-Kate & Ashley In Action! E15 Big Trouble.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 467748484,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mary-kate-ashley-in-action-2001-animated-show/Mary-Kate%20%26%20Ashley%20In%20Action%21%20E15%20Big%20Trouble.ia.mp4"
+        },
+        {
+          "archiveID": "mary-kate-and-ashley-que-divertida-es-la-neu-babala-valencia-catala",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mary-Kate and Ashley in Action! (Valencian dub, 2009)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2009,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mary_Kate_and_Ashley_Què_divertida_és_la_neu!_babala_valencià_català.mp4",
+            "format": "h.264",
+            "sizeBytes": 134712846,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mary-kate-and-ashley-que-divertida-es-la-neu-babala-valencia-catala/Mary_Kate_and_Ashley_Qu%C3%A8_divertida_%C3%A9s_la_neu%21_babala_valenci%C3%A0_catal%C3%A0.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 2,
- "canonicalEpisodesCount": 26
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": 26,
+  "seriesImdbID": "tt0300802",
+  "canonicalEpisodeCount": 25,
+  "canonicalSeasons": 1
 }

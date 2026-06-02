@@ -1,64 +1,144 @@
 {
- "version": 2,
- "seriesID": "fries-with-that-2004",
- "tvmazeID": 44694,
- "title": "Fries with That?",
- "yearStart": 2004,
- "yearEnd": 2004,
- "overview": "Fries with That is a sitcom about the hilarious antics of a group of teens who run havoc running a fast food joint. Pattie, Robyn, Tess and Alex are way too concerned with friends, dating, body image, and the in-crowd to bother much with actually working. All the while, the assistant manager Ben is going nuts trying to get them to flip burgers and actually serve customers.",
- "posterURL": null,
- "backdropURL": null,
- "genres": [
-  "Comedy",
-  "Family"
- ],
- "networks": [
-  "YTV"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "fries-with-that-2004",
+  "tvmazeID": 44694,
+  "title": "Fries with That?",
+  "yearStart": 2004,
+  "yearEnd": 2013,
+  "overview": "Fries with That is a sitcom about the hilarious antics of a group of teens who run havoc running a fast food joint. Pattie, Robyn, Tess and Alex are way too concerned with friends, dating, body image, and the in-crowd to bother much with actually working. All the while, the assistant manager Ben is going nuts trying to get them to flip burgers and actually serve customers.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Family"
+  ],
+  "networks": [
+    "YTV"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "fries-with-that",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Fries With That - The Complete Series",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Fries With That S02E25 - Robyn... and Eddy.mp4",
-      "format": "h.264",
-      "sizeBytes": 144567286,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/fries-with-that/Fries%20With%20That%20S02E25%20-%20Robyn...%20and%20Eddy.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "youtube-3YzxaKPiBSg",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Youtube: 3YzxaKPiBSg - Fries With That? 1-01 The Expendables",
+          "overview": "Bulky's profits are down 20% and this forces the gang to come up with some ways to make more money. Unfortunately none of their ideas are any good so Ben decides an employee must be fired. <br /><br />Source: <a href=\"https://www.youtube.com/watch?v=3YzxaKPiBSg\" rel=\"nofollow\">https://www.youtube.com/watch?v=3YzxaKPiBSg</a><br />Uploader: <a href=\"http://www.youtube.com/user/nhsadm\" rel=\"nofollow\">nhsadm</a><br />Upload date: 20130206",
+          "stillURL": "https://archive.org/services/img/youtube-3YzxaKPiBSg",
+          "airDate": null,
+          "year": 2013,
+          "runtimeSeconds": 1428,
+          "videoFile": {
+            "name": "Fries_With_That_1-01_The_Expendables-3YzxaKPiBSg.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 186735004,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/youtube-3YzxaKPiBSg/Fries_With_That_1-01_The_Expendables-3YzxaKPiBSg.mp4"
+        },
+        {
+          "archiveID": "youtube-69n_-sxsZ9A",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Youtube: 69n_-sxsZ9A - Fries With That? 1-02 Metal Mouth",
+          "overview": "Robyn gets braces and this causes her date to cancel on her. Alex, feeling sorry for Robyn, decides to ask her to the dance. Meanwhile, Ben is feeling extremely nervous because a secret inspector is coming to observe Bulky's. <br /><br />Source: <a href=\"https://www.youtube.com/watch?v=69n_-sxsZ9A\" rel=\"nofollow\">https://www.youtube.com/watch?v=69n_-sxsZ9A</a><br />Uploader: <a href=\"http://www.youtube.com/user/nhsadm\" rel=\"nofollow\">nhsadm</a><br />Upload date: 20130207",
+          "stillURL": "https://archive.org/services/img/youtube-69n_-sxsZ9A",
+          "airDate": null,
+          "year": 2013,
+          "runtimeSeconds": 1429,
+          "videoFile": {
+            "name": "Fries_With_That_1-02_Metal_Mouth-69n_-sxsZ9A.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 161997574,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/youtube-69n_-sxsZ9A/Fries_With_That_1-02_Metal_Mouth-69n_-sxsZ9A.mp4"
+        },
+        {
+          "archiveID": "youtube-jLCNAO3hYUg",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Youtube: jLCNAO3hYUg - Fries With That? 1-12 Curse of the Tess People",
+          "overview": "As a result of a broken promise Tess puts a curse on Pattie who doesn't believe in curses until she becomes very unlucky. <br /><br />Source: <a href=\"https://www.youtube.com/watch?v=jLCNAO3hYUg\" rel=\"nofollow\">https://www.youtube.com/watch?v=jLCNAO3hYUg</a><br />Uploader: <a href=\"http://www.youtube.com/user/nhsadm\" rel=\"nofollow\">nhsadm</a><br />Upload date: 20130207",
+          "stillURL": "https://archive.org/services/img/youtube-jLCNAO3hYUg",
+          "airDate": null,
+          "year": 2013,
+          "runtimeSeconds": 1396,
+          "videoFile": {
+            "name": "Fries_With_That_1-12_Curse_of_the_Tess_People-jLCNAO3hYUg.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 208852385,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/youtube-jLCNAO3hYUg/Fries_With_That_1-12_Curse_of_the_Tess_People-jLCNAO3hYUg.mp4"
+        },
+        {
+          "archiveID": "youtube-u9D8sMI4U5g",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Youtube: u9D8sMI4U5g - Fries With That? 1-18 The Cold Shoulder",
+          "overview": "A re-telling of the events that lead up to (and the events after) Alex and Ben being trapped in the walk-in freezer. <br /><br />Source: <a href=\"https://www.youtube.com/watch?v=u9D8sMI4U5g\" rel=\"nofollow\">https://www.youtube.com/watch?v=u9D8sMI4U5g</a><br />Uploader: <a href=\"http://www.youtube.com/user/nhsadm\" rel=\"nofollow\">nhsadm</a><br />Upload date: 20130211",
+          "stillURL": "https://archive.org/services/img/youtube-u9D8sMI4U5g",
+          "airDate": null,
+          "year": 2013,
+          "runtimeSeconds": 1423,
+          "videoFile": {
+            "name": "Fries_With_That_1-18_The_Cold_Shoulder-u9D8sMI4U5g.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 193485016,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/youtube-u9D8sMI4U5g/Fries_With_That_1-18_The_Cold_Shoulder-u9D8sMI4U5g.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "FriesWithThatYTV",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Fries With That? - TV Series (2004)",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 2004,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Fries With That S02E17 - The Return of a Man Called Smith.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 456938827,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/FriesWithThatYTV/Fries%20With%20That%20S02E17%20-%20The%20Return%20of%20a%20Man%20Called%20Smith.ia.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "fries-with-that",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fries With That - The Complete Series",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fries With That S02E25 - Robyn... and Eddy.mp4",
+            "format": "h.264",
+            "sizeBytes": 144567286,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fries-with-that/Fries%20With%20That%20S02E25%20-%20Robyn...%20and%20Eddy.mp4"
+        },
+        {
+          "archiveID": "FriesWithThatYTV",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fries With That? - TV Series (2004)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 2004,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fries With That S02E17 - The Return of a Man Called Smith.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 456938827,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/FriesWithThatYTV/Fries%20With%20That%20S02E17%20-%20The%20Return%20of%20a%20Man%20Called%20Smith.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 2,
- "canonicalEpisodesCount": 52
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": 52,
+  "seriesImdbID": "tt0372674",
+  "canonicalEpisodeCount": 25,
+  "canonicalSeasons": 2
 }
