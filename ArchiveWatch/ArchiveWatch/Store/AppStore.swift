@@ -10,6 +10,15 @@ final class AppStore {
     var featured: Featured?
     var loadError: String?
 
+    /// Read-only SQLite catalog (Decision 017). Opened from the bundled
+    /// seed.sqlite for instant first paint, then swapped to the downloaded
+    /// full DB. The view layer migrates to querying this instead of holding
+    /// the whole catalog in `visibleItems`.
+    private(set) var db: CatalogDB?
+    /// Bumped whenever `db` is swapped (seed → downloaded), so views relying
+    /// on it can refresh via `.task(id:)`.
+    private(set) var dbGeneration = 0
+
     // Decision 012: items in adult-content collections are filtered out by
     // default on this shared 10-foot device; a Settings toggle opts back
     // in. Persisted so the choice survives launches. Flipping it re-derives
@@ -160,6 +169,13 @@ final class AppStore {
             featured = try CatalogLoader.loadFeatured()
             catalog = try CatalogLoader.loadCatalog()
             print("[AppStore] bundle loaded in \(String(format: "%.2fs", Date().timeIntervalSince(bundleStart)))")
+            // Open the bundled seed DB for instant first paint (Decision 017).
+            if let seed = Bundle.main.path(forResource: "seed", ofType: "sqlite") {
+                db = CatalogDB(path: seed)
+                print("[AppStore] seed.sqlite: \(db?.itemCount ?? -1) items, db=\(db != nil)")
+            } else {
+                print("[AppStore] seed.sqlite NOT in bundle")
+            }
         } catch CatalogLoader.LoadError.bundleMissing(let name) {
             loadError = "Missing bundled resource: \(name)"
             return
