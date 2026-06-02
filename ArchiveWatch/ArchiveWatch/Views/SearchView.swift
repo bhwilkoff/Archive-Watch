@@ -4,27 +4,14 @@ struct SearchView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @State private var query: String = ""
+    @State private var results: [Catalog.Item] = []
 
-    private var results: [Catalog.Item] {
-        let q = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        let items = store.visibleItems
-        guard q.count >= 2, !items.isEmpty else { return [] }
-        let matches = items.filter { item in
-            item.title.lowercased().contains(q) ||
-            (item.director?.lowercased().contains(q) ?? false) ||
-            (item.producer?.lowercased().contains(q) ?? false) ||
-            item.cast.contains { $0.name.lowercased().contains(q) }
-        }
-        // Rank: title-prefix hits first, then title contains, then by vote
-        // count — so the obvious answer leads instead of catalog order.
-        func rank(_ i: Catalog.Item) -> (Int, Int) {
-            let t = i.title.lowercased()
-            let tier = t.hasPrefix(q) ? 2 : (t.contains(q) ? 1 : 0)
-            return (tier, i.imdbVotes ?? 0)
-        }
-        return matches.sorted { rank($0) > rank($1) }
-            .prefix(200)
-            .map { $0 }
+    /// FTS5 search over the on-disk catalog (Decision 017) — title/cast/
+    /// director, rank-ordered — instead of scanning an in-memory array.
+    private func runSearch() {
+        let q = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard q.count >= 2, let db = store.db else { results = []; return }
+        results = db.search(q)
     }
 
     private let cols = Array(repeating: GridItem(.fixed(210), spacing: 24), count: 6)
@@ -45,6 +32,8 @@ struct SearchView: View {
         }
         .background(Color.black.ignoresSafeArea())
         .searchable(text: $query, placement: .automatic, prompt: "Title, director, or actor")
+        .task(id: query) { runSearch() }
+        .task(id: store.dbGeneration) { runSearch() }
     }
 
     private var header: some View {
@@ -52,7 +41,7 @@ struct SearchView: View {
             Text("Search")
                 .font(.system(size: 54, weight: .heavy, design: .serif))
                 .foregroundStyle(.white)
-            Text("Over \(store.visibleItems.count) titles, cast, and crews.")
+            Text("Over \(store.db?.itemCount ?? store.visibleItems.count) titles, cast, and crews.")
                 .font(.title3)
                 .foregroundStyle(.white.opacity(0.6))
         }

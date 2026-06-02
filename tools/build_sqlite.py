@@ -40,6 +40,27 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 FULL_CATALOG = REPO / "catalog.json"
+FEATURED = REPO / "featured.json"
+
+# Adult-collection markers (Decision 012), from featured.json with a fallback.
+# isAdult is computed at build time so the app filters via a WHERE clause
+# instead of scanning each item's collections at runtime.
+def _adult_markers():
+    try:
+        raw = json.loads(FEATURED.read_text(encoding="utf-8")).get("adultCollections")
+    except Exception:
+        raw = None
+    raw = raw or ["pron", "adult", "erotica", "sexploitation", "nudism", "mature-content"]
+    return [m.lower() for m in raw if m.lower() != "fav-"]
+
+ADULT_MARKERS = _adult_markers()
+
+def _is_adult(it):
+    for c in (it.get("collections") or []):
+        cl = str(c).lower()
+        if any(m in cl for m in ADULT_MARKERS):
+            return 1
+    return 0
 SERIES_DIR = REPO / "series"
 OUT_DB = REPO / "catalog.sqlite"
 OUT_GZ = REPO / "catalog.sqlite.gz"
@@ -106,11 +127,13 @@ def create_schema(db):
       imdbRating REAL, imdbVotes INTEGER, popularityScore INTEGER,
       qualityScore INTEGER, isSilentFilm INTEGER, rightsStatus TEXT,
       contentRating TEXT, language TEXT, network TEXT,
-      seriesID TEXT, yearEnd INTEGER, seasonsCount INTEGER, episodesCount INTEGER
+      seriesID TEXT, yearEnd INTEGER, seasonsCount INTEGER, episodesCount INTEGER,
+      isAdult INTEGER
     );
     -- Full item as JSON in a side table so the lean `items` table stays small
     -- for scalar WHERE/ORDER scans; the app JOINs this only for the handful of
     -- rows a screen actually shows and decodes them with the existing Codable.
+    -- Full item as JSON; the app JOINs + decodes only the rows a screen shows.
     CREATE TABLE item_json (archiveID TEXT PRIMARY KEY, json TEXT);
     CREATE TABLE item_genres (archiveID TEXT, genre TEXT);
     CREATE TABLE item_shelves (shelfID TEXT, archiveID TEXT, position INTEGER);
@@ -144,7 +167,7 @@ def populate_items(db, items):
             1 if (it.get("isSilentFilm") or it.get("contentType") == "silent-film") else 0,
             _t(it.get("rightsStatus")), _t(it.get("contentRating")), _t(it.get("language")),
             _t(it.get("network")), _t(it.get("seriesID")), it.get("yearEnd"),
-            it.get("seasonsCount"), it.get("episodesCount"),
+            it.get("seasonsCount"), it.get("episodesCount"), _is_adult(it),
         ))
         json_rows.append((aid, json.dumps(it, ensure_ascii=False, separators=(",", ":"))))
         for g in (it.get("genres") or []):
@@ -157,7 +180,7 @@ def populate_items(db, items):
                          + [it.get("producer") or ""]).strip()
         fts_rows.append((aid, it.get("title") or "", names))
 
-    db.executemany("INSERT OR IGNORE INTO items VALUES (%s)" % ",".join("?" * 23), item_rows)
+    db.executemany("INSERT OR IGNORE INTO items VALUES (%s)" % ",".join("?" * 24), item_rows)
     db.executemany("INSERT OR IGNORE INTO item_json VALUES (?,?)", json_rows)
     db.executemany("INSERT INTO item_genres VALUES (?,?)", genre_rows)
     db.executemany("INSERT INTO item_shelves VALUES (?,?,?)", shelf_rows)

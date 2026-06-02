@@ -27,6 +27,8 @@ final class AppStore {
     var hideAdultContent: Bool = AppStore.loadHideAdultDefault() {
         didSet {
             UserDefaults.standard.set(hideAdultContent, forKey: Self.hideAdultKey)
+            db?.hideAdult = hideAdultContent
+            dbGeneration += 1            // nudge db-backed views to re-query
             rebuildDerived()
         }
     }
@@ -170,11 +172,10 @@ final class AppStore {
             catalog = try CatalogLoader.loadCatalog()
             print("[AppStore] bundle loaded in \(String(format: "%.2fs", Date().timeIntervalSince(bundleStart)))")
             // Open the bundled seed DB for instant first paint (Decision 017).
-            if let seed = Bundle.main.path(forResource: "seed", ofType: "sqlite") {
-                db = CatalogDB(path: seed)
-                print("[AppStore] seed.sqlite: \(db?.itemCount ?? -1) items, db=\(db != nil)")
-            } else {
-                print("[AppStore] seed.sqlite NOT in bundle")
+            if let seed = Bundle.main.path(forResource: "seed", ofType: "sqlite"),
+               let seedDB = CatalogDB(path: seed) {
+                swapDB(seedDB)
+                print("[AppStore] seed.sqlite: \(seedDB.itemCount) items")
             }
         } catch CatalogLoader.LoadError.bundleMissing(let name) {
             loadError = "Missing bundled resource: \(name)"
@@ -217,14 +218,62 @@ final class AppStore {
                 await MainActor.run { self?.catalog = updated }
             }
         }
+
+        // STEP 4 — full SQLite catalog (Decision 017). Open the cached DB if we
+        // already downloaded one (upgrades from the bundled seed), then fetch a
+        // fresh copy from the release in the background and swap it in.
+        Task { [weak self] in
+            if let cached = await CatalogRefreshService.shared.cachedDatabasePath(),
+               let fullDB = CatalogDB(path: cached) {
+                await MainActor.run {
+                    guard let self else { return }
+                    if fullDB.itemCount >= (self.db?.itemCount ?? 0) { self.swapDB(fullDB) }
+                }
+            }
+            if let path = await CatalogRefreshService.shared.downloadDatabase(),
+               let fullDB = CatalogDB(path: path) {
+                await MainActor.run {
+                    guard let self else { return }
+                    if fullDB.itemCount >= (self.db?.itemCount ?? 0) {
+                        self.swapDB(fullDB)
+                        print("[AppStore] swapped to full DB: \(fullDB.itemCount) items")
+                    }
+                }
+            }
+        }
     }
 
-    /// Items assigned to the given shelf id. Preserves catalog order.
-    /// Backed by the precomputed `shelfMembers` dict — O(1) lookup
-    /// instead of the old per-call filter over all 31k items.
+    /// Items assigned to the given shelf id. Prefers the SQLite DB (Decision
+    /// 017) when available, falling back to the precomputed JSON dict during
+    /// the migration.
     func items(forShelf shelfID: String) -> [Catalog.Item] {
-        shelfMembers[shelfID] ?? []
+        if let db { return db.shelf(shelfID) }
+        return shelfMembers[shelfID] ?? []
     }
+
+    // MARK: - SQLite-backed queries (Decision 017)
+    // Thin wrappers so views call the store; the store owns the db + adult
+    // state. Each returns [] when the db isn't open yet (first frames before
+    // the seed loads), which views render as an empty state.
+
+    func swapDB(_ newDB: CatalogDB) {
+        newDB.hideAdult = hideAdultContent
+        db = newDB
+        dbGeneration += 1
+    }
+
+    func dbBrowse(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
+                  sort: CatalogDB.Sort = .popular, limit: Int = 60, offset: Int = 0) -> [Catalog.Item] {
+        db?.browse(contentType: contentType, decade: decade, genre: genre,
+                   sort: sort, limit: limit, offset: offset) ?? []
+    }
+    func dbSearch(_ q: String) -> [Catalog.Item] { db?.search(q) ?? [] }
+    func dbSeriesCards() -> [Catalog.Item] { db?.seriesCards() ?? [] }
+    func dbItem(_ id: String) -> Catalog.Item? { db?.item(id) }
+    func dbRelated(to item: Catalog.Item) -> [Catalog.Item] { db?.related(to: item) ?? [] }
+    func dbDecadeCounts() -> [Int: Int] { db?.decadeCounts() ?? [:] }
+    func dbTopGenres() -> [String] { db?.topGenres() ?? [] }
+    func dbItemsByIDs(_ ids: [String]) -> [Catalog.Item] { db?.itemsByIDs(ids) ?? [] }
 
     /// Accent color for a category, parsed from `featured.json`.
     func accentColor(forCategory id: String?) -> Color {

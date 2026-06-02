@@ -59,31 +59,28 @@ struct BrowseView: View {
     private static let filteredGridCap   = 2000
 
     private func computeItems() -> [Catalog.Item] {
-        let pool = store.browseableItems
-        let filtered = pool.filter { it in
-            if let c = filter.category, it.contentType != c { return false }
-            if let d = filter.decade, it.decade != d { return false }
-            if let g = filter.genre, !it.genres.contains(g) { return false }
-            if let k = filter.collection, !it.collections.contains(k) { return false }
-            return true
-        }
-        let sorted = sortItems(filtered)
+        // SQLite-backed (Decision 017): the DB filters + sorts + caps, so we
+        // decode only this grid's rows. The returned items are full (incl.
+        // collections), so the rarer collection filter + random sort are
+        // applied to the page in-view without an extra DB column.
         let cap = filter.isEmpty ? Self.unfilteredGridCap : Self.filteredGridCap
-        return Array(sorted.prefix(cap))
-    }
-
-    private func sortItems(_ xs: [Catalog.Item]) -> [Catalog.Item] {
+        let dbSort: CatalogDB.Sort
         switch sort {
-        case .popular:      return xs.sorted { ($0.shelves.count, $0.title) > ($1.shelves.count, $1.title) }
-        case .alphabetical: return xs.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
-        case .newest:       return xs.sorted { ($0.year ?? 0) > ($1.year ?? 0) }
-        case .oldest:       return xs.sorted { ($0.year ?? 9999) < ($1.year ?? 9999) }
-        case .random:
-            var rng = SplitMix(seed: UInt64(shuffleSeed))
-            var copy = xs
-            copy.shuffle(using: &rng)
-            return copy
+        case .popular, .random: dbSort = .popular
+        case .alphabetical:     dbSort = .alphabetical
+        case .newest:           dbSort = .newest
+        case .oldest:           dbSort = .oldest
         }
+        var page = store.dbBrowse(contentType: filter.category, decade: filter.decade,
+                                  genre: filter.genre, sort: dbSort, limit: cap)
+        if let k = filter.collection {
+            page = page.filter { $0.collections.contains(k) }
+        }
+        if sort == .random {
+            var rng = SplitMix(seed: UInt64(shuffleSeed))
+            page.shuffle(using: &rng)
+        }
+        return page
     }
 
     private let cols = Array(repeating: GridItem(.fixed(210), spacing: 24), count: 6)
@@ -155,8 +152,8 @@ struct BrowseView: View {
         .onChange(of: filter) { _, _ in items = computeItems() }
         .onChange(of: sort) { _, _ in items = computeItems() }
         .onChange(of: shuffleSeed) { _, _ in items = computeItems() }
-        // When the background catalog refresh lands, swap in new items.
-        .onChange(of: store.catalog?.items.count ?? 0) { _, _ in
+        // Re-query when the DB swaps (seed → full) or the adult toggle flips.
+        .onChange(of: store.dbGeneration) { _, _ in
             items = computeItems()
         }
     }
@@ -178,12 +175,18 @@ struct BrowseView: View {
 struct FilterChipBar: View {
     @Environment(AppStore.self) private var store
     @Binding var filter: BrowseFilter
+    @State private var decades: [Int] = []
+    @State private var genres: [String] = []
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             categoryRow
             decadeRow
             genreRow
+        }
+        .task(id: store.dbGeneration) {
+            decades = store.dbDecadeCounts().keys.sorted()
+            genres = store.dbTopGenres()
         }
     }
 
@@ -210,7 +213,7 @@ struct FilterChipBar: View {
                 Chip(label: "All Eras", isOn: filter.decade == nil, accent: .accentColor) {
                     filter.decade = nil
                 }
-                ForEach(availableDecades, id: \.self) { d in
+                ForEach(decades, id: \.self) { d in
                     let on = filter.decade == d
                     Chip(label: "\(d)s", isOn: on, accent: .accentColor) {
                         filter.decade = on ? nil : d
@@ -226,7 +229,7 @@ struct FilterChipBar: View {
                 Chip(label: "All Genres", isOn: filter.genre == nil, accent: .accentColor) {
                     filter.genre = nil
                 }
-                ForEach(store.topGenres, id: \.self) { g in
+                ForEach(genres, id: \.self) { g in
                     let on = filter.genre == g
                     Chip(label: g, isOn: on, accent: .accentColor) {
                         filter.genre = on ? nil : g
@@ -236,10 +239,6 @@ struct FilterChipBar: View {
         }
     }
 
-    // Both `availableDecades` and `topGenres` now come from AppStore's
-    // precomputed lists (rebuilt once per catalog assignment), not a
-    // per-body scan of 31k items.
-    private var availableDecades: [Int] { store.availableDecades }
 }
 
 struct Chip: View {
