@@ -61,8 +61,8 @@ jobs:
           gh release view catalog-db >/dev/null 2>&1 || \
             gh release create catalog-db --title "Catalog database (rolling)" \
               --notes "Prebuilt SQLite catalog served to the tvOS app (Decision 017). Re-uploaded by CI."
-          # Upload BOTH: the app currently downloads the uncompressed
-          # catalog.sqlite (CatalogRefreshService.dbURL); the .gz is for the
-          # planned on-device gunzip. Uploading only the .gz left the
-          # uncompressed asset stale, so app refreshes never saw new data.
-          gh release upload catalog-db catalog.sqlite catalog.sqlite.gz catalog-manifest.json --clobber
+          # Upload: catalog.sqlite.zz (raw-DEFLATE, ~24 MB) is what the app
+          # downloads + inflates natively (Decision 019). catalog.sqlite
+          # (uncompressed) is kept for already-shipped app builds that still
+          # fetch it directly; drop it once those ages out.
+          gh release upload catalog-db catalog.sqlite catalog.sqlite.zz catalog-manifest.json --clobber

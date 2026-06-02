@@ -34,6 +34,7 @@ import gzip
 import json
 import shutil
 import sqlite3
+import zlib
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -76,6 +77,9 @@ def _is_adult(it):
 SERIES_DIR = REPO / "series"
 OUT_DB = REPO / "catalog.sqlite"
 OUT_GZ = REPO / "catalog.sqlite.gz"
+# Raw-DEFLATE (RFC1951, no container) for the app to inflate with Apple's
+# native Compression framework (COMPRESSION_ZLIB == raw deflate). Decision 019.
+OUT_ZZ = REPO / "catalog.sqlite.zz"
 OUT_MANIFEST = REPO / "catalog-manifest.json"
 
 SCHEMA_VERSION = 1
@@ -339,20 +343,25 @@ def main():
     # Full DB — hosted on the catalog-db release, downloaded at runtime.
     cat, n_items, n_series, n_eps = build_db(FULL_CATALOG, OUT_DB)
 
-    gz_mb = None
+    zz_mb = None
     if not args.no_gzip:
-        with open(OUT_DB, "rb") as fi, gzip.open(OUT_GZ, "wb", compresslevel=9) as fo:
-            shutil.copyfileobj(fi, fo)
-        gz_mb = OUT_GZ.stat().st_size / 1e6
-        print(f"[sqlite] wrote {OUT_GZ.name}: {gz_mb:.1f} MB gzipped", flush=True)
+        # Raw DEFLATE (wbits=-15: no zlib/gzip wrapper) — the app's native
+        # Compression-framework inflate consumes this directly (Decision 019).
+        comp = zlib.compressobj(9, zlib.DEFLATED, -15)
+        with open(OUT_DB, "rb") as fi, open(OUT_ZZ, "wb") as fo:
+            while chunk := fi.read(1 << 20):
+                fo.write(comp.compress(chunk))
+            fo.write(comp.flush())
+        zz_mb = OUT_ZZ.stat().st_size / 1e6
+        print(f"[sqlite] wrote {OUT_ZZ.name}: {zz_mb:.1f} MB raw-deflate", flush=True)
 
     manifest = {
         "schemaVersion": SCHEMA_VERSION,
         "generatedAt": cat.get("generatedAt", ""),
         "itemCount": n_items, "seriesCount": n_series, "episodeCount": n_eps,
         "dbBytes": OUT_DB.stat().st_size,
-        "gzBytes": (OUT_GZ.stat().st_size if gz_mb else None),
-        "asset": "catalog.sqlite.gz",
+        "zzBytes": (OUT_ZZ.stat().st_size if zz_mb else None),
+        "asset": "catalog.sqlite.zz",
     }
     OUT_MANIFEST.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     print(f"[sqlite] wrote {OUT_MANIFEST.name}", flush=True)

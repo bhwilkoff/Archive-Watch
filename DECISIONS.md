@@ -549,3 +549,42 @@ existing `catalog-writers` concurrency group to avoid clobbering. Git history
 was rewritten once (git filter-repo) to purge the historical `catalog.json` /
 seed blobs, reclaiming ~600 MB; this rewrote all commit hashes and required a
 force-push + fresh clones.
+
+---
+
+## 019 — On-device catalog DB decompression via Apple's Compression framework
+*Date: 2026-06-02*
+
+The app downloads the catalog DB as a raw-DEFLATE asset (`catalog.sqlite.zz`,
+~24 MB) from the catalog-db Release and inflates it on device with Apple's
+native **Compression** framework (`compression_stream`, `COMPRESSION_ZLIB`),
+streaming file→file in 64 KB chunks. `build_sqlite.py` emits the `.zz` via
+Python `zlib.compressobj(wbits=-15)` (raw DEFLATE, no wrapper); `publish-db`
+uploads it alongside the still-uncompressed `catalog.sqlite` (for already-
+shipped builds). `CatalogRefreshService` downloads `.zz`, inflates to a staging
+file in Caches, size-validates, then atomically swaps.
+
+**Why**: the DB is ~96 MB uncompressed but ~24 MB compressed, and app refreshes
+were fetching the full 96 MB every time. GitHub Release assets are served
+`application/octet-stream` with **no `Content-Encoding`** (verified), so
+URLSession can't transparently decompress — it must happen in-app. Apple's
+Compression framework is the right platform tool: hardware-accelerated, in the
+tvOS SDK (no third-party zlib to vendor). It decodes **raw DEFLATE only** —
+verified by test: a standard `.gz` fails (`COMPRESSION_ZLIB` is not the gzip
+container) unless its header is stripped, which is fragile, so we publish raw
+DEFLATE instead. Streaming keeps peak memory ~64 KB instead of holding 96 MB in
+RAM — the same constraint that drove Decision 017 on a 3 GB Apple TV shared
+with 4K AVPlayer.
+
+**How to apply**: keep the publish format raw DEFLATE (`wbits=-15`), NOT gzip
+or zlib-container — the app's inflate expects raw DEFLATE. When streaming with
+`compression_stream`, let the framework advance `src_ptr`/`src_size` through a
+STABLE source buffer; only refill when a chunk is fully consumed. Re-binding
+the source pointer every iteration silently corrupts well-compressing data
+(passed on a high-entropy sample, failed on the real DB) — verified the fix is
+byte-identical to the original + `PRAGMA integrity_check ok` end-to-end on the
+tvOS simulator.
+
+**Consequences**: a new app build is required to consume `.zz`; the
+uncompressed `catalog.sqlite` asset stays published until older builds age out,
+then can be dropped. The `.gz` asset is retired.
