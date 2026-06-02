@@ -118,9 +118,10 @@ final class AppStore {
     }
 
     func dbBrowse(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
-                  sort: CatalogDB.Sort = .popular, limit: Int = 60, offset: Int = 0) -> [Catalog.Item] {
+                  sort: CatalogDB.Sort = .popular, limit: Int = 60, offset: Int = 0,
+                  homeOnly: Bool = false) -> [Catalog.Item] {
         db?.browse(contentType: contentType, decade: decade, genre: genre,
-                   sort: sort, limit: limit, offset: offset) ?? []
+                   sort: sort, limit: limit, offset: offset, homeOnly: homeOnly) ?? []
     }
     func dbSearch(_ q: String) -> [Catalog.Item] { db?.search(q) ?? [] }
     func dbSeriesCards() -> [Catalog.Item] { db?.seriesCards() ?? [] }
@@ -131,7 +132,7 @@ final class AppStore {
     func dbItemsByIDs(_ ids: [String]) -> [Catalog.Item] { db?.itemsByIDs(ids) ?? [] }
     func dbHiddenGems() -> [Catalog.Item] { db?.hiddenGems() ?? [] }
     func dbTopDirectors() -> [(name: String, count: Int)] { db?.topDirectors() ?? [] }
-    func dbByDirector(_ name: String) -> [Catalog.Item] { db?.byDirector(name) ?? [] }
+    func dbByDirector(_ name: String, homeOnly: Bool = false) -> [Catalog.Item] { db?.byDirector(name, homeOnly: homeOnly) ?? [] }
     func dbByCollection(_ id: String, limit: Int = 2000) -> [Catalog.Item] { db?.byCollection(id, limit: limit) ?? [] }
     func dbCollectionCount(_ id: String) -> Int { db?.collectionCount(id) ?? 0 }
     func dbRandomPlayable(contentType: String? = nil) -> Catalog.Item? { db?.randomPlayable(contentType: contentType) }

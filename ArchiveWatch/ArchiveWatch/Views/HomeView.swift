@@ -36,7 +36,7 @@ struct HomeView: View {
     /// Hero pool from the DB (Decision 017): the most-popular items with real
     /// designed artwork + a usable backdrop/poster, shuffled per launch.
     private func loadHero() -> [Catalog.Item] {
-        let pool = store.dbBrowse(sort: .popular, limit: 200).filter {
+        let pool = store.dbBrowse(sort: .popular, limit: 200, homeOnly: true).filter {
             $0.hasDesignedArtwork &&
             ($0.backdropURLParsed != nil || $0.posterURLParsed != nil)
         }

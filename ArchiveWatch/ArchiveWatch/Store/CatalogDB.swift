@@ -91,6 +91,17 @@ final class CatalogDB {
     var hideAdult = true
     private var adultAnd: String { hideAdult ? "AND i.isAdult = 0" : "" }
 
+    /// Home-advertising gate (#6): only surface confidently-public-domain (or
+    /// Creative Commons) content on the HOME screen — never items whose rights
+    /// are reserved/unknown, nor public-domain-STAMPED items dated after 1977
+    /// (those are either a current copyrighted film mis-stamped, or an item
+    /// carrying an Archive upload year — neither belongs on the marquee). CC is
+    /// allowed at any year since it's an explicit free license. NOT applied to
+    /// Browse/Search — the full catalog stays available there.
+    private let homeAnd =
+        "AND i.rightsStatus IN ('public_domain','creative_commons') " +
+        "AND (i.rightsStatus = 'creative_commons' OR i.year IS NULL OR i.year <= 1977)"
+
     // MARK: - Queries the views use
 
     /// One Home shelf, in stored position order.
@@ -99,7 +110,7 @@ final class CatalogDB {
             SELECT j.json FROM item_shelves s
             JOIN item_json j USING(archiveID)
             JOIN items i USING(archiveID)
-            WHERE s.shelfID = ?1
+            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd)
             ORDER BY s.position
             LIMIT \(limit)
         """, [shelfID])
@@ -117,7 +128,8 @@ final class CatalogDB {
 
     /// Browse grid: filter by content type / decade / genre, sorted, paginated.
     func browse(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
-                sort: Sort = .popular, limit: Int = 60, offset: Int = 0) -> [Catalog.Item] {
+                sort: Sort = .popular, limit: Int = 60, offset: Int = 0,
+                homeOnly: Bool = false) -> [Catalog.Item] {
         var where_ = ["i.contentType != 'tv-series'"]
         if hideAdult { where_.append("i.isAdult = 0") }
         var binds: [String] = []
@@ -138,7 +150,7 @@ final class CatalogDB {
         return items("""
             SELECT j.json FROM items i
             JOIN item_json j USING(archiveID) \(join)
-            WHERE \(where_.joined(separator: " AND "))
+            WHERE \(where_.joined(separator: " AND ")) \(homeOnly ? homeAnd : "")
             ORDER BY \(order)
             LIMIT \(limit) OFFSET \(offset)
         """, binds)
@@ -182,30 +194,32 @@ final class CatalogDB {
         """, [item.contentType, item.archiveID])
     }
 
-    /// "Hidden Gems" — high craft, low traffic.
+    /// "Hidden Gems" — high craft, low traffic. Home surface → home-gated.
     func hiddenGems(limit: Int = 20) -> [Catalog.Item] {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE i.hasRealArtwork = 1 AND i.qualityScore >= 60
-              AND i.popularityScore <= 40 \(adultAnd)
+              AND i.popularityScore <= 40 \(adultAnd) \(homeAnd)
             ORDER BY i.qualityScore DESC LIMIT \(limit)
         """)
     }
 
     /// Most-prolific directors (≥ minFilms with designed art) → (name, count).
+    /// Home surface → home-gated so we don't headline a director whose only
+    /// shown films would be filtered off Home.
     func topDirectors(minFilms: Int = 3, limit: Int = 4) -> [(name: String, count: Int)] {
         scalarRows("""
             SELECT i.director, COUNT(*) c FROM items i
-            WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1 \(adultAnd)
+            WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd)
             GROUP BY i.director HAVING c >= \(minFilms)
             ORDER BY c DESC, i.director LIMIT \(limit)
         """).map { (name: $0.0, count: $0.1) }
     }
 
-    func byDirector(_ name: String, limit: Int = 20) -> [Catalog.Item] {
+    func byDirector(_ name: String, limit: Int = 20, homeOnly: Bool = false) -> [Catalog.Item] {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE i.director = ? AND i.hasRealArtwork = 1 \(adultAnd)
+            WHERE i.director = ? AND i.hasRealArtwork = 1 \(adultAnd) \(homeOnly ? homeAnd : "")
             ORDER BY i.popularityScore DESC LIMIT \(limit)
         """, [name])
     }

@@ -24,7 +24,7 @@ struct DirectorShelvesSection: View {
     /// query for that director's films (Decision 017).
     private func loadGroups() -> [DirectorGroup] {
         store.dbTopDirectors().compactMap { d in
-            let films = store.dbByDirector(d.name)
+            let films = store.dbByDirector(d.name, homeOnly: true)
             guard !films.isEmpty else { return nil }
             return DirectorGroup(id: d.name, name: d.name, items: films,
                          category: dominantCategory(for: films))
