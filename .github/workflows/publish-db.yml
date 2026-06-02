@@ -9,11 +9,16 @@ name: Publish catalog DB
 # (it commits nothing — assets go to the Release, not the branch).
 
 on:
+  # series/** changes still land in git (TV spines). The catalog.json itself
+  # is no longer in git (Decision 018), so we also run daily — after the
+  # discovery/OMDb writers republish the catalog-source release — to rebuild
+  # the app's SQLite from the latest catalog. Plus manual dispatch.
   push:
     branches: [main]
     paths:
-      - catalog.json
       - series/**
+  schedule:
+    - cron: '30 4 * * *'   # after discover-content (03:42) republishes catalog
   workflow_dispatch:
 
 concurrency:
@@ -30,6 +35,13 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
+
+      # Pull the full catalog from its release (Decision 018) so build_sqlite
+      # can compile both the bundled seed and the full DB from it.
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
 
       - name: Build SQLite catalog
         run: python tools/build_sqlite.py | tee db.log

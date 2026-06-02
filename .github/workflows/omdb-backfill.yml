@@ -56,6 +56,11 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
       - name: Run OMDb backfill
         env:
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
@@ -107,13 +112,13 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+          # catalog.json / seed catalog.json go to the catalog-source release
+          # (Decision 018), not git — only the caches are committed here.
           git add shared/editorial/omdb_cache.json \
-                  shared/editorial/movie_enrich_cache.json \
-                  catalog.json \
-                  ArchiveWatch/ArchiveWatch/catalog.json
+                  shared/editorial/movie_enrich_cache.json
 
           if git diff --cached --quiet; then
-            echo "No catalog changes — skipping commit."
+            echo "No git-tracked cache changes (catalog still published below)."
             exit 0
           fi
 
@@ -133,3 +138,9 @@ jobs:
             sleep $((RANDOM % 5 + 2))
           done
           echo "::error::could not push after retries"; exit 1
+
+      - name: Publish catalog to release
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish

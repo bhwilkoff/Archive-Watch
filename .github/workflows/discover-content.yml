@@ -95,6 +95,13 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
+      # Catalog lives on the catalog-source Release, not git (Decision 018).
+      # Pull it local so the discovery/ingest tools mutate it as before.
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
       - name: Discover candidates (Wikidata, read-only)
         run: |
           python tools/discover_wikidata_pd.py \
@@ -206,16 +213,16 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
+          # catalog.json + the seed catalog.json are no longer in git
+          # (Decision 018) — they go to the catalog-source release below.
           git add shared/editorial/discovery_candidates.json \
                   shared/editorial/omdb_cache.json \
                   shared/editorial/episode_wants.json \
                   shared/editorial/tv_discovery.json \
-                  catalog.json \
-                  ArchiveWatch/ArchiveWatch/catalog.json \
                   series/
 
           if git diff --cached --quiet; then
-            echo "No changes — nothing discovered, ingested, or backfilled."
+            echo "No git-tracked changes (catalog still published to release below)."
             exit 0
           fi
 
@@ -232,3 +239,11 @@ jobs:
             sleep $((RANDOM % 5 + 2))
           done
           echo "::error::could not push after retries"; exit 1
+
+      # Publish the mutated catalog to the catalog-source release (Decision
+      # 018). Always runs — catalog changes aren't git-tracked. publish-db
+      # rebuilds the SQLite from it on its schedule.
+      - name: Publish catalog to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
