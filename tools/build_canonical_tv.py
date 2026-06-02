@@ -118,6 +118,17 @@ def tvmaze_resolve(title, year=None):
     show_id = best.get("id")
     if not show_id:
         return None
+    # Name-plausibility floor (issue #7): the chosen show must share an
+    # identity token with the query OR premiere within a year of the requested
+    # year. Otherwise the query was too vague and TVmaze just returned its top
+    # unrelated hit (e.g. "Diver Dan" -> "The Man from Snowy River"). Reject
+    # rather than mis-bind — the item stays unmatched and is kept as a single.
+    qtoks = _id_tokens(title)
+    ntoks = _id_tokens(best.get("name"))
+    prem = (best.get("premiered") or "")[:4]
+    year_close = bool(year and prem.isdigit() and abs(int(prem) - year) <= 1)
+    if qtoks and not (qtoks & ntoks) and not year_close:
+        return None
     full = _get_json(f"{TVMAZE}/shows/{show_id}?embed=episodes")
     return full
 
@@ -179,21 +190,35 @@ def archive_pick_mp4(iaid):
 
 
 def ensure_playable(archive_id, download_url, video_file):
-    """If the current downloadURL is a playable MP4, keep it. Otherwise
-    re-query Archive and swap in the MP4 derivative. Returns
-    (download_url, video_file, changed:bool, ok:bool)."""
+    """Pick the best playable MP4 for an item. Returns
+    (download_url, video_file, changed:bool, ok:bool).
+
+    Issue #6: prefer Archive's auto-generated faststart derivative
+    (source=derivative, `.ia.mp4` h.264) over the uploader's original *even
+    when the current URL already ends in .mp4*. Uploader originals are often
+    non-faststart (moov atom at EOF) → slow/no start; the derivative streams
+    immediately. archive_pick_mp4 ranks derivatives above originals, so if it
+    returns a DIFFERENT file than we currently point at, swap to it. Only when
+    no better derivative exists do we keep an existing .mp4 as-is."""
     url = download_url or ""
-    if url.lower().split("?")[0].endswith(PLAYABLE_EXT):
+    base = _basename(url).lower()
+    cur_is_mp4 = url.lower().split("?")[0].endswith(PLAYABLE_EXT)
+    # Already on Archive's faststart derivative — nothing better exists, so
+    # skip the metadata fetch entirely (keeps the full rebuild from hammering
+    # Archive for every already-good item).
+    if cur_is_mp4 and base.endswith(".ia.mp4"):
         return download_url, video_file, False, True
-    # archive_id may be namespaced (loc:...) — only Archive items are re-pickable
-    iaid = archive_id
-    picked = archive_pick_mp4(iaid)
-    if not picked:
-        return download_url, video_file, False, False
-    name, fmt, size = picked
-    new_url = ARCHIVE_DL + urllib.parse.quote(iaid) + "/" + urllib.parse.quote(name)
-    new_vf = {"name": name, "format": fmt, "sizeBytes": size, "tier": 1}
-    return new_url, new_vf, True, True
+    picked = archive_pick_mp4(archive_id)
+    if picked:
+        name, fmt, size = picked
+        if name and name != _basename(url):
+            new_url = ARCHIVE_DL + urllib.parse.quote(archive_id) + "/" + urllib.parse.quote(name)
+            new_vf = {"name": name, "format": fmt, "sizeBytes": size, "tier": 1}
+            return new_url, new_vf, True, True
+    # No better derivative than what we have.
+    if cur_is_mp4:
+        return download_url, video_file, False, True
+    return download_url, video_file, False, False
 
 
 # ---------------------------------------------------------------------------
@@ -228,6 +253,114 @@ def _norm(s):
     return re.sub(r"[^a-z0-9]+", " ", (s or "").lower()).strip()
 
 
+def _basename(url):
+    """Last path component of a download URL, percent-decoded."""
+    if not url:
+        return ""
+    return urllib.parse.unquote(url.rstrip("/").split("/")[-1])
+
+
+def _item_sxe_texts(it):
+    """All strings that might carry an SxE / episode number for an item.
+    Crucially includes the video FILENAME — Archive items frequently encode
+    `S01E18` only in the file, not the title or id (issue #3)."""
+    vf = it.get("videoFile") or {}
+    return (it.get("title"), it.get("archiveID"),
+            vf.get("name"), _basename(it.get("downloadURL")))
+
+
+# Stopwords that carry no show-identity signal — excluded from the
+# mismap-detection token overlap.
+_TOKEN_STOP = {
+    "the", "a", "an", "and", "of", "in", "on", "at", "to", "tv", "show",
+    "shows", "series", "episode", "episodes", "ep", "season", "complete",
+    "mkv", "mp4", "ia", "part", "vol", "volume", "full", "hd", "remastered",
+    "upgrade", "edition", "feat", "with",
+}
+
+
+def _id_tokens(s):
+    """Tokenize an identifier (archiveID / filename / title) for show-identity
+    comparison: split camelCase and letter/digit runs, lowercase, drop pure
+    numbers, tiny tokens, and stopwords."""
+    if not s:
+        return set()
+    s = re.sub(r"([a-z])([A-Z])", r"\1 \2", s)      # camelCase -> camel Case
+    s = re.sub(r"([A-Za-z])(\d)", r"\1 \2", s)       # Line24 -> Line 24
+    s = re.sub(r"(\d)([A-Za-z])", r"\1 \2", s)       # 24January -> 24 January
+    s = re.sub(r"[^A-Za-z0-9]+", " ", s).lower()
+    out = set()
+    for t in s.split():
+        if t.isdigit() or len(t) <= 2 or t in _TOKEN_STOP:
+            continue
+        out.add(t)
+    return out
+
+
+def _item_identity_tokens(it):
+    """Identity tokens for a single item (archiveID + filename, not the
+    curated title — the canonical pipeline overwrites titles, but the Archive
+    id/filename always reflect the real source)."""
+    return (_id_tokens(it.get("archiveID"))
+            | _id_tokens(_basename(it.get("downloadURL")))
+            | _id_tokens((it.get("videoFile") or {}).get("name")))
+
+
+def _items_identity_tokens(items):
+    """Union of identity tokens across all items."""
+    toks = set()
+    for it in items:
+        toks |= _item_identity_tokens(it)
+    return toks
+
+
+def _common_identity_tokens(items, frac=0.5):
+    """Tokens that appear in at least `frac` of the items — the de-facto show
+    name as written in the filenames. A single stray token (e.g. one item
+    mislabelled 'what') won't qualify, so this is a sharper mismap signal than
+    a plain union overlap."""
+    if not items:
+        return set()
+    counts = {}
+    for it in items:
+        for t in _item_identity_tokens(it):
+            counts[t] = counts.get(t, 0) + 1
+    need = max(2, int(len(items) * frac + 0.999))
+    return {t for t, c in counts.items() if c >= need}
+
+
+def _clamp_year(y, lo, hi):
+    """Drop a year that falls outside the show's broadcast run (±1) — guards
+    against Archive UPLOAD dates leaking in as the episode year (issue #1)."""
+    if not y:
+        return None
+    if lo and y < lo - 1:
+        return None
+    if hi and y > hi + 1:
+        return None
+    return y
+
+
+_EXTRA_TITLE_NOISE = re.compile(
+    r"\b(the\s+complete\s+series|complete\s+series|complete|"
+    r"season\s+\d+\s+of\s+\d+|s\d+\s+of\s+\d+|mkv|tv[\s-]?show|"
+    r"blu[\s-]?ray(\s+extras)?|x264|x265|h\.?264|web[\s-]?dl)\b", re.I)
+
+
+def clean_extra_title(t):
+    """Light cleanup for the title of an item we couldn't align to a canonical
+    episode: strip bracket tags, format noise, and trailing dates so we don't
+    show '...The Complete Series' / '...- MKV' as an episode name (issue #4)."""
+    if not t:
+        return None
+    s = re.sub(r"[\[\(][^\]\)]*[\]\)]", " ", t)       # [upgrade] / (1080p)
+    s = _EXTRA_TITLE_NOISE.sub(" ", s)
+    s = re.sub(r"\s+[-–]\s+\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}\b", " ", s)  # - 10-24-62
+    s = re.sub(r"[_]+", " ", s)
+    s = re.sub(r"\s+", " ", s).strip(" -–:·")
+    return s or None
+
+
 def map_items_to_canonical(our_eps, canon):
     """our_eps: list of dicts {archiveID, title, downloadURL, videoFile, ...}.
     canon: canonical episode list. Returns (mapped, extras) where mapped is a
@@ -241,15 +374,15 @@ def map_items_to_canonical(our_eps, canon):
 
     for it in our_eps:
         title = it.get("title") or ""
-        aid = it.get("archiveID") or ""
-        s, e = parse_sxe(title, aid)
+        sxe_texts = _item_sxe_texts(it)
+        s, e = parse_sxe(*sxe_texts)
         target = None
         if s is not None and (s, e) in by_sxe:
             target = by_sxe[(s, e)]
         if target is None:
             # Season 1 assumption when only an episode number is present and
             # the show is single-season-ish — but only if S1En exists.
-            n = parse_epnum(title, aid)
+            n = parse_epnum(*sxe_texts)
             if n is not None and (1, n) in by_sxe:
                 target = by_sxe[(1, n)]
         if target is None:
@@ -296,9 +429,26 @@ def rebuild_show(show, our_eps, *, repick):
     if not canon:
         return None, row
 
+    prem_i = int(prem0) if prem0.isdigit() else None
+    ended0 = (show.get("ended") or "")[:4]
+    year_lo = prem_i
+    year_hi = int(ended0) if ended0.isdigit() else None
+
     mapped, extras = map_items_to_canonical(our_eps, canon)
     row["mappedEps"] = len(mapped)
     row["extras"] = len(extras)
+
+    # Mismap guard (issue #7): if NOT ONE item aligned to a canonical episode
+    # AND the pooled items' identifiers share zero identity tokens with the
+    # resolved show's name, this is almost certainly the wrong show (e.g.
+    # What's-My-Line items resolved onto "Now What?"). Reject — leave the items
+    # unmatched so reconcile reclassifies them, rather than mis-binding.
+    if len(mapped) == 0:
+        name_toks = _id_tokens(show.get("name"))
+        common_toks = _common_identity_tokens(our_eps)
+        if name_toks and common_toks and not (name_toks & common_toks):
+            row["rejectedMismap"] = True
+            return None, row
 
     # Build seasons from the canonical episodes we actually have a playable
     # item for. (v1: only-available; missing episodes are omitted, not greyed.)
@@ -345,16 +495,17 @@ def rebuild_show(show, our_eps, *, repick):
             if not ok or not dl:
                 row["deadItems"] += 1
                 continue
-            s2, e2 = parse_sxe(item.get("title"), item.get("archiveID"))
+            sxe_texts = _item_sxe_texts(item)
+            s2, e2 = parse_sxe(*sxe_texts)
             ep = {
                 "archiveID": item.get("archiveID"),
                 "seasonNumber": s2,
-                "episodeNumber": e2 or parse_epnum(item.get("title"), item.get("archiveID")),
-                "title": item.get("title") or "Untitled",
+                "episodeNumber": e2 or parse_epnum(*sxe_texts),
+                "title": clean_extra_title(item.get("title")) or "Untitled",
                 "overview": item.get("overview"),
                 "stillURL": item.get("stillURL"),
                 "airDate": None,
-                "year": item.get("year"),
+                "year": _clamp_year(item.get("year"), year_lo, year_hi),
                 "runtimeSeconds": item.get("runtimeSeconds"),
                 "videoFile": vf,
                 "downloadURL": dl,
