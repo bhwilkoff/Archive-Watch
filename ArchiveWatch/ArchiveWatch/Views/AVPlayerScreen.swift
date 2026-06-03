@@ -49,8 +49,11 @@ func makeExternalMetadata(for item: Catalog.Item) -> [AVMetadataItem] {
         meta.append(entry(.quickTimeMetadataGenre,
                           item.genres.prefix(3).joined(separator: ", ")))
     }
-    if let year = item.year {
-        meta.append(entry(.commonIdentifierCreationDate, String(year)))
-    }
+    // NOTE: we deliberately DON'T emit .commonIdentifierCreationDate. AVKit
+    // renders that field as a date string above the transport scrubber, but a
+    // bare 4-digit year ("1952") is not a valid date — tvOS reinterprets it and
+    // surfaced wrong, often future years (2035/2045) on nearly every title (#5).
+    // The correct year already shows on the Detail screen + hero; keeping it out
+    // of the player metadata removes the spurious year entirely.
     return meta.compactMap { $0 }
 }

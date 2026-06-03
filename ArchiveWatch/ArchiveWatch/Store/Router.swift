@@ -14,7 +14,7 @@ import SwiftUI
 final class Router {
 
     enum Tab: String, CaseIterable, Identifiable, Hashable {
-        case home, browse, tvShows, collections, search, surprise, settings
+        case home, browse, tvShows, collections, search, favorites, surprise, settings
         var id: String { rawValue }
 
         var title: String {
@@ -24,6 +24,7 @@ final class Router {
             case .tvShows:     return "TV Shows"
             case .collections: return "Collections"
             case .search:      return "Search"
+            case .favorites:   return "Favorites"
             case .surprise:    return "Surprise"
             case .settings:    return "Settings"
             }
@@ -36,6 +37,7 @@ final class Router {
             case .tvShows:     return "tv.fill"
             case .collections: return "square.stack.3d.up.fill"
             case .search:      return "magnifyingglass"
+            case .favorites:   return "heart.fill"
             case .surprise:    return "dice.fill"
             case .settings:    return "gearshape.fill"
             }
@@ -53,6 +55,7 @@ final class Router {
     var tvShowsPath = NavigationPath()
     var collectionsPath = NavigationPath()
     var searchPath = NavigationPath()
+    var favoritesPath = NavigationPath()
     var surprisePath = NavigationPath()
     var settingsPath = NavigationPath()
 
@@ -66,6 +69,7 @@ final class Router {
         case .tvShows:     tvShowsPath.append(destination)
         case .collections: collectionsPath.append(destination)
         case .search:      searchPath.append(destination)
+        case .favorites:   favoritesPath.append(destination)
         case .surprise:    surprisePath.append(destination)
         case .settings:    settingsPath.append(destination)
         }
@@ -79,6 +83,7 @@ final class Router {
         case .tvShows:     if !tvShowsPath.isEmpty     { tvShowsPath.removeLast() }
         case .collections: if !collectionsPath.isEmpty { collectionsPath.removeLast() }
         case .search:      if !searchPath.isEmpty      { searchPath.removeLast() }
+        case .favorites:   if !favoritesPath.isEmpty   { favoritesPath.removeLast() }
         case .surprise:    if !surprisePath.isEmpty    { surprisePath.removeLast() }
         case .settings:    if !settingsPath.isEmpty    { settingsPath.removeLast() }
         }

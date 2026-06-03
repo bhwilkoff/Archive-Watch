@@ -48,6 +48,11 @@ struct RootView: View {
                     SearchView().attachDestinations()
                 }
             }
+            Tab("Favorites", systemImage: "heart.fill", value: Router.Tab.favorites) {
+                NavigationStack(path: $router.favoritesPath) {
+                    FavoritesView().attachDestinations()
+                }
+            }
             Tab("Surprise", systemImage: "dice.fill", value: Router.Tab.surprise) {
                 NavigationStack(path: $router.surprisePath) {
                     SurpriseView().attachDestinations()
@@ -129,6 +134,7 @@ struct RootView: View {
         case .tvShows:     router.tvShowsPath = NavigationPath()
         case .collections: router.collectionsPath = NavigationPath()
         case .search:      router.searchPath = NavigationPath()
+        case .favorites:   router.favoritesPath = NavigationPath()
         case .surprise:    router.surprisePath = NavigationPath()
         case .settings:    router.settingsPath = NavigationPath()
         }

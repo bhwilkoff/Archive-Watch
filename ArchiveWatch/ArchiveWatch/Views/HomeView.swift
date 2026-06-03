@@ -11,7 +11,9 @@ import Combine
 // Kept as separate files:
 //  • PosterTile.swift   — shared with DetailView's More Like This
 //  • ContinueWatching.swift — owns its own @Query<WatchProgress>
-//  • FavoritesShelf.swift   — owns its own @Query<Favorite>
+//
+// Favorites now live in their own tab (FavoritesView.swift) rather than
+// a Home shelf — a single saved title used to clutter the marquee.
 //
 // Those @Query-owning files are isolated so SwiftData macro flakes
 // don't cascade across the whole screen.
@@ -65,7 +67,6 @@ struct HomeView: View {
                 }
                 ContinueWatchingRow()
                 CategoryTilesRow()
-                FavoritesShelf()
                 // Dedupe across shelves: once a film appears in a shelf
                 // earlier in the page, the next shelf gets the NEXT 20
                 // items instead of resurfacing the same ones. Keeps Home
@@ -96,6 +97,13 @@ struct HomeView: View {
     /// console), drop items already shown on an earlier shelf, shuffle
     /// with a per-shelf seeded RNG so repeat visits don't show the
     /// same tiles in the same order, and take the first 20.
+    /// Minimum tiles for a shelf to earn a row. A shelf shorter than this
+    /// looks like a stub that doesn't fill the screen width, so we drop it
+    /// rather than show a half-empty row (#6). The real fix for thin but
+    /// wanted shelves (NASA, 1950s/60s TV) is growing those collections in
+    /// the catalog pipeline — this just guarantees Home never looks ragged.
+    private let minPerShelf = 9
+
     private func dedupedShelfPayloads() -> [ShelfPayload] {
         var used: Set<String> = Set(heroItems.map { $0.archiveID })
         var out: [ShelfPayload] = []
@@ -111,8 +119,8 @@ struct HomeView: View {
                 seed: shelfSeed &+ UInt64(bitPattern: Int64(shelf.id.hashValue))
             )
             fresh.shuffle(using: &rng)
-            let taken = Array(fresh.prefix(20))
-            guard !taken.isEmpty else { continue }
+            let taken = Array(fresh.prefix(24))
+            guard taken.count >= minPerShelf else { continue }
             for item in taken { used.insert(item.archiveID) }
             out.append(ShelfPayload(shelf: shelf, items: taken))
         }
@@ -479,7 +487,9 @@ struct DecadeTile: View {
                 startPoint: .topLeading, endPoint: .bottomTrailing
             )
             VStack(alignment: .leading, spacing: 6) {
-                Text("\(decade)s")
+                // verbatim: SwiftUI's LocalizedStringKey interpolation formats an
+                // Int with locale grouping → "1,960s"; verbatim keeps it "1960s".
+                Text(verbatim: "\(decade)s")
                     .font(.system(size: 48, weight: .black, design: .serif))
                     .foregroundStyle(.white)
                 Text(era.label.uppercased())

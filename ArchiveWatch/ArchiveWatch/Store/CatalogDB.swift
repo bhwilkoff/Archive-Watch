@@ -114,14 +114,23 @@ final class CatalogDB {
 
     // MARK: - Queries the views use
 
-    /// One Home shelf, in stored position order.
-    func shelf(_ shelfID: String, limit: Int = 60) -> [Catalog.Item] {
+    /// One Home shelf. Items with real designed artwork lead (#7 — never put a
+    /// poster-less tile ahead of one that has a real poster), then stored
+    /// position order.
+    ///
+    /// NOTE: shelves intentionally DON'T apply `homeAnd`. Every shelf is built
+    /// from a curated, known-public-domain Archive collection (nasa, classic_tv,
+    /// georgesmelies, …) — that membership IS the editorial gate. The homeAnd
+    /// year≤1977 cap was starving legitimate PD shelves (NASA films are mostly
+    /// post-1977; US-gov works are PD regardless of year), leaving stub shelves
+    /// (#6). Adult + hidden-type filters still apply.
+    func shelf(_ shelfID: String, limit: Int = 80) -> [Catalog.Item] {
         items("""
             SELECT j.json FROM item_shelves s
             JOIN item_json j USING(archiveID)
             JOIN items i USING(archiveID)
-            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd) \(typeAnd)
-            ORDER BY s.position
+            WHERE s.shelfID = ?1 \(adultAnd) \(typeAnd)
+            ORDER BY i.hasRealArtwork DESC, s.position
             LIMIT \(limit)
         """, [shelfID])
     }
@@ -279,7 +288,14 @@ final class CatalogDB {
 
     func decadeCounts() -> [Int: Int] {
         var out: [Int: Int] = [:]
-        for (k, v) in scalarRows("SELECT i.decade, COUNT(*) FROM items i WHERE i.decade IS NOT NULL \(adultAnd) GROUP BY i.decade") {
+        // Clamp to plausible film history (cinema began ~1888; nothing
+        // post-2029). Guards against bad source years surfacing nonsense eras
+        // like "1060s" or future decades in the Browse-by-Era row (#8).
+        for (k, v) in scalarRows("""
+            SELECT i.decade, COUNT(*) FROM items i
+            WHERE i.decade BETWEEN 1890 AND 2029 \(adultAnd)
+            GROUP BY i.decade
+        """) {
             if let d = Int(k) { out[d] = v }
         }
         return out
