@@ -133,26 +133,24 @@ def main():
     cache = load_json(CACHE_PATH)
     cache["schema"] = L.CACHE_SCHEMA_VERSION
     entries = cache.setdefault("entries", {})
+    # Decision 018: the committed seed catalog.json is gone (the seed is now a
+    # SQLite derived from the full catalog by build_sqlite). Operate on the full
+    # catalog ONLY — loading the removed seed path crashed every CI run here,
+    # which is why cast/director were frozen.
     full_catalog = load_json(FULL_CATALOG)
-    seed_catalog = load_json(SEED_CATALOG)
 
-    queue = collect_queue([(True, seed_catalog), (False, full_catalog)], entries)
+    queue = collect_queue([(False, full_catalog)], entries)
     total = len(queue)
-    n_seed = sum(1 for _, v in queue if v["is_seed"])
-    print(f"[omdb-backfill] queue: {total:,} items need OMDb fetch "
-          f"(seed {n_seed:,} / full {total - n_seed:,})", flush=True)
+    print(f"[omdb-backfill] queue: {total:,} items need OMDb fetch", flush=True)
 
     if args.dry_run or total == 0:
-        # Even on a no-fetch day, re-apply the cache so a schema/field
-        # change propagates into the catalogs.
+        # Even on a no-fetch day, re-apply the cache so a schema/field change
+        # propagates into the catalog.
         if not args.dry_run:
-            cs = apply_cache_to_catalog(seed_catalog, entries)
             cf = apply_cache_to_catalog(full_catalog, entries)
-            if cs or cf:
-                dump_json(SEED_CATALOG, seed_catalog)
+            if cf:
                 dump_json(FULL_CATALOG, full_catalog)
-                print(f"[omdb-backfill] no fetches; re-applied cache: "
-                      f"+{cs} seed +{cf} full", flush=True)
+                print(f"[omdb-backfill] no fetches; re-applied cache: +{cf}", flush=True)
         return 0
 
     api_key = L.load_omdb_key(SECRETS_PATH)
@@ -193,15 +191,13 @@ def main():
 
     cache["updated_at"] = now
 
-    changed_seed = apply_cache_to_catalog(seed_catalog, entries)
     changed_full = apply_cache_to_catalog(full_catalog, entries)
 
     dump_json(CACHE_PATH, cache)
-    dump_json(SEED_CATALOG, seed_catalog)
     dump_json(FULL_CATALOG, full_catalog)
 
     print(f"[omdb-backfill] done: {got:,} hit, {miss:,} miss, {errored:,} err", flush=True)
-    print(f"                catalogs: +{changed_seed} seed  +{changed_full} full", flush=True)
+    print(f"                catalog: +{changed_full} items", flush=True)
     return 0
 
 

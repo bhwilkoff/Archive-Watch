@@ -257,13 +257,15 @@ def main():
 
     cand_doc = load_json(CANDIDATES)
     candidates = cand_doc.get("candidates", [])
+    # Decision 018: the committed seed catalog.json is gone (the seed is a SQLite
+    # built from the full catalog). Ingest into the full catalog ONLY — loading
+    # the removed seed path crashed every CI ingest, silently halting new content.
     full_catalog = load_json(FULL_CATALOG)
-    seed_catalog = load_json(SEED_CATALOG)
     omdb_cache = load_json(CACHE_PATH)
     omdb_cache.setdefault("entries", {})
     omdb_key = L.load_omdb_key(SECRETS_PATH)
 
-    have = existing_archive_ids(full_catalog, seed_catalog)
+    have = existing_archive_ids(full_catalog)
     now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z")
     if args.skip_omdb:
         omdb_key = None
@@ -332,8 +334,6 @@ def main():
         cand_doc["candidates"] = candidates
         cand_doc["updated_at"] = now
         dump_json(FULL_CATALOG, full_catalog)
-        if not args.no_seed:
-            dump_json(SEED_CATALOG, seed_catalog)
         dump_json(CACHE_PATH, omdb_cache)
         dump_json(CANDIDATES, cand_doc)
 
@@ -370,8 +370,6 @@ def main():
             chunk_items.append(item)
             cand["status"] = "ingested"; cand["ingested_at"] = now; ingested += 1
         full_catalog["items"].extend(chunk_items)
-        if not args.no_seed:
-            seed_catalog["items"].extend(chunk_items)
         write_all()
         print(f"[ingest] {min(start + len(chunk), len(queue))}/{len(queue)} processed · "
               f"+{ingested} ingested · {no_video} no-video · {skipped} dup · {errored} err",

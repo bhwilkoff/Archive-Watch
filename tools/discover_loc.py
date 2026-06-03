@@ -201,9 +201,10 @@ def main():
     ap.add_argument("--throttle", type=float, default=0.3)
     args = ap.parse_args()
 
+    # Decision 018: the committed seed catalog.json is gone; write the full
+    # catalog only (loading the removed seed crashed every CI run here).
     full_catalog = load_json(FULL_CATALOG)
-    seed_catalog = load_json(SEED_CATALOG)
-    have = existing_loc_ids(full_catalog, seed_catalog)
+    have = existing_loc_ids(full_catalog)
     print(f"[loc] catalog has {len(have)} LoC films already", flush=True)
 
     session = requests.Session()
@@ -259,9 +260,7 @@ def main():
 
     if not args.dry_run and new_items:
         full_catalog["items"].extend(new_items)
-        seed_catalog["items"].extend(new_items)
         dump_json(FULL_CATALOG, full_catalog)
-        dump_json(SEED_CATALOG, seed_catalog)
 
     print(f"[loc] done: +{len(new_items)} LoC films "
           f"(scanned {scanned} item details){' (dry-run)' if args.dry_run else ''}", flush=True)
