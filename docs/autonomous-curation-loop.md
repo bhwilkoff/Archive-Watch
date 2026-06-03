@@ -46,13 +46,18 @@ it, executes the next item, and logs the result.
   archiveOnly items (unlocks TMDb posters + cast + genres downstream).
 - [x] **A1 — Source breadth (probe)**: added tools/probe_collections.py +
   probe-sources.yml (CI scrape-count probe of candidate PD collections).
-- [ ] **A1b — Add worthy collections (BLOCKED: probe found none)**: the first
-  probe-sources run reported NO candidate with >=100 items — the guessed
-  collection ids are likely wrong (Archive collection identifiers differ from
-  display names). Next A iteration: fix the probe — derive REAL candidate
-  collection ids from the data (the `collections[]` already on catalog items
-  that are NOT yet in DEFAULT_COLLECTIONS — those are proven-existing ids), then
-  re-probe + add the worthy ones.
+- [x] **A1b — Data-driven probe + 1 collection**: probe now derives REAL
+  candidate ids from catalog `collections[]` (silenthalloffame, vintage_cartoons,
+  usgovfilms, culturalandacademicfilms, tvprograms, film_scifi…). Added
+  mid-century-german-film to DEFAULT_COLLECTIONS. Re-dispatched probe-sources.
+- [ ] **A1c — Add worthy from data-driven probe**: read the latest
+  probe-sources step summary; add collections with large full-Archive counts
+  (silenthalloffame, usgovfilms, culturalandacademicfilms, film_scifi, etc., as
+  the counts justify) to DEFAULT_COLLECTIONS; trigger discover-content.
+- [ ] **A3 (now primary for growth) — NEW EXTERNAL sources**: the main Archive
+  collections are mined; biggest remaining growth is non-Archive PD: deeper
+  Wikidata-PD SPARQL feeds, LoC subcollections, Wikimedia Commons video. Add a
+  CI discovery feed per source.
 - [ ] **A2 — Source depth**: raise per-collection scrape caps / paginate
   deeper on the richest collections; measure new-item yield in CI.
 - [ ] **B3 — Cast/director backfill** via OMDb/TMDb after B2.
@@ -78,3 +83,10 @@ it, executes the next item, and logs the result.
   artwork (House on Haunted Hill, White Zombie, Carnival of Souls…). Dispatched.
   Note: the iter-2 probe found NO worthy collections (guessed ids wrong) — A1b
   re-scoped to derive real candidate ids from catalog items' own collections[].
+- 2026-06-02 — **Iteration 3 result**: wikidata-posters CI run filled **1,826**
+  Commons posters (of 3,449 QID candidates).
+- 2026-06-02 — **Iteration 4 (A, source breadth)**: made probe_collections.py
+  data-driven (real ids from catalog collections[], excluding mined/fav-*/
+  generic/dumping); added mid-century-german-film to DEFAULT_COLLECTIONS;
+  re-dispatched probe. Pivoted Track A toward A3 (new external sources) since
+  the major Archive collections are already mined.
