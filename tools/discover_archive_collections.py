@@ -74,6 +74,20 @@ DEFAULT_COLLECTIONS = [
     # Data-derived (2026-06): real content collection seen on 1.2k catalog items
     # but not mined directly. Mining it fully grows the German-cinema shelf.
     "mid-century-german-film",
+    # Probe-verified (advancedsearch numFound, 2026-06) genuine PD content
+    # collections — curated to exclude Archive admin/umbrella collections
+    # (loggedin, no-preview, geo_restricted, deemphasize, *_video catch-alls).
+    "classic_tv_1950s", "classic_tv_1960s", "classic_tv_1970s",
+    "classic_tv_1980s", "classic_tv_1990s",   # decade TV -> TV decade shelves
+    "silenthalloffame",                        # silent classics (441)
+    "feature_films_picfixer",                  # PicFixer restorations (355)
+    "film_scifi",                              # sci-fi features (295)
+    "TheVideoCellarCollection",                # curated PD films (230)
+    "culturalandacademicfilms", "educationalfilms",  # educational PD
+    "avgeeks", "prelingerhomemovies", "DriveInMovieAds",  # ephemera
+    "german_cinema",                           # German PD (104)
+    "classic_cartoons", "segundodechomon",     # cartoons / early silent pioneer
+    "nasaeclips", "jsc-pao-video-collection",  # NASA gov PD
 ]
 
 
