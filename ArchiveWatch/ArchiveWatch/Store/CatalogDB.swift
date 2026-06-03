@@ -341,6 +341,14 @@ final class CatalogDB {
     var itemCount: Int { metaInt("itemCount") ?? 0 }
     var generatedAt: String? { metaString("generatedAt") }
 
+    /// Exact number of searchable rows in the CURRENTLY-LOADED DB — a live
+    /// COUNT over the FTS index, not the build-time `itemCount` meta value, so
+    /// the Search screen always reflects the real database (seed vs full, and
+    /// every rebuild as the catalog grows).
+    var searchableCount: Int {
+        scalarRows("SELECT '', COUNT(*) FROM items_fts").first?.1 ?? 0
+    }
+
     // MARK: - FTS query hygiene
 
     /// Turn free user text into a safe FTS5 prefix query: keep alphanumerics,

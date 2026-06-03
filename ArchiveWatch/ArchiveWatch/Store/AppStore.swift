@@ -149,6 +149,8 @@ final class AppStore {
     func dbItem(_ id: String) -> Catalog.Item? { db?.item(id) }
     func dbRelated(to item: Catalog.Item) -> [Catalog.Item] { db?.related(to: item) ?? [] }
     func dbDecadeCounts() -> [Int: Int] { db?.decadeCounts() ?? [:] }
+    /// Live count of searchable titles in the loaded DB (tracks seed→full + rebuilds).
+    var dbSearchableCount: Int { db?.searchableCount ?? 0 }
     func dbTopGenres() -> [String] { db?.topGenres() ?? [] }
     func dbItemsByIDs(_ ids: [String]) -> [Catalog.Item] { db?.itemsByIDs(ids) ?? [] }
     func dbHiddenGems() -> [Catalog.Item] { db?.hiddenGems() ?? [] }
