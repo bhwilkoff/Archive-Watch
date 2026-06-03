@@ -2,13 +2,13 @@ import SwiftUI
 import SwiftData
 
 // Favorites as a first-class destination (its own sidebar tab, above
-// Surprise) rather than a single-title shelf cluttering Home. Owns its
-// own @Query<Favorite> so HomeView stays free of SwiftData macro
-// expansion (the cross-file "Cannot find X in scope" cascade source).
+// Surprise). Owns its own @Query<Favorite> so HomeView stays free of SwiftData
+// macro expansion (the cross-file "Cannot find X in scope" cascade source).
 //
-// Layout mirrors BrowseView's grid (CompactTile + 6-column fixed grid)
-// so favorites feel like the rest of the catalog, just scoped to saved
-// titles. Most-recently-favorited first.
+// CRITICAL (tvOS): the empty state MUST contain a focusable element. A page
+// with no focusable view traps focus — you can't move back to the sidebar or
+// anywhere else (the focus engine has nothing to land on). The empty state's
+// "Browse the Collection" button is both the way out and a useful action.
 
 struct FavoritesView: View {
     @Environment(AppStore.self) private var store
@@ -17,6 +17,7 @@ struct FavoritesView: View {
 
     @State private var items: [Catalog.Item] = []
     @FocusState private var focusedArchiveID: String?
+    @FocusState private var browseFocused: Bool
 
     private let cols = Array(repeating: GridItem(.fixed(210), spacing: 24), count: 6)
 
@@ -40,7 +41,7 @@ struct FavoritesView: View {
                 if items.isEmpty {
                     emptyState
                         .frame(maxWidth: .infinity)
-                        .padding(.top, 120)
+                        .padding(.top, 100)
                 } else {
                     LazyVGrid(columns: cols, alignment: .leading, spacing: 48) {
                         ForEach(items) { item in
@@ -58,10 +59,10 @@ struct FavoritesView: View {
         .background(Color.black.ignoresSafeArea())
         .task {
             items = resolveItems()
-            try? await Task.sleep(for: .milliseconds(40))
-            focusedArchiveID = items.first?.archiveID
+            try? await Task.sleep(for: .milliseconds(50))
+            if items.isEmpty { browseFocused = true }
+            else { focusedArchiveID = items.first?.archiveID }
         }
-        // Re-resolve when the saved set changes or the DB swaps / filters flip.
         .onChange(of: favorites.map(\.archiveID)) { _, _ in items = resolveItems() }
         .onChange(of: store.dbGeneration) { _, _ in items = resolveItems() }
     }
@@ -73,7 +74,7 @@ struct FavoritesView: View {
     }
 
     private var emptyState: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 20) {
             Image(systemName: "heart")
                 .font(.system(size: 64))
                 .foregroundStyle(.white.opacity(0.2))
@@ -85,6 +86,19 @@ struct FavoritesView: View {
                 .foregroundStyle(.white.opacity(0.4))
                 .multilineTextAlignment(.center)
                 .frame(maxWidth: 700)
+            Button {
+                router.tab = .browse
+            } label: {
+                Text("Browse the Collection")
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 36)
+                    .padding(.vertical, 18)
+            }
+            .buttonStyle(PrimaryCTAStyle(accent: Color(hex: "#FF5C35") ?? .orange))
+            .focusEffectDisabled()
+            .focused($browseFocused)
+            .padding(.top, 12)
         }
     }
 }
