@@ -230,6 +230,36 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-03 — Home cleanup, player-year fix, catalog clobber + recovery
+- **App (shipped on main, builds clean tvOS 26.5 sim)**: Favorites is its own
+  sidebar tab (above Surprise), not a Home shelf; player no longer shows the
+  MP4's embedded creation year (1969/2035/2045) — suppressed via empty
+  `externalMetadata` override on BOTH movie + episode players (see
+  `docs/tvos-playbook.md` §8.6); Browse-by-Era "1,960s" comma fixed
+  (`Text(verbatim:)`) + implausible decades clamped (1890-2029); curated Home
+  shelves drop the year<=1977 rights gate (it starved NASA/post-1977 + classic
+  TV) and order real-artwork first; stub shelves (<9 tiles) hidden.
+- **Pipeline (remediate_catalog.py, runs in every writer)**: precise
+  wrong-external-match fix (modern TMDb/OMDb poster+year on a vintage title →
+  clear + fix year: CInderella→2015 Disney, Pink Panther); PD-animation
+  compilation reels stripped of single-film posters; gov/PD-by-age rights
+  inference; Méliès shelf query widened; build_sqlite date-seeded shelf rotation
+  (#10). NOTE: a blunt "clear any shared poster" rule was BUILT then DROPPED
+  after measuring it would wipe ~2,500 correct posters (foreign titles/AKAs/
+  serials share posters legitimately) — precise wrong-match only.
+- **INCIDENT + recovery (Decision 020)**: dispatched `rebuild-catalog`, which
+  runs `build-catalog.mjs` and OVERWRITES the catalog with a fresh ~1.1k build —
+  it clobbered the full ~30k catalog on the release. Recovered the 30,645-item
+  pre-Decision-018 `catalog.json` from a dangling git commit (`5ef1795`, via the
+  activity-API force_push SHA), remediated + republished. Now 30,374 items.
+  Fixed the footgun: `tools/merge_catalogs.py` makes rebuild-catalog additive +
+  enrichment-preserving + shrink-guarded (Decision 020); weekly cron kept.
+  Re-applied lost enrichment by dispatching the idempotent workflows (Commons
+  posters back to 1,873; Wikipedia synopses upgraded; OMDb cast drains daily).
+  Runbook: `docs/runbooks/catalog-recovery.md`.
+- **Docs**: Decision 020; runbook; tvOS-playbook §7.6 (locale comma) + §8.6
+  (player metadata); this entry.
+
 ### 2026-05-31 — Full audit + v1.0 hardening pass
 - **State found**: this scratchpad was ~6 weeks stale (claimed M0 blocked
   on "create the Xcode project"). Reality: app builds clean on tvOS 26.5,

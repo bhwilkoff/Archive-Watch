@@ -588,3 +588,41 @@ tvOS simulator.
 **Consequences**: a new app build is required to consume `.zz`; the
 uncompressed `catalog.sqlite` asset stays published until older builds age out,
 then can be dropped. The `.gz` asset is retired.
+
+---
+
+## 020 — Catalog-mutating builds must be additive (merge-guarded), never replace
+*Date: 2026-06-03*
+
+Any workflow that REBUILDS rather than incrementally enriches the catalog must
+union its output INTO the fetched full catalog and abort if the result would
+shrink — it may never publish a from-scratch build as the whole catalog.
+`rebuild-catalog` now runs `tools/merge_catalogs.py` after `build-catalog.mjs`:
+the merge keeps every existing item (with its accumulated enrichment), only ADDS
+items the catalog lacks, refreshes the `shelves` assignment, and exits non-zero
+if `merged < base`. The weekly cron stays (it seeds new Wikidata films + refreshes
+shelf assignments — part of the autonomous pipeline); the merge is what makes it
+safe.
+
+**Why**: `build-catalog.mjs --seed-from-wikidata` writes a FRESH ~1.1k catalog
+(Wikidata seed + per-shelf query results) and overwrites `catalog.json`. On
+2026-06-03 a run published that 1.1k straight over the full ~30k catalog, and
+`publish-db` rebuilt the app DB from it. Because the catalog lives on a Release,
+not git (Decision 018), there was NO diff to catch it — the safety net that
+normally flags a 95 MB / 155k-line change is gone by design. A generated
+accumulator with no line-diff review needs a structural guard instead.
+
+**How to apply**: never let a build step's output BE the published catalog. Fetch
+the full catalog, run the build, then `merge_catalogs.py base overlay out` (which
+is enrichment-preserving: it does NOT overwrite a base item's fields, only adopts
+its refreshed `shelves`, so a TMDb-only rebuild can't strip OMDb/Commons/Wikipedia
+data the daily/weekly crons accumulated). The catalog GROWS via discover-content +
+ingest; `rebuild-catalog` only seeds + refreshes shelves. If you add a new
+catalog-mutating workflow, it must fetch → mutate-in-place → remediate → publish,
+never rebuild-and-replace.
+
+**Consequences**: the catalog is recoverable even without git line-diffs — see
+`docs/runbooks/catalog-recovery.md` (dangling pre-Decision-018 git commit via the
+activity API; or the simulator's cached `catalog.sqlite`). The 2026-06-03 loss was
+fully recovered (30,645-item pre-018 commit `5ef1795`), so the merge guard is the
+permanent fix, not the recovery.

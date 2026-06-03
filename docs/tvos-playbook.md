@@ -459,6 +459,12 @@ Drive from the data source, not the view. When shelf items array changes:
 - Don't `.id(item.id)` on `RemoteImage` — use on the container only.
 - `.task(id:)` cancellation works only if the loader checks `Task.isCancelled` between awaits.
 - Pending image load must NOT gate layout. Always render a placeholder Color immediately.
+- **`Text("\(intValue)")` adds a locale grouping comma** → a decade renders as
+  "1,960s". `Text` interpolates through `LocalizedStringKey`, which formats an
+  `Int` with the locale number formatter. Use `Text(verbatim: "\(n)s")` or
+  `Text(String(n))` for years/decades/IDs. (`Text(String(year))` is already safe
+  — it's the non-localized `Text(_:)` initializer.) Caught on Browse-by-Era tiles
+  (2026-06).
 
 Sources: WWDC18 #219 "Image and Graphics Best Practices"; WWDC21 "Demystify SwiftUI"; Apple sample "Destination Video" (tvOS target); Nuke / Kingfisher source for reference.
 
@@ -507,6 +513,27 @@ Sources: WWDC18 #219 "Image and Graphics Best Practices"; WWDC21 "Demystify Swif
 
 - RTL: focus engine auto-swaps left/right directions. `onMoveCommand` gives you semantic `.leading`/`.trailing` — never physical `.left`/`.right` in logic.
 - Dates/numbers: `.formatted(date: .abbreviated, ...)`, `Duration.seconds(x).formatted()` honor locale automatically.
+
+### 8.6 Player metadata (Info panel + the wrong "year")
+
+`AVPlayerViewController` displays metadata from BOTH the player item's
+`externalMetadata` AND the asset's own embedded metadata. Two lessons (2026-06):
+
+- **The stray year above the scrubber is the MP4's embedded `creation_time`, not
+  yours.** Archive's re-encoded derivatives carry `creation_time = 0`
+  (1970-01-01 UTC), which renders as **"1969"** in a negative-UTC zone. Deleting
+  your own `externalMetadata` does nothing — the value is on the asset.
+- **`externalMetadata` OVERRIDES asset metadata by identifier.** To blank the
+  date, emit override items with EMPTY values for the creation-date keys —
+  `.commonIdentifierCreationDate`, `.quickTimeMetadataCreationDate`,
+  `.quickTimeUserDataCreationDate` (override all three; MP4s vary in which they
+  carry). See `suppressedDateMetadata()` in `AVPlayerScreen.swift`.
+- **Apply metadata to EVERY player surface.** The episode player originally set
+  no `externalMetadata`, so it still showed the asset's year. Movie + episode
+  players must both apply the title + the date suppressor.
+- A bare 4-digit year is NOT a valid date for `.commonIdentifierCreationDate` —
+  AVKit reinterprets it (we once saw 2035/2045). Either omit creation date
+  entirely or supply a real ISO date; never a bare year.
 
 Sources: HIG — Remote and Controllers; Apple Support "Siri Remote"; WWDC21 #10046 "Design for the Siri Remote"; WWDC22 #10032 "Dive into App Intents"; App Store Review Guidelines 2.5.1, 4.0; AVPlayerViewController docs.
 
