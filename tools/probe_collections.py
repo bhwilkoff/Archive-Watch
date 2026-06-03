@@ -21,7 +21,7 @@ import urllib.request
 from pathlib import Path
 
 CATALOG = Path(__file__).resolve().parent.parent / "catalog.json"
-SCRAPE = "https://archive.org/services/search/v1/scrape"
+ADV = "https://archive.org/advancedsearch.php"
 UA = "ArchiveWatch/1.0 (+https://github.com/bhwilkoff/Archive-Watch)"
 
 # Already mined (DEFAULT_COLLECTIONS) — skip these in the report.
@@ -66,12 +66,15 @@ CANDIDATES = []  # populated from the catalog at runtime (see main)
 
 
 def count(coll):
+    # advancedsearch.php?rows=0 returns the TRUE match count in
+    # response.numFound. (The scrape API's `total` with count=100 is not the
+    # collection size — it reported <100 for everything, blocking A1b/A1c.)
     q = f"collection:{coll} AND mediatype:movies"
-    url = SCRAPE + "?" + urllib.parse.urlencode({"q": q, "count": 100})
+    url = ADV + "?" + urllib.parse.urlencode({"q": q, "rows": 0, "output": "json"})
     try:
         req = urllib.request.Request(url, headers={"User-Agent": UA})
         with urllib.request.urlopen(req, timeout=30) as r:
-            return json.load(r).get("total", 0)
+            return (json.load(r).get("response") or {}).get("numFound", 0)
     except Exception as e:
         return f"err({type(e).__name__})"
 
