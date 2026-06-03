@@ -82,11 +82,29 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/degrassi-junior-high-season-03/Degrassi Junior High S03E15 - Pa-arty!.mp4"
+        },
+        {
+          "archiveID": "degrassi-junior-high-s-03-e-16-bye-bye-junior-high",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": " Degrassi Jr High S03E16 - Bye Bye Junior High",
+          "overview": "\"The end of the year means facing final exams, finding dates for the dance, and saying good-bye to Degrassi.\"",
+          "stillURL": "https://archive.org/services/img/degrassi-junior-high-s-03-e-16-bye-bye-junior-high",
+          "airDate": null,
+          "year": 1989,
+          "runtimeSeconds": 1619,
+          "videoFile": {
+            "name": "Degrassi Junior High S03E16 - Bye-Bye Junior High.mp4",
+            "format": "h.264",
+            "sizeBytes": 156931328,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/degrassi-junior-high-s-03-e-16-bye-bye-junior-high/Degrassi%20Junior%20High%20S03E16%20-%20Bye-Bye%20Junior%20High.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 3,
+  "episodesCount": 4,
   "canonicalEpisodesCount": 42,
   "seriesImdbID": null,
   "canonicalEpisodeCount": 0

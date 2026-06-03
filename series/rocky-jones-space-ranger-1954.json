@@ -1,88 +1,91 @@
 {
- "version": 2,
- "seriesID": "rocky-jones-space-ranger-1954",
- "tvmazeID": 26747,
- "title": "Rocky Jones, Space Ranger",
- "yearStart": 1954,
- "yearEnd": 1954,
- "overview": "Cruising the galaxy in his space ship \"The Orbit Jet\" Space Ranger, Rocky Jones, Vena Ray, and 10 year-old Bobby defend the Earth and themselves against space-bound evil doers.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/105/263370.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure",
-  "Science-Fiction"
- ],
- "networks": [
-  "Syndication"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "rocky-jones-space-ranger-1954",
+  "tvmazeID": 26747,
+  "title": "Rocky Jones, Space Ranger",
+  "yearStart": 1954,
+  "yearEnd": 1954,
+  "overview": "Cruising the galaxy in his space ship \"The Orbit Jet\" Space Ranger, Rocky Jones, Vena Ray, and 10 year-old Bobby defend the Earth and themselves against space-bound evil doers.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/105/263370.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
-     "seasonNumber": 1,
-     "episodeNumber": 20,
-     "title": "Crash of the Moons (1)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/hzehIOwKA7ZWUxKYh74rxNwSkTr.jpg",
-     "airDate": "1954-07-06",
-     "year": 1954,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Rocky Jones, Space Rangers 1954 S01e20 Kips Private War [low, 360p]-20.mp4",
-      "format": "h.264",
-      "sizeBytes": 163423104,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky Jones, Space Rangers 1954 S01e20 Kips Private War [low, 360p]-20.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "rockyJonesSpaceRangerRockysOdyssey1954",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "\"Rocky Jones, Space Ranger\" - Rocky's Odyssey",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/hzehIOwKA7ZWUxKYh74rxNwSkTr.jpg",
-     "airDate": null,
-     "year": 1954,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Rocky_Jones_-_Rockys_Odyssey_II_09_26_1954.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 147781612,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/rockyJonesSpaceRangerRockysOdyssey1954/Rocky_Jones_-_Rockys_Odyssey_II_09_26_1954.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Crash of the Moons (1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/hzehIOwKA7ZWUxKYh74rxNwSkTr.jpg",
+          "airDate": "1954-07-06",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e20 Kips Private War [low, 360p]-20.mp4",
+            "format": "h.264",
+            "sizeBytes": 163423104,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky Jones, Space Rangers 1954 S01e20 Kips Private War [low, 360p]-20.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "rockyJonesSpaceRangerBeyondTheCurtainOfSpace1954",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "'Rocky Jones, Space Ranger' - Beyond the curtain of space",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/hzehIOwKA7ZWUxKYh74rxNwSkTr.jpg",
-     "airDate": null,
-     "year": 1954,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Beyond_the_curtain_of_space_II_4-17-54.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 150288453,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/rockyJonesSpaceRangerBeyondTheCurtainOfSpace1954/Beyond_the_curtain_of_space_II_4-17-54.ia.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "rockyJonesSpaceRangerRockysOdyssey1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Rocky Jones, Space Ranger\" - Rocky's Odyssey",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/hzehIOwKA7ZWUxKYh74rxNwSkTr.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Rocky_Jones_-_Rockys_Odyssey_II_09_26_1954.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147781612,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/rockyJonesSpaceRangerRockysOdyssey1954/Rocky_Jones_-_Rockys_Odyssey_II_09_26_1954.ia.mp4"
+        },
+        {
+          "archiveID": "rockyJonesSpaceRangerBeyondTheCurtainOfSpace1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "'Rocky Jones, Space Ranger' - Beyond the curtain of space",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/hzehIOwKA7ZWUxKYh74rxNwSkTr.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Beyond_the_curtain_of_space_II_4-17-54.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150288453,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/rockyJonesSpaceRangerBeyondTheCurtainOfSpace1954/Beyond_the_curtain_of_space_II_4-17-54.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 3,
- "canonicalEpisodesCount": 39
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": 39,
+  "seriesImdbID": "tt0046639",
+  "canonicalEpisodeCount": 23,
+  "canonicalSeasons": 1
 }

@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-03T06:59:40Z",
+  "updated_at": "2026-06-03T08:48:27Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 2251,
-    "wanted": 2136,
-    "fulfilled": 115,
-    "series_with_gaps": 60
+    "total": 2874,
+    "wanted": 2730,
+    "fulfilled": 144,
+    "series_with_gaps": 76
   },
   "wants": [
     {
@@ -7961,8 +7961,9 @@
       "episode": 5,
       "title": "Great Race/Tummy Trouble",
       "episodeImdbID": "tt2770770",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -7981,8 +7982,9 @@
       "episode": 8,
       "title": "A New Friend/Stormy Weather",
       "episodeImdbID": "tt2770784",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -7991,8 +7993,9 @@
       "episode": 9,
       "title": "Circus Stars/Limelight Fright",
       "episodeImdbID": "tt1516185",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8001,8 +8004,9 @@
       "episode": 10,
       "title": "To Catch a Bird/The Best Party Ever",
       "episodeImdbID": "tt2770788",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8021,8 +8025,9 @@
       "episode": 14,
       "title": "Leaf of Absence/Nobody's Perfect",
       "episodeImdbID": "tt1648299",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8031,8 +8036,9 @@
       "episode": 15,
       "title": "Teacher's Pet/Islander of the Year",
       "episodeImdbID": "tt1516188",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8041,8 +8047,9 @@
       "episode": 16,
       "title": "Clifford's Big Surprise/The Ears Have It",
       "episodeImdbID": "tt2782074",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8061,8 +8068,9 @@
       "episode": 18,
       "title": "Mac's Secret Dog Club/The Dog Park",
       "episodeImdbID": "tt1901799",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8081,8 +8089,9 @@
       "episode": 21,
       "title": "Good-Bye T-Bone/The Truth About Dogs and Cats",
       "episodeImdbID": "tt1901797",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8091,8 +8100,9 @@
       "episode": 22,
       "title": "The Big Sleepover/Dog for a Day",
       "episodeImdbID": "tt1901801",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8101,8 +8111,9 @@
       "episode": 23,
       "title": "T-Bone, Dog About Town/Clifford's Big Heart",
       "episodeImdbID": "tt1901800",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8111,8 +8122,9 @@
       "episode": 24,
       "title": "Who Me, Jealous?/A Bunny in a Haystack",
       "episodeImdbID": "tt2782222",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8121,8 +8133,9 @@
       "episode": 26,
       "title": "The Kibble Crook/Screaming for Ice Cream",
       "episodeImdbID": "tt1901802",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8131,8 +8144,9 @@
       "episode": 28,
       "title": "Babysitter Blues/Saturday Morning",
       "episodeImdbID": "tt1901791",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8151,8 +8165,9 @@
       "episode": 31,
       "title": "Doggie Garden/Captain Birdwell's Treasure",
       "episodeImdbID": "tt1901795",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8161,8 +8176,9 @@
       "episode": 33,
       "title": "Clifford's Hiccups/It's My Party",
       "episodeImdbID": "tt1135175",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8171,8 +8187,9 @@
       "episode": 34,
       "title": "Jetta's Tall Tale/The Big Fetch",
       "episodeImdbID": "tt1901798",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8211,8 +8228,9 @@
       "episode": 38,
       "title": "Topsy Turvy Day/Clifford's Charm School",
       "episodeImdbID": "tt2782256",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8221,8 +8239,9 @@
       "episode": 40,
       "title": "Blanket Blues/Dino Clifford",
       "episodeImdbID": "tt1516184",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "clifford-the-big-red-dog-2000",
@@ -8445,8 +8464,9 @@
       "episode": 4,
       "title": "Heaven and Hell",
       "episodeImdbID": "tt0759808",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "cosmos-1980",
@@ -8455,8 +8475,9 @@
       "episode": 5,
       "title": "Blues for a Red Planet",
       "episodeImdbID": "tt0759805",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "cosmos-1980",
@@ -8465,8 +8486,9 @@
       "episode": 6,
       "title": "Travellers' Tales",
       "episodeImdbID": "tt0759813",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "cosmos-1980",
@@ -8475,8 +8497,9 @@
       "episode": 7,
       "title": "The Backbone of Night",
       "episodeImdbID": "tt0759811",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "cosmos-1980",
@@ -8485,8 +8508,9 @@
       "episode": 8,
       "title": "Journeys in Space and Time",
       "episodeImdbID": "tt0759809",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "cosmos-1980",
@@ -8495,8 +8519,9 @@
       "episode": 9,
       "title": "The Lives of the Stars",
       "episodeImdbID": "tt0760463",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "cosmos-1980",
@@ -8505,8 +8530,9 @@
       "episode": 10,
       "title": "The Edge of Forever",
       "episodeImdbID": "tt0760462",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "cosmos-1980",
@@ -8515,8 +8541,9 @@
       "episode": 11,
       "title": "The Persistence of Memory",
       "episodeImdbID": "tt0760464",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "cosmos-1980",
@@ -8525,8 +8552,9 @@
       "episode": 12,
       "title": "Encyclopaedia Galactica",
       "episodeImdbID": "tt0759806",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "cosmos-1980",
@@ -8535,8 +8563,9 @@
       "episode": 13,
       "title": "Who Speaks for Earth?",
       "episodeImdbID": "tt0760465",
-      "status": "wanted",
-      "added_at": "2026-06-03T06:40:35Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T08:48:27Z"
     },
     {
       "seriesID": "cosmos-1980-1980",
@@ -10779,6 +10808,146 @@
       "added_at": "2026-06-01T11:32:23Z"
     },
     {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 1,
+      "title": "Clarence \"Ducky\" Nash",
+      "episodeImdbID": "tt5836030",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 2,
+      "title": "Ward Kimball",
+      "episodeImdbID": "tt2061499",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 3,
+      "title": "The Sherman Brothers",
+      "episodeImdbID": "tt4576630",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 4,
+      "title": "Jimmy MacDonald",
+      "episodeImdbID": "tt5334522",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 6,
+      "title": "Ken Anderson",
+      "episodeImdbID": "tt5836016",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 7,
+      "title": "Disneyland Designers",
+      "episodeImdbID": "tt5836102",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 8,
+      "title": "Eric Larson",
+      "episodeImdbID": "tt5836124",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 9,
+      "title": "Peter Ellenshaw and Harrison Ellenshaw",
+      "episodeImdbID": "tt5836134",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 12,
+      "title": "Voice Actors",
+      "episodeImdbID": "tt1816372",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 13,
+      "title": "WED Imagineers",
+      "episodeImdbID": "tt5828070",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 15,
+      "title": "Ollie Johnston",
+      "episodeImdbID": "tt5300778",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 16,
+      "title": "Annette Funicello",
+      "episodeImdbID": "tt5829020",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 18,
+      "title": "The Milottes and the Beebes",
+      "episodeImdbID": "tt5829046",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "disney-family-album-1984",
+      "seriesTitle": "Disney Family Album",
+      "season": 1,
+      "episode": 19,
+      "title": "Fess Parker and Buddy Ebsen",
+      "episodeImdbID": "tt4029984",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
       "seriesID": "double-trouble-1984",
       "seriesTitle": "Double Trouble",
       "season": 1,
@@ -10857,6 +11026,3286 @@
       "episodeImdbID": "tt0564787",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 1,
+      "episode": 1,
+      "title": "Episode #1.1",
+      "episodeImdbID": "tt4968134",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 1,
+      "episode": 2,
+      "title": "Episode #1.2",
+      "episodeImdbID": "tt5956946",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 1,
+      "episode": 3,
+      "title": "Episode #1.3",
+      "episodeImdbID": "tt5956944",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 1,
+      "episode": 5,
+      "title": "Episode #1.5",
+      "episodeImdbID": "tt6846370",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 1,
+      "episode": 6,
+      "title": "Episode #1.6",
+      "episodeImdbID": "tt6846374",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 1,
+      "episode": 7,
+      "title": "Episode #1.7",
+      "episodeImdbID": "tt6846382",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 1,
+      "episode": 8,
+      "title": "Episode #1.8",
+      "episodeImdbID": "tt6846380",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 1,
+      "episode": 9,
+      "title": "Episode #1.9",
+      "episodeImdbID": "tt6846384",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 1,
+      "episode": 24,
+      "title": "Episode #1.24",
+      "episodeImdbID": "tt7942214",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 1,
+      "episode": 29,
+      "title": "Episode #1.29",
+      "episodeImdbID": "tt7942218",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 1,
+      "episode": 32,
+      "title": "Episode #1.32",
+      "episodeImdbID": "tt7942228",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 1,
+      "episode": 36,
+      "title": "Episode #1.36",
+      "episodeImdbID": "tt7942236",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 2,
+      "episode": 5,
+      "title": "Episode #2.5",
+      "episodeImdbID": "tt7942328",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 2,
+      "episode": 7,
+      "title": "Episode #2.7",
+      "episodeImdbID": "tt7942340",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 2,
+      "episode": 19,
+      "title": "Episode #2.19",
+      "episodeImdbID": "tt7942364",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 2,
+      "episode": 20,
+      "title": "Episode #2.20",
+      "episodeImdbID": "tt7942368",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 2,
+      "episode": 24,
+      "title": "Episode #2.24",
+      "episodeImdbID": "tt7942382",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 2,
+      "episode": 25,
+      "title": "Episode #2.25",
+      "episodeImdbID": "tt7942372",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 2,
+      "episode": 34,
+      "title": "Episode #2.34",
+      "episodeImdbID": "tt7942394",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 2,
+      "episode": 43,
+      "title": "Episode #2.43",
+      "episodeImdbID": "tt7942414",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 3,
+      "episode": 1,
+      "title": "Episode #3.1",
+      "episodeImdbID": "tt7942456",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 3,
+      "episode": 12,
+      "title": "Episode #3.12",
+      "episodeImdbID": "tt7942472",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 3,
+      "episode": 33,
+      "title": "Episode #3.33",
+      "episodeImdbID": "tt7942526",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 3,
+      "episode": 41,
+      "title": "Episode #3.41",
+      "episodeImdbID": "tt7942538",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "el-palacio-de-la-risa-1994",
+      "seriesTitle": "El Palacio de la Risa",
+      "season": 3,
+      "episode": 44,
+      "title": "Episode #3.44",
+      "episodeImdbID": "tt7942548",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 1,
+      "title": "Episode #1.1",
+      "episodeImdbID": "tt1111542",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 6,
+      "title": "Episode #1.6",
+      "episodeImdbID": "tt1267917",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 10,
+      "title": "Episode #1.10",
+      "episodeImdbID": "tt1273376",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 23,
+      "title": "Episode #1.23",
+      "episodeImdbID": "tt1274325",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 24,
+      "title": "Episode #1.24",
+      "episodeImdbID": "tt1274326",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 26,
+      "title": "Episode #1.26",
+      "episodeImdbID": "tt1274328",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 31,
+      "title": "Episode #1.31",
+      "episodeImdbID": "tt1512356",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 32,
+      "title": "Episode #1.32",
+      "episodeImdbID": "tt1512600",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 34,
+      "title": "Episode #1.34",
+      "episodeImdbID": "tt1515394",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 35,
+      "title": "Episode #1.35",
+      "episodeImdbID": "tt1517328",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 37,
+      "title": "Episode #1.37",
+      "episodeImdbID": "tt1516223",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 38,
+      "title": "Episode #1.38",
+      "episodeImdbID": "tt1517329",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 39,
+      "title": "Episode #1.39",
+      "episodeImdbID": "tt1517890",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 40,
+      "title": "Episode #1.40",
+      "episodeImdbID": "tt1519907",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 41,
+      "title": "Episode #1.41",
+      "episodeImdbID": "tt1519908",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 42,
+      "title": "Episode #1.42",
+      "episodeImdbID": "tt1526383",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 43,
+      "title": "Episode #1.43",
+      "episodeImdbID": "tt1526384",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 44,
+      "title": "Episode #1.44",
+      "episodeImdbID": "tt1526386",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 45,
+      "title": "Episode #1.45",
+      "episodeImdbID": "tt1526387",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 47,
+      "title": "Episode #1.47",
+      "episodeImdbID": "tt1541238",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 48,
+      "title": "Episode #1.48",
+      "episodeImdbID": "tt1541239",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 50,
+      "title": "Episode #1.50",
+      "episodeImdbID": "tt1542514",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 52,
+      "title": "Episode #1.52",
+      "episodeImdbID": "tt1542516",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 60,
+      "title": "Episode #1.60",
+      "episodeImdbID": "tt3003638",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 62,
+      "title": "Episode #1.62",
+      "episodeImdbID": "tt1786818",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 66,
+      "title": "Episode #1.66",
+      "episodeImdbID": "tt1794114",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 71,
+      "title": "Episode #1.71",
+      "episodeImdbID": "tt3153710",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 81,
+      "title": "Episode #1.81",
+      "episodeImdbID": "tt3338690",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 86,
+      "title": "Episode #1.86",
+      "episodeImdbID": "tt5220396",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 87,
+      "title": "Episode #1.87",
+      "episodeImdbID": "tt4626318",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 88,
+      "title": "Episode #1.88",
+      "episodeImdbID": "tt4626332",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 89,
+      "title": "Episode #1.89",
+      "episodeImdbID": "tt4712416",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 90,
+      "title": "Episode #1.90",
+      "episodeImdbID": "tt4712420",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 91,
+      "title": "Episode #1.91",
+      "episodeImdbID": "tt4712440",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 92,
+      "title": "Episode #1.92",
+      "episodeImdbID": "tt4712442",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 93,
+      "title": "Episode #1.93",
+      "episodeImdbID": "tt4712466",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 94,
+      "title": "Episode #1.94",
+      "episodeImdbID": "tt4712490",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 95,
+      "title": "Episode #1.95",
+      "episodeImdbID": "tt5235672",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 96,
+      "title": "Episode #1.96",
+      "episodeImdbID": "tt5235678",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 97,
+      "title": "Episode #1.97",
+      "episodeImdbID": "tt5235680",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 98,
+      "title": "Episode #1.98",
+      "episodeImdbID": "tt5235682",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 99,
+      "title": "Episode #1.99",
+      "episodeImdbID": "tt5236144",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 100,
+      "title": "Episode #1.100",
+      "episodeImdbID": "tt5236148",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 101,
+      "title": "Episode #1.101",
+      "episodeImdbID": "tt5236152",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 102,
+      "title": "Episode #1.102",
+      "episodeImdbID": "tt5236172",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 103,
+      "title": "Episode #1.103",
+      "episodeImdbID": "tt5236178",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 104,
+      "title": "Episode #1.104",
+      "episodeImdbID": "tt5236186",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 105,
+      "title": "Episode #1.105",
+      "episodeImdbID": "tt4738110",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 106,
+      "title": "Episode #1.106",
+      "episodeImdbID": "tt4738112",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 107,
+      "title": "Episode #1.107",
+      "episodeImdbID": "tt5236190",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 108,
+      "title": "Episode #1.108",
+      "episodeImdbID": "tt3658472",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 109,
+      "title": "Episode #1.109",
+      "episodeImdbID": "tt5245230",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 110,
+      "title": "Episode #1.110",
+      "episodeImdbID": "tt5245256",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 111,
+      "title": "Episode #1.111",
+      "episodeImdbID": "tt4719870",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 112,
+      "title": "Episode #1.112",
+      "episodeImdbID": "tt3658498",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 113,
+      "title": "Episode #1.113",
+      "episodeImdbID": "tt3658514",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 114,
+      "title": "Episode #1.114",
+      "episodeImdbID": "tt3658528",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 115,
+      "title": "Episode #1.115",
+      "episodeImdbID": "tt4719860",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 116,
+      "title": "Episode #1.116",
+      "episodeImdbID": "tt4719864",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 117,
+      "title": "Episode #1.117",
+      "episodeImdbID": "tt5757742",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 118,
+      "title": "Episode #1.118",
+      "episodeImdbID": "tt5757744",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 119,
+      "title": "Episode #1.119",
+      "episodeImdbID": "tt5757760",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 120,
+      "title": "Episode #1.120",
+      "episodeImdbID": "tt5757766",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 121,
+      "title": "Episode #1.121",
+      "episodeImdbID": "tt4626258",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 122,
+      "title": "Episode #1.122",
+      "episodeImdbID": "tt4719838",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 123,
+      "title": "Episode #1.123",
+      "episodeImdbID": "tt3670932",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 124,
+      "title": "Episode #1.124",
+      "episodeImdbID": "tt5148750",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 125,
+      "title": "Episode #1.125",
+      "episodeImdbID": "tt6174836",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 126,
+      "title": "Episode #1.126",
+      "episodeImdbID": "tt6174838",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 127,
+      "title": "Episode #1.127",
+      "episodeImdbID": "tt6174842",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 128,
+      "title": "Episode #1.128",
+      "episodeImdbID": "tt6174844",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 129,
+      "title": "Episode #1.129",
+      "episodeImdbID": "tt6174846",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 130,
+      "title": "Episode #1.130",
+      "episodeImdbID": "tt6174850",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 131,
+      "title": "Episode #1.131",
+      "episodeImdbID": "tt6174854",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 132,
+      "title": "Episode #1.132",
+      "episodeImdbID": "tt6174856",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 133,
+      "title": "Episode #1.133",
+      "episodeImdbID": "tt7944930",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 134,
+      "title": "Episode #1.134",
+      "episodeImdbID": "tt7944968",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 135,
+      "title": "Episode #1.135",
+      "episodeImdbID": "tt8090862",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 137,
+      "title": "Episode #1.137",
+      "episodeImdbID": "tt8561216",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 138,
+      "title": "Episode #1.138",
+      "episodeImdbID": "tt8561224",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 139,
+      "title": "Episode #1.139",
+      "episodeImdbID": "tt8561228",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 140,
+      "title": "Episode #1.140",
+      "episodeImdbID": "tt8561234",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 141,
+      "title": "Episode #1.141",
+      "episodeImdbID": "tt8561502",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 142,
+      "title": "Episode #1.142",
+      "episodeImdbID": "tt8561508",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 143,
+      "title": "Episode #1.143",
+      "episodeImdbID": "tt8561514",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 144,
+      "title": "Episode #1.144",
+      "episodeImdbID": "tt8561524",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 145,
+      "title": "Episode #1.145",
+      "episodeImdbID": "tt8561564",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 146,
+      "title": "Episode #1.146",
+      "episodeImdbID": "tt8561580",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 147,
+      "title": "Episode #1.147",
+      "episodeImdbID": "tt8561606",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 148,
+      "title": "Episode #1.148",
+      "episodeImdbID": "tt8561622",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 149,
+      "title": "Episode #1.149",
+      "episodeImdbID": "tt8561658",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 150,
+      "title": "Episode #1.150",
+      "episodeImdbID": "tt8561782",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 151,
+      "title": "Episode #1.151",
+      "episodeImdbID": "tt8561890",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 152,
+      "title": "Episode #1.152",
+      "episodeImdbID": "tt8561946",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 153,
+      "title": "Episode #1.153",
+      "episodeImdbID": "tt8561998",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 154,
+      "title": "Episode #1.154",
+      "episodeImdbID": "tt8562040",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 155,
+      "title": "Episode #1.155",
+      "episodeImdbID": "tt4719818",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 156,
+      "title": "Episode #1.156",
+      "episodeImdbID": "tt8562092",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 157,
+      "title": "Episode #1.157",
+      "episodeImdbID": "tt8562174",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "emmerdale-1972",
+      "seriesTitle": "Emmerdale",
+      "season": 1,
+      "episode": 158,
+      "title": "Episode #1.158",
+      "episodeImdbID": "tt8562320",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 1,
+      "title": "Pilot",
+      "episodeImdbID": "tt0574208",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 2,
+      "title": "I Love You",
+      "episodeImdbID": "tt0574174",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 3,
+      "title": "I Wish I Were Gus",
+      "episodeImdbID": "tt0574175",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 4,
+      "title": "Standard Deviation",
+      "episodeImdbID": "tt0574226",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 5,
+      "title": "Look Don't Touch",
+      "episodeImdbID": "tt0574186",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 6,
+      "title": "Frank, the Writer",
+      "episodeImdbID": "tt0574164",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 7,
+      "title": "Your Place or Mine?",
+      "episodeImdbID": "tt0764426",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 8,
+      "title": "In-Laws",
+      "episodeImdbID": "tt0574176",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 9,
+      "title": "Win, Lose or Draw",
+      "episodeImdbID": "tt0574274",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 10,
+      "title": "Turkey or Fish",
+      "episodeImdbID": "tt0574269",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 11,
+      "title": "Captain Nemo",
+      "episodeImdbID": "tt0574142",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 12,
+      "title": "The Ball",
+      "episodeImdbID": "tt0574236",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 13,
+      "title": "Debra's Sick",
+      "episodeImdbID": "tt0574154",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 14,
+      "title": "Who's Handsome?",
+      "episodeImdbID": "tt0764423",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 15,
+      "title": "The Car",
+      "episodeImdbID": "tt0574238",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 16,
+      "title": "Diamonds",
+      "episodeImdbID": "tt0574156",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 17,
+      "title": "The Game",
+      "episodeImdbID": "tt0574246",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 18,
+      "title": "Recovering Pessimist",
+      "episodeImdbID": "tt0574214",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 19,
+      "title": "The Dog",
+      "episodeImdbID": "tt0574242",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 20,
+      "title": "Neighbors",
+      "episodeImdbID": "tt0574196",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 21,
+      "title": "Fascinatin' Debra",
+      "episodeImdbID": "tt0574159",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 1,
+      "episode": 22,
+      "title": "Why Are We Here?",
+      "episodeImdbID": "tt0764425",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 1,
+      "title": "Ray's on TV",
+      "episodeImdbID": "tt0574212",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 2,
+      "title": "Father Knows Least",
+      "episodeImdbID": "tt0769080",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 3,
+      "title": "Brother",
+      "episodeImdbID": "tt0764382",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 4,
+      "title": "Mozart",
+      "episodeImdbID": "tt0764394",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 5,
+      "title": "Golf",
+      "episodeImdbID": "tt0574165",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 6,
+      "title": "Anniversary",
+      "episodeImdbID": "tt0574132",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 7,
+      "title": "Working Late Again",
+      "episodeImdbID": "tt0574276",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 8,
+      "title": "The Children's Book",
+      "episodeImdbID": "tt0764410",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 9,
+      "title": "The Gift",
+      "episodeImdbID": "tt0764413",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 10,
+      "title": "High School",
+      "episodeImdbID": "tt0574170",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 11,
+      "title": "The Letter",
+      "episodeImdbID": "tt0574249",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 12,
+      "title": "All I Want for Christmas",
+      "episodeImdbID": "tt0574128",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 13,
+      "title": "Civil War",
+      "episodeImdbID": "tt0574143",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 14,
+      "title": "Mia Famiglia",
+      "episodeImdbID": "tt0574192",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 15,
+      "title": "Marie's Meatballs",
+      "episodeImdbID": "tt0764391",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 16,
+      "title": "The Checkbook",
+      "episodeImdbID": "tt0574239",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 17,
+      "title": "The Ride-Along",
+      "episodeImdbID": "tt0574255",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 18,
+      "title": "The Family Bed",
+      "episodeImdbID": "tt0769082",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 19,
+      "title": "Good Girls",
+      "episodeImdbID": "tt0764388",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 20,
+      "title": "T-Ball",
+      "episodeImdbID": "tt0574230",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 21,
+      "title": "Traffic School",
+      "episodeImdbID": "tt0764422",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 22,
+      "title": "Six Feet Under",
+      "episodeImdbID": "tt0574224",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 23,
+      "title": "The Garage Sale",
+      "episodeImdbID": "tt0574247",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 24,
+      "title": "The Wedding: Part 1",
+      "episodeImdbID": "tt0574266",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 2,
+      "episode": 25,
+      "title": "The Wedding: Part 2",
+      "episodeImdbID": "tt0574267",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 1,
+      "title": "The Invasion",
+      "episodeImdbID": "tt0764416",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 2,
+      "title": "Driving Frank",
+      "episodeImdbID": "tt0764384",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 4,
+      "title": "Getting Even",
+      "episodeImdbID": "tt0764387",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 5,
+      "title": "The Visit",
+      "episodeImdbID": "tt0574264",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 6,
+      "title": "Halloween Candy",
+      "episodeImdbID": "tt0574169",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 7,
+      "title": "Moving Out",
+      "episodeImdbID": "tt0574195",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 8,
+      "title": "The Article",
+      "episodeImdbID": "tt0764405",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 9,
+      "title": "The Lone Barone",
+      "episodeImdbID": "tt0574250",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 10,
+      "title": "No Fat",
+      "episodeImdbID": "tt0574198",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 11,
+      "title": "The Apartment",
+      "episodeImdbID": "tt0574234",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 12,
+      "title": "The Toaster",
+      "episodeImdbID": "tt0574263",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 13,
+      "title": "Ping Pong",
+      "episodeImdbID": "tt0764396",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 14,
+      "title": "Pants on Fire",
+      "episodeImdbID": "tt0574203",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 15,
+      "title": "Robert's Date",
+      "episodeImdbID": "tt0574216",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 16,
+      "title": "Frank's Tribute",
+      "episodeImdbID": "tt0574163",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 17,
+      "title": "Cruising with Marie",
+      "episodeImdbID": "tt0574149",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 18,
+      "title": "Ray Home Alone",
+      "episodeImdbID": "tt0574210",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 19,
+      "title": "Big Shots",
+      "episodeImdbID": "tt0574136",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 20,
+      "title": "Move Over",
+      "episodeImdbID": "tt0574194",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 21,
+      "title": "The Getaway",
+      "episodeImdbID": "tt0574248",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 22,
+      "title": "Working Girl",
+      "episodeImdbID": "tt0574275",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 23,
+      "title": "Be Nice",
+      "episodeImdbID": "tt0574135",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 24,
+      "title": "Dancing with Debra",
+      "episodeImdbID": "tt0574150",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 25,
+      "title": "Robert Moves Back",
+      "episodeImdbID": "tt0574215",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 3,
+      "episode": 26,
+      "title": "How They Met",
+      "episodeImdbID": "tt0574172",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 1,
+      "title": "Boob Job",
+      "episodeImdbID": "tt0574138",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 2,
+      "title": "The Can Opener",
+      "episodeImdbID": "tt0763402",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 3,
+      "title": "You Bet",
+      "episodeImdbID": "tt0574277",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 4,
+      "title": "Sex Talk",
+      "episodeImdbID": "tt0763153",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 5,
+      "title": "The Will",
+      "episodeImdbID": "tt0574268",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 6,
+      "title": "The Sister",
+      "episodeImdbID": "tt0574257",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 7,
+      "title": "Cousin Gerard",
+      "episodeImdbID": "tt0574147",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 8,
+      "title": "Debra's Workout",
+      "episodeImdbID": "tt0574155",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 9,
+      "title": "No Thanks",
+      "episodeImdbID": "tt0763152",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 10,
+      "title": "Left Back",
+      "episodeImdbID": "tt0574183",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 11,
+      "title": "The Christmas Picture",
+      "episodeImdbID": "tt0574240",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 12,
+      "title": "What's with Robert?",
+      "episodeImdbID": "tt0574271",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 13,
+      "title": "Bully on the Bus",
+      "episodeImdbID": "tt0574140",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 14,
+      "title": "Prodigal Son",
+      "episodeImdbID": "tt0574209",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 15,
+      "title": "Robert's Rodeo",
+      "episodeImdbID": "tt0574218",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 16,
+      "title": "The Tenth Anniversary",
+      "episodeImdbID": "tt0574262",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 17,
+      "title": "Hackidu",
+      "episodeImdbID": "tt0574168",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 18,
+      "title": "Debra Makes Something Good",
+      "episodeImdbID": "tt0574151",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 19,
+      "title": "Marie and Frank's New Friends",
+      "episodeImdbID": "tt0574188",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 21,
+      "title": "Someone's Cranky",
+      "episodeImdbID": "tt0764403",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 22,
+      "title": "Bad Moon Rising",
+      "episodeImdbID": "tt0574134",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 23,
+      "title": "Confronting the Attacker",
+      "episodeImdbID": "tt0574144",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 4,
+      "episode": 24,
+      "title": "Robert's Divorce",
+      "episodeImdbID": "tt0574217",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 1,
+      "title": "Italy: Part 1",
+      "episodeImdbID": "tt0574178",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 3,
+      "title": "The Wallpaper",
+      "episodeImdbID": "tt0769083",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 4,
+      "title": "Meant to Be",
+      "episodeImdbID": "tt0574190",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 5,
+      "title": "Pet Cemetery",
+      "episodeImdbID": "tt0764395",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 6,
+      "title": "The Author",
+      "episodeImdbID": "tt0764406",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 7,
+      "title": "The Walk to the Door",
+      "episodeImdbID": "tt0574265",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 8,
+      "title": "Young Girl",
+      "episodeImdbID": "tt0574278",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 9,
+      "title": "Fighting In-Laws",
+      "episodeImdbID": "tt0574161",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 10,
+      "title": "The Sneeze",
+      "episodeImdbID": "tt0574260",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 11,
+      "title": "Christmas Present",
+      "episodeImdbID": "tt0764383",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 12,
+      "title": "What Good Are You?",
+      "episodeImdbID": "tt0574270",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 13,
+      "title": "Super Bowl",
+      "episodeImdbID": "tt0574228",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 14,
+      "title": "Ray's Journal",
+      "episodeImdbID": "tt0764397",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 15,
+      "title": "Silent Partners",
+      "episodeImdbID": "tt0769081",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 16,
+      "title": "Fairies",
+      "episodeImdbID": "tt0574158",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 18,
+      "title": "Humm Vac",
+      "episodeImdbID": "tt0574173",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 19,
+      "title": "The Canister",
+      "episodeImdbID": "tt0764409",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 20,
+      "title": "Net Worth",
+      "episodeImdbID": "tt0574197",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 21,
+      "title": "Let's Fix Robert",
+      "episodeImdbID": "tt0574184",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 22,
+      "title": "Say Uncle",
+      "episodeImdbID": "tt0574220",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 23,
+      "title": "Separation",
+      "episodeImdbID": "tt0574222",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 24,
+      "title": "Frank Paints the House",
+      "episodeImdbID": "tt0764385",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 5,
+      "episode": 25,
+      "title": "Ally's Birth",
+      "episodeImdbID": "tt0574129",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 1,
+      "title": "The Angry Family",
+      "episodeImdbID": "tt0574233",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 2,
+      "title": "No Roll!",
+      "episodeImdbID": "tt0763255",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 3,
+      "title": "Odd Man Out",
+      "episodeImdbID": "tt0574200",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 5,
+      "title": "Marie's Sculpture",
+      "episodeImdbID": "tt0574189",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 6,
+      "title": "Frank Goes Downstairs",
+      "episodeImdbID": "tt0574162",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 7,
+      "title": "Jealous Robert",
+      "episodeImdbID": "tt0574180",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 8,
+      "title": "It's Supposed to Be Fun",
+      "episodeImdbID": "tt0574177",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 9,
+      "title": "Older Women",
+      "episodeImdbID": "tt0574201",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 10,
+      "title": "Raybert",
+      "episodeImdbID": "tt0574213",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 11,
+      "title": "The Kicker",
+      "episodeImdbID": "tt0764417",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 12,
+      "title": "Season's Greetings",
+      "episodeImdbID": "tt0764399",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 13,
+      "title": "Tissues",
+      "episodeImdbID": "tt0764421",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 14,
+      "title": "Snow Day",
+      "episodeImdbID": "tt0764402",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 15,
+      "title": "Cookies",
+      "episodeImdbID": "tt0574145",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 16,
+      "title": "Lucky Suit",
+      "episodeImdbID": "tt0574187",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 17,
+      "title": "The Skit",
+      "episodeImdbID": "tt0574259",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 18,
+      "title": "The Breakup Tape",
+      "episodeImdbID": "tt0764408",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 19,
+      "title": "Talk to Your Daughter",
+      "episodeImdbID": "tt0574231",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 20,
+      "title": "A Vote for Debra",
+      "episodeImdbID": "tt0574127",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 21,
+      "title": "Call Me Mom",
+      "episodeImdbID": "tt0574141",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 22,
+      "title": "Mother's Day",
+      "episodeImdbID": "tt0574193",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 23,
+      "title": "The Bigger Person",
+      "episodeImdbID": "tt0764407",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 24,
+      "title": "The First Time",
+      "episodeImdbID": "tt0574245",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 6,
+      "episode": 25,
+      "title": "The First Six Years",
+      "episodeImdbID": "tt0787586",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 1,
+      "title": "The Cult",
+      "episodeImdbID": "tt0574241",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 2,
+      "title": "Counseling",
+      "episodeImdbID": "tt0574146",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 3,
+      "title": "Homework",
+      "episodeImdbID": "tt0574171",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 4,
+      "title": "Pet the Bunny",
+      "episodeImdbID": "tt0574206",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 5,
+      "title": "Who Am I?",
+      "episodeImdbID": "tt0574272",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 6,
+      "title": "Robert Needs Money",
+      "episodeImdbID": "tt0764398",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 7,
+      "title": "The Sigh",
+      "episodeImdbID": "tt0764419",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 8,
+      "title": "Annoying Kid",
+      "episodeImdbID": "tt0574133",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 9,
+      "title": "She's the One",
+      "episodeImdbID": "tt0574223",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 10,
+      "title": "Marie's Vision",
+      "episodeImdbID": "tt0764392",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 11,
+      "title": "The Thought That Counts",
+      "episodeImdbID": "tt0764420",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 12,
+      "title": "Grandpa Steals",
+      "episodeImdbID": "tt0574167",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 13,
+      "title": "Somebody Hates Raymond",
+      "episodeImdbID": "tt0574157",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 14,
+      "title": "Just a Formality",
+      "episodeImdbID": "tt0574181",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 15,
+      "title": "The Disciplinarian",
+      "episodeImdbID": "tt0764412",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 16,
+      "title": "Sweet Charity",
+      "episodeImdbID": "tt0574229",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 17,
+      "title": "Meeting the Parents",
+      "episodeImdbID": "tt0574191",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 18,
+      "title": "The Plan",
+      "episodeImdbID": "tt0574254",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 19,
+      "title": "Sleepover at Peggy's",
+      "episodeImdbID": "tt0574225",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 20,
+      "title": "Who's Next?",
+      "episodeImdbID": "tt0574273",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 21,
+      "title": "The Shower",
+      "episodeImdbID": "tt0574256",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 22,
+      "title": "Baggage",
+      "episodeImdbID": "tt0769079",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 23,
+      "title": "The Bachelor Party",
+      "episodeImdbID": "tt0574235",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 7,
+      "episode": 24,
+      "title": "Robert's Wedding",
+      "episodeImdbID": "tt0574219",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 1,
+      "title": "Fun with Debra",
+      "episodeImdbID": "tt0764386",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 2,
+      "title": "Thank You Notes",
+      "episodeImdbID": "tt0574232",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 3,
+      "title": "Home from School",
+      "episodeImdbID": "tt0764389",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 4,
+      "title": "Misery Loves Company",
+      "episodeImdbID": "tt0764393",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 5,
+      "title": "The Contractor",
+      "episodeImdbID": "tt0764411",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 6,
+      "title": "Peter on the Couch",
+      "episodeImdbID": "tt0574207",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 7,
+      "title": "Liars",
+      "episodeImdbID": "tt0574185",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 8,
+      "title": "The Surprise Party",
+      "episodeImdbID": "tt0574261",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 9,
+      "title": "The Bird",
+      "episodeImdbID": "tt0574237",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 10,
+      "title": "Jazz Records",
+      "episodeImdbID": "tt0764390",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 11,
+      "title": "Debra at the Lodge",
+      "episodeImdbID": "tt0574152",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 12,
+      "title": "Slave",
+      "episodeImdbID": "tt0764401",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 13,
+      "title": "Whose Side Are You On?",
+      "episodeImdbID": "tt0764424",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 14,
+      "title": "Lateness",
+      "episodeImdbID": "tt0574182",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 15,
+      "title": "Party Dress",
+      "episodeImdbID": "tt0574204",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 16,
+      "title": "Security",
+      "episodeImdbID": "tt0574221",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 17,
+      "title": "The Ingrate",
+      "episodeImdbID": "tt0764415",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 18,
+      "title": "Crazy Chin",
+      "episodeImdbID": "tt0574148",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 19,
+      "title": "The Nice Talk",
+      "episodeImdbID": "tt0574253",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 20,
+      "title": "Blabbermouths",
+      "episodeImdbID": "tt0574137",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 21,
+      "title": "The Model",
+      "episodeImdbID": "tt0574252",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 22,
+      "title": "The Mentor",
+      "episodeImdbID": "tt0574251",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 8,
+      "episode": 23,
+      "title": "Golf for It",
+      "episodeImdbID": "tt0574166",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 1,
+      "title": "The Home",
+      "episodeImdbID": "tt0764414",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 2,
+      "title": "Not So Fast",
+      "episodeImdbID": "tt0574199",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 3,
+      "title": "Angry Sex",
+      "episodeImdbID": "tt0574131",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 5,
+      "title": "Ally's F",
+      "episodeImdbID": "tt0574130",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 7,
+      "title": "Debra's Parents",
+      "episodeImdbID": "tt0574153",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 8,
+      "title": "A Job for Robert",
+      "episodeImdbID": "tt0764380",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 9,
+      "title": "A Date for Peter",
+      "episodeImdbID": "tt0574126",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 10,
+      "title": "Favors",
+      "episodeImdbID": "tt0574160",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 11,
+      "title": "The Faux Pas",
+      "episodeImdbID": "tt0574243",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 12,
+      "title": "Tasteless Frank",
+      "episodeImdbID": "tt0764404",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 13,
+      "title": "Sister-In-Law",
+      "episodeImdbID": "tt0764400",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 14,
+      "title": "The Power of No",
+      "episodeImdbID": "tt0764418",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 15,
+      "title": "Pat's Secret",
+      "episodeImdbID": "tt0574205",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "everybody-loves-raymond-1996",
+      "seriesTitle": "Everybody Loves Raymond",
+      "season": 9,
+      "episode": 16,
+      "title": "The Finale",
+      "episodeImdbID": "tt0574244",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
     },
     {
       "seriesID": "fawlty-towers-1975",
@@ -11236,6 +14685,146 @@
       "episodeImdbID": "tt2850492",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 2,
+      "title": "The TV Murder Mystery",
+      "episodeImdbID": "tt2382722",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 4,
+      "title": "The Other Face",
+      "episodeImdbID": "tt2382724",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 6,
+      "title": "The Triangle",
+      "episodeImdbID": "tt2382726",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 7,
+      "title": "A Friend of the Corpse",
+      "episodeImdbID": "tt1388509",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 8,
+      "title": "The Devil's Bible",
+      "episodeImdbID": "tt1052649",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 9,
+      "title": "Death of a Hero",
+      "episodeImdbID": "tt1097094",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 11,
+      "title": "Frame for Murder",
+      "episodeImdbID": "tt2382736",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 13,
+      "title": "Echo from the Dead",
+      "episodeImdbID": "tt1097095",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 16,
+      "title": "Little Miss Fortune",
+      "episodeImdbID": "tt2382678",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 17,
+      "title": "Napoleon's Obituary",
+      "episodeImdbID": "tt4814432",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 21,
+      "title": "Shadow Over Hollywood",
+      "episodeImdbID": "tt1389975",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 22,
+      "title": "Murder Can't Win",
+      "episodeImdbID": "tt1388511",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 28,
+      "title": "The Deadly Root",
+      "episodeImdbID": "tt2382740",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "front-page-detective-1960",
+      "seriesTitle": "Front Page Detective",
+      "season": 1,
+      "episode": 34,
+      "title": "Galahad",
+      "episodeImdbID": "tt1097096",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
     },
     {
       "seriesID": "gamesmaster-1992",
@@ -11826,6 +15415,56 @@
       "added_at": "2026-06-02T08:32:33Z"
     },
     {
+      "seriesID": "hawkins-falls-1953",
+      "seriesTitle": "Hawkins Falls",
+      "season": 1,
+      "episode": 1,
+      "title": "Premiere Show",
+      "episodeImdbID": "tt12349238",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "hawkins-falls-1953",
+      "seriesTitle": "Hawkins Falls",
+      "season": 1,
+      "episode": 2,
+      "title": "Episode #1.2",
+      "episodeImdbID": "tt12349276",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "hawkins-falls-1953",
+      "seriesTitle": "Hawkins Falls",
+      "season": 1,
+      "episode": 3,
+      "title": ".",
+      "episodeImdbID": "tt12134814",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "hawkins-falls-1953",
+      "seriesTitle": "Hawkins Falls",
+      "season": 1,
+      "episode": 4,
+      "title": "Episode #1.4",
+      "episodeImdbID": "tt12349278",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "hawkins-falls-1953",
+      "seriesTitle": "Hawkins Falls",
+      "season": 1,
+      "episode": 5,
+      "title": "Episode #1.5",
+      "episodeImdbID": "tt12349286",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
       "seriesID": "hi-de-hi-1981",
       "seriesTitle": "Hi-de-Hi!",
       "season": 1,
@@ -12236,6 +15875,806 @@
       "added_at": "2026-06-02T08:32:33Z"
     },
     {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 3,
+      "title": "Dope Photographic",
+      "episodeImdbID": "tt1509441",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 5,
+      "title": "Railroad Strike Attempt",
+      "episodeImdbID": "tt1509446",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 6,
+      "title": "Campus Story",
+      "episodeImdbID": "tt1509439",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 8,
+      "title": "The Spy",
+      "episodeImdbID": "tt1509450",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 9,
+      "title": "The Jet Engine",
+      "episodeImdbID": "tt1509449",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 10,
+      "title": "Helping Hand",
+      "episodeImdbID": "tt1509442",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 14,
+      "title": "Civil Defense",
+      "episodeImdbID": "tt1693343",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 15,
+      "title": "The Wife",
+      "episodeImdbID": "tt1693356",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 17,
+      "title": "Defense Plant Security",
+      "episodeImdbID": "tt0978057",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 18,
+      "title": "Gun Running",
+      "episodeImdbID": "tt1506709",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 19,
+      "title": "Passports",
+      "episodeImdbID": "tt1509445",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 21,
+      "title": "Map of the City",
+      "episodeImdbID": "tt1693350",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 22,
+      "title": "Caviar",
+      "episodeImdbID": "tt1693342",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 25,
+      "title": "The Editor",
+      "episodeImdbID": "tt1084267",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 26,
+      "title": "Confused Comrades",
+      "episodeImdbID": "tt1693346",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 27,
+      "title": "Communications",
+      "episodeImdbID": "tt1693344",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 28,
+      "title": "Phantom Labor Leader",
+      "episodeImdbID": "tt1693351",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 29,
+      "title": "Progressive",
+      "episodeImdbID": "tt1693352",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 30,
+      "title": "The Old Man",
+      "episodeImdbID": "tt1693355",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 31,
+      "title": "Birthday",
+      "episodeImdbID": "tt1693341",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 33,
+      "title": "Dry Run",
+      "episodeImdbID": "tt1693348",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 34,
+      "title": "Comrade Wants Out",
+      "episodeImdbID": "tt1693345",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 35,
+      "title": "Depression",
+      "episodeImdbID": "tt1693347",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 36,
+      "title": "The Boss",
+      "episodeImdbID": "tt0882421",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 37,
+      "title": "Love Story",
+      "episodeImdbID": "tt1693349",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 38,
+      "title": "Unexpected Trip",
+      "episodeImdbID": "tt1693357",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 1,
+      "episode": 39,
+      "title": "Strategic Material",
+      "episodeImdbID": "tt1693353",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 1,
+      "title": "Counterfeit",
+      "episodeImdbID": "tt1506708",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 2,
+      "title": "Relatives",
+      "episodeImdbID": "tt1696842",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 4,
+      "title": "Martyr",
+      "episodeImdbID": "tt1509444",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 5,
+      "title": "Homing Station",
+      "episodeImdbID": "tt1509443",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 6,
+      "title": "Infiltration",
+      "episodeImdbID": "tt1695226",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 8,
+      "title": "The Bomb",
+      "episodeImdbID": "tt1509447",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 9,
+      "title": "Atomic Antidote",
+      "episodeImdbID": "tt1509438",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 10,
+      "title": "Day Camp",
+      "episodeImdbID": "tt1509440",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 11,
+      "title": "The Guest",
+      "episodeImdbID": "tt1509448",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 13,
+      "title": "Charity",
+      "episodeImdbID": "tt1695223",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 14,
+      "title": "Fifth Amendment",
+      "episodeImdbID": "tt1695225",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 15,
+      "title": "Rest Home",
+      "episodeImdbID": "tt1695227",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 19,
+      "title": "Mailing List",
+      "episodeImdbID": "tt1697226",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 24,
+      "title": "Goon Squad",
+      "episodeImdbID": "tt1696838",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 25,
+      "title": "Convicts",
+      "episodeImdbID": "tt1696837",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 27,
+      "title": "The Son",
+      "episodeImdbID": "tt1696843",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 28,
+      "title": "Vandalism",
+      "episodeImdbID": "tt1696844",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 29,
+      "title": "Brainwash",
+      "episodeImdbID": "tt1696835",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 30,
+      "title": "Boss #2",
+      "episodeImdbID": "tt1696834",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 31,
+      "title": "Revolt",
+      "episodeImdbID": "tt1697227",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 32,
+      "title": "Mr. and Mrs.",
+      "episodeImdbID": "tt1697228",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 33,
+      "title": "Oilfield",
+      "episodeImdbID": "tt1697229",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 34,
+      "title": "Church",
+      "episodeImdbID": "tt1697230",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 35,
+      "title": "Lost Report",
+      "episodeImdbID": "tt1697231",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 36,
+      "title": "Child Commie",
+      "episodeImdbID": "tt1697232",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 2,
+      "episode": 37,
+      "title": "Commie Dies",
+      "episodeImdbID": "tt1697233",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 2,
+      "title": "Attack Area",
+      "episodeImdbID": "tt1700961",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 4,
+      "title": "Athlete",
+      "episodeImdbID": "tt1700960",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 6,
+      "title": "Lawyer",
+      "episodeImdbID": "tt1700974",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 7,
+      "title": "Newsreel",
+      "episodeImdbID": "tt1700977",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 8,
+      "title": "Common Denominator",
+      "episodeImdbID": "tt1700964",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 9,
+      "title": "Ex G.I.",
+      "episodeImdbID": "tt1112448",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 10,
+      "title": "Stolen Passport",
+      "episodeImdbID": "tt1700981",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 11,
+      "title": "Prisoner",
+      "episodeImdbID": "tt1700979",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 13,
+      "title": "Instructional Camp",
+      "episodeImdbID": "tt1700972",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 16,
+      "title": "Trapped",
+      "episodeImdbID": "tt1700984",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 17,
+      "title": "Central American",
+      "episodeImdbID": "tt1700962",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 19,
+      "title": "Kidnap",
+      "episodeImdbID": "tt1700973",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 21,
+      "title": "Hit and Run",
+      "episodeImdbID": "tt1700971",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 22,
+      "title": "New Member",
+      "episodeImdbID": "tt1700976",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 23,
+      "title": "Missing",
+      "episodeImdbID": "tt1700975",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 25,
+      "title": "Commie Photo",
+      "episodeImdbID": "tt1700963",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 26,
+      "title": "Airman",
+      "episodeImdbID": "tt1700959",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 27,
+      "title": "Detectoscope",
+      "episodeImdbID": "tt1700966",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 29,
+      "title": "The Fiancee",
+      "episodeImdbID": "tt1700983",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 30,
+      "title": "Counterspy's Wife",
+      "episodeImdbID": "tt1700965",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 32,
+      "title": "Dynamite",
+      "episodeImdbID": "tt1700967",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 35,
+      "title": "Heart Attack",
+      "episodeImdbID": "tt1700969",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 36,
+      "title": "Eva Purged",
+      "episodeImdbID": "tt1700968",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 37,
+      "title": "Student Contest",
+      "episodeImdbID": "tt1700982",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "i-led-3-lives-1960",
+      "seriesTitle": "I Led 3 Lives",
+      "season": 3,
+      "episode": 38,
+      "title": "Rendezvous",
+      "episodeImdbID": "tt1701805",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "it-takes-a-worried-man-1981",
+      "seriesTitle": "It Takes a Worried Man",
+      "season": 2,
+      "episode": 3,
+      "title": "Night and Day",
+      "episodeImdbID": "tt1106060",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "it-takes-a-worried-man-1981",
+      "seriesTitle": "It Takes a Worried Man",
+      "season": 2,
+      "episode": 5,
+      "title": "Personnel",
+      "episodeImdbID": "tt1106061",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
       "seriesID": "kappa-mikey-2006",
       "seriesTitle": "Kappa Mikey",
       "season": 1,
@@ -12411,6 +16850,926 @@
       "fulfilled_at": "2026-06-02T08:55:06Z"
     },
     {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 2,
+      "title": "The Hollywood Musical",
+      "episodeImdbID": "tt1485622",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 3,
+      "title": "Give My Regards to Broadway",
+      "episodeImdbID": "tt0622089",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 8,
+      "title": "Stagedoor Johnny",
+      "episodeImdbID": "tt2392253",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 11,
+      "title": "Mitzi Gaynor Christmas Show",
+      "episodeImdbID": "tt2393461",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 12,
+      "title": "Woody Allen Looks at 1967",
+      "episodeImdbID": "tt0622100",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 16,
+      "title": "Vacation à la King",
+      "episodeImdbID": "tt1494251",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 17,
+      "title": "Cowboys and City Slickers",
+      "episodeImdbID": "tt0882448",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 19,
+      "title": "The Comedy Survival Kit",
+      "episodeImdbID": "tt2392255",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 20,
+      "title": "Mardi Gras 1968",
+      "episodeImdbID": "tt2392251",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 22,
+      "title": "County Fair #1",
+      "episodeImdbID": "tt1494252",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 23,
+      "title": "Two on the Aisle",
+      "episodeImdbID": "tt1494254",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 25,
+      "title": "Country Fair #3",
+      "episodeImdbID": "tt2393455",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 27,
+      "title": "County Fair #5",
+      "episodeImdbID": "tt2392245",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 28,
+      "title": "Country Fair #6",
+      "episodeImdbID": "tt2393459",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 29,
+      "title": "County Fair #7",
+      "episodeImdbID": "tt2392247",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 31,
+      "title": "Episode #1.31",
+      "episodeImdbID": "tt2392229",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 32,
+      "title": "Episode #1.32",
+      "episodeImdbID": "tt2392231",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 33,
+      "title": "Episode #1.33",
+      "episodeImdbID": "tt2392233",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 35,
+      "title": "Episode #1.35",
+      "episodeImdbID": "tt2392235",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 36,
+      "title": "Episode #1.36",
+      "episodeImdbID": "tt1524465",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 38,
+      "title": "Episode #1.38",
+      "episodeImdbID": "tt2392237",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 1,
+      "episode": 40,
+      "title": "Episode #1.40",
+      "episodeImdbID": "tt2392241",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 2,
+      "episode": 1,
+      "title": "The Kraft Premiere Show",
+      "episodeImdbID": "tt0622097",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 2,
+      "episode": 2,
+      "title": "Don Rickles' Brooklyn",
+      "episodeImdbID": "tt0622083",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 2,
+      "episode": 3,
+      "title": "Episode #2.3",
+      "episodeImdbID": "tt2222496",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 2,
+      "episode": 4,
+      "title": "Episode #2.4",
+      "episodeImdbID": "tt2223600",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 2,
+      "episode": 6,
+      "title": "Johnny Carson Friars' Roast",
+      "episodeImdbID": "tt2223618",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 2,
+      "episode": 7,
+      "title": "Comedy 2001 - Give or Take a Couple of Weeks",
+      "episodeImdbID": "tt2224534",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 2,
+      "episode": 8,
+      "title": "2nd Annual Country Music Association Awards",
+      "episodeImdbID": "tt0622086",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 2,
+      "episode": 11,
+      "title": "Episode #2.11",
+      "episodeImdbID": "tt2276548",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 2,
+      "episode": 12,
+      "title": "Episode #2.12",
+      "episodeImdbID": "tt2276552",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 2,
+      "episode": 13,
+      "title": "Episode #2.13",
+      "episodeImdbID": "tt2276556",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 2,
+      "episode": 16,
+      "title": "Don Adams and Don Rickles Are Alive and Well and Living in California",
+      "episodeImdbID": "tt2276596",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 2,
+      "episode": 17,
+      "title": "Jimmy Durante and Don Knotts Do Their Thing... Also!",
+      "episodeImdbID": "tt1133022",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 2,
+      "episode": 22,
+      "title": "Episode #2.22",
+      "episodeImdbID": "tt2287658",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 3,
+      "episode": 7,
+      "title": "Episode #3.7",
+      "episodeImdbID": "tt2290670",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 3,
+      "episode": 8,
+      "title": "The Sound of Burt Bacharach",
+      "episodeImdbID": "tt1519594",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 3,
+      "episode": 10,
+      "title": "Episode #3.10",
+      "episodeImdbID": "tt0856669",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 3,
+      "episode": 15,
+      "title": "Episode #3.15",
+      "episodeImdbID": "tt1566164",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 3,
+      "episode": 17,
+      "title": "Episode #3.17",
+      "episodeImdbID": "tt1566165",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 3,
+      "episode": 18,
+      "title": "Episode #3.18",
+      "episodeImdbID": "tt1566166",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 3,
+      "episode": 20,
+      "title": "Episode #3.20",
+      "episodeImdbID": "tt0856670",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 2,
+      "title": "Mr. Anthony Quinn and Miss Peggy Lee",
+      "episodeImdbID": "tt0394740",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 3,
+      "title": "Friars Club Roast of Don Rickles",
+      "episodeImdbID": "tt1107612",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 6,
+      "title": "Bob & Carol & Martin & Barbara",
+      "episodeImdbID": "tt2292968",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 11,
+      "title": "Love and Marriage - Part 1",
+      "episodeImdbID": "tt4538962",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 12,
+      "title": "Love and Marriage - Part 2",
+      "episodeImdbID": "tt4538976",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 13,
+      "title": "Christmas Program",
+      "episodeImdbID": "tt4539322",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 14,
+      "title": "Comedy on Ice",
+      "episodeImdbID": "tt4539438",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 16,
+      "title": "Alan King Plays the Games People Play",
+      "episodeImdbID": "tt4538934",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 17,
+      "title": "The Kopykats Kopy TV",
+      "episodeImdbID": "tt4538958",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 18,
+      "title": "Friars Club Roast of Jerry Lewis",
+      "episodeImdbID": "tt1107613",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 19,
+      "title": "Locker Room Follies",
+      "episodeImdbID": "tt4540040",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 20,
+      "title": "Eddy Arnold and the Young Americans",
+      "episodeImdbID": "tt4540076",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 21,
+      "title": "Alan King's Wonderful World of Aggravations - 1971",
+      "episodeImdbID": "tt4541040",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 22,
+      "title": "A Festival of Music",
+      "episodeImdbID": "tt4541044",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 23,
+      "title": "Surburbia U.S.A.",
+      "episodeImdbID": "tt4540976",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "kraft-music-hall-1958",
+      "seriesTitle": "Kraft Music Hall",
+      "season": 4,
+      "episode": 24,
+      "title": "A Salute to the Oscars",
+      "episodeImdbID": "tt4541042",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
+      "episode": 1,
+      "title": "Cha-Ka",
+      "episodeImdbID": "tt0772520",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
+      "episode": 3,
+      "title": "Dopey",
+      "episodeImdbID": "tt0772521",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
+      "episode": 6,
+      "title": "The Stranger",
+      "episodeImdbID": "tt0770003",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
+      "episode": 7,
+      "title": "Album",
+      "episodeImdbID": "tt0624483",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
+      "episode": 8,
+      "title": "Skylons",
+      "episodeImdbID": "tt0792263",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
+      "episode": 9,
+      "title": "The Hole",
+      "episodeImdbID": "tt0624487",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
+      "episode": 10,
+      "title": "The Paku Who Came to Dinner",
+      "episodeImdbID": "tt0792270",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
+      "episode": 11,
+      "title": "The Search",
+      "episodeImdbID": "tt0792272",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
+      "episode": 12,
+      "title": "The Possession",
+      "episodeImdbID": "tt0793108",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
+      "episode": 13,
+      "title": "Follow That Dinosaur",
+      "episodeImdbID": "tt0792257",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
+      "episode": 15,
+      "title": "Elsewhen",
+      "episodeImdbID": "tt0792254",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
+      "episode": 16,
+      "title": "Hurricane",
+      "episodeImdbID": "tt0624484",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 1,
+      "episode": 17,
+      "title": "Circle",
+      "episodeImdbID": "tt0792252",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 2,
+      "episode": 1,
+      "title": "Tar Pit",
+      "episodeImdbID": "tt0792267",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 2,
+      "episode": 2,
+      "title": "The Zarn",
+      "episodeImdbID": "tt0624488",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 2,
+      "episode": 4,
+      "title": "One of Our Pylons Is Missing",
+      "episodeImdbID": "tt0792261",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 2,
+      "episode": 6,
+      "title": "Gravity Storm",
+      "episodeImdbID": "tt0792258",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 2,
+      "episode": 7,
+      "title": "The Longest Day",
+      "episodeImdbID": "tt0793107",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 2,
+      "episode": 8,
+      "title": "The Pylon Express",
+      "episodeImdbID": "tt0792271",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 2,
+      "episode": 9,
+      "title": "Nice Day",
+      "episodeImdbID": "tt0792246",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 2,
+      "episode": 10,
+      "title": "Baby Sitter",
+      "episodeImdbID": "tt0792250",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 2,
+      "episode": 11,
+      "title": "The Musician",
+      "episodeImdbID": "tt0792268",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 2,
+      "episode": 12,
+      "title": "Split Personality",
+      "episodeImdbID": "tt0792264",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 2,
+      "episode": 13,
+      "title": "Blackout",
+      "episodeImdbID": "tt0792251",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 3,
+      "episode": 1,
+      "title": "After-Shock",
+      "episodeImdbID": "tt0792248",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 3,
+      "episode": 2,
+      "title": "Survival Kit",
+      "episodeImdbID": "tt0792266",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 3,
+      "episode": 3,
+      "title": "The Orb",
+      "episodeImdbID": "tt0792269",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 3,
+      "episode": 5,
+      "title": "Medusa",
+      "episodeImdbID": "tt0624485",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 3,
+      "episode": 6,
+      "title": "Cornered",
+      "episodeImdbID": "tt0792253",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 3,
+      "episode": 7,
+      "title": "Flying Dutchman",
+      "episodeImdbID": "tt0792256",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 3,
+      "episode": 9,
+      "title": "Abominable Snowman",
+      "episodeImdbID": "tt0792247",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 3,
+      "episode": 11,
+      "title": "Ancient Guardian",
+      "episodeImdbID": "tt0792249",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 3,
+      "episode": 12,
+      "title": "Scarab",
+      "episodeImdbID": "tt0792262",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "land-of-the-lost-1974",
+      "seriesTitle": "Land of the Lost",
+      "season": 3,
+      "episode": 13,
+      "title": "Medicine Man",
+      "episodeImdbID": "tt0792260",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
       "seriesID": "life-on-a-stick-2005",
       "seriesTitle": "Life on a Stick",
       "season": 1,
@@ -12519,6 +17878,186 @@
       "episodeImdbID": "tt0641489",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 3,
+      "title": "It Shouldn't Happen to a Dog",
+      "episodeImdbID": "tt0906440",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 4,
+      "title": "Bye, Bye Cupid",
+      "episodeImdbID": "tt1348674",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 5,
+      "title": "Burnley at the Bridge",
+      "episodeImdbID": "tt1348673",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 6,
+      "title": "Joe's Place",
+      "episodeImdbID": "tt1348679",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 7,
+      "title": "The Best Seller",
+      "episodeImdbID": "tt1348683",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 9,
+      "title": "Krockmeyer on Avon",
+      "episodeImdbID": "tt1348680",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 10,
+      "title": "East is West",
+      "episodeImdbID": "tt1348675",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 12,
+      "title": "The Fashion Show",
+      "episodeImdbID": "tt1348684",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 14,
+      "title": "The Surprise Visit",
+      "episodeImdbID": "tt1348688",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 15,
+      "title": "Taming of the Beast",
+      "episodeImdbID": "tt1348682",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 16,
+      "title": "No Nose is Good Nose",
+      "episodeImdbID": "tt1348681",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 17,
+      "title": "Foster Father of the Bride",
+      "episodeImdbID": "tt1348676",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 19,
+      "title": "Three on a Honeymoon",
+      "episodeImdbID": "tt1348689",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 20,
+      "title": "Pop Goes the Easel",
+      "episodeImdbID": "tt0799218",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 21,
+      "title": "The Krockmeyer Caper",
+      "episodeImdbID": "tt1348686",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 23,
+      "title": "Idol Threats",
+      "episodeImdbID": "tt1348677",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 24,
+      "title": "A Date for Walter",
+      "episodeImdbID": "tt1348672",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "many-happy-returns-1964",
+      "seriesTitle": "Many Happy Returns",
+      "season": 1,
+      "episode": 26,
+      "title": "It's a Gift",
+      "episodeImdbID": "tt1348678",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
     },
     {
       "seriesID": "mary-kate-and-ashley-in-action-2001",
@@ -13118,6 +18657,206 @@
       "added_at": "2026-06-02T08:32:33Z"
     },
     {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 2,
+      "title": "A Clear Field",
+      "episodeImdbID": "tt0888255",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 3,
+      "title": "Message Received",
+      "episodeImdbID": "tt0888266",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 4,
+      "title": "Five Hours to Kill",
+      "episodeImdbID": "tt0888262",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 5,
+      "title": "Return to Danger",
+      "episodeImdbID": "tt0888269",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 6,
+      "title": "A Safe House",
+      "episodeImdbID": "tt0888258",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 7,
+      "title": "Danger by Appointment",
+      "episodeImdbID": "tt0888260",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 8,
+      "title": "Unwelcome Ghost",
+      "episodeImdbID": "tt0888276",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 9,
+      "title": "Round Trip",
+      "episodeImdbID": "tt0888270",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 10,
+      "title": "No Joy",
+      "episodeImdbID": "tt0888268",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 11,
+      "title": "A Sunday Morning",
+      "episodeImdbID": "tt0888259",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 12,
+      "title": "Death Sentence",
+      "episodeImdbID": "tt0888261",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 13,
+      "title": "The Expert",
+      "episodeImdbID": "tt0888274",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 14,
+      "title": "Four to Go",
+      "episodeImdbID": "tt0888263",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 15,
+      "title": "Last Act",
+      "episodeImdbID": "tt0888265",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 19,
+      "title": "Rush Job",
+      "episodeImdbID": "tt0888271",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 20,
+      "title": "He Who Tells",
+      "episodeImdbID": "tt0888264",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 21,
+      "title": "A Matter of Trust",
+      "episodeImdbID": "tt0888257",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 23,
+      "title": "The Canary",
+      "episodeImdbID": "tt0888273",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 24,
+      "title": "Try Out",
+      "episodeImdbID": "tt0888275",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "moonstrike-1963",
+      "seriesTitle": "Moonstrike",
+      "season": 1,
+      "episode": 26,
+      "title": "No Heroics",
+      "episodeImdbID": "tt0888267",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
       "seriesID": "out-of-jimmy-s-head-2007",
       "seriesTitle": "Out of Jimmy's Head",
       "season": 1,
@@ -13176,6 +18915,526 @@
       "episodeImdbID": "tt1240748",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "out-of-the-unknown-1965",
+      "seriesTitle": "Out of the Unknown",
+      "season": 1,
+      "episode": 2,
+      "title": "The Counterfeit Man",
+      "episodeImdbID": "tt0059061",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "out-of-the-unknown-1965",
+      "seriesTitle": "Out of the Unknown",
+      "season": 1,
+      "episode": 5,
+      "title": "Time in Advance",
+      "episodeImdbID": "tt0059808",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "out-of-the-unknown-1965",
+      "seriesTitle": "Out of the Unknown",
+      "season": 1,
+      "episode": 11,
+      "title": "Thirteen to Centaurus",
+      "episodeImdbID": "tt0279463",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "out-of-the-unknown-1965",
+      "seriesTitle": "Out of the Unknown",
+      "season": 2,
+      "episode": 2,
+      "title": "Frankenstein Mark 2",
+      "episodeImdbID": "tt0060428",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "out-of-the-unknown-1965",
+      "seriesTitle": "Out of the Unknown",
+      "season": 3,
+      "episode": 4,
+      "title": "Beach Head",
+      "episodeImdbID": "tt0280467",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "out-of-the-unknown-1965",
+      "seriesTitle": "Out of the Unknown",
+      "season": 3,
+      "episode": 5,
+      "title": "Something in the Cellar",
+      "episodeImdbID": "tt0065015",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "out-of-the-unknown-1965",
+      "seriesTitle": "Out of the Unknown",
+      "season": 3,
+      "episode": 6,
+      "title": "Random Quest",
+      "episodeImdbID": "tt0281114",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "out-of-the-unknown-1965",
+      "seriesTitle": "Out of the Unknown",
+      "season": 3,
+      "episode": 9,
+      "title": "1+1=1.5",
+      "episodeImdbID": "tt0280376",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "out-of-the-unknown-1965",
+      "seriesTitle": "Out of the Unknown",
+      "season": 3,
+      "episode": 11,
+      "title": "Target Generation",
+      "episodeImdbID": "tt0065068",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "out-of-the-unknown-1965",
+      "seriesTitle": "Out of the Unknown",
+      "season": 4,
+      "episode": 4,
+      "title": "Deathday",
+      "episodeImdbID": "tt0066978",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "out-of-the-unknown-1965",
+      "seriesTitle": "Out of the Unknown",
+      "season": 4,
+      "episode": 7,
+      "title": "The Last Witness",
+      "episodeImdbID": "tt0280863",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "out-of-the-unknown-1965",
+      "seriesTitle": "Out of the Unknown",
+      "season": 4,
+      "episode": 9,
+      "title": "The Chopper",
+      "episodeImdbID": "tt0066912",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "play-for-today-2025",
+      "seriesTitle": "Play for Today",
+      "season": 1,
+      "episode": 3,
+      "title": "A Knock at the Door",
+      "episodeImdbID": "tt37956330",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "riders-in-the-sky-1989",
+      "seriesTitle": "Riders In The Sky",
+      "season": 1,
+      "episode": 1,
+      "title": "Saddle Pals",
+      "episodeImdbID": "tt1030366",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "riders-in-the-sky-1989",
+      "seriesTitle": "Riders In The Sky",
+      "season": 1,
+      "episode": 2,
+      "title": "Harmony Ranch",
+      "episodeImdbID": "tt1030364",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "riders-in-the-sky-1989",
+      "seriesTitle": "Riders In The Sky",
+      "season": 1,
+      "episode": 3,
+      "title": "Horsenapped",
+      "episodeImdbID": "tt1030365",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "riders-in-the-sky-1989",
+      "seriesTitle": "Riders In The Sky",
+      "season": 1,
+      "episode": 7,
+      "title": "Muley's Revenge",
+      "episodeImdbID": "tt6346122",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "riders-in-the-sky-1989",
+      "seriesTitle": "Riders In The Sky",
+      "season": 1,
+      "episode": 8,
+      "title": "Trail Weevils",
+      "episodeImdbID": "tt6346124",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "riders-in-the-sky-1989",
+      "seriesTitle": "Riders In The Sky",
+      "season": 1,
+      "episode": 9,
+      "title": "Fool's Gold",
+      "episodeImdbID": "tt6346126",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "riders-in-the-sky-1989",
+      "seriesTitle": "Riders In The Sky",
+      "season": 1,
+      "episode": 10,
+      "title": "Bad Brothers",
+      "episodeImdbID": "tt6346134",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "riders-in-the-sky-1989",
+      "seriesTitle": "Riders In The Sky",
+      "season": 1,
+      "episode": 11,
+      "title": "Curse of the Mine",
+      "episodeImdbID": "tt6346138",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "riders-in-the-sky-1989",
+      "seriesTitle": "Riders In The Sky",
+      "season": 1,
+      "episode": 12,
+      "title": "The Contraption",
+      "episodeImdbID": "tt6346142",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "riders-in-the-sky-1989",
+      "seriesTitle": "Riders In The Sky",
+      "season": 1,
+      "episode": 13,
+      "title": "Mail Order Brides",
+      "episodeImdbID": "tt6346144",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 1,
+      "title": "Beyond the Curtain of Space: Chapter I",
+      "episodeImdbID": "tt0688147",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 2,
+      "title": "Beyond the Curtain of Space: Chapter II",
+      "episodeImdbID": "tt1738326",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 3,
+      "title": "Beyond the Curtain of Space: Chapter III",
+      "episodeImdbID": "tt1738639",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 4,
+      "title": "Bobby's Comet: Chapter I",
+      "episodeImdbID": "tt0688149",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 6,
+      "title": "Bobby's Comet: Chapter III",
+      "episodeImdbID": "tt1736955",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 8,
+      "title": "Rocky's Odyssey: Chapter I",
+      "episodeImdbID": "tt0688156",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 11,
+      "title": "The Pirates of Prah: Chapter I",
+      "episodeImdbID": "tt0688159",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 16,
+      "title": "The Forbidden Moon: Chapter III",
+      "episodeImdbID": "tt1736961",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 17,
+      "title": "Silver Needle in the Sky: Chapter I",
+      "episodeImdbID": "tt0688157",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 19,
+      "title": "Silver Needle in the Sky: Chapter III",
+      "episodeImdbID": "tt1736959",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 22,
+      "title": "Crash of Moons: Chapter II",
+      "episodeImdbID": "tt1211703",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 23,
+      "title": "Crash of Moons: Chapter III",
+      "episodeImdbID": "tt1211704",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 26,
+      "title": "Blast Off: Chapter III",
+      "episodeImdbID": "tt1736954",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 27,
+      "title": "The Cold Sun: Chapter I",
+      "episodeImdbID": "tt0688158",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 28,
+      "title": "The Cold Sun: Chapter II",
+      "episodeImdbID": "tt1738329",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 29,
+      "title": "The Cold Sun: Chapter III",
+      "episodeImdbID": "tt1738330",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 31,
+      "title": "Inferno in Space: Chapter II",
+      "episodeImdbID": "tt1738327",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 32,
+      "title": "Inferno in Space: Chapter III",
+      "episodeImdbID": "tt1738328",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 33,
+      "title": "Vena and the Darnamo",
+      "episodeImdbID": "tt0688161",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 34,
+      "title": "Out of This World: Chapter I",
+      "episodeImdbID": "tt0688155",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 36,
+      "title": "Out of This World: Chapter III",
+      "episodeImdbID": "tt1735730",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 37,
+      "title": "The Trial of Rocky Jones: Chapter I",
+      "episodeImdbID": "tt0688160",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "rocky-jones-space-ranger-1954",
+      "seriesTitle": "Rocky Jones, Space Ranger",
+      "season": 1,
+      "episode": 39,
+      "title": "The Trial of Rocky Jones: Chapter III",
+      "episodeImdbID": "tt1735732",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "sally-jessy-raphael-2019",
+      "seriesTitle": "Sally Jessy Raphael",
+      "season": 1,
+      "episode": 1,
+      "title": "I Can't Stand Looking Like My Twin",
+      "episodeImdbID": "tt6840044",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "sally-jessy-raphael-2019",
+      "seriesTitle": "Sally Jessy Raphael",
+      "season": 1,
+      "episode": 2,
+      "title": "Episode #1.2",
+      "episodeImdbID": "tt13544162",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "sally-jessy-raphael-2019",
+      "seriesTitle": "Sally Jessy Raphael",
+      "season": 1,
+      "episode": 3,
+      "title": "Episode #1.3",
+      "episodeImdbID": "tt13560716",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "sally-jessy-raphael-2019",
+      "seriesTitle": "Sally Jessy Raphael",
+      "season": 2,
+      "episode": 1,
+      "title": "Episode #2.1",
+      "episodeImdbID": "tt11725158",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "sally-jessy-raphael-2019",
+      "seriesTitle": "Sally Jessy Raphael",
+      "season": 3,
+      "episode": 6,
+      "title": "My Daughter Is Being Stalked",
+      "episodeImdbID": "tt2337305",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
+    },
+    {
+      "seriesID": "sally-jessy-raphael-2019",
+      "seriesTitle": "Sally Jessy Raphael",
+      "season": 9,
+      "episode": 1,
+      "title": "Episode #9.1",
+      "episodeImdbID": "tt13573912",
+      "status": "wanted",
+      "added_at": "2026-06-03T08:37:11Z"
     },
     {
       "seriesID": "salute-your-shorts-1991",

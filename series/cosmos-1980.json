@@ -4,7 +4,7 @@
   "tvmazeID": 1128,
   "title": "Cosmos",
   "yearStart": 1980,
-  "yearEnd": 2020,
+  "yearEnd": 2025,
   "overview": "Hosted by renowned astrophysicist Neil deGrasse Tyson, Cosmos will explore how we discovered the laws of nature and found our coordinates in space and time. It will bring to life never-before-told stories of the heroic quest for knowledge and transport viewers to new worlds and across the universe for a vision of the cosmos on the grandest scale. Cosmos will invent new modes of scientific storytelling to reveal the grandeur of the universe and re-invent celebrated elements of the legendary original series, including the Cosmic Calendar and the Ship of the Imagination. The most profound scientific concepts will be presented with stunning clarity, uniting skepticism and wonder, and weaving rigorous science with the emotional and spiritual into a transcendent experience.",
   "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006408.jpg",
   "backdropURL": null,
@@ -22,6 +22,60 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "hindi-cosmos-s01e01-standing-up-in-the-milky-way-audiotrack-1080p-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "(Hindi) Cosmos S01E01 Standing Up In The Milky Way Audiotrack 1080p by Vaibhav khade",
+          "overview": "(Hindi) Cosmos S01E01 Standing Up In The Milky Way Audiotrack 1080p by Vaibhav khade",
+          "stillURL": "https://archive.org/services/img/hindi-cosmos-s01e01-standing-up-in-the-milky-way-audiotrack-1080p-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2763,
+          "videoFile": {
+            "name": "Cosmos_S01E01_Standing_Up_in_the_Milky_Way_audiotrack.mp4",
+            "format": "h.264",
+            "sizeBytes": 260858416,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hindi-cosmos-s01e01-standing-up-in-the-milky-way-audiotrack-1080p-by-vaibhav-khade/Cosmos_S01E01_Standing_Up_in_the_Milky_Way_audiotrack.mp4"
+        },
+        {
+          "archiveID": "carl-sagan-cosmos-special-edition-1986-ep-01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Carl Sagan Cosmos Special Edition 1986 Ep 01",
+          "overview": "episode 1",
+          "stillURL": "https://archive.org/services/img/carl-sagan-cosmos-special-edition-1986-ep-01",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2583,
+          "videoFile": {
+            "name": "Carl Sagan Cosmos Special Edition 1986 ep01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 90169930,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/carl-sagan-cosmos-special-edition-1986-ep-01/Carl%20Sagan%20Cosmos%20Special%20Edition%201986%20ep01.ia.mp4"
+        },
+        {
+          "archiveID": "youtube-7UieUBPiGkw",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Cosmos S1-E1 | 4K - Remastered",
+          "overview": "Remastered Edition of Cosmos: A Personal Voyage (Episode 1)<br /><br />The following principles were carefully considered during the editing process:<br /><br />*No scenes featuring Carl Sagan have been altered.<br />*The pacing and narrative of the original episode remain unchanged.<br />*Only computer-generated visuals have been updated, using modern imagery from official sources, including NASA, ESA, and ISRO. Additional visuals have been captured using SpaceEngine.<br />*All replaced scenes include source credits in the bottom-left corner.<br /><br />This project is a tribute to the scientific spirit and enduring legacy of Cosmos: A Personal Voyage.",
+          "stillURL": "https://archive.org/services/img/youtube-7UieUBPiGkw",
+          "airDate": null,
+          "year": 2025,
+          "runtimeSeconds": 3626,
+          "videoFile": {
+            "name": "7UieUBPiGkw.mp4",
+            "format": "h.264",
+            "sizeBytes": 368896359,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/youtube-7UieUBPiGkw/7UieUBPiGkw.mp4"
+        },
+        {
           "archiveID": "Cosmos-1980-S01E01-The-Shores-Of-The-Cosmic-Ocean-720p-by-Vaibhav-khade",
           "seasonNumber": 1,
           "episodeNumber": 1,
@@ -38,6 +92,42 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Cosmos-1980-S01E01-The-Shores-Of-The-Cosmic-Ocean-720p-by-Vaibhav-khade/Cosmos.1980.S01E01 - The Shores of the Cosmic Ocean-MkvCage.ws.ia.mp4"
+        },
+        {
+          "archiveID": "carl-sagan-cosmos-special-edition-1986-ep-02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Carl Sagan Cosmos Special Edition 1986 Ep 02",
+          "overview": "episode 2<br />",
+          "stillURL": "https://archive.org/services/img/carl-sagan-cosmos-special-edition-1986-ep-02",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2663,
+          "videoFile": {
+            "name": "Carl Sagan Cosmos Special Edition 1986 ep02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145809904,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/carl-sagan-cosmos-special-edition-1986-ep-02/Carl%20Sagan%20Cosmos%20Special%20Edition%201986%20ep02.mp4"
+        },
+        {
+          "archiveID": "cosmos-s01e02-some-of-the-things-that-molecules-do-with-subtitles-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Cosmos S01E02 Some Of The Things That Molecules Do with subtitles by Vaibhav khade",
+          "overview": "Cosmos S01E02 Some Of The Things That Molecules Do with subtitles by Vaibhav khade",
+          "stillURL": "https://archive.org/services/img/cosmos-s01e02-some-of-the-things-that-molecules-do-with-subtitles-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2714,
+          "videoFile": {
+            "name": "Cosmos_S01E02_Some_of_the_Things_That_Molecules_Do.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 446241536,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cosmos-s01e02-some-of-the-things-that-molecules-do-with-subtitles-by-vaibhav-khade/Cosmos_S01E02_Some_of_the_Things_That_Molecules_Do.ia.mp4"
         },
         {
           "archiveID": "Cosmos-1980-S01E02-One-Voice-In-The-Cosmic-Fugue-720p-by-Vaibhav-khade",
@@ -58,6 +148,24 @@
           "downloadURL": "https://archive.org/download/Cosmos-1980-S01E02-One-Voice-In-The-Cosmic-Fugue-720p-by-Vaibhav-khade/Cosmos.1980.S01E02 - One Voice in the Cosmic Fugue-MkvCage.ws.ia.mp4"
         },
         {
+          "archiveID": "carl-sagan-cosmos-special-edition-1986-ep-03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Carl Sagan Cosmos Special Edition 1986 Ep 03",
+          "overview": "episode 3<br />",
+          "stillURL": "https://archive.org/services/img/carl-sagan-cosmos-special-edition-1986-ep-03",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2641,
+          "videoFile": {
+            "name": "Carl Sagan Cosmos Special Edition 1986 ep03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 139969712,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/carl-sagan-cosmos-special-edition-1986-ep-03/Carl%20Sagan%20Cosmos%20Special%20Edition%201986%20ep03.mp4"
+        },
+        {
           "archiveID": "Cosmos-1980-S01E03-Harmony-Of-The-Worlds-720p-by-Vaibhav-khade",
           "seasonNumber": 1,
           "episodeNumber": 3,
@@ -74,11 +182,371 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Cosmos-1980-S01E03-Harmony-Of-The-Worlds-720p-by-Vaibhav-khade/Cosmos.1980.S01E03 -  Harmony of the Worlds-MkvCage.ws.ia.mp4"
+        },
+        {
+          "archiveID": "carl-sagan-cosmos-special-edition-1986-ep-04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Carl Sagan Cosmos Special Edition 1986 Ep 04",
+          "overview": "episode 4<br />",
+          "stillURL": "https://archive.org/services/img/carl-sagan-cosmos-special-edition-1986-ep-04",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2625,
+          "videoFile": {
+            "name": "Carl Sagan Cosmos Special Edition 1986 ep04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 150546835,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/carl-sagan-cosmos-special-edition-1986-ep-04/Carl%20Sagan%20Cosmos%20Special%20Edition%201986%20ep04.mp4"
+        },
+        {
+          "archiveID": "cosmos4heavenandhell360p",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Cosmos 4 Heaven And Hell ( 360 P)",
+          "overview": "Carl Sagan cosmos series episode 4<div><p dir=\"ltr\"><br />\nGenreDocumentaryCreated by</p>\n<p dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/Carl_Sagan\" rel=\"nofollow\">Carl Sagan</a><br /></p>\n<p dir=\"ltr\"><br /></p>\n<p dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/Ann_Druyan\" rel=\"nofollow\">Ann Druyan</a><br /></p>\n<p dir=\"ltr\"><br /></p>\n<p dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/Steven_Soter\" rel=\"nofollow\">Steven Soter</a><br /></p>\n<p dir=\"ltr\"><br />\nDirected by<a href=\"https://en.wikipedia.org/wiki/Adrian_Malone\" rel=\"nofollow\">Adrian Malone</a>Presented byCarl SaganComposer(s)<a href=\"https://en.wikipedia.org/wiki/Vangelis\" rel=\"nofollow\">Vangelis</a>; various artistsCountry of originUnited StatesOriginal language(s)EnglishNo. of seasons1No. of episodes13 (<a href=\"https://en.wikipedia.org/wiki/Cosmos:_A_Personal_Voyage#Episodes\" rel=\"nofollow\">list of episodes</a>)<br />\nProductionProducer(s)</p>\n<p dir=\"ltr\">Gregory Andorfer<br /></p>\n<p dir=\"ltr\"><br /></p>\n<p dir=\"ltr\">Rob McCain<br /></p>\n<p dir=\"ltr\"><br />\nRunning time: 60 minutesReleaseOriginal network<a href=\"https://en.wikipedia.org/wiki/PBS\" rel=\"nofollow\">PBS</a>Picture format<a href=\"https://en.wikipedia.org/wiki/4:3\" rel=\"nofollow\">4:3</a> <a href=\"https://en.wikipedia.org/wiki/SDTV\" rel=\"nofollow\">SDTV</a>Audio formatStereo<sup>[</sup><a href=\"https://en.wikipedia.org/wiki/Wikipedia:Citation_needed\" rel=\"nofollow\"><sup>citation needed</sup></a><sup>]</sup>Original releaseSeptember 28 –<br />\nDecember 21, 1980ChronologyFollowed by</p>\n<p dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/Cosmos:_A_Spacetime_Odyssey\" rel=\"nofollow\">Cosmos: A Spacetime Odyssey</a> (2014)<br /></p>\n<p dir=\"ltr\"><br /></p>\n<p dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/Cosmos:_Possible_Worlds\" rel=\"nofollow\">Cosmos: Possible Worlds</a> (2020)<br /></p>\n<p dir=\"ltr\"><br /></p><br /></div>",
+          "stillURL": "https://archive.org/services/img/cosmos4heavenandhell360p",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3663,
+          "videoFile": {
+            "name": "Cosmos 4 - _Heaven and Hell_(360P).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 188569290,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cosmos4heavenandhell360p/Cosmos%204%20-%20_Heaven%20and%20Hell_%28360P%29.mp4"
+        },
+        {
+          "archiveID": "hindi-cosmos-s01e05-hiding-in-the-light-audiotrack-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "( Hindi ) Cosmos S01E05 Hiding In The Light Audiotrack by Vaibhav khade",
+          "overview": "<div>( Hindi ) Cosmos S01E05 Hiding In The Light Audiotrack by Vaibhav khade<br /></div><div><br /></div>",
+          "stillURL": "https://archive.org/services/img/hindi-cosmos-s01e05-hiding-in-the-light-audiotrack-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2763,
+          "videoFile": {
+            "name": "Cosmos_S01E05_Hiding_in_the_Light_audiotrack.mp4",
+            "format": "h.264",
+            "sizeBytes": 259734051,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hindi-cosmos-s01e05-hiding-in-the-light-audiotrack-by-vaibhav-khade/Cosmos_S01E05_Hiding_in_the_Light_audiotrack.mp4"
+        },
+        {
+          "archiveID": "carl-sagan-cosmos-special-edition-1986-ep-05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Carl Sagan Cosmos Special Edition 1986 Ep 05",
+          "overview": "episode 5<br />",
+          "stillURL": "https://archive.org/services/img/carl-sagan-cosmos-special-edition-1986-ep-05",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2634,
+          "videoFile": {
+            "name": "Carl Sagan Cosmos Special Edition 1986 ep05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155350495,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/carl-sagan-cosmos-special-edition-1986-ep-05/Carl%20Sagan%20Cosmos%20Special%20Edition%201986%20ep05.mp4"
+        },
+        {
+          "archiveID": "cosmos-s01e05-hiding-in-the-light-with-subtitles-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Cosmos S01E05 Hiding In The Light with subtitles by Vaibhav khade",
+          "overview": "Cosmos S01E05 Hiding In The Light with subtitles by Vaibhav khade",
+          "stillURL": "https://archive.org/services/img/cosmos-s01e05-hiding-in-the-light-with-subtitles-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2763,
+          "videoFile": {
+            "name": "Cosmos_S01E05_Hiding_in_the_Light.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 451377585,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cosmos-s01e05-hiding-in-the-light-with-subtitles-by-vaibhav-khade/Cosmos_S01E05_Hiding_in_the_Light.ia.mp4"
+        },
+        {
+          "archiveID": "carl-sagan-cosmos-special-edition-1986-ep-06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Carl Sagan Cosmos Special Edition 1986 Ep 06",
+          "overview": "episode 6<br />",
+          "stillURL": "https://archive.org/services/img/carl-sagan-cosmos-special-edition-1986-ep-06",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2663,
+          "videoFile": {
+            "name": "Carl Sagan Cosmos Special Edition 1986 ep06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155909166,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/carl-sagan-cosmos-special-edition-1986-ep-06/Carl%20Sagan%20Cosmos%20Special%20Edition%201986%20ep06.mp4"
+        },
+        {
+          "archiveID": "cosmos-s01e07-the-clean-room-with-subtitles-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Cosmos S01E07 The Clean Room with subtitles by Vaibhav khade",
+          "overview": "Cosmos S01E07 The Clean Room with subtitles by Vaibhav khade",
+          "stillURL": "https://archive.org/services/img/cosmos-s01e07-the-clean-room-with-subtitles-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2645,
+          "videoFile": {
+            "name": "the Clean Room with subtitles.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 431379272,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cosmos-s01e07-the-clean-room-with-subtitles-by-vaibhav-khade/the%20Clean%20Room%20with%20subtitles.ia.mp4"
+        },
+        {
+          "archiveID": "cosmos-s01e08-sisters-of-the-sun-with-subtitles-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Cosmos S01E08 Sisters Of The Sun with subtitles by Vaibhav khade",
+          "overview": "Cosmos S01E08 Sisters Of The Sun with subtitles by Vaibhav khade",
+          "stillURL": "https://archive.org/services/img/cosmos-s01e08-sisters-of-the-sun-with-subtitles-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2592,
+          "videoFile": {
+            "name": "Cosmos_S01E08_Sisters_of_the_Sun.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 423780806,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cosmos-s01e08-sisters-of-the-sun-with-subtitles-by-vaibhav-khade/Cosmos_S01E08_Sisters_of_the_Sun.ia.mp4"
+        },
+        {
+          "archiveID": "hindi-cosmos-s01e09-the-lost-worlds-of-planet-earth-audiotrack-1080p-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "( Hindi ) Cosmos S01E09 The Lost Worlds Of Planet Earth Audiotrack 1080p by Vaibhav khade",
+          "overview": "( Hindi ) Cosmos S01E09 The Lost Worlds Of Planet Earth Audiotrack 1080p by Vaibhav khade",
+          "stillURL": "https://archive.org/services/img/hindi-cosmos-s01e09-the-lost-worlds-of-planet-earth-audiotrack-1080p-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2658,
+          "videoFile": {
+            "name": "Cosmos_S01E09_The_Lost_Worlds_of_Planet_Earth_audiotrack.mp4",
+            "format": "h.264",
+            "sizeBytes": 250507953,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hindi-cosmos-s01e09-the-lost-worlds-of-planet-earth-audiotrack-1080p-by-vaibhav-khade/Cosmos_S01E09_The_Lost_Worlds_of_Planet_Earth_audiotrack.mp4"
+        },
+        {
+          "archiveID": "cosmos-s01e09-the-lost-worlds-of-planet-earth-with-subtitles-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Cosmos S01E09 The Lost Worlds Of Planet Earth with subtitles by Vaibhav khade",
+          "overview": "Cosmos S01E09 The Lost Worlds Of Planet Earth with subtitles by Vaibhav khade",
+          "stillURL": "https://archive.org/services/img/cosmos-s01e09-the-lost-worlds-of-planet-earth-with-subtitles-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2658,
+          "videoFile": {
+            "name": "Cosmos_S01E09_The_Lost_Worlds_of_Planet_Earth.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 431817077,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cosmos-s01e09-the-lost-worlds-of-planet-earth-with-subtitles-by-vaibhav-khade/Cosmos_S01E09_The_Lost_Worlds_of_Planet_Earth.ia.mp4"
+        },
+        {
+          "archiveID": "hindi-cosmos-s01e10-the-electric-boy-audiotrack-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "( Hindi ) Cosmos S01E10 The Electric Boy Audiotrack by Vaibhav khade",
+          "overview": "( Hindi ) Cosmos S01E10 The Electric Boy Audiotrack by Vaibhav khade",
+          "stillURL": "https://archive.org/services/img/hindi-cosmos-s01e10-the-electric-boy-audiotrack-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2555,
+          "videoFile": {
+            "name": "Cosmos_S01E10_The_Electric_Boy_audiotrack.mp4",
+            "format": "h.264",
+            "sizeBytes": 238694078,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hindi-cosmos-s01e10-the-electric-boy-audiotrack-by-vaibhav-khade/Cosmos_S01E10_The_Electric_Boy_audiotrack.mp4"
+        },
+        {
+          "archiveID": "carlsagancosmosepisode10theedgeofforever360p",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "CARL SAGAN COSMOS Episode 10 The Edge Of Forever ( 360 P)",
+          "overview": "CARL SAGAN COSMOS Episode 10 The Edge Of Forever ( 360 P)",
+          "stillURL": "https://archive.org/services/img/carlsagancosmosepisode10theedgeofforever360p",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3784,
+          "videoFile": {
+            "name": "CARL SAGAN COSMOS Episode 10 - _The Edge of Forever_(360P).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 200417637,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/carlsagancosmosepisode10theedgeofforever360p/CARL%20SAGAN%20COSMOS%20Episode%2010%20-%20_The%20Edge%20of%20Forever_%28360P%29.mp4"
+        },
+        {
+          "archiveID": "cosmos-s01e10-the-electric-boy-with-subtitles-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Cosmos S01E10 The Electric Boy with subtitles by Vaibhav khade",
+          "overview": "Cosmos S01E10 The Electric Boy with subtitles by Vaibhav khade",
+          "stillURL": "https://archive.org/services/img/cosmos-s01e10-the-electric-boy-with-subtitles-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2555,
+          "videoFile": {
+            "name": "Cosmos_S01E10_The_Electric_Boy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 421656382,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cosmos-s01e10-the-electric-boy-with-subtitles-by-vaibhav-khade/Cosmos_S01E10_The_Electric_Boy.ia.mp4"
+        },
+        {
+          "archiveID": "hindi-cosmos-s01e11-the-immortals-audiotrack-1080p-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "( Hindi ) Cosmos S01E11 The Immortals Audiotrack 1080p by Vaibhav khade",
+          "overview": "( Hindi ) Cosmos S01E11 The Immortals Audiotrack 1080p by Vaibhav khade",
+          "stillURL": "https://archive.org/services/img/hindi-cosmos-s01e11-the-immortals-audiotrack-1080p-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2672,
+          "videoFile": {
+            "name": "Cosmos_S01E11_The_Immortals_audiotrack.mp4",
+            "format": "h.264",
+            "sizeBytes": 250274485,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hindi-cosmos-s01e11-the-immortals-audiotrack-1080p-by-vaibhav-khade/Cosmos_S01E11_The_Immortals_audiotrack.mp4"
+        },
+        {
+          "archiveID": "hindi-cosmos-s01e12-the-world-set-free-audiotrack-1080p-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "( Hindi )Cosmos S01E12 The World Set Free Audiotrack 1080p by Vaibhav khade",
+          "overview": "( Hindi )Cosmos S01E12 The World Set Free Audiotrack 1080p by Vaibhav khade",
+          "stillURL": "https://archive.org/services/img/hindi-cosmos-s01e12-the-world-set-free-audiotrack-1080p-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2523,
+          "videoFile": {
+            "name": "Cosmos_S01E12_The_World_Set_Free_audiotrack.mp4",
+            "format": "h.264",
+            "sizeBytes": 236616989,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hindi-cosmos-s01e12-the-world-set-free-audiotrack-1080p-by-vaibhav-khade/Cosmos_S01E12_The_World_Set_Free_audiotrack.mp4"
+        },
+        {
+          "archiveID": "cosmos-possible-worlds-s01e12-coming-of-age-in-the-anthropocene-1080p-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Cosmos Possible Worlds S01E12 ( Coming Of Age In The Anthropocene ) 1080p by Vaibhav khade",
+          "overview": "Cosmos Possible Worlds S01E12 ( Coming Of Age In The Anthropocene ) 1080p by Vaibhav khade with English Subtitles...<div><br /></div><div>Email : vaibhavkhade911@gmail.com</div>",
+          "stillURL": "https://archive.org/services/img/cosmos-possible-worlds-s01e12-coming-of-age-in-the-anthropocene-1080p-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2020,
+          "runtimeSeconds": 2635,
+          "videoFile": {
+            "name": "Cosmos Possible Worlds S01E12 Coming of Age In The Anthropocene  [1080p x265 10bit FS90 Joy].ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 510741211,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cosmos-possible-worlds-s01e12-coming-of-age-in-the-anthropocene-1080p-by-vaibhav-khade/Cosmos%20Possible%20Worlds%20S01E12%20Coming%20of%20Age%20In%20The%20Anthropocene%20%20%5B1080p%20x265%2010bit%20FS90%20Joy%5D.ia.mp4"
+        },
+        {
+          "archiveID": "cosmos-s01e12-the-world-set-free-with-subtitles-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Cosmos S01E12 The World Set Free with subtitles by Vaibhav khade",
+          "overview": "Cosmos S01E12 The World Set Free with subtitles by Vaibhav khade",
+          "stillURL": "https://archive.org/services/img/cosmos-s01e12-the-world-set-free-with-subtitles-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2523,
+          "videoFile": {
+            "name": "Cosmos_S01E12_The_World_Set_Free.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 407133303,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cosmos-s01e12-the-world-set-free-with-subtitles-by-vaibhav-khade/Cosmos_S01E12_The_World_Set_Free.ia.mp4"
+        },
+        {
+          "archiveID": "cosmos.-a.-space-time.-odyssey.-s01e12",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Cosmos: A Space Time Odyssey S01 E12",
+          "overview": "<span style=\"color:rgb(77,81,86);font-family:arial, sans-serif;font-size:14px;background-color:rgb(255,255,255);\">The Ship of the Imagination travels to Venus, and the impact of climate change on the Earth's atmosphere is investigated. Later, Tyson explores the use of solar power, and how it has changed over time.</span>",
+          "stillURL": "https://archive.org/services/img/cosmos.-a.-space-time.-odyssey.-s01e12",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2523,
+          "videoFile": {
+            "name": "Cosmos.A.SpaceTime.Odyssey.S01E12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 262160728,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cosmos.-a.-space-time.-odyssey.-s01e12/Cosmos.A.SpaceTime.Odyssey.S01E12.mp4"
+        },
+        {
+          "archiveID": "cosmos-s01e13-unafraid-of-the-dark-with-subtitles-by-vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Cosmos S01E13 Unafraid Of The Dark with Subtitles by Vaibhav khade",
+          "overview": "Cosmos S01E13 Unafraid Of The Dark with Subtitles by Vaibhav khade",
+          "stillURL": "https://archive.org/services/img/cosmos-s01e13-unafraid-of-the-dark-with-subtitles-by-vaibhav-khade",
+          "airDate": null,
+          "year": 2014,
+          "runtimeSeconds": 2760,
+          "videoFile": {
+            "name": "Cosmos_S01E13_Unafraid_of_the_Dark.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 388638913,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cosmos-s01e13-unafraid-of-the-dark-with-subtitles-by-vaibhav-khade/Cosmos_S01E13_Unafraid_of_the_Dark.ia.mp4"
+        },
+        {
+          "archiveID": "ultra-cosmos-ep25-24-indo-dub",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Ultraman Cosmos Episode 25 & 24 [Indonesian dub ver. Indosiar]",
+          "overview": "Ultraman Cosmos Episode 25 (Alien Girl) &amp; Episode 24 (Warm Memories) dubbing Indonesia yang pernah ditayangkan stasiun TV Indosiar<div><br /></div><div>Ripped dari VCD</div><div><br /></div><div>=====</div><div><br /></div><div>Indonesian dub version of Ultraman Cosmos Episode 25 (Alien Girl) &amp; Episode 24 (Warm Memories) that once aired on Indonesian TV Station, Indosiar.</div><div><br /></div><div>Ripped from VCD</div>",
+          "stillURL": "https://archive.org/services/img/ultra-cosmos-ep25-24-indo-dub",
+          "airDate": null,
+          "year": 2004,
+          "runtimeSeconds": 2641,
+          "videoFile": {
+            "name": "AVSEQ01.mp4",
+            "format": "h.264",
+            "sizeBytes": 260185526,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ultra-cosmos-ep25-24-indo-dub/AVSEQ01.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 3,
+  "episodesCount": 29,
   "canonicalEpisodesCount": 39,
   "seriesImdbID": "tt0081846",
   "canonicalEpisodeCount": 13,

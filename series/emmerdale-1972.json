@@ -1,81 +1,84 @@
 {
- "version": 2,
- "seriesID": "emmerdale-1972",
- "tvmazeID": 2548,
- "title": "Emmerdale",
- "yearStart": 1972,
- "yearEnd": null,
- "overview": "Emmerdale is a British soap focusing on the lives of several families and locals living around an estate, a farm and the nearby village in the Yorkshire Dales. It is the second longest British soap in television history since airing its first episode on ITV in 1972, as 'Emmerdale Farm', the show was renamed in 1989.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/598/1495905.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama"
- ],
- "networks": [
-  "ITV1"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "emmerdale-1972",
+  "tvmazeID": 2548,
+  "title": "Emmerdale",
+  "yearStart": 1972,
+  "yearEnd": null,
+  "overview": "Emmerdale is a British soap focusing on the lives of several families and locals living around an estate, a farm and the nearby village in the Yorkshire Dales. It is the second longest British soap in television history since airing its first episode on ITV in 1972, as 'Emmerdale Farm', the show was renamed in 1989.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/598/1495905.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "emmerdale-episode-2478-28-january-1999_202403",
-     "seasonNumber": null,
-     "episodeNumber": 247,
-     "title": "5 January 1999",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/szh6mSPgeAqs7Ijp7YHC90oGzkt.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Emmerdale Episode 2478 (28 January 1999).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 72064592,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/emmerdale-episode-2478-28-january-1999_202403/Emmerdale Episode 2478 (28 January 1999).mp4"
-    },
-    {
-     "archiveID": "emmerdale-episode-2554-27-july-1999_202403",
-     "seasonNumber": null,
-     "episodeNumber": 255,
-     "title": "Emmerdale: Episode 2554",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/szh6mSPgeAqs7Ijp7YHC90oGzkt.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Emmerdale Episode 2554 (27 July 1999).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 98474868,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/emmerdale-episode-2554-27-july-1999_202403/Emmerdale Episode 2554 (27 July 1999).mp4"
-    },
-    {
-     "archiveID": "emmerdale-episode-2565-18-august-1999_202403",
-     "seasonNumber": null,
-     "episodeNumber": 256,
-     "title": "Emmerdale: Episode 2565",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/szh6mSPgeAqs7Ijp7YHC90oGzkt.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Emmerdale Episode 2565 (18 August 1999).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 102756365,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/emmerdale-episode-2565-18-august-1999_202403/Emmerdale Episode 2565 (18 August 1999).mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "emmerdale-episode-2478-28-january-1999_202403",
+          "seasonNumber": null,
+          "episodeNumber": 247,
+          "title": "5 January 1999",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/szh6mSPgeAqs7Ijp7YHC90oGzkt.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Emmerdale Episode 2478 (28 January 1999).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 72064592,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/emmerdale-episode-2478-28-january-1999_202403/Emmerdale Episode 2478 (28 January 1999).mp4"
+        },
+        {
+          "archiveID": "emmerdale-episode-2554-27-july-1999_202403",
+          "seasonNumber": null,
+          "episodeNumber": 255,
+          "title": "Emmerdale: Episode 2554",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/szh6mSPgeAqs7Ijp7YHC90oGzkt.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Emmerdale Episode 2554 (27 July 1999).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 98474868,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/emmerdale-episode-2554-27-july-1999_202403/Emmerdale Episode 2554 (27 July 1999).mp4"
+        },
+        {
+          "archiveID": "emmerdale-episode-2565-18-august-1999_202403",
+          "seasonNumber": null,
+          "episodeNumber": 256,
+          "title": "Emmerdale: Episode 2565",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/szh6mSPgeAqs7Ijp7YHC90oGzkt.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Emmerdale Episode 2565 (18 August 1999).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 102756365,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/emmerdale-episode-2565-18-august-1999_202403/Emmerdale Episode 2565 (18 August 1999).mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 3,
- "canonicalEpisodesCount": 8788
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": 8788,
+  "seriesImdbID": "tt0068069",
+  "canonicalEpisodeCount": 100,
+  "canonicalSeasons": 1
 }
