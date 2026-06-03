@@ -39,16 +39,20 @@ it, executes the next item, and logs the result.
   46% no director, 41% no IMDb ID, 5% no synopsis.
 
 ## Backlog (prioritized; A = growth, B = quality)
-- [ ] **B1 — Posters, no-IMDb path**: source artwork for items with a Wikidata
-  QID but no IMDb/TMDb (Wikimedia Commons P18) so the 52% thumbnail rate drops
-  for items TMDb can't reach. (tool: extend enrich/discover; runs in CI.)
+- [x] **B1 — Posters via Wikidata/Commons**: enrich_wikidata_posters.py +
+  wikidata-posters.yml fill Commons P18 posters for the 3,449 QID items lacking
+  artwork (not just no-IMDb). Dispatched; weekly + on-demand.
 - [ ] **B2 — IMDb resolution**: raise the title+year→IMDb match rate for
   archiveOnly items (unlocks TMDb posters + cast + genres downstream).
 - [x] **A1 — Source breadth (probe)**: added tools/probe_collections.py +
   probe-sources.yml (CI scrape-count probe of candidate PD collections).
-- [ ] **A1b — Add worthy collections**: read the probe-sources run's step
-  summary; append collections with >=100 items to
-  `discover_archive_collections.DEFAULT_COLLECTIONS`; trigger discover-content.
+- [ ] **A1b — Add worthy collections (BLOCKED: probe found none)**: the first
+  probe-sources run reported NO candidate with >=100 items — the guessed
+  collection ids are likely wrong (Archive collection identifiers differ from
+  display names). Next A iteration: fix the probe — derive REAL candidate
+  collection ids from the data (the `collections[]` already on catalog items
+  that are NOT yet in DEFAULT_COLLECTIONS — those are proven-existing ids), then
+  re-probe + add the worthy ones.
 - [ ] **A2 — Source depth**: raise per-collection scrape caps / paginate
   deeper on the richest collections; measure new-item yield in CI.
 - [ ] **B3 — Cast/director backfill** via OMDb/TMDb after B2.
@@ -69,3 +73,8 @@ it, executes the next item, and logs the result.
   candidate PD Archive collections (the sandbox can't reach Archive). Dispatched;
   next iteration reads the counts and adds the worthy ones (A1b). Also hardened
   CI: tv-canonical + faststart now remediate before publishing catalog-source.
+- 2026-06-02 — **Iteration 3 (B, artwork)**: enrich_wikidata_posters.py +
+  wikidata-posters.yml — Commons P18 posters for 3,449 QID items with no real
+  artwork (House on Haunted Hill, White Zombie, Carnival of Souls…). Dispatched.
+  Note: the iter-2 probe found NO worthy collections (guessed ids wrong) — A1b
+  re-scoped to derive real candidate ids from catalog items' own collections[].
