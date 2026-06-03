@@ -21,6 +21,7 @@ struct EpisodePlayerScreen: View {
     @State private var currentEpisode: Episode
     @State private var player: AVPlayer?
     @State private var timeObserver: Any?
+    @State private var freezeGuard = PlaybackFreezeGuard()
     @State private var statusObserver: NSKeyValueObservation?
     @State private var timeoutTask: Task<Void, Never>?
     @State private var playback: PlaybackState = .loading
@@ -127,6 +128,7 @@ struct EpisodePlayerScreen: View {
         let item = AVPlayerItem(url: url)
         let p = AVPlayer(playerItem: item)
         player = p
+        freezeGuard.attach(to: p, item: item)
 
         // Watch the item reach readyToPlay or fail, so a broken stream becomes
         // a visible error instead of a forever-spinner. KVO can fire off-main;
@@ -197,6 +199,7 @@ struct EpisodePlayerScreen: View {
 
     private func teardownPlayer(finalPersist: Bool) {
         if let obs = timeObserver { player?.removeTimeObserver(obs) }
+        freezeGuard.detach()
         if finalPersist, let p = player {
             persistProgress(at: p.currentTime().seconds,
                             duration: p.currentItem?.duration.seconds,

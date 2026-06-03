@@ -414,6 +414,7 @@ struct PlayerScreen: View {
     @Environment(\.modelContext) private var modelContext
     @State private var player: AVPlayer?
     @State private var timeObserver: Any?
+    @State private var freezeGuard = PlaybackFreezeGuard()
 
     var body: some View {
         ZStack {
@@ -435,6 +436,7 @@ struct PlayerScreen: View {
         }
         let p = AVPlayer(playerItem: playerItem)
         player = p
+        freezeGuard.attach(to: p, item: playerItem)
 
         let archiveID = self.archiveID
         let descriptor = FetchDescriptor<WatchProgress>(
@@ -456,6 +458,7 @@ struct PlayerScreen: View {
 
     private func teardownPlayer() {
         if let obs = timeObserver { player?.removeTimeObserver(obs) }
+        freezeGuard.detach()
         if let p = player {
             persistProgress(at: p.currentTime().seconds, duration: p.currentItem?.duration.seconds)
         }
