@@ -1,14 +1,23 @@
 name: Rebuild catalog
 
-# MANUAL ONLY. This runs build-catalog.mjs, which produces a FRESH, small
-# catalog (Wikidata seed + per-shelf query results). On 2026-06-03 a scheduled
-# run silently OVERWROTE the full ~30k catalog down to ~1.1k (the catalog lives
-# on a Release, not git — Decision 018 — so there was no diff to catch it). The
-# weekly cron is removed and a merge step (below) now makes the build ADDITIVE,
-# so it can only extend the catalog, never replace it. The catalog GROWS via
-# discover-content + ingest, not this workflow; only run this to refresh the
-# Wikidata seed / shelf assignments.
+# Runs build-catalog.mjs, which produces a FRESH, small catalog (Wikidata seed +
+# per-shelf query results). Its job in the autonomous pipeline is to seed new
+# Wikidata films and REFRESH the dynamic shelf assignments weekly so Home shelves
+# don't go stale (discover-content + ingest grow the catalog but don't assign
+# shelves).
+#
+# SAFETY (2026-06-03): a scheduled run once silently OVERWROTE the full ~30k
+# catalog down to ~1.1k because build-catalog.mjs writes a fresh catalog.json and
+# the step published it as-is (the catalog lives on a Release, not git — Decision
+# 018 — so no diff caught it). The "Merge build into full catalog" step below now
+# makes the build ENRICHMENT-PRESERVING + ADDITIVE: it only adds new items and
+# refreshes shelf assignments onto the full fetched catalog, with a shrink guard
+# that aborts if the result would be smaller. So the weekly cron is safe to keep
+# — the pipeline stays fully autonomous (Decisions 016-019).
 on:
+  schedule:
+    # Mondays 05:00 UTC
+    - cron: '0 5 * * 1'
   workflow_dispatch:
     inputs:
       seed_limit:

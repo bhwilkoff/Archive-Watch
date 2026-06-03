@@ -9,8 +9,13 @@ to ~1.1k (the catalog lives on a Release, not git — Decision 018 — so there 
 no diff to catch it). This makes the rebuild ADDITIVE: the freshly-built items
 update/extend the existing catalog instead of replacing it.
 
-Union semantics: every archiveID from BASE is kept; OVERLAY items update matching
-ones (fresh shelves/enrichment win) and add new ones.
+Union semantics, ENRICHMENT-PRESERVING: every archiveID from BASE is kept with
+its full (accumulated) record; OVERLAY only (a) ADDS items BASE doesn't have
+(e.g. new Wikidata seeds) and (b) refreshes the `shelves` assignment on items it
+rebuilt. It deliberately does NOT overwrite a base item's other fields — a fresh
+build-catalog.mjs run is TMDb-only and would otherwise strip the OMDb cast,
+Commons posters, Wikipedia synopses, and remediate fixes the daily/weekly crons
+had accumulated. (Earlier draft let overlay win wholesale, which downgrades.)
 
 Shrink guard: if the merged result has fewer items than BASE, something went
 wrong upstream (e.g. a failed/empty build) — exit non-zero WITHOUT writing, so
@@ -37,21 +42,27 @@ def main(argv):
         aid = it.get("archiveID")
         if aid:
             merged[aid] = it
-    updated = added = 0
+    shelves_refreshed = added = 0
     for it in overlay.get("items", []):
         aid = it.get("archiveID")
         if not aid:
             continue
         if aid in merged:
-            updated += 1
+            # Keep the base (accumulated) record; only adopt the freshly-resolved
+            # shelf assignment so home shelves stay current without downgrading
+            # the item's enrichment.
+            new_shelves = it.get("shelves")
+            if new_shelves and new_shelves != merged[aid].get("shelves"):
+                merged[aid]["shelves"] = new_shelves
+                shelves_refreshed += 1
         else:
+            merged[aid] = it
             added += 1
-        merged[aid] = it
 
     n_base = len(base.get("items", []))
     n_out = len(merged)
     print(f"[merge] base={n_base} overlay={len(overlay.get('items', []))} "
-          f"-> merged={n_out} (updated={updated}, added={added})")
+          f"-> merged={n_out} (added={added}, shelves_refreshed={shelves_refreshed})")
 
     # Shrink guard: never let a merge produce fewer items than the base.
     if n_out < n_base:
