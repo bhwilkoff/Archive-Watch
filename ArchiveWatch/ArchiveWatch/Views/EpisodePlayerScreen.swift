@@ -126,6 +126,12 @@ struct EpisodePlayerScreen: View {
         }
         playback = .loading
         let item = AVPlayerItem(url: url)
+        // Show the episode title in the transport, and suppress the MP4's bogus
+        // embedded creation year (epoch-0 -> "1969") the same way the movie
+        // player does (see suppressedDateMetadata).
+        item.externalMetadata =
+            [metaEntry(.commonIdentifierTitle, episode.title)].compactMap { $0 }
+            + suppressedDateMetadata()
         let p = AVPlayer(playerItem: item)
         player = p
         freezeGuard.attach(to: p, item: item)
