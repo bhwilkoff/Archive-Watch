@@ -175,7 +175,12 @@ def create_schema(db):
     );
     CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT);
 
-    CREATE VIRTUAL TABLE items_fts USING fts5(archiveID UNINDEXED, title, names);
+    -- Search index. `names` = people; `extra` = genres + series/network +
+    -- synopsis, so search covers content/topic words, not just title + cast
+    -- (the old index missed most of the catalog from a user's POV). The app's
+    -- `items_fts MATCH ?` searches every column automatically, so broadening
+    -- here needs no app change.
+    CREATE VIRTUAL TABLE items_fts USING fts5(archiveID UNINDEXED, title, names, extra);
     """)
 
 
@@ -232,14 +237,25 @@ def populate_items(db, items, rotate_seed="0"):
         names = " ".join([it.get("director") or ""]
                          + [c.get("name", "") for c in (it.get("cast") or [])]
                          + [it.get("producer") or ""]).strip()
-        fts_rows.append((aid, it.get("title") or "", names))
+        # Topic/content words: genres, series/network, country, and a synopsis
+        # snippet (truncated so the index doesn't balloon). Lets users find a
+        # film by what it's ABOUT, not just its title or cast.
+        syn = it.get("synopsis")
+        syn = (" ".join(syn) if isinstance(syn, list) else (syn or ""))
+        extra = " ".join([
+            " ".join(it.get("genres") or []),
+            it.get("seriesName") or "", it.get("network") or "",
+            " ".join(it.get("countries") or []),
+            syn[:400],
+        ]).strip()
+        fts_rows.append((aid, it.get("title") or "", names, extra))
 
     db.executemany("INSERT OR IGNORE INTO items VALUES (%s)" % ",".join("?" * 25), item_rows)
     db.executemany("INSERT OR IGNORE INTO item_json VALUES (?,?)", json_rows)
     db.executemany("INSERT INTO item_genres VALUES (?,?)", genre_rows)
     db.executemany("INSERT INTO item_collections VALUES (?,?)", coll_rows)
     db.executemany("INSERT INTO item_shelves VALUES (?,?,?)", shelf_rows)
-    db.executemany("INSERT INTO items_fts VALUES (?,?,?)", fts_rows)
+    db.executemany("INSERT INTO items_fts VALUES (?,?,?,?)", fts_rows)
     return len(item_rows)
 
 

@@ -228,32 +228,44 @@ def fix_wrong_external_matches(it):
     return "yearfix" if new_y is not None else "yearnull"
 
 
-def clear_shared_posters(items):
-    """Clear designed posters that collide across differently-titled items.
-    Returns the number of items whose poster was cleared."""
-    by_poster = defaultdict(list)
-    for it in items:
-        if it.get("contentType") == "tv-series":
-            continue  # series share season posters legitimately
-        url = (it.get("posterURL") or "").strip()
-        src = (it.get("artworkSource") or "").lower()
-        # Only consider real designed artwork (not per-item archive thumbnails).
-        if not url or src in ("", "archive"):
-            continue
-        by_poster[url].append(it)
-    cleared = 0
-    for url, group in by_poster.items():
-        if len(group) < 2:
-            continue
-        if len({_title_key(it) for it in group}) < 2:
-            continue  # same title (a genuine dup) — not a mismatch
-        for it in group:
-            it["posterURL"] = None
-            it["backdropURL"] = None
-            it["hasRealArtwork"] = False
-            it["artworkSource"] = "archive"
-            cleared += 1
-    return cleared
+# --- Animation matched to a live-action film (#3a) -------------------------
+# An `animation` item whose designed (TMDb/OMDb) poster carries strong
+# live-action genres and NO "Animation" genre is matched to the wrong (usually
+# live-action) film — e.g. the Popeye cartoons reel pulling the 1980 live-action
+# "Popeye" (poster, 1980, 114-min runtime, genres Action/Adventure). Real
+# cartoons carry "Animation" or family/comedy/musical/fantasy genres, so this is
+# low-false-positive. Clear the wrong artwork + the live-action genres + the
+# match's runtime/year (all from the wrong film). Language and true file length
+# can't be verified from the catalog (runtime stored IS the match's, not the
+# file's) — that needs a CI file probe; this catches the visible poster/genre/
+# runtime mismatch.
+_LIVE_ACTION_GENRES = {
+    "action", "science fiction", "sci-fi", "horror", "western",
+    "thriller", "war", "crime",
+}
+
+
+def fix_animation_liveaction_match(it):
+    """Clear a live-action match wrongly applied to an animation item. Returns
+    True if it acted."""
+    if it.get("contentType") != "animation":
+        return False
+    if (it.get("artworkSource") or "").lower() not in ("tmdb", "omdb"):
+        return False
+    genres = [(g or "").lower() for g in (it.get("genres") or [])]
+    if not genres or any(g == "animation" for g in genres):
+        return False
+    if not any(g in _LIVE_ACTION_GENRES for g in genres):
+        return False
+    it["posterURL"] = None
+    it["backdropURL"] = None
+    it["hasRealArtwork"] = False
+    it["artworkSource"] = "archive"
+    it["genres"] = []          # the live-action genres belong to the wrong film
+    it["runtimeSeconds"] = None  # so does the runtime (often a feature length)
+    it["year"] = None
+    it["decade"] = None
+    return True
 
 
 def is_junk(it):
@@ -305,6 +317,11 @@ def remediate(items):
         wm = fix_wrong_external_matches(it)
         if wm:
             stats[f"wrong_match_{wm}"] += 1
+
+        # 0c) ANIMATION matched to a live-action film (#3a): clear the wrong
+        # poster/genres/runtime (e.g. Popeye cartoons -> 1980 live-action film).
+        if fix_animation_liveaction_match(it):
+            stats["anim_liveaction_cleared"] += 1
 
         y = it.get("year")
         ty = title_year(it)
