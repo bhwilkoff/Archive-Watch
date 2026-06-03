@@ -115,24 +115,6 @@
      "archiveID": "the-adventures-of-sherlock-holmes-1984_202303",
      "seasonNumber": 1,
      "episodeNumber": 6,
-     "title": "The Adventures of Sherlock Holmes",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/6WxfaKH4KkruJROkoto84xIpVAf.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Adventures of Sherlock Holmes S1E06 - The Speckled Band.mp4",
-      "format": "h.264",
-      "sizeBytes": 308557325,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-1984_202303/The Adventures of Sherlock Holmes S1E06 - The Speckled Band.mp4"
-    },
-    {
-     "archiveID": "SherlockHolmes-TheCaseoftheShyBallerina",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
      "title": "The Case of the Shy Ballerina",
      "overview": null,
      "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/566/1415159.jpg",
@@ -140,12 +122,12 @@
      "year": 1954,
      "runtimeSeconds": 1800,
      "videoFile": {
-      "name": "TheCaseoftheShyBallerina.mp4",
+      "name": "The Adventures of Sherlock Holmes S1E06 - The Speckled Band.mp4",
       "format": "h.264",
-      "sizeBytes": 153503727,
+      "sizeBytes": 308557325,
       "tier": 2
      },
-     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheShyBallerina/TheCaseoftheShyBallerina.mp4"
+     "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-1984_202303/The Adventures of Sherlock Holmes S1E06 - The Speckled Band.mp4"
     },
     {
      "archiveID": "SherlockHolmes-TheCaseOfTheGreystoneInscription",
@@ -457,6 +439,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheCunninghamHeritage/TheCaseoftheCunninghamHeritage.mp4"
+    },
+    {
+     "archiveID": "SherlockHolmes-TheCaseoftheShyBallerina",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Case of the Shy Ballerina",
+     "overview": null,
+     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/566/1415159.jpg",
+     "airDate": null,
+     "year": 1954,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "TheCaseoftheShyBallerina.mp4",
+      "format": "h.264",
+      "sizeBytes": 153503727,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheShyBallerina/TheCaseoftheShyBallerina.mp4"
     }
    ]
   }

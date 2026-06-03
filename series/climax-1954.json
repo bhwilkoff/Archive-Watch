@@ -59,24 +59,6 @@
      "archiveID": "climax_202103",
      "seasonNumber": 1,
      "episodeNumber": 34,
-     "title": "Climax",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-     "airDate": null,
-     "year": 1954,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "ClimaxS01E34Dr JekyllandMrHyde.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 368584511,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/climax_202103/ClimaxS01E34Dr JekyllandMrHyde.ia.mp4"
-    },
-    {
-     "archiveID": "Climax-DrJekyllAndMrHyde",
-     "seasonNumber": 1,
-     "episodeNumber": 34,
      "title": "Dr. Jekyll and Mr. Hyde",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
@@ -84,12 +66,12 @@
      "year": 1955,
      "runtimeSeconds": 3600,
      "videoFile": {
-      "name": "Climax-drJekyllAndMrHyde_512kb.mp4",
-      "format": "512Kb MPEG4",
-      "sizeBytes": 258938822,
+      "name": "ClimaxS01E34Dr JekyllandMrHyde.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 368584511,
       "tier": 2
      },
-     "downloadURL": "https://archive.org/download/Climax-DrJekyllAndMrHyde/Climax-drJekyllAndMrHyde_512kb.mp4"
+     "downloadURL": "https://archive.org/download/climax_202103/ClimaxS01E34Dr JekyllandMrHyde.ia.mp4"
     }
    ]
   },
@@ -398,6 +380,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/ClimaxWildStallion/Climax-wildStallion.mp4"
+    },
+    {
+     "archiveID": "Climax-DrJekyllAndMrHyde",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Dr. Jekyll and Mr. Hyde",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+     "airDate": null,
+     "year": 1955,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Climax-drJekyllAndMrHyde_512kb.mp4",
+      "format": "512Kb MPEG4",
+      "sizeBytes": 258938822,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/Climax-DrJekyllAndMrHyde/Climax-drJekyllAndMrHyde_512kb.mp4"
     },
     {
      "archiveID": "ClimaxTheAdventuresOfHuckleberryFinn",

@@ -520,6 +520,29 @@
    ]
   },
   {
+   "seasonNumber": 10,
+   "episodes": [
+    {
+     "archiveID": "studio-one-the-night-america-trembled-1957-colorized-movie-576p-sd",
+     "seasonNumber": 10,
+     "episodeNumber": 1,
+     "title": "The Night America Trembled",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+     "airDate": "1957-09-09",
+     "year": 1957,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "studio one-the night america trembled-1957-colorized movie-576p-sd.mp4",
+      "format": "h.264",
+      "sizeBytes": 344413095,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/studio-one-the-night-america-trembled-1957-colorized-movie-576p-sd/studio one-the night america trembled-1957-colorized movie-576p-sd.mp4"
+    }
+   ]
+  },
+  {
    "seasonNumber": null,
    "episodes": [
     {
@@ -737,24 +760,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/StudioOne-TheNativity/StudioOne-TheNativity.mp4"
-    },
-    {
-     "archiveID": "studio-one-the-night-america-trembled-1957-colorized-movie-576p-sd",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Studio One – The Night America Trembled",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "studio one-the night america trembled-1957-colorized movie-576p-sd.mp4",
-      "format": "h.264",
-      "sizeBytes": 344413095,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/studio-one-the-night-america-trembled-1957-colorized-movie-576p-sd/studio one-the night america trembled-1957-colorized movie-576p-sd.mp4"
     },
     {
      "archiveID": "StudioOneLittleWomenJosStory-LelaSwift",

@@ -59,12 +59,12 @@
      "archiveID": "honey-i-shrunk-the-kids_tv-show",
      "seasonNumber": 1,
      "episodeNumber": 4,
-     "title": "Honey, I Shrunk the Kids: The",
-     "overview": null,
+     "title": "Honey, We're Stuck in the 70's",
+     "overview": "Amy is in love with her teacher and when she finds out that her dad has made a time machine, the Szalinski Time Hopper, she decides to go back to the 70s to meet her teacher, when he was 17. She goes back but to 1976 and after numerous attempts decides not to return. Nick tells his dad, who goes back in time to rescue her before she suffers the ill effects of temporal displacement. While Wayne is in the past, he runs into teen-aged Diane and he figures out how to make up for both a forgotten wedding anniversary and a Time Hopper problem.",
      "stillURL": null,
-     "airDate": null,
+     "airDate": "1997-10-18",
      "year": 1997,
-     "runtimeSeconds": null,
+     "runtimeSeconds": 3600,
      "videoFile": {
       "name": "Honey, I Shrunk the Kids - S01E04 - Honey, We're Stuck in the 70's.ia.mp4",
       "format": "h.264 IA",
@@ -72,24 +72,6 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids_tv-show/Honey%2C%20I%20Shrunk%20the%20Kids%20-%20S01E04%20-%20Honey%2C%20We%27re%20Stuck%20in%20the%2070%27s.ia.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-4-honey-were-stuck-in-the-70s",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Honey, We're Stuck in the 70's",
-     "overview": "Amy is in love with her teacher and when she finds out that her dad has made a time machine, the Szalinski Time Hopper, she decides to go back to the 70s to meet her teacher, when he was 17. She goes back but to 1976 and after numerous attempts decides not to return. Nick tells his dad, who goes back in time to rescue her before she suffers the ill effects of temporal displacement. While Wayne is in the past, he runs into teen-aged Diane and he figures out how to make up for both a forgotten wedding anniversary and a Time Hopper problem.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": "1997-10-18",
-     "year": 1997,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Honey, We're Stuck in the 70's)Episode 4-Vv7vJ2GlVUc.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 167210399,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-4-honey-were-stuck-in-the-70s/Honey, I Shrunk the Kids(Honey, We're Stuck in the 70's)Episode 4-Vv7vJ2GlVUc.mp4"
     },
     {
      "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-5-honey-i-shrunk-the-science-dude",
@@ -203,24 +185,6 @@
      "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-14-honey-youve-drained-my-brain",
      "seasonNumber": 1,
      "episodeNumber": 14,
-     "title": "Honey I shrunk the kids episode 14 Honey, You've Drained My Brain",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
-     "airDate": null,
-     "year": 1998,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "histk-s01e14-honey-you-drained-my-brain.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 145837477,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-14-honey-youve-drained-my-brain/histk-s01e14-honey-you-drained-my-brain.mp4"
-    },
-    {
-     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-14-honey-its-a-miracle",
-     "seasonNumber": 1,
-     "episodeNumber": 14,
      "title": "Honey, You Drained My Brain",
      "overview": "Diane is very nervous about her case against a tough lawyer so Wayne invents a thinky ring to help her retrieve her thoughts better. Unfortunately, she becomes a brain sucking vampire. Wayne finds out and goes after her to lure her home. Nick manages to get the ring off but this turns him into a brain sucking vampire. Diane figures things out and plots to fight Nick and get the ring off before he takes over the world.",
      "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
@@ -228,12 +192,12 @@
      "year": 1998,
      "runtimeSeconds": 3600,
      "videoFile": {
-      "name": "Honey, I Shrunk the Kids(Episode 36)-OI0zRkxq_yo.mp4",
+      "name": "histk-s01e14-honey-you-drained-my-brain.mp4",
       "format": "MPEG4",
-      "sizeBytes": 122441891,
+      "sizeBytes": 145837477,
       "tier": 2
      },
-     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-14-honey-its-a-miracle/Honey, I Shrunk the Kids(Episode 36)-OI0zRkxq_yo.mp4"
+     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-14-honey-youve-drained-my-brain/histk-s01e14-honey-you-drained-my-brain.mp4"
     },
     {
      "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-15-honey-youll-always-be-a-princess-to-me",
@@ -665,6 +629,24 @@
    "seasonNumber": null,
    "episodes": [
     {
+     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-1-episode-4-honey-were-stuck-in-the-70s",
+     "seasonNumber": null,
+     "episodeNumber": 4,
+     "title": "Honey, We're Stuck in the 70's",
+     "overview": "Amy is in love with her teacher and when she finds out that her dad has made a time machine, the Szalinski Time Hopper, she decides to go back to the 70s to meet her teacher, when he was 17. She goes back but to 1976 and after numerous attempts decides not to return. Nick tells his dad, who goes back in time to rescue her before she suffers the ill effects of temporal displacement. While Wayne is in the past, he runs into teen-aged Diane and he figures out how to make up for both a forgotten wedding anniversary and a Time Hopper problem.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+     "airDate": null,
+     "year": 1997,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Honey, I Shrunk the Kids(Honey, We're Stuck in the 70's)Episode 4-Vv7vJ2GlVUc.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 167210399,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-1-episode-4-honey-were-stuck-in-the-70s/Honey, I Shrunk the Kids(Honey, We're Stuck in the 70's)Episode 4-Vv7vJ2GlVUc.mp4"
+    },
+    {
      "archiveID": "honey-i-shrunk-the-kids-tv-show-episode-15-honey-hes-not-abominable...-hes-just-misunderstood",
      "seasonNumber": null,
      "episodeNumber": 15,
@@ -699,6 +681,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-episode-23-honey-its-quarkzilla/Honey, I Shrunk the Kids(Episode 23).ia.mp4"
+    },
+    {
+     "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-14-honey-its-a-miracle",
+     "seasonNumber": null,
+     "episodeNumber": 36,
+     "title": "Honey, You Drained My Brain",
+     "overview": "Diane is very nervous about her case against a tough lawyer so Wayne invents a thinky ring to help her retrieve her thoughts better. Unfortunately, she becomes a brain sucking vampire. Wayne finds out and goes after her to lure her home. Nick manages to get the ring off but this turns him into a brain sucking vampire. Diane figures things out and plots to fight Nick and get the ring off before he takes over the world.",
+     "stillURL": "https://image.tmdb.org/t/p/w500/g1NWIdQxYGlXC9SA8wkMSYvywJQ.jpg",
+     "airDate": null,
+     "year": 1998,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "Honey, I Shrunk the Kids(Episode 36)-OI0zRkxq_yo.mp4",
+      "format": "MPEG4",
+      "sizeBytes": 122441891,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/honey-i-shrunk-the-kids-tv-show-season-2-episode-14-honey-its-a-miracle/Honey, I Shrunk the Kids(Episode 36)-OI0zRkxq_yo.mp4"
     },
     {
      "archiveID": "honey-i-shrunk-the-kids-tv-show-season-2-episode-20-honey-its-your-party",

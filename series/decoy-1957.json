@@ -132,12 +132,12 @@
      "archiveID": "decoy-tv-series",
      "seasonNumber": 1,
      "episodeNumber": 26,
-     "title": "Decoy TV Series",
+     "title": "Earthbound Satellite",
      "overview": null,
      "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
+     "airDate": "1958-04-07",
+     "year": 1958,
+     "runtimeSeconds": 1500,
      "videoFile": {
       "name": "Decoy S01 E26 Earthboud Satellite.ia.mp4",
       "format": "h.264 IA",
@@ -145,24 +145,6 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/decoy-tv-series/Decoy%20S01%20E26%20Earthboud%20Satellite.ia.mp4"
-    },
-    {
-     "archiveID": "DecoyEarthboundSatellite",
-     "seasonNumber": 1,
-     "episodeNumber": 26,
-     "title": "Earthbound Satellite",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
-     "airDate": "1958-04-07",
-     "year": 1958,
-     "runtimeSeconds": 1500,
-     "videoFile": {
-      "name": "Decoy-earthboundSatellite.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 147866276,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/DecoyEarthboundSatellite/Decoy-earthboundSatellite.ia.mp4"
     },
     {
      "archiveID": "DecoyTheSoundOfTears",
@@ -384,6 +366,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/DecoyThePilotEpisode/Decoy-thePilotEpisode.ia.mp4"
+    },
+    {
+     "archiveID": "DecoyEarthboundSatellite",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Earthbound Satellite",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/n1mAebNUJkmoefUO1lXwcQfvJA2.jpg",
+     "airDate": null,
+     "year": 1958,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Decoy-earthboundSatellite.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 147866276,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DecoyEarthboundSatellite/Decoy-earthboundSatellite.ia.mp4"
     }
    ]
   }

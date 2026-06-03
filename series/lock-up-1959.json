@@ -21,24 +21,6 @@
    "seasonNumber": 1,
    "episodes": [
     {
-     "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Lock Up - - TV Series - 1959",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": " Lock Up - S01E01 - Stakeout.mp4",
-      "format": "h.264",
-      "sizeBytes": 168437341,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/ Lock Up - S01E01 - Stakeout.mp4"
-    },
-    {
      "archiveID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi",
      "seasonNumber": 1,
      "episodeNumber": 1,
@@ -57,7 +39,7 @@
      "downloadURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/Lock Up - S01E01 - Stake Out.mp4"
     },
     {
-     "archiveID": "LockUpStakeOut",
+     "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv",
      "seasonNumber": 1,
      "episodeNumber": 1,
      "title": "Stake Out",
@@ -67,12 +49,12 @@
      "year": 1959,
      "runtimeSeconds": 1800,
      "videoFile": {
-      "name": "LockUp-stakeOut.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 155901052,
+      "name": " Lock Up - S01E01 - Stakeout.mp4",
+      "format": "h.264",
+      "sizeBytes": 168437341,
       "tier": 2
      },
-     "downloadURL": "https://archive.org/download/LockUpStakeOut/LockUp-stakeOut.ia.mp4"
+     "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/ Lock Up - S01E01 - Stakeout.mp4"
     },
     {
      "archiveID": "LockUpTheHarryConnorsStory",
@@ -1379,6 +1361,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/Lock-upMusicToMurderBy/Lock-up-musicToMurderBy.ia.mp4"
+    },
+    {
+     "archiveID": "LockUpStakeOut",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "Stake Out",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+     "airDate": null,
+     "year": 1959,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "LockUp-stakeOut.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 155901052,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/LockUpStakeOut/LockUp-stakeOut.ia.mp4"
     },
     {
      "archiveID": "LockUpTheCaseOfDanGray",

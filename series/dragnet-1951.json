@@ -320,12 +320,12 @@
      "archiveID": "Dragnet1951",
      "seasonNumber": 7,
      "episodeNumber": 28,
-     "title": "Dragnet",
+     "title": "The Big War",
      "overview": null,
      "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/11/29790.jpg",
-     "airDate": null,
-     "year": 1951,
-     "runtimeSeconds": null,
+     "airDate": "1958-04-10",
+     "year": 1958,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "Dragnet/Season 7/Dragnet (1951) - S07E28 - The Big War.ia.mp4",
       "format": "h.264 IA",
@@ -333,24 +333,6 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/Dragnet1951/Dragnet/Season 7/Dragnet (1951) - S07E28 - The Big War.ia.mp4"
-    },
-    {
-     "archiveID": "DragnetTheBigWar",
-     "seasonNumber": 7,
-     "episodeNumber": 28,
-     "title": "The Big War",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
-     "airDate": "1958-04-10",
-     "year": 1958,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Dragnet-theBigWar.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 154902415,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/DragnetTheBigWar/Dragnet-theBigWar.ia.mp4"
     }
    ]
   },
@@ -415,6 +397,24 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/Dragnet-TheBigDeal/Dragnet-TheBigDeal.mp4"
+    },
+    {
+     "archiveID": "DragnetTheBigWar",
+     "seasonNumber": null,
+     "episodeNumber": null,
+     "title": "The Big War",
+     "overview": null,
+     "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+     "airDate": null,
+     "year": 1958,
+     "runtimeSeconds": 1800,
+     "videoFile": {
+      "name": "Dragnet-theBigWar.ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 154902415,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/DragnetTheBigWar/Dragnet-theBigWar.ia.mp4"
     }
    ]
   }

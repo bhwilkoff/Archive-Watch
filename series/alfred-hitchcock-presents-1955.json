@@ -163,12 +163,12 @@
      "archiveID": "alfred-hitchcock-presents-s-7e-1-colorized-sd",
      "seasonNumber": 7,
      "episodeNumber": 39,
-     "title": "Alfred Hitchcock Presents - Season 7",
+     "title": "The Sorcerer's Apprentice",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w500/lmbBSG3jRVjxdovpdhOf2LF1voZ.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
+     "airDate": "1962-07-03",
+     "year": 1962,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "alfred hitchcock presents-s7e39pd-colorized-sd.ia.mp4",
       "format": "h.264 IA",
@@ -176,15 +176,20 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/alfred-hitchcock-presents-s-7e-1-colorized-sd/alfred hitchcock presents-s7e39pd-colorized-sd.ia.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
      "archiveID": "AlfredHitchcockPresentsTheSorcerersApprentice",
-     "seasonNumber": 7,
-     "episodeNumber": 39,
+     "seasonNumber": null,
+     "episodeNumber": null,
      "title": "The Sorcerer's Apprentice",
      "overview": null,
      "stillURL": "https://image.tmdb.org/t/p/w300/y81q090Idq1Z7KHmnUk1GXP0oq5.jpg",
-     "airDate": "1962-07-03",
+     "airDate": null,
      "year": 1962,
      "runtimeSeconds": 1800,
      "videoFile": {

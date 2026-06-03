@@ -319,8 +319,8 @@
    "matched": true,
    "canonEps": 466,
    "ourItems": 40,
-   "mappedEps": 26,
-   "extras": 14,
+   "mappedEps": 27,
+   "extras": 13,
    "repicked": 0,
    "deadItems": 0,
    "availableEps": 40,
@@ -1093,29 +1093,6 @@
     {
      "kind": "series",
      "ref": "date-with-the-angels-1957"
-    }
-   ]
-  },
-  {
-   "slug": "now-what-2002",
-   "tvmazeID": 15093,
-   "title": "Now What?",
-   "matched": true,
-   "canonEps": 13,
-   "ourItems": 17,
-   "mappedEps": 0,
-   "extras": 17,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "now-what-2002"
     }
    ]
   },
@@ -2005,52 +1982,6 @@
    ]
   },
   {
-   "slug": "lost-worlds-vanished-lives-1989",
-   "tvmazeID": 13068,
-   "title": "Lost Worlds, Vanished Lives",
-   "matched": true,
-   "canonEps": 4,
-   "ourItems": 10,
-   "mappedEps": 0,
-   "extras": 10,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "lost-worlds-vanished-lives-1989"
-    }
-   ]
-  },
-  {
-   "slug": "miss-america-1954",
-   "tvmazeID": 7118,
-   "title": "Miss America",
-   "matched": true,
-   "canonEps": 69,
-   "ourItems": 10,
-   "mappedEps": 0,
-   "extras": 10,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "miss-america-1954"
-    }
-   ]
-  },
-  {
    "slug": "space-patrol-1950",
    "tvmazeID": 10657,
    "title": "Space Patrol",
@@ -2130,52 +2061,6 @@
    ]
   },
   {
-   "slug": "the-night-of-the-comet-2019",
-   "tvmazeID": 41094,
-   "title": "The Night of the Comet",
-   "matched": true,
-   "canonEps": 16,
-   "ourItems": 10,
-   "mappedEps": 0,
-   "extras": 10,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-night-of-the-comet-2019"
-    }
-   ]
-  },
-  {
-   "slug": "the-stu-erwin-show-1950",
-   "tvmazeID": 27231,
-   "title": "The Stu Erwin Show",
-   "matched": true,
-   "canonEps": 1,
-   "ourItems": 10,
-   "mappedEps": 0,
-   "extras": 10,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-stu-erwin-show-1950"
-    }
-   ]
-  },
-  {
    "slug": "26-men-1957",
    "tvmazeID": 16037,
    "title": "26 Men",
@@ -2246,29 +2131,6 @@
     {
      "kind": "single",
      "ref": "flash-gordon-tv-show"
-    }
-   ]
-  },
-  {
-   "slug": "flickers-1980",
-   "tvmazeID": 11530,
-   "title": "Flickers",
-   "matched": true,
-   "canonEps": 6,
-   "ourItems": 9,
-   "mappedEps": 0,
-   "extras": 9,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "flickers-1980"
     }
    ]
   },
@@ -2798,34 +2660,6 @@
    ]
   },
   {
-   "slug": "too-close-for-comfort-1980",
-   "tvmazeID": 7342,
-   "title": "Too Close for Comfort",
-   "matched": true,
-   "canonEps": 129,
-   "ourItems": 7,
-   "mappedEps": 0,
-   "extras": 7,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series",
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "too-close-for-comfort-1980"
-    },
-    {
-     "kind": "single",
-     "ref": "too-close-for-comfort_202202"
-    }
-   ]
-  },
-  {
    "slug": "all-creatures-great-and-small-1978",
    "tvmazeID": 8090,
    "title": "All Creatures Great and Small",
@@ -3047,28 +2881,6 @@
    ]
   },
   {
-   "slug": "public-prosecutor",
-   "tvmazeID": 81418,
-   "title": "Public Prosecutor",
-   "matched": true,
-   "canonEps": 0,
-   "ourItems": 7,
-   "mappedEps": 0,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "public-prosecutor-1947"
-    }
-   ]
-  },
-  {
    "slug": "quatermass-and-the-pit-1958",
    "tvmazeID": 13467,
    "title": "Quatermass and the Pit",
@@ -3134,52 +2946,6 @@
     {
      "kind": "series",
      "ref": "ramar-of-the-jungle-1953"
-    }
-   ]
-  },
-  {
-   "slug": "rick-steves-europe-2000",
-   "tvmazeID": 9872,
-   "title": "Rick Steves' Europe",
-   "matched": true,
-   "canonEps": 165,
-   "ourItems": 7,
-   "mappedEps": 0,
-   "extras": 7,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "rick-steves-europe-2000"
-    }
-   ]
-  },
-  {
-   "slug": "see-hear-1981",
-   "tvmazeID": 10087,
-   "title": "See Hear",
-   "matched": true,
-   "canonEps": 81,
-   "ourItems": 7,
-   "mappedEps": 0,
-   "extras": 7,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "see-hear-1981"
     }
    ]
   },
@@ -3535,52 +3301,6 @@
    ]
   },
   {
-   "slug": "garfield-and-friends-1988",
-   "tvmazeID": 6452,
-   "title": "Garfield and Friends",
-   "matched": true,
-   "canonEps": 363,
-   "ourItems": 6,
-   "mappedEps": 0,
-   "extras": 6,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "garfield-and-friends-1988"
-    }
-   ]
-  },
-  {
-   "slug": "have-you-seen-this-man-2022",
-   "tvmazeID": 61109,
-   "title": "Have You Seen This Man?",
-   "matched": true,
-   "canonEps": 3,
-   "ourItems": 6,
-   "mappedEps": 0,
-   "extras": 6,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "have-you-seen-this-man-2022"
-    }
-   ]
-  },
-  {
    "slug": "ironside-1967",
    "tvmazeID": 1754,
    "title": "Ironside",
@@ -3656,8 +3376,8 @@
    "matched": true,
    "canonEps": 26,
    "ourItems": 3,
-   "mappedEps": 1,
-   "extras": 2,
+   "mappedEps": 2,
+   "extras": 1,
    "repicked": 0,
    "deadItems": 0,
    "availableEps": 3,
@@ -3989,36 +3709,14 @@
    ]
   },
   {
-   "slug": "carrie",
-   "tvmazeID": 45562,
-   "title": "Carrie",
-   "matched": true,
-   "canonEps": 0,
-   "ourItems": 5,
-   "mappedEps": 0,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "carrie-1974"
-    }
-   ]
-  },
-  {
    "slug": "checkmate-1960",
    "tvmazeID": 17743,
    "title": "Checkmate",
    "matched": true,
    "canonEps": 70,
    "ourItems": 5,
-   "mappedEps": 3,
-   "extras": 2,
+   "mappedEps": 4,
+   "extras": 1,
    "repicked": 0,
    "deadItems": 0,
    "availableEps": 5,
@@ -4214,29 +3912,6 @@
    ]
   },
   {
-   "slug": "piping-live-2008",
-   "tvmazeID": 10383,
-   "title": "Piping Live",
-   "matched": true,
-   "canonEps": 38,
-   "ourItems": 5,
-   "mappedEps": 0,
-   "extras": 5,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "piping-live-2008"
-    }
-   ]
-  },
-  {
    "slug": "shotgun-slade-1959",
    "tvmazeID": 16105,
    "title": "Shotgun Slade",
@@ -4306,33 +3981,6 @@
    ]
   },
   {
-   "slug": "the-liberace-show",
-   "tvmazeID": 61600,
-   "title": "The Liberace Show",
-   "matched": true,
-   "canonEps": 0,
-   "ourItems": 5,
-   "mappedEps": 0,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "kinds": [
-    "series",
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-liberace-show-1952"
-    },
-    {
-     "kind": "single",
-     "ref": "liberace-show-d-6-"
-    }
-   ]
-  },
-  {
    "slug": "the-outer-limits-1963",
    "tvmazeID": 2147,
    "title": "The Outer Limits",
@@ -4385,29 +4033,6 @@
     {
      "kind": "single",
      "ref": "TheSnowman_201305"
-    }
-   ]
-  },
-  {
-   "slug": "to-tell-the-truth-1956",
-   "tvmazeID": 7023,
-   "title": "To Tell the Truth",
-   "matched": true,
-   "canonEps": 251,
-   "ourItems": 5,
-   "mappedEps": 0,
-   "extras": 5,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "to-tell-the-truth-1956"
     }
    ]
   },
@@ -4748,29 +4373,6 @@
    ]
   },
   {
-   "slug": "general-monash-and-me-peter-greste-on-australia-s-greatest-commander-2018",
-   "tvmazeID": 33995,
-   "title": "General Monash and Me: Peter Greste on Australia's Greatest Commander",
-   "matched": true,
-   "canonEps": 2,
-   "ourItems": 4,
-   "mappedEps": 0,
-   "extras": 4,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "general-monash-and-me-peter-greste-on-australia-s-greatest-commander-2018"
-    }
-   ]
-  },
-  {
    "slug": "ghostly-encounters-2005",
    "tvmazeID": 11213,
    "title": "Ghostly Encounters",
@@ -4881,29 +4483,6 @@
    ]
   },
   {
-   "slug": "i-love-lucy-1951",
-   "tvmazeID": 3824,
-   "title": "I Love Lucy",
-   "matched": true,
-   "canonEps": 180,
-   "ourItems": 4,
-   "mappedEps": 0,
-   "extras": 4,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "i-love-lucy-1951"
-    }
-   ]
-  },
-  {
    "slug": "life-on-a-stick-2005",
    "tvmazeID": 6242,
    "title": "Life on a Stick",
@@ -4978,29 +4557,6 @@
     {
      "kind": "series",
      "ref": "lizzie-dripping-1973"
-    }
-   ]
-  },
-  {
-   "slug": "magyar-n-pmes-k-1977",
-   "tvmazeID": 7560,
-   "title": "Magyar népmesék",
-   "matched": true,
-   "canonEps": 100,
-   "ourItems": 4,
-   "mappedEps": 0,
-   "extras": 4,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "magyar-n-pmes-k-1977"
     }
    ]
   },
@@ -5103,8 +4659,8 @@
    "matched": true,
    "canonEps": 20,
    "ourItems": 2,
-   "mappedEps": 1,
-   "extras": 1,
+   "mappedEps": 2,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "availableEps": 2,
@@ -5148,29 +4704,6 @@
     {
      "kind": "series",
      "ref": "room-222-1969"
-    }
-   ]
-  },
-  {
-   "slug": "seekers-1993",
-   "tvmazeID": 51219,
-   "title": "Seekers",
-   "matched": true,
-   "canonEps": 2,
-   "ourItems": 4,
-   "mappedEps": 0,
-   "extras": 4,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "seekers-1993"
     }
    ]
   },
@@ -5680,29 +5213,6 @@
    ]
   },
   {
-   "slug": "comedy-classics-2022",
-   "tvmazeID": 65690,
-   "title": "Comedy Classics",
-   "matched": true,
-   "canonEps": 4,
-   "ourItems": 3,
-   "mappedEps": 0,
-   "extras": 3,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "comedy-classics-2022"
-    }
-   ]
-  },
-  {
    "slug": "cosmos-1980",
    "tvmazeID": 1128,
    "title": "Cosmos",
@@ -5818,29 +5328,6 @@
    ]
   },
   {
-   "slug": "hanna-campar-med-en-k-ndis-2016",
-   "tvmazeID": 31913,
-   "title": "Hanna campar med en kändis",
-   "matched": true,
-   "canonEps": 2,
-   "ourItems": 3,
-   "mappedEps": 0,
-   "extras": 3,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "hanna-campar-med-en-k-ndis-2016"
-    }
-   ]
-  },
-  {
    "slug": "it-takes-a-worried-man-1981",
    "tvmazeID": 79973,
    "title": "It Takes a Worried Man",
@@ -5906,29 +5393,6 @@
     {
      "kind": "series",
      "ref": "land-of-the-lost-1974"
-    }
-   ]
-  },
-  {
-   "slug": "life-2007",
-   "tvmazeID": 1035,
-   "title": "Life",
-   "matched": true,
-   "canonEps": 32,
-   "ourItems": 3,
-   "mappedEps": 0,
-   "extras": 3,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "life-2007"
     }
    ]
   },
@@ -6025,28 +5489,6 @@
    ]
   },
   {
-   "slug": "rising-damp-1974",
-   "tvmazeID": 6554,
-   "title": "Rising Damp",
-   "matched": true,
-   "canonEps": 28,
-   "ourItems": 3,
-   "mappedEps": 2,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 3,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "rising_damp_-1975"
-    }
-   ]
-  },
-  {
    "slug": "rocky-jones-space-ranger-1954",
    "tvmazeID": 26747,
    "title": "Rocky Jones, Space Ranger",
@@ -6066,51 +5508,6 @@
     {
      "kind": "series",
      "ref": "rocky-jones-space-ranger-1954"
-    }
-   ]
-  },
-  {
-   "slug": "saturday-disney-1990",
-   "tvmazeID": 17340,
-   "title": "Saturday Disney",
-   "matched": true,
-   "canonEps": 90,
-   "ourItems": 3,
-   "mappedEps": 0,
-   "extras": 3,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "saturday-disney-1990"
-    }
-   ]
-  },
-  {
-   "slug": "now-you-see-it",
-   "tvmazeID": 62559,
-   "title": "Now You See It",
-   "matched": true,
-   "canonEps": 0,
-   "ourItems": 3,
-   "mappedEps": 0,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "see-it-now-1951"
     }
    ]
   },
@@ -6309,29 +5706,6 @@
    ]
   },
   {
-   "slug": "wally-gator-1962",
-   "tvmazeID": 21930,
-   "title": "Wally Gator",
-   "matched": true,
-   "canonEps": 52,
-   "ourItems": 3,
-   "mappedEps": 0,
-   "extras": 3,
-   "repicked": 0,
-   "deadItems": 0,
-   "rejectedMismap": true,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "wally-gator-1962"
-    }
-   ]
-  },
-  {
    "slug": "wanda-at-large-2003",
    "tvmazeID": 15728,
    "title": "Wanda at Large",
@@ -6379,6 +5753,34 @@
     {
      "kind": "series",
      "ref": "you-are-there-1953"
+    }
+   ]
+  },
+  {
+   "slug": "227-1985",
+   "tvmazeID": 7602,
+   "title": "227",
+   "matched": true,
+   "canonEps": 116,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "227-1985"
+    },
+    {
+     "kind": "single",
+     "ref": "227-s-4-e-23-jackee-most-convert-video-online.com"
     }
    ]
   },
@@ -6700,28 +6102,6 @@
     {
      "kind": "series",
      "ref": "the-tony-randall-show-1976"
-    }
-   ]
-  },
-  {
-   "slug": "beautiful-baking-with-juliet-sear-2019",
-   "tvmazeID": 44839,
-   "title": "Beautiful Baking with Juliet Sear",
-   "matched": true,
-   "canonEps": 10,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "beautiful-baking-with-juliet-sear-2019"
     }
    ]
   },
@@ -13747,29 +13127,6 @@
    ]
   },
   {
-   "slug": "227-1985",
-   "tvmazeID": 7602,
-   "title": "227",
-   "matched": true,
-   "canonEps": 116,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 1,
-   "deadItems": 0,
-   "availableEps": 1,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "227-s-4-e-23-jackee-most-convert-video-online.com"
-    }
-   ]
-  },
-  {
    "slug": "the-michael-richards-show-2000",
    "tvmazeID": 24126,
    "title": "The Michael Richards Show",
@@ -14052,6 +13409,28 @@
     {
      "kind": "single",
      "ref": "Dream-Stuffing-Full-Series-1984"
+    }
+   ]
+  },
+  {
+   "slug": "the-liberace-show",
+   "tvmazeID": 61600,
+   "title": "The Liberace Show",
+   "matched": true,
+   "canonEps": 0,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "liberace-show-d-6-"
     }
    ]
   },
@@ -14382,6 +13761,28 @@
     {
      "kind": "single",
      "ref": "godzilla-animated-television-series"
+    }
+   ]
+  },
+  {
+   "slug": "too-close-for-comfort-1980",
+   "tvmazeID": 7342,
+   "title": "Too Close for Comfort",
+   "matched": true,
+   "canonEps": 129,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "too-close-for-comfort_202202"
     }
    ]
   },
@@ -14956,174 +14357,53 @@
      "ref": "love-inc-complete-series"
     }
    ]
+  },
+  {
+   "slug": "what-s-my-line-1950",
+   "tvmazeID": 9612,
+   "title": "What's My Line?",
+   "matched": true,
+   "canonEps": 901,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "whatsMyLine"
+    }
+   ]
+  },
+  {
+   "slug": "now-you-see-it-2015",
+   "tvmazeID": 10570,
+   "title": "Now You See It",
+   "matched": true,
+   "canonEps": 16,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "SeeItNow1951"
+    }
+   ]
   }
  ],
  "reclassifyArchiveIDs": [
-  "whatsMyLine",
-  "WhatsMyLine18October1953",
-  "WhatsMyLine19July1953",
-  "whatsmyline2January1955",
-  "whatsmyline22August1954",
-  "whatsmyline23September1956",
-  "WhatsMyLine24January1965",
-  "whatsmyline31October1965",
-  "whatsmyline5September1954",
-  "whatsmyline7October1956",
-  "whatsmyline26August1956",
-  "whats-my-line-5-february-1956",
-  "whats-my-line-2-october-1955",
-  "whats-my-line-21-february-1954",
-  "whats-my-line-5-october-1952",
-  "WhatsMyLinePremiereTelecast1950",
-  "WhatsMyLineJackDempsey",
-  "AlmostLiveS7",
-  "AlmostLiveS10",
-  "AlmostLiveS11",
-  "AlmostLiveS12",
-  "AlmostLiveS13",
-  "AlmostLiveS14",
-  "AlmostLiveS15",
-  "AlmostLiveS6",
-  "AlmostLiveS8",
-  "AlmostLiveS9",
-  "MiscEpisodeOfyouAskedForIt6",
-  "MiscEpisodeOfyouAskedForIt7",
-  "MiscEpisodeOfyouAskedForIt8",
-  "Arthur_Godfrey_Time",
-  "Cavalcade",
-  "Do_You_Trust_Your_Wife",
-  "Asked_For_It_1",
-  "Asked_For_It_2",
-  "Asked_For_It_3",
-  "You_Asked_For_It_4",
-  "comedy-tonight-andie-mac-dowell-1985",
-  "comedy-tonight-andy-bumatai-linda-hill-david-feldman-1988",
-  "comedy-tonight-lorenzo-matawaran-whoopi-goldberg-barry-sobel-1982",
-  "comedy-tonight-ellen-de-generes-michael-meehan-milt-abel-1988",
-  "comedy-tonight-jeff-cesario-marga-gomez-pat-hazell-1988",
-  "comedy-tonight-kevin-pollack-rick-ruby-al-clethen-1982",
-  "comedy-tonight-marty-cohen-lizz-winstead-milt-abel-198x",
-  "comedy-tonight-steven-pearl-james-wesley-jackson-kate-clinton-198x",
-  "comedy-tonight-ellen-degeneres-1988",
-  "comedy-tonight-ellen-de-generes-michael-meehan-wilie-tyler-and-lester-1988",
-  "King_Kai_Loves_Classic_TV",
-  "You_Cannot_Do_That",
-  "trouble-with-father-barbecue",
-  "trouble-with-father-father-picks-a-queen",
-  "trouble-with-father-jackies-first-date",
-  "trouble-with-father-one-of-the-boys",
-  "trouble-with-father-stus-holiday",
-  "Trouble_with_Father_Hate_the_Love_Seat",
-  "Trouble_with_Father_In_a_Pickle",
-  "Trouble_with_Father_4-20",
-  "flicks-a-fish-called-wanda",
-  "flicks-dead-heat",
-  "flicks-good-morning-vietnam",
-  "flicks-gorillas-in-the-mist",
-  "flicks-joe-vs.-the-volcano",
-  "flicks-married-to-the-mob",
-  "flicks-red-heat",
-  "flicks-running-on-empty",
-  "flicks-tucker",
-  "too-close-for-comfort_202202",
-  "toocloseforcomfort-season1_202209",
-  "toocloseforcomfort-season2",
-  "toocloseforcomfort-season3",
-  "toocloseforcomfort-season4",
-  "toocloseforcomfort-season5",
-  "toocloseforcomfort-season6",
-  "too-close-for-comfort_202202",
-  "Public_Prosecutor--Devils_Heart",
-  "Public_Prosecutor--Missing_Hour",
-  "Public_Prosecutor--Shattered_Mirror",
-  "Public_Prosecutor--Strange_Suicide",
-  "Public_Prosecutor--Missing_Bullets",
-  "PublicProsecutor-CaseOfTheComic-stripMurder1948",
-  "Public_Prosecutor--Dead_Mans_Voice",
-  "Ricks_21st_Birthday--Ozzie-Harriet",
-  "Ricks_Assistant--Ozzie-Harriet",
-  "Ricks_Broken_Arm--Ozzie-Harriet",
-  "Ricks_Dinner_Guests--Ozzie-Harriet",
-  "Ricks_English_Literature_Class--Ozzie-Harriet",
-  "Ricks_Old_Printing_Press--Ozzie-Harriet",
-  "Ricks_Wedding_Ring--Ozzie-Harriet",
-  "pee-wees-playhouse-christmas-special-full-episode-in-1080-hd",
-  "videoplayback_20250722_1336",
-  "pee-wees-playhouse-luau-for-two-1986-adult-swim-airing_20230104_1918",
-  "videoplayback_20250726_1807",
-  "pee-wees-playhouse-playhouse-for-sale-ending-reupload",
-  "pee-wees-playhouse-rainy-day-1986-adult-swim-airing_20230105",
-  "pee-wees-playhouse-stolen-apples-1986-adult-swim-airing",
-  "036mysticmanorflopgoestheweaselthelegendoflongjondvdripxvidphz",
-  "056mistakeswillhappenthewelldwellerthewisemandvdripxvidphz",
-  "068bouncingbabybluestheuglyducklinglearninglessonsdvdripxvidphz",
-  "088ghostofachanceroygetssackedrevengeofthelivinglunchdvdripxvidphz",
-  "098dr.jekyllandmr.mousepaydaymaydayhowtodrivehumanscrazydvdripxvidphz",
-  "116thoroughlymixedupmousetheoldmanofthemountainfoodfighterdvdripxvidphz",
-  "seeing-things-season-1-1981",
-  "08-in-the-eyes-of-the-law",
-  "01-seeing-r.-e.-d",
-  "07-ill-be-seeing-you",
-  "seeing-things-season-5",
-  "03-spectacle-of-india",
-  "carries-war-s-01-e-01",
-  "carries-war-s-01-e-02",
-  "carries-war-s-01-e-03",
-  "carries-war-s-01-e-04",
-  "carries-war-s-01-e-05",
-  "firing-line-tv-show-1966",
-  "FiringLineThatcherGMA7",
-  "FiringLineCorazonAquinoInterview",
-  "FiringLineLoidaInterview",
-  "FiringLineFVRGMA7",
-  "theLiberaceShow-GreatPersonalities",
-  "LiberacePersonalHolidays",
-  "LiberaceSanFrancisco",
-  "TheLiberaceShow-1954ChristmasEpisode",
-  "liberace-show-d-6-",
-  "ToTellTheTruth30July1957",
-  "totellthetruth14May1957",
-  "totellthetruth16July1957",
-  "totellthetruth21january1958",
-  "totellthetruth-5November1957",
-  "FederalMenCaseOfTheReadyGuns",
-  "FederalTheCaseOfTheCharteredChiseler",
-  "FederalMenTheCaseOfTheIronCurtain",
-  "FederalMenTheManOutside",
-  "img-3834_202312",
-  "img-3283_202307",
-  "img-2924_202307",
-  "img-0553_202307",
-  "dagmarscanteenMisc4",
-  "dagmarscanteenMisc3",
-  "dagmarscanteen-Misc1",
-  "dagmarscanteen-Misc2",
-  "SpeakersCornerOctober1990",
-  "SpeakersCorner1991Recording1",
-  "SpeakersCorner1991Recording2",
-  "SpeakersCorner1991Recording3Short",
-  "BurnsAllenTeenager",
-  "IncomeTaxMan",
-  "GraciePlot",
-  "candid-camera-1974-first-scene-filmaker-looking-for-a-completely-natural-commercial",
-  "candid-camera-comedy-shopping-spree-special-may-4-1990",
-  "candid-camera-the-first-40-years-special-1987",
-  "LifesFirstFeelings",
-  "lifes-most-embarrassing-moments-2-1984",
-  "lifes-work-1.13",
-  "Rising_Damp_Series_02",
-  "Rising_Damp_Series_03",
-  "Rising_Damp_Series-04",
-  "disneys-animal-kingdom-drew-carey-1998",
-  "disneys-great-american-celebration-1991",
-  "disneys-magic-in-the-magic-kingdom-1988",
-  "seeItNow-24February1952",
-  "seeItNow-29june1952",
-  "SeeItNow1951",
-  "Wallys_Pen_Pal--Ozzie-Harriet",
-  "Wallys_TV_Set--Ozzie-Harriet",
-  "Wallys_Traffic_Ticket--Ozzie-Harriet",
-  "starsearch89variousfootagept.1",
   "tateseason1",
   "on-the-buses-1969-73",
   "TheEdWynnShow1950",
@@ -15453,6 +14733,7 @@
   "i-dream-of-jeannie",
   "NatureKilimanjaro",
   "Dream-Stuffing-Full-Series-1984",
+  "liberace-show-d-6-",
   "titus-the-family-homecoming-reunion-episode-pt-1-pt-2",
   "over-the-top-Complete-Series",
   "EveningShadeS1",
@@ -15468,6 +14749,7 @@
   "rhoda-Lando18",
   "2024-06-08-12-26-51-video",
   "godzilla-animated-television-series",
+  "too-close-for-comfort_202202",
   "the-show-1996",
   "family-gal-episode-1-the-birthday-party-reupload-720p",
   "the-tick-2001",
@@ -15493,38 +14775,11 @@
   "HelloLarrySeason1",
   "the.end.of.the.fucking.world.s01",
   "misfits-of-science-complete-series",
-  "love-inc-complete-series"
+  "love-inc-complete-series",
+  "whatsMyLine",
+  "SeeItNow1951"
  ],
- "orphanSeriesSlugs": [
-  "now-what-2002",
-  "lost-worlds-vanished-lives-1989",
-  "miss-america-1954",
-  "the-night-of-the-comet-2019",
-  "the-stu-erwin-show-1950",
-  "flickers-1980",
-  "too-close-for-comfort-1980",
-  "public-prosecutor-1947",
-  "rick-steves-europe-2000",
-  "see-hear-1981",
-  "garfield-and-friends-1988",
-  "have-you-seen-this-man-2022",
-  "carrie-1974",
-  "piping-live-2008",
-  "the-liberace-show-1952",
-  "to-tell-the-truth-1956",
-  "general-monash-and-me-peter-greste-on-australia-s-greatest-commander-2018",
-  "i-love-lucy-1951",
-  "magyar-n-pmes-k-1977",
-  "seekers-1993",
-  "comedy-classics-2022",
-  "hanna-campar-med-en-k-ndis-2016",
-  "life-2007",
-  "rising_damp_-1975",
-  "saturday-disney-1990",
-  "see-it-now-1951",
-  "wally-gator-1962",
-  "beautiful-baking-with-juliet-sear-2019"
- ],
+ "orphanSeriesSlugs": [],
  "unmatched": [
   {
    "title": "1973. La isla misteriosa y el Capitán Nemo",
@@ -32465,6 +31720,181 @@
    "items": 1,
    "kind": "single",
    "ref": "OneStepBeyondTheRiddle"
+  },
+  {
+   "title": "Garfield and Friends Season 7 (1994)",
+   "year": 1994,
+   "items": 1,
+   "kind": "single",
+   "ref": "116thoroughlymixedupmousetheoldmanofthemountainfoodfighterdvdripxvidphz"
+  },
+  {
+   "title": "Garfield and Friends Season 6 (1993)",
+   "year": 1993,
+   "items": 1,
+   "kind": "single",
+   "ref": "098dr.jekyllandmr.mousepaydaymaydayhowtodrivehumanscrazydvdripxvidphz"
+  },
+  {
+   "title": "Garfield and Friends Season 5 (1992)",
+   "year": 1992,
+   "items": 1,
+   "kind": "single",
+   "ref": "088ghostofachanceroygetssackedrevengeofthelivinglunchdvdripxvidphz"
+  },
+  {
+   "title": "The Liberace Show - 1954 Christmas episode",
+   "year": 1954,
+   "items": 1,
+   "kind": "single",
+   "ref": "TheLiberaceShow-1954ChristmasEpisode"
+  },
+  {
+   "title": "What's My Line? Premiere Telecast (1950)",
+   "year": 1950,
+   "items": 1,
+   "kind": "single",
+   "ref": "WhatsMyLinePremiereTelecast1950"
+  },
+  {
+   "title": "V The Series (1984-85) s01e01 Liberation Day",
+   "year": 1984,
+   "items": 1,
+   "kind": "single",
+   "ref": "v-the-series-1984-85-s-01e-01-liberation-day"
+  },
+  {
+   "title": "Misc episode of 'Cavalcade of Stars'",
+   "year": 1950,
+   "items": 1,
+   "kind": "single",
+   "ref": "Cavalcade"
+  },
+  {
+   "title": "One Step Beyond S1 E2 Night Of April 14",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "S1E2NightOfApril14"
+  },
+  {
+   "title": "''What's My Line'' - 18 October 1953",
+   "year": 1953,
+   "items": 1,
+   "kind": "single",
+   "ref": "WhatsMyLine18October1953"
+  },
+  {
+   "title": "Classic TV Comedy: ''Burns and Allen'' - (Title: Gracie's Vegetarian Plot) (1951)",
+   "year": 1951,
+   "items": 1,
+   "kind": "single",
+   "ref": "GraciePlot"
+  },
+  {
+   "title": "Classic TV Comedy: ''Burns and Allen'' - (Episode Title: Teenage Girl Spends the Weekend)",
+   "year": 1951,
+   "items": 1,
+   "kind": "single",
+   "ref": "BurnsAllenTeenager"
+  },
+  {
+   "title": "Classic TV Comedy: ''Burns and Allen'' - (Episode Title: The Income Tax Man)",
+   "year": 1951,
+   "items": 1,
+   "kind": "single",
+   "ref": "IncomeTaxMan"
+  },
+  {
+   "title": "Too Close For Comfort: Season 1",
+   "year": 2022,
+   "items": 1,
+   "kind": "single",
+   "ref": "toocloseforcomfort-season1_202209"
+  },
+  {
+   "title": "Too Close For Comfort: Season 3",
+   "year": 2022,
+   "items": 1,
+   "kind": "single",
+   "ref": "toocloseforcomfort-season3"
+  },
+  {
+   "title": "Too Close For Comfort: Season 4",
+   "year": 2022,
+   "items": 1,
+   "kind": "single",
+   "ref": "toocloseforcomfort-season4"
+  },
+  {
+   "title": "Too Close For Comfort: Season 2",
+   "year": 2022,
+   "items": 1,
+   "kind": "single",
+   "ref": "toocloseforcomfort-season2"
+  },
+  {
+   "title": "''The Trouble with Father'' - Pearl Necklace (1955)",
+   "year": 1955,
+   "items": 1,
+   "kind": "single",
+   "ref": "You_Cannot_Do_That"
+  },
+  {
+   "title": "Too Close For Comfort: Season 6",
+   "year": 2022,
+   "items": 1,
+   "kind": "single",
+   "ref": "toocloseforcomfort-season6"
+  },
+  {
+   "title": "Too Close For Comfort: Season 5",
+   "year": 2022,
+   "items": 1,
+   "kind": "single",
+   "ref": "toocloseforcomfort-season5"
+  },
+  {
+   "title": "Trouble With Father - One of The Boys",
+   "year": 1955,
+   "items": 1,
+   "kind": "single",
+   "ref": "trouble-with-father-one-of-the-boys"
+  },
+  {
+   "title": "Trouble With Father - Stu's Holiday",
+   "year": 1950,
+   "items": 1,
+   "kind": "single",
+   "ref": "trouble-with-father-stus-holiday"
+  },
+  {
+   "title": "Trouble With Father - Jackie's First Date",
+   "year": 1954,
+   "items": 1,
+   "kind": "single",
+   "ref": "trouble-with-father-jackies-first-date"
+  },
+  {
+   "title": "Trouble With Father - Father Picks a Queen",
+   "year": 1951,
+   "items": 1,
+   "kind": "single",
+   "ref": "trouble-with-father-father-picks-a-queen"
+  },
+  {
+   "title": "Trouble With Father - Barbecue",
+   "year": 1951,
+   "items": 1,
+   "kind": "single",
+   "ref": "trouble-with-father-barbecue"
+  },
+  {
+   "title": "Speakers' Corner - October 1990 - Full Episode",
+   "year": 1990,
+   "items": 1,
+   "kind": "single",
+   "ref": "SpeakersCornerOctober1990"
   }
  ]
 }

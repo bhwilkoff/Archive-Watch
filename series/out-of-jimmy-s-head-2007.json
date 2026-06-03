@@ -37,22 +37,17 @@
       "tier": 1
      },
      "downloadURL": "https://archive.org/download/out-of-jimmys-head-lost-2007-animated-series-english/Out%20of%20Jimmy%27s%20Head%20-%20S01E01%20-%20Friends.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+    },
     {
      "archiveID": "out-of-jimmys-complete-series",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Out Of Jimmy's Head",
+     "seasonNumber": 1,
+     "episodeNumber": 19,
+     "title": "Out of Jimmy's Body",
      "overview": null,
      "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
+     "airDate": "2008-05-22",
+     "year": 2008,
+     "runtimeSeconds": 1800,
      "videoFile": {
       "name": "Out of Jimmy's Head - 02,06 - Out of Jimmy's Body.ia.mp4",
       "format": "h.264 IA",
