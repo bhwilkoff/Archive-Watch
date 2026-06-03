@@ -85,6 +85,12 @@ _NUMERIC_TITLE = re.compile(r"^[\d\W]{1,6}$")
 # titled just "1941") — legit content, useless title.
 _PD_ANIM = re.compile(r"^(\d{4})publicdomainanimation", re.I)
 
+# Year-keyed compilation reels ("1941publicdomainanimation" titled "Public
+# Domain Animation (1941)") are collections of many shorts, NOT a single film —
+# so any TMDb/OMDb poster on them is a wrong match (the "foreign film with a year
+# on it" posters the user saw). Detect by archiveID regardless of current title.
+_PD_ANIM_ANY = re.compile(r"publicdomainanimation", re.I)
+
 _ADULT = re.compile(
     r"\b(erotic|nudie|sexploitation|softcore|hardcore|porn|x-?rated|"
     r"adults?\s+only|burlesque\s+nude|nudist)\b", re.I)
@@ -282,7 +288,18 @@ def remediate(items):
             stats["pd_anim_retitled"] += 1
             continue
 
-        # 0) WRONG EXTERNAL MATCH (#3/#4): a modern TMDb/OMDb poster+year on a
+        # 0a) PD-ANIMATION COMPILATION posters (#4): a year-compilation reel can't
+        # have a single-film poster — strip any designed artwork so it falls back
+        # to its own Archive frame.
+        if _PD_ANIM_ANY.search(it.get("archiveID") or "") \
+                and (it.get("artworkSource") or "").lower() not in ("", "archive"):
+            it["posterURL"] = None
+            it["backdropURL"] = None
+            it["hasRealArtwork"] = False
+            it["artworkSource"] = "archive"
+            stats["pd_anim_poster_cleared"] += 1
+
+        # 0b) WRONG EXTERNAL MATCH (#3/#4): a modern TMDb/OMDb poster+year on a
         # vintage title. Clear the bad artwork + fix the year before anything
         # downstream reads it.
         wm = fix_wrong_external_matches(it)
