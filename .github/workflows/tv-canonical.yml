@@ -107,6 +107,9 @@ jobs:
 
       # Republish the mutated catalog to the catalog-source release; publish-db
       # rebuilds the app's SQLite from it (series push above also triggers it).
+      - name: Remediate catalog data quality
+        run: python tools/remediate_catalog.py
+
       - name: Publish catalog to release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

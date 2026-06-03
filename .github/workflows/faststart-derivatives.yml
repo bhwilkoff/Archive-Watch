@@ -51,6 +51,9 @@ jobs:
           echo "## Faststart pass" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -4 faststart.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
+      - name: Remediate catalog data quality
+        run: python tools/remediate_catalog.py
+
       - name: Publish catalog to release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
