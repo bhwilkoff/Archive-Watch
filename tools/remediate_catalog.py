@@ -30,10 +30,16 @@ Operates on catalog.json (root). Idempotent. `--dry-run` to preview.
 """
 
 import argparse
+import html as _html
 import json
 import re
+import sys as _sys
 from collections import Counter
 from pathlib import Path
+
+# Share the auditor's detectors so "what we detect is what we clean" (Tier 1).
+_sys.path.insert(0, str(Path(__file__).resolve().parent))
+import audit_metadata as _audit  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
@@ -268,6 +274,69 @@ def fix_animation_liveaction_match(it):
     return True
 
 
+# --- Tier 1: text sanitization (docs/architecture/metadata-audit.md) --------
+# Deterministic cleaning of the two free-text fields users read, sharing the
+# auditor's detectors. Synopsis: decode entities, strip HTML/mojibake, and drop
+# whole sentences that are URL/social/email/uploader junk (keeps the plot, loses
+# "Follow us on Instagram!"). If nothing meaningful survives, null it so Tier-2
+# enrichment (Wikipedia/OMDb) can refill a real one. Title: strip codec/
+# resolution/bracket junk + fix mojibake/ALL-CAPS, never emptying it.
+_SENT_SPLIT = re.compile(r"(?<=[.!?])\s+")
+_TAG = re.compile(r"<[^>]+>")
+MIN_SYNOPSIS = 40
+
+
+def _synopsis_text(it):
+    v = it.get("synopsis")
+    return (" ".join(v) if isinstance(v, list) else (v or "")).strip()
+
+
+def _fix_mojibake(s):
+    if not _audit.MOJIBAKE.search(s):
+        return s
+    try:
+        return s.encode("latin-1").decode("utf-8")
+    except (UnicodeDecodeError, UnicodeEncodeError):
+        return s
+
+
+def sanitize_synopsis(it):
+    """Returns 'cleaned', 'nulled', or None."""
+    raw = _synopsis_text(it)
+    if not raw:
+        return None
+    s = _TAG.sub(" ", _fix_mojibake(_html.unescape(raw)))
+    sents = [x for x in _SENT_SPLIT.split(s)
+             if not (_audit.URL.search(x) or _audit.SOCIAL.search(x)
+                     or _audit.EMAIL.search(x) or _audit.UPLOADER.search(x)
+                     or _audit.TECH.search(x))]
+    s = re.sub(r"\s+", " ", " ".join(sents)).strip()
+    if s == raw:
+        return None
+    if len(s) < MIN_SYNOPSIS:
+        it["synopsis"] = None
+        it["synopsisSource"] = None
+        return "nulled"
+    it["synopsis"] = s
+    return "cleaned"
+
+
+def sanitize_title(it):
+    raw = (it.get("title") or "").strip()
+    if not raw:
+        return False
+    t = _fix_mojibake(_html.unescape(raw))
+    t = _audit.T_BRACKET.sub(" ", t)
+    t = _audit.T_RES.sub(" ", t)
+    t = re.sub(r"\s+", " ", t).strip(" -_|")
+    if t and t.isupper() and len(t.split()) > 1:
+        t = t.title()
+    if t and t != raw:
+        it["title"] = t
+        return True
+    return False
+
+
 def is_junk(it):
     """Personal-upload garbage: junk-uploader archiveID + a numeric/short
     title. Conservative — needs BOTH so real films (e.g. titled "1917") and
@@ -381,6 +450,13 @@ def remediate(items):
         if r:
             it["rightsStatus"] = r
             stats["rights_inferred_pd"] += 1
+
+        # 7) TEXT SANITIZATION (Tier 1): clean the free-text fields users read.
+        sy = sanitize_synopsis(it)
+        if sy:
+            stats[f"synopsis_{sy}"] += 1
+        if sanitize_title(it):
+            stats["title_cleaned"] += 1
 
     return stats
 

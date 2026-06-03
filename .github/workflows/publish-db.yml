@@ -49,6 +49,12 @@ jobs:
       - name: Remediate catalog data quality
         run: python tools/remediate_catalog.py
 
+      - name: Metadata quality audit (report)
+        run: |
+          python tools/audit_metadata.py --top 2000 | tee audit.log
+          echo "## Metadata quality" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; head -28 audit.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
       - name: Build SQLite catalog
         run: python tools/build_sqlite.py | tee db.log
 
