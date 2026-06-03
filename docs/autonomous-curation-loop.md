@@ -131,3 +131,31 @@ new collections mining). Remaining backlog is either lower-yield or higher-risk:
   CI before committing broadly.
 The CI pipeline is the permanent autonomous executor; the agent loop can space
 out / focus on these harder items.
+
+## Iteration 8 — agent loop WOUND DOWN (2026-06-03)
+Stopped the high-frequency agent loop after evidence showed the remaining
+backlog is all unsafe-to-automate-unsupervised or marginal:
+- **A2** (cap tuning): the real limiter is the ingest cap, not discovery;
+  raising it blindly risks CI timeouts / API rate-limits without observing run
+  durations + yields — not safe unattended.
+- **A3** (new external source): effortful, and the main PD universe
+  (Wikidata-PD + LoC + 38 Archive collections) is already covered.
+- **B2** (IMDb resolution): high value but false matches degrade quality —
+  must be supervised.
+
+CI evidence at wind-down: no-real-artwork 52%→46%, genres 47%→33%, synopses
+filling; OMDb cast/genres re-fetch (13,814) draining at 950/day; discover+ingest
+mining the 38 collections. **The CI pipeline keeps growing + enriching the
+catalog autonomously (no Mac), so the goals continue without the agent loop.**
+
+To resume the agent loop later (e.g. to supervise B2, or add a new external
+source), just re-run the loop prompt. The backlog above is the agenda.
+
+### What the loop shipped (8 iterations)
+Tools/workflows added: probe_collections.py + probe-sources.yml,
+enrich_wikidata_posters.py + wikidata-posters.yml, enrich_wikipedia_synopsis.py
++ wikipedia-synopsis.yml, faststart-derivatives.yml; remediate genre fallback;
+omdb cast/director/genres backfill; CI remediate-before-publish consistency.
+Growth: Archive collections 19 → 38. Quality: +4,176 genres, 1,826 Commons
+posters (more draining), 13,814 items re-fetching for cast/director/genres,
+2,304 Wikipedia synopses, 159 faststart upgrades.
