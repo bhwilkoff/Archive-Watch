@@ -78,6 +78,30 @@ it, executes the next item, and logs the result.
   + inflight coalescing + http→https (playbook §7); PosterArt already degrades
   to a branded ProceduralPoster when hasDesignedArtwork is false. No change
   needed.
+- [ ] **B6 — Tier 3 metadata review (THE AGENT IS THE LLM).** The recurring
+  high-value iteration. Tier 1 (`remediate`) + Tier 2 (enrichment) handle
+  structural junk + gaps; this catches the SEMANTIC residue rules can't —
+  uploader notes that read fine ("my own DVD version…"), wrong-film blurbs, junk
+  titles. Runs locally in Claude Code (no API cost); the sandbox reaches the
+  catalog via the release, and review needs no network. Per
+  `docs/architecture/metadata-audit.md`. ONE full pass over the catalog, then
+  steady-state only touches newly-sourced/changed titles.
+
+  **Iteration protocol** (repeat as the nightly iteration):
+  1. `python tools/catalog_release.py fetch`
+  2. `python tools/metadata_review.py select --limit 100`  (popularity-ordered,
+     skips already-reviewed via `agentReviewHash`)
+  3. Read `metadata_review_batch.json`. For EACH item judge synopsis (+ title):
+     - `keep` — already a real, faithful plot.
+     - `rewrite` — replace with a clean 1-3 sentence plot ONLY if you can write it
+       faithfully (plot recoverable from the text, or a film you genuinely know).
+       Optional `title` to fix a junk title (e.g. "… / Blu-ray / MKV").
+     - `null` — uploader note / wrong / unsalvageable → remove (Tier 2 refills).
+     **NEVER hallucinate a plot for a film you don't know.** Write
+     `metadata_review_decisions.json` = `[{archiveID, action, synopsis?, title?}]`.
+  4. `python tools/metadata_review.py apply`
+  5. `python tools/catalog_release.py publish` && `gh workflow run publish-db.yml`
+  Each batch ≈ one iteration. `select` reports how many remain unreviewed.
 
 ## Iteration log
 - 2026-06-02 — **Iteration 1 (B, genres)**: activated the dead

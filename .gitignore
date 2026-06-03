@@ -64,3 +64,5 @@ catalog-manifest.json
 catalog.json
 catalog.json.gz
 ArchiveWatch/ArchiveWatch/catalog.json
+metadata_review_batch.json
+metadata_review_decisions.json
