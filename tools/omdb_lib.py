@@ -105,7 +105,13 @@ def fetch_omdb(imdb_id, api_key, session, *, full_plot=True):
         raise RuntimeError("OMDb daily quota exhausted (HTTP 401)")
     if r.status_code != 200:
         raise RuntimeError(f"HTTP {r.status_code}")
-    d = r.json()
+    try:
+        d = r.json()
+    except ValueError as e:
+        # OMDb occasionally returns a non-JSON body (truncated / HTML error).
+        # Treat as transient so the caller skips this one item instead of
+        # crashing the whole run.
+        raise RuntimeError(f"bad JSON ({e}); body[:80]={r.text[:80]!r}")
     if str(d.get("Response", "")).lower() != "true":
         return None
 
@@ -174,7 +180,13 @@ def fetch_omdb_full(api_key, session, *, imdb_id=None, title=None, year=None,
         raise RuntimeError("OMDb daily quota exhausted (HTTP 401)")
     if r.status_code != 200:
         raise RuntimeError(f"HTTP {r.status_code}")
-    d = r.json()
+    try:
+        d = r.json()
+    except ValueError as e:
+        # OMDb occasionally returns a non-JSON body (truncated / HTML error).
+        # Treat as transient so the caller skips this one item instead of
+        # crashing the whole run.
+        raise RuntimeError(f"bad JSON ({e}); body[:80]={r.text[:80]!r}")
     if str(d.get("Response", "")).lower() != "true":
         return None
     # Only accept movies/series, not episodes, for title lookups.

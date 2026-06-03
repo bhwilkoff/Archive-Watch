@@ -115,9 +115,10 @@ def main():
           f"{' (no daily cap, bulk-capable)' if source=='tmdb' else ' (~1000/day cap)'}",
           flush=True)
 
+    # Decision 018: committed seed catalog.json is gone (seed = SQLite from the
+    # full catalog). Enrich the full catalog only; the seed-mirror is a no-op.
     full = load(FULL_CATALOG)
-    seed = load(SEED_CATALOG)
-    seed_by_id = {i["archiveID"]: i for i in seed["items"]}
+    seed_by_id = {}
     cache = load(CACHE) if CACHE.exists() else {}
 
     candidates = [it for it in full["items"] if needs_enrichment(it)
@@ -163,7 +164,6 @@ def main():
         if args.dry_run:
             return
         dump(FULL_CATALOG, full)
-        dump(SEED_CATALOG, seed)
         CACHE.parent.mkdir(parents=True, exist_ok=True)
         dump(CACHE, cache)
 
