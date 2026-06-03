@@ -51,8 +51,8 @@ struct HomeView: View {
             "popular-features", "wikidata-pd", "film-noir", "scifi-horror",
             "silent-hall-of-fame", "melies", "video-cellar", "comedy",
             "animation-all", "vintage-cartoons", "nasa", "classic-tv-1960s",
-            "classic-tv-1950s", "classic-tv-1970s", "ephemera", "educational",
-            "picfixer", "german-cinema", "silent-era", "popular-classic-tv",
+            "classic-tv-1950s", "classic-tv-1970s", "ephemera", "newsreels",
+            "educational", "picfixer", "silent-era", "popular-classic-tv",
             "all-time-features"
         ]
         let allShelves = store.featured?.shelves ?? []

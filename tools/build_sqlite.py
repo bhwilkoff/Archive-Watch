@@ -34,6 +34,7 @@ import datetime as _dt
 import gzip
 import json
 import random
+import re
 import shutil
 import sqlite3
 import zlib
@@ -69,6 +70,37 @@ def _registered_collections():
         return set()
 
 REGISTERED_COLLECTIONS = _registered_collections()
+
+
+def _shelf_collection_map():
+    """{collectionID: [shelfID,...]} parsed from each dynamic shelf's
+    `collection:X` query in featured.json. Lets build_sqlite assign Home-shelf
+    membership DIRECTLY from an item's collections, instead of relying on the
+    `item.shelves` field (which only build-catalog.mjs sets — so freshly-added
+    shelves like Ephemera/Newsreels stayed empty, and existing ones never grew
+    as discovery added items). Robust + self-healing: a shelf reflects its whole
+    collection every rebuild."""
+    out = defaultdict(list)
+    try:
+        shelves = json.loads(FEATURED.read_text(encoding="utf-8")).get("shelves", [])
+    except Exception:
+        return out
+    for s in shelves:
+        for coll in re.findall(r"collection:([A-Za-z0-9_\-]+)", s.get("query") or ""):
+            out[coll].append(s["id"])
+    return out
+
+SHELF_COLLECTION_MAP = _shelf_collection_map()
+
+
+def _shelf_ids_for(it):
+    """Full Home-shelf membership for an item: its stored `shelves` UNION any
+    shelf whose collection: query the item's collections satisfy."""
+    ids = set(it.get("shelves") or [])
+    for c in (it.get("collections") or []):
+        ids.update(SHELF_COLLECTION_MAP.get(str(c), []))
+    return ids
+
 
 def _is_adult(it):
     # Honor the item-level flag set by remediate_catalog.py (subject/genre/
@@ -197,7 +229,7 @@ def _rotated_shelf_positions(items, rotate_seed):
         aid = it.get("archiveID")
         if not aid:
             continue
-        for s in (it.get("shelves") or []):
+        for s in _shelf_ids_for(it):
             members[s].append(aid)
     positions = {}
     for shelf_id, aids in members.items():
@@ -232,7 +264,7 @@ def populate_items(db, items, rotate_seed="0"):
         for c in (it.get("collections") or []):
             if c and str(c) in REGISTERED_COLLECTIONS:
                 coll_rows.append((aid, str(c)))
-        for s in (it.get("shelves") or []):
+        for s in _shelf_ids_for(it):
             shelf_rows.append((s, aid, shelf_pos.get((s, aid), 0)))
         names = " ".join([it.get("director") or ""]
                          + [c.get("name", "") for c in (it.get("cast") or [])]
