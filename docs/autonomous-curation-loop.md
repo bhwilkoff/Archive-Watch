@@ -50,13 +50,12 @@ it, executes the next item, and logs the result.
   candidate ids from catalog `collections[]` (silenthalloffame, vintage_cartoons,
   usgovfilms, culturalandacademicfilms, tvprograms, film_scifi…). Added
   mid-century-german-film to DEFAULT_COLLECTIONS. Re-dispatched probe-sources.
-- [ ] **A1c — Fix the probe's COUNT, then add worthy**: even with real ids the
-  probe reports <100 for everything → the scrape-API `total` (with count=100)
-  is NOT the collection size. Next A iteration: switch probe_collections.py to
-  `https://archive.org/advancedsearch.php?q=...&rows=0&output=json` and read
-  `response.numFound` (the real count); re-probe; then add the worthy
-  collections (silenthalloffame, usgovfilms, culturalandacademicfilms, film_scifi…)
-  to DEFAULT_COLLECTIONS.
+- [x] **A1c — Probe fixed + 19 collections added**: probe now uses
+  advancedsearch.php numFound (real counts) + fetches the catalog in CI.
+  Added 19 probe-verified PD collections (decade classic TV, silenthalloffame,
+  film_scifi, feature_films_picfixer, TheVideoCellarCollection, cultural/
+  educational, ephemera, german_cinema, classic_cartoons, NASA) — excluded
+  Archive admin/umbrella collections. DEFAULT_COLLECTIONS 19 -> 38. Mining now.
 - [ ] **A3 (now primary for growth) — NEW EXTERNAL sources**: the main Archive
   collections are mined; biggest remaining growth is non-Archive PD: deeper
   Wikidata-PD SPARQL feeds, LoC subcollections, Wikimedia Commons video. Add a
@@ -102,3 +101,9 @@ it, executes the next item, and logs the result.
   Schema 2->3 re-fetches 13,814 once (daily cron). Dispatched. Also found the
   data-driven probe STILL returns <100 for all (scrape `total` is wrong) — A1c
   re-scoped to fix the count via advancedsearch.php numFound.
+- 2026-06-03 — **Iteration 6 (A, source breadth)**: fixed probe count
+  (advancedsearch numFound) + fetch catalog in CI; real counts returned. Added
+  19 probe-verified PD content collections to DEFAULT_COLLECTIONS (19 -> 38):
+  decade classic TV 1950s-1990s, silenthalloffame, film_scifi,
+  feature_films_picfixer, TheVideoCellarCollection, cultural/educational,
+  ephemera, german_cinema, classic_cartoons, NASA. Triggered discover-content.
