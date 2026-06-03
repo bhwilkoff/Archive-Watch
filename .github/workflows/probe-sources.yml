@@ -1,0 +1,31 @@
+name: Probe candidate sources
+
+# Research aid for the autonomous curation loop (Track A, source breadth).
+# Runs tools/probe_collections.py on GitHub (where archive.org is reachable)
+# and logs each candidate collection's movie-item count to the step summary,
+# so a follow-up iteration can add the worthy ones to
+# discover_archive_collections.DEFAULT_COLLECTIONS. Read-only — never ingests.
+
+on:
+  workflow_dispatch:
+    inputs:
+      collections:
+        description: 'Comma-separated collection ids (blank = built-in candidate list)'
+        required: false
+        default: ''
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Probe collection counts
+        run: |
+          python tools/probe_collections.py "${{ github.event.inputs.collections }}" | tee probe.log
+          echo "## Candidate source counts" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          cat probe.log >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
