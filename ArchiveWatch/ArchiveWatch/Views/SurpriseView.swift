@@ -1,277 +1,149 @@
 import SwiftUI
 
 // The three random actions from Decision 014 — invite curiosity.
-// Each tile picks fresh on tap.
+//
+// Redesigned (#3): fits one screen with NO vertical scroll, so "Roll Again"
+// is always visible and one focus-move from the result cards (the old design
+// buried it in a scrolling header). Results use the app's standard PosterTile
+// so they match Home/Browse exactly instead of a bespoke card. Roll Again is
+// the default focus — land here, press to reroll, or move down to a pick.
 
 struct SurpriseView: View {
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
+
     @State private var rollSeed: Int = Int.random(in: 0..<1_000_000)
+    @State private var film: Catalog.Item?
+    @State private var categoryPick: (category: Featured.Category, item: Catalog.Item)?
+    @State private var decadePick: (decade: Int, item: Catalog.Item)?
+    @FocusState private var rollFocused: Bool
+
+    private let orange = Color(hex: "#FF5C35") ?? .orange
+    private let sepia  = Color(hex: "#C9A66B") ?? .brown
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 32) {
-                header
-                HStack(spacing: 24) {
-                    RandomMovieCard(seed: rollSeed)
-                    RandomCategoryCard(seed: rollSeed)
-                    RandomDecadeCard(seed: rollSeed)
-                }
-                .padding(.horizontal, 80)
-                Spacer(minLength: 80)
-            }
-            .padding(.vertical, 48)
+        VStack(spacing: 0) {
+            header
+                .focusSection()
+            Spacer(minLength: 24)
+            cards
+                .focusSection()
+            Spacer(minLength: 0)
         }
+        .padding(.horizontal, 80)
+        .padding(.vertical, 56)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black.ignoresSafeArea())
+        .task(id: "\(rollSeed)-\(store.dbGeneration)") { roll() }
+        .task {
+            // Land on Roll Again so the primary action is immediately at hand.
+            try? await Task.sleep(for: .milliseconds(80))
+            rollFocused = true
+        }
     }
 
+    // MARK: - Header
+
     private var header: some View {
-        HStack(alignment: .firstTextBaseline) {
+        HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Surprise Me")
-                    .font(.system(size: 54, weight: .heavy, design: .serif))
+                    .font(.system(size: 52, weight: .heavy, design: .serif))
                     .foregroundStyle(.white)
-                Text("Three ways to wander the archive. Roll again for fresh picks.")
+                Text("Three ways to wander the archive.")
                     .font(.title3)
                     .foregroundStyle(.white.opacity(0.6))
             }
             Spacer()
-            RollAgainButton { rollSeed = Int.random(in: 0..<1_000_000) }
-        }
-        .padding(.horizontal, 80)
-    }
-}
-
-struct RollAgainButton: View {
-    let action: () -> Void
-    @State private var spin: Double = 0
-
-    var body: some View {
-        Button {
-            withAnimation(Motion.transition) { spin += 360 }
-            action()
-        } label: {
-            HStack(spacing: 12) {
-                Image(systemName: "dice.fill")
-                    .font(.title2)
-                    .rotationEffect(.degrees(spin))
-                Text("Roll Again")
-                    .font(.title3.weight(.semibold))
-            }
-            .foregroundStyle(.white)
-            .padding(.horizontal, 28)
-            .padding(.vertical, 16)
-        }
-        .buttonStyle(PrimaryCTAStyle(accent: Color(hex: "#FF5C35") ?? .orange))
-        .focusEffectDisabled()
-    }
-}
-
-// MARK: - Shared helpers
-
-private func playablePool(_ items: [Catalog.Item]?) -> [Catalog.Item] {
-    // Strict: only items with playable video AND real designed artwork.
-    // Surprise is the "look at this thing" feature — procedural cards
-    // in this context look like the roll failed.
-    (items ?? []).filter { $0.videoFile != nil && $0.hasDesignedArtwork }
-}
-
-private func randomItem(from pool: [Catalog.Item], seed: UInt64) -> Catalog.Item? {
-    guard !pool.isEmpty else { return nil }
-    var rng = SplitMix(seed: seed)
-    return pool.randomElement(using: &rng)
-}
-
-// MARK: - Random film action card (anything, no filter)
-
-struct RandomMovieCard: View {
-    @Environment(AppStore.self) private var store
-    @Environment(Router.self) private var router
-    let seed: Int
-    @State private var pick: Catalog.Item?
-
-    var body: some View {
-        Group {
-            if let p = pick {
-                Button { router.push(p) } label: {
-                    ActionCard(
-                        title: "Random Film",
-                        subtitle: p.title,
-                        caption: p.year.map(String.init) ?? "Roll the dice.",
-                        icon: "sparkles",
-                        accent: Color(hex: "#FF5C35") ?? .orange,
-                        posterURL: p.posterURLParsed ?? p.backdropURLParsed
-                    )
+            Button {
+                rollSeed = Int.random(in: 0..<1_000_000)
+            } label: {
+                HStack(spacing: 14) {
+                    Image(systemName: "dice.fill").font(.title2)
+                    Text("Roll Again").font(.title3.weight(.semibold))
                 }
-                .buttonStyle(.card)
-            } else {
-                ActionCard(title: "Random Film", subtitle: "Roll the dice.",
-                           caption: "", icon: "sparkles", accent: .orange)
+                .foregroundStyle(.white)
+                .padding(.horizontal, 30)
+                .padding(.vertical, 16)
             }
+            .buttonStyle(PrimaryCTAStyle(accent: orange))
+            .focusEffectDisabled()
+            .focused($rollFocused)
         }
-        .task(id: "\(seed)-\(store.dbGeneration)") { pick = store.dbRandomPlayable() }
     }
-}
 
-// MARK: - Random film IN a random category
+    // MARK: - Result cards (standard PosterTile)
 
-struct RandomCategoryCard: View {
-    @Environment(AppStore.self) private var store
-    @Environment(Router.self) private var router
-    let seed: Int
-    @State private var pick: (category: Featured.Category, item: Catalog.Item)?
+    private var cards: some View {
+        HStack(alignment: .top, spacing: 64) {
+            SurpriseColumn(label: "Random Film", accent: orange, item: film) { router.push($0) }
+            SurpriseColumn(
+                label: categoryPick.map { "Random \($0.category.shortName ?? $0.category.displayName)" } ?? "Random Category",
+                accent: categoryPick.flatMap { Color(hex: $0.category.accent) } ?? .blue,
+                item: categoryPick?.item) { router.push($0) }
+            SurpriseColumn(
+                label: decadePick.map { "Random \($0.decade)s" } ?? "Random Era",
+                accent: sepia,
+                item: decadePick?.item) { router.push($0) }
+        }
+        .frame(maxWidth: .infinity)
+    }
 
-    private func roll() -> (category: Featured.Category, item: Catalog.Item)? {
+    // MARK: - Rolling
+
+    private func roll() {
+        film = store.dbRandomPlayable()
+        categoryPick = rollCategory()
+        decadePick = rollDecade()
+    }
+
+    private func rollCategory() -> (category: Featured.Category, item: Catalog.Item)? {
         guard let cats = store.featured?.categories else { return nil }
-        var rng = SplitMix(seed: UInt64(seed &+ 7))
-        for c in cats.shuffled(using: &rng) {
+        var rng = SplitMix(seed: UInt64(bitPattern: Int64(rollSeed)) &+ 7)
+        for c in cats.shuffled(using: &rng) where c.id != "tv-series" {
             if let item = store.dbRandomPlayable(contentType: c.id) { return (c, item) }
         }
         return nil
     }
 
-    var body: some View {
-        Group {
-        if let p = pick {
-            Button { router.push(p.item) } label: {
-                ActionCard(
-                    title: "Random \(p.category.shortName ?? p.category.displayName)",
-                    subtitle: p.item.title,
-                    caption: p.item.year.map { "\(p.category.displayName) · \($0)" } ?? p.category.displayName,
-                    icon: "square.grid.2x2.fill",
-                    accent: Color(hex: p.category.accent) ?? .blue,
-                    posterURL: p.item.posterURLParsed ?? p.item.backdropURLParsed
-                )
-            }
-            .buttonStyle(.card)
-        } else {
-            ActionCard(title: "Random Category", subtitle: "—", caption: "",
-                       icon: "square.grid.2x2.fill", accent: .blue)
-        }
-        }
-        .task(id: "\(seed)-\(store.dbGeneration)") { pick = roll() }
-    }
-}
-
-// MARK: - Random film from a random era
-
-struct RandomDecadeCard: View {
-    @Environment(AppStore.self) private var store
-    @Environment(Router.self) private var router
-    let seed: Int
-
-    @State private var pick: (decade: Int, item: Catalog.Item)?
-
-    private func roll() -> (decade: Int, item: Catalog.Item)? {
-        var rng = SplitMix(seed: UInt64(seed &+ 13))
+    private func rollDecade() -> (decade: Int, item: Catalog.Item)? {
+        var rng = SplitMix(seed: UInt64(bitPattern: Int64(rollSeed)) &+ 13)
         for d in store.dbDecadeCounts().keys.shuffled(using: &rng) {
             let pool = store.dbBrowse(decade: d, limit: 60)
             if let item = pool.randomElement(using: &rng) { return (d, item) }
         }
         return nil
     }
-
-    var body: some View {
-        Group {
-        if let p = pick {
-            Button { router.push(p.item) } label: {
-                ActionCard(
-                    title: "Random \(p.decade)s",
-                    subtitle: p.item.title,
-                    caption: "Time-travel to the \(p.decade)s.",
-                    icon: "clock.arrow.circlepath",
-                    accent: Color(hex: "#C9A66B") ?? .brown,
-                    posterURL: p.item.posterURLParsed ?? p.item.backdropURLParsed
-                )
-            }
-            .buttonStyle(.card)
-        } else {
-            ActionCard(title: "Random Era", subtitle: "—", caption: "",
-                       icon: "clock.arrow.circlepath", accent: .brown)
-        }
-        }
-        .task(id: "\(seed)-\(store.dbGeneration)") { pick = roll() }
-    }
 }
 
-// MARK: - Shared action card
+// MARK: - One labeled result column
 
-struct ActionCard: View {
-    let title: String
-    let subtitle: String
-    let caption: String
-    let icon: String
+private struct SurpriseColumn: View {
+    let label: String
     let accent: Color
-    /// Optional poster URL — when set, replaces the accent gradient
-    /// backdrop with the actual movie art.
-    var posterURL: URL? = nil
-
-    // 2:3 portrait. Poster fills the top ~62%; the bottom 38% is a
-    // solid info strip so category / title / year can never overlap or
-    // clip the art.
-    private let cardW: CGFloat = 440
-    private let cardH: CGFloat = 660
+    let item: Catalog.Item?
+    let onSelect: (Catalog.Item) -> Void
 
     var body: some View {
-        VStack(spacing: 0) {
-            ZStack(alignment: .topLeading) {
-                Group {
-                    if let posterURL {
-                        RemoteImage(
-                            url: posterURL,
-                            targetSize: CGSize(width: cardW, height: cardH * 0.62),
-                            contentMode: .fill,
-                            placeholder: Color(white: 0.08)
-                        )
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-                        .clipped()
-                    } else {
-                        posterFallback
-                    }
-                }
-                HStack(spacing: 10) {
-                    Image(systemName: icon)
-                        .font(.system(size: 17, weight: .bold))
-                    Text(title.uppercased())
-                        .font(.system(size: 15, weight: .bold))
-                        .tracking(1.8)
-                }
-                .foregroundStyle(.white)
-                .padding(.horizontal, 14)
-                .padding(.vertical, 8)
-                .background(.black.opacity(0.6))
-                .clipShape(Capsule())
-                .padding(16)
-            }
-            .frame(width: cardW, height: cardH * 0.62)
-            .clipped()
-
-            VStack(alignment: .leading, spacing: 8) {
-                Text(subtitle)
-                    .font(.system(size: 26, weight: .heavy, design: .serif))
+        VStack(alignment: .leading, spacing: 18) {
+            HStack(spacing: 10) {
+                Circle().fill(accent).frame(width: 12, height: 12)
+                Text(label.uppercased())
+                    .font(.system(size: 17, weight: .bold))
+                    .tracking(1.6)
                     .foregroundStyle(.white)
-                    .lineLimit(2)
-                    .multilineTextAlignment(.leading)
-                    .minimumScaleFactor(0.75)
-                    .fixedSize(horizontal: false, vertical: true)
-                Text(caption)
-                    .font(.callout)
-                    .foregroundStyle(.white.opacity(0.75))
                     .lineLimit(1)
+                    .minimumScaleFactor(0.7)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal, 20)
-            .padding(.vertical, 18)
-            .frame(height: cardH * 0.38)
-            .background(accent.mix(with: .black, 0.7))
+            if let item {
+                PosterTile(item: item, action: { onSelect(item) })
+            } else {
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color(white: 0.08))
+                    .frame(width: 240, height: 360)
+                    .overlay(ProgressView().tint(.white))
+            }
         }
-        .frame(width: cardW, height: cardH)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-    }
-
-    private var posterFallback: some View {
-        LinearGradient(
-            colors: [accent.opacity(0.9), accent.mix(with: .black, 0.5)],
-            startPoint: .topLeading, endPoint: .bottomTrailing
-        )
+        .frame(width: 240, alignment: .leading)
     }
 }
