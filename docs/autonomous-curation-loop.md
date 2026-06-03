@@ -44,10 +44,11 @@ it, executes the next item, and logs the result.
   for items TMDb can't reach. (tool: extend enrich/discover; runs in CI.)
 - [ ] **B2 — IMDb resolution**: raise the title+year→IMDb match rate for
   archiveOnly items (unlocks TMDb posters + cast + genres downstream).
-- [ ] **A1 — Source breadth**: add verified PD Archive collections to
-  `discover_archive_collections.DEFAULT_COLLECTIONS` (verify counts in a CI
-  probe step first — the sandbox can't). Candidates to probe: classic_cartoons,
-  publicmovies212, avgeeks, stock_footage, serials, regional/foreign PD.
+- [x] **A1 — Source breadth (probe)**: added tools/probe_collections.py +
+  probe-sources.yml (CI scrape-count probe of candidate PD collections).
+- [ ] **A1b — Add worthy collections**: read the probe-sources run's step
+  summary; append collections with >=100 items to
+  `discover_archive_collections.DEFAULT_COLLECTIONS`; trigger discover-content.
 - [ ] **A2 — Source depth**: raise per-collection scrape caps / paginate
   deeper on the richest collections; measure new-item yield in CI.
 - [ ] **B3 — Cast/director backfill** via OMDb/TMDb after B2.
@@ -63,3 +64,8 @@ it, executes the next item, and logs the result.
   `subjectKeywordMap` in `remediate_catalog.py` → fills genres from existing
   subjects with no network. 4,176 items gained genres (47% → ~33% gap).
   Self-healing in discover-content + publish-db. Committed + published.
+- 2026-06-02 — **Iteration 2 (A, source breadth)**: added
+  `tools/probe_collections.py` + `probe-sources.yml` — a read-only CI probe of
+  candidate PD Archive collections (the sandbox can't reach Archive). Dispatched;
+  next iteration reads the counts and adds the worthy ones (A1b). Also hardened
+  CI: tv-canonical + faststart now remediate before publishing catalog-source.
