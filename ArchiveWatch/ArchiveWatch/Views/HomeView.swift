@@ -125,78 +125,72 @@ struct HomeView: View {
 
 struct HeroCarousel: View {
     let items: [Catalog.Item]
-    @State private var index: Int = 0
-    @State private var autoAdvance = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
-    // Claim focus exactly once (on first launch), not every time the view
-    // re-enters the hierarchy. HomeView is one big LazyVStack in a
-    // ScrollView, so the hero gets recycled on scroll and the carousel
-    // timer triggers re-renders — a bare `.task { isFocused = true }`
-    // re-fires on those and yanks focus back to the hero while the user is
-    // navigating, which made the hero feel both sticky and unreachable.
+    // A horizontal paging ScrollView of full-width focusable banners — so a
+    // Siri Remote SWIPE pages the hero exactly like every other row in the app
+    // (focus moves to the next banner, paging snaps it in). The old design was
+    // a single crossfading banner driven by onMoveCommand, which only responded
+    // to clickpad PRESSES, not touch swipes (#2).
+    @State private var scrolledID: String?
+    @FocusState private var focusedID: String?
     @State private var hasClaimedInitialFocus = false
-    @FocusState private var isFocused: Bool
+    @State private var autoAdvance = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
 
     private let heroHeight: CGFloat = 720
 
     var body: some View {
-        ZStack(alignment: .bottom) {
-            // Render ONLY the current banner as a focusable view. The old
-            // code overlaid all 7 banners (6 at opacity 0) and bound them
-            // all to the SAME @FocusState — opacity/allowsHitTesting don't
-            // remove focusability, so the engine saw 7 stacked candidates
-            // sharing one focus binding and couldn't route focus into "the
-            // hero" from below. One banner = one unambiguous focus target.
-            // The crossfade still animates via the .id()-keyed transition.
-            HeroBanner(
-                item: currentItem,
-                onMoveLeft: { step(-1) },
-                onMoveRight: { step(+1) }
-            )
-            .id(currentItem.archiveID)
-            .transition(.opacity.animation(Motion.heroCrossfade))
-            .focused($isFocused)
-
-            pageIndicator
-                .padding(.bottom, 56)
+        ScrollView(.horizontal, showsIndicators: false) {
+            LazyHStack(spacing: 0) {
+                ForEach(items) { item in
+                    HeroBanner(item: item)
+                        .containerRelativeFrame(.horizontal)   // one banner per page
+                        .focused($focusedID, equals: item.archiveID)
+                        .id(item.archiveID)
+                }
+            }
+            .scrollTargetLayout()
         }
+        .scrollTargetBehavior(.paging)
+        .scrollPosition(id: $scrolledID)
         .frame(height: heroHeight)
-        // Mark the whole hero as one focus-traversal unit so up/down moves
-        // between it and the shelves below land cleanly, instead of the
-        // engine hunting for pixel overlap across the 720pt banner.
+        .scrollClipDisabled()
+        // One focus-traversal unit so up/down between the hero and the shelves
+        // below lands cleanly.
         .focusSection()
+        .overlay(alignment: .bottom) {
+            pageIndicator.padding(.bottom, 56).allowsHitTesting(false)
+        }
+        // Auto-advance only while the hero ISN'T focused (user is reading the
+        // shelves below) — never yank the page out from under an active swipe.
         .onReceive(autoAdvance) { _ in
-            guard !isFocused else { return }
-            step(+1)
+            guard focusedID == nil, items.count > 1 else { return }
+            let next = (currentIndex + 1) % items.count
+            withAnimation(Motion.heroCrossfade) { scrolledID = items[next].archiveID }
         }
-        // Claim focus ONLY on first appearance. Without this the TabView
-        // defaults to the sidebar on launch; with the once-guard it no
-        // longer steals focus back while the user is browsing shelves.
+        // Claim focus + initial page ONCE on first appearance.
         .task {
-            guard !hasClaimedInitialFocus else { return }
+            guard !hasClaimedInitialFocus, let first = items.first else { return }
             hasClaimedInitialFocus = true
+            scrolledID = first.archiveID
             try? await Task.sleep(for: .milliseconds(60))
-            isFocused = true
+            focusedID = first.archiveID
+        }
+        // Keep the page indicator in step when focus drives the scroll.
+        .onChange(of: focusedID) { _, new in
+            if let new { scrolledID = new }
         }
     }
 
-    private var currentItem: Catalog.Item {
-        items[min(max(index, 0), items.count - 1)]
-    }
-
-    private func step(_ delta: Int) {
-        guard !items.isEmpty else { return }
-        let count = items.count
-        let next = ((index + delta) % count + count) % count
-        withAnimation(Motion.heroCrossfade) { index = next }
+    private var currentIndex: Int {
+        items.firstIndex { $0.archiveID == scrolledID } ?? 0
     }
 
     private var pageIndicator: some View {
         HStack(spacing: 12) {
             ForEach(0..<items.count, id: \.self) { i in
                 Capsule()
-                    .fill(i == index ? Color.white : Color.white.opacity(0.35))
-                    .frame(width: i == index ? 36 : 10, height: 10)
-                    .animation(Motion.chrome, value: index)
+                    .fill(i == currentIndex ? Color.white : Color.white.opacity(0.35))
+                    .frame(width: i == currentIndex ? 36 : 10, height: 10)
+                    .animation(Motion.chrome, value: currentIndex)
             }
         }
     }
@@ -204,8 +198,6 @@ struct HeroCarousel: View {
 
 struct HeroBanner: View {
     let item: Catalog.Item
-    let onMoveLeft: () -> Void
-    let onMoveRight: () -> Void
 
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
@@ -232,13 +224,6 @@ struct HeroBanner: View {
             }
         }
         .buttonStyle(.card)
-        .onMoveCommand { direction in
-            switch direction {
-            case .left:  onMoveLeft()
-            case .right: onMoveRight()
-            default:     break
-            }
-        }
     }
 
     private var heroOverlay: some View {
