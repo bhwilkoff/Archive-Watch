@@ -1,133 +1,141 @@
 import SwiftUI
 import CoreImage.CIFilterBuiltins
 
-// Settings / About — rewritten to match the rest of the app (#6). The previous
-// version used a native `Form`, which on tvOS renders a light grouped list with
-// its own background and a navigation title that scrolls oddly — completely
-// unlike Home/Browse/Search/Surprise. This is a dark, full-height ScrollView
-// with the app's serif title, section cards, and focusable rows, per
-// docs/tvos-playbook.md (dark-first, 90/60 safe area, focus does the work).
+// Settings / About — built on a dark grouped `List`, the idiomatic tvOS settings
+// pattern (Apple's own Settings app is a grouped list). Two reasons it must be a
+// List, not a hand-rolled ScrollView of Text (the previous version's bugs):
+//   • tvOS ScrollViews only scroll to FOCUSABLE elements — plain Text at the
+//     bottom (attribution, version) was unreachable. Every List row IS focusable,
+//     so scrolling reaches the end.
+//   • The earlier custom layout left a non-black strip on the trailing edge; the
+//     List sits on a full-screen black backdrop with the system list background
+//     hidden, so the whole surface is black.
+// The title is pinned ABOVE the List (not a navigationTitle, which scrolled
+// behind content on tvOS).
 //
-// Earns its place against three binding decisions:
-//   • Decision 007 — TMDb attribution is REQUIRED, rendered verbatim below.
-//   • Decision 012 — the mature-content filter is user-toggleable (default on).
-//   • Decision 010 — a donate-to-the-Archive link (QR, since tvOS has no browser).
+// Binding decisions surfaced here: TMDb attribution (007, verbatim), the mature
+// filter toggle (012), and the donate-to-Archive link (010, a QR since tvOS has
+// no browser).
 
 struct SettingsView: View {
     @Environment(AppStore.self) private var store
-    @FocusState private var focused: String?
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 44) {
-                Text("Settings")
-                    .font(.system(size: 54, weight: .heavy, design: .serif))
-                    .foregroundStyle(.white)
-                    .padding(.top, 56)
+        VStack(alignment: .leading, spacing: 0) {
+            Text("Settings")
+                .font(.system(size: 54, weight: .heavy, design: .serif))
+                .foregroundStyle(.white)
+                .padding(.horizontal, 80)
+                .padding(.top, 40)
+                .padding(.bottom, 12)
 
+            List {
                 visibilitySection
                 matureSection
                 attributionSection
-                donateSection
                 aboutSection
+                donateSection   // last: its focusable row is the bottom scroll anchor
             }
-            .padding(.horizontal, 80)
-            .padding(.bottom, 80)
-            .frame(maxWidth: 1500, alignment: .leading)
+            .listStyle(.grouped)
+            .tint(.white)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .background(Color.black.ignoresSafeArea())
-        .task {
-            try? await Task.sleep(for: .milliseconds(80))
-            focused = "mature"
-        }
     }
 
     // MARK: - Sections
 
     private var visibilitySection: some View {
-        SettingsCard(title: "Show on Home & Browse",
-                     footer: "Turn a category off to hide it everywhere. Favorites and Continue Watching are unaffected.") {
-            VStack(spacing: 0) {
-                ForEach(store.featured?.categories ?? []) { cat in
-                    SettingsToggleRow(
-                        title: cat.displayName,
-                        accent: Color(hex: cat.accent) ?? .accentColor,
-                        isOn: categoryBinding(cat.id)
-                    )
-                    .focused($focused, equals: "cat-\(cat.id)")
+        Section {
+            ForEach(store.featured?.categories ?? []) { cat in
+                Toggle(isOn: categoryBinding(cat.id)) {
+                    HStack(spacing: 14) {
+                        Circle().fill(Color(hex: cat.accent) ?? .accentColor)
+                            .frame(width: 16, height: 16)
+                        Text(cat.displayName)
+                    }
                 }
             }
+        } header: {
+            Text("Show on Home & Browse")
+        } footer: {
+            Text("Turn a category off to hide it everywhere. Favorites and Continue Watching are unaffected.")
         }
     }
 
     private var matureSection: some View {
-        SettingsCard(title: "Mature Content",
-                     footer: "Off by default — the Archive includes adult-leaning collections. Leave off on a shared TV.") {
-            SettingsToggleRow(title: "Show Mature Collections", accent: .orange, isOn: showMatureBinding)
-                .focused($focused, equals: "mature")
+        Section {
+            Toggle("Show Mature Collections", isOn: showMatureBinding)
+        } header: {
+            Text("Mature Content")
+        } footer: {
+            Text("Off by default — the Archive includes adult-leaning collections. Leave off on a shared TV.")
         }
     }
 
     private var attributionSection: some View {
-        SettingsCard(title: "Sources & Attribution", footer: nil) {
-            VStack(alignment: .leading, spacing: 20) {
-                HStack(spacing: 16) {
-                    Text("TMDB")
-                        .font(.system(size: 24, weight: .heavy, design: .rounded))
-                        .foregroundStyle(.white)
-                        .padding(.horizontal, 14).padding(.vertical, 7)
-                        .background(
-                            LinearGradient(colors: [Color(hex: "#0d253f") ?? .blue,
-                                                    Color(hex: "#01b4e4") ?? .cyan],
-                                           startPoint: .leading, endPoint: .trailing),
-                            in: RoundedRectangle(cornerRadius: 8))
-                    Text("This product uses the TMDB API but is not endorsed or certified by TMDB.")
-                        .foregroundStyle(.white.opacity(0.85))
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-                Text("Posters, backdrops, cast, and synopses come from The Movie Database (TMDb), with Wikidata, Wikimedia Commons, and the Library of Congress as fallbacks. Films, television, and ephemera are served by the Internet Archive. Every title is public domain or otherwise free to share.")
-                    .font(.callout)
-                    .foregroundStyle(.white.opacity(0.55))
+        Section {
+            HStack(spacing: 16) {
+                Text("TMDB")
+                    .font(.system(size: 22, weight: .heavy, design: .rounded))
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 12).padding(.vertical, 6)
+                    .background(
+                        LinearGradient(colors: [Color(hex: "#0d253f") ?? .blue,
+                                                Color(hex: "#01b4e4") ?? .cyan],
+                                       startPoint: .leading, endPoint: .trailing),
+                        in: RoundedRectangle(cornerRadius: 8))
+                Text("This product uses the TMDB API but is not endorsed or certified by TMDB.")
                     .fixedSize(horizontal: false, vertical: true)
             }
+            Text("Posters, backdrops, cast, and synopses come from The Movie Database (TMDb), with Wikidata, Wikimedia Commons, and the Library of Congress as fallbacks. Films, television, and ephemera are served by the Internet Archive. Every title is public domain or otherwise free to share.")
+                .font(.callout)
+                .foregroundStyle(.white.opacity(0.6))
+                .fixedSize(horizontal: false, vertical: true)
+        } header: {
+            Text("Sources & Attribution")
         }
     }
 
     private var donateSection: some View {
-        SettingsCard(title: "Support the Internet Archive", footer: nil) {
-            HStack(alignment: .center, spacing: 28) {
-                QRCode(string: "https://archive.org/donate")
-                    .frame(width: 160, height: 160)
-                    .background(.white, in: RoundedRectangle(cornerRadius: 10))
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Archive Watch is free and takes nothing for itself.")
-                        .foregroundStyle(.white)
-                        .fixedSize(horizontal: false, vertical: true)
-                    Text("If it's brought you something worth keeping, support the people who keep the films online. Scan to donate, or visit:")
-                        .font(.callout)
-                        .foregroundStyle(.white.opacity(0.55))
-                        .fixedSize(horizontal: false, vertical: true)
-                    Text("archive.org/donate")
-                        .font(.system(.title3, design: .monospaced).weight(.bold))
-                        .foregroundStyle(Color(hex: "#FF5C35") ?? .orange)
+        Section {
+            // A Button (no-op — tvOS has no browser; the QR is the mechanism) so
+            // this row is FOCUSABLE. As the last focusable element it's the bottom
+            // scroll anchor: focusing it scrolls the attribution + About rows above
+            // it into view, which plain-Text rows alone could never do on tvOS.
+            Button { } label: {
+                HStack(alignment: .center, spacing: 28) {
+                    QRCode(string: "https://archive.org/donate")
+                        .frame(width: 150, height: 150)
+                        .background(.white, in: RoundedRectangle(cornerRadius: 10))
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Archive Watch is free and takes nothing for itself.")
+                            .foregroundStyle(.white)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Text("If it's brought you something worth keeping, support the people who keep the films online. Scan to donate, or visit:")
+                            .font(.callout)
+                            .foregroundStyle(.white.opacity(0.6))
+                            .fixedSize(horizontal: false, vertical: true)
+                        Text("archive.org/donate")
+                            .font(.system(.title3, design: .monospaced).weight(.bold))
+                            .foregroundStyle(Color(hex: "#FF5C35") ?? .orange)
+                    }
                 }
             }
+        } header: {
+            Text("Support the Internet Archive")
         }
     }
 
     private var aboutSection: some View {
-        SettingsCard(title: "About", footer: nil) {
-            VStack(alignment: .leading, spacing: 12) {
-                HStack {
-                    Text("Version").foregroundStyle(.white)
-                    Spacer()
-                    Text(versionString).foregroundStyle(.white.opacity(0.6))
-                }
-                Text("No account, no sign-in, no tracking. Nothing leaves this device except requests to the public services above.")
-                    .font(.callout)
-                    .foregroundStyle(.white.opacity(0.55))
-                    .fixedSize(horizontal: false, vertical: true)
-            }
+        Section {
+            LabeledContent("Version", value: versionString)
+            Text("No account, no sign-in, no tracking. Nothing leaves this device except requests to the public services above.")
+                .font(.callout)
+                .foregroundStyle(.white.opacity(0.6))
+                .fixedSize(horizontal: false, vertical: true)
+        } header: {
+            Text("About")
         }
     }
 
@@ -155,62 +163,6 @@ struct SettingsView: View {
     }
 }
 
-// MARK: - Section card (matches the app's dark surface)
-
-private struct SettingsCard<Content: View>: View {
-    let title: String
-    let footer: String?
-    @ViewBuilder let content: Content
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            Text(title.uppercased())
-                .font(.system(size: 17, weight: .bold))
-                .tracking(1.6)
-                .foregroundStyle(.white.opacity(0.5))
-            content
-                .padding(24)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .background(Color.white.opacity(0.05), in: RoundedRectangle(cornerRadius: 16))
-            if let footer {
-                Text(footer)
-                    .font(.callout)
-                    .foregroundStyle(.white.opacity(0.4))
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-        }
-    }
-}
-
-// MARK: - Focusable toggle row
-
-private struct SettingsToggleRow: View {
-    let title: String
-    let accent: Color
-    @Binding var isOn: Bool
-    @FocusState private var isFocused: Bool
-
-    var body: some View {
-        Toggle(isOn: $isOn) {
-            HStack(spacing: 14) {
-                Circle().fill(accent).frame(width: 16, height: 16)
-                Text(title)
-                    .font(.title3)
-                    .foregroundStyle(.white)
-            }
-        }
-        .toggleStyle(.switch)
-        .focused($isFocused)
-        .padding(.horizontal, 18)
-        .padding(.vertical, 14)
-        .background(
-            RoundedRectangle(cornerRadius: 12)
-                .fill(isFocused ? Color.white.opacity(0.12) : Color.clear)
-        )
-        .animation(Motion.focus, value: isFocused)
-    }
-}
-
 // MARK: - QR code (CoreImage)
 
 private struct QRCode: View {
@@ -222,7 +174,7 @@ private struct QRCode: View {
                 .interpolation(.none)
                 .resizable()
                 .scaledToFit()
-                .padding(12)
+                .padding(10)
         } else {
             Color.white
         }
