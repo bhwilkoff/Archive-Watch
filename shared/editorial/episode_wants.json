@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-06-02T08:55:06Z",
+  "updated_at": "2026-06-03T06:59:40Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 1615,
-    "wanted": 1547,
-    "fulfilled": 68,
-    "series_with_gaps": 42
+    "total": 2251,
+    "wanted": 2136,
+    "fulfilled": 115,
+    "series_with_gaps": 60
   },
   "wants": [
     {
@@ -1484,6 +1484,2069 @@
       "added_at": "2026-06-01T04:25:38Z"
     },
     {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 1,
+      "episode": 1,
+      "title": "Meet the Bunkers",
+      "episodeImdbID": "tt0509891",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 1,
+      "episode": 2,
+      "title": "Writing the President",
+      "episodeImdbID": "tt0509956",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 1,
+      "episode": 3,
+      "title": "Archie's Aching Back",
+      "episodeImdbID": "tt0509818",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 1,
+      "episode": 4,
+      "title": "Archie Gives Blood",
+      "episodeImdbID": "tt0509797",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 1,
+      "episode": 5,
+      "title": "Judging Books by Covers",
+      "episodeImdbID": "tt0509883",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 1,
+      "episode": 6,
+      "title": "Gloria Has a Belly Full",
+      "episodeImdbID": "tt0509872",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 1,
+      "episode": 8,
+      "title": "Lionel Moves Into the Neighborhood",
+      "episodeImdbID": "tt0509884",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 1,
+      "episode": 9,
+      "title": "Edith Has Jury Duty",
+      "episodeImdbID": "tt0509851",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 1,
+      "episode": 10,
+      "title": "Archie Is Worried About His Job",
+      "episodeImdbID": "tt0509802",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 1,
+      "episode": 11,
+      "title": "Gloria Discovers Women's Lib",
+      "episodeImdbID": "tt0758983",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 1,
+      "episode": 12,
+      "title": "Success Story",
+      "episodeImdbID": "tt0509919",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 1,
+      "episode": 13,
+      "title": "The First and Last Supper",
+      "episodeImdbID": "tt0509934",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 1,
+      "title": "The Saga of Cousin Oscar",
+      "episodeImdbID": "tt0509944",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 2,
+      "title": "Gloria Poses in the Nude",
+      "episodeImdbID": "tt0509874",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 3,
+      "title": "Archie in the Lock-Up",
+      "episodeImdbID": "tt0509813",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 4,
+      "title": "Edith Writes a Song",
+      "episodeImdbID": "tt0509853",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 5,
+      "title": "Flashback: Mike Meets Archie",
+      "episodeImdbID": "tt0759042",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 6,
+      "title": "The Election Story",
+      "episodeImdbID": "tt0509931",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 7,
+      "title": "Edith's Accident",
+      "episodeImdbID": "tt0509857",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 8,
+      "title": "The Blockbuster",
+      "episodeImdbID": "tt0509924",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 9,
+      "title": "Mike's Problem",
+      "episodeImdbID": "tt0509904",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 10,
+      "title": "The Insurance Is Canceled",
+      "episodeImdbID": "tt0509936",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 11,
+      "title": "The Man in the Street",
+      "episodeImdbID": "tt0509939",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 12,
+      "title": "Cousin Maude's Visit",
+      "episodeImdbID": "tt0509845",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 13,
+      "title": "Christmas Day at the Bunkers'",
+      "episodeImdbID": "tt0509842",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 14,
+      "title": "The Elevator Story",
+      "episodeImdbID": "tt0509932",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 15,
+      "title": "Edith's Problem",
+      "episodeImdbID": "tt0509864",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 16,
+      "title": "Archie and the F.B.I.",
+      "episodeImdbID": "tt0509807",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 17,
+      "title": "Mike's Mysterious Son",
+      "episodeImdbID": "tt0509901",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 18,
+      "title": "Archie Sees a Mugging",
+      "episodeImdbID": "tt0509803",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 19,
+      "title": "Archie and Edith Alone",
+      "episodeImdbID": "tt0759041",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 20,
+      "title": "Edith Gets a Mink",
+      "episodeImdbID": "tt0509850",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 21,
+      "title": "Sammy's Visit",
+      "episodeImdbID": "tt0509913",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 22,
+      "title": "Edith the Judge",
+      "episodeImdbID": "tt0509854",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 23,
+      "title": "Archie Is Jealous",
+      "episodeImdbID": "tt0509800",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 2,
+      "episode": 24,
+      "title": "Maude",
+      "episodeImdbID": "tt0509890",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 1,
+      "title": "Archie and the Editorial",
+      "episodeImdbID": "tt0509806",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 2,
+      "title": "Archie's Fraud",
+      "episodeImdbID": "tt0509827",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 3,
+      "title": "The Threat",
+      "episodeImdbID": "tt0509947",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 4,
+      "title": "Gloria and the Riddle",
+      "episodeImdbID": "tt0509876",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 5,
+      "title": "Lionel Steps Out",
+      "episodeImdbID": "tt0509885",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 6,
+      "title": "Edith Flips Her Wig",
+      "episodeImdbID": "tt0509848",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 7,
+      "title": "The Bunkers and the Swingers",
+      "episodeImdbID": "tt0509928",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 8,
+      "title": "Mike Comes Into Money",
+      "episodeImdbID": "tt0759991",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 9,
+      "title": "Flashback - Mike and Gloria's Wedding: Part 1",
+      "episodeImdbID": "tt0509869",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 10,
+      "title": "Flashback - Mike and Gloria's Wedding: Part 2",
+      "episodeImdbID": "tt0509870",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 11,
+      "title": "Mike's Appendix",
+      "episodeImdbID": "tt0509897",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 12,
+      "title": "Edith's Winning Ticket",
+      "episodeImdbID": "tt0768870",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 13,
+      "title": "Archie and the Bowling Team",
+      "episodeImdbID": "tt0509804",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 14,
+      "title": "The Locket",
+      "episodeImdbID": "tt0509938",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 15,
+      "title": "Archie in the Hospital",
+      "episodeImdbID": "tt0509812",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 16,
+      "title": "Oh Say Can You See",
+      "episodeImdbID": "tt0509908",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 17,
+      "title": "Archie Goes Too Far",
+      "episodeImdbID": "tt0509798",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 18,
+      "title": "Class Reunion",
+      "episodeImdbID": "tt0509843",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 19,
+      "title": "The Hot Watch",
+      "episodeImdbID": "tt0509935",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 20,
+      "title": "Archie Is Branded",
+      "episodeImdbID": "tt0509799",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 21,
+      "title": "Everybody Tells the Truth",
+      "episodeImdbID": "tt0509867",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 22,
+      "title": "Archie Learns His Lesson",
+      "episodeImdbID": "tt0759986",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 23,
+      "title": "Gloria the Victim",
+      "episodeImdbID": "tt0509877",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 3,
+      "episode": 24,
+      "title": "The Battle of the Month",
+      "episodeImdbID": "tt0759994",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 1,
+      "title": "We're Having a Heat Wave",
+      "episodeImdbID": "tt0509952",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 2,
+      "title": "We're Still Having a Heat Wave",
+      "episodeImdbID": "tt0759996",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 3,
+      "title": "Edith Finds an Old Man",
+      "episodeImdbID": "tt0509847",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 4,
+      "title": "Archie and the Kiss",
+      "episodeImdbID": "tt0759987",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 5,
+      "title": "Archie the Gambler",
+      "episodeImdbID": "tt0759988",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 6,
+      "title": "Henry's Farewell",
+      "episodeImdbID": "tt0509881",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 7,
+      "title": "Archie and the Computer",
+      "episodeImdbID": "tt0509805",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 8,
+      "title": "The Games Bunkers Play",
+      "episodeImdbID": "tt0759995",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 9,
+      "title": "Edith's Conversion",
+      "episodeImdbID": "tt0509859",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 10,
+      "title": "Archie in the Cellar",
+      "episodeImdbID": "tt0509811",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 11,
+      "title": "Black Is the Color of My True Love's Wig",
+      "episodeImdbID": "tt0759989",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 12,
+      "title": "Second Honeymoon",
+      "episodeImdbID": "tt0509914",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 13,
+      "title": "The Taxi Caper",
+      "episodeImdbID": "tt0509946",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 14,
+      "title": "Archie Is Cursed",
+      "episodeImdbID": "tt0759985",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 15,
+      "title": "Edith's Christmas Story",
+      "episodeImdbID": "tt0509858",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 16,
+      "title": "Mike and Gloria Mix It Up",
+      "episodeImdbID": "tt0759992",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 17,
+      "title": "Archie Feels Left Out",
+      "episodeImdbID": "tt0509794",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 18,
+      "title": "Et Tu, Archie?",
+      "episodeImdbID": "tt0509866",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 19,
+      "title": "Gloria's Boyfriend",
+      "episodeImdbID": "tt0509878",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 20,
+      "title": "Lionel's Engagement",
+      "episodeImdbID": "tt0509887",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 21,
+      "title": "Archie Eats and Runs",
+      "episodeImdbID": "tt0509793",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 22,
+      "title": "Gloria Sings the Blues",
+      "episodeImdbID": "tt0759990",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 23,
+      "title": "Pay the Twenty Dollars",
+      "episodeImdbID": "tt0509909",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 4,
+      "episode": 24,
+      "title": "Mike's Graduation",
+      "episodeImdbID": "tt0759993",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 1,
+      "title": "The Bunkers and Inflation: Part 1",
+      "episodeImdbID": "tt0509927",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 2,
+      "title": "The Bunkers and Inflation: Part 2",
+      "episodeImdbID": "tt0768864",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 3,
+      "title": "The Bunkers and Inflation: Part 3",
+      "episodeImdbID": "tt0768868",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 4,
+      "title": "The Bunkers and Inflation: Part 4",
+      "episodeImdbID": "tt0509831",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 5,
+      "title": "Lionel, the Live-In",
+      "episodeImdbID": "tt0509886",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 6,
+      "title": "Archie's Helping Hand",
+      "episodeImdbID": "tt0509829",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 7,
+      "title": "Gloria's Shock",
+      "episodeImdbID": "tt0769786",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 8,
+      "title": "Where's Archie?",
+      "episodeImdbID": "tt0509955",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 9,
+      "title": "Archie Is Missing",
+      "episodeImdbID": "tt0509801",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 10,
+      "title": "The Longest Kiss",
+      "episodeImdbID": "tt0768879",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 11,
+      "title": "Archie and the Miracle",
+      "episodeImdbID": "tt0509810",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 12,
+      "title": "George and Archie Make a Deal",
+      "episodeImdbID": "tt0509871",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 13,
+      "title": "Archie's Contract",
+      "episodeImdbID": "tt0509825",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 14,
+      "title": "Mike's Friend",
+      "episodeImdbID": "tt0509898",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 15,
+      "title": "The Best of All in the Family",
+      "episodeImdbID": "tt0509923",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 16,
+      "title": "Prisoner in the House",
+      "episodeImdbID": "tt0509910",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 17,
+      "title": "The Jeffersons Move on Up",
+      "episodeImdbID": "tt0509937",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 18,
+      "title": "All's Fair",
+      "episodeImdbID": "tt0758106",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 19,
+      "title": "Amelia's Divorce",
+      "episodeImdbID": "tt0509792",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 20,
+      "title": "Everybody Does It",
+      "episodeImdbID": "tt0768871",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 21,
+      "title": "Archie and the Quiz",
+      "episodeImdbID": "tt0768865",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 22,
+      "title": "Edith's Friend",
+      "episodeImdbID": "tt0509862",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 23,
+      "title": "No Smoking",
+      "episodeImdbID": "tt0509907",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 5,
+      "episode": 24,
+      "title": "Mike Makes His Move",
+      "episodeImdbID": "tt0509894",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 1,
+      "title": "The Very Moving Day",
+      "episodeImdbID": "tt0768880",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 2,
+      "title": "Alone at Last",
+      "episodeImdbID": "tt0773320",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 3,
+      "title": "Archie the Donor",
+      "episodeImdbID": "tt0509815",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 4,
+      "title": "Archie the Hero",
+      "episodeImdbID": "tt0509816",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 5,
+      "title": "Mike's Pains",
+      "episodeImdbID": "tt0509903",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 6,
+      "title": "Chain Letter",
+      "episodeImdbID": "tt0509841",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 7,
+      "title": "Mike Faces Life",
+      "episodeImdbID": "tt0509892",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 8,
+      "title": "Edith Breaks Out",
+      "episodeImdbID": "tt0509846",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 9,
+      "title": "Grandpa Blues",
+      "episodeImdbID": "tt0509880",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 10,
+      "title": "Gloria Suspects Mike",
+      "episodeImdbID": "tt0509875",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 11,
+      "title": "The Little Atheist",
+      "episodeImdbID": "tt0769787",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 12,
+      "title": "Archie's Civil Rights",
+      "episodeImdbID": "tt0509824",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 13,
+      "title": "Gloria Is Nervous",
+      "episodeImdbID": "tt0509873",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 14,
+      "title": "Birth of the Baby: Part 1",
+      "episodeImdbID": "tt0509838",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 15,
+      "title": "Birth of the Baby: Part 2",
+      "episodeImdbID": "tt0509839",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 16,
+      "title": "New Year's Wedding",
+      "episodeImdbID": "tt0509906",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 17,
+      "title": "Archie the Babysitter",
+      "episodeImdbID": "tt0509814",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 18,
+      "title": "Archie Finds a Friend",
+      "episodeImdbID": "tt0509795",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 19,
+      "title": "Mike's Move",
+      "episodeImdbID": "tt0509900",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 20,
+      "title": "Archie's Weighty Problem",
+      "episodeImdbID": "tt0509834",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 21,
+      "title": "Love by Appointment",
+      "episodeImdbID": "tt0773321",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 22,
+      "title": "Joey's Baptism",
+      "episodeImdbID": "tt0509882",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 23,
+      "title": "Gloria and Mike's House Guests",
+      "episodeImdbID": "tt0768872",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 6,
+      "episode": 24,
+      "title": "Edith's Night Out",
+      "episodeImdbID": "tt0509863",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 1,
+      "title": "Archie's Brief Encounter: Part 1",
+      "episodeImdbID": "tt0509821",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 2,
+      "title": "Archie's Brief Encounter: Part 2",
+      "episodeImdbID": "tt0509822",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 3,
+      "title": "Archie's Brief Encounter: Part 3",
+      "episodeImdbID": "tt0509820",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 4,
+      "title": "The Unemployment Story: Part 1",
+      "episodeImdbID": "tt0509948",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 5,
+      "title": "The Unemployment Story: Part 2",
+      "episodeImdbID": "tt0509949",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 6,
+      "title": "Archie's Operation: Part 1",
+      "episodeImdbID": "tt0509940",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 7,
+      "title": "Archie's Operation: Part 2",
+      "episodeImdbID": "tt0509941",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 8,
+      "title": "Beverly Rides Again",
+      "episodeImdbID": "tt0509837",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 9,
+      "title": "Teresa Moves In",
+      "episodeImdbID": "tt0509921",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 10,
+      "title": "Mike and Gloria's Will",
+      "episodeImdbID": "tt0768874",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 11,
+      "title": "Mr. Edith Bunker",
+      "episodeImdbID": "tt0509905",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 12,
+      "title": "Archie's Secret Passion",
+      "episodeImdbID": "tt0509833",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 13,
+      "title": "The Baby Contest",
+      "episodeImdbID": "tt0768875",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 14,
+      "title": "Gloria's False Alarm",
+      "episodeImdbID": "tt0509879",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 15,
+      "title": "The Draft Dodger",
+      "episodeImdbID": "tt0509930",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 16,
+      "title": "The Boarder Patrol",
+      "episodeImdbID": "tt0509925",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 17,
+      "title": "Archie's Chair",
+      "episodeImdbID": "tt0509823",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 18,
+      "title": "Mike Goes Skiing",
+      "episodeImdbID": "tt0509893",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 19,
+      "title": "Stretch Cunningham, Goodbye",
+      "episodeImdbID": "tt0509918",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 20,
+      "title": "The Joys of Sex",
+      "episodeImdbID": "tt0768878",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 21,
+      "title": "Mike the Pacifist",
+      "episodeImdbID": "tt0509896",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 22,
+      "title": "Fire",
+      "episodeImdbID": "tt0509868",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 23,
+      "title": "Mike and Gloria Split",
+      "episodeImdbID": "tt0768873",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 24,
+      "title": "Archie the Liberal",
+      "episodeImdbID": "tt0509817",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 7,
+      "episode": 25,
+      "title": "Archie's Dog Day Afternoon",
+      "episodeImdbID": "tt0509826",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 1,
+      "title": "Archie Gets the Business",
+      "episodeImdbID": "tt0509796",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 2,
+      "title": "Archie Gets the Business",
+      "episodeImdbID": "tt0768863",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 3,
+      "title": "Cousin Liz",
+      "episodeImdbID": "tt0509844",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 4,
+      "title": "Edith's 50th Birthday",
+      "episodeImdbID": "tt0509855",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 5,
+      "title": "Edith's 50th Birthday: Part 2",
+      "episodeImdbID": "tt0509856",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 6,
+      "title": "Unequal Partners",
+      "episodeImdbID": "tt0509951",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 7,
+      "title": "Archie's Grand Opening",
+      "episodeImdbID": "tt0509828",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 8,
+      "title": "Archie's Bitter Pill",
+      "episodeImdbID": "tt0509819",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 9,
+      "title": "Archie's Road Back",
+      "episodeImdbID": "tt0509832",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 10,
+      "title": "Archie and the KKK: Part 1",
+      "episodeImdbID": "tt0509808",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 11,
+      "title": "Archie and the KKK: Part 2",
+      "episodeImdbID": "tt0509809",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 12,
+      "title": "Mike and Gloria Meet",
+      "episodeImdbID": "tt0509895",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 13,
+      "title": "Edith's Crisis of Faith: Part 1",
+      "episodeImdbID": "tt0509860",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 14,
+      "title": "Edith's Crisis of Faith: Part 2",
+      "episodeImdbID": "tt0768869",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 15,
+      "title": "The Commercial",
+      "episodeImdbID": "tt0509929",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 16,
+      "title": "Super Bowl Sunday",
+      "episodeImdbID": "tt0509920",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 17,
+      "title": "Aunt Iola's Visit",
+      "episodeImdbID": "tt0509835",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 18,
+      "title": "Love Comes to the Butcher",
+      "episodeImdbID": "tt0509889",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 19,
+      "title": "Two's a Crowd",
+      "episodeImdbID": "tt0773322",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 20,
+      "title": "Stalemates",
+      "episodeImdbID": "tt0509915",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 21,
+      "title": "The Brother",
+      "episodeImdbID": "tt0509926",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 22,
+      "title": "Mike's New Job",
+      "episodeImdbID": "tt0509902",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 23,
+      "title": "The Dinner Guest",
+      "episodeImdbID": "tt0768877",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 8,
+      "episode": 24,
+      "title": "The Stivics Go West",
+      "episodeImdbID": "tt0509945",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 1,
+      "title": "Little Miss Bunker",
+      "episodeImdbID": "tt0509888",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 2,
+      "title": "End in Sight",
+      "episodeImdbID": "tt0509865",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 3,
+      "title": "Reunion on Hauser Street",
+      "episodeImdbID": "tt0509912",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 4,
+      "title": "What'll We Do with Stephanie?",
+      "episodeImdbID": "tt0509954",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 5,
+      "title": "Edith's Final Respects",
+      "episodeImdbID": "tt0509861",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 6,
+      "title": "Weekend in the Country",
+      "episodeImdbID": "tt0509953",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 7,
+      "title": "Archie's Other Wife",
+      "episodeImdbID": "tt0509830",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 8,
+      "title": "Edith Versus the Bank",
+      "episodeImdbID": "tt0509852",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 9,
+      "title": "Return of the Waitress",
+      "episodeImdbID": "tt0509911",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 10,
+      "title": "Bogus Bills",
+      "episodeImdbID": "tt0509840",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 11,
+      "title": "The Bunkers Go West",
+      "episodeImdbID": "tt0768876",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 12,
+      "title": "California, Here We Are",
+      "episodeImdbID": "tt0768866",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 13,
+      "title": "California, Here We Are: Part 2",
+      "episodeImdbID": "tt16043216",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 14,
+      "title": "A Night at the PTA",
+      "episodeImdbID": "tt0768862",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 15,
+      "title": "A Girl Like Edith",
+      "episodeImdbID": "tt0509791",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 16,
+      "title": "The Appendectomy",
+      "episodeImdbID": "tt0509922",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 17,
+      "title": "Stephanie and the Crime Wave",
+      "episodeImdbID": "tt0509916",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 18,
+      "title": "Barney the Gold Digger",
+      "episodeImdbID": "tt0509836",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 19,
+      "title": "The Return of Archie's Brother",
+      "episodeImdbID": "tt0509942",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 20,
+      "title": "Stephanie's Conversion",
+      "episodeImdbID": "tt0509917",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 21,
+      "title": "Edith Gets Fired",
+      "episodeImdbID": "tt0509849",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 22,
+      "title": "&quot;All in the Family&quot; Retrospective",
+      "episodeImdbID": "tt2178938",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 23,
+      "title": "The Family Next Door",
+      "episodeImdbID": "tt0509933",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 24,
+      "title": "The Return of Stephanie's Father",
+      "episodeImdbID": "tt0509943",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "all-in-the-family-1971",
+      "seriesTitle": "All in the Family",
+      "season": 9,
+      "episode": 25,
+      "title": "Too Good Edith",
+      "episodeImdbID": "tt0509950",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
       "seriesID": "angie-1979",
       "seriesTitle": "Angie",
       "season": 1,
@@ -1512,6 +3575,76 @@
       "episodeImdbID": "tt0513091",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1950",
+      "seriesTitle": "Beat the Clock",
+      "season": 1,
+      "episode": 16,
+      "title": "Episode #1.16",
+      "episodeImdbID": "tt17010922",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1950",
+      "seriesTitle": "Beat the Clock",
+      "season": 1,
+      "episode": 19,
+      "title": "Episode #1.19",
+      "episodeImdbID": "tt17010982",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1950",
+      "seriesTitle": "Beat the Clock",
+      "season": 1,
+      "episode": 21,
+      "title": "Episode #1.21",
+      "episodeImdbID": "tt12157294",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1950",
+      "seriesTitle": "Beat the Clock",
+      "season": 2,
+      "episode": 1,
+      "title": "Episode #2.1",
+      "episodeImdbID": "tt12310436",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1950",
+      "seriesTitle": "Beat the Clock",
+      "season": 2,
+      "episode": 21,
+      "title": "Episode #2.21",
+      "episodeImdbID": "tt17039028",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1950",
+      "seriesTitle": "Beat the Clock",
+      "season": 2,
+      "episode": 25,
+      "title": "Episode #2.25",
+      "episodeImdbID": "tt17039172",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "beat-the-clock-1950",
+      "seriesTitle": "Beat the Clock",
+      "season": 2,
+      "episode": 27,
+      "title": "Episode #2.27",
+      "episodeImdbID": "tt12197696",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
     },
     {
       "seriesID": "beat-the-clock-1951",
@@ -1684,6 +3817,600 @@
       "added_at": "2026-06-02T08:32:33Z"
     },
     {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 1,
+      "title": "Flight",
+      "episodeImdbID": "tt0892482",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 2,
+      "title": "The Earth's Crust",
+      "episodeImdbID": "tt1439288",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 3,
+      "title": "Dinosaurs",
+      "episodeImdbID": "tt0524628",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 4,
+      "title": "Skin",
+      "episodeImdbID": "tt1698069",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 5,
+      "title": "Buoyancy",
+      "episodeImdbID": "tt0524625",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 6,
+      "title": "Gravity",
+      "episodeImdbID": "tt1698057",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 7,
+      "title": "Digestion",
+      "episodeImdbID": "tt0524627",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 8,
+      "title": "Phases of Matter",
+      "episodeImdbID": "tt1698065",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 9,
+      "title": "Biodiversity",
+      "episodeImdbID": "tt1698050",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 10,
+      "title": "Simple Machines",
+      "episodeImdbID": "tt1698068",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 11,
+      "title": "The Moon",
+      "episodeImdbID": "tt1698072",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 13,
+      "title": "Garbage",
+      "episodeImdbID": "tt0524632",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 14,
+      "title": "Structures",
+      "episodeImdbID": "tt1698071",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 15,
+      "title": "Earth's Seasons",
+      "episodeImdbID": "tt1698052",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 16,
+      "title": "Light and Color",
+      "episodeImdbID": "tt1698060",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 1,
+      "episode": 20,
+      "title": "Eyeballs",
+      "episodeImdbID": "tt1698055",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 2,
+      "episode": 1,
+      "title": "Magnetism",
+      "episodeImdbID": "tt1105832",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 2,
+      "episode": 2,
+      "title": "Wind",
+      "episodeImdbID": "tt0524639",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 2,
+      "episode": 4,
+      "title": "Chemical Reactions",
+      "episodeImdbID": "tt0524626",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 2,
+      "episode": 5,
+      "title": "Static Electricity",
+      "episodeImdbID": "tt0524637",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 2,
+      "episode": 6,
+      "title": "Food Web",
+      "episodeImdbID": "tt0524630",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 2,
+      "episode": 7,
+      "title": "Light Optics",
+      "episodeImdbID": "tt1698059",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 2,
+      "episode": 9,
+      "title": "Ocean Currents",
+      "episodeImdbID": "tt1698063",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 2,
+      "episode": 15,
+      "title": "Forests",
+      "episodeImdbID": "tt1619937",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 2,
+      "episode": 16,
+      "title": "Communication",
+      "episodeImdbID": "tt1670733",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 2,
+      "episode": 19,
+      "title": "Atmosphere",
+      "episodeImdbID": "tt1698049",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 2,
+      "episode": 20,
+      "title": "Respiration",
+      "episodeImdbID": "tt1670740",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 3,
+      "episode": 1,
+      "title": "Planets and Moons",
+      "episodeImdbID": "tt1698066",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 3,
+      "episode": 4,
+      "title": "Rocks & Soil",
+      "episodeImdbID": "tt1670741",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 3,
+      "episode": 5,
+      "title": "Energy",
+      "episodeImdbID": "tt1698054",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 3,
+      "episode": 6,
+      "title": "Evolution",
+      "episodeImdbID": "tt1670734",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 3,
+      "episode": 8,
+      "title": "Friction",
+      "episodeImdbID": "tt1319781",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 3,
+      "episode": 9,
+      "title": "Germs",
+      "episodeImdbID": "tt0837587",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 3,
+      "episode": 12,
+      "title": "Ocean Life",
+      "episodeImdbID": "tt1355280",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 3,
+      "episode": 15,
+      "title": "Fish",
+      "episodeImdbID": "tt1698056",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 3,
+      "episode": 18,
+      "title": "Birds",
+      "episodeImdbID": "tt1699285",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 3,
+      "episode": 20,
+      "title": "Animal Locomotion",
+      "episodeImdbID": "tt1699283",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 4,
+      "episode": 1,
+      "title": "Rivers and Streams",
+      "episodeImdbID": "tt1699296",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 4,
+      "episode": 2,
+      "title": "Nutrition",
+      "episodeImdbID": "tt1699293",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 4,
+      "episode": 3,
+      "title": "Marine Mammals",
+      "episodeImdbID": "tt1699291",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 4,
+      "episode": 4,
+      "title": "Earthquakes",
+      "episodeImdbID": "tt1699288",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 4,
+      "episode": 7,
+      "title": "Pollution Solutions",
+      "episodeImdbID": "tt0524636",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 4,
+      "episode": 8,
+      "title": "Probability",
+      "episodeImdbID": "tt1208063",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 4,
+      "episode": 10,
+      "title": "Flowers",
+      "episodeImdbID": "tt1208062",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 4,
+      "episode": 12,
+      "title": "Deserts",
+      "episodeImdbID": "tt1699287",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 4,
+      "episode": 13,
+      "title": "Amphibians",
+      "episodeImdbID": "tt1699282",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 4,
+      "episode": 16,
+      "title": "Heart",
+      "episodeImdbID": "tt0524633",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 4,
+      "episode": 17,
+      "title": "Inventions",
+      "episodeImdbID": "tt1699289",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 4,
+      "episode": 20,
+      "title": "Time",
+      "episodeImdbID": "tt1114892",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 5,
+      "episode": 3,
+      "title": "Genes",
+      "episodeImdbID": "tt0822881",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 5,
+      "episode": 4,
+      "title": "Architecture",
+      "episodeImdbID": "tt1913336",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 5,
+      "episode": 5,
+      "title": "Farming",
+      "episodeImdbID": "tt1114888",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 5,
+      "episode": 6,
+      "title": "Life Cycles",
+      "episodeImdbID": "tt0524634",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 5,
+      "episode": 9,
+      "title": "Ocean Exploration",
+      "episodeImdbID": "tt1913338",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 5,
+      "episode": 10,
+      "title": "Lakes and Ponds",
+      "episodeImdbID": "tt1901513",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 5,
+      "episode": 11,
+      "title": "Smell",
+      "episodeImdbID": "tt0993123",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 5,
+      "episode": 16,
+      "title": "Storms",
+      "episodeImdbID": "tt1901515",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "bill-nye-the-science-guy-1993",
+      "seriesTitle": "Bill Nye: The Science Guy",
+      "season": 5,
+      "episode": 20,
+      "title": "Motion",
+      "episodeImdbID": "tt0524635",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
       "seriesID": "bosom-buddies-1980",
       "seriesTitle": "Bosom Buddies",
       "season": 1,
@@ -1792,6 +4519,1157 @@
       "episodeImdbID": "tt0530457",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "boston-blackie-1951",
+      "seriesTitle": "Boston Blackie",
+      "season": 1,
+      "episode": 3,
+      "title": "Oil Field Murder",
+      "episodeImdbID": "tt0914006",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "boston-blackie-1951",
+      "seriesTitle": "Boston Blackie",
+      "season": 1,
+      "episode": 22,
+      "title": "Mother Wore Blinkers",
+      "episodeImdbID": "tt0914428",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "boston-blackie-1951",
+      "seriesTitle": "Boston Blackie",
+      "season": 1,
+      "episode": 26,
+      "title": "The Big H Murder",
+      "episodeImdbID": "tt0914438",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "boston-blackie-1951",
+      "seriesTitle": "Boston Blackie",
+      "season": 2,
+      "episode": 1,
+      "title": "Black Widow",
+      "episodeImdbID": "tt0914414",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "boston-blackie-1951",
+      "seriesTitle": "Boston Blackie",
+      "season": 2,
+      "episode": 9,
+      "title": "101 Blonde",
+      "episodeImdbID": "tt0913995",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "boston-blackie-1951",
+      "seriesTitle": "Boston Blackie",
+      "season": 2,
+      "episode": 12,
+      "title": "Death Does a Rumba",
+      "episodeImdbID": "tt0914417",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "boston-blackie-1951",
+      "seriesTitle": "Boston Blackie",
+      "season": 2,
+      "episode": 17,
+      "title": "The Heist Job",
+      "episodeImdbID": "tt0766521",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "boston-blackie-1951",
+      "seriesTitle": "Boston Blackie",
+      "season": 2,
+      "episode": 30,
+      "title": "Grab Bag",
+      "episodeImdbID": "tt0918707",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "boston-blackie-1951",
+      "seriesTitle": "Boston Blackie",
+      "season": 2,
+      "episode": 32,
+      "title": "Big Tom's Clambake",
+      "episodeImdbID": "tt0914413",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 1,
+      "title": "Episode #1.1",
+      "episodeImdbID": "tt32206446",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 2,
+      "title": "Episode #1.2",
+      "episodeImdbID": "tt32206450",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 4,
+      "title": "Caillou's World of Wonder",
+      "episodeImdbID": "tt2443044",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 14,
+      "title": "Caillou in the Bathtub",
+      "episodeImdbID": "tt2917028",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 16,
+      "title": "Caillou's Teddy Shirt",
+      "episodeImdbID": "tt2917096",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 18,
+      "title": "Caillou's Hiding Place",
+      "episodeImdbID": "tt2892710",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 19,
+      "title": "Caillou's Birthday Present",
+      "episodeImdbID": "tt2917094",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 20,
+      "title": "Caillou and Gilbert",
+      "episodeImdbID": "tt2917026",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 24,
+      "title": "Caillou's Rainy Day",
+      "episodeImdbID": "tt2892706",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 25,
+      "title": "Caillou at the Beach",
+      "episodeImdbID": "tt2917092",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 26,
+      "title": "Caillou's New Shoes",
+      "episodeImdbID": "tt2917022",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 30,
+      "title": "Caillou Rakes the Leaves",
+      "episodeImdbID": "tt2892716",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 32,
+      "title": "Caillou's Colours",
+      "episodeImdbID": "tt2909694",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 43,
+      "title": "Caillou Looks for Gilbert",
+      "episodeImdbID": "tt2917086",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 47,
+      "title": "Caillou's Quarrel",
+      "episodeImdbID": "tt2909686",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 49,
+      "title": "Caillou's Big Slide",
+      "episodeImdbID": "tt2917084",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 53,
+      "title": "Caillou's Phone Call",
+      "episodeImdbID": "tt2909682",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 55,
+      "title": "Caillou Plays a Baby",
+      "episodeImdbID": "tt2917080",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 63,
+      "title": "The Caillou Show",
+      "episodeImdbID": "tt2892676",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 65,
+      "title": "Caillou's Picnic",
+      "episodeImdbID": "tt2909666",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 67,
+      "title": "Caillou's Missing School",
+      "episodeImdbID": "tt13764882",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 1,
+      "episode": 68,
+      "title": "Caillou Breaks His Window",
+      "episodeImdbID": "tt13764926",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 5,
+      "title": "My Sister Rosie",
+      "episodeImdbID": "tt1244885",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 6,
+      "title": "Caillou Creates",
+      "episodeImdbID": "tt1244883",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 7,
+      "title": "Caillou Cooks",
+      "episodeImdbID": "tt1244882",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 8,
+      "title": "Food-a-Licious",
+      "episodeImdbID": "tt1244884",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 9,
+      "title": "Traveling!",
+      "episodeImdbID": "tt1245168",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 10,
+      "title": "Puppy Love",
+      "episodeImdbID": "tt1245165",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 13,
+      "title": "Lost and Found",
+      "episodeImdbID": "tt1245161",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 14,
+      "title": "Just for Laughs",
+      "episodeImdbID": "tt1245159",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 16,
+      "title": "Imagine!",
+      "episodeImdbID": "tt1245158",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 18,
+      "title": "Words",
+      "episodeImdbID": "tt1245172",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 19,
+      "title": "I Can Do It!",
+      "episodeImdbID": "tt1245157",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 20,
+      "title": "My Family",
+      "episodeImdbID": "tt1245162",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 21,
+      "title": "Winter!",
+      "episodeImdbID": "tt1245171",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 23,
+      "title": "Nature",
+      "episodeImdbID": "tt1245163",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 24,
+      "title": "Knowing I'm Growing",
+      "episodeImdbID": "tt1245160",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 25,
+      "title": "All Kinds of Weather",
+      "episodeImdbID": "tt1245148",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 26,
+      "title": "Caillou Discovers",
+      "episodeImdbID": "tt0535283",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 29,
+      "title": "All in a Day's Work",
+      "episodeImdbID": "tt1245149",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 30,
+      "title": "Celebrations",
+      "episodeImdbID": "tt1245152",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 32,
+      "title": "Grown-Ups and Me",
+      "episodeImdbID": "tt1245156",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 33,
+      "title": "Try, Try Again",
+      "episodeImdbID": "tt1245169",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 34,
+      "title": "Adventure!",
+      "episodeImdbID": "tt1245146",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 38,
+      "title": "Vacations",
+      "episodeImdbID": "tt1245170",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 2,
+      "episode": 39,
+      "title": "Getting the Message",
+      "episodeImdbID": "tt0535286",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 3,
+      "episode": 1,
+      "title": "Knowing How!",
+      "episodeImdbID": "tt1245975",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 3,
+      "episode": 2,
+      "title": "Changing Plans!",
+      "episodeImdbID": "tt1245971",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 3,
+      "episode": 6,
+      "title": "The World Around Me!",
+      "episodeImdbID": "tt1245981",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 3,
+      "episode": 7,
+      "title": "Machines! Brrrrrmmm!",
+      "episodeImdbID": "tt1245976",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 3,
+      "episode": 8,
+      "title": "It's Cold Outside! Brrr!",
+      "episodeImdbID": "tt1245974",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 3,
+      "episode": 9,
+      "title": "New Places and New Things!",
+      "episodeImdbID": "tt1245977",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 3,
+      "episode": 11,
+      "title": "I Love to Pretend",
+      "episodeImdbID": "tt0779001",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 1,
+      "title": "Caillou the Brave",
+      "episodeImdbID": "tt0948808",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 3,
+      "title": "Caillou the Sports Star",
+      "episodeImdbID": "tt0948817",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 4,
+      "title": "Caillou the Musician",
+      "episodeImdbID": "tt0948814",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 5,
+      "title": "Caillou to the Rescue",
+      "episodeImdbID": "tt0772358",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 6,
+      "title": "Caillou the Detective",
+      "episodeImdbID": "tt0948810",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 7,
+      "title": "Caillou the Builder",
+      "episodeImdbID": "tt0948809",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 8,
+      "title": "Caillou the Snow Man",
+      "episodeImdbID": "tt0948816",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 9,
+      "title": "Caillou the Magnificent",
+      "episodeImdbID": "tt0772360",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 10,
+      "title": "Caillou the Scientist",
+      "episodeImdbID": "tt0772356",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 12,
+      "title": "Caillou the Artist",
+      "episodeImdbID": "tt0948806",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 13,
+      "title": "Captain Caillou",
+      "episodeImdbID": "tt0772361",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 14,
+      "title": "Caillou Loves the Fall",
+      "episodeImdbID": "tt0948805",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 15,
+      "title": "Caillou's Surprise",
+      "episodeImdbID": "tt0772355",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 17,
+      "title": "Caillou's Christmas",
+      "episodeImdbID": "tt0948819",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 4,
+      "episode": 18,
+      "title": "Springtime for Caillou",
+      "episodeImdbID": "tt0772359",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 1,
+      "title": "Caillou's Cricket/Dog Dilemma/The Spider Issue",
+      "episodeImdbID": "tt1471456",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 2,
+      "title": "Caillou Roller Skates/Say Lettuce!/Caillou Tries to Whistle",
+      "episodeImdbID": "tt1471455",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 3,
+      "title": "What's Ringette?/Rainy Day at the Beach/Caillou Climbs",
+      "episodeImdbID": "tt1471457",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 4,
+      "title": "Episode #5.4",
+      "episodeImdbID": "tt1477264",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 6,
+      "title": "Caillou's Shadow/High Flyers/Caillou's Leaf Pile",
+      "episodeImdbID": "tt1476476",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 7,
+      "title": "Sharing the Rocketship/Coach Grandpa/The Safety Helper",
+      "episodeImdbID": "tt1476477",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 9,
+      "title": "Caillou's Cross Hop/Glitter Glitch/The Untidy Classroom",
+      "episodeImdbID": "tt1490101",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 11,
+      "title": "Caillou's Song/Follow Me/Where's Caillou?",
+      "episodeImdbID": "tt1490102",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 12,
+      "title": "Olive Muddle/Caillou's Clay Play/The Lightening Ball Express",
+      "episodeImdbID": "tt1504033",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 14,
+      "title": "Caillou Can Compost/Caillou's Tree/Caillou Saves Water",
+      "episodeImdbID": "tt1504032",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 17,
+      "title": "Caillou's Mini Marathon/Smooth Sailing/Am I Big Yet?",
+      "episodeImdbID": "tt1520517",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 18,
+      "title": "Copycat Clementine/Caillou's Poster/Playhouse Play Date",
+      "episodeImdbID": "tt1520519",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 20,
+      "title": "Borrowed Book/Fixing Mr. Bones/Caillou the Dinosaur Hunter",
+      "episodeImdbID": "tt1520518",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 21,
+      "title": "Blueberry Point/Class Pet/In the Garden",
+      "episodeImdbID": "tt1535656",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 22,
+      "title": "Caillou's Camel Ride/It's Not Too Big for Me!/Caillou's Flying Saucer",
+      "episodeImdbID": "tt1535658",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 23,
+      "title": "Daddy's Puzzles/Play with Me!/Caillou's Bad Luck",
+      "episodeImdbID": "tt1535659",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 5,
+      "episode": 25,
+      "title": "Caillou Conducts/Captain Caillou/Caillou Roars",
+      "episodeImdbID": "tt1535657",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 6,
+      "episode": 2,
+      "title": "Caillou Learns Patience",
+      "episodeImdbID": "tt2936282",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 6,
+      "episode": 3,
+      "title": "Safety First Caillou",
+      "episodeImdbID": "tt6137548",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 6,
+      "episode": 4,
+      "title": "Caillou's Toy Trouble",
+      "episodeImdbID": "tt2936286",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 6,
+      "episode": 5,
+      "title": "Considerate Caillou",
+      "episodeImdbID": "tt2936276",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 6,
+      "episode": 6,
+      "title": "Caillou Tells the Truth",
+      "episodeImdbID": "tt2936278",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 6,
+      "episode": 7,
+      "title": "Caillou the Creative",
+      "episodeImdbID": "tt2443032",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 6,
+      "episode": 10,
+      "title": "Thoughtful Caillou",
+      "episodeImdbID": "tt2936280",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 7,
+      "episode": 1,
+      "title": "Caillou Cares",
+      "episodeImdbID": "tt3057286",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 7,
+      "episode": 3,
+      "title": "Caillou Cares & other Stories: Caillou Gets Active",
+      "episodeImdbID": "tt3133896",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 7,
+      "episode": 8,
+      "title": "Growing Up Caillou",
+      "episodeImdbID": "tt3057276",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 7,
+      "episode": 12,
+      "title": "Caillou the Brave",
+      "episodeImdbID": "tt3090142",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 7,
+      "episode": 13,
+      "title": "Caillou's Play Time & Other Stories: Caillou in the Garden",
+      "episodeImdbID": "tt3107636",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 7,
+      "episode": 14,
+      "title": "Caillou's Favorite Things",
+      "episodeImdbID": "tt3059592",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 7,
+      "episode": 15,
+      "title": "The Motorcycle Club",
+      "episodeImdbID": "tt4513906",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 8,
+      "episode": 3,
+      "title": "Caillou's Winter Wonders",
+      "episodeImdbID": "tt2443046",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 8,
+      "episode": 7,
+      "title": "Caillou Wants to Grow Up",
+      "episodeImdbID": "tt2443080",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 8,
+      "episode": 8,
+      "title": "Caillou at Play",
+      "episodeImdbID": "tt2443082",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 8,
+      "episode": 10,
+      "title": "Caillou's Family Fun",
+      "episodeImdbID": "tt2443088",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "caillou-1998",
+      "seriesTitle": "Caillou",
+      "season": 8,
+      "episode": 11,
+      "title": "Caillou's Furry Friends",
+      "episodeImdbID": "tt2443094",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
     },
     {
       "seriesID": "camp-wilder-1992",
@@ -2712,6 +6590,206 @@
       "episodeImdbID": "tt6348996",
       "status": "wanted",
       "added_at": "2026-06-01T04:25:38Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 1,
+      "title": "The Saint in Manhattan",
+      "episodeImdbID": "tt0300442",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 2,
+      "title": "Kung Fu: The Next Generation",
+      "episodeImdbID": "tt0093372",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 3,
+      "title": "Changing Patterns",
+      "episodeImdbID": "tt0910609",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 4,
+      "title": "Mickey and Nora",
+      "episodeImdbID": "tt0245282",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 5,
+      "title": "Puppetman",
+      "episodeImdbID": "tt0821142",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 6,
+      "title": "Sawdust",
+      "episodeImdbID": "tt0184880",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 8,
+      "title": "Doctors Wilde",
+      "episodeImdbID": "tt0249475",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 9,
+      "title": "Mabel and Max",
+      "episodeImdbID": "tt0911191",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 11,
+      "title": "The Time of Their Lives",
+      "episodeImdbID": "tt0534269",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 12,
+      "title": "Infiltrator",
+      "episodeImdbID": "tt0163007",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 14,
+      "title": "Day to Day",
+      "episodeImdbID": "tt0915048",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 15,
+      "title": "Sirens",
+      "episodeImdbID": "tt0915050",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 1,
+      "episode": 19,
+      "title": "Sons of Gunz",
+      "episodeImdbID": "tt0783586",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 2,
+      "episode": 3,
+      "title": "Old Money",
+      "episodeImdbID": "tt0534267",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 2,
+      "episode": 5,
+      "title": "Baby on Board",
+      "episodeImdbID": "tt0534265",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 2,
+      "episode": 12,
+      "title": "Sniff",
+      "episodeImdbID": "tt0927225",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 2,
+      "episode": 14,
+      "title": "Roughhouse",
+      "episodeImdbID": "tt0534268",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 2,
+      "episode": 15,
+      "title": "Mad Avenue",
+      "episodeImdbID": "tt0284761",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 2,
+      "episode": 17,
+      "title": "Tickets, Please",
+      "episodeImdbID": "tt0185720",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cbs-summer-playhouse-1987",
+      "seriesTitle": "CBS Summer Playhouse",
+      "season": 3,
+      "episode": 6,
+      "title": "American Nuclear",
+      "episodeImdbID": "tt0096805",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
     },
     {
       "seriesID": "cbs-summer-playhouse-1988",
@@ -3867,6 +7945,446 @@
       "added_at": "2026-06-01T11:32:23Z"
     },
     {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 2,
+      "title": "Special Delivery/A Ferry Tale",
+      "episodeImdbID": "tt0953016",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 5,
+      "title": "Great Race/Tummy Trouble",
+      "episodeImdbID": "tt2770770",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 6,
+      "title": "Cleo Comes to Town/False Friend",
+      "episodeImdbID": "tt2770776",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 8,
+      "title": "A New Friend/Stormy Weather",
+      "episodeImdbID": "tt2770784",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 9,
+      "title": "Circus Stars/Limelight Fright",
+      "episodeImdbID": "tt1516185",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 10,
+      "title": "To Catch a Bird/The Best Party Ever",
+      "episodeImdbID": "tt2770788",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 12,
+      "title": "Little Clifford/Welcome to Birdwell Island",
+      "episodeImdbID": "tt8117240",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 14,
+      "title": "Leaf of Absence/Nobody's Perfect",
+      "episodeImdbID": "tt1648299",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 15,
+      "title": "Teacher's Pet/Islander of the Year",
+      "episodeImdbID": "tt1516188",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 16,
+      "title": "Clifford's Big Surprise/The Ears Have It",
+      "episodeImdbID": "tt2782074",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 17,
+      "title": "Tough Enough/Stars in Your Eyes",
+      "episodeImdbID": "tt1901803",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 18,
+      "title": "Mac's Secret Dog Club/The Dog Park",
+      "episodeImdbID": "tt1901799",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 19,
+      "title": "Fluffed Up Cleo/Team Spirit",
+      "episodeImdbID": "tt1516186",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 21,
+      "title": "Good-Bye T-Bone/The Truth About Dogs and Cats",
+      "episodeImdbID": "tt1901797",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 22,
+      "title": "The Big Sleepover/Dog for a Day",
+      "episodeImdbID": "tt1901801",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 23,
+      "title": "T-Bone, Dog About Town/Clifford's Big Heart",
+      "episodeImdbID": "tt1901800",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 24,
+      "title": "Who Me, Jealous?/A Bunny in a Haystack",
+      "episodeImdbID": "tt2782222",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 26,
+      "title": "The Kibble Crook/Screaming for Ice Cream",
+      "episodeImdbID": "tt1901802",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 28,
+      "title": "Babysitter Blues/Saturday Morning",
+      "episodeImdbID": "tt1901791",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 30,
+      "title": "Friends, Morning, Noon, and Night/Mr. Bleakman's Special Day",
+      "episodeImdbID": "tt1114340",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 31,
+      "title": "Doggie Garden/Captain Birdwell's Treasure",
+      "episodeImdbID": "tt1901795",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 33,
+      "title": "Clifford's Hiccups/It's My Party",
+      "episodeImdbID": "tt1135175",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 34,
+      "title": "Jetta's Tall Tale/The Big Fetch",
+      "episodeImdbID": "tt1901798",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 35,
+      "title": "Potluck Party Pooper/The Best Gift",
+      "episodeImdbID": "tt1516187",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 36,
+      "title": "Two's Company/Fairweather Friends",
+      "episodeImdbID": "tt0896085",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 37,
+      "title": "Clifford Cleans His Room/Baby Makes Four",
+      "episodeImdbID": "tt13504922",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 38,
+      "title": "Topsy Turvy Day/Clifford's Charm School",
+      "episodeImdbID": "tt2782256",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 1,
+      "episode": 40,
+      "title": "Blanket Blues/Dino Clifford",
+      "episodeImdbID": "tt1516184",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 2,
+      "episode": 1,
+      "title": "That's Snow Lie/A Friend in Need",
+      "episodeImdbID": "tt0953019",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 2,
+      "episode": 4,
+      "title": "Stinky Friends/He's Wonderful Mr. Bleakman",
+      "episodeImdbID": "tt0953018",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 2,
+      "episode": 5,
+      "title": "Magic in the Air/Everyone Loves Clifford",
+      "episodeImdbID": "tt0953012",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 2,
+      "episode": 11,
+      "title": "Cleo Gets a Cone/A Job Well Read",
+      "episodeImdbID": "tt0542516",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 2,
+      "episode": 13,
+      "title": "Special T-Bone/Jetta's Sneak Peek",
+      "episodeImdbID": "tt0953017",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 2,
+      "episode": 14,
+      "title": "Vaz Goes Down the Tubes/Cyber Puppy Problems",
+      "episodeImdbID": "tt0953021",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 2,
+      "episode": 17,
+      "title": "Clifford's Cookie Craving/Jetta's Friend",
+      "episodeImdbID": "tt0953004",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 2,
+      "episode": 18,
+      "title": "Fishing Lessons/No Baths for Cleo",
+      "episodeImdbID": "tt0953008",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 2,
+      "episode": 19,
+      "title": "Flood of Imagination/Lights Out",
+      "episodeImdbID": "tt1901796",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 2,
+      "episode": 20,
+      "title": "A Big Help/The Trouble with Kittens",
+      "episodeImdbID": "tt0953000",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 2,
+      "episode": 21,
+      "title": "Led Astray/Wedding Bell Blues",
+      "episodeImdbID": "tt0542522",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 2,
+      "episode": 25,
+      "title": "Dog House Rock/Guess Who's Coming to Birdwell",
+      "episodeImdbID": "tt0542521",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 2,
+      "episode": 26,
+      "title": "Little Big Pup/Getting to Know You",
+      "episodeImdbID": "tt0542515",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 3,
+      "episode": 10,
+      "title": "Clifford's Big Heart/Cleo's Valentine Surprise",
+      "episodeImdbID": "tt13298834",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 5,
+      "episode": 4,
+      "title": "Who Moved My Bone/Clifford the Pirate King",
+      "episodeImdbID": "tt0896086",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "clifford-the-big-red-dog-2000",
+      "seriesTitle": "Clifford the Big Red Dog",
+      "season": 5,
+      "episode": 6,
+      "title": "Food for Thought/Friends Forever",
+      "episodeImdbID": "tt0542520",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
       "seriesID": "coronet-blue-1967",
       "seriesTitle": "Coronet Blue",
       "season": 1,
@@ -3919,6 +8437,106 @@
       "status": "fulfilled",
       "added_at": "2026-06-02T08:32:33Z",
       "fulfilled_at": "2026-06-02T08:55:06Z"
+    },
+    {
+      "seriesID": "cosmos-1980",
+      "seriesTitle": "Cosmos",
+      "season": 1,
+      "episode": 4,
+      "title": "Heaven and Hell",
+      "episodeImdbID": "tt0759808",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cosmos-1980",
+      "seriesTitle": "Cosmos",
+      "season": 1,
+      "episode": 5,
+      "title": "Blues for a Red Planet",
+      "episodeImdbID": "tt0759805",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cosmos-1980",
+      "seriesTitle": "Cosmos",
+      "season": 1,
+      "episode": 6,
+      "title": "Travellers' Tales",
+      "episodeImdbID": "tt0759813",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cosmos-1980",
+      "seriesTitle": "Cosmos",
+      "season": 1,
+      "episode": 7,
+      "title": "The Backbone of Night",
+      "episodeImdbID": "tt0759811",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cosmos-1980",
+      "seriesTitle": "Cosmos",
+      "season": 1,
+      "episode": 8,
+      "title": "Journeys in Space and Time",
+      "episodeImdbID": "tt0759809",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cosmos-1980",
+      "seriesTitle": "Cosmos",
+      "season": 1,
+      "episode": 9,
+      "title": "The Lives of the Stars",
+      "episodeImdbID": "tt0760463",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cosmos-1980",
+      "seriesTitle": "Cosmos",
+      "season": 1,
+      "episode": 10,
+      "title": "The Edge of Forever",
+      "episodeImdbID": "tt0760462",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cosmos-1980",
+      "seriesTitle": "Cosmos",
+      "season": 1,
+      "episode": 11,
+      "title": "The Persistence of Memory",
+      "episodeImdbID": "tt0760464",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cosmos-1980",
+      "seriesTitle": "Cosmos",
+      "season": 1,
+      "episode": 12,
+      "title": "Encyclopaedia Galactica",
+      "episodeImdbID": "tt0759806",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "cosmos-1980",
+      "seriesTitle": "Cosmos",
+      "season": 1,
+      "episode": 13,
+      "title": "Who Speaks for Earth?",
+      "episodeImdbID": "tt0760465",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
     },
     {
       "seriesID": "cosmos-1980-1980",
@@ -16048,6 +20666,216 @@
       "added_at": "2026-06-02T08:32:33Z"
     },
     {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 2,
+      "title": "Looney Moon",
+      "episodeImdbID": "tt5306236",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 3,
+      "title": "Raven Mad",
+      "episodeImdbID": "tt5306244",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 4,
+      "title": "Father of His Island",
+      "episodeImdbID": "tt5306246",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 5,
+      "title": "Wrong Way Robot/Yeah, Would You Want Your Sister to Marry One?",
+      "episodeImdbID": "tt5306250",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 6,
+      "title": "Opening Night",
+      "episodeImdbID": "tt5306252",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 7,
+      "title": "Lollipop Casserole",
+      "episodeImdbID": "tt5306256",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 8,
+      "title": "The Loners",
+      "episodeImdbID": "tt5306258",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 9,
+      "title": "The Ego Trip/Kon-Tackly",
+      "episodeImdbID": "tt5306260",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 10,
+      "title": "The Olympiad",
+      "episodeImdbID": "tt5306262",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 11,
+      "title": "Their Own Image",
+      "episodeImdbID": "tt5306266",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 12,
+      "title": "The Disappearing Act",
+      "episodeImdbID": "tt5306272",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 13,
+      "title": "A Sinking Feeling",
+      "episodeImdbID": "tt5306276",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 14,
+      "title": "Reluctant Hero",
+      "episodeImdbID": "tt5306278",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 1,
+      "episode": 15,
+      "title": "The Same Old Dream",
+      "episodeImdbID": "tt5306280",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 2,
+      "episode": 1,
+      "title": "Super Gilligan",
+      "episodeImdbID": "tt5306284",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 2,
+      "episode": 2,
+      "title": "Marooned Again",
+      "episodeImdbID": "tt5306292",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 2,
+      "episode": 3,
+      "title": "Live and Let Live",
+      "episodeImdbID": "tt5306294",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 2,
+      "episode": 4,
+      "title": "Wheels on Parade",
+      "episodeImdbID": "tt5306296",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-new-adventures-of-gilligan-1974",
+      "seriesTitle": "The New Adventures of Gilligan",
+      "season": 2,
+      "episode": 5,
+      "title": "The Movie Makers",
+      "episodeImdbID": "tt5306298",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-nutt-house-1989",
+      "seriesTitle": "The Nutt House",
+      "season": 1,
+      "episode": 4,
+      "title": "21 Men and a Baby",
+      "episodeImdbID": "tt1539463",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-nutt-house-1989",
+      "seriesTitle": "The Nutt House",
+      "season": 1,
+      "episode": 8,
+      "title": "To Tell the Truth",
+      "episodeImdbID": "tt1539465",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
       "seriesID": "the-second-hundred-years-1967",
       "seriesTitle": "The Second Hundred Years",
       "season": 1,
@@ -16226,6 +21054,1585 @@
       "episodeImdbID": "tt0866287",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 1,
+      "episode": 3,
+      "title": "Gift",
+      "episodeImdbID": "tt0701416",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 1,
+      "episode": 4,
+      "title": "Babysitting",
+      "episodeImdbID": "tt0701409",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 1,
+      "episode": 5,
+      "title": "Charity",
+      "episodeImdbID": "tt1098040",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 1,
+      "episode": 6,
+      "title": "Neighbors",
+      "episodeImdbID": "tt0701431",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 1,
+      "episode": 9,
+      "title": "Attraction",
+      "episodeImdbID": "tt0701407",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 1,
+      "episode": 10,
+      "title": "Midnight",
+      "episodeImdbID": "tt0701427",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 1,
+      "episode": 11,
+      "title": "Communication",
+      "episodeImdbID": "tt0701412",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 1,
+      "episode": 12,
+      "title": "Nineteen",
+      "episodeImdbID": "tt0701433",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 1,
+      "episode": 16,
+      "title": "Affair",
+      "episodeImdbID": "tt0701406",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 1,
+      "episode": 17,
+      "title": "Wedding",
+      "episodeImdbID": "tt0701444",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 1,
+      "episode": 18,
+      "title": "Poetry",
+      "episodeImdbID": "tt0701435",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 1,
+      "episode": 20,
+      "title": "Kids",
+      "episodeImdbID": "tt0701422",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 1,
+      "episode": 21,
+      "title": "Pop",
+      "episodeImdbID": "tt0701436",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 3,
+      "title": "Good God",
+      "episodeImdbID": "tt0701417",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 5,
+      "title": "Strip Club",
+      "episodeImdbID": "tt1098042",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 6,
+      "title": "Love Train",
+      "episodeImdbID": "tt0701424",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 7,
+      "title": "The Virgin",
+      "episodeImdbID": "tt0701442",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 8,
+      "title": "Double Date",
+      "episodeImdbID": "tt0701415",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 9,
+      "title": "Davy Jones",
+      "episodeImdbID": "tt0701413",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 10,
+      "title": "The Deepest Cut",
+      "episodeImdbID": "tt0701441",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 12,
+      "title": "Like Father...",
+      "episodeImdbID": "tt0701423",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 13,
+      "title": "Starting Over",
+      "episodeImdbID": "tt1098041",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 14,
+      "title": "Just Friends?",
+      "episodeImdbID": "tt0701420",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 15,
+      "title": "Macho Men",
+      "episodeImdbID": "tt0701426",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 16,
+      "title": "Mother Love",
+      "episodeImdbID": "tt0890642",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 17,
+      "title": "Big Baby",
+      "episodeImdbID": "tt0701411",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 18,
+      "title": "Grandfather Clause",
+      "episodeImdbID": "tt0701418",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 19,
+      "title": "Johnny Hollywood",
+      "episodeImdbID": "tt0701419",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 20,
+      "title": "Au Pair",
+      "episodeImdbID": "tt0701408",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-single-guy-1995",
+      "seriesTitle": "The Single Guy",
+      "season": 2,
+      "episode": 21,
+      "title": "Vegas Finale",
+      "episodeImdbID": "tt0701443",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 1,
+      "episode": 1,
+      "title": "Cindy",
+      "episodeImdbID": "tt0703268",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 1,
+      "episode": 2,
+      "title": "The Ex-Con",
+      "episodeImdbID": "tt0703295",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 1,
+      "episode": 3,
+      "title": "Chicano",
+      "episodeImdbID": "tt0703266",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 1,
+      "episode": 4,
+      "title": "The Blue Tie",
+      "episodeImdbID": "tt0703293",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 1,
+      "episode": 5,
+      "title": "All the Good Neighbors",
+      "episodeImdbID": "tt0703261",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 1,
+      "episode": 7,
+      "title": "Strangers: Part 2",
+      "episodeImdbID": "tt0703289",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 1,
+      "episode": 9,
+      "title": "The Desk Job",
+      "episodeImdbID": "tt0703294",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 1,
+      "episode": 11,
+      "title": "Remember Lisa",
+      "episodeImdbID": "tt0703282",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 1,
+      "episode": 12,
+      "title": "Rookie",
+      "episodeImdbID": "tt0703284",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 1,
+      "episode": 15,
+      "title": "No Place to Hide",
+      "episodeImdbID": "tt0703280",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 2,
+      "episode": 1,
+      "title": "The Anniversary",
+      "episodeImdbID": "tt0703292",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 2,
+      "episode": 2,
+      "title": "Day in the Court",
+      "episodeImdbID": "tt0703270",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 2,
+      "episode": 3,
+      "title": "Stakeout",
+      "episodeImdbID": "tt0703287",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 2,
+      "episode": 4,
+      "title": "Lost Lady",
+      "episodeImdbID": "tt0703276",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 2,
+      "episode": 5,
+      "title": "Father's Day",
+      "episodeImdbID": "tt0703272",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 2,
+      "episode": 6,
+      "title": "Blind Chance",
+      "episodeImdbID": "tt0703264",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 2,
+      "episode": 8,
+      "title": "Rumpus Room",
+      "episodeImdbID": "tt0703285",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 2,
+      "episode": 10,
+      "title": "The Weekend",
+      "episodeImdbID": "tt0703297",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 2,
+      "episode": 16,
+      "title": "Where There's Smoke",
+      "episodeImdbID": "tt0703298",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 2,
+      "episode": 18,
+      "title": "Winner Take All",
+      "episodeImdbID": "tt0703299",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-smith-family-1971",
+      "seriesTitle": "The Smith Family",
+      "season": 2,
+      "episode": 19,
+      "title": "San Francisco Cop",
+      "episodeImdbID": "tt0703286",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-tony-randall-show-1976",
+      "seriesTitle": "The Tony Randall Show",
+      "season": 1,
+      "episode": 7,
+      "title": "Case: Terwillger vs. Himself",
+      "episodeImdbID": "tt1073059",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-tony-randall-show-1976",
+      "seriesTitle": "The Tony Randall Show",
+      "season": 1,
+      "episode": 17,
+      "title": "Case: May vs. December",
+      "episodeImdbID": "tt0776259",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-tony-randall-show-1976",
+      "seriesTitle": "The Tony Randall Show",
+      "season": 1,
+      "episode": 21,
+      "title": "Case: Facing Up vs. Hiding Behind the Drapes",
+      "episodeImdbID": "tt1073052",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-tony-randall-show-1976",
+      "seriesTitle": "The Tony Randall Show",
+      "season": 2,
+      "episode": 8,
+      "title": "New Found Franklin",
+      "episodeImdbID": "tt0729460",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-tony-randall-show-1976",
+      "seriesTitle": "The Tony Randall Show",
+      "season": 2,
+      "episode": 18,
+      "title": "Eyes of the Law",
+      "episodeImdbID": "tt1078062",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-tony-randall-show-1976",
+      "seriesTitle": "The Tony Randall Show",
+      "season": 2,
+      "episode": 20,
+      "title": "Adios, Mr. Chips",
+      "episodeImdbID": "tt1078057",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 1,
+      "episode": 1,
+      "title": "The Arrival",
+      "episodeImdbID": "tt0739936",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 1,
+      "episode": 2,
+      "title": "Songs of Praise",
+      "episodeImdbID": "tt0739933",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 1,
+      "episode": 3,
+      "title": "Community Spirit",
+      "episodeImdbID": "tt0739926",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 1,
+      "episode": 4,
+      "title": "The Window & the Weather",
+      "episodeImdbID": "tt0739938",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 1,
+      "episode": 5,
+      "title": "Election",
+      "episodeImdbID": "tt0739927",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 1,
+      "episode": 6,
+      "title": "Animals",
+      "episodeImdbID": "tt0739921",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 1,
+      "episode": 7,
+      "title": "The Easter Bunny",
+      "episodeImdbID": "tt0761547",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 1,
+      "episode": 8,
+      "title": "The Christmas Lunch Incident",
+      "episodeImdbID": "tt0739937",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 2,
+      "episode": 1,
+      "title": "Engagement",
+      "episodeImdbID": "tt0739928",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 2,
+      "episode": 2,
+      "title": "Dibley Live",
+      "episodeImdbID": "tt0823132",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 2,
+      "episode": 3,
+      "title": "Celebrity Vicar",
+      "episodeImdbID": "tt0739924",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 2,
+      "episode": 4,
+      "title": "Love and Marriage",
+      "episodeImdbID": "tt0739930",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 3,
+      "episode": 1,
+      "title": "Autumn",
+      "episodeImdbID": "tt0739922",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 3,
+      "episode": 3,
+      "title": "Spring",
+      "episodeImdbID": "tt0739934",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 4,
+      "episode": 2,
+      "title": "Happy New Year",
+      "episodeImdbID": "tt0739929",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-vicar-of-dibley-1994",
+      "seriesTitle": "The Vicar of Dibley",
+      "season": 4,
+      "episode": 3,
+      "title": "The Handsome Stranger",
+      "episodeImdbID": "tt0925036",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "the-x-s-2005",
+      "seriesTitle": "The X's",
+      "season": 1,
+      "episode": 1,
+      "title": "AAIIEE, Robot/Mission: Irresponsible",
+      "episodeImdbID": "tt1098304",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 0,
+      "title": "Unaired Pilot",
+      "episodeImdbID": "tt0772673",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 1,
+      "title": "Pilot",
+      "episodeImdbID": "tt0739550",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 2,
+      "title": "Veronica's Woman Friend",
+      "episodeImdbID": "tt0739606",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 3,
+      "title": "Veronica's Husband Won't Leave",
+      "episodeImdbID": "tt0739584",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 4,
+      "title": "Veronica's Not Happy About the Book",
+      "episodeImdbID": "tt0739596",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 5,
+      "title": "Veronica's First Date",
+      "episodeImdbID": "tt0739577",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 6,
+      "title": "Veronica's Best Buddy",
+      "episodeImdbID": "tt0739561",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 7,
+      "title": "Veronica's a Doll",
+      "episodeImdbID": "tt0739607",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 8,
+      "title": "Veronica's First Thanksgiving",
+      "episodeImdbID": "tt0739578",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 9,
+      "title": "Veronica's Brotherly Love",
+      "episodeImdbID": "tt0739566",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 10,
+      "title": "Veronica's Christmas Song",
+      "episodeImdbID": "tt0739569",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 11,
+      "title": "Veronica's Got a Secret",
+      "episodeImdbID": "tt0739582",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 12,
+      "title": "Veronica's Fun and Pirates Are Crazy",
+      "episodeImdbID": "tt0739579",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 13,
+      "title": "Veronica's Night Alone",
+      "episodeImdbID": "tt0739594",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 14,
+      "title": "Veronica's $600,000 Pop",
+      "episodeImdbID": "tt0739559",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 15,
+      "title": "Veronica's a Drag",
+      "episodeImdbID": "tt0739608",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 16,
+      "title": "Veronica's Divorce Papers",
+      "episodeImdbID": "tt0739574",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 17,
+      "title": "Veronica's Blackout",
+      "episodeImdbID": "tt0739563",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 18,
+      "title": "Veronica's Bridal Shower",
+      "episodeImdbID": "tt0739565",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 19,
+      "title": "Veronica's Man in a Suitcase",
+      "episodeImdbID": "tt0739589",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 20,
+      "title": "Veronica's All Nighter",
+      "episodeImdbID": "tt0739560",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 21,
+      "title": "Veronica's Mole",
+      "episodeImdbID": "tt0739590",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 1,
+      "episode": 22,
+      "title": "Veronica's Silent Partner",
+      "episodeImdbID": "tt0739600",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 1,
+      "title": "Veronica Gets Her Closet Back",
+      "episodeImdbID": "tt0739553",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 2,
+      "title": "Veronica's a Partner Now",
+      "episodeImdbID": "tt0739609",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 3,
+      "title": "Veronica's Great Model Search",
+      "episodeImdbID": "tt0739583",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 6,
+      "title": "Veronica's on the Herb",
+      "episodeImdbID": "tt0739611",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 7,
+      "title": "Veronica's Breast Efforts",
+      "episodeImdbID": "tt0739564",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 8,
+      "title": "Veronica's Thanksgiving That Keeps on Giving",
+      "episodeImdbID": "tt0739604",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 9,
+      "title": "Veronica's Cheating Partners",
+      "episodeImdbID": "tt0739568",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 10,
+      "title": "Veronica's Secret Santa",
+      "episodeImdbID": "tt0739599",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 11,
+      "title": "Veronica's from Venus/Josh's Parents Are from Mars",
+      "episodeImdbID": "tt0739610",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 12,
+      "title": "Veronica's Desk Job",
+      "episodeImdbID": "tt0739573",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 13,
+      "title": "Veronica's Wedding Bell Blues",
+      "episodeImdbID": "tt0739605",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 14,
+      "title": "Veronica Plays House",
+      "episodeImdbID": "tt0739556",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 15,
+      "title": "Veronica's Favorite Year",
+      "episodeImdbID": "tt0739576",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 16,
+      "title": "Veronica's Little Tribute",
+      "episodeImdbID": "tt0739587",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 17,
+      "title": "Veronica Falls Hard",
+      "episodeImdbID": "tt0739552",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 18,
+      "title": "Veronica's Big Date",
+      "episodeImdbID": "tt0973732",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 19,
+      "title": "Veronica's Big Homecoming",
+      "episodeImdbID": "tt0739562",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 20,
+      "title": "Veronica's Little Ruse",
+      "episodeImdbID": "tt0739586",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 21,
+      "title": "Veronica's Night at the Theater",
+      "episodeImdbID": "tt0739595",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 2,
+      "episode": 22,
+      "title": "Veronica Says Goodbye",
+      "episodeImdbID": "tt0739557",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 1,
+      "title": "Veronica's New Boss",
+      "episodeImdbID": "tt0739592",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 3,
+      "title": "Veronica's Construction Worker",
+      "episodeImdbID": "tt0739571",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 4,
+      "title": "Veronica's Office: Bigger, Longer and Cuter",
+      "episodeImdbID": "tt1119570",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 6,
+      "title": "Veronica's Long Walk Home",
+      "episodeImdbID": "tt0739588",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 7,
+      "title": "Veronica's Got All the Right Stuffing",
+      "episodeImdbID": "tt0739581",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 8,
+      "title": "Veronica's Sliding Doors",
+      "episodeImdbID": "tt0739602",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 10,
+      "title": "Veronica's Perfect Man",
+      "episodeImdbID": "tt0739597",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 11,
+      "title": "Veronica's Record",
+      "episodeImdbID": "tt0739598",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 12,
+      "title": "Veronica's Tattooed Man",
+      "episodeImdbID": "tt0739603",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 13,
+      "title": "Veronica's Candy Panties",
+      "episodeImdbID": "tt0739567",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 14,
+      "title": "Veronica's New Bookshelves",
+      "episodeImdbID": "tt0739591",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 16,
+      "title": "Veronica's Girls' Night Out",
+      "episodeImdbID": "tt0739580",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 17,
+      "title": "Veronica Helps Josh Out",
+      "episodeImdbID": "tt0739554",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "veronica-s-closet-1997",
+      "seriesTitle": "Veronica's Closet",
+      "season": 3,
+      "episode": 20,
+      "title": "Veronica Loses Her Olive Again",
+      "episodeImdbID": "tt0739555",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "wanda-at-large-2003",
+      "seriesTitle": "Wanda at Large",
+      "season": 1,
+      "episode": 5,
+      "title": "Death of a Councilman",
+      "episodeImdbID": "tt0743888",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "wanda-at-large-2003",
+      "seriesTitle": "Wanda at Large",
+      "season": 2,
+      "episode": 1,
+      "title": "The Favor",
+      "episodeImdbID": "tt0743894",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "wanda-at-large-2003",
+      "seriesTitle": "Wanda at Large",
+      "season": 2,
+      "episode": 4,
+      "title": "Leave Your Daughter at Home Day",
+      "episodeImdbID": "tt0743892",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "wanda-at-large-2003",
+      "seriesTitle": "Wanda at Large",
+      "season": 2,
+      "episode": 5,
+      "title": "They Shoot Reporters",
+      "episodeImdbID": "tt0743896",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "wanda-at-large-2003",
+      "seriesTitle": "Wanda at Large",
+      "season": 2,
+      "episode": 8,
+      "title": "Back to the Club",
+      "episodeImdbID": "tt0743885",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 1,
+      "episode": 1,
+      "title": "Open Government",
+      "episodeImdbID": "tt0751811",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 1,
+      "episode": 2,
+      "title": "The Official Visit",
+      "episodeImdbID": "tt0751822",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 1,
+      "episode": 3,
+      "title": "The Economy Drive",
+      "episodeImdbID": "tt0751818",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 1,
+      "episode": 4,
+      "title": "Big Brother",
+      "episodeImdbID": "tt0751807",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 1,
+      "episode": 5,
+      "title": "The Writing on the Wall",
+      "episodeImdbID": "tt0751827",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 1,
+      "episode": 6,
+      "title": "The Right to Know",
+      "episodeImdbID": "tt0751824",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 1,
+      "episode": 7,
+      "title": "Jobs for the Boys",
+      "episodeImdbID": "tt0751810",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 2,
+      "episode": 1,
+      "title": "The Compassionate Society",
+      "episodeImdbID": "tt0751815",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 2,
+      "episode": 2,
+      "title": "Doing the Honours",
+      "episodeImdbID": "tt0751808",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 2,
+      "episode": 3,
+      "title": "The Death List",
+      "episodeImdbID": "tt0751816",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 2,
+      "episode": 4,
+      "title": "The Greasy Pole",
+      "episodeImdbID": "tt0751819",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 2,
+      "episode": 5,
+      "title": "The Devil You Know",
+      "episodeImdbID": "tt0751817",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 2,
+      "episode": 6,
+      "title": "The Quality of Life",
+      "episodeImdbID": "tt0751823",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 2,
+      "episode": 7,
+      "title": "A Question of Loyalty",
+      "episodeImdbID": "tt0751806",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 3,
+      "episode": 1,
+      "title": "Equal Opportunities",
+      "episodeImdbID": "tt0751809",
+      "status": "fulfilled",
+      "added_at": "2026-06-03T06:40:35Z",
+      "fulfilled_at": "2026-06-03T06:59:40Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 3,
+      "episode": 2,
+      "title": "The Challenge",
+      "episodeImdbID": "tt0751814",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 3,
+      "episode": 3,
+      "title": "The Skeleton in the Cupboard",
+      "episodeImdbID": "tt0751825",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 3,
+      "episode": 4,
+      "title": "The Moral Dimension",
+      "episodeImdbID": "tt0751821",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 3,
+      "episode": 5,
+      "title": "The Bed of Nails",
+      "episodeImdbID": "tt0751813",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 3,
+      "episode": 6,
+      "title": "The Whisky Priest",
+      "episodeImdbID": "tt0751826",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
+    },
+    {
+      "seriesID": "yes-minister-1980",
+      "seriesTitle": "Yes Minister",
+      "season": 3,
+      "episode": 7,
+      "title": "The Middle-Class Rip-Off",
+      "episodeImdbID": "tt0751820",
+      "status": "wanted",
+      "added_at": "2026-06-03T06:40:35Z"
     }
   ]
 }

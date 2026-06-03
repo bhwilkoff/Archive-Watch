@@ -1,64 +1,67 @@
 {
- "version": 2,
- "seriesID": "out-of-jimmy-s-head-2007",
- "tvmazeID": 39460,
- "title": "Out of Jimmy's Head",
- "yearStart": 2007,
- "yearEnd": 2008,
- "overview": "The misadventures of a young boy with the transplanted brain of a beloved cartoonist.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/173/433767.jpg",
- "backdropURL": null,
- "genres": [
-  "Adventure",
-  "Children"
- ],
- "networks": [
-  "Cartoon Network"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "out-of-jimmy-s-head-2007",
+  "tvmazeID": 39460,
+  "title": "Out of Jimmy's Head",
+  "yearStart": 2007,
+  "yearEnd": 2008,
+  "overview": "The misadventures of a young boy with the transplanted brain of a beloved cartoonist.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/173/433767.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure",
+    "Children"
+  ],
+  "networks": [
+    "Cartoon Network"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "out-of-jimmys-head-lost-2007-animated-series-english",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Talent Show",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "2007-09-14",
-     "year": 2007,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Out of Jimmy's Head - S01E01 - Friends.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 204762550,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/out-of-jimmys-head-lost-2007-animated-series-english/Out%20of%20Jimmy%27s%20Head%20-%20S01E01%20-%20Friends.ia.mp4"
-    },
-    {
-     "archiveID": "out-of-jimmys-complete-series",
-     "seasonNumber": 1,
-     "episodeNumber": 19,
-     "title": "Out of Jimmy's Body",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "2008-05-22",
-     "year": 2008,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Out of Jimmy's Head - 02,06 - Out of Jimmy's Body.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 130151283,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/out-of-jimmys-complete-series/Out%20of%20Jimmy%27s%20Head%20-%2002%2C06%20-%20Out%20of%20Jimmy%27s%20Body.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "out-of-jimmys-head-lost-2007-animated-series-english",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Talent Show",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "2007-09-14",
+          "year": 2007,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Out of Jimmy's Head - S01E01 - Friends.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 204762550,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/out-of-jimmys-head-lost-2007-animated-series-english/Out%20of%20Jimmy%27s%20Head%20-%20S01E01%20-%20Friends.ia.mp4"
+        },
+        {
+          "archiveID": "out-of-jimmys-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Out of Jimmy's Body",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "2008-05-22",
+          "year": 2008,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Out of Jimmy's Head - 02,06 - Out of Jimmy's Body.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 130151283,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/out-of-jimmys-complete-series/Out%20of%20Jimmy%27s%20Head%20-%2002%2C06%20-%20Out%20of%20Jimmy%27s%20Body.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 2,
- "canonicalEpisodesCount": 20
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 20,
+  "seriesImdbID": "tt1078463",
+  "canonicalEpisodeCount": 6,
+  "canonicalSeasons": 1
 }

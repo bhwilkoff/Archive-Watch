@@ -1,68 +1,71 @@
 {
- "version": 2,
- "seriesID": "shaping-up-1984",
- "tvmazeID": 45366,
- "title": "Shaping Up",
- "yearStart": 1984,
- "yearEnd": 1984,
- "overview": "Shaping Up follows Buddy Fox, proprietor of a health club. Still vibrant and in shape for his chronological age, he attracts a younger clientele at his business by employing fit manager, Ben and aerobics teachers Shannon and Melissa.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/230/575775.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "shaping-up-1984",
+  "tvmazeID": 45366,
+  "title": "Shaping Up",
+  "yearStart": 1984,
+  "yearEnd": 1984,
+  "overview": "Shaping Up follows Buddy Fox, proprietor of a health club. Still vibrant and in shape for his chronological age, he attracts a younger clientele at his business by employing fit manager, Ben and aerobics teachers Shannon and Melissa.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/230/575775.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "shaping-up-1984",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "I Should Have Danced All Night",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1984-04-10",
-     "year": 1984,
-     "runtimeSeconds": 1500,
-     "videoFile": {
-      "name": "Shaping.Up.1984.S01E04.Baby.Be.Mine.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 438062815,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/shaping-up-1984/Shaping.Up.1984.S01E04.Baby.Be.Mine.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "shaping-up-1984",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "I Should Have Danced All Night",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1984-04-10",
+          "year": 1984,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Shaping.Up.1984.S01E04.Baby.Be.Mine.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 438062815,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/shaping-up-1984/Shaping.Up.1984.S01E04.Baby.Be.Mine.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "shaping-up-101-105",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Shaping Up",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "102 Ex Pede Hercuelum.mp4",
-      "format": "h.264",
-      "sizeBytes": 141176141,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/shaping-up-101-105/102%20Ex%20Pede%20Hercuelum.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "shaping-up-101-105",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Shaping Up",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "102 Ex Pede Hercuelum.mp4",
+            "format": "h.264",
+            "sizeBytes": 141176141,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/shaping-up-101-105/102%20Ex%20Pede%20Hercuelum.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 2,
- "canonicalEpisodesCount": 6
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 6,
+  "seriesImdbID": "tt0086799",
+  "canonicalEpisodeCount": 2,
+  "canonicalSeasons": 1
 }

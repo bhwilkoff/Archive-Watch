@@ -1,83 +1,86 @@
 {
- "version": 2,
- "seriesID": "cosmos-1980",
- "tvmazeID": 1128,
- "title": "Cosmos",
- "yearStart": 1980,
- "yearEnd": 2020,
- "overview": "Hosted by renowned astrophysicist Neil deGrasse Tyson, Cosmos will explore how we discovered the laws of nature and found our coordinates in space and time. It will bring to life never-before-told stories of the heroic quest for knowledge and transport viewers to new worlds and across the universe for a vision of the cosmos on the grandest scale. Cosmos will invent new modes of scientific storytelling to reveal the grandeur of the universe and re-invent celebrated elements of the legendary original series, including the Cosmic Calendar and the Ship of the Imagination. The most profound scientific concepts will be presented with stunning clarity, uniting skepticism and wonder, and weaving rigorous science with the emotional and spiritual into a transcendent experience.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006408.jpg",
- "backdropURL": null,
- "genres": [
-  "Mystery",
-  "Nature",
-  "History"
- ],
- "networks": [
-  "National Geographic"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "cosmos-1980",
+  "tvmazeID": 1128,
+  "title": "Cosmos",
+  "yearStart": 1980,
+  "yearEnd": 2020,
+  "overview": "Hosted by renowned astrophysicist Neil deGrasse Tyson, Cosmos will explore how we discovered the laws of nature and found our coordinates in space and time. It will bring to life never-before-told stories of the heroic quest for knowledge and transport viewers to new worlds and across the universe for a vision of the cosmos on the grandest scale. Cosmos will invent new modes of scientific storytelling to reveal the grandeur of the universe and re-invent celebrated elements of the legendary original series, including the Cosmic Calendar and the Ship of the Imagination. The most profound scientific concepts will be presented with stunning clarity, uniting skepticism and wonder, and weaving rigorous science with the emotional and spiritual into a transcendent experience.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/402/1006408.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Mystery",
+    "Nature",
+    "History"
+  ],
+  "networks": [
+    "National Geographic"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "Cosmos-1980-S01E01-The-Shores-Of-The-Cosmic-Ocean-720p-by-Vaibhav-khade",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "The Shores of the Cosmic Ocean",
-     "overview": "At the beginning of this cosmic journey across space and time, Dr. Carl Sagan takes us to the edge of the universe aboard a spaceship of the imagination. Through beautiful special effects, we witness quasars, exploding galaxies, star clusters, supernovas, and pulsars. Returning to our solar system, we enter a re-creation of the Alexandrian Library, the seat of learning on Earth 2,000 years ago.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/632003.jpg",
-     "airDate": "1980-09-28",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Cosmos.1980.S01E01 - The Shores of the Cosmic Ocean-MkvCage.ws.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 684012431,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Cosmos-1980-S01E01-The-Shores-Of-The-Cosmic-Ocean-720p-by-Vaibhav-khade/Cosmos.1980.S01E01 - The Shores of the Cosmic Ocean-MkvCage.ws.ia.mp4"
-    },
-    {
-     "archiveID": "Cosmos-1980-S01E02-One-Voice-In-The-Cosmic-Fugue-720p-by-Vaibhav-khade",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "One Voice in the Cosmic Fugue",
-     "overview": "Dr. Sagan's cosmic calendar makes the history of the universe understandable and frames the origin of the Earth and the evolution of life. We see the evolutionary process unfold, from microbes to humans. Our understanding of how life developed on Earth enables us to venture to other worlds for imaginative speculations on what forms life might take elsewhere.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/632002.jpg",
-     "airDate": "1980-10-05",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Cosmos.1980.S01E02 - One Voice in the Cosmic Fugue-MkvCage.ws.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 641793271,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Cosmos-1980-S01E02-One-Voice-In-The-Cosmic-Fugue-720p-by-Vaibhav-khade/Cosmos.1980.S01E02 - One Voice in the Cosmic Fugue-MkvCage.ws.ia.mp4"
-    },
-    {
-     "archiveID": "Cosmos-1980-S01E03-Harmony-Of-The-Worlds-720p-by-Vaibhav-khade",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Harmony of the Worlds",
-     "overview": "This episode is a historical re-creation of the life of Johannes Kepler, the last scientific astrologer, the first modern astronomer and the author of the first science fiction novel. Kepler provided insight into how the moon and the planets move in their orbits and, ultimately, how to journey to them. It's also a story about the scientific process of discovery, and how the search for truth is never easy but always worthwhile.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/632001.jpg",
-     "airDate": "1980-10-12",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Cosmos.1980.S01E03 -  Harmony of the Worlds-MkvCage.ws.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 664588871,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Cosmos-1980-S01E03-Harmony-Of-The-Worlds-720p-by-Vaibhav-khade/Cosmos.1980.S01E03 -  Harmony of the Worlds-MkvCage.ws.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Cosmos-1980-S01E01-The-Shores-Of-The-Cosmic-Ocean-720p-by-Vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Shores of the Cosmic Ocean",
+          "overview": "At the beginning of this cosmic journey across space and time, Dr. Carl Sagan takes us to the edge of the universe aboard a spaceship of the imagination. Through beautiful special effects, we witness quasars, exploding galaxies, star clusters, supernovas, and pulsars. Returning to our solar system, we enter a re-creation of the Alexandrian Library, the seat of learning on Earth 2,000 years ago.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/632003.jpg",
+          "airDate": "1980-09-28",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Cosmos.1980.S01E01 - The Shores of the Cosmic Ocean-MkvCage.ws.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 684012431,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cosmos-1980-S01E01-The-Shores-Of-The-Cosmic-Ocean-720p-by-Vaibhav-khade/Cosmos.1980.S01E01 - The Shores of the Cosmic Ocean-MkvCage.ws.ia.mp4"
+        },
+        {
+          "archiveID": "Cosmos-1980-S01E02-One-Voice-In-The-Cosmic-Fugue-720p-by-Vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "One Voice in the Cosmic Fugue",
+          "overview": "Dr. Sagan's cosmic calendar makes the history of the universe understandable and frames the origin of the Earth and the evolution of life. We see the evolutionary process unfold, from microbes to humans. Our understanding of how life developed on Earth enables us to venture to other worlds for imaginative speculations on what forms life might take elsewhere.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/632002.jpg",
+          "airDate": "1980-10-05",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Cosmos.1980.S01E02 - One Voice in the Cosmic Fugue-MkvCage.ws.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 641793271,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cosmos-1980-S01E02-One-Voice-In-The-Cosmic-Fugue-720p-by-Vaibhav-khade/Cosmos.1980.S01E02 - One Voice in the Cosmic Fugue-MkvCage.ws.ia.mp4"
+        },
+        {
+          "archiveID": "Cosmos-1980-S01E03-Harmony-Of-The-Worlds-720p-by-Vaibhav-khade",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Harmony of the Worlds",
+          "overview": "This episode is a historical re-creation of the life of Johannes Kepler, the last scientific astrologer, the first modern astronomer and the author of the first science fiction novel. Kepler provided insight into how the moon and the planets move in their orbits and, ultimately, how to journey to them. It's also a story about the scientific process of discovery, and how the search for truth is never easy but always worthwhile.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/252/632001.jpg",
+          "airDate": "1980-10-12",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Cosmos.1980.S01E03 -  Harmony of the Worlds-MkvCage.ws.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 664588871,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Cosmos-1980-S01E03-Harmony-Of-The-Worlds-720p-by-Vaibhav-khade/Cosmos.1980.S01E03 -  Harmony of the Worlds-MkvCage.ws.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 3,
- "canonicalEpisodesCount": 39
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": 39,
+  "seriesImdbID": "tt0081846",
+  "canonicalEpisodeCount": 13,
+  "canonicalSeasons": 1
 }

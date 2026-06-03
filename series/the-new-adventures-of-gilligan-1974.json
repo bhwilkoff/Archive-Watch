@@ -1,69 +1,72 @@
 {
- "version": 2,
- "seriesID": "the-new-adventures-of-gilligan-1974",
- "tvmazeID": 32019,
- "title": "The New Adventures of Gilligan",
- "yearStart": 1974,
- "yearEnd": 1975,
- "overview": "The New Adventures of Gilligan was an animated revival of the still-popular classic sitcom. It was basically an animated remake of \"Gilligan's Island\". It had more character depth than the original series, and we even learned that Mary Ann had a crush on Gilligan!",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/128/320239.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy",
-  "Children"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-new-adventures-of-gilligan-1974",
+  "tvmazeID": 32019,
+  "title": "The New Adventures of Gilligan",
+  "yearStart": 1974,
+  "yearEnd": 1975,
+  "overview": "The New Adventures of Gilligan was an animated revival of the still-popular classic sitcom. It was basically an animated remake of \"Gilligan's Island\". It had more character depth than the original series, and we even learned that Mary Ann had a crush on Gilligan!",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/128/320239.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Children"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "thenewadventuresofgilligans1",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Off Limits",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1974-09-07",
-     "year": 1974,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S01E01- Off Limits.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 101923748,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E01-%20Off%20Limits.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Off Limits",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1974-09-07",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E01- Off Limits.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 101923748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E01-%20Off%20Limits.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "thenewadventuresofgilliganseason2",
-     "seasonNumber": 2,
-     "episodeNumber": 8,
-     "title": "Moderation",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1975-10-18",
-     "year": 1975,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S02E08- Moderation.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 103846578,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/thenewadventuresofgilliganseason2/S02E08-%20Moderation.ia.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "thenewadventuresofgilliganseason2",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Moderation",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1975-10-18",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E08- Moderation.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 103846578,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilliganseason2/S02E08-%20Moderation.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 2,
- "canonicalEpisodesCount": 24
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 24,
+  "seriesImdbID": "tt0071022",
+  "canonicalEpisodeCount": 21,
+  "canonicalSeasons": 2
 }
