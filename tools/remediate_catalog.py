@@ -33,6 +33,31 @@ REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
 CURRENT_YEAR = 2026  # passed-in epoch is fixed; bump when re-running in a later year
 
+# Subject-keyword -> genre fallback (Track B enrichment): fills genres for items
+# OMDb/TMDb never reached, using subjects/title already in the catalog — no
+# network. Map lives in the shared taxonomy so Swift + JS agree.
+def _load_subject_genres():
+    try:
+        m = json.loads((REPO / "docs/taxonomy/collections.json").read_text())
+        raw = m.get("subjectKeywordMap") or {}
+    except Exception:
+        raw = {}
+    disp = {"sci-fi": "Sci-Fi"}
+    return [(re.compile(r"\b" + re.escape(k.lower()) + r"\b"),
+             disp.get(v, v.title())) for k, v in raw.items()]
+
+_SUBJECT_GENRES = _load_subject_genres()
+
+
+def genres_from_subjects(it):
+    """Derive up to 3 genres from an item's subjects + title via the keyword map."""
+    hay = (" ".join(it.get("subjects") or []) + " " + (it.get("title") or "")).lower()
+    out = []
+    for rx, genre in _SUBJECT_GENRES:
+        if genre not in out and rx.search(hay):
+            out.append(genre)
+    return out[:3]
+
 MOVIE_TYPES = {"feature-film", "silent-film", "animation", "short-film",
                "documentary", "newsreel", "ephemeral", "tv-special", "home-movie"}
 
@@ -174,6 +199,13 @@ def remediate(items):
         if not it.get("isAdult") and is_adult_signal(it):
             it["isAdult"] = True
             stats["adult_flagged"] += 1
+
+        # 5) GENRES from subjects (Track B): fill empty genres with no network.
+        if not it.get("genres"):
+            g = genres_from_subjects(it)
+            if g:
+                it["genres"] = g
+                stats["genres_from_subject"] += 1
     return stats
 
 
