@@ -22,6 +22,12 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
+      # derive_candidates() reads candidate ids from the catalog, which lives on
+      # the catalog-source release (Decision 018), not git — pull it first.
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
       - name: Probe collection counts
         run: |
           python tools/probe_collections.py "${{ github.event.inputs.collections }}" | tee probe.log
