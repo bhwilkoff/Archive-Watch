@@ -101,16 +101,22 @@ final class CatalogDB {
         return "AND i.contentType NOT IN (\(list))"
     }
 
-    /// Home-advertising gate (#6): only surface confidently-public-domain (or
-    /// Creative Commons) content on the HOME screen — never items whose rights
-    /// are reserved/unknown, nor public-domain-STAMPED items dated after 1977
-    /// (those are either a current copyrighted film mis-stamped, or an item
-    /// carrying an Archive upload year — neither belongs on the marquee). CC is
-    /// allowed at any year since it's an explicit free license. NOT applied to
-    /// Browse/Search — the full catalog stays available there.
+    /// Home-advertising gate: keep modern, uncertain-rights movies OFF the home
+    /// surfaces while still admitting everything that's confidently free to show.
+    /// An item qualifies for Home if EITHER:
+    ///   • its rights are explicitly public_domain / creative_commons (any year —
+    ///     this is how post-1977 gov/PD content like NASA stays eligible), OR
+    ///   • it has a known release year in the cinema-history window 1888–1977
+    ///     (PD-by-age era; no rights tag needed).
+    /// A post-1977 film with reserved/unknown rights — i.e. a modern movie we
+    /// can't vouch for — fails both and is hidden from Home (measured: blocks
+    /// ~230 items, drops ZERO items from any curated shelf). year-null + non-PD
+    /// is also blocked (a wrong-match item whose year we nulled must not sneak
+    /// back onto the marquee). NOT applied to Browse/Search — the full catalog
+    /// stays available there.
     private let homeAnd =
-        "AND i.rightsStatus IN ('public_domain','creative_commons') " +
-        "AND (i.rightsStatus = 'creative_commons' OR i.year IS NULL OR i.year <= 1977)"
+        "AND (i.rightsStatus IN ('public_domain','creative_commons') " +
+        "OR (i.year >= 1888 AND i.year <= 1977))"
 
     // MARK: - Queries the views use
 
@@ -118,18 +124,16 @@ final class CatalogDB {
     /// poster-less tile ahead of one that has a real poster), then stored
     /// position order.
     ///
-    /// NOTE: shelves intentionally DON'T apply `homeAnd`. Every shelf is built
-    /// from a curated, known-public-domain Archive collection (nasa, classic_tv,
-    /// georgesmelies, …) — that membership IS the editorial gate. The homeAnd
-    /// year≤1977 cap was starving legitimate PD shelves (NASA films are mostly
-    /// post-1977; US-gov works are PD regardless of year), leaving stub shelves
-    /// (#6). Adult + hidden-type filters still apply.
+    /// `homeAnd` IS applied: a curated shelf must not surface a modern,
+    /// uncertain-rights film. The gate is the year/rights one (1888–1977 OR
+    /// PD/CC), NOT the old rights-required cap that starved NASA — measured to
+    /// drop zero items from every current shelf while blocking modern strays.
     func shelf(_ shelfID: String, limit: Int = 80) -> [Catalog.Item] {
         items("""
             SELECT j.json FROM item_shelves s
             JOIN item_json j USING(archiveID)
             JOIN items i USING(archiveID)
-            WHERE s.shelfID = ?1 \(adultAnd) \(typeAnd)
+            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd) \(typeAnd)
             ORDER BY i.hasRealArtwork DESC, s.position
             LIMIT \(limit)
         """, [shelfID])
@@ -274,6 +278,30 @@ final class CatalogDB {
             WHERE \(where_.joined(separator: " AND ")) \(typeAnd)
             ORDER BY RANDOM() LIMIT 1
         """, binds).first
+    }
+
+    /// A random TV series card (Surprise → Random TV Episode lands on the show).
+    func randomSeries() -> Catalog.Item? {
+        items("""
+            SELECT j.json FROM items i JOIN item_json j USING(archiveID)
+            WHERE i.contentType = 'tv-series' \(typeAnd)
+            ORDER BY RANDOM() LIMIT 1
+        """).first
+    }
+
+    /// A random playable (non-series) item carrying any of the given genres
+    /// (Surprise → Random Sci-Fi & Horror).
+    func randomByGenre(_ genres: [String]) -> Catalog.Item? {
+        guard !genres.isEmpty else { return nil }
+        let placeholders = genres.map { _ in "?" }.joined(separator: ",")
+        return items("""
+            SELECT j.json FROM items i
+            JOIN item_json j USING(archiveID)
+            JOIN item_genres g ON g.archiveID = i.archiveID
+            WHERE g.genre IN (\(placeholders)) AND i.contentType != 'tv-series'
+              \(adultAnd) \(typeAnd)
+            ORDER BY RANDOM() LIMIT 1
+        """, genres).first
     }
 
     /// Resolve a TV series card by its raw slug (ContinueWatching episodes).

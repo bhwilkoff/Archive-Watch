@@ -1,128 +1,143 @@
 import SwiftUI
 import CoreImage.CIFilterBuiltins
 
-// Settings / About.
+// Settings / About — rewritten to match the rest of the app (#6). The previous
+// version used a native `Form`, which on tvOS renders a light grouped list with
+// its own background and a navigation title that scrolls oddly — completely
+// unlike Home/Browse/Search/Surprise. This is a dark, full-height ScrollView
+// with the app's serif title, section cards, and focusable rows, per
+// docs/tvos-playbook.md (dark-first, 90/60 safe area, focus does the work).
 //
-// Built on the native tvOS `Form` (grouped list) rather than hand-rolled
-// cards — it gives correct focus traversal, the system grouped style, and
-// a native large navigation title for free. Earns its place against three
-// binding decisions:
-//   • Decision 007 — TMDb attribution is REQUIRED ("This product uses the
-//     TMDB API but is not endorsed or certified by TMDB"). This is that
-//     surface; without it the app can't ship.
-//   • Decision 012 — the adult-content filter is user-toggleable
-//     (default on). The native Toggle binds to AppStore.hideAdultContent,
-//     the single chokepoint that re-derives every shelf/grid.
-//   • Decision 010 — surface a donate-to-the-Archive link (never to the
-//     app itself). tvOS has no browser, so we render a QR the viewer
-//     scans with a phone.
-//
-// Learning-orientation check: deepens understanding (tells the viewer
-// exactly where each poster/synopsis/film comes from rather than passing
-// archival content off as ours) and supports agency (the mature-content
-// choice is theirs). No passivity introduced.
+// Earns its place against three binding decisions:
+//   • Decision 007 — TMDb attribution is REQUIRED, rendered verbatim below.
+//   • Decision 012 — the mature-content filter is user-toggleable (default on).
+//   • Decision 010 — a donate-to-the-Archive link (QR, since tvOS has no browser).
 
 struct SettingsView: View {
     @Environment(AppStore.self) private var store
+    @FocusState private var focused: String?
 
     var body: some View {
-        Form {
-            Section {
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 44) {
+                Text("Settings")
+                    .font(.system(size: 54, weight: .heavy, design: .serif))
+                    .foregroundStyle(.white)
+                    .padding(.top, 56)
+
+                visibilitySection
+                matureSection
+                attributionSection
+                donateSection
+                aboutSection
+            }
+            .padding(.horizontal, 80)
+            .padding(.bottom, 80)
+            .frame(maxWidth: 1500, alignment: .leading)
+        }
+        .background(Color.black.ignoresSafeArea())
+        .task {
+            try? await Task.sleep(for: .milliseconds(80))
+            focused = "mature"
+        }
+    }
+
+    // MARK: - Sections
+
+    private var visibilitySection: some View {
+        SettingsCard(title: "Show on Home & Browse",
+                     footer: "Turn a category off to hide it everywhere. Favorites and Continue Watching are unaffected.") {
+            VStack(spacing: 0) {
                 ForEach(store.featured?.categories ?? []) { cat in
-                    Toggle(isOn: categoryBinding(cat.id)) {
-                        Label {
-                            Text(cat.displayName)
-                        } icon: {
-                            Circle().fill(Color(hex: cat.accent) ?? .accentColor)
-                                .frame(width: 18, height: 18)
-                        }
-                    }
+                    SettingsToggleRow(
+                        title: cat.displayName,
+                        accent: Color(hex: cat.accent) ?? .accentColor,
+                        isOn: categoryBinding(cat.id)
+                    )
+                    .focused($focused, equals: "cat-\(cat.id)")
                 }
-            } header: {
-                Text("Show on Home & Browse")
-            } footer: {
-                Text("Turn a category off to hide it everywhere in the app. Your favorites and Continue Watching are unaffected.")
             }
+        }
+    }
 
-            Section {
-                Toggle(isOn: showMatureBinding) {
-                    Text("Show Mature Collections")
-                }
-            } header: {
-                Text("Mature content")
-            } footer: {
-                Text("Off by default — the Archive includes adult-leaning collections. Leave off on a shared TV.")
-            }
+    private var matureSection: some View {
+        SettingsCard(title: "Mature Content",
+                     footer: "Off by default — the Archive includes adult-leaning collections. Leave off on a shared TV.") {
+            SettingsToggleRow(title: "Show Mature Collections", accent: .orange, isOn: showMatureBinding)
+                .focused($focused, equals: "mature")
+        }
+    }
 
-            Section {
+    private var attributionSection: some View {
+        SettingsCard(title: "Sources & Attribution", footer: nil) {
+            VStack(alignment: .leading, spacing: 20) {
                 HStack(spacing: 16) {
                     Text("TMDB")
-                        .font(.system(size: 26, weight: .heavy, design: .rounded))
+                        .font(.system(size: 24, weight: .heavy, design: .rounded))
                         .foregroundStyle(.white)
-                        .padding(.horizontal, 14)
-                        .padding(.vertical, 7)
+                        .padding(.horizontal, 14).padding(.vertical, 7)
                         .background(
                             LinearGradient(colors: [Color(hex: "#0d253f") ?? .blue,
                                                     Color(hex: "#01b4e4") ?? .cyan],
                                            startPoint: .leading, endPoint: .trailing),
-                            in: RoundedRectangle(cornerRadius: 8)
-                        )
+                            in: RoundedRectangle(cornerRadius: 8))
                     Text("This product uses the TMDB API but is not endorsed or certified by TMDB.")
+                        .foregroundStyle(.white.opacity(0.85))
                         .fixedSize(horizontal: false, vertical: true)
                 }
                 Text("Posters, backdrops, cast, and synopses come from The Movie Database (TMDb), with Wikidata, Wikimedia Commons, and the Library of Congress as fallbacks. Films, television, and ephemera are served by the Internet Archive. Every title is public domain or otherwise free to share.")
                     .font(.callout)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.white.opacity(0.55))
                     .fixedSize(horizontal: false, vertical: true)
-            } header: {
-                Text("Sources & Attribution")
-            }
-
-            Section {
-                HStack(alignment: .center, spacing: 28) {
-                    QRCode(string: "https://archive.org/donate")
-                        .frame(width: 160, height: 160)
-                        .background(.white, in: RoundedRectangle(cornerRadius: 10))
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Archive Watch is free and takes nothing for itself.")
-                            .fixedSize(horizontal: false, vertical: true)
-                        Text("If it's brought you something worth keeping, support the people who keep the films online. Scan to donate, or visit:")
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
-                            .fixedSize(horizontal: false, vertical: true)
-                        Text("archive.org/donate")
-                            .font(.system(.title3, design: .monospaced).weight(.bold))
-                            .foregroundStyle(Color(hex: "#FF5C35") ?? .orange)
-                    }
-                }
-            } header: {
-                Text("Support the Internet Archive")
-            }
-
-            Section {
-                LabeledContent("Version", value: versionString)
-                Text("No account, no sign-in, no tracking. Nothing leaves this device except requests to the public services above.")
-                    .font(.callout)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            } header: {
-                Text("About")
             }
         }
-        .navigationTitle("Settings")
     }
 
-    /// Decision 012 phrasing: the user-facing control is "Show Mature
-    /// Collections" (off by default), the inverse of the stored
-    /// hideAdultContent flag.
+    private var donateSection: some View {
+        SettingsCard(title: "Support the Internet Archive", footer: nil) {
+            HStack(alignment: .center, spacing: 28) {
+                QRCode(string: "https://archive.org/donate")
+                    .frame(width: 160, height: 160)
+                    .background(.white, in: RoundedRectangle(cornerRadius: 10))
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Archive Watch is free and takes nothing for itself.")
+                        .foregroundStyle(.white)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text("If it's brought you something worth keeping, support the people who keep the films online. Scan to donate, or visit:")
+                        .font(.callout)
+                        .foregroundStyle(.white.opacity(0.55))
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text("archive.org/donate")
+                        .font(.system(.title3, design: .monospaced).weight(.bold))
+                        .foregroundStyle(Color(hex: "#FF5C35") ?? .orange)
+                }
+            }
+        }
+    }
+
+    private var aboutSection: some View {
+        SettingsCard(title: "About", footer: nil) {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Text("Version").foregroundStyle(.white)
+                    Spacer()
+                    Text(versionString).foregroundStyle(.white.opacity(0.6))
+                }
+                Text("No account, no sign-in, no tracking. Nothing leaves this device except requests to the public services above.")
+                    .font(.callout)
+                    .foregroundStyle(.white.opacity(0.55))
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+    }
+
+    // MARK: - Bindings
+
     private var showMatureBinding: Binding<Bool> {
-        Binding(
-            get: { !store.hideAdultContent },
-            set: { store.hideAdultContent = !$0 }
-        )
+        Binding(get: { !store.hideAdultContent },
+                set: { store.hideAdultContent = !$0 })
     }
 
-    /// Toggle shows ON when the category is VISIBLE (not in hiddenCategories).
     private func categoryBinding(_ id: String) -> Binding<Bool> {
         Binding(
             get: { !store.hiddenCategories.contains(id) },
@@ -137,6 +152,62 @@ struct SettingsView: View {
         let v = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
         let b = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "—"
         return "\(v) (\(b))"
+    }
+}
+
+// MARK: - Section card (matches the app's dark surface)
+
+private struct SettingsCard<Content: View>: View {
+    let title: String
+    let footer: String?
+    @ViewBuilder let content: Content
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 14) {
+            Text(title.uppercased())
+                .font(.system(size: 17, weight: .bold))
+                .tracking(1.6)
+                .foregroundStyle(.white.opacity(0.5))
+            content
+                .padding(24)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .background(Color.white.opacity(0.05), in: RoundedRectangle(cornerRadius: 16))
+            if let footer {
+                Text(footer)
+                    .font(.callout)
+                    .foregroundStyle(.white.opacity(0.4))
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+    }
+}
+
+// MARK: - Focusable toggle row
+
+private struct SettingsToggleRow: View {
+    let title: String
+    let accent: Color
+    @Binding var isOn: Bool
+    @FocusState private var isFocused: Bool
+
+    var body: some View {
+        Toggle(isOn: $isOn) {
+            HStack(spacing: 14) {
+                Circle().fill(accent).frame(width: 16, height: 16)
+                Text(title)
+                    .font(.title3)
+                    .foregroundStyle(.white)
+            }
+        }
+        .toggleStyle(.switch)
+        .focused($isFocused)
+        .padding(.horizontal, 18)
+        .padding(.vertical, 14)
+        .background(
+            RoundedRectangle(cornerRadius: 12)
+                .fill(isFocused ? Color.white.opacity(0.12) : Color.clear)
+        )
+        .animation(Motion.focus, value: isFocused)
     }
 }
 

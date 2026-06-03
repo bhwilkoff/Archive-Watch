@@ -1,149 +1,124 @@
 import SwiftUI
 
-// The three random actions from Decision 014 — invite curiosity.
-//
-// Redesigned (#3): fits one screen with NO vertical scroll, so "Roll Again"
-// is always visible and one focus-move from the result cards (the old design
-// buried it in a scrolling header). Results use the app's standard PosterTile
-// so they match Home/Browse exactly instead of a bespoke card. Roll Again is
-// the default focus — land here, press to reroll, or move down to a pick.
+// Surprise — serendipity actions (Decisions 014/015). Seven clearly-labelled
+// ways to wander the archive, all visible at once in a grid so the viewer sees
+// every choice and picks deliberately (learning-orientation: invites
+// participation + agency, no hidden funnel). Each tile re-rolls on every press,
+// so "roll again" is just pressing the same tile again — no separate control.
 
 struct SurpriseView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    @FocusState private var focused: String?
 
-    @State private var rollSeed: Int = Int.random(in: 0..<1_000_000)
-    @State private var film: Catalog.Item?
-    @State private var categoryPick: (category: Featured.Category, item: Catalog.Item)?
-    @State private var decadePick: (decade: Int, item: Catalog.Item)?
-    @FocusState private var rollFocused: Bool
+    fileprivate struct Action: Identifiable {
+        let id: String
+        let title: String
+        let icon: String
+        let hex: String
+        var accent: Color { Color(hex: hex) ?? .accentColor }
+    }
 
-    private let orange = Color(hex: "#FF5C35") ?? .orange
-    private let sepia  = Color(hex: "#C9A66B") ?? .brown
+    // Palette mirrors the per-category accents (Decision 013).
+    private let actions: [Action] = [
+        .init(id: "film",      title: "Random Film",            icon: "film.fill",            hex: "#FF5C35"),
+        .init(id: "tv",        title: "Random TV Episode",      icon: "tv.fill",              hex: "#2D5BFF"),
+        .init(id: "animation", title: "Random Animation",       icon: "paintbrush.fill",      hex: "#FF4D8D"),
+        .init(id: "scifi",     title: "Random Sci-Fi & Horror", icon: "atom",                 hex: "#7C5BBA"),
+        .init(id: "newsreel",  title: "Random Newsreel",        icon: "newspaper.fill",       hex: "#8A8F98"),
+        .init(id: "ephemera",  title: "Random Ephemera",        icon: "books.vertical.fill",  hex: "#3FA796"),
+        .init(id: "decade",    title: "Random Decade",          icon: "calendar",             hex: "#C9A66B"),
+    ]
+
+    private let cols = Array(repeating: GridItem(.flexible(), spacing: 32), count: 4)
 
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(alignment: .leading, spacing: 44) {
             header
-                .focusSection()
-            Spacer(minLength: 24)
-            cards
-                .focusSection()
+            LazyVGrid(columns: cols, spacing: 32) {
+                ForEach(actions) { action in
+                    Button { perform(action) } label: {
+                        SurpriseTile(action: action)
+                    }
+                    .buttonStyle(.card)
+                    .focused($focused, equals: action.id)
+                }
+            }
+            .padding(.horizontal, 80)
             Spacer(minLength: 0)
         }
-        .padding(.horizontal, 80)
-        .padding(.vertical, 56)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.top, 56)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .background(Color.black.ignoresSafeArea())
-        .task(id: "\(rollSeed)-\(store.dbGeneration)") { roll() }
         .task {
-            // Land on Roll Again so the primary action is immediately at hand.
             try? await Task.sleep(for: .milliseconds(80))
-            rollFocused = true
+            focused = actions.first?.id
         }
     }
-
-    // MARK: - Header
 
     private var header: some View {
-        HStack(alignment: .center) {
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Surprise Me")
-                    .font(.system(size: 52, weight: .heavy, design: .serif))
-                    .foregroundStyle(.white)
-                Text("Three ways to wander the archive.")
-                    .font(.title3)
-                    .foregroundStyle(.white.opacity(0.6))
-            }
-            Spacer()
-            Button {
-                rollSeed = Int.random(in: 0..<1_000_000)
-            } label: {
-                HStack(spacing: 14) {
-                    Image(systemName: "dice.fill").font(.title2)
-                    Text("Roll Again").font(.title3.weight(.semibold))
-                }
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Surprise Me")
+                .font(.system(size: 52, weight: .heavy, design: .serif))
                 .foregroundStyle(.white)
-                .padding(.horizontal, 30)
-                .padding(.vertical, 16)
+            Text("Seven ways to wander the archive — pick one, or press again to re-roll.")
+                .font(.title3)
+                .foregroundStyle(.white.opacity(0.6))
+        }
+        .padding(.horizontal, 80)
+    }
+
+    private func perform(_ action: Action) {
+        switch action.id {
+        case "film":
+            if let item = store.dbRandomPlayable() { router.push(item) }
+        case "tv":
+            if let series = store.dbRandomSeries() { router.push(series) }
+        case "animation":
+            if let item = store.dbRandomPlayable(contentType: "animation") { router.push(item) }
+        case "scifi":
+            if let item = store.dbRandomByGenre(["Science Fiction", "Sci-Fi", "Horror"]) { router.push(item) }
+        case "newsreel":
+            if let item = store.dbRandomPlayable(contentType: "newsreel") { router.push(item) }
+        case "ephemera":
+            if let item = store.dbRandomPlayable(contentType: "ephemeral") { router.push(item) }
+        case "decade":
+            if let decade = store.dbDecadeCounts().keys.randomElement() {
+                router.push(BrowseFilter(decade: decade))
             }
-            .buttonStyle(PrimaryCTAStyle(accent: orange))
-            .focusEffectDisabled()
-            .focused($rollFocused)
+        default:
+            break
         }
-    }
-
-    // MARK: - Result cards (standard PosterTile)
-
-    private var cards: some View {
-        HStack(alignment: .top, spacing: 64) {
-            SurpriseColumn(label: "Random Film", accent: orange, item: film) { router.push($0) }
-            SurpriseColumn(
-                label: categoryPick.map { "Random \($0.category.shortName ?? $0.category.displayName)" } ?? "Random Category",
-                accent: categoryPick.flatMap { Color(hex: $0.category.accent) } ?? .blue,
-                item: categoryPick?.item) { router.push($0) }
-            SurpriseColumn(
-                label: decadePick.map { "Random \($0.decade)s" } ?? "Random Era",
-                accent: sepia,
-                item: decadePick?.item) { router.push($0) }
-        }
-        .frame(maxWidth: .infinity)
-    }
-
-    // MARK: - Rolling
-
-    private func roll() {
-        film = store.dbRandomPlayable()
-        categoryPick = rollCategory()
-        decadePick = rollDecade()
-    }
-
-    private func rollCategory() -> (category: Featured.Category, item: Catalog.Item)? {
-        guard let cats = store.featured?.categories else { return nil }
-        var rng = SplitMix(seed: UInt64(bitPattern: Int64(rollSeed)) &+ 7)
-        for c in cats.shuffled(using: &rng) where c.id != "tv-series" {
-            if let item = store.dbRandomPlayable(contentType: c.id) { return (c, item) }
-        }
-        return nil
-    }
-
-    private func rollDecade() -> (decade: Int, item: Catalog.Item)? {
-        var rng = SplitMix(seed: UInt64(bitPattern: Int64(rollSeed)) &+ 13)
-        for d in store.dbDecadeCounts().keys.shuffled(using: &rng) {
-            let pool = store.dbBrowse(decade: d, limit: 60)
-            if let item = pool.randomElement(using: &rng) { return (d, item) }
-        }
-        return nil
     }
 }
 
-// MARK: - One labeled result column
+// MARK: - Action tile
 
-private struct SurpriseColumn: View {
-    let label: String
-    let accent: Color
-    let item: Catalog.Item?
-    let onSelect: (Catalog.Item) -> Void
+private struct SurpriseTile: View {
+    fileprivate let action: SurpriseView.Action
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 18) {
-            HStack(spacing: 10) {
-                Circle().fill(accent).frame(width: 12, height: 12)
-                Text(label.uppercased())
-                    .font(.system(size: 17, weight: .bold))
-                    .tracking(1.6)
+        ZStack(alignment: .bottomLeading) {
+            LinearGradient(
+                colors: [action.accent.opacity(0.9), action.accent.mix(with: .black, 0.55)],
+                startPoint: .topLeading, endPoint: .bottomTrailing
+            )
+            VStack(alignment: .leading, spacing: 14) {
+                Image(systemName: action.icon)
+                    .font(.system(size: 40, weight: .semibold))
                     .foregroundStyle(.white)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.7)
+                Spacer(minLength: 0)
+                Text(action.title)
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundStyle(.white)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.8)
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
             }
-            if let item {
-                PosterTile(item: item, action: { onSelect(item) })
-            } else {
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(Color(white: 0.08))
-                    .frame(width: 240, height: 360)
-                    .overlay(ProgressView().tint(.white))
-            }
+            .padding(26)
         }
-        .frame(width: 240, alignment: .leading)
+        .frame(height: 200)
+        .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 }

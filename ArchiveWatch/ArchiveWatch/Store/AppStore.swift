@@ -157,6 +157,8 @@ final class AppStore {
     func dbByCollection(_ id: String, limit: Int = 2000) -> [Catalog.Item] { db?.byCollection(id, limit: limit) ?? [] }
     func dbCollectionCount(_ id: String) -> Int { db?.collectionCount(id) ?? 0 }
     func dbRandomPlayable(contentType: String? = nil) -> Catalog.Item? { db?.randomPlayable(contentType: contentType) }
+    func dbRandomSeries() -> Catalog.Item? { db?.randomSeries() }
+    func dbRandomByGenre(_ genres: [String]) -> Catalog.Item? { db?.randomByGenre(genres) }
     func dbSeriesCard(slug: String) -> Catalog.Item? { db?.seriesCard(slug: slug) }
 
     /// Catalog readiness: true once any DB (seed or full) is open. Replaces the
