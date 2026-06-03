@@ -18,7 +18,9 @@ import sys
 import time
 import urllib.parse
 import urllib.request
+from pathlib import Path
 
+CATALOG = Path(__file__).resolve().parent.parent / "catalog.json"
 SCRAPE = "https://archive.org/services/search/v1/scrape"
 UA = "ArchiveWatch/1.0 (+https://github.com/bhwilkoff/Archive-Watch)"
 
@@ -31,19 +33,36 @@ ALREADY = {
     "academic_films",
 }
 
-# Candidate PD / PD-rich VIDEO collections to evaluate. The probe reveals which
-# exist + have meaningful counts; non-existent ids simply report 0.
-CANDIDATES = [
-    "classic_cartoons", "publicmovies212", "avgeeks", "stock_footage",
-    "serials", "B_movies", "bmovies", "horror_films", "horrormovies",
-    "western_movies", "westerns", "scifi_movies", "silent_comedy",
-    "educationalfilms", "vintage_tv", "tv_classics", "60s_70s_tv",
-    "militaryfilms", "usnationalarchives", "us_government_films",
-    "movietrailers", "regional_film", "world_cinema", "foreign_films",
-    "home_movies", "amateur_films", "newsreels", "publicaffairs",
-    "internet_archive_films", "feature_films_silent", "noir", "pulp_fiction",
-    "opensource_movies",
-]
+# DATA-DRIVEN candidates: real, proven-existing Archive collection ids taken
+# from the catalog items' own `collections[]` (guessing ids failed — the first
+# probe found none). Excludes already-mined collections, user favorite lists
+# (fav-*), and generic/umbrella/admin collections. The probe then reports each
+# one's FULL Archive size (often larger than our incidental membership), so we
+# add the worthy ones to DEFAULT_COLLECTIONS.
+_GENERIC = {
+    "moviesandfilms", "stream_only", "additional_collections", "opensource_movies",
+    "opensource_media", "community", "television", "audio", "movies", "data",
+    "colorized-movies",        # colorization can create new copyright — skip for PD
+    "feature_films_unsorted",  # dumping ground where junk lands — don't mine
+    "whisper_test", "test_collection",
+}
+
+def derive_candidates(top=40):
+    from collections import Counter
+    try:
+        items = json.loads((CATALOG).read_text())["items"]
+    except Exception:
+        return []
+    c = Counter()
+    for it in items:
+        for coll in (it.get("collections") or []):
+            if (coll and coll not in ALREADY and coll not in _GENERIC
+                    and not coll.startswith("fav-")
+                    and not coll.lower() in {m.lower() for m in ALREADY}):
+                c[coll] += 1
+    return [coll for coll, _ in c.most_common(top)]
+
+CANDIDATES = []  # populated from the catalog at runtime (see main)
 
 
 def count(coll):
@@ -59,7 +78,7 @@ def count(coll):
 
 def main():
     arg = sys.argv[1] if len(sys.argv) > 1 else ""
-    colls = [c.strip() for c in arg.split(",") if c.strip()] or CANDIDATES
+    colls = [c.strip() for c in arg.split(",") if c.strip()] or derive_candidates()
     rows = []
     for c in colls:
         if c in ALREADY:

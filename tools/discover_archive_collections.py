@@ -71,6 +71,9 @@ DEFAULT_COLLECTIONS = [
     "universal_newsreels",  # classic newsreels (~600)
     "computerchronicles",   # Computer Chronicles, classic PD TV (~630)
     "academic_films",       # educational / documentary (~470)
+    # Data-derived (2026-06): real content collection seen on 1.2k catalog items
+    # but not mined directly. Mining it fully grows the German-cinema shelf.
+    "mid-century-german-film",
 ]
 
 
