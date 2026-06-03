@@ -230,6 +230,27 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-04 — Metadata quality program + pipeline crash fixes
+- **Metadata quality program** (`docs/architecture/metadata-audit.md`): tiered,
+  popularity-weighted, sustainable. Tier 0 `tools/audit_metadata.py` (measure,
+  wired into publish-db daily report); Tier 1 `remediate_catalog.py` text
+  sanitization (clean synopses/titles every build — items-with-a-blocker 27%→~0%,
+  avg score 75→83); Tier 2 = existing enrichment workflows; **Tier 3 = the agent
+  loop IS the LLM** (`tools/metadata_review.py` select/apply, loop item **B6** in
+  `docs/autonomous-curation-loop.md`) — owner runs the loop nightly for one full
+  pass, then only new titles (tracked by `agentReviewHash`).
+- **Decision-018 crash class fixed**: 4 tools (omdb_backfill, ingest_candidates,
+  discover_loc, enrich_movies) were crashing in CI loading the removed committed
+  seed catalog.json — silently freezing cast/director, halting ingestion (5.8k
+  candidates piled up) + LoC discovery for days, masked by error-tolerant steps.
+  Fixed to use the full catalog only. Also: `fetch_omdb` now tolerates non-JSON
+  replies (OMDb key verified valid). omdb-backfill re-dispatched; **validation
+  pending** (confirm omdb_cache schema 3 + identity, cast climbing).
+- **Ops**: killed 2 stuck `until`-loop background shells (~2 days old). All 9
+  crons green + intact; nothing overridden.
+- Closed all session tasks. Sidebar "full height" (#1) = native tvOS behavior
+  (won't-fix unless custom sidebar — separate decision).
+
 ### 2026-06-03 — Home cleanup, player-year fix, catalog clobber + recovery
 - **App (shipped on main, builds clean tvOS 26.5 sim)**: Favorites is its own
   sidebar tab (above Surprise), not a Home shelf; player no longer shows the
