@@ -50,17 +50,23 @@ it, executes the next item, and logs the result.
   candidate ids from catalog `collections[]` (silenthalloffame, vintage_cartoons,
   usgovfilms, culturalandacademicfilms, tvprograms, film_scifi…). Added
   mid-century-german-film to DEFAULT_COLLECTIONS. Re-dispatched probe-sources.
-- [ ] **A1c — Add worthy from data-driven probe**: read the latest
-  probe-sources step summary; add collections with large full-Archive counts
-  (silenthalloffame, usgovfilms, culturalandacademicfilms, film_scifi, etc., as
-  the counts justify) to DEFAULT_COLLECTIONS; trigger discover-content.
+- [ ] **A1c — Fix the probe's COUNT, then add worthy**: even with real ids the
+  probe reports <100 for everything → the scrape-API `total` (with count=100)
+  is NOT the collection size. Next A iteration: switch probe_collections.py to
+  `https://archive.org/advancedsearch.php?q=...&rows=0&output=json` and read
+  `response.numFound` (the real count); re-probe; then add the worthy
+  collections (silenthalloffame, usgovfilms, culturalandacademicfilms, film_scifi…)
+  to DEFAULT_COLLECTIONS.
 - [ ] **A3 (now primary for growth) — NEW EXTERNAL sources**: the main Archive
   collections are mined; biggest remaining growth is non-Archive PD: deeper
   Wikidata-PD SPARQL feeds, LoC subcollections, Wikimedia Commons video. Add a
   CI discovery feed per source.
 - [ ] **A2 — Source depth**: raise per-collection scrape caps / paginate
   deeper on the richest collections; measure new-item yield in CI.
-- [ ] **B3 — Cast/director backfill** via OMDb/TMDb after B2.
+- [x] **B3 — Cast/director/genres backfill (OMDb)**: omdb-backfill now applies
+  identity fields (apply_identity) from the full record it already fetches —
+  cast/director/genres, not just posters. Schema bump re-fetches 13,814 items
+  once (950/day) to gain them. Dispatched.
 - [ ] **B4 — Synopsis backfill** for the 5% missing (OMDb/TMDb/Wikidata).
 - [ ] **A3 — New source research**: Wikimedia Commons video, LoC subcollections,
   Prelinger deep, European/Asian PD archives; add a discovery feed per source.
@@ -90,3 +96,9 @@ it, executes the next item, and logs the result.
   generic/dumping); added mid-century-german-film to DEFAULT_COLLECTIONS;
   re-dispatched probe. Pivoted Track A toward A3 (new external sources) since
   the major Archive collections are already mined.
+- 2026-06-02 — **Iteration 5 (B, metadata)**: omdb-backfill now fills
+  cast/director/genres (apply_identity), not just posters — closes the
+  3,883-no-cast / 1,651-no-genres gaps for IMDb-ID'd items at no extra API cost.
+  Schema 2->3 re-fetches 13,814 once (daily cron). Dispatched. Also found the
+  data-driven probe STILL returns <100 for all (scrape `total` is wrong) — A1c
+  re-scoped to fix the count via advancedsearch.php numFound.
