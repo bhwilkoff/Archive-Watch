@@ -45,6 +45,15 @@ _BARE_YEAR = re.compile(r"\b(18[7-9]\d|19\d\d|20[0-2]\d)\b")
 # Resolution/junk tokens that look like years — never read these as a year.
 _NOT_YEAR_CTX = re.compile(r"(?:720|1080|2160|480|240)p?", re.I)
 
+# Personal-upload junk: archiveID carries an email-provider token + digits
+# (e.g. dipwad2_zoho_507, mary59_gmx_919) and the title is just a number.
+# These are camera-roll/test uploads with garbage auto-enriched metadata.
+_JUNK_ID = re.compile(r"_(zoho|gmx|gmail|yahoo|hotmail|outlook|aol|mail|qq|protonmail|icloud|web|live|msn)_?\d", re.I)
+_NUMERIC_TITLE = re.compile(r"^[\d\W]{1,6}$")
+# Year-only "public domain animation" compilation reels (1941publicdomainanimation
+# titled just "1941") — legit content, useless title.
+_PD_ANIM = re.compile(r"^(\d{4})publicdomainanimation", re.I)
+
 _ADULT = re.compile(
     r"\b(erotic|nudie|sexploitation|softcore|hardcore|porn|x-?rated|"
     r"adults?\s+only|burlesque\s+nude|nudist)\b", re.I)
@@ -90,11 +99,36 @@ def is_adult_signal(item):
     return bool(_ADULT.search(hay))
 
 
+def is_junk(it):
+    """Personal-upload garbage: junk-uploader archiveID + a numeric/short
+    title. Conservative — needs BOTH so real films (e.g. titled "1917") and
+    series are never dropped."""
+    if it.get("contentType") == "tv-series":
+        return False
+    aid = it.get("archiveID") or ""
+    if not _JUNK_ID.search(aid):
+        return False
+    return bool(_NUMERIC_TITLE.match((it.get("title") or "").strip()))
+
+
 def remediate(items):
     stats = Counter()
     for it in items:
         ct = it.get("contentType")
         if ct == "tv-series" or ct not in MOVIE_TYPES:
+            continue
+
+        # Retitle year-only PD-animation compilation reels (#7).
+        m = _PD_ANIM.match(it.get("archiveID") or "")
+        if m and _NUMERIC_TITLE.match((it.get("title") or "").strip()):
+            yr = int(m.group(1))
+            it["title"] = f"Public Domain Animation ({yr})"
+            it["year"] = yr
+            it["decade"] = decade_of(yr)
+            it["contentType"] = "animation"
+            if "Animation" not in (it.get("genres") or []):
+                it.setdefault("genres", []).append("Animation")
+            stats["pd_anim_retitled"] += 1
             continue
         y = it.get("year")
         ty = title_year(it)
@@ -148,7 +182,14 @@ def main():
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
     cat = json.loads(CATALOG.read_text(encoding="utf-8"))
+    # Drop personal-upload junk (#7) before remediating the rest.
+    before = len(cat["items"])
+    cat["items"] = [it for it in cat["items"] if not is_junk(it)]
+    junk_removed = before - len(cat["items"])
+    if isinstance(cat.get("stats"), dict):
+        cat["stats"]["totalItems"] = len(cat["items"])
     stats = remediate(cat["items"])
+    stats["junk_removed"] = junk_removed
     print("[remediate] " + (", ".join(f"{k}={v}" for k, v in sorted(stats.items())) or "no changes"))
     if not args.dry_run:
         CATALOG.write_text(json.dumps(cat, ensure_ascii=False), encoding="utf-8")
