@@ -19,9 +19,9 @@ catalog.json, fixing the high-confidence movie metadata bugs found in the
   5. GENRES: fill empty genres from subjects via the shared keyword map.
   6. RIGHTS: prove public_domain for US-gov collections + PD-by-age (<1929) so
      the Home rights gate stops excluding legitimate PD titles (e.g. NASA).
-  7. POSTER MISMATCH: clear a *designed* poster shared by two or more
-     differently-titled items (a wrong enrichment match — e.g. the Pink Panther
-     cartoon pulling the live-action poster); they fall back to ProceduralPoster.
+  7. WRONG EXTERNAL MATCH: a modern TMDb/OMDb poster+year landed on a vintage
+     title (e.g. "CInderella" -> 2015 Disney; "The Pink Panther ~ 1963" -> 2006).
+     Clear the bad artwork (-> ProceduralPoster) + correct/null the year.
 
 Deliberately does NOT reclassify by runtime (audit found runtime data
 unreliable — many real features report 1 min). Conservative on purpose.
@@ -32,7 +32,7 @@ Operates on catalog.json (root). Idempotent. `--dry-run` to preview.
 import argparse
 import json
 import re
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -158,20 +158,68 @@ def infer_rights(it):
     return None
 
 
-# --- Poster-mismatch clearing (#3/#4/#9) -----------------------------------
-# A *designed* poster (TMDb/OMDb/Commons/Wikidata) shared by two or more items
-# whose titles differ is a wrong enrichment match — e.g. the Pink Panther
-# CARTOON pulling the live-action film's poster, or several films sharing one
-# foreign-language poster. Movie posters are never legitimately shared across
-# different titles, so we clear the poster from ALL the colliding items and let
-# them fall back to the branded ProceduralPoster (a wrong poster is worse than
-# none). Archive first-frame thumbnails are per-item and excluded.
+# NOTE: an earlier draft also cleared any *designed* poster shared across
+# differently-titled items. Measured against the real catalog it was far too
+# blunt — most "collisions" are the SAME film (foreign-language titles, AKAs,
+# "(1945)"/"colorized" variants, duplicate uploads, serial chapters) sharing a
+# correct poster, so it would have stripped ~2,500 GOOD posters. Even an
+# imdbID-conflict variant only cleanly caught a handful. Dropped: the precise
+# wrong-external-match pass below covers the user's actual cases (Cinderella,
+# Pink Panther) without the collateral damage.
 
-_TITLE_NORM = re.compile(r"[^a-z0-9]+")
+# --- Wrong external-match detection (#3/#4) ---------------------------------
+# Two signals that a TMDb/OMDb enrichment matched the WRONG film (a modern
+# remake), giving a vintage Archive title a contemporary poster + year:
+#   (a) a parenthesised release year in the title disagrees with the stored
+#       year by >=2 (e.g. "The 50's Moments (1981)" stored 2019); or
+#   (b) a modern stored year (>=1990) on an item that sits in a strictly
+#       vintage collection or is a silent film (e.g. "CInderella" -> 2015
+#       Disney; "The Pink Panther ~ 1963" -> 2006).
+# Either way we clear the (wrong) poster so it falls back to ProceduralPoster,
+# and correct the year to a confident title/archiveID year when there is one,
+# else null it (better unknown than a 2015 on a 1907 film). tv-series excluded.
+_STRICT_VINTAGE = {
+    "silent_films", "vintage_cartoons", "classic_cartoons", "classiccartoons",
+    "silenthalloffame", "georgesmelies",
+}
 
 
-def _title_key(it):
-    return _TITLE_NORM.sub(" ", (it.get("title") or "").lower()).strip()
+def _is_vintage(it):
+    colls = {str(c).lower() for c in (it.get("collections") or [])}
+    if colls & _STRICT_VINTAGE:
+        return True
+    return bool(it.get("isSilentFilm")) or it.get("contentType") == "silent-film"
+
+
+def fix_wrong_external_matches(it):
+    """If `it` looks like a wrong TMDb/OMDb match, clear its artwork + correct
+    the year. Returns a short reason string when it acted, else None."""
+    if it.get("contentType") == "tv-series":
+        return None
+    src = (it.get("artworkSource") or "").lower()
+    if src not in ("tmdb", "omdb"):
+        return None
+    y = it.get("year")
+    pm = _PAREN_YEAR.search(it.get("title") or "")
+    wrong = False
+    if pm and isinstance(y, int) and abs(y - int(pm.group(1))) >= 2:
+        wrong = True
+    elif isinstance(y, int) and y >= 1990 and _is_vintage(it):
+        wrong = True
+    if not wrong:
+        return None
+    # Correct year: prefer a parenthesised title year; else a confident
+    # title/archiveID year that is OLDER than the (suspect) stored year; else null.
+    ty = int(pm.group(1)) if pm else title_year(it)
+    new_y = ty if (ty is not None and (y is None or ty < y)) else None
+    it["posterURL"] = None
+    it["backdropURL"] = None
+    it["hasRealArtwork"] = False
+    it["artworkSource"] = "archive"
+    it["year"] = new_y
+    it["decade"] = decade_of(new_y)
+    it["isSilentFilm"] = bool(new_y and new_y < SILENT_CUTOFF)
+    return "yearfix" if new_y is not None else "yearnull"
 
 
 def clear_shared_posters(items):
@@ -233,6 +281,14 @@ def remediate(items):
                 it.setdefault("genres", []).append("Animation")
             stats["pd_anim_retitled"] += 1
             continue
+
+        # 0) WRONG EXTERNAL MATCH (#3/#4): a modern TMDb/OMDb poster+year on a
+        # vintage title. Clear the bad artwork + fix the year before anything
+        # downstream reads it.
+        wm = fix_wrong_external_matches(it)
+        if wm:
+            stats[f"wrong_match_{wm}"] += 1
+
         y = it.get("year")
         ty = title_year(it)
 
@@ -292,9 +348,6 @@ def remediate(items):
             it["rightsStatus"] = r
             stats["rights_inferred_pd"] += 1
 
-    # 7) POSTER MISMATCH: clear designed posters shared across differently-titled
-    # items (a whole-catalog pass — needs every item to spot collisions).
-    stats["posters_cleared_shared"] += clear_shared_posters(items)
     return stats
 
 
