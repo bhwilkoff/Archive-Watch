@@ -31,7 +31,7 @@ DESIGNED_SOURCES = {"tmdb", "fanart", "omdb", "commons", "wikidata", "aapb"}
 # Cache schema version. Bumping this signals omdb_backfill that older
 # entries are poster-only and should be re-fetched once to pick up the
 # rich fields. v1 = poster_url only; v2 = rich fields.
-CACHE_SCHEMA_VERSION = 2
+CACHE_SCHEMA_VERSION = 3   # 3: + identity fields (director/actors/genres)
 
 
 # ---------------------------------------------------------------------------
@@ -126,6 +126,11 @@ def fetch_omdb(imdb_id, api_key, session, *, full_plot=True):
         "runtime_min":    runtime_min,
         "omdb_genre":     _clean(d.get("Genre")),
         "omdb_type":      _clean(d.get("Type")),
+        # Identity fields — already in the fetched record, so apply_identity can
+        # fill cast/director/genres with NO extra OMDb call (Track B, iter 5).
+        "director":       _clean(d.get("Director")),
+        "actors":         _parse_people(d.get("Actors")),
+        "genres":         [g.strip() for g in (_clean(d.get("Genre")) or "").split(",") if g.strip()],
     }
 
 
@@ -296,6 +301,11 @@ def cache_record(rec, now):
         "content_rating": rec.get("content_rating"),
         "plot":           rec.get("plot"),
         "runtime_min":    rec.get("runtime_min"),
+        # Identity fields (schema 3+) so the backfill can fill cast/director/
+        # genres for IMDb-ID'd items, not just posters/ratings.
+        "director":       rec.get("director"),
+        "actors":         rec.get("actors") or [],
+        "genres":         rec.get("genres") or [],
         "fetched_at":     now,
         "schema":         CACHE_SCHEMA_VERSION,
     }

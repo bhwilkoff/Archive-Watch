@@ -108,8 +108,14 @@ def apply_cache_to_catalog(catalog, cache_entries):
             "content_rating": entry.get("content_rating"),
             "plot":           entry.get("plot"),
             "runtime_min":    entry.get("runtime_min"),
+            "director":       entry.get("director"),
+            "actors":         entry.get("actors") or [],
+            "genres":         entry.get("genres") or [],
         }
-        if L.apply_rich(item, rec):
+        changed = L.apply_rich(item, rec)
+        # Also fill cast/director/genres where empty (identity fields, schema 3).
+        changed = L.apply_identity(item, rec) or changed
+        if changed:
             n += 1
     return n
 
