@@ -37,7 +37,6 @@ struct SettingsView: View {
                 donateSection   // last: its focusable row is the bottom scroll anchor
             }
             .listStyle(.grouped)
-            .tint(.white)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .background(Color.black.ignoresSafeArea())
@@ -49,11 +48,7 @@ struct SettingsView: View {
         Section {
             ForEach(store.featured?.categories ?? []) { cat in
                 Toggle(isOn: categoryBinding(cat.id)) {
-                    HStack(spacing: 14) {
-                        Circle().fill(Color(hex: cat.accent) ?? .accentColor)
-                            .frame(width: 16, height: 16)
-                        Text(cat.displayName)
-                    }
+                    ToggleLabel(title: cat.displayName, accent: Color(hex: cat.accent) ?? .accentColor)
                 }
             }
         } header: {
@@ -65,7 +60,9 @@ struct SettingsView: View {
 
     private var matureSection: some View {
         Section {
-            Toggle("Show Mature Collections", isOn: showMatureBinding)
+            Toggle(isOn: showMatureBinding) {
+                ToggleLabel(title: "Show Mature Collections")
+            }
         } header: {
             Text("Mature Content")
         } footer: {
@@ -160,6 +157,28 @@ struct SettingsView: View {
         let v = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
         let b = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "—"
         return "\(v) (\(b))"
+    }
+}
+
+// MARK: - Focus-aware toggle label
+//
+// A List row's focus paints the pill white; without this the white label text
+// vanished on the white pill. Reading @Environment(\.isFocused) inside the
+// Toggle's label flips the text to black exactly when the row is focused.
+
+private struct ToggleLabel: View {
+    @Environment(\.isFocused) private var isFocused
+    let title: String
+    var accent: Color? = nil
+
+    var body: some View {
+        HStack(spacing: 14) {
+            if let accent {
+                Circle().fill(accent).frame(width: 16, height: 16)
+            }
+            Text(title)
+                .foregroundStyle(isFocused ? .black : .white)
+        }
     }
 }
 
