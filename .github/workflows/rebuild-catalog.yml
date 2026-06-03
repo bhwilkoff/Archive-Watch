@@ -1,9 +1,14 @@
 name: Rebuild catalog
 
+# MANUAL ONLY. This runs build-catalog.mjs, which produces a FRESH, small
+# catalog (Wikidata seed + per-shelf query results). On 2026-06-03 a scheduled
+# run silently OVERWROTE the full ~30k catalog down to ~1.1k (the catalog lives
+# on a Release, not git — Decision 018 — so there was no diff to catch it). The
+# weekly cron is removed and a merge step (below) now makes the build ADDITIVE,
+# so it can only extend the catalog, never replace it. The catalog GROWS via
+# discover-content + ingest, not this workflow; only run this to refresh the
+# Wikidata seed / shelf assignments.
 on:
-  schedule:
-    # Mondays 05:00 UTC
-    - cron: '0 5 * * 1'
   workflow_dispatch:
     inputs:
       seed_limit:
@@ -38,7 +43,11 @@ jobs:
       - name: Fetch catalog
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python tools/catalog_release.py fetch
+        run: |
+          python tools/catalog_release.py fetch
+          # Keep the full fetched catalog so the build can be merged INTO it
+          # (build-catalog.mjs overwrites catalog.json with a fresh small set).
+          cp catalog.json /tmp/catalog_base.json
 
       - name: Build catalog
         env:
@@ -49,6 +58,13 @@ jobs:
             --seed-limit=${{ inputs.seed_limit || '800' }} \
             --per-shelf=${{ inputs.per_shelf || '48' }} \
             --concurrency=3
+
+      - name: Merge build into full catalog (never shrink)
+        run: |
+          # Union the freshly-built items INTO the full fetched catalog. Aborts
+          # if the result would be smaller than the base — guards against the
+          # 2026-06-03 clobber where a small build replaced the whole catalog.
+          python tools/merge_catalogs.py /tmp/catalog_base.json catalog.json catalog.json
 
       - name: Stats summary
         run: |
