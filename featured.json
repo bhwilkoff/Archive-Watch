@@ -215,9 +215,9 @@
       "subtitle": "The magician who invented cinema",
       "category": "silent-film",
       "type": "dynamic",
-      "query": "mediatype:movies AND collection:georgesmelies",
+      "query": "mediatype:movies AND (collection:georgesmelies OR title:(Méliès OR Melies) OR subject:(Méliès OR Melies))",
       "sort": ["downloads desc"],
-      "limit": 48
+      "limit": 60
     },
     {
       "id": "animation-all",

@@ -16,6 +16,12 @@ catalog.json, fixing the high-confidence movie metadata bugs found in the
      explicit "cartoon"/"animation" subject) that aren't already animation.
   4. ADULT: title/subject/genre adult markers set isAdult so the default filter
      hides them (the collection-only filter misses these).
+  5. GENRES: fill empty genres from subjects via the shared keyword map.
+  6. RIGHTS: prove public_domain for US-gov collections + PD-by-age (<1929) so
+     the Home rights gate stops excluding legitimate PD titles (e.g. NASA).
+  7. POSTER MISMATCH: clear a *designed* poster shared by two or more
+     differently-titled items (a wrong enrichment match — e.g. the Pink Panther
+     cartoon pulling the live-action poster); they fall back to ProceduralPoster.
 
 Deliberately does NOT reclassify by runtime (audit found runtime data
 unreliable — many real features report 1 min). Conservative on purpose.
@@ -26,7 +32,7 @@ Operates on catalog.json (root). Idempotent. `--dry-run` to preview.
 import argparse
 import json
 import re
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -124,6 +130,78 @@ def is_adult_signal(item):
     return bool(_ADULT.search(hay))
 
 
+# --- Rights inference (#6) -------------------------------------------------
+# Collections whose contents are unambiguously public domain: US-government
+# works (PD by statute, any year) and Prelinger (explicitly PD/CC). Items in
+# these get rightsStatus="public_domain" when it's missing/unknown, so the
+# Home rights gate (CatalogDB.homeAnd) stops wrongly excluding e.g. post-1977
+# NASA films from the hero/browse-home surfaces.
+_GOV_PD_COLLECTIONS = {
+    "fedflix", "nasa", "nasaeclips", "jsc-pao-video-collection", "usgovfilms",
+    "prelinger", "prelingerhomemovies", "nationalarchives", "dl-archive",
+}
+_PD_BY_AGE = 1929  # US: anything published before this is public domain by age.
+
+
+def infer_rights(it):
+    """Return 'public_domain' when we can prove it (gov collection or PD-by-age),
+    else None. Conservative — never downgrades an existing status."""
+    cur = (it.get("rightsStatus") or "").strip().lower()
+    if cur in ("public_domain", "creative_commons"):
+        return None
+    colls = {str(c).lower() for c in (it.get("collections") or [])}
+    if colls & _GOV_PD_COLLECTIONS:
+        return "public_domain"
+    y = it.get("year")
+    if isinstance(y, int) and 1878 <= y < _PD_BY_AGE:
+        return "public_domain"
+    return None
+
+
+# --- Poster-mismatch clearing (#3/#4/#9) -----------------------------------
+# A *designed* poster (TMDb/OMDb/Commons/Wikidata) shared by two or more items
+# whose titles differ is a wrong enrichment match — e.g. the Pink Panther
+# CARTOON pulling the live-action film's poster, or several films sharing one
+# foreign-language poster. Movie posters are never legitimately shared across
+# different titles, so we clear the poster from ALL the colliding items and let
+# them fall back to the branded ProceduralPoster (a wrong poster is worse than
+# none). Archive first-frame thumbnails are per-item and excluded.
+
+_TITLE_NORM = re.compile(r"[^a-z0-9]+")
+
+
+def _title_key(it):
+    return _TITLE_NORM.sub(" ", (it.get("title") or "").lower()).strip()
+
+
+def clear_shared_posters(items):
+    """Clear designed posters that collide across differently-titled items.
+    Returns the number of items whose poster was cleared."""
+    by_poster = defaultdict(list)
+    for it in items:
+        if it.get("contentType") == "tv-series":
+            continue  # series share season posters legitimately
+        url = (it.get("posterURL") or "").strip()
+        src = (it.get("artworkSource") or "").lower()
+        # Only consider real designed artwork (not per-item archive thumbnails).
+        if not url or src in ("", "archive"):
+            continue
+        by_poster[url].append(it)
+    cleared = 0
+    for url, group in by_poster.items():
+        if len(group) < 2:
+            continue
+        if len({_title_key(it) for it in group}) < 2:
+            continue  # same title (a genuine dup) — not a mismatch
+        for it in group:
+            it["posterURL"] = None
+            it["backdropURL"] = None
+            it["hasRealArtwork"] = False
+            it["artworkSource"] = "archive"
+            cleared += 1
+    return cleared
+
+
 def is_junk(it):
     """Personal-upload garbage: junk-uploader archiveID + a numeric/short
     title. Conservative — needs BOTH so real films (e.g. titled "1917") and
@@ -206,6 +284,17 @@ def remediate(items):
             if g:
                 it["genres"] = g
                 stats["genres_from_subject"] += 1
+
+        # 6) RIGHTS: prove public-domain for gov collections / PD-by-age so the
+        # Home rights gate stops excluding legitimate PD titles.
+        r = infer_rights(it)
+        if r:
+            it["rightsStatus"] = r
+            stats["rights_inferred_pd"] += 1
+
+    # 7) POSTER MISMATCH: clear designed posters shared across differently-titled
+    # items (a whole-catalog pass — needs every item to spot collisions).
+    stats["posters_cleared_shared"] += clear_shared_posters(items)
     return stats
 
 

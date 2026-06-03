@@ -30,8 +30,10 @@ Usage:
 """
 
 import argparse
+import datetime as _dt
 import gzip
 import json
+import random
 import shutil
 import sqlite3
 import zlib
@@ -177,8 +179,33 @@ def create_schema(db):
     """)
 
 
-def populate_items(db, items):
+def _rotated_shelf_positions(items, rotate_seed):
+    """Date-seeded editorial rotation (#10). Returns {(shelfID, archiveID):
+    position}. Each shelf's members are shuffled with a per-shelf, per-day seed
+    so the leading titles change daily — the seed.sqlite first paint and the
+    Top Shelf snapshot (neither of which gets the app's per-visit shuffle) stay
+    fresh. Real-artwork items still sort ahead of placeholders at query time
+    (CatalogDB.shelf ORDER BY hasRealArtwork DESC, position), so rotation only
+    reshuffles WITHIN those bands — it never surfaces a poster-less tile first."""
+    members = defaultdict(list)
+    for it in items:
+        aid = it.get("archiveID")
+        if not aid:
+            continue
+        for s in (it.get("shelves") or []):
+            members[s].append(aid)
+    positions = {}
+    for shelf_id, aids in members.items():
+        rng = random.Random(f"{shelf_id}:{rotate_seed}")
+        rng.shuffle(aids)
+        for pos, aid in enumerate(aids):
+            positions[(shelf_id, aid)] = pos
+    return positions
+
+
+def populate_items(db, items, rotate_seed="0"):
     item_rows, json_rows, genre_rows, coll_rows, shelf_rows, fts_rows = [], [], [], [], [], []
+    shelf_pos = _rotated_shelf_positions(items, rotate_seed)
     for it in items:
         aid = it["archiveID"]
         item_rows.append((
@@ -201,7 +228,7 @@ def populate_items(db, items):
             if c and str(c) in REGISTERED_COLLECTIONS:
                 coll_rows.append((aid, str(c)))
         for s in (it.get("shelves") or []):
-            shelf_rows.append((s, aid, 0))
+            shelf_rows.append((s, aid, shelf_pos.get((s, aid), 0)))
         names = " ".join([it.get("director") or ""]
                          + [c.get("name", "") for c in (it.get("cast") or [])]
                          + [it.get("producer") or ""]).strip()
@@ -288,7 +315,7 @@ def select_seed_items(items):
     return list(chosen.values())
 
 
-def build_db_obj(cat, out_db):
+def build_db_obj(cat, out_db, rotate_seed="0"):
     """Compile an in-memory catalog dict into a SQLite DB at out_db. Returns
     (cat, n_items, n_series, n_eps)."""
     deduped = dedupe_by_imdb(cat["items"])
@@ -296,7 +323,7 @@ def build_db_obj(cat, out_db):
         out_db.unlink()
     db = sqlite3.connect(out_db)
     create_schema(db)
-    n_items = populate_items(db, deduped)
+    n_items = populate_items(db, deduped, rotate_seed=rotate_seed)
     n_series, n_eps = populate_series(db)
     create_indexes(db)
     db.execute("INSERT OR REPLACE INTO meta VALUES ('schemaVersion', ?)", (str(SCHEMA_VERSION),))
@@ -312,18 +339,19 @@ def build_db_obj(cat, out_db):
     return cat, n_items, n_series, n_eps
 
 
-def build_db(catalog_path, out_db):
+def build_db(catalog_path, out_db, rotate_seed="0"):
     """Compile a catalog.json file into a SQLite DB at out_db."""
-    return build_db_obj(json.loads(catalog_path.read_text(encoding="utf-8")), out_db)
+    return build_db_obj(json.loads(catalog_path.read_text(encoding="utf-8")),
+                        out_db, rotate_seed=rotate_seed)
 
 
-def build_seed_db(full_catalog_path, out_db):
+def build_seed_db(full_catalog_path, out_db, rotate_seed="0"):
     """Build the small bundled seed DB from the FULL catalog's first-paint
     subset — no separate committed seed catalog.json (Decision 018)."""
     cat = json.loads(full_catalog_path.read_text(encoding="utf-8"))
     seed = dict(cat)
     seed["items"] = select_seed_items(cat["items"])
-    return build_db_obj(seed, out_db)
+    return build_db_obj(seed, out_db, rotate_seed=rotate_seed)
 
 
 def main():
@@ -331,15 +359,22 @@ def main():
     ap.add_argument("--no-gzip", action="store_true")
     ap.add_argument("--seed-only", action="store_true",
                     help="Build only the bundled seed.sqlite (fast, for app dev).")
+    ap.add_argument("--rotate-seed", default=None,
+                    help="Editorial-rotation seed (#10). Default: today's UTC "
+                         "date (YYYYMMDD) so the daily publish-db cron rotates "
+                         "each shelf's leading titles. Pass a fixed value for "
+                         "reproducible local builds.")
     args = ap.parse_args()
+    rotate_seed = args.rotate_seed or _dt.datetime.now(_dt.timezone.utc).strftime("%Y%m%d")
+    print(f"[sqlite] shelf rotation seed: {rotate_seed}", flush=True)
 
     # Bundled seed DB — small first-paint slice derived from the FULL catalog
     # (Decision 018: no committed seed catalog.json). Falls back to a legacy
     # committed seed catalog.json if the full catalog isn't present locally.
     if FULL_CATALOG.exists():
-        build_seed_db(FULL_CATALOG, SEED_DB)
+        build_seed_db(FULL_CATALOG, SEED_DB, rotate_seed=rotate_seed)
     elif SEED_CATALOG.exists():
-        build_db(SEED_CATALOG, SEED_DB)
+        build_db(SEED_CATALOG, SEED_DB, rotate_seed=rotate_seed)
     else:
         print("[sqlite] no catalog.json found to build the seed from", flush=True)
         return 1
@@ -347,7 +382,7 @@ def main():
         return 0
 
     # Full DB — hosted on the catalog-db release, downloaded at runtime.
-    cat, n_items, n_series, n_eps = build_db(FULL_CATALOG, OUT_DB)
+    cat, n_items, n_series, n_eps = build_db(FULL_CATALOG, OUT_DB, rotate_seed=rotate_seed)
 
     zz_mb = None
     if not args.no_gzip:
