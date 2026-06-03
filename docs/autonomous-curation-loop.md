@@ -66,12 +66,18 @@ it, executes the next item, and logs the result.
   identity fields (apply_identity) from the full record it already fetches —
   cast/director/genres, not just posters. Schema bump re-fetches 13,814 items
   once (950/day) to gain them. Dispatched.
-- [ ] **B4 — Synopsis backfill** for the 5% missing (OMDb/TMDb/Wikidata).
+- [x] **B4 — Wikipedia synopses**: enrich_wikipedia_synopsis.py +
+  wikipedia-synopsis.yml — real enwiki plot summaries for 2,304 QID items with
+  no/short synopsis (QID -> enwiki sitelink -> REST extract). Replaces junk
+  uploader descriptions; only upgrades. Dispatched. (OMDb plot already fills
+  synopsis for IMDb items via apply_rich.)
 - [ ] **A3 — New source research**: Wikimedia Commons video, LoC subcollections,
   Prelinger deep, European/Asian PD archives; add a discovery feed per source.
-- [ ] **B5 — App image pipeline**: ensure tvOS `RemoteImage` downsamples/caches
-  optimally at 4K and degrades gracefully when only an Archive thumb exists
-  (native ImageIO; per playbook §7).
+- [x] **B5 — App image pipeline (already satisfied)**: reviewed iter 7 —
+  ImageLoader already does NSCache + ImageIO downsample-to-target + eager decode
+  + inflight coalescing + http→https (playbook §7); PosterArt already degrades
+  to a branded ProceduralPoster when hasDesignedArtwork is false. No change
+  needed.
 
 ## Iteration log
 - 2026-06-02 — **Iteration 1 (B, genres)**: activated the dead
@@ -107,3 +113,21 @@ it, executes the next item, and logs the result.
   decade classic TV 1950s-1990s, silenthalloffame, film_scifi,
   feature_films_picfixer, TheVideoCellarCollection, cultural/educational,
   ephemera, german_cinema, classic_cartoons, NASA. Triggered discover-content.
+- 2026-06-03 — **Iteration 7 (B, text quality)**: enrich_wikipedia_synopsis.py
+  + wikipedia-synopsis.yml — real enwiki plot summaries for 2,304 QID items with
+  no/short synopsis. Dispatched. Confirmed B5 (app image pipeline) already
+  satisfied — no change. discover-content (19 new collections) + omdb-backfill
+  (cast/genres) both succeeded.
+
+## Status (after 7 iterations)
+The high-value, safe, agent-doable backlog is largely worked through; the heavy
+networked enrichment is now DRAINING in CI over the coming days (13,814 OMDb
+re-fetches for cast/genres, ~3.4k Commons posters, ~2.3k Wikipedia synopses, 19
+new collections mining). Remaining backlog is either lower-yield or higher-risk:
+- A2 (deeper scrape caps), A3 (new external sources: deeper Wikidata-PD / LoC /
+  Wikimedia video) — growth.
+- B2 (IMDb-id resolution to unlock TMDb for the 41% no-IMDb) — high value but
+  DELICATE (false matches degrade quality); do carefully, verify match rate in
+  CI before committing broadly.
+The CI pipeline is the permanent autonomous executor; the agent loop can space
+out / focus on these harder items.
