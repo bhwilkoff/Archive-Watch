@@ -17,20 +17,23 @@ the detail, sequencing, research notes, and decisions. Update it as phases land.
   declared done (CLAUDE.md debugging philosophy).
 - **Quality bar**: scoped diffs, no feature creep, commit messages quote the ask.
 
-## Decisions this backlog forces (resolve before the dependent phase)
-- **D-A (accounts/sync, blocks Phase 3):** #11 reverses Decision 009 ("no
-  accounts; all state local"). Recommended: **CloudKit private DB with the
-  device's iCloud account — no Sign-in-with-Apple UI** — favorites/progress/
-  playlists sync across the owner's Apple TVs automatically, zero login friction
-  (keeps Decision 009's "no funnel" spirit while reversing "all local"). Needs a
-  new DECISIONS entry once chosen. *Pending owner answer.*
-- **D-B (upscale, #6):** real-time custom upscaling means replacing
-  AVPlayerViewController with a manual AVPlayerItemVideoOutput→MetalFX→custom-layer
-  pipeline (loses native transport + Now Playing + our resilient loader benefits),
-  and Apple TV 4K already upscales to the panel. Recommended: **defer past v1**
-  (spike only if owner wants). *Pending owner answer.*
-- **D-C (#14 source):** BOBA-Playbook repo not present locally. Either owner
-  supplies it or we build the cover-flow screensaver fresh. *Pending owner answer.*
+## Decisions this backlog forces — RESOLVED 2026-06-03
+- **D-A (accounts/sync) → RESOLVED: Sign in with Apple + CloudKit private DB.**
+  #11 uses Apple-native auth (Sign in with Apple, `AuthenticationServices`) for
+  identity + CloudKit private database for cross-Apple-TV sync of favorites,
+  watch progress, and playlists. No external/third-party auth. This **reverses
+  Decision 009** ("no accounts; all state local") — log a new DECISIONS entry
+  (Decision 022) when Phase 3 lands. Owner confirmed Sign in with Apple is wanted
+  (matches the #11 ask "Login with Apple ID").
+- **D-B (upscale, #6) → RESOLVED: DROPPED.** Real-time custom upscaling would
+  replace AVPlayerViewController with a manual MetalFX pipeline (losing native
+  transport, Now Playing, and the resilient loader), and the Apple TV 4K already
+  upscales to the panel. Removed from the v1 backlog. Phase 6 is now empty.
+- **D-C (#14 source) → RESOLVED: adapt BOBA-Playbook.** Repo at
+  `/Users/bhwilkoff/Documents/GitHub/BOBA-Playbook`. Cover-art visualization
+  reference code: `tools/HeroShotSim/` (3D/Metal — `sim3d.swift`,
+  `test_custommaterial.swift`, `test_metallib.swift`) and `js/showcases.js` /
+  `js/collection.js`. Mine these for the iTunes-style cover-flow when building #14.
 
 ---
 
@@ -118,7 +121,7 @@ the detail, sequencing, research notes, and decisions. Update it as phases land.
   + an annual celebration surface. Learning-oriented (teaches the PD calendar).
 
 ## Phase 6 — Advanced / uncertain
-- **#6 — on-device upscale.** Per D-B; spike or defer.
+- *(empty — #6 on-device upscale was dropped per D-B; Apple TV 4K upscales natively.)*
 
 ---
 
