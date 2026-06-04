@@ -427,6 +427,36 @@ def _strip_uploader_cruft(t):
     return nt if len(nt) >= 2 else t
 
 
+# Filename-style title: underscores as word separators with NO spaces present
+# ("St_Martins_Lane" -> "St Martins Lane", "Sita_Sings_the_Blues" ->
+# "Sita Sings the Blues"). Only fires on pure-filename titles (no spaces, an
+# underscore between word chars) so a title that already reads normally is never
+# touched. Also un-inverts a trailing sort-article suffix ("Rawhide_Terror_The"
+# -> "The Rawhide Terror").
+def _underscore_filename(t):
+    if " " in t or "_" not in t or not re.search(r"\w_\w", t):
+        return t
+    s = re.sub(r"_+", " ", t).strip()
+    m = re.match(r"^(.*\S)\s+(The|A|An)$", s)
+    if m:
+        s = m.group(2) + " " + m.group(1)
+    return s
+
+
+# Sort-title comma inversion ("Little Princess, The" -> "The Little Princess",
+# "Farewell to Arms, A" -> "A Farewell to Arms"). The trailing ", The/A/An" is an
+# unambiguous library sort convention; require non-empty body so it can't empty a
+# title. 126 measured.
+_SORT_ART = re.compile(r"^(.+?)\s*,\s*(the|a|an)\s*$", re.I)
+
+
+def _invert_sort_article(t):
+    m = _SORT_ART.match(t)
+    if m and m.group(1).strip():
+        return m.group(2).capitalize() + " " + m.group(1).strip()
+    return t
+
+
 def _strip_format_dump(t):
     if " / " not in t:
         return t
@@ -482,6 +512,8 @@ def sanitize_title(it):
     t = _strip_format_dump(t)
     t = _strip_quality_tail(t)
     t = _strip_uploader_cruft(t)
+    t = _underscore_filename(t)
+    t = _invert_sort_article(t)
     # A title that is ENTIRELY bracketed ("[Amateur film: New Orleans Carnival]")
     # is the Prelinger amateur-film naming — UNWRAP it (blanket bracket-stripping
     # would empty it, so it was being left bracketed). Then strip inner/partial
