@@ -1,0 +1,96 @@
+/* Legal / informational pages (privacy, support).
+   Reuses the brand tokens defined in styles.css :root. Mobile-first. */
+
+.legal-page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+.legal-topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.legal-topbar .brand-mark {
+  width: 22px;
+  height: 22px;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  display: inline-block;
+}
+
+.legal-topbar h1 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.legal-topbar a {
+  margin-left: auto;
+  color: var(--color-link);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.legal-main {
+  flex: 1;
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-5) var(--space-10);
+}
+
+.legal-main h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  margin: 0 0 var(--space-2);
+}
+
+.legal-main .updated {
+  color: var(--color-text-dim);
+  font-size: 0.9rem;
+  margin: 0 0 var(--space-8);
+}
+
+.legal-main h3 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  margin: var(--space-8) 0 var(--space-3);
+}
+
+.legal-main p,
+.legal-main li {
+  color: var(--color-text);
+}
+
+.legal-main ul {
+  padding-left: var(--space-6);
+}
+
+.legal-main li {
+  margin-bottom: var(--space-2);
+}
+
+.legal-main a {
+  color: var(--color-link);
+}
+
+.legal-main strong { color: var(--color-text); }
+
+.legal-footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-5);
+  text-align: center;
+  color: var(--color-text-dim);
+  font-size: 0.85rem;
+}
+
+.legal-footer a { color: var(--color-link); text-decoration: none; }

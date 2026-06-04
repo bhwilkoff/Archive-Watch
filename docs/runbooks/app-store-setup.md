@@ -58,13 +58,16 @@ appstoreconnect.apple.com → **My Apps → + → New App**:
 Then fill the listing (App Information / Pricing / Version):
 - **Category**: Entertainment (primary)
 - **Price**: Free (Decision 010)
-- **Description, subtitle, keywords, promotional text**
-- **Support URL** + **Privacy Policy URL** (required) — host on your GitHub Pages
-  site (privacy is near-trivial: no data leaves device except API calls to public
-  services; with sign-in, data lives in the user's own iCloud).
+- **Description, subtitle, keywords, promotional text** — ✅ drafted, paste-ready
+  in `docs/app-store-listing.md`.
+- **Support URL** + **Privacy Policy URL** (required) — ✅ DONE, live on GitHub
+  Pages:
+  - Privacy: https://bhwilkoff.github.io/Archive-Watch/privacy.html
+  - Support: https://bhwilkoff.github.io/Archive-Watch/support.html
 - **App Privacy** questionnaire: the app ships a `PrivacyInfo.xcprivacy` already.
-  With Sign in with Apple + CloudKit you must disclose the identifier/user-content
-  stored in the user's private iCloud DB.
+  Recommended answer is **Data Not Collected** (no backend; CloudKit private-DB
+  data the developer can't read; sync currently gated off) — see the App Privacy
+  section in `docs/app-store-listing.md` for the full reasoning + fallback.
 - **Age rating** questionnaire.
 - **Screenshots**: Apple TV 4K — 3840×2160 or 1920×1080 (capture from a real
   Apple TV or the simulator).
