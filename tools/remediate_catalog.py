@@ -353,8 +353,11 @@ MIN_SYNOPSIS = 40
 # a placeholder sentence pointing at IMDb (no plot), and a "From IMDb :" prefix
 # pasted before a real plot. Drop the sentence; strip the prefix. (B6 finding.)
 _BOILERPLATE_SENT = re.compile(
-    r"you can find more information (regarding|about) th(is|e)", re.I)
-_FROM_IMDB_PREFIX = re.compile(r"^\s*from imdb\s*:?\s*", re.I)
+    r"you can find more information (regarding|about)"
+    r"|you can read .*imdb page", re.I)
+# "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
+# real plot (260 items measured). Strip the prefix, keep the plot.
+_FROM_IMDB_PREFIX = re.compile(r"^\s*(taken\s+)?from\s+imdb\s*:?\s*", re.I)
 
 
 def _synopsis_text(it):
