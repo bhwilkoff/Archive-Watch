@@ -55,6 +55,34 @@ final class AppStore {
         return UserDefaults.standard.bool(forKey: hideAdultKey)
     }
 
+    // #17 (tvOS-DESIGN §10.3): completed titles are hidden from Home shelves +
+    // hero by default; a Settings toggle shows them again. They stay everywhere
+    // else (Search/Browse/Library). Continue Watching is exempt — it shows
+    // in-progress, not completed (it filters !isComplete itself).
+    //
+    // Watched state lives in SwiftData (WatchProgress), separate from the SQLite
+    // catalog, so the set of completed archiveIDs is fed in by an invisible
+    // @Query-owning view (WatchedHomeSync) — keeping @Query out of HomeView to
+    // avoid the macro cascade. Filtering happens app-side in HomeView.
+    var hideWatchedOnHome: Bool = AppStore.loadHideWatchedDefault() {
+        didSet { UserDefaults.standard.set(hideWatchedOnHome, forKey: Self.hideWatchedKey) }
+    }
+    /// archiveIDs the user has finished watching. Maintained by WatchedHomeSync.
+    var completedArchiveIDs: Set<String> = []
+
+    private static let hideWatchedKey = "hideWatchedOnHome"
+    private static func loadHideWatchedDefault() -> Bool {
+        guard UserDefaults.standard.object(forKey: hideWatchedKey) != nil else { return true }
+        return UserDefaults.standard.bool(forKey: hideWatchedKey)
+    }
+
+    /// Drop completed titles from a Home list when the setting is on. No-op
+    /// otherwise. Used by HomeView's hero + shelves.
+    func filteringWatched(_ items: [Catalog.Item]) -> [Catalog.Item] {
+        guard hideWatchedOnHome, !completedArchiveIDs.isEmpty else { return items }
+        return items.filter { !completedArchiveIDs.contains($0.archiveID) }
+    }
+
     func loadBundledData() async {
         // STEP 1 — synchronous bundle load. Unblocks the UI within a
         // second; the user never sees "Loading catalog…" hang waiting

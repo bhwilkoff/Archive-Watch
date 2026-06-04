@@ -31,6 +31,7 @@ struct SettingsView: View {
 
             List {
                 visibilitySection
+                homeSection
                 matureSection
                 attributionSection
                 aboutSection
@@ -55,6 +56,19 @@ struct SettingsView: View {
             Text("Show on Home & Browse")
         } footer: {
             Text("Turn a category off to hide it everywhere. Favorites and Continue Watching are unaffected.")
+        }
+    }
+
+    // #17 (tvOS-DESIGN §10.3)
+    private var homeSection: some View {
+        Section {
+            Toggle(isOn: hideWatchedBinding) {
+                ToggleLabel(title: "Hide Watched on Home")
+            }
+        } header: {
+            Text("Home")
+        } footer: {
+            Text("On by default. Finished titles stay out of Home shelves but remain in Search, Browse, and Continue Watching.")
         }
     }
 
@@ -141,6 +155,11 @@ struct SettingsView: View {
     private var showMatureBinding: Binding<Bool> {
         Binding(get: { !store.hideAdultContent },
                 set: { store.hideAdultContent = !$0 })
+    }
+
+    private var hideWatchedBinding: Binding<Bool> {
+        Binding(get: { store.hideWatchedOnHome },
+                set: { store.hideWatchedOnHome = $0 })
     }
 
     private func categoryBinding(_ id: String) -> Binding<Bool> {

@@ -5,6 +5,26 @@ import SwiftData
 // of SwiftData macro expansion — that was the root cause of the
 // cross-file resolution cascades in the editor's index.
 
+// #17 (tvOS-DESIGN §10.3): an invisible sync view that owns a @Query<WatchProgress>
+// and pushes the set of completed archiveIDs into AppStore, so HomeView can hide
+// watched titles WITHOUT importing the SwiftData macro (which cascades resolution
+// errors across HomeView — see this file's header). Mounted once inside HomeView.
+struct WatchedHomeSync: View {
+    @Environment(AppStore.self) private var store
+    @Query private var progressRecords: [WatchProgress]
+
+    var body: some View {
+        Color.clear
+            .frame(width: 0, height: 0)
+            .onChange(of: completedIDs) { _, ids in store.completedArchiveIDs = ids }
+            .onAppear { store.completedArchiveIDs = completedIDs }
+    }
+
+    private var completedIDs: Set<String> {
+        Set(progressRecords.filter { $0.isComplete }.map { $0.archiveID })
+    }
+}
+
 struct ContinueWatchingRow: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router

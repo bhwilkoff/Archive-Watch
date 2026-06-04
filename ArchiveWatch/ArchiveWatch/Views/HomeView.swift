@@ -38,7 +38,9 @@ struct HomeView: View {
     /// Hero pool from the DB (Decision 017): the most-popular items with real
     /// designed artwork + a usable backdrop/poster, shuffled per launch.
     private func loadHero() -> [Catalog.Item] {
-        let pool = store.dbBrowse(sort: .popular, limit: 200, homeOnly: true).filter {
+        let pool = store.filteringWatched(
+            store.dbBrowse(sort: .popular, limit: 200, homeOnly: true)
+        ).filter {
             $0.hasDesignedArtwork &&
             ($0.backdropURLParsed != nil || $0.posterURLParsed != nil)
         }
@@ -82,7 +84,10 @@ struct HomeView: View {
             .padding(.bottom, 80)
         }
         .background(Color.black.ignoresSafeArea())
-        .task(id: "\(heroSeed)-\(store.dbGeneration)") { heroItems = loadHero() }
+        .overlay { WatchedHomeSync() }   // #17: feeds completed IDs into the store
+        .task(id: "\(heroSeed)-\(store.dbGeneration)-\(store.hideWatchedOnHome)-\(store.completedArchiveIDs.count)") {
+            heroItems = loadHero()
+        }
     }
 
     private struct ShelfPayload: Identifiable {
@@ -108,7 +113,7 @@ struct HomeView: View {
         var used: Set<String> = Set(heroItems.map { $0.archiveID })
         var out: [ShelfPayload] = []
         for shelf in homeShelves {
-            let raw = store.items(forShelf: shelf.id)
+            let raw = store.filteringWatched(store.items(forShelf: shelf.id))   // #17
             var fresh = raw.filter {
                 $0.hasDesignedArtwork && !used.contains($0.archiveID)
             }
