@@ -443,6 +443,7 @@ struct PlayerScreen: View {
     let archiveID: String
     var catalogItem: Catalog.Item? = nil
     var lineup: [Catalog.Item]? = nil   // #1 channels: a fixed continuous lineup
+    var startMuted: Bool = false        // #3 party play: video-only by default
     @Environment(\.modelContext) private var modelContext
     @Environment(AppStore.self) private var store
     @State private var player: AVPlayer?
@@ -461,21 +462,25 @@ struct PlayerScreen: View {
     // Per-video autoplay override; nil = use the global Settings default.
     @State private var sessionMode: AutoplayMode?
     @State private var lineupIndex = 0
+    @State private var muted = false
     @Environment(\.dismiss) private var dismiss
 
     init(url: URL, archiveID: String, catalogItem: Catalog.Item? = nil,
-         lineup: [Catalog.Item]? = nil) {
+         lineup: [Catalog.Item]? = nil, startMuted: Bool = false) {
         self.url = url
         self.archiveID = archiveID
         self.catalogItem = catalogItem
         self.lineup = lineup
+        self.startMuted = startMuted
         _current = State(initialValue: catalogItem)
+        _muted = State(initialValue: startMuted)
     }
 
-    /// #1 channels: start a continuous lineup at its first item.
-    init?(lineup: [Catalog.Item]) {
+    /// #1 channels / #3 party / #2 cartoon: start a continuous lineup at item 0.
+    init?(lineup: [Catalog.Item], startMuted: Bool = false) {
         guard let first = lineup.first, let url = first.videoURLParsed else { return nil }
-        self.init(url: url, archiveID: first.archiveID, catalogItem: first, lineup: lineup)
+        self.init(url: url, archiveID: first.archiveID, catalogItem: first,
+                  lineup: lineup, startMuted: startMuted)
     }
 
     // #19: a broken item (dead URL, stale non-MP4 derivative, decode reject, or a
@@ -508,7 +513,8 @@ struct PlayerScreen: View {
         }
     }
 
-    // #10 (tvOS-DESIGN §8.5): per-video autoplay override in the transport menu.
+    // #10/#3 (tvOS-DESIGN §8.5): per-video transport menu — autoplay override + a
+    // mute toggle (the audio toggle for party/background play).
     private var autoplayMenu: [UIMenuElement] {
         let active = sessionMode ?? store.autoplayMode
         let actions = AutoplayMode.allCases.map { mode in
@@ -516,7 +522,15 @@ struct PlayerScreen: View {
                 sessionMode = mode
             }
         }
-        return [UIMenu(title: "Autoplay Next",
+        let muteToggle = UIAction(
+            title: muted ? "Play with Sound" : "Mute",
+            image: UIImage(systemName: muted ? "speaker.wave.2.fill" : "speaker.slash.fill")
+        ) { _ in
+            muted.toggle()
+            player?.isMuted = muted
+        }
+        return [muteToggle,
+                UIMenu(title: "Autoplay Next",
                        image: UIImage(systemName: "play.circle"), children: actions)]
     }
 
@@ -570,6 +584,7 @@ struct PlayerScreen: View {
         }
         let p = AVPlayer(playerItem: playerItem)
         tunePlaybackBuffering(item: playerItem, player: p)
+        p.isMuted = muted   // #3 party play (persists across lineup advances)
         player = p
         freezeGuard.attach(to: p, item: playerItem)
         nowPlaying.begin(posterURL: active?.posterURLParsed, item: playerItem)

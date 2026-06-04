@@ -29,7 +29,17 @@ struct SurpriseView: View {
         .init(id: "ephemera",  title: "Random Ephemera",        icon: "books.vertical.fill",  hex: "#3FA796"),
         .init(id: "decade",    title: "Random Decade",          icon: "calendar",             hex: "#C9A66B"),
         .init(id: "pubdomain", title: "Public Domain Day",      icon: "party.popper.fill",    hex: "#E8A317"),
+        .init(id: "party",     title: "Party Play",             icon: "sparkles.tv.fill",     hex: "#FF4D8D"),
+        .init(id: "cartoon",   title: "Cartoon Mode",           icon: "pawprint.fill",        hex: "#3FA796"),
     ]
+
+    // #3/#2: a lineup presented full-screen (muted for party play).
+    fileprivate struct ModeLineup: Identifiable {
+        let id = UUID()
+        let items: [Catalog.Item]
+        let muted: Bool
+    }
+    @State private var mode: ModeLineup?
 
     private let cols = Array(repeating: GridItem(.flexible(), spacing: 32), count: 4)
 
@@ -55,6 +65,11 @@ struct SurpriseView: View {
             try? await Task.sleep(for: .milliseconds(80))
             focused = actions.first?.id
         }
+        .fullScreenCover(item: $mode) { m in
+            if let screen = PlayerScreen(lineup: m.items, startMuted: m.muted) {
+                screen
+            }
+        }
     }
 
     private var header: some View {
@@ -62,7 +77,7 @@ struct SurpriseView: View {
             Text("Surprise Me")
                 .font(.system(size: 52, weight: .heavy, design: .serif))
                 .foregroundStyle(.white)
-            Text("Eight ways to wander the archive — pick one, or press again to re-roll.")
+            Text("Ten ways to wander the archive — pick one, or press again to re-roll.")
                 .font(.title3)
                 .foregroundStyle(.white.opacity(0.6))
         }
@@ -89,9 +104,35 @@ struct SurpriseView: View {
             }
         case "pubdomain":
             router.push(PublicDomainRoute())
+        case "party":
+            mode = ModeLineup(items: partyLineup(), muted: true)
+        case "cartoon":
+            mode = ModeLineup(items: cartoonLineup(), muted: false)
         default:
             break
         }
+    }
+
+    // #3 party play: a visually-striking, muted continuous lineup — animation +
+    // silent cinema + popular features, all with real artwork, shuffled.
+    private func partyLineup() -> [Catalog.Item] {
+        var pool = store.dbBrowse(contentType: "animation", sort: .popular, limit: 120)
+            + store.dbBrowse(contentType: "silent-film", sort: .popular, limit: 120)
+            + store.dbBrowse(sort: .popular, limit: 120)
+        pool = pool.filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
+        var seen = Set<String>()
+        pool = pool.filter { seen.insert($0.archiveID).inserted }
+        pool.shuffle()
+        return Array(pool.prefix(200))
+    }
+
+    // #2 cartoon mode (minimal): a continuous animation lineup; adult content is
+    // already filtered by default, so this is kid-safe. Full simplified shell -> #2b.
+    private func cartoonLineup() -> [Catalog.Item] {
+        var pool = store.dbBrowse(contentType: "animation", sort: .popular, limit: 250)
+            .filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
+        pool.shuffle()
+        return pool
     }
 }
 
