@@ -435,6 +435,7 @@ struct PlayerScreen: View {
             playerItem.externalMetadata = makeExternalMetadata(for: catalogItem)
         }
         let p = AVPlayer(playerItem: playerItem)
+        tunePlaybackBuffering(item: playerItem, player: p)
         player = p
         freezeGuard.attach(to: p, item: playerItem)
 

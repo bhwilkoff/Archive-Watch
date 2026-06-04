@@ -25,6 +25,27 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
     }
 }
 
+// Buffering tuning for Archive's PROGRESSIVE (non-HLS) MP4s.
+//
+// Archive items play as a single progressive file streamed straight from
+// archive.org with throttled, variable per-connection bandwidth — there's no
+// adaptive bitrate ladder to fall back to. A bare AVPlayerItem keeps
+// preferredForwardBufferDuration = 0 (AVFoundation's conservative automatic
+// heuristic), so long, higher-bitrate films stall whenever a brief bandwidth
+// dip drains that small cushion — the "pause/resume" mid-playback.
+//
+// Banking a large forward buffer lets the player accumulate surplus during the
+// fast stretches and ride through the dips. automaticallyWaitsToMinimizeStalling
+// stays on (the default) so the player builds buffer before (re)starting instead
+// of stall-starting on an empty buffer. 120s at a typical PD bitrate is tens of
+// MB — comfortable headroom on the 3 GB Apple TV.
+let archivePreferredForwardBufferDuration: TimeInterval = 120
+
+func tunePlaybackBuffering(item: AVPlayerItem, player: AVPlayer) {
+    item.preferredForwardBufferDuration = archivePreferredForwardBufferDuration
+    player.automaticallyWaitsToMinimizeStalling = true
+}
+
 func metaEntry(_ identifier: AVMetadataIdentifier, _ value: String) -> AVMetadataItem? {
     guard !value.isEmpty else { return nil }
     let m = AVMutableMetadataItem()

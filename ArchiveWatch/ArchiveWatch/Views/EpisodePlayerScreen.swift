@@ -133,6 +133,7 @@ struct EpisodePlayerScreen: View {
             [metaEntry(.commonIdentifierTitle, episode.title)].compactMap { $0 }
             + suppressedDateMetadata()
         let p = AVPlayer(playerItem: item)
+        tunePlaybackBuffering(item: item, player: p)
         player = p
         freezeGuard.attach(to: p, item: item)
 
