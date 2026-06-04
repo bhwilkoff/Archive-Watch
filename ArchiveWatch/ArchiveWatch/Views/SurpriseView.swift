@@ -31,7 +31,9 @@ struct SurpriseView: View {
         .init(id: "pubdomain", title: "Public Domain Day",      icon: "party.popper.fill",    hex: "#E8A317"),
         .init(id: "party",     title: "Party Play",             icon: "sparkles.tv.fill",     hex: "#FF4D8D"),
         .init(id: "cartoon",   title: "Cartoon Mode",           icon: "pawprint.fill",        hex: "#3FA796"),
+        .init(id: "saver",     title: "Cover Art Wall",         icon: "square.grid.3x3.fill", hex: "#0047FF"),
     ]
+    @State private var showSaver = false
 
     // #3/#2: a lineup presented full-screen (muted for party play).
     fileprivate struct ModeLineup: Identifiable {
@@ -70,6 +72,7 @@ struct SurpriseView: View {
                 screen
             }
         }
+        .fullScreenCover(isPresented: $showSaver) { ScreensaverView() }
     }
 
     private var header: some View {
@@ -77,7 +80,7 @@ struct SurpriseView: View {
             Text("Surprise Me")
                 .font(.system(size: 52, weight: .heavy, design: .serif))
                 .foregroundStyle(.white)
-            Text("Ten ways to wander the archive — pick one, or press again to re-roll.")
+            Text("Eleven ways to wander the archive — pick one, or press again to re-roll.")
                 .font(.title3)
                 .foregroundStyle(.white.opacity(0.6))
         }
@@ -108,6 +111,8 @@ struct SurpriseView: View {
             mode = ModeLineup(items: partyLineup(), muted: true)
         case "cartoon":
             mode = ModeLineup(items: cartoonLineup(), muted: false)
+        case "saver":
+            showSaver = true
         default:
             break
         }
