@@ -76,6 +76,7 @@ struct HomeView: View {
                 ForEach(dedupedShelfPayloads()) { payload in
                     ShelfRow(shelf: payload.shelf, items: payload.items)
                 }
+                PublicDomainShelf()   // #15b: current Public Domain class
                 HiddenGemsShelf()
                 DirectorShelvesSection()
                 DecadeTilesRow()

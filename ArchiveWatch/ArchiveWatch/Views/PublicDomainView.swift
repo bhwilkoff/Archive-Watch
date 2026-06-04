@@ -94,6 +94,41 @@ struct PublicDomainView: View {
     private func verbatimYear(_ y: Int) -> String { String(y) }
 }
 
+// #15b: a Home shelf spotlighting the current Public Domain class (works that
+// entered the public domain this year). Surfaces #15 on Home; tiles open Detail,
+// and the full year-explorer lives in PublicDomainView (Surprise -> Public Domain Day).
+struct PublicDomainShelf: View {
+    @Environment(AppStore.self) private var store
+    @State private var items: [Catalog.Item] = []
+
+    private let pubYear = Calendar.current.component(.year, from: Date()) - 95
+
+    private var shelfDef: Featured.Shelf {
+        Featured.Shelf(
+            id: "public-domain-day",
+            title: "Public Domain Day",
+            subtitle: "Class of \(String(pubYear)) — newly free to share",
+            category: "feature-film",
+            type: "dynamic",
+            items: nil, query: nil, sort: nil, limit: nil
+        )
+    }
+
+    var body: some View {
+        Group {
+            if items.isEmpty {
+                EmptyView()
+            } else {
+                ShelfRow(shelf: shelfDef, items: items)
+            }
+        }
+        .task(id: store.dbGeneration) {
+            items = store.dbBrowse(year: pubYear, sort: .popular, limit: 24)
+                .filter { $0.hasDesignedArtwork }
+        }
+    }
+}
+
 private struct PDYearChipStyle: ButtonStyle {
     let isOn: Bool
     @Environment(\.isFocused) private var isFocused
