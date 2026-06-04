@@ -195,10 +195,14 @@ struct PlaybackDiagnosticsOverlay: View {
         .padding(16)
         .background(.black.opacity(0.65), in: .rect(cornerRadius: 12))
         .allowsHitTesting(false)
-        .onReceive(tick) { _ in refresh() }
+        .onReceive(tick) { _ in refresh(stall: false) }
+        // Snapshot the exact state at each stall — this is the decisive event.
+        .onReceive(NotificationCenter.default.publisher(for: .AVPlayerItemPlaybackStalled)) { _ in
+            refresh(stall: true)
+        }
     }
 
-    private func refresh() {
+    private func refresh(stall: Bool) {
         guard let item = player.currentItem else { return }
         let cur = player.currentTime().seconds
         let ahead = item.loadedTimeRanges.compactMap { value -> Double? in
@@ -214,7 +218,8 @@ struct PlaybackDiagnosticsOverlay: View {
                           ahead, archivePreferredForwardBufferDuration))
         out.append("keepUp:\(yn(item.isPlaybackLikelyToKeepUp))  empty:\(yn(item.isPlaybackBufferEmpty))  full:\(yn(item.isPlaybackBufferFull))")
 
-        if let e = item.accessLog()?.events.last {
+        let e = item.accessLog()?.events.last
+        if let e {
             out.append(String(format: "observed BW  : %6.2f Mbps", e.observedBitrate / 1_000_000))
             out.append(String(format: "stream rate  : %6.2f Mbps", e.indicatedBitrate / 1_000_000))
             out.append("STALLS       : \(e.numberOfStalls)")
@@ -223,6 +228,17 @@ struct PlaybackDiagnosticsOverlay: View {
             out.append("(no access-log events yet)")
         }
         lines = out
+
+        // Mirror to the console so the user's existing console-copy workflow
+        // captures the decisive numbers (grep "[AWDiag]"). On a stall, log the
+        // full snapshot AND the access log's transfer stats at that instant.
+        let tag = stall ? "[AWDiag] STALL @\(Int(cur))s" : "[AWDiag] t=\(Int(cur))s"
+        let bw = e.map { String(format: "obsBW=%.2fMbps streamRate=%.2fMbps stalls=\($0.numberOfStalls) xfer=%.0fMB",
+                                $0.observedBitrate / 1_000_000, $0.indicatedBitrate / 1_000_000,
+                                Double($0.numberOfBytesTransferred) / 1_000_000) } ?? "no-accesslog"
+        print("\(tag) ahead=\(Int(ahead))s/\(Int(archivePreferredForwardBufferDuration))s "
+              + "keepUp=\(yn(item.isPlaybackLikelyToKeepUp)) empty=\(yn(item.isPlaybackBufferEmpty)) "
+              + "full=\(yn(item.isPlaybackBufferFull)) \(bw)")
     }
 
     private func yn(_ b: Bool) -> String { b ? "Y" : "n" }
