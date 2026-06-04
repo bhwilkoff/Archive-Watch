@@ -169,14 +169,17 @@ def source_year(item):
 
 
 def _clear_wrong_artwork(it, new_year):
-    """Strip a wrong external (TMDb/OMDb) match: drop its poster/backdrop, correct
-    the year when we have a confident one, and drop the match's synopsis if it came
-    from the same source (so the description no longer describes the wrong film —
-    enrichment refills from the corrected title). Shared by both #20 detectors."""
+    """Strip a wrong external (TMDb/OMDb) match: drop its poster/backdrop, NULL the
+    wrong identity (imdbID/tmdbID — otherwise the next enrichment cron re-fetches
+    the SAME wrong poster from the leftover wrong id), correct the year when we
+    have a confident one, and drop the match's synopsis if it came from the same
+    source. Shared by both #20 detectors + the #75 TMDb verifier."""
     it["posterURL"] = None
     it["backdropURL"] = None
     it["hasRealArtwork"] = False
     it["artworkSource"] = "archive"
+    it["imdbID"] = None
+    it["tmdbID"] = None
     if new_year is not None:
         it["year"] = new_year
         it["decade"] = decade_of(new_year)
