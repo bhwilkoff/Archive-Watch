@@ -100,6 +100,12 @@ struct SettingsView: View {
                     })
                 .signInWithAppleButtonStyle(.white)
                 .frame(height: 64)
+
+                if let err = account.signInError {
+                    Label(err, systemImage: "exclamationmark.triangle.fill")
+                        .font(.callout)
+                        .foregroundStyle(.orange)
+                }
             }
         } header: {
             Text("Account")

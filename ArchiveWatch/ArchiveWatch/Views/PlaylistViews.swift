@@ -156,10 +156,12 @@ struct WatchedSection: View {
                     .font(.title2.bold()).foregroundStyle(.white)
                     .padding(.horizontal, 80)
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(spacing: 28) {
+                    LazyHStack(alignment: .top, spacing: 40) {
                         ForEach(items) { item in
+                            // PosterTile self-sizes to 240 wide (poster + title);
+                            // an outer .frame(width: 200) was clipping it narrower
+                            // than its content, so adjacent titles overlapped.
                             PosterTile(item: item) { router.push(item) }
-                                .frame(width: 200)
                         }
                     }
                     .padding(.horizontal, 80)
@@ -186,32 +188,61 @@ struct PlaylistsSection: View {
                     .font(.title2.bold()).foregroundStyle(.white)
                     .padding(.horizontal, 80)
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 28) {
+                    LazyHStack(alignment: .top, spacing: 40) {
                         ForEach(playlists) { pl in
-                            Button { router.push(PlaylistRoute(id: pl.id)) } label: {
-                                VStack(alignment: .leading, spacing: 8) {
-                                    RoundedRectangle(cornerRadius: 14)
-                                        .fill(LinearGradient(colors: [Color(hex: "#2D5BFF") ?? .blue, .black],
-                                                             startPoint: .topLeading, endPoint: .bottomTrailing))
-                                        .frame(width: 300, height: 170)
-                                        .overlay(alignment: .bottomLeading) {
-                                            Image(systemName: "music.note.list")
-                                                .font(.system(size: 44))
-                                                .foregroundStyle(.white.opacity(0.85))
-                                                .padding(20)
-                                        }
-                                    Text(pl.name).font(.title3.bold()).foregroundStyle(.white).lineLimit(1)
-                                    Text("\(pl.archiveIDs.count) titles").font(.callout).foregroundStyle(.white.opacity(0.5))
-                                }
-                                .frame(width: 300)
-                            }
-                            .buttonStyle(.card)
+                            PlaylistTile(playlist: pl) { router.push(PlaylistRoute(id: pl.id)) }
                         }
                     }
                     .padding(.horizontal, 80)
+                    .padding(.vertical, 8)
                 }
+                .scrollClipDisabled()
             }
             .focusSection()
+        }
+    }
+}
+
+// Playlist cover tile — mirrors PosterTile's structure (poster-shaped card in a
+// .card Button, label text BELOW and OUTSIDE the button) so it matches every
+// other shelf. The old version was a one-off 300x170 landscape card with the
+// name+count INSIDE the .card button, which clipped the text on focus and didn't
+// match the portrait posters anywhere else in the app.
+private struct PlaylistTile: View {
+    let playlist: Playlist
+    let action: () -> Void
+    @FocusState private var isFocused: Bool
+
+    private let cardWidth: CGFloat = 240
+    private let cardHeight: CGFloat = 360
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Button(action: action) {
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(LinearGradient(colors: [Color(hex: "#2D5BFF") ?? .blue, .black],
+                                         startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .frame(width: cardWidth, height: cardHeight)
+                    .overlay {
+                        Image(systemName: "music.note.list")
+                            .font(.system(size: 72))
+                            .foregroundStyle(.white.opacity(0.85))
+                    }
+            }
+            .buttonStyle(.card)
+            .focused($isFocused)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(playlist.name)
+                    .font(.system(size: 19, weight: .semibold))
+                    .foregroundStyle(.white)
+                    .lineLimit(1)
+                Text("\(playlist.archiveIDs.count) titles")
+                    .font(.system(size: 17))
+                    .foregroundStyle(.white.opacity(0.55))
+            }
+            .frame(width: cardWidth, alignment: .leading)
+            .opacity(isFocused ? 1.0 : 0.85)
         }
     }
 }

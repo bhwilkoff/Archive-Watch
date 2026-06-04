@@ -38,29 +38,33 @@ struct FavoritesView: View {
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 24) {
-                HStack(spacing: 20) {
-                    Text("Library")
-                        .font(.title.bold())
-                        .foregroundStyle(.white)
-                    if !items.isEmpty {
-                        Text("\(items.count) titles")
-                            .font(.title3)
-                            .foregroundStyle(.white.opacity(0.5))
-                    }
-                    Spacer()
-                }
-                .padding(.horizontal, 80)
-                .padding(.top, 24)
+            VStack(alignment: .leading, spacing: 28) {
+                Text("Library")
+                    .font(.system(size: 54, weight: .heavy, design: .serif))
+                    .foregroundStyle(.white)
+                    .padding(.horizontal, 80)
+                    .padding(.top, 24)
 
-                PlaylistsSection()   // #12: user playlists above the favorites grid
-                WatchedSection()     // #12b: completed titles
-
+                // Favorites FIRST (the primary thing here) and clearly LABELED so
+                // users know these are the titles they saved. Playlists + Watched
+                // follow below. (Previously favorites were unlabeled and rendered
+                // BELOW the playlist/watched shelves, which pushed them off-screen
+                // when those shelves had content.)
                 if items.isEmpty {
                     emptyState
                         .frame(maxWidth: .infinity)
-                        .padding(.top, 100)
+                        .padding(.top, 60)
                 } else {
+                    HStack(alignment: .firstTextBaseline, spacing: 16) {
+                        Text("Favorites")
+                            .font(.title2.bold())
+                            .foregroundStyle(.white)
+                        Text("\(items.count)")
+                            .font(.title3)
+                            .foregroundStyle(.white.opacity(0.45))
+                    }
+                    .padding(.horizontal, 80)
+
                     LazyVGrid(columns: cols, alignment: .leading, spacing: 48) {
                         ForEach(items) { item in
                             CompactTile(item: item) {
@@ -70,9 +74,12 @@ struct FavoritesView: View {
                         }
                     }
                     .padding(.horizontal, 80)
-                    .padding(.bottom, 80)
                 }
+
+                PlaylistsSection()   // #12: user playlists
+                WatchedSection()     // #12b: completed titles
             }
+            .padding(.bottom, 80)
         }
         .background(Color.black.ignoresSafeArea())
         .task {

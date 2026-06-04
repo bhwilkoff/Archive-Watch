@@ -489,6 +489,11 @@ struct PlayerScreen: View {
         self.startMuted = startMuted
         _current = State(initialValue: catalogItem)
         _muted = State(initialValue: startMuted)
+        // #6: a lineup IS a channel/party/cartoon session, so autoplay is ON by
+        // default for it (the in-player Autoplay setting reflects this, and it
+        // keeps going after the fixed lineup is exhausted). Single films fall back
+        // to the global Settings default (nil).
+        _sessionMode = State(initialValue: lineup != nil ? .sameCategory : nil)
     }
 
     /// #1 channels / #3 party / #2 cartoon: start a continuous lineup at item 0.
@@ -537,6 +542,13 @@ struct PlayerScreen: View {
                 sessionMode = mode
             }
         }
+        // #5: a manual "Play Next" in the transport bar so you can advance on
+        // demand instead of only at end-of-film (the episode player already has
+        // "Next Episode"; movies/channels had no manual next).
+        let playNext = UIAction(
+            title: "Play Next",
+            image: UIImage(systemName: "forward.end.fill")
+        ) { _ in advanceNow() }
         let muteToggle = UIAction(
             title: muted ? "Play with Sound" : "Mute",
             image: UIImage(systemName: muted ? "speaker.wave.2.fill" : "speaker.slash.fill")
@@ -544,9 +556,27 @@ struct PlayerScreen: View {
             muted.toggle()
             player?.isMuted = muted
         }
-        return [muteToggle,
+        return [playNext, muteToggle,
                 UIMenu(title: "Autoplay Next",
                        image: UIImage(systemName: "play.circle"), children: actions)]
+    }
+
+    /// Advance to the next title now: the next lineup item if any, otherwise the
+    /// autoplay pick. Falls back to "More Like This" when autoplay is Off so the
+    /// manual control is never a dead end. Shared by the manual "Play Next" (#5)
+    /// and the end-of-film autoplay (#10).
+    private func advanceNow() {
+        if let lineup, lineupIndex + 1 < lineup.count {
+            lineupIndex += 1
+            current = lineup[lineupIndex]
+            return
+        }
+        guard let cur = current else { return }
+        let mode = sessionMode ?? store.autoplayMode
+        let effective: AutoplayMode = (mode == .off) ? .sameCategory : mode
+        if let nextItem = ContinuousPlayback.next(after: cur, mode: effective, store: store) {
+            current = nextItem
+        }
     }
 
     @ViewBuilder

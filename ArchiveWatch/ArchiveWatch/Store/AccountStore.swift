@@ -11,6 +11,10 @@ import Observation
 final class AccountStore {
     private(set) var appleUserID: String?
     var isSignedIn: Bool { appleUserID != nil }
+    // Last sign-in failure, surfaced in Settings. Most commonly this is the
+    // missing "Sign in with Apple" capability on the App ID (the request errors
+    // out immediately) — without it the button looked like it did nothing.
+    private(set) var signInError: String?
 
     private let key = "appleUserID"
 
@@ -23,10 +27,20 @@ final class AccountStore {
     }
 
     func handle(_ result: Result<ASAuthorization, Error>) {
-        guard case .success(let auth) = result,
-              let cred = auth.credential as? ASAuthorizationAppleIDCredential else { return }
-        appleUserID = cred.user
-        UserDefaults.standard.set(cred.user, forKey: key)
+        switch result {
+        case .success(let auth):
+            guard let cred = auth.credential as? ASAuthorizationAppleIDCredential else { return }
+            appleUserID = cred.user
+            UserDefaults.standard.set(cred.user, forKey: key)
+            signInError = nil
+        case .failure(let error):
+            // User-cancelled is not an error worth showing.
+            if (error as NSError).code == ASAuthorizationError.canceled.rawValue {
+                signInError = nil
+            } else {
+                signInError = error.localizedDescription
+            }
+        }
     }
 
     func signOut() {
