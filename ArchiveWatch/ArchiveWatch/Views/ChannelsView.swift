@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 // #1 24-hour programming channels (tvOS-DESIGN §2.2 / §9.1). A channel is a saved
 // query realized as a continuous now/next lineup, played through the shared F4
@@ -32,7 +33,10 @@ struct Channel: Identifiable, Hashable {
 
 struct ChannelsView: View {
     @Environment(AppStore.self) private var store
-    @State private var playing: Channel?
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: \UserChannel.createdAt, order: .reverse) private var userChannels: [UserChannel]
+    @State private var playing: ChannelLineup?
+    @State private var showCreate = false
 
     private let cols = Array(repeating: GridItem(.flexible(), spacing: 32), count: 3)
 
@@ -41,8 +45,20 @@ struct ChannelsView: View {
             VStack(alignment: .leading, spacing: 28) {
                 header
                 LazyVGrid(columns: cols, spacing: 32) {
+                    // #1b: create-your-own + saved user channels first.
+                    Button { showCreate = true } label: { CreateChannelCard() }
+                        .buttonStyle(.card)
+                    ForEach(userChannels) { uc in
+                        Button { play(lineup(forUser: uc)) } label: { UserChannelCard(channel: uc) }
+                            .buttonStyle(.card)
+                            .contextMenu {
+                                Button(role: .destructive) {
+                                    modelContext.delete(uc); try? modelContext.save()
+                                } label: { Label("Delete Channel", systemImage: "trash") }
+                            }
+                    }
                     ForEach(Channel.all) { channel in
-                        Button { playing = channel } label: { ChannelCard(channel: channel) }
+                        Button { play(lineup(for: channel)) } label: { ChannelCard(channel: channel) }
                             .buttonStyle(.card)
                     }
                 }
@@ -51,21 +67,20 @@ struct ChannelsView: View {
             .padding(.vertical, 44)
         }
         .background(Color.black.ignoresSafeArea())
-        .fullScreenCover(item: $playing) { channel in
-            if let screen = PlayerScreen(lineup: lineup(for: channel)) {
-                screen
-            } else {
-                ChannelUnavailable()
-            }
+        .fullScreenCover(item: $playing) { box in
+            if let screen = PlayerScreen(lineup: box.items) { screen } else { ChannelUnavailable() }
         }
+        .sheet(isPresented: $showCreate) { CreateChannelSheet() }
     }
+
+    private func play(_ items: [Catalog.Item]) { playing = ChannelLineup(items: items) }
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Channels")
                 .font(.system(size: 52, weight: .heavy, design: .serif))
                 .foregroundStyle(.white)
-            Text("Tune in and it just plays — each title rolls into the next.")
+            Text("Tune in and it just plays — each title rolls into the next. Build your own from any filter.")
                 .font(.title3)
                 .foregroundStyle(.white.opacity(0.6))
         }
@@ -73,17 +88,24 @@ struct ChannelsView: View {
     }
 
     private func lineup(for channel: Channel) -> [Catalog.Item] {
-        var items: [Catalog.Item]
-        if let g = channel.genre {
-            items = store.dbBrowse(genre: g, sort: .popular, limit: 200)
-        } else {
-            items = store.dbBrowse(contentType: channel.contentType, sort: .popular, limit: 200)
-        }
-        items = items.filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
-        items.shuffle()
-        return items
+        let raw = channel.genre.map { store.dbBrowse(genre: $0, sort: .popular, limit: 200) }
+            ?? store.dbBrowse(contentType: channel.contentType, sort: .popular, limit: 200)
+        return finalize(raw)
+    }
+
+    private func lineup(forUser uc: UserChannel) -> [Catalog.Item] {
+        finalize(store.dbBrowse(contentType: uc.contentType, decade: uc.decade,
+                                genre: uc.genre, sort: .popular, limit: 250))
+    }
+
+    private func finalize(_ items: [Catalog.Item]) -> [Catalog.Item] {
+        var out = items.filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
+        out.shuffle()
+        return out
     }
 }
+
+struct ChannelLineup: Identifiable { let id = UUID(); let items: [Catalog.Item] }
 
 private struct ChannelCard: View {
     let channel: Channel
@@ -128,5 +150,105 @@ private struct ChannelUnavailable: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black.ignoresSafeArea())
         .onAppear { focused = true }
+    }
+}
+
+// MARK: - #1b user channels: create card, card, sheet
+
+private struct CreateChannelCard: View {
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 18)
+                .strokeBorder(style: StrokeStyle(lineWidth: 3, dash: [10]))
+                .foregroundStyle(.white.opacity(0.3))
+            VStack(spacing: 10) {
+                Image(systemName: "plus.circle.fill").font(.system(size: 50))
+                Text("Create Channel").font(.system(size: 24, weight: .semibold))
+            }
+            .foregroundStyle(.white.opacity(0.8))
+        }
+        .frame(height: 220)
+    }
+}
+
+private struct UserChannelCard: View {
+    let channel: UserChannel
+    private var summary: String {
+        [channel.genre, channel.contentType.map { $0.replacingOccurrences(of: "-", with: " ").capitalized },
+         channel.decade.map { "\(String($0))s" }].compactMap { $0 }.joined(separator: " · ")
+    }
+    var body: some View {
+        ZStack(alignment: .bottomLeading) {
+            LinearGradient(colors: [Color(hex: "#0047FF") ?? .blue, .black],
+                           startPoint: .topLeading, endPoint: .bottomTrailing)
+            Image(systemName: "dot.radiowaves.left.and.right")
+                .font(.system(size: 56)).foregroundStyle(.white.opacity(0.18))
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing).padding(20)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(channel.name).font(.system(size: 30, weight: .bold)).foregroundStyle(.white).lineLimit(1)
+                Text(summary.isEmpty ? "All titles" : summary)
+                    .font(.system(size: 19)).foregroundStyle(.white.opacity(0.8)).lineLimit(1)
+            }
+            .padding(22)
+        }
+        .frame(height: 220)
+        .clipShape(RoundedRectangle(cornerRadius: 18))
+    }
+}
+
+private struct CreateChannelSheet: View {
+    @Environment(\.modelContext) private var ctx
+    @Environment(\.dismiss) private var dismiss
+    @State private var name = ""
+    @State private var genre = "Any"
+    @State private var type = "Any"
+    @State private var decade = 0   // 0 = Any
+    @FocusState private var nameFocused: Bool
+
+    private let genres = ["Any", "Drama", "Comedy", "Crime", "Thriller", "Romance",
+                          "Action", "Horror", "Mystery", "Western", "Documentary",
+                          "Adventure", "War", "Fantasy", "Family", "Music", "Science Fiction"]
+    private let types = ["Any", "feature-film", "animation", "silent-film",
+                         "short-film", "newsreel", "documentary"]
+    private let decades = [0, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010]
+
+    private var canSave: Bool {
+        !name.trimmingCharacters(in: .whitespaces).isEmpty &&
+        (genre != "Any" || type != "Any" || decade != 0)
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 22) {
+            Text("Create a Channel").font(.system(size: 38, weight: .bold)).foregroundStyle(.white)
+            TextField("Channel name", text: $name)
+                .textFieldStyle(.plain).padding(14)
+                .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 10))
+                .focused($nameFocused)
+            Picker("Genre", selection: $genre) { ForEach(genres, id: \.self) { Text($0) } }
+            Picker("Type", selection: $type) {
+                ForEach(types, id: \.self) { Text($0 == "Any" ? "Any" : $0.replacingOccurrences(of: "-", with: " ").capitalized) }
+            }
+            Picker("Era", selection: $decade) {
+                ForEach(decades, id: \.self) { Text($0 == 0 ? "Any" : "\(String($0))s") }
+            }
+            HStack(spacing: 20) {
+                Button("Create") {
+                    ctx.insert(UserChannel(
+                        name: name.trimmingCharacters(in: .whitespaces),
+                        genre: genre == "Any" ? nil : genre,
+                        contentType: type == "Any" ? nil : type,
+                        decade: decade == 0 ? nil : decade))
+                    try? ctx.save(); dismiss()
+                }
+                .buttonStyle(.borderedProminent).disabled(!canSave)
+                Button("Cancel") { dismiss() }.buttonStyle(.bordered)
+            }
+            .padding(.top, 8)
+        }
+        .padding(60)
+        .frame(maxWidth: 1000, alignment: .leading)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black.opacity(0.93).ignoresSafeArea())
+        .onAppear { nameFocused = true }
     }
 }

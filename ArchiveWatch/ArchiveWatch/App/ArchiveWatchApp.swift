@@ -36,7 +36,8 @@ struct ArchiveWatchApp: App {
     // location (Caches on tvOS), and finally to an in-memory store so the app
     // always launches.
     private static func makeModelContainer() -> ModelContainer {
-        let schema = Schema([ContentItem.self, WatchProgress.self, Favorite.self, Playlist.self])
+        let schema = Schema([ContentItem.self, WatchProgress.self, Favorite.self,
+                             Playlist.self, UserChannel.self])
         if let container = try? ModelContainer(
             for: schema,
             configurations: ModelConfiguration(

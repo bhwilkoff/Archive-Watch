@@ -70,3 +70,26 @@ final class Playlist {
 
     func contains(_ archiveID: String) -> Bool { archiveIDs.contains(archiveID) }
 }
+
+// #1b: a user-created 24-hour channel — a saved full-DB filter (any combination
+// of genre / content type / decade) realized as a continuous lineup via the same
+// engine as the preset channels. Syncs with #11 once enabled.
+@Model
+final class UserChannel {
+    @Attribute(.unique) var id: String
+    var name: String
+    var genre: String?
+    var contentType: String?
+    var decade: Int?
+    var createdAt: Date
+
+    init(id: String = UUID().uuidString, name: String,
+         genre: String? = nil, contentType: String? = nil, decade: Int? = nil) {
+        self.id = id
+        self.name = name
+        self.genre = genre
+        self.contentType = contentType
+        self.decade = decade
+        self.createdAt = Date()
+    }
+}
