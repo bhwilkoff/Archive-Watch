@@ -1,6 +1,7 @@
 import SwiftUI
 import AVKit
 import AVFoundation
+import UIKit
 
 // Native tvOS playback surface.
 //
@@ -22,6 +23,57 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
 
     func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {
         if vc.player !== player { vc.player = player }
+    }
+}
+
+// Episode-aware player surface (#9, tvOS-DESIGN §8.3): the native
+// AVPlayerViewController plus tvOS episode navigation — "Next Episode" as a
+// contextualAction (the prompt that auto-surfaces near the end of an episode) and
+// both prev/next as transportBarCustomMenuItems (reachable any time from the
+// transport bar). The native Info tab already shows title/synopsis/genre from the
+// item's externalMetadata, so we add navigation, not a parallel transport (§8.1).
+struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
+    let player: AVPlayer
+    var hasPrev: Bool
+    var hasNext: Bool
+    var onPrev: () -> Void
+    var onNext: () -> Void
+
+    func makeUIViewController(context: Context) -> AVPlayerViewController {
+        let vc = AVPlayerViewController()
+        vc.player = player
+        context.coordinator.apply(to: vc)
+        return vc
+    }
+
+    func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {
+        if vc.player !== player { vc.player = player }
+        context.coordinator.parent = self
+        context.coordinator.apply(to: vc)
+    }
+
+    func makeCoordinator() -> Coordinator { Coordinator(self) }
+
+    final class Coordinator {
+        var parent: EpisodeAVPlayerContainer
+        init(_ parent: EpisodeAVPlayerContainer) { self.parent = parent }
+
+        func apply(to vc: AVPlayerViewController) {
+            let prev = UIAction(title: "Previous Episode",
+                                image: UIImage(systemName: "backward.end.fill")) { [weak self] _ in
+                self?.parent.onPrev()
+            }
+            let next = UIAction(title: "Next Episode",
+                                image: UIImage(systemName: "forward.end.fill")) { [weak self] _ in
+                self?.parent.onNext()
+            }
+            var menu: [UIMenuElement] = []
+            if parent.hasPrev { menu.append(prev) }
+            if parent.hasNext { menu.append(next) }
+            vc.transportBarCustomMenuItems = menu
+            // The end-of-episode prompt: only "Next Episode" when there is one.
+            vc.contextualActions = parent.hasNext ? [next] : []
+        }
     }
 }
 

@@ -54,12 +54,16 @@ struct EpisodePlayerScreen: View {
             if case .failed(let message) = playback {
                 failureView(message)
             } else if let player {
-                // AVPlayerViewController (same as the film player) — robust on
-                // tvOS and shows a native buffering spinner while large Archive
-                // MP4s load (8-15s for some), so a slow start doesn't read as a
-                // black "doesn't load". Its native transport + our end-of-item
-                // observer (auto-advance) cover prev/next.
-                AVPlayerContainer(player: player)
+                // Episode-aware native player (#9): adds Next/Previous Episode
+                // (contextual end-of-episode prompt + transport-bar menu) on top
+                // of the native transport. Auto-advance on end still applies.
+                EpisodeAVPlayerContainer(
+                    player: player,
+                    hasPrev: series.episode(before: currentEpisode) != nil,
+                    hasNext: series.episode(after: currentEpisode) != nil,
+                    onPrev: { if let p = series.episode(before: currentEpisode) { currentEpisode = p } },
+                    onNext: { if let n = series.episode(after: currentEpisode) { currentEpisode = n } }
+                )
                     .ignoresSafeArea()
                     .onAppear { player.play() }
             } else {
