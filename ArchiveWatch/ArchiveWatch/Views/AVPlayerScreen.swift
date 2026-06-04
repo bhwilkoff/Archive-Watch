@@ -18,6 +18,7 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
         vc.player = player
+        vc.speeds = AVPlaybackSpeed.systemDefaultSpeeds   // #5: native speed menu
         return vc
     }
 
@@ -42,6 +43,7 @@ struct EpisodeAVPlayerContainer: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
         vc.player = player
+        vc.speeds = AVPlaybackSpeed.systemDefaultSpeeds   // #5: native speed menu
         context.coordinator.apply(to: vc)
         return vc
     }
