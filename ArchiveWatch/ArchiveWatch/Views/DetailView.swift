@@ -416,6 +416,7 @@ struct PlayerScreen: View {
     @State private var timeObserver: Any?
     @State private var freezeGuard = PlaybackFreezeGuard()
     @State private var nowPlaying = NowPlayingController()
+    @State private var streamLoader: ResilientStreamLoader?
 
     var body: some View {
         ZStack {
@@ -436,7 +437,9 @@ struct PlayerScreen: View {
     }
 
     private func setupPlayer() {
-        let playerItem = AVPlayerItem(url: url)
+        let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
+        streamLoader = loader
+        let playerItem = AVPlayerItem(asset: asset)
         if let catalogItem {
             playerItem.externalMetadata = makeExternalMetadata(for: catalogItem)
         }
@@ -478,6 +481,7 @@ struct PlayerScreen: View {
         player?.pause()
         player = nil
         timeObserver = nil
+        streamLoader = nil
     }
 
     private func persistProgress(at position: Double, duration: Double?) {

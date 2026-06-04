@@ -23,6 +23,7 @@ struct EpisodePlayerScreen: View {
     @State private var timeObserver: Any?
     @State private var freezeGuard = PlaybackFreezeGuard()
     @State private var nowPlaying = NowPlayingController()
+    @State private var streamLoader: ResilientStreamLoader?
     @State private var statusObserver: NSKeyValueObservation?
     @State private var timeoutTask: Task<Void, Never>?
     @State private var playback: PlaybackState = .loading
@@ -131,7 +132,9 @@ struct EpisodePlayerScreen: View {
             return
         }
         playback = .loading
-        let item = AVPlayerItem(url: url)
+        let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
+        streamLoader = loader
+        let item = AVPlayerItem(asset: asset)
         // Show the episode title in the transport, and suppress the MP4's bogus
         // embedded creation year (epoch-0 -> "1969") the same way the movie
         // player does (see suppressedDateMetadata).
@@ -229,6 +232,7 @@ struct EpisodePlayerScreen: View {
         player?.pause()
         player = nil
         timeObserver = nil
+        streamLoader = nil
         statusObserver?.invalidate()
         statusObserver = nil
         timeoutTask?.cancel()
