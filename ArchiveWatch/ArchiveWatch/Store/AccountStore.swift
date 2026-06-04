@@ -94,9 +94,15 @@ private final class SignInCoordinator: NSObject,
 
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         let scenes = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
-        let window = scenes.first { $0.activationState == .foregroundActive }?
-            .windows.first { $0.isKeyWindow }
-            ?? scenes.flatMap { $0.windows }.first
-        return window ?? ASPresentationAnchor()
+        let scene = scenes.first { $0.activationState == .foregroundActive } ?? scenes.first
+        // The app's real window in every practical case.
+        if let win = scene?.windows.first(where: { $0.isKeyWindow }) ?? scene?.windows.first {
+            return win
+        }
+        // Last resort: a window bound to the live scene. (Bare UIWindow() /
+        // UIWindow(frame:) are deprecated on tvOS 26 — only init(windowScene:)
+        // remains.) presentationAnchor is only called while presenting, so a
+        // window scene always exists here.
+        return UIWindow(windowScene: scene!)
     }
 }
