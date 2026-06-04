@@ -412,6 +412,7 @@ struct PlayerScreen: View {
     let archiveID: String
     var catalogItem: Catalog.Item? = nil
     @Environment(\.modelContext) private var modelContext
+    @Environment(AppStore.self) private var store
     @State private var player: AVPlayer?
     @State private var timeObserver: Any?
     @State private var freezeGuard = PlaybackFreezeGuard()
@@ -419,8 +420,22 @@ struct PlayerScreen: View {
     @State private var streamLoader: ResilientStreamLoader?
     @State private var statusObserver: NSKeyValueObservation?
     @State private var timeoutTask: Task<Void, Never>?
+    @State private var endObserver: NSObjectProtocol?
     @State private var playback: PlaybackState = .loading
+    // #10: the item currently playing. Autoplay swaps this on end-of-item; the
+    // player rebuilds (like EpisodePlayerScreen's currentEpisode). nil only when
+    // launched without a catalog item (deep link) — then autoplay is inert.
+    @State private var current: Catalog.Item?
+    // Per-video autoplay override; nil = use the global Settings default.
+    @State private var sessionMode: AutoplayMode?
     @Environment(\.dismiss) private var dismiss
+
+    init(url: URL, archiveID: String, catalogItem: Catalog.Item? = nil) {
+        self.url = url
+        self.archiveID = archiveID
+        self.catalogItem = catalogItem
+        _current = State(initialValue: catalogItem)
+    }
 
     // #19: a broken item (dead URL, stale non-MP4 derivative, decode reject, or a
     // load that never readies) must not dead-end on the system "no-entry" circle.
@@ -435,7 +450,7 @@ struct PlayerScreen: View {
             if case .failed(let message) = playback {
                 failureView(message)
             } else if let player {
-                AVPlayerContainer(player: player)
+                AVPlayerContainer(player: player, menuItems: autoplayMenu)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
             } else {
@@ -444,6 +459,24 @@ struct PlayerScreen: View {
         }
         .onAppear { setupPlayer() }
         .onDisappear { teardownPlayer() }
+        // #10: autoplay swapped `current` -> rebuild the player for the next film.
+        .onChange(of: current?.archiveID) { _, _ in
+            teardownPlayer()
+            playback = .loading
+            setupPlayer()
+        }
+    }
+
+    // #10 (tvOS-DESIGN §8.5): per-video autoplay override in the transport menu.
+    private var autoplayMenu: [UIMenuElement] {
+        let active = sessionMode ?? store.autoplayMode
+        let actions = AutoplayMode.allCases.map { mode in
+            UIAction(title: mode.label, state: mode == active ? .on : .off) { _ in
+                sessionMode = mode
+            }
+        }
+        return [UIMenu(title: "Autoplay Next",
+                       image: UIImage(systemName: "play.circle"), children: actions)]
     }
 
     @ViewBuilder
@@ -482,19 +515,23 @@ struct PlayerScreen: View {
         }
     }
 
+    private var activeArchiveID: String { current?.archiveID ?? archiveID }
+
     private func setupPlayer() {
         playback = .loading
-        let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
+        let active = current ?? catalogItem
+        let playURL = active?.videoURLParsed ?? url
+        let (asset, loader) = ResilientStreamLoader.makeAsset(for: playURL)
         streamLoader = loader
         let playerItem = AVPlayerItem(asset: asset)
-        if let catalogItem {
-            playerItem.externalMetadata = makeExternalMetadata(for: catalogItem)
+        if let active {
+            playerItem.externalMetadata = makeExternalMetadata(for: active)
         }
         let p = AVPlayer(playerItem: playerItem)
         tunePlaybackBuffering(item: playerItem, player: p)
         player = p
         freezeGuard.attach(to: p, item: playerItem)
-        nowPlaying.begin(posterURL: catalogItem?.posterURLParsed, item: playerItem)
+        nowPlaying.begin(posterURL: active?.posterURLParsed, item: playerItem)
 
         // Watch the item ready or fail so a broken stream becomes a visible,
         // recoverable error instead of the dead "no-entry" circle (#19). KVO can
@@ -523,9 +560,9 @@ struct PlayerScreen: View {
             }
         }
 
-        let archiveID = self.archiveID
+        let aid = activeArchiveID
         let descriptor = FetchDescriptor<WatchProgress>(
-            predicate: #Predicate<WatchProgress> { $0.archiveID == archiveID }
+            predicate: #Predicate<WatchProgress> { $0.archiveID == aid }
         )
         if let existing = try? modelContext.fetch(descriptor).first,
            existing.positionSeconds > 10,
@@ -539,10 +576,24 @@ struct PlayerScreen: View {
                 persistProgress(at: time.seconds, duration: p.currentItem?.duration.seconds)
             }
         }
+
+        // #10: when this film finishes, autoplay the next per the effective mode.
+        endObserver = NotificationCenter.default.addObserver(
+            forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: .main
+        ) { _ in
+            Task { @MainActor in
+                guard let cur = current else { return }
+                let mode = sessionMode ?? store.autoplayMode
+                if let nextItem = ContinuousPlayback.next(after: cur, mode: mode, store: store) {
+                    current = nextItem   // -> onChange rebuilds the player
+                }
+            }
+        }
     }
 
     private func teardownPlayer(persist: Bool = true) {
         if let obs = timeObserver { player?.removeTimeObserver(obs) }
+        if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
         freezeGuard.detach()
         nowPlaying.end()
         if persist, let p = player {
@@ -560,8 +611,9 @@ struct PlayerScreen: View {
 
     private func persistProgress(at position: Double, duration: Double?) {
         guard position.isFinite, position > 0 else { return }
+        let aid = activeArchiveID
         let descriptor = FetchDescriptor<WatchProgress>(
-            predicate: #Predicate<WatchProgress> { $0.archiveID == archiveID }
+            predicate: #Predicate<WatchProgress> { $0.archiveID == aid }
         )
         do {
             if let existing = try modelContext.fetch(descriptor).first {
@@ -570,7 +622,7 @@ struct PlayerScreen: View {
                 existing.lastWatchedAt = Date()
             } else {
                 let record = WatchProgress(
-                    archiveID: archiveID,
+                    archiveID: aid,
                     positionSeconds: position,
                     durationSeconds: (duration?.isFinite == true) ? (duration ?? 0) : 0,
                     seriesID: nil,

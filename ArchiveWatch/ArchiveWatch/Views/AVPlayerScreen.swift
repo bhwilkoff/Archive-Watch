@@ -14,16 +14,19 @@ import UIKit
 
 struct AVPlayerContainer: UIViewControllerRepresentable {
     let player: AVPlayer
+    var menuItems: [UIMenuElement] = []   // #10: per-video transport menu (autoplay override)
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
         vc.player = player
         vc.speeds = AVPlaybackSpeed.systemDefaultSpeeds   // #5: native speed menu
+        vc.transportBarCustomMenuItems = menuItems
         return vc
     }
 
     func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {
         if vc.player !== player { vc.player = player }
+        vc.transportBarCustomMenuItems = menuItems        // reflect autoplay-mode changes
     }
 }
 

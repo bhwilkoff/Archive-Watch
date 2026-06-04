@@ -76,6 +76,16 @@ final class AppStore {
         return UserDefaults.standard.bool(forKey: hideWatchedKey)
     }
 
+    // #10: global autoplay-next default for the movie player (off by default —
+    // the user opts in). A per-video override lives in the player's transport.
+    var autoplayMode: AutoplayMode = AppStore.loadAutoplayMode() {
+        didSet { UserDefaults.standard.set(autoplayMode.rawValue, forKey: Self.autoplayKey) }
+    }
+    private static let autoplayKey = "autoplayMode"
+    private static func loadAutoplayMode() -> AutoplayMode {
+        AutoplayMode(rawValue: UserDefaults.standard.string(forKey: autoplayKey) ?? "") ?? .off
+    }
+
     /// Drop completed titles from a Home list when the setting is on. No-op
     /// otherwise. Used by HomeView's hero + shelves.
     func filteringWatched(_ items: [Catalog.Item]) -> [Catalog.Item] {

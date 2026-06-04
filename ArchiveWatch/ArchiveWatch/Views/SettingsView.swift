@@ -32,6 +32,7 @@ struct SettingsView: View {
             List {
                 visibilitySection
                 homeSection
+                playbackSection
                 matureSection
                 attributionSection
                 aboutSection
@@ -70,6 +71,27 @@ struct SettingsView: View {
         } footer: {
             Text("On by default. Finished titles stay out of Home shelves but remain in Search, Browse, and Continue Watching.")
         }
+    }
+
+    // #10 (tvOS-DESIGN §8.5)
+    private var playbackSection: some View {
+        Section {
+            Picker(selection: autoplayBinding) {
+                ForEach(AutoplayMode.allCases) { mode in
+                    Text(mode.label).tag(mode)
+                }
+            } label: {
+                ToggleLabel(title: "Autoplay Next")
+            }
+        } header: {
+            Text("Playback")
+        } footer: {
+            Text("When a film ends, automatically play another. Off by default. You can also change this for the current video from its transport menu. TV episodes always continue to the next episode.")
+        }
+    }
+
+    private var autoplayBinding: Binding<AutoplayMode> {
+        Binding(get: { store.autoplayMode }, set: { store.autoplayMode = $0 })
     }
 
     private var matureSection: some View {
