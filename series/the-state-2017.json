@@ -1,87 +1,90 @@
 {
- "version": 2,
- "seriesID": "the-state-2017",
- "tvmazeID": 30837,
- "title": "The State",
- "yearStart": 2017,
- "yearEnd": 2017,
- "overview": "Award-winner Peter Kosminsky's compelling new drama, based on extensive research, follows the experiences of four British men and women who leave everything behind to join Isis in Syria.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/125/313531.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "War"
- ],
- "networks": [
-  "Channel 4"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 4,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-state-2017",
+  "tvmazeID": 30837,
+  "title": "The State",
+  "yearStart": 2017,
+  "yearEnd": 2017,
+  "overview": "Award-winner Peter Kosminsky's compelling new drama, based on extensive research, follows the experiences of four British men and women who leave everything behind to join Isis in Syria.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/125/313531.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "War"
+  ],
+  "networks": [
+    "Channel 4"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "the-state-season-4-mkv",
-     "seasonNumber": 4,
-     "episodeNumber": 7,
-     "title": "The State - Season 4",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/umNUBcqpuwpnLzihvROZoWn8X5C.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The State - S04E07.mp4",
-      "format": "h.264",
-      "sizeBytes": 144626462,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-state-season-4-mkv/The State - S04E07.mp4"
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "the-state-season-4-mkv",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "The State - Season 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/umNUBcqpuwpnLzihvROZoWn8X5C.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The State - S04E07.mp4",
+            "format": "h.264",
+            "sizeBytes": 144626462,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-state-season-4-mkv/The State - S04E07.mp4"
+        },
+        {
+          "archiveID": "the-state-season-4-commentary-audio-track-subtitles-mkv",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "The State - Season 4 - Commentary Audio Track & Subtitles",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/umNUBcqpuwpnLzihvROZoWn8X5C.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The State - S04E07.mp4",
+            "format": "h.264",
+            "sizeBytes": 144322740,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-state-season-4-commentary-audio-track-subtitles-mkv/The State - S04E07.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "the-state-season-4-commentary-audio-track-subtitles-mkv",
-     "seasonNumber": 4,
-     "episodeNumber": 7,
-     "title": "The State - Season 4 - Commentary Audio Track & Subtitles",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/umNUBcqpuwpnLzihvROZoWn8X5C.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The State - S04E07.mp4",
-      "format": "h.264",
-      "sizeBytes": 144322740,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-state-season-4-commentary-audio-track-subtitles-mkv/The State - S04E07.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "the-state-season-9-43rd-annual-all-star-halloween-special-xvid-avi",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The State - Season 9 - 43rd Annual All-Star Halloween Special - XviD AVI",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/umNUBcqpuwpnLzihvROZoWn8X5C.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The State - S09 - 43rd Annual All-Star Halloween Special.mp4",
+            "format": "h.264",
+            "sizeBytes": 277999078,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-state-season-9-43rd-annual-all-star-halloween-special-xvid-avi/The State - S09 - 43rd Annual All-Star Halloween Special.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "the-state-season-9-43rd-annual-all-star-halloween-special-xvid-avi",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The State - Season 9 - 43rd Annual All-Star Halloween Special - XviD AVI",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/umNUBcqpuwpnLzihvROZoWn8X5C.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The State - S09 - 43rd Annual All-Star Halloween Special.mp4",
-      "format": "h.264",
-      "sizeBytes": 277999078,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-state-season-9-43rd-annual-all-star-halloween-special-xvid-avi/The State - S09 - 43rd Annual All-Star Halloween Special.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 3,
- "canonicalEpisodesCount": 4
+  ],
+  "episodesCount": 3,
+  "canonicalEpisodesCount": 4,
+  "seriesImdbID": "tt6068620",
+  "canonicalEpisodeCount": 2,
+  "canonicalSeasons": 1
 }

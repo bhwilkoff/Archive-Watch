@@ -4,7 +4,7 @@
   "tvmazeID": 573,
   "title": "Everybody Loves Raymond",
   "yearStart": 1996,
-  "yearEnd": 2005,
+  "yearEnd": 2023,
   "overview": "Ray Barone is a successful sportswriter who deals with his brother and parents, who happen to live across the street.",
   "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/495/1238665.jpg",
   "backdropURL": null,
@@ -17,6 +17,65 @@
   ],
   "creator": null,
   "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "everybody-loves-raymond-s01e01-pilot",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Everybody Loves Raymond - S01E01 - Pilot",
+          "overview": "<span><span>Ray Barone's life seems perfect: he's a successful \nsportswriter living with his wife Debra and three kids, but trouble \ncomes in paradise in the shape of his interfering mother, grumpy father \nand resentful brother. In this opening episode of the series, Debra \nwants a peaceful birthday with Ray, so he</span><span class=\"yZlgBd\"> tells his parents and brother that there's no party: a lie with embarrassing consequences.</span></span>",
+          "stillURL": "https://archive.org/services/img/everybody-loves-raymond-s01e01-pilot",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": 1413,
+          "videoFile": {
+            "name": "Everybody Loves Raymond S01E01 Pilot.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 258707013,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/everybody-loves-raymond-s01e01-pilot/Everybody%20Loves%20Raymond%20S01E01%20Pilot.mp4"
+        },
+        {
+          "archiveID": "everybody-loves-raymond-s-01-e-01-pilot-theatical-version",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Everybody Loves Raymond S01E01 Pilot Theatrical Version",
+          "overview": "Debra yearns for a peaceful and quiet birthday at home with just Raymond. So he tells his parents and brother that there's no party. ",
+          "stillURL": "https://archive.org/services/img/everybody-loves-raymond-s-01-e-01-pilot-theatical-version",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": 1286,
+          "videoFile": {
+            "name": "Everybody Loves Raymond S01E01 Pilot Theatical Version.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1077673853,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/everybody-loves-raymond-s-01-e-01-pilot-theatical-version/Everybody%20Loves%20Raymond%20S01E01%20Pilot%20Theatical%20Version.ia.mp4"
+        },
+        {
+          "archiveID": "img-0252_202306",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Everybody Loves Raymond - Fighting In-Laws Clips",
+          "overview": "A few clips of the episode “Fighting In Laws” on Everybody Loves Raymond, 2 of them are of the arguments of Debra’s parents, while one of them is of the argument between Ray &amp; Debra when they compare how bad each other’s parents are and everything wrong with each other’s parents in comparison to their own (Debra also repeatedly drops the Thanksgiving Day Turkey by accident before throwing it into the oven to heat up right after in that one by the way).",
+          "stillURL": "https://archive.org/services/img/img-0252_202306",
+          "airDate": null,
+          "year": 2023,
+          "runtimeSeconds": 357,
+          "videoFile": {
+            "name": "IMG_0252.mp4",
+            "format": "h.264",
+            "sizeBytes": 35736495,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/img-0252_202306/IMG_0252.mp4"
+        }
+      ]
+    },
     {
       "seasonNumber": 5,
       "episodes": [
@@ -82,7 +141,7 @@
       ]
     }
   ],
-  "episodesCount": 3,
+  "episodesCount": 6,
   "canonicalEpisodesCount": 209,
   "seriesImdbID": "tt0115167",
   "canonicalEpisodeCount": 204,

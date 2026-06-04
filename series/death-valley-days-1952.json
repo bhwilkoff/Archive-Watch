@@ -1,105 +1,108 @@
 {
- "version": 2,
- "seriesID": "death-valley-days-1952",
- "tvmazeID": 21771,
- "title": "Death Valley Days",
- "yearStart": 1952,
- "yearEnd": 1970,
- "overview": "Death Valley Days is an anthology series that featured true stories of the old American West, mainly in the Death Valley area.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/78/196076.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Western"
- ],
- "networks": [
-  "Syndication"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "death-valley-days-1952",
+  "tvmazeID": 21771,
+  "title": "Death Valley Days",
+  "yearStart": 1952,
+  "yearEnd": 1970,
+  "overview": "Death Valley Days is an anthology series that featured true stories of the old American West, mainly in the Death Valley area.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/78/196076.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Western"
+  ],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "Death_Valley_Days_-_Sego_Lillies",
-     "seasonNumber": 1,
-     "episodeNumber": 16,
-     "title": "Sego Lilies",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/mqTuAmJUX0PW8BiFpoOqra9BPU1.jpg",
-     "airDate": "1953-04-28",
-     "year": 1953,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Death_Valley_Days_-_Sego_Lillies.mp4",
-      "format": "h.264",
-      "sizeBytes": 151700987,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Death_Valley_Days_-_Sego_Lillies/Death_Valley_Days_-_Sego_Lillies.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Death_Valley_Days_-_Sego_Lillies",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Sego Lilies",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/mqTuAmJUX0PW8BiFpoOqra9BPU1.jpg",
+          "airDate": "1953-04-28",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Death_Valley_Days_-_Sego_Lillies.mp4",
+            "format": "h.264",
+            "sizeBytes": 151700987,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Death_Valley_Days_-_Sego_Lillies/Death_Valley_Days_-_Sego_Lillies.mp4"
+        },
+        {
+          "archiveID": "death-valley-days-s-01-e-04-the-lost-pegleg-mine",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Land of the Free",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/miogG5V6KSOV6ijH9mE4OOXFlF1.jpg",
+          "airDate": "1953-05-26",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "18-Death Valley Days S01 E18 Land of the Free .ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 479544403,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/death-valley-days-s-01-e-04-the-lost-pegleg-mine/18-Death Valley Days S01 E18 Land of the Free .ia.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "death-valley-days-s-01-e-04-the-lost-pegleg-mine",
-     "seasonNumber": 1,
-     "episodeNumber": 18,
-     "title": "Land of the Free",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/miogG5V6KSOV6ijH9mE4OOXFlF1.jpg",
-     "airDate": "1953-05-26",
-     "year": 1953,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "18-Death Valley Days S01 E18 Land of the Free .ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 479544403,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/death-valley-days-s-01-e-04-the-lost-pegleg-mine/18-Death Valley Days S01 E18 Land of the Free .ia.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "DeathValleyDays-LittleWashington",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Little Washington",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/gxORbpgf20VVcUHQi3MBmUMWaJE.jpg",
+          "airDate": "1953-10-01",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "DeathValleyDays-LittleWashington.mp4",
+            "format": "h.264",
+            "sizeBytes": 152687920,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DeathValleyDays-LittleWashington/DeathValleyDays-LittleWashington.mp4"
+        },
+        {
+          "archiveID": "DeathValleyDays-DearTeacher",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Dear Teacher",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/jao11G4Np4Z7Nd6LFYqRBMsHS4N.jpg",
+          "airDate": "1953-11-24",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Death_Valley_Days_-_Dear_Teacher.mp4",
+            "format": "h.264",
+            "sizeBytes": 152614165,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DeathValleyDays-DearTeacher/Death_Valley_Days_-_Dear_Teacher.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
-    {
-     "archiveID": "DeathValleyDays-LittleWashington",
-     "seasonNumber": 2,
-     "episodeNumber": 2,
-     "title": "Little Washington",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/gxORbpgf20VVcUHQi3MBmUMWaJE.jpg",
-     "airDate": "1953-10-01",
-     "year": 1953,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "DeathValleyDays-LittleWashington.mp4",
-      "format": "h.264",
-      "sizeBytes": 152687920,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/DeathValleyDays-LittleWashington/DeathValleyDays-LittleWashington.mp4"
-    },
-    {
-     "archiveID": "DeathValleyDays-DearTeacher",
-     "seasonNumber": 2,
-     "episodeNumber": 6,
-     "title": "Dear Teacher",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/jao11G4Np4Z7Nd6LFYqRBMsHS4N.jpg",
-     "airDate": "1953-11-24",
-     "year": 1953,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Death_Valley_Days_-_Dear_Teacher.mp4",
-      "format": "h.264",
-      "sizeBytes": 152614165,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/DeathValleyDays-DearTeacher/Death_Valley_Days_-_Dear_Teacher.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 452
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 452,
+  "seriesImdbID": "tt0044259",
+  "canonicalEpisodeCount": 176,
+  "canonicalSeasons": 18
 }

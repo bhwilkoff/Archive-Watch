@@ -1,106 +1,109 @@
 {
- "version": 2,
- "seriesID": "around-the-world-in-80-days-2021",
- "tvmazeID": 45325,
- "title": "Around the World in 80 Days",
- "yearStart": 2021,
- "yearEnd": 2021,
- "overview": "Following an outrageous bet, Phileas Fogg and his valet, Passepartout, take on the legendary journey of circumnavigating the globe in just 80 days, swiftly joined by aspiring journalist Abigail Fix, who seizes the chance to report on this extraordinary story.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/379/948816.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Comedy",
-  "Adventure"
- ],
- "networks": [
-  "ZDFmediathek"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "around-the-world-in-80-days-2021",
+  "tvmazeID": 45325,
+  "title": "Around the World in 80 Days",
+  "yearStart": 2021,
+  "yearEnd": 2021,
+  "overview": "Following an outrageous bet, Phileas Fogg and his valet, Passepartout, take on the legendary journey of circumnavigating the globe in just 80 days, swiftly joined by aspiring journalist Abigail Fix, who seizes the chance to report on this extraordinary story.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/379/948816.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Comedy",
+    "Adventure"
+  ],
+  "networks": [
+    "ZDFmediathek"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "1989.-around-the-world-in-80-days-part-1",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Episode 1",
-     "overview": "London, 1872. Inspired by a news story, Phileas Fogg is goaded into betting a fortune that he can circle the globe in just 80 days, despite never having been abroad before. He sets off with his new valet, Jean Passepartout, and finds that journalist Abigail Fix, the daughter of his friend Fortescue, is joining him to document the journey. When they reach Paris, they find the city in the middle of a riot. Passepartout is reunited with his revolutionary brother, who leads him and Fix into the heart of the unrest. Meanwhile, Fogg nearly falls at the first hurdle. Is he really cut out for this adventure?",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/382/955431.jpg",
-     "airDate": "2021-12-11",
-     "year": 2021,
-     "runtimeSeconds": 2880,
-     "videoFile": {
-      "name": "1989. Around the World in 80 Days (Part 1).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 2890011452,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/1989.-around-the-world-in-80-days-part-1/1989. Around the World in 80 Days (Part 1).mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "1989.-around-the-world-in-80-days-part-1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": "London, 1872. Inspired by a news story, Phileas Fogg is goaded into betting a fortune that he can circle the globe in just 80 days, despite never having been abroad before. He sets off with his new valet, Jean Passepartout, and finds that journalist Abigail Fix, the daughter of his friend Fortescue, is joining him to document the journey. When they reach Paris, they find the city in the middle of a riot. Passepartout is reunited with his revolutionary brother, who leads him and Fix into the heart of the unrest. Meanwhile, Fogg nearly falls at the first hurdle. Is he really cut out for this adventure?",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/382/955431.jpg",
+          "airDate": "2021-12-11",
+          "year": 2021,
+          "runtimeSeconds": 2880,
+          "videoFile": {
+            "name": "1989. Around the World in 80 Days (Part 1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2890011452,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1989.-around-the-world-in-80-days-part-1/1989. Around the World in 80 Days (Part 1).mp4"
+        },
+        {
+          "archiveID": "1989.-around-the-world-in-80-days-part-2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": "Our trio land in the heart of the Italian countryside and hitch a ride on the train to Brindisi. But on board, Fogg encounters an arrogant bully who is challenged by Fogg's easy rapport with his young, grieving son.Passepartout is struggling to process what happened in Paris, and Fix is concerned that she may have backed the wrong horse. When disaster strikes, can Fogg apply his brilliant mind to the problem and save the day?Back home in London, Bellamy worries that Fogg might have what it takes to make it around the world.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/383/958414.jpg",
+          "airDate": "2021-12-11",
+          "year": 2021,
+          "runtimeSeconds": 2880,
+          "videoFile": {
+            "name": "1989. Around the World in 80 Days (Part 2).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2806948971,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1989.-around-the-world-in-80-days-part-2/1989. Around the World in 80 Days (Part 2).mp4"
+        },
+        {
+          "archiveID": "1989.-around-the-world-in-80-days-part-3",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": "Stuck on Yemen's west coast, foolhardy Fogg decides on a dangerous desert crossing, hiring a camel driver. Fogg and Passepartout leave Abigail Fix in a place where even a fellow Englishwoman proves hostile. Can Abigail and her new acquaintances rescue them?",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/383/958415.jpg",
+          "airDate": "2021-12-11",
+          "year": 2021,
+          "runtimeSeconds": 2880,
+          "videoFile": {
+            "name": "1989. Around the World in 80 Days (Part 3).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2958096503,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/1989.-around-the-world-in-80-days-part-3/1989. Around the World in 80 Days (Part 3).mp4"
+        }
+      ]
     },
     {
-     "archiveID": "1989.-around-the-world-in-80-days-part-2",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Episode 2",
-     "overview": "Our trio land in the heart of the Italian countryside and hitch a ride on the train to Brindisi. But on board, Fogg encounters an arrogant bully who is challenged by Fogg's easy rapport with his young, grieving son.Passepartout is struggling to process what happened in Paris, and Fix is concerned that she may have backed the wrong horse. When disaster strikes, can Fogg apply his brilliant mind to the problem and save the day?Back home in London, Bellamy worries that Fogg might have what it takes to make it around the world.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/383/958414.jpg",
-     "airDate": "2021-12-11",
-     "year": 2021,
-     "runtimeSeconds": 2880,
-     "videoFile": {
-      "name": "1989. Around the World in 80 Days (Part 2).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 2806948971,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/1989.-around-the-world-in-80-days-part-2/1989. Around the World in 80 Days (Part 2).mp4"
-    },
-    {
-     "archiveID": "1989.-around-the-world-in-80-days-part-3",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Episode 3",
-     "overview": "Stuck on Yemen's west coast, foolhardy Fogg decides on a dangerous desert crossing, hiring a camel driver. Fogg and Passepartout leave Abigail Fix in a place where even a fellow Englishwoman proves hostile. Can Abigail and her new acquaintances rescue them?",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/383/958415.jpg",
-     "airDate": "2021-12-11",
-     "year": 2021,
-     "runtimeSeconds": 2880,
-     "videoFile": {
-      "name": "1989. Around the World in 80 Days (Part 3).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 2958096503,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/1989.-around-the-world-in-80-days-part-3/1989. Around the World in 80 Days (Part 3).mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "1981.-the-fonz-and-the-happy-days-gang-s-02-e-09-around-the-world-in-80-ways",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "1981. The Fonz and the Happy Days Gang - S02E09 - Around the World in 80 Ways",
+          "overview": "<div>Après que Cupcake ait choisi le mauvais niveau pour réduire la taille de la machine à remonter le temps et l'avoir perdue dans une coupe, Fonzie et sa bande doivent participer au concours du Tour du monde en 80 jours de Jules Verne où Phileas Fogg n'est pas dans la course...</div><div>Neuvième épisode de la saison 2 de la série animée <i>The Fonz and the Happy Days Gang</i> réalisé par George Gordon, Carl Urbano et Rudy Zamora en 1981.</div><div><br /></div>",
+          "stillURL": "https://archive.org/services/img/1981.-the-fonz-and-the-happy-days-gang-s-02-e-09-around-the-world-in-80-ways",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "1981. The Fonz and the Happy Days Gang - S02E09 - Around the World in 80 Ways.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 197386478,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1981.-the-fonz-and-the-happy-days-gang-s-02-e-09-around-the-world-in-80-ways/1981.%20The%20Fonz%20and%20the%20Happy%20Days%20Gang%20-%20S02E09%20-%20Around%20the%20World%20in%2080%20Ways.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
-    {
-     "archiveID": "1981.-the-fonz-and-the-happy-days-gang-s-02-e-09-around-the-world-in-80-ways",
-     "seasonNumber": 2,
-     "episodeNumber": 9,
-     "title": "1981. The Fonz and the Happy Days Gang - S02E09 - Around the World in 80 Ways",
-     "overview": "<div>Après que Cupcake ait choisi le mauvais niveau pour réduire la taille de la machine à remonter le temps et l'avoir perdue dans une coupe, Fonzie et sa bande doivent participer au concours du Tour du monde en 80 jours de Jules Verne où Phileas Fogg n'est pas dans la course...</div><div>Neuvième épisode de la saison 2 de la série animée <i>The Fonz and the Happy Days Gang</i> réalisé par George Gordon, Carl Urbano et Rudy Zamora en 1981.</div><div><br /></div>",
-     "stillURL": "https://archive.org/services/img/1981.-the-fonz-and-the-happy-days-gang-s-02-e-09-around-the-world-in-80-ways",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1507,
-     "videoFile": {
-      "name": "1981. The Fonz and the Happy Days Gang - S02E09 - Around the World in 80 Ways.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 197386478,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/1981.-the-fonz-and-the-happy-days-gang-s-02-e-09-around-the-world-in-80-ways/1981.%20The%20Fonz%20and%20the%20Happy%20Days%20Gang%20-%20S02E09%20-%20Around%20the%20World%20in%2080%20Ways.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 8
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 8,
+  "seriesImdbID": "tt9174578",
+  "canonicalEpisodeCount": 8,
+  "canonicalSeasons": 1
 }

@@ -94,5 +94,7 @@
       ]
     }
   ],
-  "episodesCount": 4
+  "episodesCount": 4,
+  "seriesImdbID": null,
+  "canonicalEpisodeCount": 0
 }
