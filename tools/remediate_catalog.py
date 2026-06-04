@@ -397,6 +397,36 @@ def _strip_quality_tail(t):
     return _QUAL_DANGLE.sub("", nt).rstrip()
 
 
+# Uploader cruft: site tags / handles / file extensions an uploader stamped onto
+# the title ("Romance (1983) Musical Love Story { Brego}", "...HEVCBay.com",
+# "FAASLE 1985@malikjee", "Tapasya 1976 ... .avi"). Conservative + per-pattern:
+#   - curly-brace tokens ONLY when they contain a handle/URL ('{ Brego}',
+#     '{www.desibbrg.com}') — NOT meaningful braces like '{The Whistler}' (series)
+#   - explicit site/handle tokens (.com/.net/.org domains, @handles, the known
+#     desi-upload signatures) — deliberately NOT '.in' (collides with the word "in")
+#   - trailing file extensions
+# Only cleans dangling separators when something was removed; never strips
+# trailing periods/closers (abbreviations) and never nukes a title to empty.
+_JUNK_BRACE = re.compile(
+    r"\s*\{[^}]*(brego|www\.|https?://|\.com|\.net|desibbrg|xclusives)[^}]*\}", re.I)
+_SITE_TAG = re.compile(
+    r"\s*(?:@\s*\S+|\bwww\.\S+|\b\S+\.(?:com|net|org)\b|\bda\s?xclusives\b|"
+    r"\bhevcbay\b|\bamaderforum\b|\bdesibbrg\b|\bbrego\b)", re.I)
+_TITLE_EXT = re.compile(r"\.(avi|wmv|flv|mpg|mpeg|mov|m4v|mp4|mkv|ogv)\s*$", re.I)
+
+
+def _strip_uploader_cruft(t):
+    nt = _JUNK_BRACE.sub("", t)
+    nt = _SITE_TAG.sub("", nt)
+    nt = _TITLE_EXT.sub("", nt)
+    if nt == t:
+        return t
+    nt = re.sub(r"\s+", " ", nt)
+    nt = re.sub(r"[\s~\-–—|,]+$", "", nt)       # dangling sep, not '.'/')'
+    nt = re.sub(r"^[\s~\-–—|,.]+", "", nt).strip()
+    return nt if len(nt) >= 2 else t
+
+
 def _strip_format_dump(t):
     if " / " not in t:
         return t
@@ -451,6 +481,7 @@ def sanitize_title(it):
     t = _fix_mojibake(_html.unescape(raw))
     t = _strip_format_dump(t)
     t = _strip_quality_tail(t)
+    t = _strip_uploader_cruft(t)
     # A title that is ENTIRELY bracketed ("[Amateur film: New Orleans Carnival]")
     # is the Prelinger amateur-film naming — UNWRAP it (blanket bracket-stripping
     # would empty it, so it was being left bracketed). Then strip inner/partial
