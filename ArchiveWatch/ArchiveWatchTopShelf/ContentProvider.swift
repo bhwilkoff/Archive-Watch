@@ -13,7 +13,7 @@ import Foundation
 // file-membership coupling.
 
 private enum Snapshot {
-    static let appGroup = "group.com.bhwilkoff.archivewatch"
+    static let appGroup = "group.app.archivewatch.tvos"
     static let fileName = "topshelf.json"
 
     struct Payload: Decodable {

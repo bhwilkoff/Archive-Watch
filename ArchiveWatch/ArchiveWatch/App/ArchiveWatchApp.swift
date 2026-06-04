@@ -38,16 +38,26 @@ struct ArchiveWatchApp: App {
     private static func makeModelContainer() -> ModelContainer {
         let schema = Schema([ContentItem.self, WatchProgress.self, Favorite.self,
                              Playlist.self, UserChannel.self])
+        // cloudKitDatabase: .none is REQUIRED. Once the app carries the iCloud
+        // entitlement, SwiftData otherwise tries to AUTO-mirror the store to
+        // CloudKit (.automatic) — which crashes at store load because our models
+        // use @Attribute(.unique) and non-optional fields, both unsupported by
+        // CloudKit mirroring. We sync manually instead (CloudKitSyncService +
+        // CKRecord), so the automatic mirror must be explicitly off.
         if let container = try? ModelContainer(
             for: schema,
             configurations: ModelConfiguration(
                 schema: schema,
-                groupContainer: .identifier(TopShelfSnapshot.appGroup)
+                groupContainer: .identifier(TopShelfSnapshot.appGroup),
+                cloudKitDatabase: .none
             )
         ) {
             return container
         }
-        if let container = try? ModelContainer(for: schema) {
+        if let container = try? ModelContainer(
+            for: schema,
+            configurations: ModelConfiguration(schema: schema, cloudKitDatabase: .none)
+        ) {
             return container
         }
         return try! ModelContainer(

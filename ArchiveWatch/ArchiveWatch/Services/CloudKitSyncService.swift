@@ -13,8 +13,13 @@ import SwiftData
 // same no-op-until-configured pattern as the Top Shelf App Group. Owner verifies
 // on device. See docs/runbooks/cloudkit-setup.md.
 enum CloudSync {
+    // Flip to TRUE only after: (1) the iCloud(CloudKit) capability + container
+    // `iCloud.app.archivewatch.tvos` exist on the App ID, AND (2) it's verified on
+    // a REAL device signed into iCloud. On the simulator (and any build whose
+    // entitlement isn't truly provisioned) CKContainer access TRAPS at launch —
+    // that's why this stays gated. The entitlements themselves ARE configured. (#84)
     static let entitlementConfigured = false
-    static let containerID = "iCloud.com.bhwilkoff.archivewatch"
+    static let containerID = "iCloud.app.archivewatch.tvos"
 }
 
 @MainActor

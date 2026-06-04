@@ -6,12 +6,12 @@ import SwiftData
 // The Top Shelf extension can't reach the app's SwiftData store or the
 // in-memory catalog, so the app writes a small JSON into the shared App
 // Group container and the extension reads it. Everything here no-ops
-// gracefully until the App Group `group.com.bhwilkoff.archivewatch` is
+// gracefully until the App Group `group.app.archivewatch.tvos` is
 // configured on the target (see docs/top-shelf-setup.md), so it's safe to
 // ship ahead of the extension target.
 
 enum TopShelfSnapshot {
-    static let appGroup = "group.com.bhwilkoff.archivewatch"
+    static let appGroup = "group.app.archivewatch.tvos"
     static let fileName = "topshelf.json"
 
     struct Payload: Codable {
