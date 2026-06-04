@@ -138,6 +138,40 @@ struct PlaylistDetailView: View {
 
 private struct LineupBox: Identifiable { let id = UUID(); let items: [Catalog.Item] }
 
+// MARK: - Library Watched section (#12b, tvOS-DESIGN §10.1)
+
+struct WatchedSection: View {
+    @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
+    @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
+
+    private var items: [Catalog.Item] {
+        store.dbItemsByIDs(progress.filter { $0.isComplete }.map { $0.archiveID })
+    }
+
+    var body: some View {
+        if !items.isEmpty {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("Watched")
+                    .font(.title2.bold()).foregroundStyle(.white)
+                    .padding(.horizontal, 80)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    LazyHStack(spacing: 28) {
+                        ForEach(items) { item in
+                            PosterTile(item: item) { router.push(item) }
+                                .frame(width: 200)
+                        }
+                    }
+                    .padding(.horizontal, 80)
+                    .padding(.vertical, 8)
+                }
+                .scrollClipDisabled()
+            }
+            .focusSection()
+        }
+    }
+}
+
 // MARK: - Library playlists section (Library tab)
 
 struct PlaylistsSection: View {

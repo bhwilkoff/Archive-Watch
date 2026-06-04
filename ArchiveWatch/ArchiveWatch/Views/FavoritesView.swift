@@ -39,6 +39,7 @@ struct FavoritesView: View {
                 .padding(.top, 24)
 
                 PlaylistsSection()   // #12: user playlists above the favorites grid
+                WatchedSection()     // #12b: completed titles
 
                 if items.isEmpty {
                     emptyState
