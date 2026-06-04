@@ -1,6 +1,7 @@
 import SwiftUI
 import AVKit
 import AVFoundation
+import MediaPlayer
 
 // Native tvOS playback surface.
 //
@@ -44,6 +45,68 @@ let archivePreferredForwardBufferDuration: TimeInterval = 120
 func tunePlaybackBuffering(item: AVPlayerItem, player: AVPlayer) {
     item.preferredForwardBufferDuration = archivePreferredForwardBufferDuration
     player.automaticallyWaitsToMinimizeStalling = true
+}
+
+// Registers a Now Playing data source so the system stops logging
+// "[MRPlaybackQueueServiceClient] ... Code=15 Operation requires a client data
+// source to have been registered" — those are MediaRemote (PineBoard, the
+// Remote app, AVKit) polling for Now Playing artwork that was never published.
+// Populating MPNowPlayingInfoCenter with title + poster also makes the poster
+// show on the Now Playing widget and the remote. AVPlayerViewController owns the
+// transport, so we only supply metadata + artwork, not remote-command handlers.
+@MainActor
+final class NowPlayingController {
+    private var artworkTask: Task<Void, Never>?
+
+    func begin(title: String, subtitle: String?, posterURL: URL?, player: AVPlayer) {
+        // An active playback audio session is what registers us as a MediaRemote
+        // client; without it the Now Playing info is ignored.
+        let session = AVAudioSession.sharedInstance()
+        try? session.setCategory(.playback, mode: .moviePlayback)
+        try? session.setActive(true)
+
+        var info: [String: Any] = [
+            MPMediaItemPropertyTitle: title,
+            MPNowPlayingInfoPropertyPlaybackRate: 1.0,
+            MPNowPlayingInfoPropertyMediaType: MPNowPlayingInfoMediaType.video.rawValue,
+        ]
+        if let subtitle, !subtitle.isEmpty { info[MPMediaItemPropertyArtist] = subtitle }
+        let duration = player.currentItem?.duration.seconds
+        if let duration, duration.isFinite, duration > 0 {
+            info[MPMediaItemPropertyPlaybackDuration] = duration
+        }
+        let elapsed = player.currentTime().seconds
+        info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = elapsed.isFinite ? elapsed : 0
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+
+        // Poster bytes load async; patch the artwork in once it arrives so we
+        // never block playback start on a network fetch.
+        guard let posterURL else { return }
+        artworkTask = Task {
+            guard let (data, _) = try? await URLSession.shared.data(from: posterURL),
+                  let image = UIImage(data: data),
+                  !Task.isCancelled else { return }
+            let artwork = MPMediaItemArtwork(boundsSize: image.size) { _ in image }
+            var current = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
+            current[MPMediaItemPropertyArtwork] = artwork
+            MPNowPlayingInfoCenter.default().nowPlayingInfo = current
+        }
+    }
+
+    // Keep the scrubber on the Now Playing widget in sync (the system
+    // extrapolates from rate, but a periodic nudge corrects drift after seeks).
+    func update(elapsed: Double, rate: Float) {
+        guard var info = MPNowPlayingInfoCenter.default().nowPlayingInfo else { return }
+        if elapsed.isFinite { info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = elapsed }
+        info[MPNowPlayingInfoPropertyPlaybackRate] = rate
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+    }
+
+    func end() {
+        artworkTask?.cancel()
+        artworkTask = nil
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nil
+    }
 }
 
 func metaEntry(_ identifier: AVMetadataIdentifier, _ value: String) -> AVMetadataItem? {
