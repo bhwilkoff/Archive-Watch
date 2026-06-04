@@ -127,6 +127,22 @@ the detail, sequencing, research notes, and decisions. Update it as phases land.
 
 ---
 
+## After the v1 backlog: hand off to the regular curation loop
+Owner directive (2026-06): when every ACTIONABLE v1 backlog item is complete
+(all #1–#20 + their feasible follow-ups; the device/infra-only ones — #11b
+CloudKit device-verify, #13b macOS-runner covers, #14b idle-trigger — stay
+flagged as owner/infra-blocked, NOT counted as incomplete), the autonomous loop
+does NOT stop. It switches to the **regular autonomous curation loop**
+(`docs/autonomous-curation-loop.md`): quality, sourcing, and draining the queues
+the cron processes create. Concretely, resume that loop's work — **B6** (Tier-3
+agent-as-LLM metadata review via `tools/metadata_review.py` select→apply), **B2**
+(IMDb resolution to unlock TMDb for no-IMDb items, carefully — false matches
+degrade quality), plus monitoring the daily crons (discover-content ingest
+backlog, omdb-backfill cast/director drain, wikidata/wikipedia enrichment) and
+the metadata-quality program (`audit_metadata.py` trend, `remediate_catalog.py`
+regressions). Same discipline: measure on the real catalog/APIs, small verified
+increments, never degrade quality.
+
 ## Suggested submit points
 - **Minimum submittable:** end of Phase 2 (attribution, privacy manifest, icon,
   Top Shelf already done in prior hardening).
