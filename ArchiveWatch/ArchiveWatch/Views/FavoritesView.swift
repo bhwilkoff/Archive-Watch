@@ -15,9 +15,24 @@ struct FavoritesView: View {
     @Environment(Router.self) private var router
     @Query(sort: \Favorite.addedAt, order: .reverse) private var favorites: [Favorite]
 
-    @State private var items: [Catalog.Item] = []
     @FocusState private var focusedArchiveID: String?
     @FocusState private var browseFocused: Bool
+
+    // Computed LIVE from the @Query favorites + the catalog DB. Reading
+    // `store.dbGeneration` registers an @Observable dependency, so this view
+    // re-renders (and re-resolves) when the catalog DB finishes loading — even
+    // if that happens while the user is on a different tab.
+    //
+    // The previous approach (@State populated by `.task` + `.onChange(dbGeneration)`)
+    // left the grid permanently EMPTY in the common case: the catalog DB loads
+    // asynchronously after launch, usually while the user is NOT on the Library
+    // tab. TabView keeps the tab's view alive, so neither `.task` (runs once) nor
+    // the dbGeneration `.onChange` (the view isn't rendering off-screen) fired
+    // again when the user returned — `items` stayed []. Deriving it live fixes that.
+    private var items: [Catalog.Item] {
+        _ = store.dbGeneration
+        return store.dbItemsByIDs(favorites.map(\.archiveID))
+    }
 
     private let cols = Array(repeating: GridItem(.fixed(210), spacing: 24), count: 6)
 
@@ -61,19 +76,18 @@ struct FavoritesView: View {
         }
         .background(Color.black.ignoresSafeArea())
         .task {
-            items = resolveItems()
             try? await Task.sleep(for: .milliseconds(50))
             if items.isEmpty { browseFocused = true }
             else { focusedArchiveID = items.first?.archiveID }
         }
-        .onChange(of: favorites.map(\.archiveID)) { _, _ in items = resolveItems() }
-        .onChange(of: store.dbGeneration) { _, _ in items = resolveItems() }
-    }
-
-    private func resolveItems() -> [Catalog.Item] {
-        // dbItemsByIDs preserves the requested order, so favorites stay in
-        // most-recently-added order.
-        store.dbItemsByIDs(favorites.map(\.archiveID))
+        // Claim focus once items resolve (e.g. the DB loaded after first appear).
+        .onChange(of: items.isEmpty) { _, nowEmpty in
+            if nowEmpty {
+                browseFocused = true
+            } else if focusedArchiveID == nil {
+                focusedArchiveID = items.first?.archiveID
+            }
+        }
     }
 
     private var emptyState: some View {
@@ -84,7 +98,7 @@ struct FavoritesView: View {
             Text("No favorites yet")
                 .font(.title2)
                 .foregroundStyle(.white.opacity(0.6))
-            Text("Press and hold a title, or use the heart on its detail page, to save it here.")
+            Text("Tap the heart on any title's detail page to save it here.")
                 .font(.callout)
                 .foregroundStyle(.white.opacity(0.4))
                 .multilineTextAlignment(.center)

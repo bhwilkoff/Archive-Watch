@@ -15,40 +15,28 @@ import UIKit
 struct AVPlayerContainer: UIViewControllerRepresentable {
     let player: AVPlayer
     var menuItems: [UIMenuElement] = []   // #10: per-video transport menu (autoplay override)
-    var skipCredits: Bool = true          // #8: "Skip Credits" contextual action
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
         vc.player = player
         vc.speeds = AVPlaybackSpeed.systemDefaultSpeeds   // #5: native speed menu
         vc.transportBarCustomMenuItems = menuItems
-        apply(to: vc)
         return vc
     }
 
     func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {
         if vc.player !== player { vc.player = player }
         vc.transportBarCustomMenuItems = menuItems        // reflect autoplay-mode changes
-        apply(to: vc)
-    }
-
-    // #8 (tvOS-DESIGN §8.4): "Skip Credits" as a contextualAction — tvOS surfaces
-    // these near the end of playback (Apple's Skip Recap / Next Episode pattern).
-    // Seeking to the end fires AVPlayerItemDidPlayToEndTime, which the player
-    // turns into autoplay-next (#10) or simply ends. Movies only; episodes already
-    // expose "Next Episode" (their skip-credits equivalent).
-    private func apply(to vc: AVPlayerViewController) {
-        guard skipCredits else { vc.contextualActions = []; return }
-        let p = player
-        vc.contextualActions = [
-            UIAction(title: "Skip Credits",
-                     image: UIImage(systemName: "forward.to.line.fill")) { _ in
-                guard let dur = p.currentItem?.duration, dur.isNumeric, dur.seconds > 0 else { return }
-                p.seek(to: dur, toleranceBefore: .zero, toleranceAfter: .zero)
-            }
-        ]
     }
 }
+
+// NOTE: a "Skip Credits" contextualAction was removed here. It was always shown
+// (no per-title credits-timestamp data exists for movies to know WHERE credits
+// start), and it merely seeked to the exact end — which does NOT reliably fire
+// AVPlayerItemDidPlayToEndTime (you must PLAY to the end), so it ended the film
+// without advancing autoplay-next. A real version needs credit timestamps (#8b)
+// and would gate visibility to the final minutes. Episodes keep their real
+// "Next Episode" action below; movies rely on natural end -> autoplay-next (#10).
 
 // Episode-aware player surface (#9, tvOS-DESIGN §8.3): the native
 // AVPlayerViewController plus tvOS episode navigation — "Next Episode" as a

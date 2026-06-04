@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 // Top-level shell. Uses tvOS 26's native TabView with
 // .sidebarAdaptable — Apple's own adaptive sidebar. This is the only
