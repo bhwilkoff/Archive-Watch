@@ -86,11 +86,13 @@ Then fill the listing (App Information / Pricing / Version):
 
 ## ⚠️ Blockers / must-do before review passes
 
-- **Account deletion (App Review Guideline 5.1.1(v))** — because we now offer
-  **Sign in with Apple**, the app MUST provide an in-app way to **delete the
-  account + its data**, not just sign out. Today Settings has Sign Out only. This
-  has to ship before submitting with accounts enabled. (Ties into the accounts
-  re-design — or disable Sign in with Apple for the very first submission.)
+- ~~**Account deletion (App Review Guideline 5.1.1(v))**~~ ✅ DONE. Settings →
+  Account now has **Delete Account** (when signed in): confirmation alert →
+  `CloudKitSyncService.deleteAllCloudData()` purges the user's Favorite/Playlist/
+  WatchProgress records from the iCloud private DB → sign out. Local on-device
+  titles are kept (they exist independent of the account). Note: while
+  `entitlementConfigured` is false the cloud purge is a vacuous no-op (nothing is
+  stored yet); it becomes real when CloudKit is enabled.
 - **`CloudSync.entitlementConfigured` is still `false`.** Flip it to `true` only
   AFTER the iCloud container exists (Phase 1) and you've verified sync on a real
   Apple TV signed into iCloud (#84). It traps on the simulator. Note: SwiftData's

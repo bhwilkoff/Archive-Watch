@@ -23,6 +23,7 @@ struct SettingsView: View {
     @Environment(AppStore.self) private var store
     @Environment(AccountStore.self) private var account
     @Environment(\.modelContext) private var modelContext
+    @State private var showDeleteAccount = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -90,6 +91,21 @@ struct SettingsView: View {
                 }
                 Button(role: .destructive) { account.signOut() } label: {
                     Text("Sign Out")
+                }
+                // App Review 5.1.1(v): account creation requires in-app deletion.
+                Button(role: .destructive) { showDeleteAccount = true } label: {
+                    Text("Delete Account")
+                }
+                .alert("Delete Account?", isPresented: $showDeleteAccount) {
+                    Button("Cancel", role: .cancel) { }
+                    Button("Delete Account", role: .destructive) {
+                        Task {
+                            _ = await CloudKitSyncService.shared.deleteAllCloudData()
+                            account.signOut()
+                        }
+                    }
+                } message: {
+                    Text("This permanently deletes your synced favorites, playlists, and watch progress from iCloud and signs you out. Titles saved on this Apple TV stay on this device.")
                 }
             } else {
                 SignInWithAppleButton(.signIn,

@@ -51,6 +51,27 @@ final class CloudKitSyncService {
         }
     }
 
+    /// Account deletion (App Review 5.1.1(v)): purge ALL of this user's records
+    /// from the CloudKit private database. Returns true on success — and also when
+    /// CloudKit isn't configured/available (nothing is stored, so deletion is
+    /// vacuously complete). Best-effort; never throws to the caller.
+    func deleteAllCloudData() async -> Bool {
+        guard let database else { return true }   // not configured -> nothing stored
+        do {
+            let status = try await CKContainer(identifier: CloudSync.containerID).accountStatus()
+            guard status == .available else { return true }   // no account -> nothing of ours stored
+            for type in ["Favorite", "Playlist", "WatchProgress"] {
+                let ids = try await allRecords(database, type).map(\.recordID)
+                if !ids.isEmpty {
+                    _ = try await database.modifyRecords(saving: [], deleting: ids)
+                }
+            }
+            return true
+        } catch {
+            return false
+        }
+    }
+
     private func allRecords(_ db: CKDatabase, _ type: String) async throws -> [CKRecord] {
         let (matches, _) = try await db.records(matching:
             CKQuery(recordType: type, predicate: NSPredicate(value: true)))
