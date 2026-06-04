@@ -97,6 +97,19 @@ _PD_ANIM = re.compile(r"^(\d{4})publicdomainanimation", re.I)
 # on it" posters the user saw). Detect by archiveID regardless of current title.
 _PD_ANIM_ANY = re.compile(r"publicdomainanimation", re.I)
 
+# #18: a single catalog item that is really a TV EPISODE — a hard SxE marker
+# (S1E11, S01E05, s02.e18) in the title or the video filename. High-confidence:
+# theatrical films don't carry season/episode numbers. (Looser "Part N / Episode
+# N" is deliberately excluded — too many film "Part 1/2" and reel volumes.)
+_SXE = re.compile(r"(?<![a-z])s(\d{1,2})\s*[._x -]?\s*e(\d{1,3})(?![a-z])", re.I)
+_MOVIE_TYPES_FOR_TV = {"feature-film", "short-film", "silent-film", "animation"}
+
+
+def looks_like_episode(it):
+    name = (it.get("videoFile") or {}).get("name") or ""
+    return bool(_SXE.search(it.get("title") or "") or _SXE.search(name))
+
+
 _ADULT = re.compile(
     r"\b(erotic|nudie|sexploitation|softcore|hardcore|porn|x-?rated|"
     r"adults?\s+only|burlesque\s+nude|nudist)\b", re.I)
@@ -479,6 +492,15 @@ def remediate(items):
                 and has_animation_signal(it):
             it["contentType"] = "animation"
             stats["to_animation"] += 1
+
+        # 3b) MISLABELED TV EPISODE (#18): a movie-typed item with a hard SxE
+        # marker is an episode — move it off the movie shelves to tv-special so it
+        # routes to the TV tab. (Full season placement is the canonical TV
+        # pipeline's job — see #18b; this stops the "episode shows as a film" bug.)
+        if it.get("contentType") in _MOVIE_TYPES_FOR_TV and looks_like_episode(it):
+            it["contentType"] = "tv-special"
+            it["isSilentFilm"] = False
+            stats["episode_to_tv_special"] += 1
 
         # 4) ADULT
         if not it.get("isAdult") and is_adult_signal(it):
