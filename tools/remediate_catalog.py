@@ -314,6 +314,41 @@ _LIVE_ACTION_GENRES = {
     "thriller", "war", "crime",
 }
 
+# Canonical browse genres (the labels the app filters/shelves by — TMDb standard
+# set + the subject-map vocab). Wikidata enrichment tagged thousands of items with
+# "-film"-suffixed variants ("drama film", "crime film") that DON'T match these,
+# silently fragmenting every genre filter. Collapse "X film"/"X films" -> "X" and
+# bare-lowercase -> canonical, ONLY when X is canonical — subgenres ("comedy
+# drama", "heist film", "giallo") and ambiguous labels ("musical film" vs the
+# "Music" genre) are left untouched. Dedupe after, preserving order.
+_CANON_GENRES = {
+    "action", "adventure", "animation", "comedy", "crime", "documentary",
+    "drama", "family", "fantasy", "history", "horror", "music", "mystery",
+    "romance", "science fiction", "thriller", "war", "western",
+}
+_GENRE_FILM_SUFFIX = re.compile(r"\s+films?$", re.I)
+
+
+def _canon_genre(g):
+    base = _GENRE_FILM_SUFFIX.sub("", (g or "").strip()).strip().lower()
+    return base.title() if base in _CANON_GENRES else g
+
+
+def normalize_genres(it):
+    gs = it.get("genres")
+    if not gs:
+        return False
+    out, seen = [], set()
+    for g in gs:
+        ng = _canon_genre(g)
+        if ng and ng not in seen:
+            seen.add(ng)
+            out.append(ng)
+    if out != gs:
+        it["genres"] = out
+        return True
+    return False
+
 
 def fix_animation_liveaction_match(it):
     """Clear a live-action match wrongly applied to an animation item. Returns
@@ -651,6 +686,11 @@ def remediate(items):
             if g:
                 it["genres"] = g
                 stats["genres_from_subject"] += 1
+
+        # 5b) GENRE VOCAB: collapse Wikidata "-film" variants to the canonical
+        # browse vocabulary so genre filters/shelves stop fragmenting.
+        if normalize_genres(it):
+            stats["genres_normalized"] += 1
 
         # 6) RIGHTS: prove public-domain for gov collections / PD-by-age so the
         # Home rights gate stops excluding legitimate PD titles.
