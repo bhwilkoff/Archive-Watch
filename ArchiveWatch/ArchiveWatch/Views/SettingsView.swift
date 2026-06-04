@@ -225,7 +225,7 @@ private struct ToggleLabel: View {
 
 // MARK: - QR code (CoreImage)
 
-private struct QRCode: View {
+struct QRCode: View {   // shared: Settings donate + Detail share (#16)
     let string: String
 
     var body: some View {

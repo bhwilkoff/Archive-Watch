@@ -22,6 +22,7 @@ struct DetailView: View {
     @Query private var favorites: [Favorite]
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var allProgress: [WatchProgress]
     @State private var isPlaying = false
+    @State private var showShare = false
     @FocusState private var focusTarget: DetailFocusTarget?
 
     private var accent: Color {
@@ -175,6 +176,7 @@ struct DetailView: View {
             HStack(spacing: 20) {
                 playButton
                 favoriteButton
+                shareButton
             }
             .padding(.top, 8)
             // Dedicated focus section for the action row so up-arrow
@@ -221,6 +223,20 @@ struct DetailView: View {
         .buttonStyle(CircleIconStyle())
         .focusEffectDisabled()
         .focused($focusTarget, equals: .favorite)
+    }
+
+    // #16 (tvOS-DESIGN §8.6): tvOS has no share sheet — hand off to a phone via a
+    // QR + deep link / archive.org URL.
+    private var shareButton: some View {
+        Button { showShare = true } label: {
+            Image(systemName: "square.and.arrow.up")
+                .font(.title2)
+                .foregroundStyle(.white)
+                .padding(18)
+        }
+        .buttonStyle(CircleIconStyle())
+        .focusEffectDisabled()
+        .sheet(isPresented: $showShare) { ShareSheet(item: item) }
     }
 
     // MARK: - Metadata block
@@ -716,5 +732,52 @@ private struct PersonChip: View {
 
     private var initials: String {
         name.split(separator: " ").prefix(2).compactMap(\.first).map(String.init).joined().uppercased()
+    }
+}
+
+// MARK: - Share sheet (#16, tvOS-DESIGN §8.6)
+
+private struct ShareSheet: View {
+    let item: Catalog.Item
+    @Environment(\.dismiss) private var dismiss
+    @FocusState private var doneFocused: Bool
+
+    private var webURL: String {
+        item.archiveID.hasPrefix("loc:")
+            ? "https://www.loc.gov"
+            : "https://archive.org/details/\(item.archiveID)"
+    }
+
+    var body: some View {
+        VStack(spacing: 28) {
+            Text("Share \u{201C}\(item.title)\u{201D}")
+                .font(.system(size: 38, weight: .bold))
+                .foregroundStyle(.white)
+                .multilineTextAlignment(.center)
+                .lineLimit(2)
+
+            QRCode(string: webURL)
+                .frame(width: 300, height: 300)
+                .background(.white, in: RoundedRectangle(cornerRadius: 16))
+
+            VStack(spacing: 6) {
+                Text("Scan with your phone to open on the web")
+                    .font(.system(size: 22))
+                    .foregroundStyle(.white.opacity(0.6))
+                Text(webURL)
+                    .font(.system(.title3, design: .monospaced).weight(.semibold))
+                    .foregroundStyle(Color(hex: "#FF5C35") ?? .orange)
+                    .lineLimit(1).minimumScaleFactor(0.5)
+            }
+
+            Button("Done") { dismiss() }
+                .buttonStyle(.borderedProminent)
+                .focused($doneFocused)
+                .padding(.top, 8)
+        }
+        .padding(60)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.black.opacity(0.92).ignoresSafeArea())
+        .onAppear { doneFocused = true }
     }
 }
