@@ -349,6 +349,13 @@ _SENT_SPLIT = re.compile(r"(?<=[.!?])\s+")
 _TAG = re.compile(r"<[^>]+>")
 MIN_SYNOPSIS = 40
 
+# IMDb-reference boilerplate the Tier-3 review surfaced as systematic (~280 items):
+# a placeholder sentence pointing at IMDb (no plot), and a "From IMDb :" prefix
+# pasted before a real plot. Drop the sentence; strip the prefix. (B6 finding.)
+_BOILERPLATE_SENT = re.compile(
+    r"you can find more information (regarding|about) th(is|e)", re.I)
+_FROM_IMDB_PREFIX = re.compile(r"^\s*from imdb\s*:?\s*", re.I)
+
 
 def _synopsis_text(it):
     v = it.get("synopsis")
@@ -370,10 +377,11 @@ def sanitize_synopsis(it):
     if not raw:
         return None
     s = _TAG.sub(" ", _fix_mojibake(_html.unescape(raw)))
+    s = _FROM_IMDB_PREFIX.sub("", s)   # "From IMDb : <plot>" -> "<plot>" (B6)
     sents = [x for x in _SENT_SPLIT.split(s)
              if not (_audit.URL.search(x) or _audit.SOCIAL.search(x)
                      or _audit.EMAIL.search(x) or _audit.UPLOADER.search(x)
-                     or _audit.TECH.search(x))]
+                     or _audit.TECH.search(x) or _BOILERPLATE_SENT.search(x))]
     s = re.sub(r"\s+", " ", " ".join(sents)).strip()
     if s == raw:
         return None
