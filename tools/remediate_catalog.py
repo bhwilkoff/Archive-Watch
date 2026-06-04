@@ -360,6 +360,29 @@ _BOILERPLATE_SENT = re.compile(
 _FROM_IMDB_PREFIX = re.compile(r"^\s*(taken\s+)?from\s+imdb\s*:?\s*", re.I)
 _DISC_MARK = re.compile(r"\s*[\(\[]?\b(disc|disk|reel|tape)\s*\d+\b[\)\]]?", re.I)
 
+# Slash-delimited format dump (the ptp_ collection's title style):
+#   "The Love Nest / Blu-ray / / MKV / / Remux / Buster Keaton"
+#   "Anna Christie / John Griffith Wray / Thomas H. Ince / DVD"
+# The real title is the FIRST " / "-segment; the rest are format/source/credit
+# annotations. Only collapse to the first segment when a LATER segment is a
+# known format/container token (or empty) — so a legit "A / B" title that has
+# no format token is never touched. 520 titles measured.
+_FMT_TOKEN = re.compile(
+    r"^(blu-?ray|dvd\d?|vhs|avi|mkv|mp4|mov|m4v|ogv|remux|web-?rip|br-?rip|"
+    r"hdtv|x26[45]|h\.?26[45]|hevc|xvid|divx|aac|ac3|\d{3,4}x\d{3,4}|"
+    r"\d{3,4}p|2160p|4k|hd)$", re.I)
+
+
+def _strip_format_dump(t):
+    if " / " not in t:
+        return t
+    segs = [s.strip() for s in t.split(" / ")]
+    if len(segs) < 2 or not segs[0]:
+        return t
+    if any((not s) or _FMT_TOKEN.match(s) for s in segs[1:]):
+        return segs[0]
+    return t
+
 
 def _synopsis_text(it):
     v = it.get("synopsis")
@@ -402,6 +425,7 @@ def sanitize_title(it):
     if not raw:
         return False
     t = _fix_mojibake(_html.unescape(raw))
+    t = _strip_format_dump(t)
     # A title that is ENTIRELY bracketed ("[Amateur film: New Orleans Carnival]")
     # is the Prelinger amateur-film naming — UNWRAP it (blanket bracket-stripping
     # would empty it, so it was being left bracketed). Then strip inner/partial
