@@ -425,11 +425,6 @@ struct PlayerScreen: View {
                 AVPlayerContainer(player: player)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
-                    .overlay(alignment: .topLeading) {
-                        if showPlaybackDiagnostics {
-                            PlaybackDiagnosticsOverlay(player: player).padding(60)
-                        }
-                    }
             }
         }
         .onAppear { setupPlayer() }
@@ -447,10 +442,7 @@ struct PlayerScreen: View {
         tunePlaybackBuffering(item: playerItem, player: p)
         player = p
         freezeGuard.attach(to: p, item: playerItem)
-        nowPlaying.begin(title: catalogItem?.title ?? "",
-                         subtitle: catalogItem?.genres.first,
-                         posterURL: catalogItem?.posterURLParsed,
-                         player: p)
+        nowPlaying.begin(posterURL: catalogItem?.posterURLParsed, item: playerItem)
 
         let archiveID = self.archiveID
         let descriptor = FetchDescriptor<WatchProgress>(
@@ -466,7 +458,6 @@ struct PlayerScreen: View {
         timeObserver = p.addPeriodicTimeObserver(forInterval: interval, queue: .main) { time in
             Task { @MainActor in
                 persistProgress(at: time.seconds, duration: p.currentItem?.duration.seconds)
-                nowPlaying.update(elapsed: time.seconds, rate: p.rate)
             }
         }
     }

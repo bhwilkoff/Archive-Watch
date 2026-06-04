@@ -1,8 +1,6 @@
 import SwiftUI
 import AVKit
 import AVFoundation
-import MediaPlayer
-import Combine
 
 // Native tvOS playback surface.
 //
@@ -56,65 +54,41 @@ func tunePlaybackBuffering(item: AVPlayerItem, player: AVPlayer) {
     player.automaticallyWaitsToMinimizeStalling = true
 }
 
-// Registers a Now Playing data source so the system stops logging
-// "[MRPlaybackQueueServiceClient] ... Code=15 Operation requires a client data
-// source to have been registered" — those are MediaRemote (PineBoard, the
-// Remote app, AVKit) polling for Now Playing artwork that was never published.
-// Populating MPNowPlayingInfoCenter with title + poster also makes the poster
-// show on the Now Playing widget and the remote. AVPlayerViewController owns the
-// transport, so we only supply metadata + artwork, not remote-command handlers.
+// Publishes Now Playing poster artwork the way AVPlayerViewController actually
+// reads it on tvOS: as a `commonIdentifierArtwork` item on the player item's
+// externalMetadata — NOT via MPNowPlayingInfoCenter (AVKit owns the Now Playing
+// session here and ignores a manual one). This is what clears the repeating
+// "[MRPlaybackQueueServiceClient] ... Code=15 ... client data source ...
+// registered" log, which was MediaRemote polling for artwork we never published,
+// and it puts the poster on the Now Playing widget / remote. Title, description,
+// genre, and the elapsed/duration scrubber are already published by AVKit from
+// the item's other externalMetadata + the asset, so artwork is all we add.
 @MainActor
 final class NowPlayingController {
     private var artworkTask: Task<Void, Never>?
 
-    func begin(title: String, subtitle: String?, posterURL: URL?, player: AVPlayer) {
-        // An active playback audio session is what registers us as a MediaRemote
-        // client; without it the Now Playing info is ignored.
-        let session = AVAudioSession.sharedInstance()
-        try? session.setCategory(.playback, mode: .moviePlayback)
-        try? session.setActive(true)
-
-        var info: [String: Any] = [
-            MPMediaItemPropertyTitle: title,
-            MPNowPlayingInfoPropertyPlaybackRate: 1.0,
-            MPNowPlayingInfoPropertyMediaType: MPNowPlayingInfoMediaType.video.rawValue,
-        ]
-        if let subtitle, !subtitle.isEmpty { info[MPMediaItemPropertyArtist] = subtitle }
-        let duration = player.currentItem?.duration.seconds
-        if let duration, duration.isFinite, duration > 0 {
-            info[MPMediaItemPropertyPlaybackDuration] = duration
-        }
-        let elapsed = player.currentTime().seconds
-        info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = elapsed.isFinite ? elapsed : 0
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
-
-        // Poster bytes load async; patch the artwork in once it arrives so we
-        // never block playback start on a network fetch.
+    func begin(posterURL: URL?, item: AVPlayerItem) {
         guard let posterURL else { return }
+        // Poster bytes load async; append the artwork once it arrives so playback
+        // start never blocks on a network fetch. Re-encode to PNG so the metadata
+        // dataType is always correct regardless of the source format.
         artworkTask = Task {
             guard let (data, _) = try? await URLSession.shared.data(from: posterURL),
+                  !Task.isCancelled,
                   let image = UIImage(data: data),
-                  !Task.isCancelled else { return }
-            let artwork = MPMediaItemArtwork(boundsSize: image.size) { _ in image }
-            var current = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
-            current[MPMediaItemPropertyArtwork] = artwork
-            MPNowPlayingInfoCenter.default().nowPlayingInfo = current
+                  let png = image.pngData() else { return }
+            let artwork = AVMutableMetadataItem()
+            artwork.identifier = .commonIdentifierArtwork
+            artwork.dataType = kCMMetadataBaseDataType_PNG as String
+            artwork.value = png as NSData
+            artwork.extendedLanguageTag = "und"
+            item.externalMetadata += [artwork]
         }
-    }
-
-    // Keep the scrubber on the Now Playing widget in sync (the system
-    // extrapolates from rate, but a periodic nudge corrects drift after seeks).
-    func update(elapsed: Double, rate: Float) {
-        guard var info = MPNowPlayingInfoCenter.default().nowPlayingInfo else { return }
-        if elapsed.isFinite { info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = elapsed }
-        info[MPNowPlayingInfoPropertyPlaybackRate] = rate
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
     }
 
     func end() {
         artworkTask?.cancel()
         artworkTask = nil
-        MPNowPlayingInfoCenter.default().nowPlayingInfo = nil
     }
 }
 
@@ -167,79 +141,4 @@ func makeExternalMetadata(for item: Catalog.Item) -> [AVMetadataItem] {
                               item.genres.prefix(3).joined(separator: ", ")))
     }
     return meta.compactMap { $0 } + suppressedDateMetadata()
-}
-
-// MARK: - TEMPORARY playback diagnostics (remove after the buffering investigation)
-//
-// On-screen overlay so we can SEE, on the Apple TV, why playback stalls despite
-// a large forward buffer. The deciding question is whether Archive's throughput
-// keeps up (a reconnect problem, fixable at full quality) or can't sustain the
-// file's bitrate (only fixable by lowering quality / self-hosting). The access
-// log gives both numbers directly. Flip `showPlaybackDiagnostics` to false (or
-// delete this view + its two .overlay call sites) once we've read the numbers.
-let showPlaybackDiagnostics = true
-
-struct PlaybackDiagnosticsOverlay: View {
-    let player: AVPlayer
-    @State private var lines: [String] = ["(gathering…)"]
-    private let tick = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("PLAYBACK DIAGNOSTICS").font(.system(size: 20, weight: .bold, design: .monospaced))
-            ForEach(lines, id: \.self) { line in
-                Text(line).font(.system(size: 22, design: .monospaced))
-            }
-        }
-        .foregroundStyle(.green)
-        .padding(16)
-        .background(.black.opacity(0.65), in: .rect(cornerRadius: 12))
-        .allowsHitTesting(false)
-        .onReceive(tick) { _ in refresh(stall: false) }
-        // Snapshot the exact state at each stall — this is the decisive event.
-        .onReceive(NotificationCenter.default.publisher(for: .AVPlayerItemPlaybackStalled)) { _ in
-            refresh(stall: true)
-        }
-    }
-
-    private func refresh(stall: Bool) {
-        guard let item = player.currentItem else { return }
-        let cur = player.currentTime().seconds
-        let ahead = item.loadedTimeRanges.compactMap { value -> Double? in
-            let r = value.timeRangeValue
-            let start = r.start.seconds
-            let end = (r.start + r.duration).seconds
-            guard start.isFinite, end.isFinite, cur >= start - 1, cur <= end else { return nil }
-            return end - cur
-        }.max() ?? 0
-
-        var out: [String] = []
-        out.append(String(format: "buffer ahead : %5.0fs  (pref %.0fs)",
-                          ahead, archivePreferredForwardBufferDuration))
-        out.append("keepUp:\(yn(item.isPlaybackLikelyToKeepUp))  empty:\(yn(item.isPlaybackBufferEmpty))  full:\(yn(item.isPlaybackBufferFull))")
-
-        let e = item.accessLog()?.events.last
-        if let e {
-            out.append(String(format: "observed BW  : %6.2f Mbps", e.observedBitrate / 1_000_000))
-            out.append(String(format: "stream rate  : %6.2f Mbps", e.indicatedBitrate / 1_000_000))
-            out.append("STALLS       : \(e.numberOfStalls)")
-            out.append(String(format: "transferred  : %6.0f MB", Double(e.numberOfBytesTransferred) / 1_000_000))
-        } else {
-            out.append("(no access-log events yet)")
-        }
-        lines = out
-
-        // Mirror to the console so the user's existing console-copy workflow
-        // captures the decisive numbers (grep "[AWDiag]"). On a stall, log the
-        // full snapshot AND the access log's transfer stats at that instant.
-        let tag = stall ? "[AWDiag] STALL @\(Int(cur))s" : "[AWDiag] t=\(Int(cur))s"
-        let bw = e.map { String(format: "obsBW=%.2fMbps streamRate=%.2fMbps stalls=\($0.numberOfStalls) xfer=%.0fMB",
-                                $0.observedBitrate / 1_000_000, $0.indicatedBitrate / 1_000_000,
-                                Double($0.numberOfBytesTransferred) / 1_000_000) } ?? "no-accesslog"
-        print("\(tag) ahead=\(Int(ahead))s/\(Int(archivePreferredForwardBufferDuration))s "
-              + "keepUp=\(yn(item.isPlaybackLikelyToKeepUp)) empty=\(yn(item.isPlaybackBufferEmpty)) "
-              + "full=\(yn(item.isPlaybackBufferFull)) \(bw)")
-    }
-
-    private func yn(_ b: Bool) -> String { b ? "Y" : "n" }
 }

@@ -62,11 +62,6 @@ struct EpisodePlayerScreen: View {
                 AVPlayerContainer(player: player)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
-                    .overlay(alignment: .topLeading) {
-                        if showPlaybackDiagnostics {
-                            PlaybackDiagnosticsOverlay(player: player).padding(60)
-                        }
-                    }
             } else {
                 ProgressView()
                     .controlSize(.large)
@@ -145,10 +140,8 @@ struct EpisodePlayerScreen: View {
         tunePlaybackBuffering(item: item, player: p)
         player = p
         freezeGuard.attach(to: p, item: item)
-        nowPlaying.begin(title: episode.title,
-                         subtitle: series.title,
-                         posterURL: episode.stillURLParsed ?? series.posterURLParsed,
-                         player: p)
+        nowPlaying.begin(posterURL: episode.stillURLParsed ?? series.posterURLParsed,
+                         item: item)
 
         // Watch the item reach readyToPlay or fail, so a broken stream becomes
         // a visible error instead of a forever-spinner. KVO can fire off-main;
@@ -201,7 +194,6 @@ struct EpisodePlayerScreen: View {
                                 for: archiveID,
                                 seriesID: seriesID,
                                 episodeTitle: episodeTitle)
-                nowPlaying.update(elapsed: time.seconds, rate: p.rate)
             }
         }
 

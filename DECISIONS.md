@@ -626,3 +626,48 @@ never rebuild-and-replace.
 activity API; or the simulator's cached `catalog.sqlite`). The 2026-06-03 loss was
 fully recovered (30,645-item pre-018 commit `5ef1795`), so the merge guard is the
 permanent fix, not the recovery.
+
+---
+
+## 021 — Stream Archive video through a custom AVAssetResourceLoaderDelegate
+*Date: 2026-06-03*
+
+Playback routes every Archive/LoC progressive MP4 through `ResilientStreamLoader`
+(an `AVAssetResourceLoaderDelegate` on a custom `aw-stream://` scheme) instead of
+handing the `https` URL straight to `AVPlayerItem`. The loader serves
+AVFoundation's byte-range requests with short-timeout (12s), 2 MB chunked range
+GETs over our own `URLSession`, retrying and RESUMING from the exact byte offset
+on any timeout/reset. Non-HTTP URLs pass through untouched. Both player screens
+retain the loader in `@State` (the `resourceLoader` delegate is held weakly).
+`preferredForwardBufferDuration = 300s` and the artwork-via-`commonIdentifierArtwork`
+Now Playing fix ride alongside it.
+
+**Why**: on-device diagnostics (a temporary overlay that logged buffer + access-log
+stats) proved the stalls were NOT a throughput or quality problem — observed
+bandwidth was 18–84 Mbps for a 1.15 Mbps file and the forward buffer banked to
+120–210s, yet playback stalled ~every 30s, going `ahead=140s → 0s` in one second
+on each `nw_read` timeout / TCP `RST`. That is AVFoundation **flushing its entire
+forward buffer when Archive resets the idle connection**, then re-downloading it;
+one case never recovered at all. A bigger buffer cannot fix a flush-on-reset, and
+lowering bitrate was explicitly rejected (highest quality is a product goal). Only
+by owning the connection can a reset be handled as an invisible ranged re-request
+instead of a buffer-discarding stall. Verified on real Apple TV hardware: 5
+minutes on a previously-stalling title with zero stalls.
+
+**How to apply**: build player assets via `ResilientStreamLoader.makeAsset(for:)`,
+never `AVPlayerItem(url:)` for remote video. Keep the publish-time derivative
+selection at HIGHEST quality (this decision makes high-bitrate files safe to
+stream; do not add a bitrate ceiling). If you touch the loader, preserve: short
+request timeout (a long one re-creates the original drain), resume-from-offset on
+error (never restart at 0 — that re-introduces the flush), and `@unchecked
+Sendable` state confined to its serial `queue`. `nw_read … Operation timed out`
+lines in the console are now EXPECTED and harmless — they are our short timeout
+firing before an instant resume; judge health by playback continuity / stalls, not
+by their presence.
+
+**Consequences**: AVFoundation's own networking (HTTP/2, its access-log
+`observedBitrate`, transparent caching) is bypassed for video; the loader is the
+sole network path for playback and must stay robust (seeks issue new range
+requests; cancellation must stop in-flight tasks). This is the client-side
+counterpart to keeping the source files full-quality — it does not change which
+derivative plays.
