@@ -61,6 +61,11 @@ struct EpisodePlayerScreen: View {
                 AVPlayerContainer(player: player)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
+                    .overlay(alignment: .topLeading) {
+                        if showPlaybackDiagnostics {
+                            PlaybackDiagnosticsOverlay(player: player).padding(60)
+                        }
+                    }
             } else {
                 ProgressView()
                     .controlSize(.large)

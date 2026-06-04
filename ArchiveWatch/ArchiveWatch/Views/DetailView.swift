@@ -424,6 +424,11 @@ struct PlayerScreen: View {
                 AVPlayerContainer(player: player)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
+                    .overlay(alignment: .topLeading) {
+                        if showPlaybackDiagnostics {
+                            PlaybackDiagnosticsOverlay(player: player).padding(60)
+                        }
+                    }
             }
         }
         .onAppear { setupPlayer() }

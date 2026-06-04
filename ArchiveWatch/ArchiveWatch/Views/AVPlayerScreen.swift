@@ -2,6 +2,7 @@ import SwiftUI
 import AVKit
 import AVFoundation
 import MediaPlayer
+import Combine
 
 // Native tvOS playback surface.
 //
@@ -38,9 +39,17 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
 // Banking a large forward buffer lets the player accumulate surplus during the
 // fast stretches and ride through the dips. automaticallyWaitsToMinimizeStalling
 // stays on (the default) so the player builds buffer before (re)starting instead
-// of stall-starting on an empty buffer. 120s at a typical PD bitrate is tens of
-// MB — comfortable headroom on the 3 GB Apple TV.
-let archivePreferredForwardBufferDuration: TimeInterval = 120
+// of stall-starting on an empty buffer.
+//
+// This is quality-NEUTRAL: it buffers more of the SAME highest-quality stream
+// ahead of the playhead — it never changes which derivative or its bitrate. The
+// value is a PREFERENCE (a cap), not a hard allocation; AVFoundation fills toward
+// it when the connection is faster than playback and self-limits under memory
+// pressure. 300s gives deep headroom to ride out Archive's connection
+// drops/resets (the TCP RST + read-timeout seen on-device). At a typical PD
+// bitrate (1-4 Mbps) that's ~40-150 MB; AVFoundation backs off for the rare
+// very-high-bitrate file rather than risk jetsam on the Apple TV.
+let archivePreferredForwardBufferDuration: TimeInterval = 300
 
 func tunePlaybackBuffering(item: AVPlayerItem, player: AVPlayer) {
     item.preferredForwardBufferDuration = archivePreferredForwardBufferDuration
@@ -158,4 +167,63 @@ func makeExternalMetadata(for item: Catalog.Item) -> [AVMetadataItem] {
                               item.genres.prefix(3).joined(separator: ", ")))
     }
     return meta.compactMap { $0 } + suppressedDateMetadata()
+}
+
+// MARK: - TEMPORARY playback diagnostics (remove after the buffering investigation)
+//
+// On-screen overlay so we can SEE, on the Apple TV, why playback stalls despite
+// a large forward buffer. The deciding question is whether Archive's throughput
+// keeps up (a reconnect problem, fixable at full quality) or can't sustain the
+// file's bitrate (only fixable by lowering quality / self-hosting). The access
+// log gives both numbers directly. Flip `showPlaybackDiagnostics` to false (or
+// delete this view + its two .overlay call sites) once we've read the numbers.
+let showPlaybackDiagnostics = true
+
+struct PlaybackDiagnosticsOverlay: View {
+    let player: AVPlayer
+    @State private var lines: [String] = ["(gathering…)"]
+    private let tick = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("PLAYBACK DIAGNOSTICS").font(.system(size: 20, weight: .bold, design: .monospaced))
+            ForEach(lines, id: \.self) { line in
+                Text(line).font(.system(size: 22, design: .monospaced))
+            }
+        }
+        .foregroundStyle(.green)
+        .padding(16)
+        .background(.black.opacity(0.65), in: .rect(cornerRadius: 12))
+        .allowsHitTesting(false)
+        .onReceive(tick) { _ in refresh() }
+    }
+
+    private func refresh() {
+        guard let item = player.currentItem else { return }
+        let cur = player.currentTime().seconds
+        let ahead = item.loadedTimeRanges.compactMap { value -> Double? in
+            let r = value.timeRangeValue
+            let start = r.start.seconds
+            let end = (r.start + r.duration).seconds
+            guard start.isFinite, end.isFinite, cur >= start - 1, cur <= end else { return nil }
+            return end - cur
+        }.max() ?? 0
+
+        var out: [String] = []
+        out.append(String(format: "buffer ahead : %5.0fs  (pref %.0fs)",
+                          ahead, archivePreferredForwardBufferDuration))
+        out.append("keepUp:\(yn(item.isPlaybackLikelyToKeepUp))  empty:\(yn(item.isPlaybackBufferEmpty))  full:\(yn(item.isPlaybackBufferFull))")
+
+        if let e = item.accessLog()?.events.last {
+            out.append(String(format: "observed BW  : %6.2f Mbps", e.observedBitrate / 1_000_000))
+            out.append(String(format: "stream rate  : %6.2f Mbps", e.indicatedBitrate / 1_000_000))
+            out.append("STALLS       : \(e.numberOfStalls)")
+            out.append(String(format: "transferred  : %6.0f MB", Double(e.numberOfBytesTransferred) / 1_000_000))
+        } else {
+            out.append("(no access-log events yet)")
+        }
+        lines = out
+    }
+
+    private func yn(_ b: Bool) -> String { b ? "Y" : "n" }
 }
