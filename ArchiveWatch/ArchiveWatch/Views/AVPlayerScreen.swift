@@ -15,18 +15,38 @@ import UIKit
 struct AVPlayerContainer: UIViewControllerRepresentable {
     let player: AVPlayer
     var menuItems: [UIMenuElement] = []   // #10: per-video transport menu (autoplay override)
+    var skipCredits: Bool = true          // #8: "Skip Credits" contextual action
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
         vc.player = player
         vc.speeds = AVPlaybackSpeed.systemDefaultSpeeds   // #5: native speed menu
         vc.transportBarCustomMenuItems = menuItems
+        apply(to: vc)
         return vc
     }
 
     func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {
         if vc.player !== player { vc.player = player }
         vc.transportBarCustomMenuItems = menuItems        // reflect autoplay-mode changes
+        apply(to: vc)
+    }
+
+    // #8 (tvOS-DESIGN §8.4): "Skip Credits" as a contextualAction — tvOS surfaces
+    // these near the end of playback (Apple's Skip Recap / Next Episode pattern).
+    // Seeking to the end fires AVPlayerItemDidPlayToEndTime, which the player
+    // turns into autoplay-next (#10) or simply ends. Movies only; episodes already
+    // expose "Next Episode" (their skip-credits equivalent).
+    private func apply(to vc: AVPlayerViewController) {
+        guard skipCredits else { vc.contextualActions = []; return }
+        let p = player
+        vc.contextualActions = [
+            UIAction(title: "Skip Credits",
+                     image: UIImage(systemName: "forward.to.line.fill")) { _ in
+                guard let dur = p.currentItem?.duration, dur.isNumeric, dur.seconds > 0 else { return }
+                p.seek(to: dur, toleranceBefore: .zero, toleranceAfter: .zero)
+            }
+        ]
     }
 }
 
