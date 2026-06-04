@@ -117,9 +117,9 @@ struct SettingsView: View {
                 // AccountStore). Apple-logo + standard title keeps it recognizable.
                 Button { account.startSignIn() } label: {
                     Label("Sign in with Apple", systemImage: "applelogo")
-                        .font(.headline)
-                        .foregroundStyle(.white)
                 }
+                .buttonStyle(AppleSignInButtonStyle())
+                .listRowBackground(Color.clear)
 
                 if let err = account.signInError {
                     Label(err, systemImage: "exclamationmark.triangle.fill")
@@ -310,5 +310,36 @@ struct QRCode: View {   // shared: Settings donate + Detail share (#16)
         let scaled = output.transformed(by: CGAffineTransform(scaleX: 12, y: 12))
         guard let cg = context.createCGImage(scaled, from: scaled.extent) else { return nil }
         return UIImage(cgImage: cg)
+    }
+}
+
+// Sign in with Apple button — black field, white Apple-logo + title, focus-aware.
+// A plain Label row washed out to all-white on focus (the tvOS List row highlight
+// behind white text). This style paints its own opaque black field so the label
+// stays legible focused or not, and reads focus for a ring + lift instead.
+struct AppleSignInButtonStyle: ButtonStyle {
+    func makeBody(configuration: ButtonStyleConfiguration) -> some View {
+        SignInLabel(configuration: configuration)
+    }
+
+    private struct SignInLabel: View {
+        let configuration: ButtonStyleConfiguration
+        @Environment(\.isFocused) private var isFocused
+        var body: some View {
+            configuration.label
+                .font(.system(size: 26, weight: .semibold))
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 18)
+                .background(Color.black, in: RoundedRectangle(cornerRadius: 12))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .stroke(.white.opacity(isFocused ? 0.95 : 0.30),
+                                lineWidth: isFocused ? 4 : 1)
+                )
+                .scaleEffect(isFocused ? 1.03 : 1.0)
+                .animation(.easeOut(duration: 0.15), value: isFocused)
+                .opacity(configuration.isPressed ? 0.7 : 1.0)
+        }
     }
 }
