@@ -358,6 +358,7 @@ _BOILERPLATE_SENT = re.compile(
 # "From IMDb :", "From IMDb:", "Taken from IMDB :" — a pasted-source prefix on a
 # real plot (260 items measured). Strip the prefix, keep the plot.
 _FROM_IMDB_PREFIX = re.compile(r"^\s*(taken\s+)?from\s+imdb\s*:?\s*", re.I)
+_DISC_MARK = re.compile(r"\s*[\(\[]?\b(disc|disk|reel|tape)\s*\d+\b[\)\]]?", re.I)
 
 
 def _synopsis_text(it):
@@ -401,8 +402,19 @@ def sanitize_title(it):
     if not raw:
         return False
     t = _fix_mojibake(_html.unescape(raw))
+    # A title that is ENTIRELY bracketed ("[Amateur film: New Orleans Carnival]")
+    # is the Prelinger amateur-film naming — UNWRAP it (blanket bracket-stripping
+    # would empty it, so it was being left bracketed). Then strip inner/partial
+    # bracketed junk.
+    m = re.match(r"^\s*\[(.+)\]\s*$", t)
+    if m:
+        t = m.group(1).strip()
     t = _audit.T_BRACKET.sub(" ", t)
     t = _audit.T_RES.sub(" ", t)
+    # Drop "(Disc 2)"/"Reel 5"/"(Tape 1)" volume markers when real text remains.
+    disc_stripped = _DISC_MARK.sub(" ", t)
+    if re.search(r"[A-Za-z]", disc_stripped):
+        t = disc_stripped
     t = re.sub(r"\s+", " ", t).strip(" -_|")
     if t and t.isupper() and len(t.split()) > 1:
         t = t.title()
