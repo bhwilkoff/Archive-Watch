@@ -38,6 +38,11 @@ struct RootView: View {
                     TVShowsView().attachDestinations()
                 }
             }
+            Tab("Channels", systemImage: "play.tv.fill", value: Router.Tab.channels) {
+                NavigationStack(path: $router.channelsPath) {
+                    ChannelsView().attachDestinations()
+                }
+            }
             Tab("Collections", systemImage: "square.stack.3d.up.fill", value: Router.Tab.collections) {
                 NavigationStack(path: $router.collectionsPath) {
                     CollectionsView().attachDestinations()
@@ -132,6 +137,7 @@ struct RootView: View {
         case .home:        router.homePath = NavigationPath()
         case .browse:      router.browsePath = NavigationPath()
         case .tvShows:     router.tvShowsPath = NavigationPath()
+        case .channels:    router.channelsPath = NavigationPath()
         case .collections: router.collectionsPath = NavigationPath()
         case .search:      router.searchPath = NavigationPath()
         case .favorites:   router.favoritesPath = NavigationPath()

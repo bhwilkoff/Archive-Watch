@@ -442,6 +442,7 @@ struct PlayerScreen: View {
     let url: URL
     let archiveID: String
     var catalogItem: Catalog.Item? = nil
+    var lineup: [Catalog.Item]? = nil   // #1 channels: a fixed continuous lineup
     @Environment(\.modelContext) private var modelContext
     @Environment(AppStore.self) private var store
     @State private var player: AVPlayer?
@@ -459,13 +460,22 @@ struct PlayerScreen: View {
     @State private var current: Catalog.Item?
     // Per-video autoplay override; nil = use the global Settings default.
     @State private var sessionMode: AutoplayMode?
+    @State private var lineupIndex = 0
     @Environment(\.dismiss) private var dismiss
 
-    init(url: URL, archiveID: String, catalogItem: Catalog.Item? = nil) {
+    init(url: URL, archiveID: String, catalogItem: Catalog.Item? = nil,
+         lineup: [Catalog.Item]? = nil) {
         self.url = url
         self.archiveID = archiveID
         self.catalogItem = catalogItem
+        self.lineup = lineup
         _current = State(initialValue: catalogItem)
+    }
+
+    /// #1 channels: start a continuous lineup at its first item.
+    init?(lineup: [Catalog.Item]) {
+        guard let first = lineup.first, let url = first.videoURLParsed else { return nil }
+        self.init(url: url, archiveID: first.archiveID, catalogItem: first, lineup: lineup)
     }
 
     // #19: a broken item (dead URL, stale non-MP4 derivative, decode reject, or a
@@ -613,6 +623,12 @@ struct PlayerScreen: View {
             forName: .AVPlayerItemDidPlayToEndTime, object: playerItem, queue: .main
         ) { _ in
             Task { @MainActor in
+                // #1 channels: advance through the fixed lineup first.
+                if let lineup, lineupIndex + 1 < lineup.count {
+                    lineupIndex += 1
+                    current = lineup[lineupIndex]
+                    return
+                }
                 guard let cur = current else { return }
                 let mode = sessionMode ?? store.autoplayMode
                 if let nextItem = ContinuousPlayback.next(after: cur, mode: mode, store: store) {

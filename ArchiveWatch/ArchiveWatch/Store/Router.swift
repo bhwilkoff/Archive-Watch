@@ -14,7 +14,7 @@ import SwiftUI
 final class Router {
 
     enum Tab: String, CaseIterable, Identifiable, Hashable {
-        case home, browse, tvShows, collections, search, favorites, surprise, settings
+        case home, browse, tvShows, channels, collections, search, favorites, surprise, settings
         var id: String { rawValue }
 
         var title: String {
@@ -22,6 +22,7 @@ final class Router {
             case .home:        return "Home"
             case .browse:      return "Movies"
             case .tvShows:     return "TV Shows"
+            case .channels:    return "Channels"
             case .collections: return "Collections"
             case .search:      return "Search"
             case .favorites:   return "Favorites"
@@ -35,6 +36,7 @@ final class Router {
             case .home:        return "house.fill"
             case .browse:      return "film.fill"
             case .tvShows:     return "tv.fill"
+            case .channels:    return "play.tv.fill"
             case .collections: return "square.stack.3d.up.fill"
             case .search:      return "magnifyingglass"
             case .favorites:   return "heart.fill"
@@ -53,6 +55,7 @@ final class Router {
     var homePath = NavigationPath()
     var browsePath = NavigationPath()
     var tvShowsPath = NavigationPath()
+    var channelsPath = NavigationPath()
     var collectionsPath = NavigationPath()
     var searchPath = NavigationPath()
     var favoritesPath = NavigationPath()
@@ -67,6 +70,7 @@ final class Router {
         case .home:        homePath.append(destination)
         case .browse:      browsePath.append(destination)
         case .tvShows:     tvShowsPath.append(destination)
+        case .channels:    channelsPath.append(destination)
         case .collections: collectionsPath.append(destination)
         case .search:      searchPath.append(destination)
         case .favorites:   favoritesPath.append(destination)
@@ -81,6 +85,7 @@ final class Router {
         case .home:        if !homePath.isEmpty        { homePath.removeLast() }
         case .browse:      if !browsePath.isEmpty      { browsePath.removeLast() }
         case .tvShows:     if !tvShowsPath.isEmpty     { tvShowsPath.removeLast() }
+        case .channels:    if !channelsPath.isEmpty    { channelsPath.removeLast() }
         case .collections: if !collectionsPath.isEmpty { collectionsPath.removeLast() }
         case .search:      if !searchPath.isEmpty      { searchPath.removeLast() }
         case .favorites:   if !favoritesPath.isEmpty   { favoritesPath.removeLast() }
