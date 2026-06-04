@@ -48,6 +48,10 @@ struct SettingsView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
         .background(Color.black.ignoresSafeArea())
+        // Sync once sign-in completes (no-op until CloudKit is enabled).
+        .onChange(of: account.isSignedIn) { _, signedIn in
+            if signedIn { Task { await CloudKitSyncService.shared.sync(modelContext) } }
+        }
     }
 
     // MARK: - Sections
@@ -108,14 +112,14 @@ struct SettingsView: View {
                     Text("This permanently deletes your synced favorites, playlists, and watch progress from iCloud and signs you out. Titles saved on this Apple TV stay on this device.")
                 }
             } else {
-                SignInWithAppleButton(.signIn,
-                    onRequest: account.configure,
-                    onCompletion: { result in
-                        account.handle(result)
-                        Task { await CloudKitSyncService.shared.sync(modelContext) }
-                    })
-                .signInWithAppleButtonStyle(.white)
-                .frame(height: 64)
+                // Custom button driving our own ASAuthorizationController
+                // (SwiftUI's SignInWithAppleButton does nothing on tvOS — see
+                // AccountStore). Apple-logo + standard title keeps it recognizable.
+                Button { account.startSignIn() } label: {
+                    Label("Sign in with Apple", systemImage: "applelogo")
+                        .font(.headline)
+                        .foregroundStyle(.white)
+                }
 
                 if let err = account.signInError {
                     Label(err, systemImage: "exclamationmark.triangle.fill")
