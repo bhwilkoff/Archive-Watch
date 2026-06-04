@@ -66,3 +66,4 @@ catalog.json.gz
 ArchiveWatch/ArchiveWatch/catalog.json
 metadata_review_batch.json
 metadata_review_decisions.json
+tools/.tmdb_synopsis_cache.json
