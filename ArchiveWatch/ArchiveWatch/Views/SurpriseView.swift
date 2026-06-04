@@ -28,6 +28,7 @@ struct SurpriseView: View {
         .init(id: "newsreel",  title: "Random Newsreel",        icon: "newspaper.fill",       hex: "#8A8F98"),
         .init(id: "ephemera",  title: "Random Ephemera",        icon: "books.vertical.fill",  hex: "#3FA796"),
         .init(id: "decade",    title: "Random Decade",          icon: "calendar",             hex: "#C9A66B"),
+        .init(id: "pubdomain", title: "Public Domain Day",      icon: "party.popper.fill",    hex: "#E8A317"),
     ]
 
     private let cols = Array(repeating: GridItem(.flexible(), spacing: 32), count: 4)
@@ -61,7 +62,7 @@ struct SurpriseView: View {
             Text("Surprise Me")
                 .font(.system(size: 52, weight: .heavy, design: .serif))
                 .foregroundStyle(.white)
-            Text("Seven ways to wander the archive — pick one, or press again to re-roll.")
+            Text("Eight ways to wander the archive — pick one, or press again to re-roll.")
                 .font(.title3)
                 .foregroundStyle(.white.opacity(0.6))
         }
@@ -86,6 +87,8 @@ struct SurpriseView: View {
             if let decade = store.dbDecadeCounts().keys.randomElement() {
                 router.push(BrowseFilter(decade: decade))
             }
+        case "pubdomain":
+            router.push(PublicDomainRoute())
         default:
             break
         }

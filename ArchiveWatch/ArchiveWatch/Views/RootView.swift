@@ -159,5 +159,8 @@ extension View {
             .navigationDestination(for: BrowseFilter.self) { filter in
                 BrowseView(filter: filter)
             }
+            .navigationDestination(for: PublicDomainRoute.self) { _ in
+                PublicDomainView()
+            }
     }
 }

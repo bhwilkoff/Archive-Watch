@@ -151,13 +151,14 @@ final class CatalogDB {
 
     /// Browse grid: filter by content type / decade / genre, sorted, paginated.
     func browse(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
-                sort: Sort = .popular, limit: Int = 60, offset: Int = 0,
+                year: Int? = nil, sort: Sort = .popular, limit: Int = 60, offset: Int = 0,
                 homeOnly: Bool = false) -> [Catalog.Item] {
         var where_ = ["i.contentType != 'tv-series'"]
         if hideAdult { where_.append("i.isAdult = 0") }
         var binds: [String] = []
         if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
         if let decade { where_.append("i.decade = \(decade)") }
+        if let year { where_.append("i.year = \(year)") }   // #15 Public Domain Day (exact year)
         var join = ""
         if let genre {
             join = "JOIN item_genres g ON g.archiveID = i.archiveID AND g.genre = ?"

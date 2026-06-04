@@ -177,9 +177,9 @@ final class AppStore {
     }
 
     func dbBrowse(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
-                  sort: CatalogDB.Sort = .popular, limit: Int = 60, offset: Int = 0,
-                  homeOnly: Bool = false) -> [Catalog.Item] {
-        db?.browse(contentType: contentType, decade: decade, genre: genre,
+                  year: Int? = nil, sort: CatalogDB.Sort = .popular, limit: Int = 60,
+                  offset: Int = 0, homeOnly: Bool = false) -> [Catalog.Item] {
+        db?.browse(contentType: contentType, decade: decade, genre: genre, year: year,
                    sort: sort, limit: limit, offset: offset, homeOnly: homeOnly) ?? []
     }
     func dbSearch(_ q: String) -> [Catalog.Item] { db?.search(q) ?? [] }
