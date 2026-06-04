@@ -29,11 +29,13 @@ the detail, sequencing, research notes, and decisions. Update it as phases land.
   replace AVPlayerViewController with a manual MetalFX pipeline (losing native
   transport, Now Playing, and the resilient loader), and the Apple TV 4K already
   upscales to the panel. Removed from the v1 backlog. Phase 6 is now empty.
-- **D-C (#14 source) → RESOLVED: adapt BOBA-Playbook.** Repo at
-  `/Users/bhwilkoff/Documents/GitHub/BOBA-Playbook`. Cover-art visualization
-  reference code: `tools/HeroShotSim/` (3D/Metal — `sim3d.swift`,
-  `test_custommaterial.swift`, `test_metallib.swift`) and `js/showcases.js` /
-  `js/collection.js`. Mine these for the iTunes-style cover-flow when building #14.
+- **D-C (#14 source) → RESOLVED: adapt BOBA-Playbook's "Showcase".** Repo at
+  `/Users/bhwilkoff/Documents/GitHub/BOBA-Playbook`. The feature to mimic is
+  **Showcase**: `BOBAPlaybook/Views/Collection/CollectionShowcaseView.swift` (an
+  AlbumArtwork-style animated cover wall — flip/drop/roll/spin variants +
+  `ShowcaseSession` orchestrator, ~2,900 lines) with `Models/Showcase.swift` +
+  `js/showcases.js`. (NOT `HeroShotSim` — that's the card 3D-render tool.) Adapt
+  Showcase into the iTunes-style cover-art screensaver over our catalog art.
 
 ---
 
