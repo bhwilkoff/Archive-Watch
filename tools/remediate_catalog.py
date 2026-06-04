@@ -531,6 +531,20 @@ def remediate(items):
         if sanitize_title(it):
             stats["title_cleaned"] += 1
 
+        # 8) ARTWORK FLOOR (#13): every Archive item should show at least its
+        # Archive thumbnail rather than a procedural placeholder. When no poster
+        # exists (incl. titles whose wrong match was just cleared by #20/#75),
+        # point at the deterministic services/img thumbnail. hasRealArtwork stays
+        # false — designed art (TMDb/Commons) still wins and outranks this floor.
+        # loc: items use a different host, so skip them. Frame-extracted, face-
+        # scored covers (the fancy version) need a macOS+video pipeline -> #13b.
+        aid = it.get("archiveID") or ""
+        if not it.get("posterURL") and aid and not aid.startswith("loc:"):
+            it["posterURL"] = f"https://archive.org/services/img/{aid}"
+            if not it.get("artworkSource"):
+                it["artworkSource"] = "archive"
+            stats["archive_thumb_filled"] += 1
+
     return stats
 
 
