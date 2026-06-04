@@ -23,6 +23,7 @@ struct DetailView: View {
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var allProgress: [WatchProgress]
     @State private var isPlaying = false
     @State private var showShare = false
+    @State private var showAddPlaylist = false
     @FocusState private var focusTarget: DetailFocusTarget?
 
     private var accent: Color {
@@ -177,6 +178,7 @@ struct DetailView: View {
                 playButton
                 favoriteButton
                 shareButton
+                playlistButton
             }
             .padding(.top, 8)
             // Dedicated focus section for the action row so up-arrow
@@ -237,6 +239,19 @@ struct DetailView: View {
         .buttonStyle(CircleIconStyle())
         .focusEffectDisabled()
         .sheet(isPresented: $showShare) { ShareSheet(item: item) }
+    }
+
+    // #12: add this title to a playlist (or create one).
+    private var playlistButton: some View {
+        Button { showAddPlaylist = true } label: {
+            Image(systemName: "text.badge.plus")
+                .font(.title2)
+                .foregroundStyle(.white)
+                .padding(18)
+        }
+        .buttonStyle(CircleIconStyle())
+        .focusEffectDisabled()
+        .sheet(isPresented: $showAddPlaylist) { AddToPlaylistSheet(archiveID: item.archiveID) }
     }
 
     // MARK: - Metadata block

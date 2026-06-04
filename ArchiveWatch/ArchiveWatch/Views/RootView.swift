@@ -53,7 +53,7 @@ struct RootView: View {
                     SearchView().attachDestinations()
                 }
             }
-            Tab("Favorites", systemImage: "heart.fill", value: Router.Tab.favorites) {
+            Tab("Library", systemImage: "books.vertical.fill", value: Router.Tab.favorites) {
                 NavigationStack(path: $router.favoritesPath) {
                     FavoritesView().attachDestinations()
                 }
@@ -167,6 +167,9 @@ extension View {
             }
             .navigationDestination(for: PublicDomainRoute.self) { _ in
                 PublicDomainView()
+            }
+            .navigationDestination(for: PlaylistRoute.self) { route in
+                PlaylistDetailView(playlistID: route.id)
             }
     }
 }

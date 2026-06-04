@@ -25,7 +25,7 @@ final class Router {
             case .channels:    return "Channels"
             case .collections: return "Collections"
             case .search:      return "Search"
-            case .favorites:   return "Favorites"
+            case .favorites:   return "Library"
             case .surprise:    return "Surprise"
             case .settings:    return "Settings"
             }
@@ -39,7 +39,7 @@ final class Router {
             case .channels:    return "play.tv.fill"
             case .collections: return "square.stack.3d.up.fill"
             case .search:      return "magnifyingglass"
-            case .favorites:   return "heart.fill"
+            case .favorites:   return "books.vertical.fill"
             case .surprise:    return "dice.fill"
             case .settings:    return "gearshape.fill"
             }

@@ -25,7 +25,7 @@ struct FavoritesView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 24) {
                 HStack(spacing: 20) {
-                    Text("Favorites")
+                    Text("Library")
                         .font(.title.bold())
                         .foregroundStyle(.white)
                     if !items.isEmpty {
@@ -37,6 +37,8 @@ struct FavoritesView: View {
                 }
                 .padding(.horizontal, 80)
                 .padding(.top, 24)
+
+                PlaylistsSection()   // #12: user playlists above the favorites grid
 
                 if items.isEmpty {
                     emptyState

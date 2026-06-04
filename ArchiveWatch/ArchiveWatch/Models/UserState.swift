@@ -50,3 +50,23 @@ final class Favorite {
         self.addedAt = Date()
     }
 }
+
+// #12: a user-created playlist / custom collection. Ordered archiveIDs kept on
+// the model (small lists); resolved to Catalog.Items at display time. CloudKit
+// mirror lands with #11 (Decision 022).
+@Model
+final class Playlist {
+    @Attribute(.unique) var id: String
+    var name: String
+    var archiveIDs: [String]
+    var createdAt: Date
+
+    init(id: String = UUID().uuidString, name: String, archiveIDs: [String] = []) {
+        self.id = id
+        self.name = name
+        self.archiveIDs = archiveIDs
+        self.createdAt = Date()
+    }
+
+    func contains(_ archiveID: String) -> Bool { archiveIDs.contains(archiveID) }
+}
