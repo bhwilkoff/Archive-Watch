@@ -17,6 +17,7 @@ import SwiftUI
 struct RootView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
+    @Environment(\.modelContext) private var modelContext
     private let inbox = IntentInbox.shared
 
     var body: some View {
@@ -78,6 +79,9 @@ struct RootView: View {
         // we appeared (cold launch via "Hey Siri…") and any set while live.
         .task { handleIntent(inbox.request) }
         .onChange(of: inbox.request) { _, req in handleIntent(req) }
+        // #11: best-effort CloudKit sync on launch (no-ops until the entitlement
+        // is configured — CloudSync.entitlementConfigured).
+        .task { await CloudKitSyncService.shared.sync(modelContext) }
     }
 
     /// Route a Siri/Shortcuts request into the live navigation state.

@@ -5,6 +5,7 @@ import SwiftData
 struct ArchiveWatchApp: App {
     @State private var store = AppStore()
     @State private var router = Router()
+    @State private var account = AccountStore()   // #11 Sign in with Apple
     private let modelContainer: ModelContainer
 
     init() {
@@ -20,6 +21,7 @@ struct ArchiveWatchApp: App {
             ContentView()
                 .environment(store)
                 .environment(router)
+                .environment(account)
         }
         .modelContainer(modelContainer)
         .backgroundTask(.appRefresh(BackgroundRefresh.identifier)) {

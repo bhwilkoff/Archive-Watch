@@ -671,3 +671,38 @@ sole network path for playback and must stay robust (seeks issue new range
 requests; cancellation must stop in-flight tasks). This is the client-side
 counterpart to keeping the source files full-quality — it does not change which
 derivative plays.
+
+---
+
+## 022 — Sign in with Apple + CloudKit private DB for cross-Apple-TV sync
+*Date: 2026-06-03*
+
+Favorites, playlists, and watch progress sync across a household's Apple TVs via
+**Sign in with Apple** (identity) + the **CloudKit private database** (storage).
+No third-party/external auth. Sign-in is OPTIONAL and gates ONLY sync — browsing
+and playback work fully signed-out. Implemented as `AccountStore`
+(AuthenticationServices) + `CloudKitSyncService` (gated by
+`CloudSync.entitlementConfigured`, default false, so the simulator build stays
+clean until the owner adds the iCloud + Sign in with Apple capabilities — see
+`docs/runbooks/cloudkit-setup.md`).
+
+**Why**: this reverses the "all state local" half of Decision 009. The original
+no-accounts stance was about removing trial friction; #11 (owner-requested) needs
+the same favorites/progress on every Apple TV in a home. CloudKit's private DB
+keeps that data in the user's own iCloud (we never see it), and Apple-native auth
+avoids any contractual/privacy surface a third-party login would add — consistent
+with the free, no-funnel ethos (Decisions 009/010). The Top Shelf App-Group
+"no-op until configured" pattern proved a capability-gated feature can live in the
+tree without breaking sim builds, so sync ships the same way.
+
+**How to apply**: never add a non-Apple login. Sign-in must stay optional —
+nothing in browse/playback may require it. New synced user-state must be added to
+`CloudKitSyncService` (push + pull) AND the SwiftData schema. Keep the gate
+(`entitlementConfigured`) the single switch; don't call `CKContainer` outside the
+service. v1 is union/upsert + last-writer-wins; deletion propagation + live
+refresh are #11b.
+
+**Consequences**: the SwiftData store (`Favorite`/`Playlist`/`WatchProgress`)
+gains a CloudKit mirror; a future iOS/web companion could read the same private DB.
+Privacy manifest may need a data-collection note once sync is enabled (it stays in
+the user's iCloud, but document it).

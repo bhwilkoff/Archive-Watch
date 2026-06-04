@@ -1,5 +1,6 @@
 import SwiftUI
 import CoreImage.CIFilterBuiltins
+import AuthenticationServices
 
 // Settings / About — built on a dark grouped `List`, the idiomatic tvOS settings
 // pattern (Apple's own Settings app is a grouped list). Two reasons it must be a
@@ -19,6 +20,8 @@ import CoreImage.CIFilterBuiltins
 
 struct SettingsView: View {
     @Environment(AppStore.self) private var store
+    @Environment(AccountStore.self) private var account
+    @Environment(\.modelContext) private var modelContext
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -30,6 +33,7 @@ struct SettingsView: View {
                 .padding(.bottom, 12)
 
             List {
+                accountSection
                 visibilitySection
                 homeSection
                 playbackSection
@@ -70,6 +74,36 @@ struct SettingsView: View {
             Text("Home")
         } footer: {
             Text("On by default. Finished titles stay out of Home shelves but remain in Search, Browse, and Continue Watching.")
+        }
+    }
+
+    // #11 (Decision 022): Sign in with Apple — gates only cross-Apple-TV sync.
+    private var accountSection: some View {
+        Section {
+            if account.isSignedIn {
+                LabeledContent {
+                    Text("Signed in").foregroundStyle(.white.opacity(0.6))
+                } label: {
+                    Label("Apple ID", systemImage: "person.crop.circle.fill.badge.checkmark")
+                        .foregroundStyle(.white)
+                }
+                Button(role: .destructive) { account.signOut() } label: {
+                    Text("Sign Out")
+                }
+            } else {
+                SignInWithAppleButton(.signIn,
+                    onRequest: account.configure,
+                    onCompletion: { result in
+                        account.handle(result)
+                        Task { await CloudKitSyncService.shared.sync(modelContext) }
+                    })
+                .signInWithAppleButtonStyle(.white)
+                .frame(height: 64)
+            }
+        } header: {
+            Text("Account")
+        } footer: {
+            Text("Sign in with Apple to sync your favorites, playlists, and watch progress across your Apple TVs. Optional — browsing and playback work without it; nothing leaves your device until you sign in.")
         }
     }
 
