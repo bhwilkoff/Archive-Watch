@@ -31,6 +31,12 @@
     <array>
         <string>arm64</string>
     </array>
+    <!-- Export compliance: the app uses only standard, exempt encryption (HTTPS/TLS
+         to public APIs, plus Apple's own CloudKit / Sign in with Apple). Declaring
+         this here auto-answers the App Store Connect export question for every
+         build, so no manual compliance step per upload. -->
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false/>
     <key>TMDB_BEARER_TOKEN</key>
     <string>$(TMDB_BEARER_TOKEN)</string>
     <key>CFBundleURLTypes</key>
