@@ -9,9 +9,10 @@ struct BrowseFilter: Hashable, Sendable {
     var decade: Int? = nil
     var genre: String? = nil
     var collection: String? = nil
+    var person: String? = nil   // #4: films featuring this cast member / director
 
     var isEmpty: Bool {
-        category == nil && decade == nil && genre == nil && collection == nil
+        category == nil && decade == nil && genre == nil && collection == nil && person == nil
     }
 }
 
@@ -70,6 +71,13 @@ struct BrowseView: View {
         case .alphabetical:     dbSort = .alphabetical
         case .newest:           dbSort = .newest
         case .oldest:           dbSort = .oldest
+        }
+        if let p = filter.person {   // #4: person browse uses the FTS names index
+            var page = store.dbByPerson(p)
+            if sort == .random {
+                var rng = SplitMix(seed: UInt64(shuffleSeed)); page.shuffle(using: &rng)
+            }
+            return page
         }
         var page = store.dbBrowse(contentType: filter.category, decade: filter.decade,
                                   genre: filter.genre, sort: dbSort, limit: cap)
@@ -166,6 +174,7 @@ struct BrowseView: View {
         }
         if let g = filter.genre { return g.capitalized }
         if let k = filter.collection { return CollectionMetadata.title(for: k) }
+        if let p = filter.person { return p }   // #4
         return "Browse"
     }
 }

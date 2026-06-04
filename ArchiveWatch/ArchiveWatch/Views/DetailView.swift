@@ -235,11 +235,26 @@ struct DetailView: View {
                     .frame(maxWidth: 1100, alignment: .leading)
             }
 
-            if !item.cast.isEmpty {
-                Text("Starring " + item.cast.prefix(5).map(\.name).joined(separator: ", "))
-                    .font(.system(size: 23, weight: .regular))
-                    .foregroundStyle(.white.opacity(0.6))
-                    .lineLimit(2)
+            // #4 (tvOS-DESIGN §2.3): tappable cast + crew — each opens a browse of
+            // that person's other titles (films AND TV) via the FTS names index.
+            if !item.cast.isEmpty || (item.director?.isEmpty == false) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 20) {
+                        if let d = item.director, !d.isEmpty {
+                            PersonChip(name: d, role: "Director", profilePath: nil) {
+                                router.push(BrowseFilter(person: d))
+                            }
+                        }
+                        ForEach(Array(item.cast.prefix(12)), id: \.name) { member in
+                            PersonChip(name: member.name, role: member.character,
+                                       profilePath: member.profilePath) {
+                                router.push(BrowseFilter(person: member.name))
+                            }
+                        }
+                    }
+                    .padding(.vertical, 8)
+                }
+                .focusSection()
             }
 
             if let series = item.seriesName, series != item.title {
@@ -652,5 +667,54 @@ struct ProgressBar: View {
             }
         }
         .frame(height: 4)
+    }
+}
+
+// MARK: - Cast / crew chip (#4)
+
+private struct PersonChip: View {
+    let name: String
+    let role: String?
+    let profilePath: String?
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            VStack(spacing: 8) {
+                ZStack {
+                    Circle().fill(Color.white.opacity(0.12))
+                    if let url = profileURL {
+                        RemoteImage(url: url, targetSize: CGSize(width: 180, height: 180))
+                            .clipShape(Circle())
+                    } else {
+                        Text(initials)
+                            .font(.system(size: 42, weight: .bold))
+                            .foregroundStyle(.white.opacity(0.7))
+                    }
+                }
+                .frame(width: 130, height: 130)
+                Text(name)
+                    .font(.system(size: 22, weight: .semibold))
+                    .foregroundStyle(.white)
+                    .lineLimit(1).frame(width: 156)
+                if let role, !role.isEmpty {
+                    Text(role)
+                        .font(.system(size: 18, weight: .regular))
+                        .foregroundStyle(.white.opacity(0.5))
+                        .lineLimit(1).frame(width: 156)
+                }
+            }
+        }
+        .buttonStyle(.card)
+    }
+
+    private var profileURL: URL? {
+        guard let p = profilePath, !p.isEmpty else { return nil }
+        let path = p.hasPrefix("http") ? p : "https://image.tmdb.org/t/p/w185\(p)"
+        return URL(string: path)
+    }
+
+    private var initials: String {
+        name.split(separator: " ").prefix(2).compactMap(\.first).map(String.init).joined().uppercased()
     }
 }

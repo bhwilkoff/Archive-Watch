@@ -247,6 +247,24 @@ final class CatalogDB {
         """, [name])
     }
 
+    /// Items featuring a person (cast OR director), via the FTS `names` column
+    /// (#4). Matches all name tokens so "John Wayne" doesn't pull every John.
+    func byPerson(_ name: String, limit: Int = 120) -> [Catalog.Item] {
+        let tokens = name.lowercased()
+            .components(separatedBy: CharacterSet.alphanumerics.inverted)
+            .filter { $0.count >= 2 }
+        guard !tokens.isEmpty else { return [] }
+        let q = tokens.map { "names:\"\($0)\"*" }.joined(separator: " ")
+        return items("""
+            SELECT j.json FROM items_fts f
+            JOIN item_json j ON j.archiveID = f.archiveID
+            JOIN items i ON i.archiveID = f.archiveID
+            WHERE items_fts MATCH ? \(adultAnd) \(typeAnd)
+            ORDER BY i.popularityScore DESC
+            LIMIT \(limit)
+        """, [q])
+    }
+
     /// Items in a registered collection (CollectionsView / collection browse).
     func byCollection(_ collection: String, limit: Int = 2000) -> [Catalog.Item] {
         items("""
