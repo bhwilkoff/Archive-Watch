@@ -1,0 +1,82 @@
+name: TMDb metadata enrich
+
+# Daily pass that fills EMPTY synopsis / cast / director from TMDb for catalog
+# items that already carry a trusted tmdbID (set by enrich_movies / discover),
+# and resolves imdbID-only empty-synopsis items via TMDb /find. This is the
+# CI counterpart of the one-shot tools/tmdb_fill_metadata.py sourcing passes —
+# it keeps newly-matched items enriched automatically as the catalog grows.
+#
+# TMDb is the no-daily-cap text/credits source (Decision 007), so unlike the
+# OMDb backfill this needs no committed negative-cache budget — it simply
+# re-fetches each run (a few minutes) and fills only currently-empty fields
+# (never overwrites, never fabricates, skips TMDb-empty).
+
+on:
+  schedule:
+    # 03:43 UTC — odd minute, clear of the omdb (02:17) / top-of-hour cron wave.
+    - cron: '43 3 * * *'
+  workflow_dispatch:
+
+concurrency:
+  # Shared with every catalog-mutating workflow so they never push / publish
+  # at the same time (Decision 018/020 — the catalog lives on a Release).
+  group: catalog-writers
+  cancel-in-progress: false
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write    # dispatch publish-db after the catalog updates
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Fill empty synopsis / cast / director from TMDb
+        id: fill
+        env:
+          TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
+        run: |
+          # Graceful no-op (green) if the TMDB token isn't configured.
+          if [ -z "$TMDB_BEARER_TOKEN" ]; then
+            echo "TMDB_BEARER_TOKEN secret not set — skipping (not an error)."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "## TMDb enrich: skipped (no TMDB_BEARER_TOKEN)" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          python tools/tmdb_fill_metadata.py | tee fill.log
+          # Only publish when something was actually filled — avoids needless
+          # DB rebuilds on days the population is already drained.
+          if grep -qE 'filled synopsis=0 cast=0 director=0' fill.log; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "## TMDb enrich" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          tail -5 fill.log >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish catalog to release
+        if: steps.fill.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
+
+      - name: Rebuild app DB
+        if: steps.fill.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run publish-db.yml
