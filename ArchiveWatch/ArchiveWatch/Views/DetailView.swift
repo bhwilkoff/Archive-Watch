@@ -417,21 +417,73 @@ struct PlayerScreen: View {
     @State private var freezeGuard = PlaybackFreezeGuard()
     @State private var nowPlaying = NowPlayingController()
     @State private var streamLoader: ResilientStreamLoader?
+    @State private var statusObserver: NSKeyValueObservation?
+    @State private var timeoutTask: Task<Void, Never>?
+    @State private var playback: PlaybackState = .loading
+    @Environment(\.dismiss) private var dismiss
+
+    // #19: a broken item (dead URL, stale non-MP4 derivative, decode reject, or a
+    // load that never readies) must not dead-end on the system "no-entry" circle.
+    // Surface a visible, recoverable failure state — same contract as the episode
+    // player.
+    private enum PlaybackState: Equatable { case loading, ready, failed(String) }
+    private let loadTimeout: Duration = .seconds(30)
 
     var body: some View {
         ZStack {
             Color.black.ignoresSafeArea()
-            if let player {
+            if case .failed(let message) = playback {
+                failureView(message)
+            } else if let player {
                 AVPlayerContainer(player: player)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
+            } else {
+                ProgressView().controlSize(.large).tint(.white)
             }
         }
         .onAppear { setupPlayer() }
         .onDisappear { teardownPlayer() }
     }
 
+    @ViewBuilder
+    private func failureView(_ message: String) -> some View {
+        VStack(spacing: 24) {
+            Image(systemName: "exclamationmark.triangle")
+                .font(.system(size: 64))
+                .foregroundStyle(.yellow)
+            Text("Can't play this title")
+                .font(.system(size: 38, weight: .bold))
+                .foregroundStyle(.white)
+            Text(message)
+                .font(.system(size: 24))
+                .foregroundStyle(.white.opacity(0.7))
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: 900)
+            HStack(spacing: 20) {
+                Button {
+                    teardownPlayer(persist: false)
+                    playback = .loading
+                    setupPlayer()
+                } label: {
+                    Label("Try Again", systemImage: "arrow.clockwise")
+                        .font(.system(size: 24, weight: .semibold))
+                        .padding(.horizontal, 28).padding(.vertical, 12)
+                }
+                .buttonStyle(.borderedProminent)
+                Button { dismiss() } label: {
+                    Text("Back")
+                        .font(.system(size: 24, weight: .semibold))
+                        .padding(.horizontal, 28).padding(.vertical, 12)
+                }
+                .buttonStyle(.bordered)
+            }
+            .padding(.top, 12)
+        }
+    }
+
     private func setupPlayer() {
+        playback = .loading
         let (asset, loader) = ResilientStreamLoader.makeAsset(for: url)
         streamLoader = loader
         let playerItem = AVPlayerItem(asset: asset)
@@ -443,6 +495,33 @@ struct PlayerScreen: View {
         player = p
         freezeGuard.attach(to: p, item: playerItem)
         nowPlaying.begin(posterURL: catalogItem?.posterURLParsed, item: playerItem)
+
+        // Watch the item ready or fail so a broken stream becomes a visible,
+        // recoverable error instead of the dead "no-entry" circle (#19). KVO can
+        // fire off-main; hop to the main actor before touching view state.
+        statusObserver = playerItem.observe(\.status, options: [.new]) { observed, _ in
+            Task { @MainActor in
+                switch observed.status {
+                case .readyToPlay:
+                    playback = .ready
+                    timeoutTask?.cancel()
+                case .failed:
+                    playback = .failed(observed.error?.localizedDescription
+                                       ?? "The video couldn't be loaded.")
+                    timeoutTask?.cancel()
+                default: break
+                }
+            }
+        }
+        // Backstop: if the item never readies (silent stall), fail visibly.
+        timeoutTask?.cancel()
+        timeoutTask = Task { @MainActor in
+            try? await Task.sleep(for: loadTimeout)
+            guard !Task.isCancelled else { return }
+            if playback == .loading {
+                playback = .failed("This title is taking too long to load. The source may be temporarily unavailable.")
+            }
+        }
 
         let archiveID = self.archiveID
         let descriptor = FetchDescriptor<WatchProgress>(
@@ -462,17 +541,21 @@ struct PlayerScreen: View {
         }
     }
 
-    private func teardownPlayer() {
+    private func teardownPlayer(persist: Bool = true) {
         if let obs = timeObserver { player?.removeTimeObserver(obs) }
         freezeGuard.detach()
         nowPlaying.end()
-        if let p = player {
+        if persist, let p = player {
             persistProgress(at: p.currentTime().seconds, duration: p.currentItem?.duration.seconds)
         }
         player?.pause()
         player = nil
         timeObserver = nil
         streamLoader = nil
+        statusObserver?.invalidate()
+        statusObserver = nil
+        timeoutTask?.cancel()
+        timeoutTask = nil
     }
 
     private func persistProgress(at position: Double, duration: Double?) {
