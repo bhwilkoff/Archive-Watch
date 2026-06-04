@@ -1,100 +1,103 @@
 {
- "version": 2,
- "seriesID": "victory-at-sea-1952",
- "tvmazeID": 16606,
- "title": "Victory at Sea",
- "yearStart": 1952,
- "yearEnd": 1953,
- "overview": "A documentary TV series about naval warfare during World War II that was originally aired by NBC in the USA in 26 half-hour segments on Sunday afternoons, starting October 26, 1952 and ending May 3, 1953. The series, which won an Emmy in 1954 as best public affairs program, played a major role in establishing historic documentaries as a viable television genre. When it first aired, NBC thought it so important that it had no commercial breaks. The series was also aired on The History Channel in 1996.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/55/138432.jpg",
- "backdropURL": null,
- "genres": [
-  "War",
-  "History"
- ],
- "networks": [
-  "NBC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "victory-at-sea-1952",
+  "tvmazeID": 16606,
+  "title": "Victory at Sea",
+  "yearStart": 1952,
+  "yearEnd": 1953,
+  "overview": "A documentary TV series about naval warfare during World War II that was originally aired by NBC in the USA in 26 half-hour segments on Sunday afternoons, starting October 26, 1952 and ending May 3, 1953. The series, which won an Emmy in 1954 as best public affairs program, played a major role in establishing historic documentaries as a viable television genre. When it first aired, NBC thought it so important that it had no commercial breaks. The series was also aired on The History Channel in 1996.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/55/138432.jpg",
+  "backdropURL": null,
+  "genres": [
+    "War",
+    "History"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "01designforwar",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Design for War: Battle of the Atlantic, 1939-1941",
-     "overview": "Design for War: Battle of the Atlantic, 1939-1941. World War II begins and the Germans succeed in invading Poland and France. But it is restrained by the British thanks to the vital convoys, Canadian and American naval forces' initial involvement and the Lend-Lease program. Still, the German submarine war increases its crescendo thanks to new French bases.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
-     "airDate": "1952-10-26",
-     "year": 1952,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "01_Design_For_War.MPEG4..mp4",
-      "format": "h.264",
-      "sizeBytes": 165247788,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/01designforwar/01_Design_For_War.MPEG4..mp4"
-    },
-    {
-     "archiveID": "08marenostrum",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "The Pacific Boils Over: Pearl Harbor, December 7, 1941",
-     "overview": "Pearl Harbor, December 7, 1941. Using Japanese footage, viewers see the planning, execution and, ultimately, the celebration of the country's attack on Pearl Harbor. There is also an explanation provided for the attack and some peaceful moments depicted among the U.S. sailors before the fateful events begin. Though badly damaged, the U.S. Navy survives to fight again.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
-     "airDate": "1952-11-02",
-     "year": 1952,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "09_Sea_And_Sand.mp4",
-      "format": "h.264",
-      "sizeBytes": 165249485,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/08marenostrum/09_Sea_And_Sand.mp4"
-    },
-    {
-     "archiveID": "15dday",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Sealing the Breach: Anti-Submarine Warfare, 1941-1943",
-     "overview": "Anti-submarine warfare, 1941-1943. With war now declared by the U.S., naval forces throughout the states have joined to bring convoys of supplies across the Atlantic Ocean to the Allies in England. German U-Boat wolf packs prey on the convoys but they steam valiantly onward despite terrible losses.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
-     "airDate": "1952-11-09",
-     "year": 1952,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "17_The_Turkey_Shoot.mp4",
-      "format": "h.264",
-      "sizeBytes": 164997238,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/15dday/17_The_Turkey_Shoot.mp4"
-    },
-    {
-     "archiveID": "22thefateofeurope",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Midway is East: Japanese Victories & The Midway Battle",
-     "overview": "Japanese victories and the Battle of Midway. The Japanese are ascendant as they successfully invade the East Indies, Singapore and the Philippines. But the Americans are victorious, first on the Coral Sea and ultimately on Midway as they manage to bomb and sink four of Japan's aircraft carriers-the same ones that were used for the attack on Pearl Harbor-making the imperial fleet retreat and giving the U.S. an incredible early victory in the Pacific.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
-     "airDate": "1952-11-23",
-     "year": 1952,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "23_Target_Suribachi.mp4",
-      "format": "h.264",
-      "sizeBytes": 164943829,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/22thefateofeurope/23_Target_Suribachi.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "01designforwar",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Design for War: Battle of the Atlantic, 1939-1941",
+          "overview": "Design for War: Battle of the Atlantic, 1939-1941. World War II begins and the Germans succeed in invading Poland and France. But it is restrained by the British thanks to the vital convoys, Canadian and American naval forces' initial involvement and the Lend-Lease program. Still, the German submarine war increases its crescendo thanks to new French bases.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
+          "airDate": "1952-10-26",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "01_Design_For_War.MPEG4..mp4",
+            "format": "h.264",
+            "sizeBytes": 165247788,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/01designforwar/01_Design_For_War.MPEG4..mp4"
+        },
+        {
+          "archiveID": "08marenostrum",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Pacific Boils Over: Pearl Harbor, December 7, 1941",
+          "overview": "Pearl Harbor, December 7, 1941. Using Japanese footage, viewers see the planning, execution and, ultimately, the celebration of the country's attack on Pearl Harbor. There is also an explanation provided for the attack and some peaceful moments depicted among the U.S. sailors before the fateful events begin. Though badly damaged, the U.S. Navy survives to fight again.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
+          "airDate": "1952-11-02",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "09_Sea_And_Sand.mp4",
+            "format": "h.264",
+            "sizeBytes": 165249485,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/08marenostrum/09_Sea_And_Sand.mp4"
+        },
+        {
+          "archiveID": "15dday",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Sealing the Breach: Anti-Submarine Warfare, 1941-1943",
+          "overview": "Anti-submarine warfare, 1941-1943. With war now declared by the U.S., naval forces throughout the states have joined to bring convoys of supplies across the Atlantic Ocean to the Allies in England. German U-Boat wolf packs prey on the convoys but they steam valiantly onward despite terrible losses.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
+          "airDate": "1952-11-09",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "17_The_Turkey_Shoot.mp4",
+            "format": "h.264",
+            "sizeBytes": 164997238,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/15dday/17_The_Turkey_Shoot.mp4"
+        },
+        {
+          "archiveID": "22thefateofeurope",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Midway is East: Japanese Victories & The Midway Battle",
+          "overview": "Japanese victories and the Battle of Midway. The Japanese are ascendant as they successfully invade the East Indies, Singapore and the Philippines. But the Americans are victorious, first on the Coral Sea and ultimately on Midway as they manage to bomb and sink four of Japan's aircraft carriers-the same ones that were used for the attack on Pearl Harbor-making the imperial fleet retreat and giving the U.S. an incredible early victory in the Pacific.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
+          "airDate": "1952-11-23",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "23_Target_Suribachi.mp4",
+            "format": "h.264",
+            "sizeBytes": 164943829,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/22thefateofeurope/23_Target_Suribachi.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 26
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 26,
+  "seriesImdbID": "tt0046658",
+  "canonicalEpisodeCount": 10,
+  "canonicalSeasons": 1
 }

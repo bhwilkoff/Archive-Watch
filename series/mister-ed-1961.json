@@ -1,109 +1,112 @@
 {
- "version": 2,
- "seriesID": "mister-ed-1961",
- "tvmazeID": 4133,
- "title": "Mister Ed",
- "yearStart": 1961,
- "yearEnd": 1966,
- "overview": "Architect Wilbur Post (Alan Young, The Time Machine) and his wife Carol (Connie Hines) move into a beautiful new home complete with a barn in the backyard. When Wilbur takes a look in his new barn, he finds that the former owner left his horse behind. This horse is no ordinary horse . . . he can talk, but only to Wilbur, which leads to all sorts of misadventures for Wilbur and his trouble-making sidekick Mister Ed.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/20/50027.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "mister-ed-1961",
+  "tvmazeID": 4133,
+  "title": "Mister Ed",
+  "yearStart": 1961,
+  "yearEnd": 1966,
+  "overview": "Architect Wilbur Post (Alan Young, The Time Machine) and his wife Carol (Connie Hines) move into a beautiful new home complete with a barn in the backyard. When Wilbur takes a look in his new barn, he finds that the former owner left his horse behind. This horse is no ordinary horse . . . he can talk, but only to Wilbur, which leads to all sorts of misadventures for Wilbur and his trouble-making sidekick Mister Ed.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/20/50027.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "mister-ed-s-01",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Sorority House",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ykGlIpjTiyd4wYk617X73TL5FTS.jpg",
-     "airDate": "1961-02-09",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Mister Ed S01E06 Sorority House.mp4",
-      "format": "h.264",
-      "sizeBytes": 151264422,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/mister-ed-s-01/Mister Ed S01E06 Sorority House.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 4,
-   "episodes": [
-    {
-     "archiveID": "mister-ed-Lando18",
-     "seasonNumber": 4,
-     "episodeNumber": 10,
-     "title": "Home Sweet Trailer",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1963-12-08",
-     "year": 1963,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Mister Ed - S04E10 (Home Sweet Trailer).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 359090007,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/mister-ed-Lando18/Mister%20Ed%20-%20S04E10%20%28Home%20Sweet%20Trailer%29.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "mister-ed-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Sorority House",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ykGlIpjTiyd4wYk617X73TL5FTS.jpg",
+          "airDate": "1961-02-09",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mister Ed S01E06 Sorority House.mp4",
+            "format": "h.264",
+            "sizeBytes": 151264422,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mister-ed-s-01/Mister Ed S01E06 Sorority House.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "mister-ed-s-04",
-     "seasonNumber": 4,
-     "episodeNumber": 21,
-     "title": "Mae West Meets Mister Ed",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ykGlIpjTiyd4wYk617X73TL5FTS.jpg",
-     "airDate": "1964-03-22",
-     "year": 1964,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Mister Ed S04E21 Mae West Meets Mister Ed.mp4",
-      "format": "h.264",
-      "sizeBytes": 148475695,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/mister-ed-s-04/Mister Ed S04E21 Mae West Meets Mister Ed.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "mister-ed-Lando18",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "Home Sweet Trailer",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-12-08",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mister Ed - S04E10 (Home Sweet Trailer).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 359090007,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mister-ed-Lando18/Mister%20Ed%20-%20S04E10%20%28Home%20Sweet%20Trailer%29.mp4"
+        },
+        {
+          "archiveID": "mister-ed-s-04",
+          "seasonNumber": 4,
+          "episodeNumber": 21,
+          "title": "Mae West Meets Mister Ed",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ykGlIpjTiyd4wYk617X73TL5FTS.jpg",
+          "airDate": "1964-03-22",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mister Ed S04E21 Mae West Meets Mister Ed.mp4",
+            "format": "h.264",
+            "sizeBytes": 148475695,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mister-ed-s-04/Mister Ed S04E21 Mae West Meets Mister Ed.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "Ed_the_Beneficiary",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "\"Mister Ed\" - Ed the Beneficiary",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ykGlIpjTiyd4wYk617X73TL5FTS.jpg",
-     "airDate": null,
-     "year": 1962,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Mr_Ed.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 147209353,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Ed_the_Beneficiary/Mr_Ed.ia.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Ed_the_Beneficiary",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "\"Mister Ed\" - Ed the Beneficiary",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ykGlIpjTiyd4wYk617X73TL5FTS.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Mr_Ed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147209353,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Ed_the_Beneficiary/Mr_Ed.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 143
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 143,
+  "seriesImdbID": "tt0054557",
+  "canonicalEpisodeCount": 131,
+  "canonicalSeasons": 6
 }

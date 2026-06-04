@@ -1,106 +1,109 @@
 {
- "version": 2,
- "seriesID": "general-electric-theater-1953",
- "tvmazeID": 18432,
- "title": "General Electric Theater",
- "yearStart": 1953,
- "yearEnd": 1961,
- "overview": "General Electric Theater featured a mix of romance, comedy, adventure, tragedy, fantasy and variety music. The General Electric Theater presented top Hollywood and Broadway stars in dramatic roles calculated to deliver company voice advertising to the largest possible audience.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/355/889201.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Comedy",
-  "Adventure"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 3,
-   "episodes": [
+  "version": 2,
+  "seriesID": "general-electric-theater-1953",
+  "tvmazeID": 18432,
+  "title": "General Electric Theater",
+  "yearStart": 1953,
+  "yearEnd": 1961,
+  "overview": "General Electric Theater featured a mix of romance, comedy, adventure, tragedy, fantasy and variety music. The General Electric Theater presented top Hollywood and Broadway stars in dramatic roles calculated to deliver company voice advertising to the largest possible audience.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/355/889201.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Comedy",
+    "Adventure"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "GeneralElectricTheaterCommitted",
-     "seasonNumber": 3,
-     "episodeNumber": 11,
-     "title": "Committed",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/sNhevbrsNi11PUwz0tXsB0wh84a.jpg",
-     "airDate": "1954-12-05",
-     "year": 1954,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "GeneralElecticTheater-committed.mp4",
-      "format": "h.264",
-      "sizeBytes": 176368490,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/GeneralElectricTheaterCommitted/GeneralElecticTheater-committed.mp4"
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "GeneralElectricTheaterCommitted",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Committed",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sNhevbrsNi11PUwz0tXsB0wh84a.jpg",
+          "airDate": "1954-12-05",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "GeneralElecticTheater-committed.mp4",
+            "format": "h.264",
+            "sizeBytes": 176368490,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeneralElectricTheaterCommitted/GeneralElecticTheater-committed.mp4"
+        },
+        {
+          "archiveID": "GeneralElectricTheaterTheBigShot",
+          "seasonNumber": 3,
+          "episodeNumber": 18,
+          "title": "The Big Shot",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sNhevbrsNi11PUwz0tXsB0wh84a.jpg",
+          "airDate": "1955-01-30",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "GeneralElectricTheater-theBigShot.mp4",
+            "format": "h.264",
+            "sizeBytes": 180711875,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeneralElectricTheaterTheBigShot/GeneralElectricTheater-theBigShot.mp4"
+        },
+        {
+          "archiveID": "GeneralElectricTheaterItGivesMeGreatPleasure",
+          "seasonNumber": 3,
+          "episodeNumber": 26,
+          "title": "It Gives Me Great Pleasure",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sNhevbrsNi11PUwz0tXsB0wh84a.jpg",
+          "airDate": "1955-04-03",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "GeneralElecticTheater-itGivesMeGreatPleasure.mp4",
+            "format": "h.264",
+            "sizeBytes": 152493767,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeneralElectricTheaterItGivesMeGreatPleasure/GeneralElecticTheater-itGivesMeGreatPleasure.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "GeneralElectricTheaterTheBigShot",
-     "seasonNumber": 3,
-     "episodeNumber": 18,
-     "title": "The Big Shot",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/sNhevbrsNi11PUwz0tXsB0wh84a.jpg",
-     "airDate": "1955-01-30",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "GeneralElectricTheater-theBigShot.mp4",
-      "format": "h.264",
-      "sizeBytes": 180711875,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/GeneralElectricTheaterTheBigShot/GeneralElectricTheater-theBigShot.mp4"
-    },
-    {
-     "archiveID": "GeneralElectricTheaterItGivesMeGreatPleasure",
-     "seasonNumber": 3,
-     "episodeNumber": 26,
-     "title": "It Gives Me Great Pleasure",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/sNhevbrsNi11PUwz0tXsB0wh84a.jpg",
-     "airDate": "1955-04-03",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "GeneralElecticTheater-itGivesMeGreatPleasure.mp4",
-      "format": "h.264",
-      "sizeBytes": 152493767,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/GeneralElectricTheaterItGivesMeGreatPleasure/GeneralElecticTheater-itGivesMeGreatPleasure.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "GeneralElectricTheaterNobodysChild",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Nobody's Child",
+          "overview": "Todays theme is Nobody's Child.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sNhevbrsNi11PUwz0tXsB0wh84a.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1647,
+          "videoFile": {
+            "name": "GeneralElectricTheater-nobodysChild.mp4",
+            "format": "h.264",
+            "sizeBytes": 171386028,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeneralElectricTheaterNobodysChild/GeneralElectricTheater-nobodysChild.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "GeneralElectricTheaterNobodysChild",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Nobody's Child",
-     "overview": "Todays theme is Nobody's Child.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/sNhevbrsNi11PUwz0tXsB0wh84a.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1647,
-     "videoFile": {
-      "name": "GeneralElectricTheater-nobodysChild.mp4",
-      "format": "h.264",
-      "sizeBytes": 171386028,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/GeneralElectricTheaterNobodysChild/GeneralElectricTheater-nobodysChild.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 106
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 106,
+  "seriesImdbID": "tt0045395",
+  "canonicalEpisodeCount": 79,
+  "canonicalSeasons": 10
 }

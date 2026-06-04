@@ -1,105 +1,108 @@
 {
- "version": 2,
- "seriesID": "the-outer-limits-1963",
- "tvmazeID": 2147,
- "title": "The Outer Limits",
- "yearStart": 1963,
- "yearEnd": 1965,
- "overview": "\"There is nothing wrong with your television set. Do not attempt to adjust the picture. We are controlling transmission\".This 60s anthology series from the minds of Leslie Stevens and Joseph Stefano pushed the boundaries of television and viewers minds by using intelligent science fiction to frighten and entertain viewers.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/12/30001.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Science-Fiction"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-outer-limits-1963",
+  "tvmazeID": 2147,
+  "title": "The Outer Limits",
+  "yearStart": 1963,
+  "yearEnd": 1965,
+  "overview": "\"There is nothing wrong with your television set. Do not attempt to adjust the picture. We are controlling transmission\".This 60s anthology series from the minds of Leslie Stevens and Joseph Stefano pushed the boundaries of television and viewers minds by using intelligent science fiction to frighten and entertain viewers.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/12/30001.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "the-outer-limits-1963-s01e01",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "The Galaxy Being",
-     "overview": "Engineer Allen Maxwell draws power from his brother's radio station to contact an alien explorer in a distant galaxy. However, when the transmission is overloaded, the Being is transported to Earth with disasterous results.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/65/164337.jpg",
-     "airDate": "1963-09-16",
-     "year": 1963,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Outer.Limits.1963.S01E01.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 1060627156,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-outer-limits-1963-s01e01/The.Outer.Limits.1963.S01E01.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-outer-limits-1963-s01e01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Galaxy Being",
+          "overview": "Engineer Allen Maxwell draws power from his brother's radio station to contact an alien explorer in a distant galaxy. However, when the transmission is overloaded, the Being is transported to Earth with disasterous results.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/65/164337.jpg",
+          "airDate": "1963-09-16",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Outer.Limits.1963.S01E01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1060627156,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-1963-s01e01/The.Outer.Limits.1963.S01E01.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-1995_202304",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Outer Limits",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Outer Limits (1995)/Season 1/The.Outer.Limits.The.New.Series.S01E01-02.DVDRip.XviD-SAiNTS.mp4",
+            "format": "h.264",
+            "sizeBytes": 551988070,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-1995_202304/The%20Outer%20Limits%20%281995%29/Season%201/The.Outer.Limits.The.New.Series.S01E01-02.DVDRip.XviD-SAiNTS.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Outer Limits - Season 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1mf3GKgYeEIBhsp61uTGmI58NIB.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "the outer limits-s1e1-1963-colorized.mp4",
+            "format": "h.264",
+            "sizeBytes": 304879507,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the outer limits-s1e1-1963-colorized.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "the-outer-limits-1995_202304",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "The Outer Limits",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Outer Limits (1995)/Season 1/The.Outer.Limits.The.New.Series.S01E01-02.DVDRip.XviD-SAiNTS.mp4",
-      "format": "h.264",
-      "sizeBytes": 551988070,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/the-outer-limits-1995_202304/The%20Outer%20Limits%20%281995%29/Season%201/The.Outer.Limits.The.New.Series.S01E01-02.DVDRip.XviD-SAiNTS.mp4"
-    },
-    {
-     "archiveID": "the-outer-limits-s-1e-1-1963-colorized",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "The Outer Limits - Season 1",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/1mf3GKgYeEIBhsp61uTGmI58NIB.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "the outer limits-s1e1-1963-colorized.mp4",
-      "format": "h.264",
-      "sizeBytes": 304879507,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the outer limits-s1e1-1963-colorized.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "The Inheritors (1)",
+          "overview": "Four soldiers come back to military bases wounded in the head by bullets, it is discovered that each of the four men have a second set of brain waves. The men then vanish off the military base and the U.S. government tries to find out what they are up to.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/144/362142.jpg",
+          "airDate": "1964-11-21",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e10-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 305354850,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the outer limits-s2e10-1964-colorized-576p-sd.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
-    {
-     "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
-     "seasonNumber": 2,
-     "episodeNumber": 10,
-     "title": "The Inheritors (1)",
-     "overview": "Four soldiers come back to military bases wounded in the head by bullets, it is discovered that each of the four men have a second set of brain waves. The men then vanish off the military base and the U.S. government tries to find out what they are up to.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/144/362142.jpg",
-     "airDate": "1964-11-21",
-     "year": 1964,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "the outer limits-s2e10-1964-colorized-576p-sd.mp4",
-      "format": "h.264",
-      "sizeBytes": 305354850,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the outer limits-s2e10-1964-colorized-576p-sd.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 49
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 49,
+  "seriesImdbID": "tt0056777",
+  "canonicalEpisodeCount": 42,
+  "canonicalSeasons": 2
 }

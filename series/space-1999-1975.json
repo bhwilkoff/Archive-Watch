@@ -1,106 +1,109 @@
 {
- "version": 2,
- "seriesID": "space-1999-1975",
- "tvmazeID": 5920,
- "title": "Space: 1999",
- "yearStart": 1975,
- "yearEnd": 1977,
- "overview": "It's 1999 and Moonbase Alpha has been built on the Moon to safeguard the nuclear waste shipped from Earth. On September 13, 1999, disaster strikes and the nuclear waste explodes, causing a chain reaction that hurls the Moon out of Earth's orbit and into deep space.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/23/58465.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure",
-  "Science-Fiction"
- ],
- "networks": [
-  "ITV1"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "space-1999-1975",
+  "tvmazeID": 5920,
+  "title": "Space: 1999",
+  "yearStart": 1975,
+  "yearEnd": 1977,
+  "overview": "It's 1999 and Moonbase Alpha has been built on the Moon to safeguard the nuclear waste shipped from Earth. On September 13, 1999, disaster strikes and the nuclear waste explodes, causing a chain reaction that hurls the Moon out of Earth's orbit and into deep space.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/23/58465.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "space-1999-1",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Breakaway",
-     "overview": "On Moonbase Alpha, the strange deaths of workers is being investigated which leads to the discovery of energy leaks at 2 different sites where Earths atomic waste is being stored. A race ensues to move waste at the second site before a catastrophic event occurs.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/437/1094142.jpg",
-     "airDate": "1975-09-04",
-     "year": 1975,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "this one.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 160351749,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/space-1999-1/this one.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "space-1999-1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Breakaway",
+          "overview": "On Moonbase Alpha, the strange deaths of workers is being investigated which leads to the discovery of energy leaks at 2 different sites where Earths atomic waste is being stored. A race ensues to move waste at the second site before a catastrophic event occurs.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/437/1094142.jpg",
+          "airDate": "1975-09-04",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "this one.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160351749,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/space-1999-1/this one.ia.mp4"
+        },
+        {
+          "archiveID": "Space1999.Series1",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Death's Other Dominion",
+          "overview": "The Moon comes to a frozen planet inhabited by seeming immortals who invites the Alphans to join them.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/77Jn71Aw4mct3phi7wpjLdvO9U5.jpg",
+          "airDate": "1975-10-02",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Space 1999 S01E05 Death's Other Dominion.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 356766945,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Space1999.Series1/Space 1999 S01E05 Death's Other Dominion.ia.mp4"
+        },
+        {
+          "archiveID": "space-999-8",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Dragon's Domain",
+          "overview": "Tony Cellini, the only survivor of a deep-space probe, claims that an alien creature consumed his other three crewmen… and now Moonbase Alpha is approaching the same graveyard of alien spaceships.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/113/283224.jpg",
+          "airDate": "1975-10-23",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "S01_E08 - Dragon-s Domain-NA_x264_001.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160129830,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/space-999-8/S01_E08 - Dragon-s Domain-NA_x264_001.ia.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "Space1999.Series1",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Death's Other Dominion",
-     "overview": "The Moon comes to a frozen planet inhabited by seeming immortals who invites the Alphans to join them.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/77Jn71Aw4mct3phi7wpjLdvO9U5.jpg",
-     "airDate": "1975-10-02",
-     "year": 1975,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Space 1999 S01E05 Death's Other Dominion.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 356766945,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Space1999.Series1/Space 1999 S01E05 Death's Other Dominion.ia.mp4"
-    },
-    {
-     "archiveID": "space-999-8",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "Dragon's Domain",
-     "overview": "Tony Cellini, the only survivor of a deep-space probe, claims that an alien creature consumed his other three crewmen… and now Moonbase Alpha is approaching the same graveyard of alien spaceships.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/113/283224.jpg",
-     "airDate": "1975-10-23",
-     "year": 1975,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "S01_E08 - Dragon-s Domain-NA_x264_001.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 160129830,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/space-999-8/S01_E08 - Dragon-s Domain-NA_x264_001.ia.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Space1999.Series1_201602",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Rules of Luton",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/77Jn71Aw4mct3phi7wpjLdvO9U5.jpg",
+          "airDate": "1976-10-23",
+          "year": 1976,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Space 1999 S02E08 The Rules of Luton.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 349128668,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space 1999 S02E08 The Rules of Luton.ia.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
-    {
-     "archiveID": "Space1999.Series1_201602",
-     "seasonNumber": 2,
-     "episodeNumber": 8,
-     "title": "The Rules of Luton",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/77Jn71Aw4mct3phi7wpjLdvO9U5.jpg",
-     "airDate": "1976-10-23",
-     "year": 1976,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Space 1999 S02E08 The Rules of Luton.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 349128668,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Space1999.Series1_201602/Space 1999 S02E08 The Rules of Luton.ia.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 4,
- "canonicalEpisodesCount": 48
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 48,
+  "seriesImdbID": "tt0072564",
+  "canonicalEpisodeCount": 47,
+  "canonicalSeasons": 2
 }
