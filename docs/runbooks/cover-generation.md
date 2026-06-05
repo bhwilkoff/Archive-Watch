@@ -75,6 +75,24 @@ Lading" intertitle) and false-REJECTED good frames; Vision fixes both.
 
 ---
 
+## Monitor everything — `tools/covers_status.py`
+
+One read-only dashboard across all three stages — process health, generate
+ok/no_frame/error with rate + ETA, scorer + mean aesthetics, upload progress, and
+a per-content-type breakdown. Safe to run anytime.
+
+```bash
+python tools/covers_status.py            # one snapshot
+python tools/covers_status.py --watch 15 # live, refresh every 15s
+```
+
+Raw signals if you'd rather grep:
+```bash
+grep -c '"status": "ok"' tools/covers_out/manifest.jsonl   # generated
+wc -l tools/covers_out/uploaded.jsonl                       # uploaded
+tail tools/covers_out/run.log tools/covers_out/drain.log    # loop logs
+```
+
 ## Stage 1 — GENERATE (`tools/batch_covers.py`)
 
 Finds every item with no real designed artwork (`posterURL` empty or
