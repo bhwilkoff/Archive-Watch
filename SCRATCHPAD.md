@@ -20,10 +20,12 @@
   metadata + More Like This), AVKit player with SwiftData resume.
   Navigation is tvOS-26 native `TabView(.sidebarAdaptable)` + per-tab
   `NavigationStack`.
-- **Active milestone**: M1/M2/M3 largely landed in code → now a **v1.0
-  hardening pass** to make it App-Store-submittable.
-- **Last session**: 2026-05-31 — full audit + v1.0 hardening pass (see
-  Session Log).
+- **Active milestone**: feature-complete for v1.1; app is **1.1.0 (build 12)**.
+  Remaining is the **owner-gated App Store submission** (TestFlight) + a few
+  owner-blocked items — see the top Session Log entry + the
+  `session-handoff-2026-06` memory for the live backlog.
+- **Last session**: 2026-06-05 — commercials, real Channels EPG, Browse
+  pagination, public Suggest & Curate tool, App Store prep (see Session Log).
 - **Confirmed gaps blocking a clean v1.0 submission** (this session's work):
   1. **No Settings/About surface at all** — and TMDb attribution is
      *required* by Decision 007 / TMDb terms. Also missing: adult-content
@@ -229,6 +231,40 @@ focus / layout / animation bugs.
 ---
 
 ## Session Log
+
+### 2026-06-05 — Commercials, real Channels EPG, Browse pagination, public tool, App Store prep
+App now **1.1.0 (build 12)**, all on `main`, builds clean (tvOS 26 sim). Big batch:
+- **Commercials**: ingested ~2,390 PD/CC0 vintage commercials as a new
+  `commercial` contentType (Duke AdViews excluded — no license). Kept OFF Home
+  (`CatalogDB.notCommercial`); surface via the Commercials collection, Random
+  Commercial (Surprise), and channel breaks. New `tools/discover_commercials.py` +
+  `--prioritize-source` ingest flag; wired into discover-content.
+- **Channels → a real EPG**: deterministic date-seeded schedule
+  (`ChannelScheduler`) rendered as a **proportional guide** (3-hour window, blocks
+  sized to runtime on a shared ruler, vertical-scroll-only for native tvOS focus),
+  with vintage commercial breaks between programs, join-in-progress, rating chips.
+  (Replaced an earlier uniform-column version that looked "regimented".)
+- **Playback fix**: next video / next episode loaded + seeked but never played —
+  both players now `play()` on `.readyToPlay`.
+- **Browse (Movies)**: shows the REAL total (`CatalogDB.browseCount` → "30,615
+  titles") instead of the 500 cap, + **infinite scroll** (300/page) with the JSON
+  decode moved off-main for smooth fast scroll.
+- **Home modes row (#82)**, **idle screensaver (#83**, opt-in, never over
+  playback), **redesigned Create Channel + Add to Playlist** (native pills/cards).
+- **Public web tool**: editorial dashboard → public **Suggest & Curate** with a
+  full-catalog search index (`catalog-index.json`, refreshed by publish-db),
+  mailto submissions/export, real branding + square favicon. README rewritten.
+- **App Store prep**: `docs/app-store-listing.md` (full listing + TestFlight notes
+  + Copyright `© 2026 Ben Wilkoff`); 10 screenshots (3840×2160) on
+  `~/Desktop/ArchiveWatch-AppStore-Screenshots/`; screenshot env hooks
+  (`AW_START_TAB`/`AW_START_ITEM`, no-ops in prod). `tools/frame_cover.py` built +
+  validated for commercial covers (hosting/wiring remains).
+- **Backlog to continue**: #88 App Store submission (owner: add Push capability,
+  create ASC record, paste fields, upload screenshots, archive build 12, submit);
+  #84 CloudKit on-device flip; #87 ASC icon (tvOS platform limit, see memory);
+  #86 commercial-cover hosting; #82 cartoon wonderland shell; #92 in-program
+  breaks. Curation loop PAUSED (resume only on explicit ask). Full handoff in the
+  `session-handoff-2026-06` memory.
 
 ### 2026-06-04 — Metadata quality program + pipeline crash fixes
 - **Metadata quality program** (`docs/architecture/metadata-audit.md`): tiered,
