@@ -158,10 +158,10 @@ final class CatalogDB {
         return ids.compactMap { byID[$0] }
     }
 
-    /// Browse grid: filter by content type / decade / genre, sorted, paginated.
-    func browse(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
-                year: Int? = nil, sort: Sort = .popular, limit: Int = 60, offset: Int = 0,
-                homeOnly: Bool = false) -> [Catalog.Item] {
+    /// Shared WHERE/ORDER builder so browse() and the off-main paging path
+    /// (browsePageJSON) stay in lockstep.
+    private func browseSQL(contentType: String?, decade: Int?, genre: String?, year: Int?,
+                           sort: Sort, limit: Int, offset: Int, homeOnly: Bool) -> (String, [String]) {
         var where_ = ["i.contentType != 'tv-series'"]
         if hideAdult { where_.append("i.isAdult = 0") }
         // Commercials are never part of a general browse grid — only when the
@@ -183,13 +183,61 @@ final class CatalogDB {
         case .newest:       order = "i.year DESC"
         case .oldest:       order = "i.year ASC"
         }
-        return items("""
+        let sql = """
             SELECT j.json FROM items i
             JOIN item_json j USING(archiveID) \(join)
             WHERE \(where_.joined(separator: " AND ")) \(homeOnly ? homeAnd : "") \(typeAnd)
             ORDER BY \(order)
             LIMIT \(limit) OFFSET \(offset)
-        """, binds)
+            """
+        return (sql, binds)
+    }
+
+    /// Browse grid: filter by content type / decade / genre, sorted, paginated.
+    func browse(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
+                year: Int? = nil, sort: Sort = .popular, limit: Int = 60, offset: Int = 0,
+                homeOnly: Bool = false) -> [Catalog.Item] {
+        let (sql, binds) = browseSQL(contentType: contentType, decade: decade, genre: genre,
+                                     year: year, sort: sort, limit: limit, offset: offset,
+                                     homeOnly: homeOnly)
+        return items(sql, binds)
+    }
+
+    /// Raw item_json strings for a browse page — the SQLite read ONLY (fast,
+    /// main-confined, the single connection stays thread-safe). Hand the result
+    /// to `CatalogDB.decodeItems(_:)` off the main thread so paging a big grid
+    /// doesn't hitch fast scrolling (the JSON decode is the expensive part).
+    func browsePageJSON(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
+                        sort: Sort = .popular, limit: Int = 300, offset: Int = 0) -> [String] {
+        let (sql, binds) = browseSQL(contentType: contentType, decade: decade, genre: genre,
+                                     year: nil, sort: sort, limit: limit, offset: offset,
+                                     homeOnly: false)
+        return rawColumn(sql, binds)
+    }
+
+    /// Run a query and return column-0 as raw strings (no decode).
+    private func rawColumn(_ sql: String, _ binds: [String] = []) -> [String] {
+        var stmt: OpaquePointer?
+        guard sqlite3_prepare_v2(handle, sql, -1, &stmt, nil) == SQLITE_OK else { return [] }
+        defer { sqlite3_finalize(stmt) }
+        for (i, b) in binds.enumerated() {
+            sqlite3_bind_text(stmt, Int32(i + 1), b, -1, SQLITE_TRANSIENT)
+        }
+        var out: [String] = []
+        while sqlite3_step(stmt) == SQLITE_ROW {
+            if let c = sqlite3_column_text(stmt, 0) { out.append(String(cString: c)) }
+        }
+        return out
+    }
+
+    /// Decode item_json strings into items — pure + Sendable-safe, so it can run
+    /// off the main thread (Task.detached) to keep scrolling smooth.
+    static func decodeItems(_ jsons: [String]) -> [Catalog.Item] {
+        let dec = JSONDecoder()
+        return jsons.compactMap { json in
+            guard let data = json.data(using: .utf8) else { return nil }
+            return try? dec.decode(Catalog.Item.self, from: data)
+        }
     }
 
     /// True total matching a browse filter, ignoring the page limit — so the grid

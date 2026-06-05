@@ -93,15 +93,20 @@ struct BrowseView: View {
     }
 
     /// Append the next page as the user scrolls toward the end (#infinite scroll).
+    /// The SQLite read runs on main (fast, single-connection-safe); the heavy
+    /// JSON decode runs off-main so fast scrolling doesn't hitch.
     private func loadMore() {
         guard paginable, !loadingMore, items.count < totalCount else { return }
         loadingMore = true
-        let next = store.dbBrowse(contentType: filter.category, decade: filter.decade,
-                                  genre: filter.genre, sort: dbSort,
-                                  limit: pageSize, offset: items.count)
-        let have = Set(items.map(\.archiveID))
-        items.append(contentsOf: next.filter { have.contains($0.archiveID) == false })
-        loadingMore = false
+        let jsons = store.dbBrowsePageJSON(contentType: filter.category, decade: filter.decade,
+                                           genre: filter.genre, sort: dbSort,
+                                           limit: pageSize, offset: items.count)
+        Task { @MainActor in
+            let decoded = await Task.detached { CatalogDB.decodeItems(jsons) }.value
+            let have = Set(items.map(\.archiveID))
+            items.append(contentsOf: decoded.filter { have.contains($0.archiveID) == false })
+            loadingMore = false
+        }
     }
 
     /// Single capped fetch for the non-paginable cases (collection / person / random).

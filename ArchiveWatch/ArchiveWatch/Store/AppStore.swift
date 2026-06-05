@@ -214,6 +214,12 @@ final class AppStore {
     func dbTopDirectors() -> [(name: String, count: Int)] { db?.topDirectors() ?? [] }
     func dbByDirector(_ name: String, homeOnly: Bool = false) -> [Catalog.Item] { db?.byDirector(name, homeOnly: homeOnly) ?? [] }
     func dbByPerson(_ name: String) -> [Catalog.Item] { db?.byPerson(name) ?? [] }   // #4
+    /// Raw JSON for a browse page — fast SQLite read on main; decode off-main.
+    func dbBrowsePageJSON(contentType: String? = nil, decade: Int? = nil, genre: String? = nil,
+                          sort: CatalogDB.Sort = .popular, limit: Int = 300, offset: Int = 0) -> [String] {
+        db?.browsePageJSON(contentType: contentType, decade: decade, genre: genre,
+                           sort: sort, limit: limit, offset: offset) ?? []
+    }
     func dbBrowseCount(contentType: String? = nil, decade: Int? = nil,
                        genre: String? = nil, year: Int? = nil) -> Int {
         db?.browseCount(contentType: contentType, decade: decade, genre: genre, year: year) ?? 0
