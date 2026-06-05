@@ -162,7 +162,8 @@ def main() -> int:
             f = rec["file"]
             if put_file(args.item, posters / f, f, auth):
                 ulog.write(json.dumps({"file": f, "archiveID": rec["archiveID"],
-                                       "url": f"https://archive.org/download/{args.item}/{f}"}) + "\n")
+                                       "url": f"https://archive.org/download/{args.item}/{f}",
+                                       "at": time.time()}) + "\n")
                 ulog.flush()
                 ok += 1
             rate = i / max(time.time() - started, 1e-6)
