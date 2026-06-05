@@ -13,6 +13,9 @@ vintage-commercials + native create flows.
 - Bundle ID `app.archivewatch.tvos` · Team `L2G756LY8N` · Platform **tvOS** · Min **tvOS 26.0**
 - **Price: Free** (no IAP, no subscription, no ads — Decision 010)
 - **Primary category:** Entertainment · Secondary: Education
+- **Copyright:** `© 2026 Ben Wilkoff` (use the Apple Developer account holder's
+  name — individual or org). Covers the APP only; the public-domain content is
+  not owned. No URL, no "All Rights Reserved".
 
 ---
 
