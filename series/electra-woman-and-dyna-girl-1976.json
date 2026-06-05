@@ -1,173 +1,176 @@
 {
- "version": 2,
- "seriesID": "electra-woman-and-dyna-girl-1976",
- "tvmazeID": 6978,
- "title": "Electra Woman and Dyna Girl",
- "yearStart": 1976,
- "yearEnd": 1976,
- "overview": "Electra Woman and Dyna Girl lead double lives as Lori and Judy, reporters for Newsmaker magazine. When there's trouble the electrifying duo are warned by ‘CrimeScope', a computer programmed by electronics whiz Frank Heflin to locate all criminal activities in the area. Operating out of their secret headquarters, ‘ElectraBase', Electra Woman and Dyna Girl match wits and powers with assorted evil forces and influences that threaten them and the citizens of their metropolis.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/65693.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure",
-  "Science-Fiction"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "electra-woman-and-dyna-girl-1976",
+  "tvmazeID": 6978,
+  "title": "Electra Woman and Dyna Girl",
+  "yearStart": 1976,
+  "yearEnd": 1976,
+  "overview": "Electra Woman and Dyna Girl lead double lives as Lori and Judy, reporters for Newsmaker magazine. When there's trouble the electrifying duo are warned by ‘CrimeScope', a computer programmed by electronics whiz Frank Heflin to locate all criminal activities in the area. Operating out of their secret headquarters, ‘ElectraBase', Electra Woman and Dyna Girl match wits and powers with assorted evil forces and influences that threaten them and the citizens of their metropolis.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/65693.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "electra-woman-and-dyna-girl",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "The Sorcerer's Golden Trick (1)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
-     "airDate": "1976-09-11",
-     "year": 1976,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TITLE01_mpeg4.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 133278966,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/electra-woman-and-dyna-girl/TITLE01_mpeg4.ia.mp4"
-    },
-    {
-     "archiveID": "electra-woman-and-dyna-girl_202106",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Glitter Rock (1)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
-     "airDate": "1976-09-25",
-     "year": 1976,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TITLE_02_x264_006.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 187284480,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/electra-woman-and-dyna-girl_202106/TITLE_02_x264_006.ia.mp4"
-    },
-    {
-     "archiveID": "electra-woman-and-dyna-girl_202107",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Empress of Evil (1)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
-     "airDate": "1976-10-09",
-     "year": 1976,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TITLE_03_x264.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 179828809,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/electra-woman-and-dyna-girl_202107/TITLE_03_x264.ia.mp4"
-    },
-    {
-     "archiveID": "electrawomananddynagirl",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Ali Baba (1)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
-     "airDate": "1976-10-23",
-     "year": 1976,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TITLE_04_mpeg4.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 133291894,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/electrawomananddynagirl/TITLE_04_mpeg4.ia.mp4"
-    },
-    {
-     "archiveID": "electrawomanandynagirl",
-     "seasonNumber": 1,
-     "episodeNumber": 9,
-     "title": "Return of the Sorcerer (1)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
-     "airDate": "1976-11-06",
-     "year": 1976,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TITLE_05_mpeg4.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 132762407,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/electrawomanandynagirl/TITLE_05_mpeg4.ia.mp4"
-    },
-    {
-     "archiveID": "electra-woman-and-dyna-girl-online",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "The Pharaoh (1)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
-     "airDate": "1976-11-20",
-     "year": 1976,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TITLE_06_mpeg4_001.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 132615308,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/electra-woman-and-dyna-girl-online/TITLE_06_mpeg4_001.ia.mp4"
-    },
-    {
-     "archiveID": "electra-woman",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "The Spider Lady (1)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
-     "airDate": "1976-12-04",
-     "year": 1976,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TITLE_07_mpeg4.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 133224393,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/electra-woman/TITLE_07_mpeg4.ia.mp4"
-    },
-    {
-     "archiveID": "electra-woman-and-dyna-girl-streaming",
-     "seasonNumber": 1,
-     "episodeNumber": 15,
-     "title": "Return of the Pharaoh (1)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
-     "airDate": "1976-12-18",
-     "year": 1976,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TITLE_08_mpeg4.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 132743450,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/electra-woman-and-dyna-girl-streaming/TITLE_08_mpeg4.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "electra-woman-and-dyna-girl",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Sorcerer's Golden Trick (1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
+          "airDate": "1976-09-11",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TITLE01_mpeg4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 133278966,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/electra-woman-and-dyna-girl/TITLE01_mpeg4.ia.mp4"
+        },
+        {
+          "archiveID": "electra-woman-and-dyna-girl_202106",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Glitter Rock (1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
+          "airDate": "1976-09-25",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TITLE_02_x264_006.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 187284480,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/electra-woman-and-dyna-girl_202106/TITLE_02_x264_006.ia.mp4"
+        },
+        {
+          "archiveID": "electra-woman-and-dyna-girl_202107",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Empress of Evil (1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
+          "airDate": "1976-10-09",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TITLE_03_x264.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 179828809,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/electra-woman-and-dyna-girl_202107/TITLE_03_x264.ia.mp4"
+        },
+        {
+          "archiveID": "electrawomananddynagirl",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Ali Baba (1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
+          "airDate": "1976-10-23",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TITLE_04_mpeg4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 133291894,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/electrawomananddynagirl/TITLE_04_mpeg4.ia.mp4"
+        },
+        {
+          "archiveID": "electrawomanandynagirl",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Return of the Sorcerer (1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
+          "airDate": "1976-11-06",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TITLE_05_mpeg4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 132762407,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/electrawomanandynagirl/TITLE_05_mpeg4.ia.mp4"
+        },
+        {
+          "archiveID": "electra-woman-and-dyna-girl-online",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Pharaoh (1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
+          "airDate": "1976-11-20",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TITLE_06_mpeg4_001.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 132615308,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/electra-woman-and-dyna-girl-online/TITLE_06_mpeg4_001.ia.mp4"
+        },
+        {
+          "archiveID": "electra-woman",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Spider Lady (1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
+          "airDate": "1976-12-04",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TITLE_07_mpeg4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 133224393,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/electra-woman/TITLE_07_mpeg4.ia.mp4"
+        },
+        {
+          "archiveID": "electra-woman-and-dyna-girl-streaming",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Return of the Pharaoh (1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ejQZeBC7coaDFWlaU3YnHiVeAPp.jpg",
+          "airDate": "1976-12-18",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TITLE_08_mpeg4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 132743450,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/electra-woman-and-dyna-girl-streaming/TITLE_08_mpeg4.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 8,
- "canonicalEpisodesCount": 16
+  ],
+  "episodesCount": 8,
+  "canonicalEpisodesCount": 16,
+  "seriesImdbID": "tt0147762",
+  "canonicalEpisodeCount": 7,
+  "canonicalSeasons": 1
 }

@@ -1,135 +1,138 @@
 {
- "version": 2,
- "seriesID": "oh-grow-up-1999",
- "tvmazeID": 40754,
- "title": "Oh Grow Up",
- "yearStart": 1999,
- "yearEnd": 1999,
- "overview": "Three college buddies still room together long after finishing school. Hunter is a womanizer whose romantic activities produced a daughter he knew nothing about until she became a teenager. Norris is a not-quite-successful artist. Ford's disclosure of his sexual orientation ended his marriage to Suzanne who is still puzzled that she married him without detecting that he preferred men.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/182/455692.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "oh-grow-up-1999",
+  "tvmazeID": 40754,
+  "title": "Oh Grow Up",
+  "yearStart": 1999,
+  "yearEnd": 1999,
+  "overview": "Three college buddies still room together long after finishing school. Hunter is a womanizer whose romantic activities produced a daughter he knew nothing about until she became a teenager. Norris is a not-quite-successful artist. Ford's disclosure of his sexual orientation ended his marriage to Suzanne who is still puzzled that she married him without detecting that he preferred men.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/182/455692.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "oh-grow-up-1999-s-01-e-01",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Pilot",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
-     "airDate": "1999-09-22",
-     "year": 1999,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Oh Grow Up (1999) S01 E01.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 71421417,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-01/Oh Grow Up (1999) S01 E01.mp4"
-    },
-    {
-     "archiveID": "oh-grow-up-1999-s-01-e-03",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Love Stinks",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
-     "airDate": "1999-10-06",
-     "year": 1999,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Oh, Grow Up (1999) S01E03.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 1005674272,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-03/Oh, Grow Up (1999) S01E03.ia.mp4"
-    },
-    {
-     "archiveID": "oh-grow-up-1999-s-01-e-04",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "President of the House",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
-     "airDate": "1999-10-13",
-     "year": 1999,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Oh, Grow Up (1999) S01E04.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 1190869107,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-04/Oh, Grow Up (1999) S01E04.ia.mp4"
-    },
-    {
-     "archiveID": "oh-grow-up-1999-s-01-e-05",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Marathon Man",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
-     "airDate": "1999-10-20",
-     "year": 1999,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Oh, Grow Up (1999) S01E05.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 1187314007,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-05/Oh, Grow Up (1999) S01E05.ia.mp4"
-    },
-    {
-     "archiveID": "oh-grow-up-1999-s-01-e-06",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Clods and Monsters",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
-     "airDate": "1999-10-27",
-     "year": 1999,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Oh, Grow Up (1999) S01E06.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 1318520287,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-06/Oh, Grow Up (1999) S01E06.ia.mp4"
-    },
-    {
-     "archiveID": "oh-grow-up-1999-s-01-e-07",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Hunter's Metamorphosis",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
-     "airDate": "1999-11-03",
-     "year": 1999,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Oh, Grow Up (1999) S01E07.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 1159687226,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-07/Oh, Grow Up (1999) S01E07.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "oh-grow-up-1999-s-01-e-01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Pilot",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
+          "airDate": "1999-09-22",
+          "year": 1999,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Oh Grow Up (1999) S01 E01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71421417,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-01/Oh Grow Up (1999) S01 E01.mp4"
+        },
+        {
+          "archiveID": "oh-grow-up-1999-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Love Stinks",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
+          "airDate": "1999-10-06",
+          "year": 1999,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Oh, Grow Up (1999) S01E03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1005674272,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-03/Oh, Grow Up (1999) S01E03.ia.mp4"
+        },
+        {
+          "archiveID": "oh-grow-up-1999-s-01-e-04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "President of the House",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
+          "airDate": "1999-10-13",
+          "year": 1999,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Oh, Grow Up (1999) S01E04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1190869107,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-04/Oh, Grow Up (1999) S01E04.ia.mp4"
+        },
+        {
+          "archiveID": "oh-grow-up-1999-s-01-e-05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Marathon Man",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
+          "airDate": "1999-10-20",
+          "year": 1999,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Oh, Grow Up (1999) S01E05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1187314007,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-05/Oh, Grow Up (1999) S01E05.ia.mp4"
+        },
+        {
+          "archiveID": "oh-grow-up-1999-s-01-e-06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Clods and Monsters",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
+          "airDate": "1999-10-27",
+          "year": 1999,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Oh, Grow Up (1999) S01E06.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1318520287,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-06/Oh, Grow Up (1999) S01E06.ia.mp4"
+        },
+        {
+          "archiveID": "oh-grow-up-1999-s-01-e-07",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Hunter's Metamorphosis",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2vGyrDVxwD3EMGHXYChxkBa55bi.jpg",
+          "airDate": "1999-11-03",
+          "year": 1999,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Oh, Grow Up (1999) S01E07.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1159687226,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/oh-grow-up-1999-s-01-e-07/Oh, Grow Up (1999) S01E07.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 6,
- "canonicalEpisodesCount": 13
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": 13,
+  "seriesImdbID": "tt0202746",
+  "canonicalEpisodeCount": 9,
+  "canonicalSeasons": 1
 }

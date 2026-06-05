@@ -1,154 +1,157 @@
 {
- "version": 2,
- "seriesID": "follow-me-1977",
- "tvmazeID": 25860,
- "title": "Follow Me...",
- "yearStart": 1977,
- "yearEnd": 1977,
- "overview": "Follow Me... is an ITV children's adventure series about Tom Dawes, a young boy who loves ships and the adventures they represent. When he and his father find themselves at the heart of a mystery surrounding a missing girl and shady figures at the Bristol docks, it looks as if Tom will get the adventure he craves...",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/101/252899.jpg",
- "backdropURL": null,
- "genres": [
-  "Adventure",
-  "Children"
- ],
- "networks": [
-  "ITV1"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "follow-me-1977",
+  "tvmazeID": 25860,
+  "title": "Follow Me...",
+  "yearStart": 1977,
+  "yearEnd": 1977,
+  "overview": "Follow Me... is an ITV children's adventure series about Tom Dawes, a young boy who loves ships and the adventures they represent. When he and his father find themselves at the heart of a mystery surrounding a missing girl and shady figures at the Bristol docks, it looks as if Tom will get the adventure he craves...",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/101/252899.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure",
+    "Children"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "s-01-e-01-the-missing-girl",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Episode One",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-01-the-missing-girl",
-     "airDate": "1977-06-26",
-     "year": 1977,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S01E01 The Missing Girl.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 400238115,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-01-the-missing-girl/S01E01 The Missing Girl.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-02-mysterious-message",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Episode Two",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-02-mysterious-message",
-     "airDate": "1977-07-03",
-     "year": 1977,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S01E02 Mysterious Message.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 412405495,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-02-mysterious-message/S01E02 Mysterious Message.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-03-aboard-the-patriot",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Episode Three",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-03-aboard-the-patriot",
-     "airDate": "1977-07-10",
-     "year": 1977,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S01E03 Aboard the Patriot.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 423706688,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-03-aboard-the-patriot/S01E03 Aboard the Patriot.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-04-a-clue-received",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Episode Four",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-04-a-clue-received",
-     "airDate": "1977-07-17",
-     "year": 1977,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S01E04 A Clue Received.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 420614308,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-04-a-clue-received/S01E04 A Clue Received.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-05-toms-on-the-trail",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Episode Five",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-05-toms-on-the-trail",
-     "airDate": "1977-07-24",
-     "year": 1977,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S01E05 Tom's on the Trail.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 417198029,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-05-toms-on-the-trail/S01E05 Tom's on the Trail.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-06-lynns-disappearance",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Episode Six",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-06-lynns-disappearance",
-     "airDate": "1977-07-31",
-     "year": 1977,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S01E06 Lynn's Disappearance.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 411142057,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-06-lynns-disappearance/S01E06 Lynn's Disappearance.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-07-evil-colonel-gaines",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Episode Seven",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-07-evil-colonel-gaines",
-     "airDate": "1977-08-07",
-     "year": 1977,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S01E07 Evil Colonel Gaines.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 420411194,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-07-evil-colonel-gaines/S01E07 Evil Colonel Gaines.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-01-the-missing-girl",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode One",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-01-the-missing-girl",
+          "airDate": "1977-06-26",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E01 The Missing Girl.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400238115,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-the-missing-girl/S01E01 The Missing Girl.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-02-mysterious-message",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode Two",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-02-mysterious-message",
+          "airDate": "1977-07-03",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E02 Mysterious Message.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 412405495,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-02-mysterious-message/S01E02 Mysterious Message.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-03-aboard-the-patriot",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode Three",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-03-aboard-the-patriot",
+          "airDate": "1977-07-10",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E03 Aboard the Patriot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 423706688,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-03-aboard-the-patriot/S01E03 Aboard the Patriot.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-04-a-clue-received",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode Four",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-04-a-clue-received",
+          "airDate": "1977-07-17",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E04 A Clue Received.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 420614308,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-04-a-clue-received/S01E04 A Clue Received.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-05-toms-on-the-trail",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode Five",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-05-toms-on-the-trail",
+          "airDate": "1977-07-24",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E05 Tom's on the Trail.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 417198029,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-05-toms-on-the-trail/S01E05 Tom's on the Trail.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-06-lynns-disappearance",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode Six",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-06-lynns-disappearance",
+          "airDate": "1977-07-31",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E06 Lynn's Disappearance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 411142057,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-06-lynns-disappearance/S01E06 Lynn's Disappearance.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-07-evil-colonel-gaines",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode Seven",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-07-evil-colonel-gaines",
+          "airDate": "1977-08-07",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E07 Evil Colonel Gaines.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 420411194,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-07-evil-colonel-gaines/S01E07 Evil Colonel Gaines.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 7,
- "canonicalEpisodesCount": 7
+  ],
+  "episodesCount": 7,
+  "canonicalEpisodesCount": 7,
+  "seriesImdbID": "tt0398467",
+  "canonicalEpisodeCount": 3,
+  "canonicalSeasons": 1
 }
