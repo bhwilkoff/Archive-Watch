@@ -192,6 +192,29 @@ final class CatalogDB {
         """, binds)
     }
 
+    /// True total matching a browse filter, ignoring the page limit — so the grid
+    /// header can show the real catalog size ("36,944 titles") while only a page
+    /// is loaded. Mirrors browse()'s WHERE exactly.
+    func browseCount(contentType: String? = nil, decade: Int? = nil,
+                     genre: String? = nil, year: Int? = nil) -> Int {
+        var where_ = ["i.contentType != 'tv-series'"]
+        if hideAdult { where_.append("i.isAdult = 0") }
+        if contentType != "commercial" { where_.append("i.contentType != 'commercial'") }
+        var binds: [String] = []
+        if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
+        if let decade { where_.append("i.decade = \(decade)") }
+        if let year { where_.append("i.year = \(year)") }
+        var join = ""
+        if let genre {
+            join = "JOIN item_genres g ON g.archiveID = i.archiveID AND g.genre = ?"
+            binds.append(genre)
+        }
+        return scalarRows("""
+            SELECT '', COUNT(*) FROM items i \(join)
+            WHERE \(where_.joined(separator: " AND ")) \(typeAnd)
+        """, binds).first?.1 ?? 0
+    }
+
     /// Title/cast/director search via FTS5.
     func search(_ query: String, limit: Int = 200) -> [Catalog.Item] {
         let q = ftsQuery(query)

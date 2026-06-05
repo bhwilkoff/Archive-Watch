@@ -214,6 +214,10 @@ final class AppStore {
     func dbTopDirectors() -> [(name: String, count: Int)] { db?.topDirectors() ?? [] }
     func dbByDirector(_ name: String, homeOnly: Bool = false) -> [Catalog.Item] { db?.byDirector(name, homeOnly: homeOnly) ?? [] }
     func dbByPerson(_ name: String) -> [Catalog.Item] { db?.byPerson(name) ?? [] }   // #4
+    func dbBrowseCount(contentType: String? = nil, decade: Int? = nil,
+                       genre: String? = nil, year: Int? = nil) -> Int {
+        db?.browseCount(contentType: contentType, decade: decade, genre: genre, year: year) ?? 0
+    }
     func dbByCollection(_ id: String, limit: Int = 2000) -> [Catalog.Item] { db?.byCollection(id, limit: limit) ?? [] }
     func dbCollectionCount(_ id: String) -> Int { db?.collectionCount(id) ?? 0 }
     func dbRandomPlayable(contentType: String? = nil) -> Catalog.Item? { db?.randomPlayable(contentType: contentType) }

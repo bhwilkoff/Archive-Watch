@@ -37,6 +37,11 @@ struct BrowseView: View {
     // body render. The old computed-property pattern re-filtered
     // 31,783 items on focus changes and locked the UI solid.
     @State private var items: [Catalog.Item] = []
+    // Real catalog total for the current filter (shown in the header even though
+    // only a page is loaded). Pagination appends pages as you scroll (#infinite).
+    @State private var totalCount = 0
+    @State private var loadingMore = false
+    private let pageSize = 300
     @FocusState private var focusedArchiveID: String?
     // True when the view was pushed with a specific filter (from a
     // collection tile, category tile, or decade tile). In that context
@@ -51,27 +56,56 @@ struct BrowseView: View {
         self.isPreFiltered = !filter.isEmpty
     }
 
-    /// Grid cap when the user hasn't narrowed anything down. Browse's
-    /// LazyVGrid + tvOS focus engine chokes on tens of thousands of
-    /// cells; capping to the top N by popularity keeps navigation
-    /// snappy and still leaves plenty to wander through. Filters
-    /// + search are the natural way to dig deeper.
-    private static let unfilteredGridCap = 500
-    private static let filteredGridCap   = 2000
+    // Cap for the non-paginable cases (collection / person / random) — those are
+    // post-filtered / FTS / shuffled, so they fetch a single capped set. The
+    // paginable cases (All Titles / type / decade / genre) load page-by-page.
+    private static let filteredGridCap = 2000
 
-    private func computeItems() -> [Catalog.Item] {
-        // SQLite-backed (Decision 017): the DB filters + sorts + caps, so we
-        // decode only this grid's rows. The returned items are full (incl.
-        // collections), so the rarer collection filter + random sort are
-        // applied to the page in-view without an extra DB column.
-        let cap = filter.isEmpty ? Self.unfilteredGridCap : Self.filteredGridCap
-        let dbSort: CatalogDB.Sort
+    private var dbSort: CatalogDB.Sort {
         switch sort {
-        case .popular, .random: dbSort = .popular
-        case .alphabetical:     dbSort = .alphabetical
-        case .newest:           dbSort = .newest
-        case .oldest:           dbSort = .oldest
+        case .popular, .random: return .popular
+        case .alphabetical:     return .alphabetical
+        case .newest:           return .newest
+        case .oldest:           return .oldest
         }
+    }
+
+    /// Paginable = SQL-filterable filters in a stable sort. Collection + person
+    /// browse are post-filtered / FTS, and random can't paginate meaningfully,
+    /// so those keep the single capped fetch.
+    private var paginable: Bool {
+        filter.collection == nil && filter.person == nil && sort != .random
+    }
+
+    /// Load the first page (or the whole capped set for non-paginable filters)
+    /// plus the REAL total for the header — so the page shows "36,944 titles"
+    /// even though only a page is in memory.
+    private func reload() {
+        if paginable {
+            items = store.dbBrowse(contentType: filter.category, decade: filter.decade,
+                                   genre: filter.genre, sort: dbSort, limit: pageSize, offset: 0)
+            totalCount = store.dbBrowseCount(contentType: filter.category,
+                                             decade: filter.decade, genre: filter.genre)
+        } else {
+            items = computeItems()
+            totalCount = items.count
+        }
+    }
+
+    /// Append the next page as the user scrolls toward the end (#infinite scroll).
+    private func loadMore() {
+        guard paginable, !loadingMore, items.count < totalCount else { return }
+        loadingMore = true
+        let next = store.dbBrowse(contentType: filter.category, decade: filter.decade,
+                                  genre: filter.genre, sort: dbSort,
+                                  limit: pageSize, offset: items.count)
+        let have = Set(items.map(\.archiveID))
+        items.append(contentsOf: next.filter { have.contains($0.archiveID) == false })
+        loadingMore = false
+    }
+
+    /// Single capped fetch for the non-paginable cases (collection / person / random).
+    private func computeItems() -> [Catalog.Item] {
         if let p = filter.person {   // #4: person browse uses the FTS names index
             var page = store.dbByPerson(p)
             if sort == .random {
@@ -80,7 +114,7 @@ struct BrowseView: View {
             return page
         }
         var page = store.dbBrowse(contentType: filter.category, decade: filter.decade,
-                                  genre: filter.genre, sort: dbSort, limit: cap)
+                                  genre: filter.genre, sort: dbSort, limit: Self.filteredGridCap)
         if let k = filter.collection {
             page = page.filter { $0.collections.contains(k) }
         }
@@ -100,7 +134,7 @@ struct BrowseView: View {
                     Text(headline)
                         .font(.title.bold())
                         .foregroundStyle(.white)
-                    Text("\(items.count) titles")
+                    Text("\(totalCount.formatted()) titles")
                         .font(.title3)
                         .foregroundStyle(.white.opacity(0.5))
                     Spacer()
@@ -141,6 +175,10 @@ struct BrowseView: View {
                                 router.push(item)
                             }
                             .focused($focusedArchiveID, equals: item.archiveID)
+                            .onAppear {
+                                // Prefetch the next page when the last tile scrolls in.
+                                if item.archiveID == items.last?.archiveID { loadMore() }
+                            }
                         }
                     }
                     .padding(.horizontal, 80)
@@ -153,17 +191,15 @@ struct BrowseView: View {
             // Compute the first page once the view appears so we don't
             // block the navigation push animation. Then defer a tick
             // for layout + claim initial focus on the top-left cell.
-            items = computeItems()
+            reload()
             try? await Task.sleep(for: .milliseconds(40))
             focusedArchiveID = items.first?.archiveID
         }
-        .onChange(of: filter) { _, _ in items = computeItems() }
-        .onChange(of: sort) { _, _ in items = computeItems() }
-        .onChange(of: shuffleSeed) { _, _ in items = computeItems() }
+        .onChange(of: filter) { _, _ in reload() }
+        .onChange(of: sort) { _, _ in reload() }
+        .onChange(of: shuffleSeed) { _, _ in reload() }
         // Re-query when the DB swaps (seed → full) or the adult toggle flips.
-        .onChange(of: store.dbGeneration) { _, _ in
-            items = computeItems()
-        }
+        .onChange(of: store.dbGeneration) { _, _ in reload() }
     }
 
     private var headline: String {
