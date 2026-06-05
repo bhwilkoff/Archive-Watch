@@ -27,6 +27,7 @@ struct SurpriseView: View {
         .init(id: "scifi",     title: "Random Sci-Fi & Horror", icon: "atom",                 hex: "#7C5BBA"),
         .init(id: "newsreel",  title: "Random Newsreel",        icon: "newspaper.fill",       hex: "#8A8F98"),
         .init(id: "ephemera",  title: "Random Ephemera",        icon: "books.vertical.fill",  hex: "#3FA796"),
+        .init(id: "commercial", title: "Random Commercial",     icon: "tv.badge.wifi",        hex: "#E8A317"),
         .init(id: "decade",    title: "Random Decade",          icon: "calendar",             hex: "#C9A66B"),
         .init(id: "pubdomain", title: "Public Domain Day",      icon: "party.popper.fill",    hex: "#E8A317"),
         .init(id: "party",     title: "Party Play",             icon: "sparkles.tv.fill",     hex: "#FF4D8D"),
@@ -101,6 +102,8 @@ struct SurpriseView: View {
             if let item = store.dbRandomPlayable(contentType: "newsreel") { router.push(item) }
         case "ephemera":
             if let item = store.dbRandomPlayable(contentType: "ephemeral") { router.push(item) }
+        case "commercial":
+            if let item = store.dbRandomPlayable(contentType: "commercial") { router.push(item) }
         case "decade":
             if let decade = store.dbDecadeCounts().keys.randomElement() {
                 router.push(BrowseFilter(decade: decade))

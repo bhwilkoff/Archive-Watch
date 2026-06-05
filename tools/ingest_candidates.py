@@ -72,6 +72,13 @@ def classify(collections, subjects, runtime_sec, year):
     refine later."""
     cl = " ".join(collections).lower()
     subj = " ".join(subjects).lower()
+    # Commercials/ads are a distinct type (interstitial + collection content,
+    # kept off Home — see CatalogDB.notCommercial). Match the dedicated ad
+    # collections by name only (not the broad "advertising" subject, which also
+    # tags docs ABOUT advertising) so we don't mislabel feature films.
+    if any(k in cl for k in ("aw_commercials", "classic_tv_commercials",
+                             "vhscommercials", "videogamecommercials")):
+        return "commercial"
     if "tv" in cl or "television" in cl or "classic_tv" in cl:
         return "tv-series" if "series" in cl else "tv-special"
     if "animation" in cl or "cartoon" in cl or "animation" in subj:
@@ -147,6 +154,15 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
 
     download_url = A.download_url(iaid, vf["name"])
 
+    # Commercials carry a synthetic "aw_commercials" collection so the app's
+    # Commercials collection card + byCollection query group them regardless of
+    # which Archive collection they actually live in (prelinger, opensource_movies…).
+    collections_out = as_list(md.get("collection"))
+    hint = cand.get("contentTypeHint")
+    if hint == "commercial" and "aw_commercials" not in [c.lower() for c in collections_out]:
+        collections_out = collections_out + ["aw_commercials"]
+    content_type = hint or classify(collections, subjects, runtime_sec, year)
+
     item = {
         "archiveID": iaid,
         "title": title,
@@ -154,7 +170,7 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
         "decade": (year // 10 * 10) if year else None,
         "runtimeSeconds": runtime_sec,
         "synopsis": (md.get("description") or None),
-        "collections": as_list(md.get("collection")),
+        "collections": collections_out,
         "subjects": subjects[:25] if isinstance(subjects, list) else [],
         "mediatype": md.get("mediatype") or "movies",
         "language": (as_list(md.get("language")) or [None])[0],
@@ -173,7 +189,7 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
         "backdropURL": None,
         "hasRealArtwork": False,
         "artworkSource": "archive",
-        "contentType": classify(collections, subjects, runtime_sec, year),
+        "contentType": content_type,
         "genres": [],
         "countries": as_list(md.get("country")),
         "cast": [],
@@ -188,7 +204,7 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
         "popularityScore": None,
         "bestSourceType": "archive_org",
         "isSilentFilm": (year is not None and year < 1928),
-        "discoverySource": "wikidata",
+        "discoverySource": cand.get("source") or "wikidata",
     }
 
     # OMDb enrichment (poster + rich fields) when we have an IMDb ID.

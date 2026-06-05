@@ -71,7 +71,8 @@ def genres_from_subjects(it):
     return out[:3]
 
 MOVIE_TYPES = {"feature-film", "silent-film", "animation", "short-film",
-               "documentary", "newsreel", "ephemeral", "tv-special", "home-movie"}
+               "documentary", "newsreel", "ephemeral", "tv-special", "home-movie",
+               "commercial"}
 
 # Sound era begins ~1927 (The Jazz Singer); be generous and treat <1928 as silent.
 SILENT_CUTOFF = 1928

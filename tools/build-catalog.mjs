@@ -593,6 +593,8 @@ function classifyContentType(collectionsList, subjects, runtimeSec, year) {
   const dom = dominantCategory(collectionsList);
   if (dom) return dom;
   const cols = collectionsList.map((c) => c.toLowerCase());
+  if (cols.some((c) => c.includes('aw_commercials') || c.includes('classic_tv_commercials')
+                       || c.includes('vhscommercials') || c.includes('videogamecommercials'))) return 'commercial';
   if (cols.some((c) => c.includes('classic_tv')))                                return 'tv-series';
   if (cols.some((c) => c.includes('silent')))                                    return 'silent-film';
   if (cols.some((c) => c.includes('cartoon') || c.includes('animation')))        return 'animation';

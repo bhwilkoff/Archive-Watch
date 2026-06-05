@@ -120,6 +120,15 @@ jobs:
             --pd-day-years ${{ github.event.inputs.pd_day_years || '1928,1929,1930' }} \
             | tee arch_discover.log
 
+      - name: Discover rights-clear commercials (PD/CC0 only)
+        run: |
+          # Queues vintage TV/film commercials that carry an explicit Public
+          # Domain Mark / CC0 license (Duke AdViews + unlicensed ad uploads are
+          # excluded — wrong rights for a public app). Tagged contentTypeHint=
+          # commercial so ingest groups them under the Commercials collection;
+          # they never appear on Home. See docs/design/channels-tv-guide.md.
+          python tools/discover_commercials.py | tee commercials_discover.log
+
       - name: Discover new TV shows (grow the canonical-TV queue)
         run: |
           # Mines TV collections + TV-subject searches for items we don't yet

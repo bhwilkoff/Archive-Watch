@@ -60,6 +60,14 @@
       "shortName": "Shorts",
       "accent": "#E8A317",
       "posterAspect": "2:3"
+    },
+    {
+      "id": "commercial",
+      "displayName": "Vintage Commercials",
+      "shortName": "Commercials",
+      "accent": "#E8A317",
+      "posterAspect": "16:9",
+      "note": "Interstitial + collection content only — intentionally NO home shelf. Commercials never appear on Home (CatalogDB.notCommercial); they surface via the Commercials collection, the Random Commercial action, and channel breaks."
     }
   ],
 

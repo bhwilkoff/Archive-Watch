@@ -30,6 +30,8 @@
     { "id": "nasa",                     "title": "NASA Films",             "blurb": "Earthrise, moonwalks, the long engineering story.",        "accent": "#3FA796", "category": "documentary" },
     { "id": "educationalfilms",         "title": "Educational Shorts",     "blurb": "Encyclopædia Britannica, Coronet, classroom filmstrips.",  "accent": "#7C5BBA", "category": "ephemeral" },
     { "id": "ephemera",                 "title": "Ephemera",               "blurb": "Industrial, instructional, home, in-between.",             "accent": "#7C5BBA", "category": "ephemeral" },
-    { "id": "newsandpublicaffairs",     "title": "Newsreels",              "blurb": "How the 20th century reported itself to itself.",          "accent": "#8A8F98", "category": "newsreel" }
+    { "id": "newsandpublicaffairs",     "title": "Newsreels",              "blurb": "How the 20th century reported itself to itself.",          "accent": "#8A8F98", "category": "newsreel" },
+
+    { "id": "aw_commercials",           "title": "Vintage Commercials",    "blurb": "Public-domain TV ads from the golden age of the 30-second spot.", "accent": "#E8A317", "category": "commercial" }
   ]
 }

@@ -118,6 +118,15 @@ final class CatalogDB {
         "AND (i.rightsStatus IN ('public_domain','creative_commons') " +
         "OR (i.year >= 1888 AND i.year <= 1977))"
 
+    /// Commercials (contentType 'commercial') are interstitial + collection
+    /// content (vintage ads — see docs/design/channels-tv-guide.md). They must
+    /// NEVER clutter Home/Browse/Search/Surprise-by-film. They surface ONLY via
+    /// the Commercials collection (byCollection), the Random Commercial action
+    /// (randomPlayable(contentType:"commercial")), and channel breaks
+    /// (randomCommercials). This clause is applied to every general surface;
+    /// the three intentional surfaces omit it.
+    private let notCommercial = "AND i.contentType != 'commercial'"
+
     // MARK: - Queries the views use
 
     /// One Home shelf. Items with real designed artwork lead (#7 — never put a
@@ -133,7 +142,7 @@ final class CatalogDB {
             SELECT j.json FROM item_shelves s
             JOIN item_json j USING(archiveID)
             JOIN items i USING(archiveID)
-            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd) \(typeAnd)
+            WHERE s.shelfID = ?1 \(adultAnd) \(homeAnd) \(notCommercial) \(typeAnd)
             ORDER BY i.hasRealArtwork DESC, s.position
             LIMIT \(limit)
         """, [shelfID])
@@ -155,6 +164,9 @@ final class CatalogDB {
                 homeOnly: Bool = false) -> [Catalog.Item] {
         var where_ = ["i.contentType != 'tv-series'"]
         if hideAdult { where_.append("i.isAdult = 0") }
+        // Commercials are never part of a general browse grid — only when the
+        // caller explicitly asks for contentType == "commercial".
+        if contentType != "commercial" { where_.append("i.contentType != 'commercial'") }
         var binds: [String] = []
         if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
         if let decade { where_.append("i.decade = \(decade)") }
@@ -188,7 +200,7 @@ final class CatalogDB {
             SELECT j.json FROM items_fts f
             JOIN item_json j ON j.archiveID = f.archiveID
             JOIN items i ON i.archiveID = f.archiveID
-            WHERE items_fts MATCH ? \(adultAnd) \(typeAnd)
+            WHERE items_fts MATCH ? \(adultAnd) \(notCommercial) \(typeAnd)
             ORDER BY rank
             LIMIT \(limit)
         """, [q])
@@ -223,7 +235,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE i.hasRealArtwork = 1 AND i.qualityScore >= 60
-              AND i.popularityScore <= 40 \(adultAnd) \(homeAnd) \(typeAnd)
+              AND i.popularityScore <= 40 \(adultAnd) \(homeAnd) \(notCommercial) \(typeAnd)
             ORDER BY i.qualityScore DESC LIMIT \(limit)
         """)
     }
@@ -234,7 +246,7 @@ final class CatalogDB {
     func topDirectors(minFilms: Int = 3, limit: Int = 4) -> [(name: String, count: Int)] {
         scalarRows("""
             SELECT i.director, COUNT(*) c FROM items i
-            WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(typeAnd)
+            WHERE i.director IS NOT NULL AND i.director != '' AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(typeAnd)
             GROUP BY i.director HAVING c >= \(minFilms)
             ORDER BY c DESC, i.director LIMIT \(limit)
         """).map { (name: $0.0, count: $0.1) }
@@ -243,7 +255,7 @@ final class CatalogDB {
     func byDirector(_ name: String, limit: Int = 20, homeOnly: Bool = false) -> [Catalog.Item] {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
-            WHERE i.director = ? AND i.hasRealArtwork = 1 \(adultAnd) \(homeOnly ? homeAnd : "") \(typeAnd)
+            WHERE i.director = ? AND i.hasRealArtwork = 1 \(adultAnd) \(homeOnly ? homeAnd : "") \(notCommercial) \(typeAnd)
             ORDER BY i.popularityScore DESC LIMIT \(limit)
         """, [name])
     }
@@ -290,6 +302,9 @@ final class CatalogDB {
     func randomPlayable(contentType: String? = nil) -> Catalog.Item? {
         var where_ = ["i.contentType != 'tv-series'"]
         if hideAdult { where_.append("i.isAdult = 0") }
+        // Random Film must never land on a commercial; Random Commercial passes
+        // contentType: "commercial" explicitly to opt back in.
+        if contentType != "commercial" { where_.append("i.contentType != 'commercial'") }
         var binds: [String] = []
         if let ct = contentType { where_.append("i.contentType = ?"); binds.append(ct) }
         return items("""
@@ -297,6 +312,17 @@ final class CatalogDB {
             WHERE \(where_.joined(separator: " AND ")) \(typeAnd)
             ORDER BY RANDOM() LIMIT 1
         """, binds).first
+    }
+
+    /// A shuffled batch of playable commercials, for inserting as breaks between
+    /// programs on a channel (docs/design/channels-tv-guide.md). Bypasses the
+    /// notCommercial exclusion by querying contentType = 'commercial' directly.
+    func randomCommercials(limit: Int = 12) -> [Catalog.Item] {
+        items("""
+            SELECT j.json FROM items i JOIN item_json j USING(archiveID)
+            WHERE i.contentType = 'commercial' \(adultAnd) \(typeAnd)
+            ORDER BY RANDOM() LIMIT \(limit)
+        """)
     }
 
     /// A random TV series card (Surprise → Random TV Episode lands on the show).
@@ -318,7 +344,7 @@ final class CatalogDB {
             JOIN item_json j USING(archiveID)
             JOIN item_genres g ON g.archiveID = i.archiveID
             WHERE g.genre IN (\(placeholders)) AND i.contentType != 'tv-series'
-              \(adultAnd) \(typeAnd)
+              \(adultAnd) \(notCommercial) \(typeAnd)
             ORDER BY RANDOM() LIMIT 1
         """, genres).first
     }
@@ -340,7 +366,7 @@ final class CatalogDB {
         // like "1060s" or future decades in the Browse-by-Era row (#8).
         for (k, v) in scalarRows("""
             SELECT i.decade, COUNT(*) FROM items i
-            WHERE i.decade BETWEEN 1890 AND 2029 \(adultAnd)
+            WHERE i.decade BETWEEN 1890 AND 2029 \(adultAnd) \(notCommercial)
             GROUP BY i.decade
         """) {
             if let d = Int(k) { out[d] = v }
