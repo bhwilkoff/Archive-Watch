@@ -68,3 +68,6 @@ metadata_review_batch.json
 metadata_review_decisions.json
 tools/.tmdb_synopsis_cache.json
 tools/.tmdb_meta_cache.json
+
+# Frame-extracted cover working set (#86) — durable copies live on archive.org
+tools/covers_out/

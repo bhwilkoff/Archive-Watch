@@ -706,3 +706,47 @@ refresh are #11b.
 gains a CloudKit mirror; a future iOS/web companion could read the same private DB.
 Privacy manifest may need a data-collection note once sync is enabled (it stays in
 the user's iCloud, but document it).
+
+---
+
+## 023 — Frame-extracted covers are hosted on an archive.org item, wired as generated art
+*Date: 2026-06-05*
+
+Items with no third-party poster (every vintage commercial, plus the long tail of
+features/silents/animation enrichment missed) get a cover extracted from their own
+video by the mac-based protocol (`tools/batch_covers.py` → `frame_cover.py`,
+ffmpeg + opencv face/sharpness scoring). The JPEGs are uploaded to a single
+**archive.org item, `archivewatch-covers`** (`tools/upload_covers.py`, IAS3 API),
+giving each a stable public URL `https://archive.org/download/archivewatch-covers/
+<slug>.jpg`. `tools/apply_covers.py` then sets the item's `posterURL`,
+`artworkSource="generated"`, and `hasRealArtwork=true` in the catalog. Each cover
+is a real still from the film — never hallucinated art. Full runbook:
+`docs/runbooks/cover-generation.md`.
+
+**Why**: 56% of the catalog (20,962 items, including all 2,390 commercials) had no
+designed poster, falling back to the procedural typographic card. Commercials in
+particular have NO third-party source that will ever cover them, yet they are the
+backbone of the Channels EPG (Decision: commercials, 2026-06-05). Hosting was
+chosen as archive.org (owner decision, 2026-06-05) over a GitHub Release or R2: it
+is free, unlimited, durable, needs no per-image git/CDN budget, and is on-brand —
+the app exists to celebrate the Internet Archive. The app fetches `posterURL` via
+URLSession, so the `download/...` 302-to-storage-node redirect and the lack of a
+CORS header are both non-issues (unlike the web tool, Decision 018).
+
+**How to apply**: never commit generated covers to git or re-add them to the
+catalog repo — the durable copies live on the archive.org item, indexed by
+`tools/covers_out/uploaded.jsonl` (the working dir `tools/covers_out/` is
+gitignored, like the catalog itself). IAS3 credentials live ONLY in the
+environment (`IAS3_ACCESS_KEY` / `IAS3_SECRET_KEY`) or CI secrets — never in a
+tracked file. New items from `discover-content` are covered by re-running the three
+resumable stages (generate → upload → wire); each skips what it already did.
+`artworkSource="generated"` is treated as real art by `build_sqlite.py` (it sorts
+ahead of poster-less tiles on Home/Browse); if generated stills ever need to be
+visually distinguished from designed marketing art, add a third artwork state
+rather than special-casing `"generated"` at every reader.
+
+**Consequences**: archive.org becomes a runtime artwork host for the app (read
+path only). The generate stage is a ~1.5-day network-bound batch at full catalog
+scale; it runs unattended on a Mac and is fully resumable. A CI workflow to
+automate the three stages for newly-ingested items is deferred until the IAS3
+secrets are added to the repo.

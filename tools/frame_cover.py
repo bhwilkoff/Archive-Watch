@@ -84,7 +84,10 @@ def crop_aspect(src: Path, dst: Path, aspect: str):
     out_w = 600
     out_h = int(out_w / target)
     img = cv2.resize(img, (out_w, out_h), interpolation=cv2.INTER_LANCZOS4)
-    cv2.imwrite(str(dst), img, [cv2.IMWRITE_PNG_COMPRESSION, 6])
+    if dst.suffix.lower() in (".jpg", ".jpeg"):
+        cv2.imwrite(str(dst), img, [cv2.IMWRITE_JPEG_QUALITY, 88])
+    else:
+        cv2.imwrite(str(dst), img, [cv2.IMWRITE_PNG_COMPRESSION, 6])
 
 
 def archive_video_url(iaid: str) -> str | None:
