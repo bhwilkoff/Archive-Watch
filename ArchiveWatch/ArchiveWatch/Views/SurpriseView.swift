@@ -111,9 +111,9 @@ struct SurpriseView: View {
         case "pubdomain":
             router.push(PublicDomainRoute())
         case "party":
-            mode = ModeLineup(items: partyLineup(), muted: true)
+            mode = ModeLineup(items: store.partyLineup(), muted: true)
         case "cartoon":
-            mode = ModeLineup(items: cartoonLineup(), muted: false)
+            mode = ModeLineup(items: store.cartoonLineup(), muted: false)
         case "saver":
             showSaver = true
         default:
@@ -121,27 +121,6 @@ struct SurpriseView: View {
         }
     }
 
-    // #3 party play: a visually-striking, muted continuous lineup — animation +
-    // silent cinema + popular features, all with real artwork, shuffled.
-    private func partyLineup() -> [Catalog.Item] {
-        var pool = store.dbBrowse(contentType: "animation", sort: .popular, limit: 120)
-            + store.dbBrowse(contentType: "silent-film", sort: .popular, limit: 120)
-            + store.dbBrowse(sort: .popular, limit: 120)
-        pool = pool.filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
-        var seen = Set<String>()
-        pool = pool.filter { seen.insert($0.archiveID).inserted }
-        pool.shuffle()
-        return Array(pool.prefix(200))
-    }
-
-    // #2 cartoon mode (minimal): a continuous animation lineup; adult content is
-    // already filtered by default, so this is kid-safe. Full simplified shell -> #2b.
-    private func cartoonLineup() -> [Catalog.Item] {
-        var pool = store.dbBrowse(contentType: "animation", sort: .popular, limit: 250)
-            .filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
-        pool.shuffle()
-        return pool
-    }
 }
 
 // MARK: - Action tile

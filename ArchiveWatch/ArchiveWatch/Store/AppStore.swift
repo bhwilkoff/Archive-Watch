@@ -210,6 +210,26 @@ final class AppStore {
     func dbCollectionCount(_ id: String) -> Int { db?.collectionCount(id) ?? 0 }
     func dbRandomPlayable(contentType: String? = nil) -> Catalog.Item? { db?.randomPlayable(contentType: contentType) }
     func dbRandomCommercials(limit: Int = 12) -> [Catalog.Item] { db?.randomCommercials(limit: limit) ?? [] }
+
+    // Immersive-mode lineups (#2 cartoon / #3 party), shared by Surprise + Home so
+    // both launch identical sessions.
+    func cartoonLineup() -> [Catalog.Item] {
+        var pool = dbBrowse(contentType: "animation", sort: .popular, limit: 250)
+            .filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
+        pool.shuffle()
+        return pool
+    }
+
+    func partyLineup() -> [Catalog.Item] {
+        var pool = dbBrowse(contentType: "animation", sort: .popular, limit: 120)
+            + dbBrowse(contentType: "silent-film", sort: .popular, limit: 120)
+            + dbBrowse(sort: .popular, limit: 120)
+        pool = pool.filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
+        var seen = Set<String>()
+        pool = pool.filter { seen.insert($0.archiveID).inserted }
+        pool.shuffle()
+        return Array(pool.prefix(200))
+    }
     func dbRandomSeries() -> Catalog.Item? { db?.randomSeries() }
     func dbRandomByGenre(_ genres: [String]) -> Catalog.Item? { db?.randomByGenre(genres) }
     func dbSeriesCard(slug: String) -> Catalog.Item? { db?.seriesCard(slug: slug) }

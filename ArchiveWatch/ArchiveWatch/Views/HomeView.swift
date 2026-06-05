@@ -79,6 +79,7 @@ struct HomeView: View {
                 PublicDomainShelf()   // #15b: current Public Domain class
                 HiddenGemsShelf()
                 DirectorShelvesSection()
+                ModesRow()        // #82: immersive modes surfaced on Home
                 DecadeTilesRow()
                     .padding(.bottom, 32)
             }
@@ -513,5 +514,83 @@ struct DecadeTile: View {
         }
         .frame(width: 260, height: 180)
         .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+}
+
+// MARK: - #82 Modes row (immersive modes surfaced on Home)
+
+/// A box for a Home-launched immersive lineup (cartoon / party).
+struct HomeModeLineup: Identifiable { let id = UUID(); let items: [Catalog.Item]; let muted: Bool }
+
+/// "Ways to Watch" — surfaces the immersive modes (Channels guide, Cartoon Mode,
+/// Party Play, Cover Art Wall) that were previously only reachable from Surprise.
+/// Placed near the bottom of Home so it adds discovery without displacing content.
+private struct ModesRow: View {
+    @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
+    @State private var mode: HomeModeLineup?
+    @State private var showSaver = false
+
+    private struct Mode: Identifiable {
+        let id: String; let title: String; let subtitle: String; let icon: String; let hex: String
+    }
+    private let modes: [Mode] = [
+        .init(id: "channels", title: "Channels",      subtitle: "Live TV guide",    icon: "play.tv.fill",         hex: "#2D5BFF"),
+        .init(id: "cartoon",  title: "Cartoon Mode",  subtitle: "Animation all day", icon: "pawprint.fill",        hex: "#FF4D8D"),
+        .init(id: "party",    title: "Party Play",    subtitle: "Muted, nonstop",    icon: "sparkles.tv.fill",     hex: "#7C5BBA"),
+        .init(id: "saver",    title: "Cover Art Wall", subtitle: "Screensaver",      icon: "square.grid.3x3.fill", hex: "#0047FF"),
+    ]
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Ways to Watch")
+                .font(.title2.bold())
+                .foregroundStyle(.white)
+                .padding(.horizontal, 80)
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(spacing: 32) {
+                    ForEach(modes) { m in
+                        Button { launch(m) } label: { ModeTile(mode: m) }
+                            .buttonStyle(.card)
+                    }
+                }
+                .padding(.horizontal, 80)
+            }
+        }
+        .fullScreenCover(item: $mode) { m in
+            if let screen = PlayerScreen(lineup: m.items, startMuted: m.muted) { screen }
+        }
+        .fullScreenCover(isPresented: $showSaver) { ScreensaverView() }
+    }
+
+    private func launch(_ m: Mode) {
+        switch m.id {
+        case "channels": router.tab = .channels
+        case "cartoon":  mode = HomeModeLineup(items: store.cartoonLineup(), muted: false)
+        case "party":    mode = HomeModeLineup(items: store.partyLineup(), muted: true)
+        case "saver":    showSaver = true
+        default: break
+        }
+    }
+
+    private struct ModeTile: View {
+        let mode: Mode
+        var body: some View {
+            ZStack(alignment: .bottomLeading) {
+                LinearGradient(colors: [(Color(hex: mode.hex) ?? .blue).opacity(0.9),
+                                        (Color(hex: mode.hex) ?? .blue).mix(with: .black, 0.6)],
+                               startPoint: .topLeading, endPoint: .bottomTrailing)
+                Image(systemName: mode.icon)
+                    .font(.system(size: 52)).foregroundStyle(.white.opacity(0.22))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing).padding(18)
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(mode.title).font(.system(size: 26, weight: .bold)).foregroundStyle(.white)
+                    Text(mode.subtitle).font(.system(size: 17)).foregroundStyle(.white.opacity(0.8))
+                }
+                .padding(18)
+            }
+            .frame(width: 320, height: 180)
+            .clipShape(RoundedRectangle(cornerRadius: 16))
+        }
     }
 }
