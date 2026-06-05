@@ -1,5 +1,6 @@
 import SwiftUI
 import SwiftData
+import Combine
 
 // Top-level shell. Uses tvOS 26's native TabView with
 // .sidebarAdaptable — Apple's own adaptive sidebar. This is the only
@@ -19,7 +20,16 @@ struct RootView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.scenePhase) private var scenePhase
     private let inbox = IntentInbox.shared
+
+    // #83 idle screensaver. Opt-in (store.screensaverIdleEnabled) and gated on
+    // !isPlayingVideo so it can NEVER appear over a video. Counts 30s ticks of
+    // low activity; resets on tab switch, scene change, or playback start/stop.
+    @State private var idleSeconds = 0
+    @State private var showSaver = false
+    private let idleThreshold = 300   // 5 minutes
+    private let idleTick = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
 
     var body: some View {
         @Bindable var router = router
@@ -83,6 +93,18 @@ struct RootView: View {
         // #11: best-effort CloudKit sync on launch (no-ops until the entitlement
         // is configured — CloudSync.entitlementConfigured).
         .task { await CloudKitSyncService.shared.sync(modelContext) }
+        // #83 idle screensaver (opt-in, never over playback).
+        .fullScreenCover(isPresented: $showSaver) { ScreensaverView() }
+        .onReceive(idleTick) { _ in
+            guard store.screensaverIdleEnabled, !store.isPlayingVideo,
+                  scenePhase == .active, !showSaver else { idleSeconds = 0; return }
+            idleSeconds += 30
+            if idleSeconds >= idleThreshold { idleSeconds = 0; showSaver = true }
+        }
+        .onChange(of: router.tab) { _, _ in idleSeconds = 0 }
+        .onChange(of: store.isPlayingVideo) { _, _ in idleSeconds = 0 }
+        .onChange(of: scenePhase) { _, _ in idleSeconds = 0 }
+        .onChange(of: showSaver) { _, shown in if !shown { idleSeconds = 0 } }
     }
 
     /// Route a Siri/Shortcuts request into the live navigation state.

@@ -97,6 +97,14 @@ final class AppStore {
         return UserDefaults.standard.bool(forKey: commercialBreaksKey)
     }
 
+    // #83 idle screensaver. Transient flag set by the players so the idle
+    // trigger can NEVER fire over a video. Opt-in (default off) so it can't
+    // surprise anyone; RootView watches it.
+    var isPlayingVideo = false
+    var screensaverIdleEnabled: Bool = UserDefaults.standard.bool(forKey: "screensaverIdleEnabled") {
+        didSet { UserDefaults.standard.set(screensaverIdleEnabled, forKey: "screensaverIdleEnabled") }
+    }
+
     /// Drop completed titles from a Home list when the setting is on. No-op
     /// otherwise. Used by HomeView's hero + shelves.
     func filteringWatched(_ items: [Catalog.Item]) -> [Catalog.Item] {

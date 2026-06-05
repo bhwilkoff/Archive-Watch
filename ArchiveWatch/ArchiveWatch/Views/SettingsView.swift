@@ -147,11 +147,18 @@ struct SettingsView: View {
             Toggle(isOn: commercialBreaksBinding) {
                 ToggleLabel(title: "Commercial Breaks on Channels")
             }
+            Toggle(isOn: idleSaverBinding) {
+                ToggleLabel(title: "Idle Screensaver")
+            }
         } header: {
             Text("Playback")
         } footer: {
-            Text("When a film ends, automatically play another. Off by default. You can also change this for the current video from its transport menu. TV episodes always continue to the next episode. Commercial breaks play vintage public-domain ads between programs on Channels — the 1990s-TV feel.")
+            Text("When a film ends, automatically play another. Off by default. You can also change this for the current video from its transport menu. TV episodes always continue to the next episode. Commercial breaks play vintage public-domain ads between programs on Channels — the 1990s-TV feel. The idle screensaver shows the cover-art wall after a few minutes of inactivity (never during playback).")
         }
+    }
+
+    private var idleSaverBinding: Binding<Bool> {
+        Binding(get: { store.screensaverIdleEnabled }, set: { store.screensaverIdleEnabled = $0 })
     }
 
     private var autoplayBinding: Binding<AutoplayMode> {

@@ -18,6 +18,7 @@ struct EpisodePlayerScreen: View {
     let series: Series
     let initialEpisode: Episode
 
+    @Environment(AppStore.self) private var store   // #83: idle-screensaver gate
     @State private var currentEpisode: Episode
     @State private var player: AVPlayer?
     @State private var timeObserver: Any?
@@ -72,8 +73,8 @@ struct EpisodePlayerScreen: View {
                     .tint(.white)
             }
         }
-        .onAppear { setupPlayer(for: currentEpisode) }
-        .onDisappear { teardownPlayer(finalPersist: true) }
+        .onAppear { store.isPlayingVideo = true; setupPlayer(for: currentEpisode) }
+        .onDisappear { store.isPlayingVideo = false; teardownPlayer(finalPersist: true) }
         .onChange(of: currentEpisode) { _, new in
             teardownPlayer(finalPersist: true)
             setupPlayer(for: new)

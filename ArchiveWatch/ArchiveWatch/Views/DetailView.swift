@@ -530,8 +530,8 @@ struct PlayerScreen: View {
                 ProgressView().controlSize(.large).tint(.white)
             }
         }
-        .onAppear { setupPlayer() }
-        .onDisappear { teardownPlayer() }
+        .onAppear { store.isPlayingVideo = true; setupPlayer() }
+        .onDisappear { store.isPlayingVideo = false; teardownPlayer() }
         // #10: autoplay swapped `current` -> rebuild the player for the next film.
         .onChange(of: current?.archiveID) { _, _ in
             teardownPlayer()
