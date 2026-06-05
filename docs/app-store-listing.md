@@ -165,18 +165,22 @@ Web Access" = No — browsing is confined to the curated catalog).
 ---
 
 ## Screenshots (Apple TV — 3840×2160, captured from the tvOS 26 simulator)
-Generated this session in `/tmp/appstore_shots/` (App Store allows up to 10).
-Recommended order:
-1. **Home** — hero + Browse by Category (`01-home.png`)
-2. **Channels guide** — the EPG with now/next + ratings (`02-channels.png`)
-3. **Detail — His Girl Friday** (`d2-his-girl-friday.png`)
-4. **Detail — Metropolis** (`d4-metropolis.png`)
-5. **Detail — Night of the Living Dead** (`d1-living-dead.png`)
-6. **Movies grid** (`03-movies.png`)
-7. **Collections** (`05-collections.png`)
-8. **TV Shows** (`04-tvshows.png`)
-9. **Surprise** (`06-surprise.png`)
-10. **Create Channel** (`/tmp/create_channel.png`)
+The final, App-Store-ready set lives **outside the repo** (they're upload assets,
+not source — ~40 MB of 4K PNGs would bloat git, and they're regenerable):
+
+    ~/Desktop/ArchiveWatch-AppStore-Screenshots/
+
+Upload them to App Store Connect in this order (App Store allows up to 10):
+1. `01-Home.png`               — hero + Browse by Category
+2. `02-Channels-Guide.png`     — the EPG with now/next + ratings
+3. `03-Detail-HisGirlFriday.png`
+4. `04-Detail-Metropolis.png`
+5. `05-Detail-NightOfTheLivingDead.png`
+6. `06-Movies.png`
+7. `07-Collections.png`
+8. `08-TVShows.png`
+9. `09-Surprise.png`
+10. `10-CreateChannel.png`
 
 (Skip Library — empty state on a fresh install. NOTLD's synopsis is a junk
 uploader note; remediate or swap that Detail if it bothers.)
