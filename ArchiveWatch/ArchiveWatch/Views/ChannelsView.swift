@@ -1,11 +1,12 @@
 import SwiftUI
 import SwiftData
 
-// #1 24-hour programming channels (tvOS-DESIGN §2.2 / §9.1). A channel is a saved
-// query realized as a continuous now/next lineup, played through the shared F4
-// ContinuousPlayback path (PlayerScreen's lineup). Tapping a channel tunes in —
-// it plays straight through, autoplaying each title into the next. Channel queries
-// are measured-populated genres + content types (Drama 5.7k … Sci-Fi 599).
+// #1 / Channels P2+P3: a real TV guide. Each channel is a deterministic,
+// date-seeded program schedule (ChannelScheduler) rendered as an old-school EPG
+// grid — channel rows × half-hour time columns, program titles filling the slots.
+// Tuning in tunes the channel from whatever's airing now and plays straight
+// through (the F4 ContinuousPlayback path), with vintage PD commercials between
+// programs (#89). See docs/design/channels-tv-guide.md.
 struct Channel: Identifiable, Hashable {
     let id: String
     let title: String
@@ -31,83 +32,110 @@ struct Channel: Identifiable, Hashable {
     ]
 }
 
+/// A channel as the guide sees it: identity + its program pool + its schedule.
+struct GuideChannel: Identifiable {
+    let id: String
+    let number: Int
+    let title: String
+    let accent: Color
+    let icon: String
+    let slots: [ScheduledProgram]
+}
+
 struct ChannelsView: View {
     @Environment(AppStore.self) private var store
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \UserChannel.createdAt, order: .reverse) private var userChannels: [UserChannel]
     @State private var playing: ChannelLineup?
     @State private var showCreate = false
-
-    private let cols = Array(repeating: GridItem(.flexible(), spacing: 32), count: 3)
+    @State private var guide: [GuideChannel] = []
+    @State private var builtAt = Date()
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 28) {
-                header
-                LazyVGrid(columns: cols, spacing: 32) {
-                    // #1b: create-your-own + saved user channels first.
-                    Button { showCreate = true } label: { CreateChannelCard() }
-                        .buttonStyle(.card)
-                    ForEach(userChannels) { uc in
-                        Button { play(lineup(forUser: uc)) } label: { UserChannelCard(channel: uc) }
-                            .buttonStyle(.card)
-                            .contextMenu {
-                                Button(role: .destructive) {
-                                    modelContext.delete(uc); try? modelContext.save()
-                                } label: { Label("Delete Channel", systemImage: "trash") }
-                            }
-                    }
-                    ForEach(Channel.all) { channel in
-                        Button { play(lineup(for: channel)) } label: { ChannelCard(channel: channel) }
-                            .buttonStyle(.card)
-                    }
+        VStack(alignment: .leading, spacing: 0) {
+            header
+            if guide.isEmpty {
+                Spacer()
+                Text("Building the guide…")
+                    .font(.title2).foregroundStyle(.white.opacity(0.5))
+                    .frame(maxWidth: .infinity)
+                Spacer()
+            } else {
+                ChannelGuide(channels: guide, now: builtAt) { ch, slot in
+                    tune(ch, from: slot)
                 }
-                .padding(.horizontal, 80)
             }
-            .padding(.vertical, 44)
         }
         .background(Color.black.ignoresSafeArea())
+        .onAppear { if guide.isEmpty { rebuild() } }
         .fullScreenCover(item: $playing) { box in
             if let screen = PlayerScreen(lineup: box.items) { screen } else { ChannelUnavailable() }
         }
-        .sheet(isPresented: $showCreate) { CreateChannelSheet() }
+        .sheet(isPresented: $showCreate, onDismiss: rebuild) { CreateChannelSheet() }
     }
-
-    private func play(_ items: [Catalog.Item]) { playing = ChannelLineup(items: items) }
 
     private var header: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Channels")
-                .font(.system(size: 52, weight: .heavy, design: .serif))
-                .foregroundStyle(.white)
-            Text("Tune in and it just plays — each title rolls into the next. Build your own from any filter.")
-                .font(.title3)
-                .foregroundStyle(.white.opacity(0.6))
+        HStack(alignment: .firstTextBaseline) {
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Channels")
+                    .font(.system(size: 48, weight: .heavy, design: .serif))
+                    .foregroundStyle(.white)
+                Text("What's on now — tune in and it plays straight through.")
+                    .font(.title3).foregroundStyle(.white.opacity(0.6))
+            }
+            Spacer()
+            Button { showCreate = true } label: {
+                Label("Create Channel", systemImage: "plus.circle.fill")
+                    .font(.system(size: 22, weight: .semibold))
+            }
+            .buttonStyle(.bordered)
         }
         .padding(.horizontal, 80)
+        .padding(.top, 40)
+        .padding(.bottom, 20)
     }
 
-    private func lineup(for channel: Channel) -> [Catalog.Item] {
-        let raw = channel.genre.map { store.dbBrowse(genre: $0, sort: .popular, limit: 200) }
-            ?? store.dbBrowse(contentType: channel.contentType, sort: .popular, limit: 200)
-        return finalize(raw)
+    // MARK: - Schedule build
+
+    private func rebuild() {
+        let now = Date()
+        var out: [GuideChannel] = []
+        var number = 2
+        for uc in userChannels {
+            let pool = playable(store.dbBrowse(contentType: uc.contentType, decade: uc.decade,
+                                               genre: uc.genre, sort: .popular, limit: 250))
+            let slots = ChannelScheduler.schedule(channelID: "user-\(uc.id)", programs: pool, now: now)
+            guard !slots.isEmpty else { continue }
+            out.append(GuideChannel(id: "user-\(uc.id)", number: number, title: uc.name,
+                                    accent: Color(hex: "#0047FF") ?? .blue,
+                                    icon: "dot.radiowaves.left.and.right", slots: slots))
+            number += 1
+        }
+        for ch in Channel.all {
+            let raw = ch.genre.map { store.dbBrowse(genre: $0, sort: .popular, limit: 200) }
+                ?? store.dbBrowse(contentType: ch.contentType, sort: .popular, limit: 200)
+            let slots = ChannelScheduler.schedule(channelID: ch.id, programs: playable(raw), now: now)
+            guard !slots.isEmpty else { continue }
+            out.append(GuideChannel(id: ch.id, number: number, title: ch.title,
+                                    accent: ch.accent, icon: ch.icon, slots: slots))
+            number += 1
+        }
+        builtAt = now
+        guide = out
     }
 
-    private func lineup(forUser uc: UserChannel) -> [Catalog.Item] {
-        finalize(store.dbBrowse(contentType: uc.contentType, decade: uc.decade,
-                                genre: uc.genre, sort: .popular, limit: 250))
+    private func playable(_ items: [Catalog.Item]) -> [Catalog.Item] {
+        items.filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
     }
 
-    private func finalize(_ items: [Catalog.Item]) -> [Catalog.Item] {
-        var programs = items.filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
-        programs.shuffle()
-        return weaveCommercials(into: programs)
+    // MARK: - Tune in
+
+    private func tune(_ channel: GuideChannel, from slot: ScheduledProgram) {
+        let programs = channel.slots.drop { $0.id != slot.id }.map(\.item)
+        playing = ChannelLineup(items: weaveCommercials(into: Array(programs)))
     }
 
-    /// #89 (Channels P1): drop a vintage PD commercial between programs so a
-    /// channel feels like broadcast TV, not a playlist. Gated by the
-    /// channelCommercialBreaks setting. Commercials use procedural posters, so
-    /// they're filtered on playability only (not designed artwork).
+    /// #89: drop a vintage PD commercial between programs (gated by setting).
     private func weaveCommercials(into programs: [Catalog.Item]) -> [Catalog.Item] {
         guard store.channelCommercialBreaks, programs.count > 1 else { return programs }
         let ads = store.dbRandomCommercials(limit: 60).filter { $0.videoURLParsed != nil }
@@ -124,31 +152,149 @@ struct ChannelsView: View {
 
 struct ChannelLineup: Identifiable { let id = UUID(); let items: [Catalog.Item] }
 
-private struct ChannelCard: View {
-    let channel: Channel
+// MARK: - The guide grid (retro EPG)
+
+private struct ChannelGuide: View {
+    let channels: [GuideChannel]
+    let now: Date
+    let onTune: (GuideChannel, ScheduledProgram) -> Void
+
+    // 4 half-hour columns starting at the current half-hour floor.
+    private var columnTimes: [Date] {
+        let cal = Calendar.current
+        let minute = cal.component(.minute, from: now)
+        let floored = cal.date(bySettingHour: cal.component(.hour, from: now),
+                               minute: minute < 30 ? 0 : 30, second: 0, of: now) ?? now
+        return (0..<4).map { floored.addingTimeInterval(Double($0) * 1800) }
+    }
+
+    private let railW: CGFloat = 240
+    private let colW: CGFloat = 360
+    private let rowH: CGFloat = 116
+
+    var body: some View {
+        ScrollView([.vertical], showsIndicators: false) {
+            VStack(spacing: 6) {
+                timeHeader
+                ForEach(channels) { ch in
+                    ChannelRow(channel: ch, columnTimes: columnTimes, now: now,
+                               railW: railW, colW: colW, rowH: rowH, onTune: onTune)
+                }
+            }
+            .padding(.horizontal, 60)
+            .padding(.bottom, 40)
+        }
+    }
+
+    private var timeHeader: some View {
+        HStack(spacing: 6) {
+            Text("NOW")
+                .font(.system(size: 20, weight: .heavy))
+                .foregroundStyle(.white.opacity(0.5))
+                .frame(width: railW, alignment: .leading)
+            ForEach(columnTimes, id: \.self) { t in
+                Text(t.formatted(date: .omitted, time: .shortened))
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundStyle(.white.opacity(0.85))
+                    .frame(width: colW, alignment: .leading)
+            }
+        }
+    }
+}
+
+private struct ChannelRow: View {
+    let channel: GuideChannel
+    let columnTimes: [Date]
+    let now: Date
+    let railW: CGFloat
+    let colW: CGFloat
+    let rowH: CGFloat
+    let onTune: (GuideChannel, ScheduledProgram) -> Void
+
+    var body: some View {
+        HStack(spacing: 6) {
+            // Channel rail
+            HStack(spacing: 12) {
+                Image(systemName: channel.icon).font(.system(size: 26))
+                    .foregroundStyle(channel.accent)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(channel.title).font(.system(size: 21, weight: .bold))
+                        .foregroundStyle(.white).lineLimit(1)
+                    Text("CH \(channel.number)").font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(.white.opacity(0.5))
+                }
+                Spacer(minLength: 0)
+            }
+            .padding(.horizontal, 16)
+            .frame(width: railW, height: rowH, alignment: .leading)
+            .background(channel.accent.opacity(0.18), in: RoundedRectangle(cornerRadius: 10))
+
+            ForEach(Array(columnTimes.enumerated()), id: \.offset) { idx, t in
+                let slot = ChannelScheduler.program(in: channel.slots, at: t)
+                let prevSlot = idx > 0 ? ChannelScheduler.program(in: channel.slots, at: columnTimes[idx - 1]) : nil
+                GuideCell(slot: slot,
+                          continues: slot != nil && slot?.id == prevSlot?.id,
+                          isNow: idx == 0,
+                          accent: channel.accent,
+                          width: colW, height: rowH) {
+                    if let slot { onTune(channel, slot) }
+                }
+            }
+        }
+    }
+}
+
+private struct GuideCell: View {
+    let slot: ScheduledProgram?
+    let continues: Bool
+    let isNow: Bool
+    let accent: Color
+    let width: CGFloat
+    let height: CGFloat
+    let action: () -> Void
     @Environment(\.isFocused) private var isFocused
 
     var body: some View {
-        ZStack(alignment: .bottomLeading) {
-            LinearGradient(colors: [channel.accent.opacity(0.9), channel.accent.mix(with: .black, 0.55)],
-                           startPoint: .topLeading, endPoint: .bottomTrailing)
-            Image(systemName: channel.icon)
-                .font(.system(size: 64))
-                .foregroundStyle(.white.opacity(0.22))
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-                .padding(20)
-            VStack(alignment: .leading, spacing: 4) {
-                Text(channel.title)
-                    .font(.system(size: 30, weight: .bold))
-                    .foregroundStyle(.white)
-                Text(channel.tagline)
-                    .font(.system(size: 20))
-                    .foregroundStyle(.white.opacity(0.8))
+        Button(action: action) {
+            ZStack(alignment: .leading) {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(isFocused ? accent.opacity(0.9) : Color.white.opacity(0.08))
+                if let slot {
+                    if continues {
+                        HStack(spacing: 8) {
+                            Image(systemName: "chevron.compact.right")
+                            Text(slot.item.title).lineLimit(1)
+                        }
+                        .font(.system(size: 17))
+                        .foregroundStyle((isFocused ? Color.white : .white.opacity(0.45)))
+                        .padding(.horizontal, 16)
+                    } else {
+                        VStack(alignment: .leading, spacing: 5) {
+                            if isNow {
+                                Text("ON NOW").font(.system(size: 13, weight: .heavy))
+                                    .foregroundStyle(isFocused ? .white : accent)
+                            }
+                            Text(slot.item.title)
+                                .font(.system(size: 20, weight: .semibold))
+                                .foregroundStyle(.white).lineLimit(2)
+                            if let y = slot.item.year {
+                                Text(verbatim: String(y))
+                                    .font(.system(size: 15))
+                                    .foregroundStyle(.white.opacity(0.6))
+                            }
+                        }
+                        .padding(.horizontal, 16).padding(.vertical, 10)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                } else {
+                    Text("—").font(.system(size: 18)).foregroundStyle(.white.opacity(0.25))
+                        .padding(.horizontal, 16)
+                }
             }
-            .padding(22)
         }
-        .frame(height: 220)
-        .clipShape(RoundedRectangle(cornerRadius: 18))
+        .buttonStyle(.card)
+        .frame(width: width, height: height)
+        .disabled(slot == nil)
     }
 }
 
@@ -170,48 +316,7 @@ private struct ChannelUnavailable: View {
     }
 }
 
-// MARK: - #1b user channels: create card, card, sheet
-
-private struct CreateChannelCard: View {
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 18)
-                .strokeBorder(style: StrokeStyle(lineWidth: 3, dash: [10]))
-                .foregroundStyle(.white.opacity(0.3))
-            VStack(spacing: 10) {
-                Image(systemName: "plus.circle.fill").font(.system(size: 50))
-                Text("Create Channel").font(.system(size: 24, weight: .semibold))
-            }
-            .foregroundStyle(.white.opacity(0.8))
-        }
-        .frame(height: 220)
-    }
-}
-
-private struct UserChannelCard: View {
-    let channel: UserChannel
-    private var summary: String {
-        [channel.genre, channel.contentType.map { $0.replacingOccurrences(of: "-", with: " ").capitalized },
-         channel.decade.map { "\(String($0))s" }].compactMap { $0 }.joined(separator: " · ")
-    }
-    var body: some View {
-        ZStack(alignment: .bottomLeading) {
-            LinearGradient(colors: [Color(hex: "#0047FF") ?? .blue, .black],
-                           startPoint: .topLeading, endPoint: .bottomTrailing)
-            Image(systemName: "dot.radiowaves.left.and.right")
-                .font(.system(size: 56)).foregroundStyle(.white.opacity(0.18))
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing).padding(20)
-            VStack(alignment: .leading, spacing: 4) {
-                Text(channel.name).font(.system(size: 30, weight: .bold)).foregroundStyle(.white).lineLimit(1)
-                Text(summary.isEmpty ? "All titles" : summary)
-                    .font(.system(size: 19)).foregroundStyle(.white.opacity(0.8)).lineLimit(1)
-            }
-            .padding(22)
-        }
-        .frame(height: 220)
-        .clipShape(RoundedRectangle(cornerRadius: 18))
-    }
-}
+// MARK: - #1b user channels: create sheet
 
 private struct CreateChannelSheet: View {
     @Environment(\.modelContext) private var ctx
