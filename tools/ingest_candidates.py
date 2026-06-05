@@ -262,6 +262,9 @@ def main():
                     help="Add only to the full catalog, not the bundled seed "
                          "(keeps the app bundle lean; users get new items via "
                          "the GitHub Pages refresh). Use for bulk drains.")
+    ap.add_argument("--prioritize-source", default=None,
+                    help="Drain candidates with this discoverySource first "
+                         "(e.g. 'commercials') within the --max-items budget.")
     ap.add_argument("--skip-omdb", action="store_true",
                     help="Don't call OMDb during ingest — add items as archiveOnly "
                          "and let enrich_movies (TMDb, uncapped) fill metadata later.")
@@ -338,8 +341,15 @@ def main():
     workable = [c for c in candidates
                 if c.get("status") == "new" and c.get("iaid")
                 and (args.include_low_confidence or c.get("rightsConfidence") == "high")]
+    # Optionally float a named discovery source (e.g. "commercials") to the front
+    # so a bounded run drains it first regardless of queue position. Stable sort
+    # preserves existing order within each group.
+    if args.prioritize_source:
+        workable.sort(key=lambda c: 0 if c.get("source") == args.prioritize_source else 1)
     print(f"[ingest] {len(workable):,} workable candidates (status=new, has IA id, "
-          f"{'any' if args.include_low_confidence else 'high'} confidence)", flush=True)
+          f"{'any' if args.include_low_confidence else 'high'} confidence)"
+          f"{f' · prioritizing source={args.prioritize_source}' if args.prioritize_source else ''}",
+          flush=True)
 
     ingested = no_video = skipped = errored = 0
     queue = workable[:args.max_items]

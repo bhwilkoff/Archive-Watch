@@ -32,6 +32,10 @@ on:
         description: 'Max candidates to ingest this run'
         required: false
         default: '900'
+      prioritize_source:
+        description: 'Drain this discoverySource first (e.g. commercials)'
+        required: false
+        default: ''
       include_low_confidence:
         description: 'Also ingest low rights-confidence candidates'
         required: false
@@ -149,6 +153,7 @@ jobs:
           python tools/ingest_candidates.py \
             --max-items ${{ github.event.inputs.max_items || '900' }} \
             --resolve-limit ${{ github.event.inputs.resolve_limit || '600' }} \
+            ${{ github.event.inputs.prioritize_source && format('--prioritize-source {0}', github.event.inputs.prioritize_source) || '' }} \
             --workers 6 --no-seed --skip-omdb \
             ${{ github.event.inputs.include_low_confidence == 'true' && '--include-low-confidence' || '' }} \
             | tee ingest.log
