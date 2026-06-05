@@ -39,10 +39,31 @@ re-run. Output lives under `tools/covers_out/` (gitignored — see below).
 
 ---
 
+## Frame selection: on-device Apple Vision (primary) + opencv (fallback)
+
+The cover is chosen by **`tools/CoverScorerCLI`** (a macOS Swift package adapted
+from BOBA-Playbook's `CardRecognitionCLI`). For each grabbed frame it runs the
+**Apple Vision framework on-device** — OCR text coverage, face count + size, and
+Apple's image **aesthetics score + `isUtility`** flag — and `batch_covers.py`
+keeps the best non-rejected frame. No network, no API key, no per-image cost
+(Decision 024). It must be built once:
+
+```bash
+cd tools/CoverScorerCLI && swift build -c release   # -> .build/release/coverscorer
+```
+
+If the binary isn't built (e.g. a Linux CI), `batch_covers.py` falls back to the
+opencv heuristic (`--no-vision` forces it). Vision is strictly better: the
+opencv-only run both false-ACCEPTED a textured document (the Nosferatu "Bill of
+Lading" intertitle) and false-REJECTED good frames; Vision fixes both.
+
 ## Prerequisites
 
 - macOS with `ffmpeg` + `ffprobe` on PATH (`brew install ffmpeg`) and
-  `opencv-python` / `opencv-python-headless` importable as `cv2`.
+  `opencv-python` / `opencv-python-headless` importable as `cv2` (used for the
+  frame grab + crop; selection is Vision).
+- The Vision scorer built (above). macOS 15+ for the aesthetics score; faces +
+  text work on macOS 14.
 - A local `catalog.json` (the work-list source):
   `python tools/catalog_release.py fetch`
 - archive.org IAS3 credentials in the environment (NEVER commit them):

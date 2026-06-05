@@ -750,3 +750,41 @@ path only). The generate stage is a ~1.5-day network-bound batch at full catalog
 scale; it runs unattended on a Mac and is fully resumable. A CI workflow to
 automate the three stages for newly-ingested items is deferred until the IAS3
 secrets are added to the repo.
+
+---
+
+## 024 — Cover frames are selected on-device with Apple Vision, not a paid API
+*Date: 2026-06-05*
+
+The best frame for a generated cover (Decision 023) is chosen by
+`tools/CoverScorerCLI` — a macOS Swift package (adapted from BOBA-Playbook's
+`CardRecognitionCLI`) that runs the **Apple Vision framework on-device**: OCR text
+coverage, face count + size, and Apple's image aesthetics score + `isUtility`
+flag. `batch_covers.py` grabs N=16 frames per item and keeps the best frame Vision
+does NOT reject (a frame is rejected if `isUtility` is true or text covers >12% —
+i.e. a title card / intertitle / document / receipt-like image). It falls back to
+the opencv heuristic only if the Swift binary isn't built.
+
+**Why**: the opencv-only scorer had two failure modes a quick audit caught — it
+false-ACCEPTED a textured sepia document (the Nosferatu "Bill of Lading"
+intertitle, whose grayscale histogram is too spread for a flat-card rule to catch)
+AND false-REJECTED good frames (the crab-temple silent, which actually has
+aesthetics ~0.47 scenes, came back empty). Pixel heuristics can't reliably judge
+"is this a good movie-poster cover" or "is this a page of text." Apple's Vision
+models can, and on a macOS box it is free, fast, fully on-device (no key, no
+per-image cost, nothing leaves the machine), which beat the alternative of wiring
+a paid vision API into the pipeline.
+
+**How to apply**: build the scorer once (`cd tools/CoverScorerCLI && swift build
+-c release`) before a generation run; the binary path is
+`tools/CoverScorerCLI/.build/release/coverscorer` (the `.build/` dir is
+gitignored). Keep the reject rule (`isUtility || textCoverage > 0.12`) as the
+text-card / document guard — do NOT re-add the opencv dominant-tone rule as the
+primary gate (it misses textured documents). The CLI is generic: it takes image
+paths and emits per-image JSON (textCoverage, faceCount, faceMaxArea, aesthetics,
+isUtility, score, reject), so it can score any candidate set, not just covers.
+Aesthetics needs macOS 15+; faces + text work on macOS 14.
+
+**Consequences**: a generation run now requires a built macOS Swift binary, so the
+full batch is macOS-only (the opencv fallback keeps a Linux CI path alive at lower
+quality). Vision adds ~1s/item, negligible against the network-bound frame grab.
