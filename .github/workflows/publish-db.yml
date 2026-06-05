@@ -58,6 +58,23 @@ jobs:
       - name: Build SQLite catalog
         run: python tools/build_sqlite.py | tee db.log
 
+      # Slim search index for the public editorial tool (index.html "Browse the
+      # catalog"). Committed to the repo so GitHub Pages serves it same-origin
+      # (Release assets have no CORS). Popularity-sorted => small git deltas.
+      # The push path filter (series/**) means this commit won't re-trigger us.
+      - name: Build + commit catalog search index
+        run: |
+          python tools/build_catalog_index.py
+          if ! git diff --quiet -- catalog-index.json; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add catalog-index.json
+            git commit -m "Refresh catalog-index.json (editorial tool) [skip ci]"
+            git push
+          else
+            echo "catalog-index.json unchanged"
+          fi
+
       - name: Summary
         run: |
           echo "## Catalog DB" >> $GITHUB_STEP_SUMMARY

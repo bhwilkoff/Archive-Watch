@@ -459,3 +459,97 @@ textarea.control-input { resize: vertical; min-height: 60px; font-family: var(--
     transition-duration: 0s !important;
   }
 }
+
+/* ============================================================
+   Public tool: branding, intro, suggest form, catalog browser
+   (added when the dashboard became a public suggest+curate tool)
+   ============================================================ */
+
+.brand-logo { border-radius: 8px; display: block; }
+.footer-logo { vertical-align: middle; margin-right: var(--space-2); border-radius: 6px; opacity: 0.9; }
+
+/* Intro / explainer */
+.intro {
+  display: flex; gap: var(--space-8); align-items: flex-start;
+  max-width: 1100px; margin: var(--space-8) auto var(--space-6);
+  padding: var(--space-8) var(--space-6); }
+.intro-logo { width: 120px; height: 120px; border-radius: 22px; flex: none;
+  box-shadow: var(--shadow-2, 0 10px 40px rgba(0,0,0,.55)); }
+.intro-copy { flex: 1; min-width: 0; }
+.intro-title { font-size: 2rem; line-height: 1.15; margin: 0 0 var(--space-4); color: var(--color-text); }
+.intro-lead { font-size: 1.05rem; line-height: 1.6; color: var(--color-text-muted); margin: 0 0 var(--space-4); max-width: 70ch; }
+.intro-lead strong { color: var(--color-text); }
+.intro-cards { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: var(--space-6) 0 var(--space-4); }
+.intro-card { position: relative; background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: var(--space-6); }
+.intro-card h3 { margin: var(--space-2) 0; font-size: 1.2rem; color: var(--color-text); }
+.intro-card p { margin: 0 0 var(--space-4); color: var(--color-text-muted); font-size: .95rem; line-height: 1.5; }
+.intro-card-num { display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 50%; background: var(--color-accent); color: #150402;
+  font-weight: 800; }
+.intro-meta { color: var(--color-text-dim); font-size: .9rem; margin-top: var(--space-4); }
+
+.section-title { font-size: 1.6rem; margin: 0 0 var(--space-2); color: var(--color-text); }
+.section-help { color: var(--color-text-muted); line-height: 1.6; margin: 0 0 var(--space-5); max-width: 80ch; }
+
+/* Suggest form */
+.suggest { background: var(--color-surface); border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+.suggest-inner { max-width: 900px; margin: 0 auto; padding: var(--space-10) var(--space-6); }
+.suggest-form { display: flex; flex-direction: column; gap: var(--space-4); }
+.field { display: flex; flex-direction: column; gap: var(--space-2); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+.field-label { font-size: .9rem; font-weight: 600; color: var(--color-text-muted); }
+.field-label .req { color: var(--color-accent); }
+.field-hint { font-size: .85rem; color: var(--color-text-dim); }
+.field-input {
+  width: 100%; box-sizing: border-box; padding: 14px 16px;
+  background: var(--color-surface-2); color: var(--color-text);
+  border: 1px solid var(--color-border-strong); border-radius: var(--radius-md);
+  font: inherit; font-size: 1rem; }
+.field-input:focus { outline: 2px solid var(--color-accent); outline-offset: 1px; border-color: var(--color-accent); }
+textarea.field-input { resize: vertical; }
+.suggest-actions { display: flex; align-items: center; gap: var(--space-4); margin-top: var(--space-2); }
+.btn-lg { padding: 14px 28px; font-size: 1.05rem; font-weight: 700; }
+.btn-sm { padding: 6px 12px; font-size: .85rem; }
+
+/* Curator workspace header */
+.curator { max-width: 1400px; margin: 0 auto; padding: var(--space-8) var(--space-6) 0; }
+.curator-head { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-6);
+  flex-wrap: wrap; margin-bottom: var(--space-6); }
+.curator-actions { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+
+/* Catalog browser modal */
+.catalog-modal { position: fixed; inset: 0; z-index: 50; background: rgba(0,0,0,.72);
+  display: flex; align-items: center; justify-content: center; padding: var(--space-6); }
+.catalog-modal[hidden] { display: none; }
+.catalog-dialog { background: var(--color-bg); border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg); width: min(900px, 100%); max-height: 86vh; display: flex; flex-direction: column;
+  box-shadow: var(--shadow-2, 0 10px 40px rgba(0,0,0,.55)); overflow: hidden; }
+.catalog-head { display: flex; align-items: center; justify-content: space-between;
+  padding: var(--space-5) var(--space-6); border-bottom: 1px solid var(--color-border); }
+.catalog-head h2 { margin: 0; font-size: 1.4rem; }
+.catalog-help { padding: var(--space-4) var(--space-6) 0; margin: 0; color: var(--color-text-muted); font-size: .92rem; line-height: 1.5; }
+.catalog-controls { display: flex; gap: var(--space-3); padding: var(--space-4) var(--space-6); }
+.catalog-controls .field-input { flex: 1; }
+.catalog-controls select.field-input { flex: 0 0 200px; }
+.catalog-count { padding: 0 var(--space-6) var(--space-3); margin: 0; color: var(--color-text-dim); font-size: .85rem; }
+.catalog-results { list-style: none; margin: 0; padding: 0 var(--space-4) var(--space-4); overflow-y: auto; }
+.catalog-result { display: flex; align-items: center; gap: var(--space-4); padding: var(--space-3);
+  border-radius: var(--radius-md); }
+.catalog-result:hover { background: var(--color-surface); }
+.catalog-thumb { width: 64px; height: 48px; object-fit: cover; border-radius: 6px; background: var(--color-surface-3); flex: none; }
+.catalog-result-body { flex: 1; min-width: 0; }
+.catalog-result-title { font-weight: 600; color: var(--color-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.catalog-result-meta { font-size: .82rem; color: var(--color-text-dim); }
+.catalog-id { font-family: var(--font-mono, monospace); }
+.catalog-result-actions { display: flex; gap: var(--space-2); flex: none; }
+.catalog-empty { padding: var(--space-8); text-align: center; color: var(--color-text-dim); }
+
+@media (max-width: 760px) {
+  .intro { flex-direction: column; gap: var(--space-4); }
+  .intro-logo { width: 80px; height: 80px; }
+  .intro-cards { grid-template-columns: 1fr; }
+  .field-row { grid-template-columns: 1fr; }
+  .catalog-controls { flex-direction: column; }
+  .catalog-controls select.field-input { flex: 1; }
+}

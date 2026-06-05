@@ -580,6 +580,207 @@
   }
 
   /* ----------------------------------------------------------------
+     Public suggestion → email the curator (no backend; uses mailto)
+  ---------------------------------------------------------------- */
+
+  const CURATOR_EMAIL = 'ben@learningischange.com';
+
+  function suggestionFeedback(msg, kind) {
+    const el = $('suggest-feedback');
+    if (!el) return;
+    el.textContent = msg;
+    el.className = 'feedback is-' + (kind || 'info');
+    el.hidden = false;
+  }
+
+  function handleSuggest(e) {
+    e.preventDefault();
+    const id = $('sg-id').value.trim();
+    if (!id) {
+      suggestionFeedback('Please paste an Archive.org link or identifier first.', 'error');
+      $('sg-id').focus();
+      return;
+    }
+    const title = $('sg-title').value.trim();
+    const cat   = $('sg-cat').value.trim();
+    const why   = $('sg-why').value.trim();
+    const name  = $('sg-name').value.trim();
+    const email = $('sg-email').value.trim();
+
+    const lines = [
+      'A title suggestion for Archive Watch:',
+      '',
+      'Archive.org link / ID: ' + id,
+      title ? 'Title: ' + title : null,
+      cat   ? 'Category: ' + cat : null,
+      why   ? 'Why it belongs: ' + why : null,
+      '',
+      'From: ' + (name || '(anonymous)') + (email ? ' <' + email + '>' : ''),
+    ].filter(Boolean);
+
+    const href = 'mailto:' + CURATOR_EMAIL +
+      '?subject=' + encodeURIComponent('Archive Watch suggestion' + (title ? ': ' + title : '')) +
+      '&body=' + encodeURIComponent(lines.join('\n'));
+    window.location.href = href;
+    suggestionFeedback('Your email app should open with the suggestion ready — just press send. Thank you!', 'success');
+    $('suggest-form').reset();
+  }
+
+  // mailto can't attach files, so: download featured.json, then open a
+  // pre-written email asking the curator to attach the just-downloaded file.
+  function emailExport() {
+    if (!data) return;
+    exportJSON();
+    const body = [
+      'Updated featured.json for Archive Watch is attached.',
+      '',
+      'It was just downloaded to this device — please attach the file named',
+      '"featured.json" before sending.',
+      '',
+      'Shelves: ' + (data.shelves || []).length + ' · Updated: ' + (data.updatedAt || '—'),
+    ].join('\n');
+    window.location.href = 'mailto:' + CURATOR_EMAIL +
+      '?subject=' + encodeURIComponent('Archive Watch — updated featured.json') +
+      '&body=' + encodeURIComponent(body);
+  }
+
+  // "Stay updated with every database update" — show when the catalog DB last built.
+  async function loadDbStatus() {
+    const el = $('db-status');
+    if (!el) return;
+    try {
+      const resp = await fetch(
+        'https://api.github.com/repos/bhwilkoff/Archive-Watch/releases/tags/catalog-source',
+        { headers: { Accept: 'application/vnd.github+json' } });
+      if (!resp.ok) throw new Error('status ' + resp.status);
+      const rel = await resp.json();
+      const when = (rel.assets || [])[0]?.updated_at || rel.published_at;
+      const date = when ? new Date(when).toLocaleDateString(undefined,
+        { year: 'numeric', month: 'long', day: 'numeric' }) : 'recently';
+      el.textContent = 'Catalog database last updated ' + date + '.';
+    } catch {
+      el.textContent = 'The catalog database updates automatically every day.';
+    }
+  }
+
+  /* ----------------------------------------------------------------
+     Browse the FULL catalog (slim index on Pages) — search + add to a
+     shelf, or suggest. This is the editorial "full database" surface.
+  ---------------------------------------------------------------- */
+
+  let catalogIndex = null;          // { items: [[id,title,year,type], ...] }
+  let catalogLoading = false;
+
+  async function ensureCatalogIndex() {
+    if (catalogIndex || catalogLoading) return;
+    catalogLoading = true;
+    const status = $('catalog-count');
+    if (status) status.textContent = 'Loading the catalog…';
+    try {
+      const resp = await fetch('catalog-index.json?ts=' + Date.now());
+      if (!resp.ok) throw new Error('HTTP ' + resp.status);
+      catalogIndex = await resp.json();
+      runCatalogSearch();
+    } catch (err) {
+      if (status) status.textContent = 'Could not load the catalog index: ' + err.message;
+    } finally {
+      catalogLoading = false;
+    }
+  }
+
+  function openCatalogBrowser() {
+    const modal = $('catalog-modal');
+    if (!modal) return;
+    modal.hidden = false;
+    ensureCatalogIndex();
+    setTimeout(() => $('catalog-search')?.focus(), 50);
+  }
+  function closeCatalogBrowser() {
+    const modal = $('catalog-modal');
+    if (modal) modal.hidden = true;
+  }
+
+  function runCatalogSearch() {
+    if (!catalogIndex) return;
+    const q = ($('catalog-search')?.value || '').trim().toLowerCase();
+    const type = $('catalog-type')?.value || '';
+    const ol = $('catalog-results');
+    const status = $('catalog-count');
+    const LIMIT = 80;
+
+    let matched = 0;
+    const frag = document.createDocumentFragment();
+    for (const row of catalogIndex.items) {
+      const [id, title, year, ct] = row;
+      if (type && ct !== type) continue;
+      if (q && !(title.toLowerCase().includes(q) || id.toLowerCase().includes(q))) continue;
+      matched++;
+      if (matched <= LIMIT) frag.appendChild(catalogResultRow(id, title, year, ct));
+    }
+    ol.innerHTML = '';
+    ol.appendChild(frag);
+    const shown = Math.min(matched, LIMIT);
+    status.textContent = catalogIndex.count
+      ? `${matched.toLocaleString()} match${matched === 1 ? '' : 'es'}` +
+        (matched > LIMIT ? ` (showing first ${LIMIT})` : '') +
+        ` · ${catalogIndex.count.toLocaleString()} titles in the catalog`
+      : '';
+    if (matched === 0) ol.innerHTML = '<li class="catalog-empty">No matches — try fewer words.</li>';
+  }
+
+  function catalogResultRow(id, title, year, ct) {
+    const li = document.createElement('li');
+    li.className = 'catalog-result';
+    const activeShelf = data?.shelves?.[activeShelfIndex];
+    const canAdd = activeShelf && activeShelf.type !== 'dynamic';
+    const inShelf = canAdd && (activeShelf.items || []).some(it => it.archiveID === id);
+    li.innerHTML = `
+      <img class="catalog-thumb" loading="lazy" alt="" src="${escHtml(API.thumbnailURL(id))}">
+      <div class="catalog-result-body">
+        <div class="catalog-result-title">${escHtml(title)}</div>
+        <div class="catalog-result-meta">${escHtml(year || '—')} · ${escHtml(ct || '—')} · <span class="catalog-id">${escHtml(id)}</span></div>
+      </div>
+      <div class="catalog-result-actions"></div>`;
+    const actions = li.querySelector('.catalog-result-actions');
+
+    const addBtn = document.createElement('button');
+    addBtn.className = 'btn btn-primary btn-sm';
+    addBtn.textContent = inShelf ? 'Added ✓' : (canAdd ? 'Add to shelf' : 'Add to shelf');
+    addBtn.disabled = !canAdd || inShelf;
+    addBtn.title = canAdd ? `Add to "${activeShelf.title}"` : 'Open a curated shelf first';
+    addBtn.addEventListener('click', () => {
+      addCatalogItemToShelf(id);
+      addBtn.textContent = 'Added ✓'; addBtn.disabled = true;
+    });
+    actions.appendChild(addBtn);
+
+    const sgBtn = document.createElement('button');
+    sgBtn.className = 'btn btn-ghost btn-sm';
+    sgBtn.textContent = 'Suggest';
+    sgBtn.title = 'Use this title in the suggestion form';
+    sgBtn.addEventListener('click', () => {
+      $('sg-id').value = 'https://archive.org/details/' + id;
+      $('sg-title').value = title || '';
+      closeCatalogBrowser();
+      $('suggest').scrollIntoView({ behavior: 'smooth' });
+      $('sg-why')?.focus();
+    });
+    actions.appendChild(sgBtn);
+    return li;
+  }
+
+  function addCatalogItemToShelf(id) {
+    const shelf = data?.shelves?.[activeShelfIndex];
+    if (!shelf || shelf.type === 'dynamic') return;
+    shelf.items = shelf.items || [];
+    if (shelf.items.some(it => it.archiveID === id)) return;
+    shelf.items.push({ archiveID: id, note: '' });
+    setDirty(true);
+    renderShelfList();
+    renderShelfEditor();
+  }
+
+  /* ----------------------------------------------------------------
      Init
   ---------------------------------------------------------------- */
 
@@ -607,6 +808,24 @@
       if (e.key === 'Enter') { e.preventDefault(); handleAddID(); }
     });
     $('btn-preview-dynamic').addEventListener('click', previewDynamic);
+
+    // Public suggestion + email export + DB status
+    $('suggest-form')?.addEventListener('submit', handleSuggest);
+    $('btn-email-export')?.addEventListener('click', emailExport);
+    loadDbStatus();
+
+    // Browse the full catalog (search + add / suggest)
+    $('btn-browse-catalog')?.addEventListener('click', openCatalogBrowser);
+    $('btn-browse-catalog-public')?.addEventListener('click', (e) => { e.preventDefault(); openCatalogBrowser(); });
+    $('btn-catalog-close')?.addEventListener('click', closeCatalogBrowser);
+    $('catalog-search')?.addEventListener('input', runCatalogSearch);
+    $('catalog-type')?.addEventListener('change', runCatalogSearch);
+    $('catalog-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'catalog-modal') closeCatalogBrowser();   // click backdrop to close
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeCatalogBrowser();
+    });
 
     window.addEventListener('beforeunload', (e) => {
       if (savedDirty) {
