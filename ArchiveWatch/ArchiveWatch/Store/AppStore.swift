@@ -86,6 +86,17 @@ final class AppStore {
         AutoplayMode(rawValue: UserDefaults.standard.string(forKey: autoplayKey) ?? "") ?? .off
     }
 
+    // Channels: play vintage PD commercials between programs (the 1990s-TV feel).
+    // On by default — it's the point of the commercials. Toggle in Settings.
+    var channelCommercialBreaks: Bool = AppStore.loadCommercialBreaks() {
+        didSet { UserDefaults.standard.set(channelCommercialBreaks, forKey: Self.commercialBreaksKey) }
+    }
+    private static let commercialBreaksKey = "channelCommercialBreaks"
+    private static func loadCommercialBreaks() -> Bool {
+        guard UserDefaults.standard.object(forKey: commercialBreaksKey) != nil else { return true }
+        return UserDefaults.standard.bool(forKey: commercialBreaksKey)
+    }
+
     /// Drop completed titles from a Home list when the setting is on. No-op
     /// otherwise. Used by HomeView's hero + shelves.
     func filteringWatched(_ items: [Catalog.Item]) -> [Catalog.Item] {

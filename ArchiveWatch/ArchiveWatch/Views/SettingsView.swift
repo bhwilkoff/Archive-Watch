@@ -144,15 +144,22 @@ struct SettingsView: View {
             } label: {
                 ToggleLabel(title: "Autoplay Next")
             }
+            Toggle(isOn: commercialBreaksBinding) {
+                ToggleLabel(title: "Commercial Breaks on Channels")
+            }
         } header: {
             Text("Playback")
         } footer: {
-            Text("When a film ends, automatically play another. Off by default. You can also change this for the current video from its transport menu. TV episodes always continue to the next episode.")
+            Text("When a film ends, automatically play another. Off by default. You can also change this for the current video from its transport menu. TV episodes always continue to the next episode. Commercial breaks play vintage public-domain ads between programs on Channels — the 1990s-TV feel.")
         }
     }
 
     private var autoplayBinding: Binding<AutoplayMode> {
         Binding(get: { store.autoplayMode }, set: { store.autoplayMode = $0 })
+    }
+
+    private var commercialBreaksBinding: Binding<Bool> {
+        Binding(get: { store.channelCommercialBreaks }, set: { store.channelCommercialBreaks = $0 })
     }
 
     private var matureSection: some View {

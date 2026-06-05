@@ -99,8 +99,25 @@ struct ChannelsView: View {
     }
 
     private func finalize(_ items: [Catalog.Item]) -> [Catalog.Item] {
-        var out = items.filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
-        out.shuffle()
+        var programs = items.filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
+        programs.shuffle()
+        return weaveCommercials(into: programs)
+    }
+
+    /// #89 (Channels P1): drop a vintage PD commercial between programs so a
+    /// channel feels like broadcast TV, not a playlist. Gated by the
+    /// channelCommercialBreaks setting. Commercials use procedural posters, so
+    /// they're filtered on playability only (not designed artwork).
+    private func weaveCommercials(into programs: [Catalog.Item]) -> [Catalog.Item] {
+        guard store.channelCommercialBreaks, programs.count > 1 else { return programs }
+        let ads = store.dbRandomCommercials(limit: 60).filter { $0.videoURLParsed != nil }
+        guard !ads.isEmpty else { return programs }
+        var out: [Catalog.Item] = []
+        out.reserveCapacity(programs.count * 2)
+        for (i, program) in programs.enumerated() {
+            out.append(program)
+            if i < programs.count - 1 { out.append(ads[i % ads.count]) }
+        }
         return out
     }
 }
