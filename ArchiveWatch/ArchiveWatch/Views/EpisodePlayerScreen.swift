@@ -157,6 +157,8 @@ struct EpisodePlayerScreen: View {
                 case .readyToPlay:
                     playback = .ready
                     timeoutTask?.cancel()
+                    p.play()   // start on ready — robust across Next/Prev episode
+                               // swaps where .onAppear { play() } won't re-fire
                 case .failed:
                     let detail = observed.error?.localizedDescription
                         ?? "The video couldn't be loaded."

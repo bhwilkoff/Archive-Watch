@@ -650,6 +650,13 @@ struct PlayerScreen: View {
                 case .readyToPlay:
                     playback = .ready
                     timeoutTask?.cancel()
+                    // Start playback on ready — covers BOTH the first item and
+                    // every lineup/autoplay advance. The AVPlayerContainer's
+                    // .onAppear { play() } only fires for the first item; when
+                    // `current` swaps, the controller is updated in place (no
+                    // re-appear), so without this the next video loads + seeks to
+                    // its resume position but never starts (#5 Play Next bug).
+                    p.play()
                 case .failed:
                     playback = .failed(observed.error?.localizedDescription
                                        ?? "The video couldn't be loaded.")
