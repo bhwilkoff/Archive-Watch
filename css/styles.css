@@ -473,7 +473,7 @@ textarea.control-input { resize: vertical; min-height: 60px; font-family: var(--
   display: flex; gap: var(--space-8); align-items: flex-start;
   max-width: 1100px; margin: var(--space-8) auto var(--space-6);
   padding: var(--space-8) var(--space-6); }
-.intro-logo { width: 120px; height: 120px; border-radius: 22px; flex: none;
+.intro-logo { width: 200px; height: 120px; object-fit: cover; border-radius: 18px; flex: none;
   box-shadow: var(--shadow-2, 0 10px 40px rgba(0,0,0,.55)); }
 .intro-copy { flex: 1; min-width: 0; }
 .intro-title { font-size: 2rem; line-height: 1.15; margin: 0 0 var(--space-4); color: var(--color-text); }
@@ -547,7 +547,7 @@ textarea.field-input { resize: vertical; }
 
 @media (max-width: 760px) {
   .intro { flex-direction: column; gap: var(--space-4); }
-  .intro-logo { width: 80px; height: 80px; }
+  .intro-logo { width: 134px; height: 80px; }
   .intro-cards { grid-template-columns: 1fr; }
   .field-row { grid-template-columns: 1fr; }
   .catalog-controls { flex-direction: column; }

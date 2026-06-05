@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/app-icon/icon-1024.svg" alt="Archive Watch" width="120" height="120">
+  <img src="assets/app-icon/app-icon.png" alt="Archive Watch" width="300">
 </p>
 
 <h1 align="center">Archive Watch</h1>
