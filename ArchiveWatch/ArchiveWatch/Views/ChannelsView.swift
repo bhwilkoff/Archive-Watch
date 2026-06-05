@@ -69,7 +69,9 @@ struct ChannelsView: View {
         .background(Color.black.ignoresSafeArea())
         .onAppear { if guide.isEmpty { rebuild() } }
         .fullScreenCover(item: $playing) { box in
-            if let screen = PlayerScreen(lineup: box.items) { screen } else { ChannelUnavailable() }
+            if let screen = PlayerScreen(lineup: box.items, startOffset: box.startOffset) {
+                screen
+            } else { ChannelUnavailable() }
         }
         .sheet(isPresented: $showCreate, onDismiss: rebuild) { CreateChannelSheet() }
     }
@@ -132,7 +134,10 @@ struct ChannelsView: View {
 
     private func tune(_ channel: GuideChannel, from slot: ScheduledProgram) {
         let programs = channel.slots.drop { $0.id != slot.id }.map(\.item)
-        playing = ChannelLineup(items: weaveCommercials(into: Array(programs)))
+        // #92: if the tapped slot is the one airing NOW, join it in progress.
+        let now = Date()
+        let offset = slot.contains(now) ? max(0, now.timeIntervalSince(slot.start)) : 0
+        playing = ChannelLineup(items: weaveCommercials(into: Array(programs)), startOffset: offset)
     }
 
     /// #89: drop a vintage PD commercial between programs (gated by setting).
@@ -150,7 +155,11 @@ struct ChannelsView: View {
     }
 }
 
-struct ChannelLineup: Identifiable { let id = UUID(); let items: [Catalog.Item] }
+struct ChannelLineup: Identifiable {
+    let id = UUID()
+    let items: [Catalog.Item]
+    var startOffset: TimeInterval = 0
+}
 
 // MARK: - The guide grid (retro EPG)
 
@@ -277,10 +286,20 @@ private struct GuideCell: View {
                             Text(slot.item.title)
                                 .font(.system(size: 20, weight: .semibold))
                                 .foregroundStyle(.white).lineLimit(2)
-                            if let y = slot.item.year {
-                                Text(verbatim: String(y))
-                                    .font(.system(size: 15))
-                                    .foregroundStyle(.white.opacity(0.6))
+                            HStack(spacing: 8) {
+                                if let r = slot.item.contentRating, !r.isEmpty {
+                                    Text(r)
+                                        .font(.system(size: 12, weight: .bold))
+                                        .padding(.horizontal, 6).padding(.vertical, 2)
+                                        .background(.white.opacity(isFocused ? 0.3 : 0.15),
+                                                    in: RoundedRectangle(cornerRadius: 4))
+                                        .foregroundStyle(.white.opacity(0.9))
+                                }
+                                if let y = slot.item.year {
+                                    Text(verbatim: String(y))
+                                        .font(.system(size: 15))
+                                        .foregroundStyle(.white.opacity(0.6))
+                                }
                             }
                         }
                         .padding(.horizontal, 16).padding(.vertical, 10)

@@ -459,6 +459,7 @@ struct PlayerScreen: View {
     var catalogItem: Catalog.Item? = nil
     var lineup: [Catalog.Item]? = nil   // #1 channels: a fixed continuous lineup
     var startMuted: Bool = false        // #3 party play: video-only by default
+    var startOffset: TimeInterval = 0   // #92 channels: join the live program in progress
     @Environment(\.modelContext) private var modelContext
     @Environment(AppStore.self) private var store
     @State private var player: AVPlayer?
@@ -478,17 +479,22 @@ struct PlayerScreen: View {
     @State private var sessionMode: AutoplayMode?
     @State private var lineupIndex = 0
     @State private var muted = false
+    // #92: seconds to seek into the FIRST program when joining a channel live.
+    // Consumed once (zeroed after the first setup) so lineup advances start at 0.
+    @State private var joinOffset: TimeInterval = 0
     @Environment(\.dismiss) private var dismiss
 
     init(url: URL, archiveID: String, catalogItem: Catalog.Item? = nil,
-         lineup: [Catalog.Item]? = nil, startMuted: Bool = false) {
+         lineup: [Catalog.Item]? = nil, startMuted: Bool = false, startOffset: TimeInterval = 0) {
         self.url = url
         self.archiveID = archiveID
         self.catalogItem = catalogItem
         self.lineup = lineup
         self.startMuted = startMuted
+        self.startOffset = startOffset
         _current = State(initialValue: catalogItem)
         _muted = State(initialValue: startMuted)
+        _joinOffset = State(initialValue: startOffset)
         // #6: a lineup IS a channel/party/cartoon session, so autoplay is ON by
         // default for it (the in-player Autoplay setting reflects this, and it
         // keeps going after the fixed lineup is exhausted). Single films fall back
@@ -497,10 +503,11 @@ struct PlayerScreen: View {
     }
 
     /// #1 channels / #3 party / #2 cartoon: start a continuous lineup at item 0.
-    init?(lineup: [Catalog.Item], startMuted: Bool = false) {
+    /// `startOffset` joins the first program in progress (#92 channels live tune-in).
+    init?(lineup: [Catalog.Item], startMuted: Bool = false, startOffset: TimeInterval = 0) {
         guard let first = lineup.first, let url = first.videoURLParsed else { return nil }
         self.init(url: url, archiveID: first.archiveID, catalogItem: first,
-                  lineup: lineup, startMuted: startMuted)
+                  lineup: lineup, startMuted: startMuted, startOffset: startOffset)
     }
 
     // #19: a broken item (dead URL, stale non-MP4 derivative, decode reject, or a
@@ -665,11 +672,19 @@ struct PlayerScreen: View {
         let descriptor = FetchDescriptor<WatchProgress>(
             predicate: #Predicate<WatchProgress> { $0.archiveID == aid }
         )
+        var didSeek = false
         if let existing = try? modelContext.fetch(descriptor).first,
            existing.positionSeconds > 10,
            !existing.isComplete {
             p.seek(to: CMTime(seconds: existing.positionSeconds, preferredTimescale: 600))
+            didSeek = true
         }
+        // #92: join the channel's current program in progress (only when there's
+        // no resume position to honor). Consumed once so lineup advances start at 0.
+        if !didSeek, joinOffset > 5 {
+            p.seek(to: CMTime(seconds: joinOffset, preferredTimescale: 600))
+        }
+        joinOffset = 0
 
         let interval = CMTime(seconds: 10, preferredTimescale: 600)
         timeObserver = p.addPeriodicTimeObserver(forInterval: interval, queue: .main) { time in
