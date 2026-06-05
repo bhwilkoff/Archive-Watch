@@ -81,7 +81,7 @@ struct SurpriseView: View {
             Text("Surprise Me")
                 .font(.system(size: 52, weight: .heavy, design: .serif))
                 .foregroundStyle(.white)
-            Text("Eleven ways to wander the archive — pick one, or press again to re-roll.")
+            Text("A dozen ways to wander the archive — pick one, or press again to re-roll.")
                 .font(.title3)
                 .foregroundStyle(.white.opacity(0.6))
         }

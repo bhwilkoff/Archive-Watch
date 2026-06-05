@@ -46,7 +46,15 @@ final class Router {
         }
     }
 
-    var tab: Tab = .home
+    var tab: Tab = Router.initialTab
+
+    // Screenshot/dev affordance: `AW_START_TAB=channels` (etc.) lands on that tab
+    // at launch. Unset in production, so this is a no-op (defaults to .home).
+    static var initialTab: Tab {
+        if let raw = ProcessInfo.processInfo.environment["AW_START_TAB"],
+           let t = Tab(rawValue: raw) { return t }
+        return .home
+    }
 
     // One NavigationPath per tab. Each tab remembers its own push
     // stack, so switching tabs and coming back restores position;

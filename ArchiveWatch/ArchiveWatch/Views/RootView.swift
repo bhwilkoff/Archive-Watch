@@ -93,6 +93,19 @@ struct RootView: View {
         // #11: best-effort CloudKit sync on launch (no-ops until the entitlement
         // is configured — CloudSync.entitlementConfigured).
         .task { await CloudKitSyncService.shared.sync(modelContext) }
+        // Screenshot/dev affordance: `AW_START_ITEM=<archiveID>` deep-opens that
+        // item's Detail once the DB is ready. Unset in production (no-op).
+        .task {
+            guard let id = ProcessInfo.processInfo.environment["AW_START_ITEM"] else { return }
+            for _ in 0..<50 {
+                if let item = store.dbItem(id) {
+                    router.tab = .home
+                    router.homePath.append(item)
+                    return
+                }
+                try? await Task.sleep(for: .milliseconds(200))
+            }
+        }
         // #83 idle screensaver (opt-in, never over playback).
         .fullScreenCover(isPresented: $showSaver) { ScreensaverView() }
         .onReceive(idleTick) { _ in
