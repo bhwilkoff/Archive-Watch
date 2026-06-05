@@ -232,6 +232,28 @@ focus / layout / animation bugs.
 
 ## Session Log
 
+### 2026-06-05 (later) — Mac-based cover-generation protocol (#86) built + running
+Implemented the mac-based screenshot protocol that gives a real poster to every
+catalog item no third-party source covers. Audit: **56% of the catalog (20,962
+items) lacked designed art** — all 2,390 commercials + the long tail. Three
+resumable stages (committed `dfce40e`, Decision **023**, runbook
+`docs/runbooks/cover-generation.md`):
+- `tools/batch_covers.py` (wraps `frame_cover.py`: ffmpeg + opencv face/sharpness
+  scoring) — grabs the best real frame per item, popularity-first, concurrent,
+  resumable via `manifest.jsonl`. Pure measurement, nothing hallucinated.
+- `tools/upload_covers.py` — publishes covers to ONE archive.org item
+  `archivewatch-covers` (IAS3 API; keys env-only, never committed); per-cover URL
+  `https://archive.org/download/archivewatch-covers/<slug>.jpg`. Verified
+  end-to-end (200 image/jpeg). Hosting = owner choice (archive.org, on-brand).
+- `tools/apply_covers.py` — wires posterURL + artworkSource="generated" +
+  hasRealArtwork into the catalog; additive + count-guarded (Decision 020).
+- Fixed `frame_cover.py` to write proper-quality JPEG (was applying a PNG flag).
+- **LIVE**: full ~20,900-item run is going under `caffeinate -i` (workers 16),
+  nohup, resumable — a ~1.5-day unattended batch (~8/min, network-bound). Finish
+  with: `upload_covers.py` → `catalog_release.py fetch`/`apply_covers.py`/`publish`
+  → publish-db. `tools/covers_out/` is gitignored. See `cover_generation_protocol`
+  memory for the live state + remaining steps.
+
 ### 2026-06-05 — Commercials, real Channels EPG, Browse pagination, public tool, App Store prep
 App now **1.1.0 (build 12)**, all on `main`, builds clean (tvOS 26 sim). Big batch:
 - **Commercials**: ingested ~2,390 PD/CC0 vintage commercials as a new
