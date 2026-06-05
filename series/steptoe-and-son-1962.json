@@ -1,117 +1,120 @@
 {
- "version": 2,
- "seriesID": "steptoe-and-son-1962",
- "tvmazeID": 7038,
- "title": "Steptoe and Son",
- "yearStart": 1962,
- "yearEnd": 1974,
- "overview": "Classic British comedy series about a middle aged man and his elderly father who run an unsuccessful 'rag and bone' business (collecting and selling junk). Harold (the son) wants to better himself but his father always seems to ruin things, sometimes accidentally and other times deliberately. The two live in poverty and the father has some disgusting habits which continue to embarrass the son.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/66000.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "BBC One"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "steptoe-and-son-1962",
+  "tvmazeID": 7038,
+  "title": "Steptoe and Son",
+  "yearStart": 1962,
+  "yearEnd": 1974,
+  "overview": "Classic British comedy series about a middle aged man and his elderly father who run an unsuccessful 'rag and bone' business (collecting and selling junk). Harold (the son) wants to better himself but his father always seems to ruin things, sometimes accidentally and other times deliberately. The two live in poverty and the father has some disgusting habits which continue to embarrass the son.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/26/66000.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "SteptoeAndSonS1xE1TheBird",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "The Offer",
-     "overview": "Harold gets the offer of a better job and is determined to take it. Albert, however, fearing loneliness if Harold goes, knows just how to keep his son at home.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
-     "airDate": "1962-01-05",
-     "year": 1962,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Steptoe And Son_ S1E1 - The Bird.mp4",
-      "format": "h.264",
-      "sizeBytes": 183610592,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SteptoeAndSonS1xE1TheBird/Steptoe And Son_ S1E1 - The Bird.mp4"
-    },
-    {
-     "archiveID": "SteptoeAndSonS1xE2ThePiano",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "The Bird",
-     "overview": "Harold has been going out in the evenings, making Albert suspicious. It turns out Harold has a 'bird', so Albert suggests he invite her round.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/2hQ70FgmWE7eTOhrHxLMWVEbTjj.jpg",
-     "airDate": "1962-06-14",
-     "year": 1962,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Steptoe And Son_ S1E2 - The Piano.mp4",
-      "format": "h.264",
-      "sizeBytes": 183998355,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SteptoeAndSonS1xE2ThePiano/Steptoe And Son_ S1E2 - The Piano.mp4"
-    },
-    {
-     "archiveID": "SteptoeAndSon1x03",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "The Piano",
-     "overview": "The offer of a free piano seems too good to be true - and it is.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
-     "airDate": "1962-06-21",
-     "year": 1962,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Steptoe And Son_ S1E3 - The Economist.mp4",
-      "format": "h.264",
-      "sizeBytes": 177631149,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SteptoeAndSon1x03/Steptoe And Son_ S1E3 - The Economist.mp4"
-    },
-    {
-     "archiveID": "SteptoeAndSon1x04",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "The Economist",
-     "overview": "Harold reads a book on capitalism and comes to the conclusion that the business is not being run properly. He decides that in order to make large profits they must start buying goods in bulk.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
-     "airDate": "1962-06-28",
-     "year": 1962,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Steptoe And Son_ S1E4 - The Diploma.mp4",
-      "format": "h.264",
-      "sizeBytes": 177461835,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SteptoeAndSon1x04/Steptoe And Son_ S1E4 - The Diploma.mp4"
-    },
-    {
-     "archiveID": "SteptoeAndSon1x05",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "The Diploma",
-     "overview": "Harold is fed up with scraping a living and with Albert's constant criticism of his ability to do the rounds; he decides to follow a different vocation and takes a correspondence course in TV repairing.",
-     "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
-     "airDate": "1962-07-05",
-     "year": 1962,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Steptoe And Son_ S1E5 - The Holiday.mp4",
-      "format": "h.264",
-      "sizeBytes": 183867396,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SteptoeAndSon1x05/Steptoe And Son_ S1E5 - The Holiday.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "SteptoeAndSonS1xE1TheBird",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Offer",
+          "overview": "Harold gets the offer of a better job and is determined to take it. Albert, however, fearing loneliness if Harold goes, knows just how to keep his son at home.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
+          "airDate": "1962-01-05",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe And Son_ S1E1 - The Bird.mp4",
+            "format": "h.264",
+            "sizeBytes": 183610592,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteptoeAndSonS1xE1TheBird/Steptoe And Son_ S1E1 - The Bird.mp4"
+        },
+        {
+          "archiveID": "SteptoeAndSonS1xE2ThePiano",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Bird",
+          "overview": "Harold has been going out in the evenings, making Albert suspicious. It turns out Harold has a 'bird', so Albert suggests he invite her round.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/2hQ70FgmWE7eTOhrHxLMWVEbTjj.jpg",
+          "airDate": "1962-06-14",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe And Son_ S1E2 - The Piano.mp4",
+            "format": "h.264",
+            "sizeBytes": 183998355,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteptoeAndSonS1xE2ThePiano/Steptoe And Son_ S1E2 - The Piano.mp4"
+        },
+        {
+          "archiveID": "SteptoeAndSon1x03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Piano",
+          "overview": "The offer of a free piano seems too good to be true - and it is.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
+          "airDate": "1962-06-21",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe And Son_ S1E3 - The Economist.mp4",
+            "format": "h.264",
+            "sizeBytes": 177631149,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteptoeAndSon1x03/Steptoe And Son_ S1E3 - The Economist.mp4"
+        },
+        {
+          "archiveID": "SteptoeAndSon1x04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Economist",
+          "overview": "Harold reads a book on capitalism and comes to the conclusion that the business is not being run properly. He decides that in order to make large profits they must start buying goods in bulk.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
+          "airDate": "1962-06-28",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe And Son_ S1E4 - The Diploma.mp4",
+            "format": "h.264",
+            "sizeBytes": 177461835,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteptoeAndSon1x04/Steptoe And Son_ S1E4 - The Diploma.mp4"
+        },
+        {
+          "archiveID": "SteptoeAndSon1x05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Diploma",
+          "overview": "Harold is fed up with scraping a living and with Albert's constant criticism of his ability to do the rounds; he decides to follow a different vocation and takes a correspondence course in TV repairing.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
+          "airDate": "1962-07-05",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe And Son_ S1E5 - The Holiday.mp4",
+            "format": "h.264",
+            "sizeBytes": 183867396,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SteptoeAndSon1x05/Steptoe And Son_ S1E5 - The Holiday.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 5,
- "canonicalEpisodesCount": 55
+  ],
+  "episodesCount": 5,
+  "canonicalEpisodesCount": 55,
+  "seriesImdbID": "tt0057785",
+  "canonicalEpisodeCount": 33,
+  "canonicalSeasons": 9
 }

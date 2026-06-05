@@ -1,139 +1,142 @@
 {
- "version": 2,
- "seriesID": "burke-s-law-1963",
- "tvmazeID": 6991,
- "title": "Burke's Law",
- "yearStart": 1963,
- "yearEnd": 1966,
- "overview": "Burke's Law depicted the crime-solving adventures of dashing, debonair swinger Amos Burke, an L.A.P.D. homicide captain who just happened to also be a millionaire. Each week, Burke (a suave, and very eligible, womanizing bachelor) would be faced with a mysterious murder case involving an assortment of colorful suspects (each portrayed by a special guest star, often cast \"against type\" and getting a chance to ham shamelessly). Burke, upon receiving the inevitable call to the crime scene, usually gave a terse \"When? Where? I'm on my way\"; then, forsaking his mansion and \"date du jour\", he would be transported in style by Henry, his Philippine chauffeur/valet/chef/butler. Burke was aided in his investigations by brash young Detective Tim Tilson, who was usually trying to outshine his boss.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/99/249641.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure",
-  "Crime"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "burke-s-law-1963",
+  "tvmazeID": 6991,
+  "title": "Burke's Law",
+  "yearStart": 1963,
+  "yearEnd": 1966,
+  "overview": "Burke's Law depicted the crime-solving adventures of dashing, debonair swinger Amos Burke, an L.A.P.D. homicide captain who just happened to also be a millionaire. Each week, Burke (a suave, and very eligible, womanizing bachelor) would be faced with a mysterious murder case involving an assortment of colorful suspects (each portrayed by a special guest star, often cast \"against type\" and getting a chance to ham shamelessly). Burke, upon receiving the inevitable call to the crime scene, usually gave a terse \"When? Where? I'm on my way\"; then, forsaking his mansion and \"date du jour\", he would be transported in style by Henry, his Philippine chauffeur/valet/chef/butler. Burke was aided in his investigations by brash young Detective Tim Tilson, who was usually trying to outshine his boss.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/99/249641.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Crime"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "burkes-law-tv-1963-s01e02-who-killed-mr-x",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Who Killed Mr. X?",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/dOxZcZwBkQyGSe3u1vMl97tuRkU.jpg",
-     "airDate": "1963-09-27",
-     "year": 1963,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Burke's Law TV 1963 colorized s01e02 Who Killed Mr.X.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 324539559,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/burkes-law-tv-1963-s01e02-who-killed-mr-x/Burke's Law TV 1963 colorized s01e02 Who Killed Mr.X.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "burkes-law-tv-1963-s01e02-who-killed-mr-x",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Who Killed Mr. X?",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/dOxZcZwBkQyGSe3u1vMl97tuRkU.jpg",
+          "airDate": "1963-09-27",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Burke's Law TV 1963 colorized s01e02 Who Killed Mr.X.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 324539559,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/burkes-law-tv-1963-s01e02-who-killed-mr-x/Burke's Law TV 1963 colorized s01e02 Who Killed Mr.X.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "burkes-law-tv-1965-colorized-s02e30-who-killed-the-jackpot",
-     "seasonNumber": 2,
-     "episodeNumber": 30,
-     "title": "Who Killed the Jackpot?",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/burkes-law-tv-1965-colorized-s02e30-who-killed-the-jackpot",
-     "airDate": "1965-04-21",
-     "year": 1965,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Burke's Law TV 1965 colorized s02e30 Who Killed the Jackpot.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 367014638,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/burkes-law-tv-1965-colorized-s02e30-who-killed-the-jackpot/Burke's Law TV 1965 colorized s02e30 Who Killed the Jackpot.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 18,
-   "episodes": [
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "burkes-law-tv-1965-colorized-s02e30-who-killed-the-jackpot",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "Who Killed the Jackpot?",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/burkes-law-tv-1965-colorized-s02e30-who-killed-the-jackpot",
+          "airDate": "1965-04-21",
+          "year": 1965,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Burke's Law TV 1965 colorized s02e30 Who Killed the Jackpot.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 367014638,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/burkes-law-tv-1965-colorized-s02e30-who-killed-the-jackpot/Burke's Law TV 1965 colorized s02e30 Who Killed the Jackpot.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "family-feud-s18-e177",
-     "seasonNumber": 18,
-     "episodeNumber": 177,
-     "title": "Family Feud : Wilson/Burke",
-     "overview": "Family Feud S18 E177<div>Aired August 7, 2022 at 10:00PM ET on Game Show Network</div>",
-     "stillURL": "https://archive.org/services/img/family-feud-s18-e177",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1797,
-     "videoFile": {
-      "name": "GSN20220807_220000.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 231400307,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-s18-e177/GSN20220807_220000.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 21,
-   "episodes": [
+      "seasonNumber": 18,
+      "episodes": [
+        {
+          "archiveID": "family-feud-s18-e177",
+          "seasonNumber": 18,
+          "episodeNumber": 177,
+          "title": "Family Feud : Wilson/Burke",
+          "overview": "Family Feud S18 E177<div>Aired August 7, 2022 at 10:00PM ET on Game Show Network</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s18-e177",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1797,
+          "videoFile": {
+            "name": "GSN20220807_220000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 231400307,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s18-e177/GSN20220807_220000.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "family-feud-s21-e50",
-     "seasonNumber": 21,
-     "episodeNumber": 50,
-     "title": "Family Feud : Flowers/Burke",
-     "overview": "Family Feud S21 E50<div>Aired June 24, 2022 at 9:00PM ET on Game Show Network</div>",
-     "stillURL": "https://archive.org/services/img/family-feud-s21-e50",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1801,
-     "videoFile": {
-      "name": "GSN20220624_210000.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 231985614,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/family-feud-s21-e50/GSN20220624_210000.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+      "seasonNumber": 21,
+      "episodes": [
+        {
+          "archiveID": "family-feud-s21-e50",
+          "seasonNumber": 21,
+          "episodeNumber": 50,
+          "title": "Family Feud : Flowers/Burke",
+          "overview": "Family Feud S21 E50<div>Aired June 24, 2022 at 9:00PM ET on Game Show Network</div>",
+          "stillURL": "https://archive.org/services/img/family-feud-s21-e50",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1801,
+          "videoFile": {
+            "name": "GSN20220624_210000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 231985614,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/family-feud-s21-e50/GSN20220624_210000.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "BurkesLaw",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Burke's Law",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/ePKRW7T0RCgzSzuVJPwHxcqBPXG.jpg",
-     "airDate": null,
-     "year": 1963,
-     "runtimeSeconds": 3062,
-     "videoFile": {
-      "name": "BurkesLawWhoKilledJasonShaw_512kb.mp4",
-      "format": "512Kb MPEG4",
-      "sizeBytes": 222466136,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/BurkesLaw/BurkesLawWhoKilledJasonShaw_512kb.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "BurkesLaw",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Burke's Law",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ePKRW7T0RCgzSzuVJPwHxcqBPXG.jpg",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3062,
+          "videoFile": {
+            "name": "BurkesLawWhoKilledJasonShaw_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 222466136,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BurkesLaw/BurkesLawWhoKilledJasonShaw_512kb.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 5,
- "canonicalEpisodesCount": 81
+  ],
+  "episodesCount": 5,
+  "canonicalEpisodesCount": 81,
+  "seriesImdbID": "tt0056745",
+  "canonicalEpisodeCount": 55,
+  "canonicalSeasons": 3
 }

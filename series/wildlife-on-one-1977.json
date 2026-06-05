@@ -1,137 +1,140 @@
 {
- "version": 2,
- "seriesID": "wildlife-on-one-1977",
- "tvmazeID": 13065,
- "title": "Wildlife on One",
- "yearStart": 1977,
- "yearEnd": 2005,
- "overview": "Wildlife on One was a nature documentary series narrated by David Attenborough that aired on BBC One in the UK from 1977-2005. A total of 253 half hour episodes were made over 33 seasons.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/44/112343.jpg",
- "backdropURL": null,
- "genres": [
-  "Nature"
- ],
- "networks": [
-  "BBC One"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 8,
-   "episodes": [
+  "version": 2,
+  "seriesID": "wildlife-on-one-1977",
+  "tvmazeID": 13065,
+  "title": "Wildlife on One",
+  "yearStart": 1977,
+  "yearEnd": 2005,
+  "overview": "Wildlife on One was a nature documentary series narrated by David Attenborough that aired on BBC One in the UK from 1977-2005. A total of 253 half hour episodes were made over 33 seasons.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/44/112343.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Nature"
+  ],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "wildlife-on-one-s08e02-the-mouses-tale-x264-dvd",
-     "seasonNumber": 8,
-     "episodeNumber": 2,
-     "title": "The Mouse's Tale",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
-     "airDate": "1981-09-15",
-     "year": 1981,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Wildlife.On.One.S08E02.The.Mouses.Tale.x264.DVD.SkinnyV.mp4",
-      "format": "h.264",
-      "sizeBytes": 142646576,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wildlife-on-one-s08e02-the-mouses-tale-x264-dvd/Wildlife.On.One.S08E02.The.Mouses.Tale.x264.DVD.SkinnyV.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 9,
-   "episodes": [
+      "seasonNumber": 8,
+      "episodes": [
+        {
+          "archiveID": "wildlife-on-one-s08e02-the-mouses-tale-x264-dvd",
+          "seasonNumber": 8,
+          "episodeNumber": 2,
+          "title": "The Mouse's Tale",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
+          "airDate": "1981-09-15",
+          "year": 1981,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Wildlife.On.One.S08E02.The.Mouses.Tale.x264.DVD.SkinnyV.mp4",
+            "format": "h.264",
+            "sizeBytes": 142646576,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wildlife-on-one-s08e02-the-mouses-tale-x264-dvd/Wildlife.On.One.S08E02.The.Mouses.Tale.x264.DVD.SkinnyV.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "wildlife-on-one-s09e02-the-great-hedgehog.mystery-x264",
-     "seasonNumber": 9,
-     "episodeNumber": 2,
-     "title": "The Great Hedgehog Mystery",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
-     "airDate": "1982-01-14",
-     "year": 1982,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Wildlife.On.One.S09E02The.Great.Hedgehog.Mystery.x264.DVD.SkinnyV.mp4",
-      "format": "h.264",
-      "sizeBytes": 152402498,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wildlife-on-one-s09e02-the-great-hedgehog.mystery-x264/Wildlife.On.One.S09E02The.Great.Hedgehog.Mystery.x264.DVD.SkinnyV.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 12,
-   "episodes": [
+      "seasonNumber": 9,
+      "episodes": [
+        {
+          "archiveID": "wildlife-on-one-s09e02-the-great-hedgehog.mystery-x264",
+          "seasonNumber": 9,
+          "episodeNumber": 2,
+          "title": "The Great Hedgehog Mystery",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
+          "airDate": "1982-01-14",
+          "year": 1982,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Wildlife.On.One.S09E02The.Great.Hedgehog.Mystery.x264.DVD.SkinnyV.mp4",
+            "format": "h.264",
+            "sizeBytes": 152402498,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wildlife-on-one-s09e02-the-great-hedgehog.mystery-x264/Wildlife.On.One.S09E02The.Great.Hedgehog.Mystery.x264.DVD.SkinnyV.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "wildlife-on-one-s12e01-run-rabbit-run-x264",
-     "seasonNumber": 12,
-     "episodeNumber": 1,
-     "title": "Run Rabbit Run",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
-     "airDate": "1983-11-10",
-     "year": 1983,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Wildlife.on.One.S12E01.Run.Rabbit.Run.x264.DVD.SkinnyV.mp4",
-      "format": "h.264",
-      "sizeBytes": 141544537,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wildlife-on-one-s12e01-run-rabbit-run-x264/Wildlife.on.One.S12E01.Run.Rabbit.Run.x264.DVD.SkinnyV.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 15,
-   "episodes": [
+      "seasonNumber": 12,
+      "episodes": [
+        {
+          "archiveID": "wildlife-on-one-s12e01-run-rabbit-run-x264",
+          "seasonNumber": 12,
+          "episodeNumber": 1,
+          "title": "Run Rabbit Run",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
+          "airDate": "1983-11-10",
+          "year": 1983,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Wildlife.on.One.S12E01.Run.Rabbit.Run.x264.DVD.SkinnyV.mp4",
+            "format": "h.264",
+            "sizeBytes": 141544537,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wildlife-on-one-s12e01-run-rabbit-run-x264/Wildlife.on.One.S12E01.Run.Rabbit.Run.x264.DVD.SkinnyV.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "wildlife-on-one-s15e04-the-case-of-the-vanishing-squirrel-x264-dvd-skinnyv",
-     "seasonNumber": 15,
-     "episodeNumber": 4,
-     "title": "Case of the Vanishing Squirrel",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
-     "airDate": "1987-02-23",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Wildlife.On.One.S15E04.The.Case.of.the.Vanishing.Squirrel.x264.DVD.SkinnyV.mp4",
-      "format": "h.264",
-      "sizeBytes": 174589079,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wildlife-on-one-s15e04-the-case-of-the-vanishing-squirrel-x264-dvd-skinnyv/Wildlife.On.One.S15E04.The.Case.of.the.Vanishing.Squirrel.x264.DVD.SkinnyV.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 23,
-   "episodes": [
+      "seasonNumber": 15,
+      "episodes": [
+        {
+          "archiveID": "wildlife-on-one-s15e04-the-case-of-the-vanishing-squirrel-x264-dvd-skinnyv",
+          "seasonNumber": 15,
+          "episodeNumber": 4,
+          "title": "Case of the Vanishing Squirrel",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
+          "airDate": "1987-02-23",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Wildlife.On.One.S15E04.The.Case.of.the.Vanishing.Squirrel.x264.DVD.SkinnyV.mp4",
+            "format": "h.264",
+            "sizeBytes": 174589079,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wildlife-on-one-s15e04-the-case-of-the-vanishing-squirrel-x264-dvd-skinnyv/Wildlife.On.One.S15E04.The.Case.of.the.Vanishing.Squirrel.x264.DVD.SkinnyV.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "wildlife-on-one-s23e08-possums-tales-of-the-unexpected-1996-x264-DVD",
-     "seasonNumber": 23,
-     "episodeNumber": 8,
-     "title": "Possums, Tales of the Unexpected",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
-     "airDate": "1996-05-16",
-     "year": 1996,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Wildlife Wildlife.on.One.S23E08.Possums.Tales.of.The.Unexpected.1996.x264.AC3.DVD.SkinnyV.mp4",
-      "format": "h.264",
-      "sizeBytes": 175294939,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/wildlife-on-one-s23e08-possums-tales-of-the-unexpected-1996-x264-DVD/Wildlife Wildlife.on.One.S23E08.Possums.Tales.of.The.Unexpected.1996.x264.AC3.DVD.SkinnyV.mp4"
+      "seasonNumber": 23,
+      "episodes": [
+        {
+          "archiveID": "wildlife-on-one-s23e08-possums-tales-of-the-unexpected-1996-x264-DVD",
+          "seasonNumber": 23,
+          "episodeNumber": 8,
+          "title": "Possums, Tales of the Unexpected",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/gZMZbaDj5YDerJsyZYrmYeBxrgu.jpg",
+          "airDate": "1996-05-16",
+          "year": 1996,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Wildlife Wildlife.on.One.S23E08.Possums.Tales.of.The.Unexpected.1996.x264.AC3.DVD.SkinnyV.mp4",
+            "format": "h.264",
+            "sizeBytes": 175294939,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/wildlife-on-one-s23e08-possums-tales-of-the-unexpected-1996-x264-DVD/Wildlife Wildlife.on.One.S23E08.Possums.Tales.of.The.Unexpected.1996.x264.AC3.DVD.SkinnyV.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 5,
- "canonicalEpisodesCount": 253
+  ],
+  "episodesCount": 5,
+  "canonicalEpisodesCount": 253,
+  "seriesImdbID": "tt0334878",
+  "canonicalEpisodeCount": 42,
+  "canonicalSeasons": 33
 }

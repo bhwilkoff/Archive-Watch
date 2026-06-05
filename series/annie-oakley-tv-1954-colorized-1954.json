@@ -107,5 +107,8 @@
       ]
     }
   ],
-  "episodesCount": 5
+  "episodesCount": 5,
+  "seriesImdbID": "tt0046578",
+  "canonicalEpisodeCount": 27,
+  "canonicalSeasons": 3
 }

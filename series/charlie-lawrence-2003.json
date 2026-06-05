@@ -1,135 +1,138 @@
 {
- "version": 2,
- "seriesID": "charlie-lawrence-2003",
- "tvmazeID": 38016,
- "title": "Charlie Lawrence",
- "yearStart": 2003,
- "yearEnd": 2003,
- "overview": "A gay actor gets elected to congress as a representative from New Mexico.",
- "posterURL": null,
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "charlie-lawrence-2003",
+  "tvmazeID": 38016,
+  "title": "Charlie Lawrence",
+  "yearStart": 2003,
+  "yearEnd": 2003,
+  "overview": "A gay actor gets elected to congress as a representative from New Mexico.",
+  "posterURL": null,
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "lawrence-alook-back-01",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "A Vote of No Confidence",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/lawrence-alook-back-01",
-     "airDate": "2003-06-15",
-     "year": 2003,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Lawrence-ALookBack-01.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 227875286,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lawrence-alook-back-01/Lawrence-ALookBack-01.ia.mp4"
-    },
-    {
-     "archiveID": "lawrence-alook-back-02",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "New Kid in School",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/lawrence-alook-back-02",
-     "airDate": "2003-06-22",
-     "year": 2003,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Lawrence-ALookBack-02.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 200689290,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lawrence-alook-back-02/Lawrence-ALookBack-02.ia.mp4"
-    },
-    {
-     "archiveID": "lawrence-alook-back-03",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Charlie Got Game",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/lawrence-alook-back-03",
-     "airDate": null,
-     "year": 1996,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Lawrence-ALookBack-03.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 235719346,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lawrence-alook-back-03/Lawrence-ALookBack-03.ia.mp4"
-    },
-    {
-     "archiveID": "lawrence-alook-back-04",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Dinner and a Breakdown",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/lawrence-alook-back-04",
-     "airDate": null,
-     "year": 1996,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Lawrence-ALookBack-04.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 236885605,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lawrence-alook-back-04/Lawrence-ALookBack-04.ia.mp4"
-    },
-    {
-     "archiveID": "lawrence-alook-back-05",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "If It's Not One Thing, It's Your Mother",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/lawrence-alook-back-05",
-     "airDate": null,
-     "year": 1996,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Lawrence-ALookBack-05.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 244383857,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lawrence-alook-back-05/Lawrence-ALookBack-05.ia.mp4"
-    },
-    {
-     "archiveID": "lawrence-alook-back-06",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "I'll Take the Low Road",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/lawrence-alook-back-06",
-     "airDate": null,
-     "year": 1996,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Lawrence-ALookBack-06.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 226477220,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/lawrence-alook-back-06/Lawrence-ALookBack-06.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "lawrence-alook-back-01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "A Vote of No Confidence",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/lawrence-alook-back-01",
+          "airDate": "2003-06-15",
+          "year": 2003,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lawrence-ALookBack-01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 227875286,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lawrence-alook-back-01/Lawrence-ALookBack-01.ia.mp4"
+        },
+        {
+          "archiveID": "lawrence-alook-back-02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "New Kid in School",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/lawrence-alook-back-02",
+          "airDate": "2003-06-22",
+          "year": 2003,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lawrence-ALookBack-02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 200689290,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lawrence-alook-back-02/Lawrence-ALookBack-02.ia.mp4"
+        },
+        {
+          "archiveID": "lawrence-alook-back-03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Charlie Got Game",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/lawrence-alook-back-03",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lawrence-ALookBack-03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 235719346,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lawrence-alook-back-03/Lawrence-ALookBack-03.ia.mp4"
+        },
+        {
+          "archiveID": "lawrence-alook-back-04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Dinner and a Breakdown",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/lawrence-alook-back-04",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lawrence-ALookBack-04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 236885605,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lawrence-alook-back-04/Lawrence-ALookBack-04.ia.mp4"
+        },
+        {
+          "archiveID": "lawrence-alook-back-05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "If It's Not One Thing, It's Your Mother",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/lawrence-alook-back-05",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lawrence-ALookBack-05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 244383857,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lawrence-alook-back-05/Lawrence-ALookBack-05.ia.mp4"
+        },
+        {
+          "archiveID": "lawrence-alook-back-06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "I'll Take the Low Road",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/lawrence-alook-back-06",
+          "airDate": null,
+          "year": 1996,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lawrence-ALookBack-06.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 226477220,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/lawrence-alook-back-06/Lawrence-ALookBack-06.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 6,
- "canonicalEpisodesCount": 7
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": 7,
+  "seriesImdbID": "tt0338588",
+  "canonicalEpisodeCount": 0,
+  "canonicalSeasons": null
 }
