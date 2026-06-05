@@ -17,55 +17,55 @@ struct AddToPlaylistSheet: View {
     @FocusState private var nameFocused: Bool
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 24) {
-            Text("Add to Playlist")
-                .font(.system(size: 38, weight: .bold))
-                .foregroundStyle(.white)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 28) {
+                Text("Add to Playlist")
+                    .font(.system(size: 46, weight: .heavy, design: .serif))
+                    .foregroundStyle(.white)
 
-            HStack(spacing: 16) {
-                TextField("New playlist name", text: $newName)
-                    .textFieldStyle(.plain)
-                    .padding(14)
-                    .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 10))
-                    .focused($nameFocused)
-                Button("Create") { createAndAdd() }
-                    .buttonStyle(.borderedProminent)
-                    .disabled(newName.trimmingCharacters(in: .whitespaces).isEmpty)
-            }
+                // Native creation: a big field + a clear primary action, on one line.
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("New Playlist").font(.system(size: 24, weight: .bold))
+                        .foregroundStyle(.white.opacity(0.85))
+                    HStack(spacing: 18) {
+                        TextField("Name", text: $newName)
+                            .textFieldStyle(.plain)
+                            .font(.title3)
+                            .padding(18)
+                            .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 12))
+                            .focused($nameFocused)
+                            .frame(maxWidth: 560)
+                        Button { createAndAdd() } label: {
+                            Label("Create", systemImage: "plus.circle.fill")
+                                .font(.title3.weight(.semibold))
+                        }
+                        .buttonStyle(.borderedProminent)
+                        .disabled(newName.trimmingCharacters(in: .whitespaces).isEmpty)
+                    }
+                }
 
-            if playlists.isEmpty {
-                Text("No playlists yet — create one above.")
-                    .font(.title3).foregroundStyle(.white.opacity(0.5))
-                    .padding(.top, 12)
-            } else {
-                ScrollView {
-                    VStack(spacing: 10) {
+                if !playlists.isEmpty {
+                    Text("Your Playlists").font(.system(size: 24, weight: .bold))
+                        .foregroundStyle(.white.opacity(0.85))
+                        .padding(.top, 8)
+                    LazyVStack(spacing: 16) {
                         ForEach(playlists) { pl in
-                            Button { toggle(pl) } label: {
-                                HStack(spacing: 16) {
-                                    Image(systemName: pl.contains(archiveID) ? "checkmark.circle.fill" : "circle")
-                                        .foregroundStyle(pl.contains(archiveID) ? (Color(hex: "#FF5C35") ?? .orange) : .white.opacity(0.5))
-                                    Text(pl.name).foregroundStyle(.white)
-                                    Spacer()
-                                    Text("\(pl.archiveIDs.count)").foregroundStyle(.white.opacity(0.4))
-                                }
-                                .font(.title3)
-                                .padding(.vertical, 12).padding(.horizontal, 8)
-                            }
-                            .buttonStyle(.borderless)
+                            PlaylistPickRow(name: pl.name,
+                                            count: pl.archiveIDs.count,
+                                            isOn: pl.contains(archiveID)) { toggle(pl) }
                         }
                     }
                 }
-                .frame(maxHeight: 500)
-            }
 
-            Button("Done") { dismiss() }
-                .buttonStyle(.bordered)
+                Button("Done") { dismiss() }
+                    .buttonStyle(.bordered)
+                    .padding(.top, 12)
+            }
+            .padding(80)
+            .frame(maxWidth: 1100, alignment: .leading)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(60)
-        .frame(maxWidth: 900, alignment: .leading)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black.opacity(0.93).ignoresSafeArea())
+        .background(Color.black.ignoresSafeArea())
     }
 
     private func toggle(_ pl: Playlist) {
@@ -80,6 +80,33 @@ struct AddToPlaylistSheet: View {
         ctx.insert(Playlist(name: name, archiveIDs: [archiveID]))
         try? ctx.save()
         newName = ""
+    }
+}
+
+/// A large, focusable playlist row (native .card treatment) — replaces the tiny
+/// borderless rows the picker used to show.
+private struct PlaylistPickRow: View {
+    let name: String
+    let count: Int
+    let isOn: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 20) {
+                Image(systemName: isOn ? "checkmark.circle.fill" : "circle")
+                    .font(.system(size: 30))
+                    .foregroundStyle(isOn ? (Color(hex: "#FF5C35") ?? .orange) : .white.opacity(0.5))
+                Text(name).font(.system(size: 26, weight: .semibold))
+                    .foregroundStyle(.white).lineLimit(1)
+                Spacer()
+                Text("\(count) \(count == 1 ? "title" : "titles")")
+                    .font(.title3).foregroundStyle(.white.opacity(0.5))
+            }
+            .padding(.horizontal, 28).padding(.vertical, 22)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .buttonStyle(.card)
     }
 }
 

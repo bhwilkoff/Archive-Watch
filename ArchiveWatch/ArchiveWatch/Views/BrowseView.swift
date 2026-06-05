@@ -265,6 +265,38 @@ struct Chip: View {
     }
 }
 
+/// A labeled, single-select horizontal row of large pills — the native-feeling
+/// filter pattern from Browse, reused by the channel/playlist creators so they
+/// don't fall back to tiny tvOS Pickers. Tapping the active pill clears it (back
+/// to "Any"). `T: Hashable` so options key off themselves.
+struct PillSelectRow<T: Hashable>: View {
+    let title: String
+    let options: [T]
+    let label: (T) -> String
+    @Binding var selection: T?
+    var accent: Color = .accentColor
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text(title)
+                .font(.system(size: 24, weight: .bold))
+                .foregroundStyle(.white.opacity(0.85))
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 14) {
+                    Chip(label: "Any", isOn: selection == nil, accent: accent) { selection = nil }
+                    ForEach(options, id: \.self) { opt in
+                        let on = selection == opt
+                        Chip(label: label(opt), isOn: on, accent: accent) {
+                            selection = on ? nil : opt
+                        }
+                    }
+                }
+                .padding(.vertical, 6)
+            }
+        }
+    }
+}
+
 // MARK: - Sort picker
 
 struct SortPicker: View {

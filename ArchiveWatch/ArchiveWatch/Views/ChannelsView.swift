@@ -341,55 +341,78 @@ private struct CreateChannelSheet: View {
     @Environment(\.modelContext) private var ctx
     @Environment(\.dismiss) private var dismiss
     @State private var name = ""
-    @State private var genre = "Any"
-    @State private var type = "Any"
-    @State private var decade = 0   // 0 = Any
-    @FocusState private var nameFocused: Bool
+    @State private var genre: String?
+    @State private var type: String?
+    @State private var decade: Int?
 
-    private let genres = ["Any", "Drama", "Comedy", "Crime", "Thriller", "Romance",
+    private let genres = ["Drama", "Comedy", "Crime", "Thriller", "Romance",
                           "Action", "Horror", "Mystery", "Western", "Documentary",
                           "Adventure", "War", "Fantasy", "Family", "Music", "Science Fiction"]
-    private let types = ["Any", "feature-film", "animation", "silent-film",
+    private let types = ["feature-film", "animation", "silent-film",
                          "short-film", "newsreel", "documentary"]
-    private let decades = [0, 1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010]
+    private let decades = [1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010]
 
-    private var canSave: Bool {
-        !name.trimmingCharacters(in: .whitespaces).isEmpty &&
-        (genre != "Any" || type != "Any" || decade != 0)
+    private func typeLabel(_ t: String) -> String {
+        t.replacingOccurrences(of: "-", with: " ").capitalized
     }
 
+    /// Name the channel from its filters when the curator doesn't type one.
+    private var autoName: String {
+        let parts = [decade.map { "\(String($0))s" }, genre, type.map(typeLabel)].compactMap { $0 }
+        return parts.isEmpty ? "My Channel" : parts.joined(separator: " ")
+    }
+
+    private var canSave: Bool { genre != nil || type != nil || decade != nil }
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 22) {
-            Text("Create a Channel").font(.system(size: 38, weight: .bold)).foregroundStyle(.white)
-            TextField("Channel name", text: $name)
-                .textFieldStyle(.plain).padding(14)
-                .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 10))
-                .focused($nameFocused)
-            Picker("Genre", selection: $genre) { ForEach(genres, id: \.self) { Text($0) } }
-            Picker("Type", selection: $type) {
-                ForEach(types, id: \.self) { Text($0 == "Any" ? "Any" : $0.replacingOccurrences(of: "-", with: " ").capitalized) }
-            }
-            Picker("Era", selection: $decade) {
-                ForEach(decades, id: \.self) { Text($0 == 0 ? "Any" : "\(String($0))s") }
-            }
-            HStack(spacing: 20) {
-                Button("Create") {
-                    ctx.insert(UserChannel(
-                        name: name.trimmingCharacters(in: .whitespaces),
-                        genre: genre == "Any" ? nil : genre,
-                        contentType: type == "Any" ? nil : type,
-                        decade: decade == 0 ? nil : decade))
-                    try? ctx.save(); dismiss()
+        ScrollView {
+            VStack(alignment: .leading, spacing: 36) {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Create a Channel")
+                        .font(.system(size: 46, weight: .heavy, design: .serif))
+                        .foregroundStyle(.white)
+                    Text("Pick any mix of filters — it plays straight through, all day.")
+                        .font(.title3).foregroundStyle(.white.opacity(0.6))
                 }
-                .buttonStyle(.borderedProminent).disabled(!canSave)
-                Button("Cancel") { dismiss() }.buttonStyle(.bordered)
+
+                PillSelectRow(title: "Genre", options: genres, label: { $0 },
+                              selection: $genre, accent: Color(hex: "#FF5C35") ?? .orange)
+                PillSelectRow(title: "Type", options: types, label: typeLabel,
+                              selection: $type, accent: Color(hex: "#2D5BFF") ?? .blue)
+                PillSelectRow(title: "Era", options: decades, label: { "\(String($0))s" },
+                              selection: $decade, accent: Color(hex: "#C9A66B") ?? .brown)
+
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Name").font(.system(size: 24, weight: .bold))
+                        .foregroundStyle(.white.opacity(0.85))
+                    TextField(autoName, text: $name)
+                        .textFieldStyle(.plain)
+                        .font(.title3)
+                        .padding(18)
+                        .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 12))
+                        .frame(maxWidth: 700)
+                    Text("Leave blank to use “\(autoName)”.")
+                        .font(.callout).foregroundStyle(.white.opacity(0.45))
+                }
+
+                HStack(spacing: 20) {
+                    Button {
+                        let n = name.trimmingCharacters(in: .whitespaces)
+                        ctx.insert(UserChannel(name: n.isEmpty ? autoName : n,
+                                               genre: genre, contentType: type, decade: decade))
+                        try? ctx.save(); dismiss()
+                    } label: {
+                        Label("Create Channel", systemImage: "plus.circle.fill")
+                            .font(.title3.weight(.semibold))
+                    }
+                    .buttonStyle(.borderedProminent).disabled(!canSave)
+                    Button("Cancel") { dismiss() }.buttonStyle(.bordered)
+                }
+                .padding(.top, 8)
             }
-            .padding(.top, 8)
+            .padding(80)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(60)
-        .frame(maxWidth: 1000, alignment: .leading)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black.opacity(0.93).ignoresSafeArea())
-        .onAppear { nameFocused = true }
+        .background(Color.black.ignoresSafeArea())
     }
 }
