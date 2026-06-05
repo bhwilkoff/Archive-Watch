@@ -71,3 +71,6 @@ tools/.tmdb_meta_cache.json
 
 # Frame-extracted cover working set (#86) — durable copies live on archive.org
 tools/covers_out/
+
+# Swift build artifacts for the on-device cover scorer (#86)
+tools/CoverScorerCLI/.build/

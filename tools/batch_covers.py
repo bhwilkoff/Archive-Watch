@@ -38,14 +38,68 @@ import hashlib
 import json
 import re
 import shutil
+import subprocess
 import sys
+import tempfile
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
 
-import frame_cover  # same dir; reuse its ffmpeg/opencv pipeline
+import frame_cover  # same dir; reuse its ffmpeg grab + crop primitives
+
+# On-device Apple Vision scorer (built from tools/CoverScorerCLI). When present,
+# it selects the cover (aesthetics + faces + text-card rejection) far better than
+# the opencv heuristic; we fall back to opencv if it isn't built.
+COVERSCORER = Path(__file__).resolve().parent / "CoverScorerCLI/.build/release/coverscorer"
+
+
+def vision_scores(paths: list) -> list:
+    try:
+        r = subprocess.run([str(COVERSCORER), *(str(p) for p in paths)],
+                           capture_output=True, text=True, timeout=180)
+        return json.loads(r.stdout) if r.stdout.strip() else []
+    except (subprocess.SubprocessError, json.JSONDecodeError):
+        return []
+
+
+def generate_vision(url: str, out: Path, aspect: str, samples: int,
+                    cand_dir, keep_top: int):
+    """Grab `samples` frames, score them all on-device with Apple Vision, and
+    crop the best non-rejected one. Returns a result dict, or None if no frames
+    could be grabbed."""
+    dur = frame_cover.ffprobe_duration(url)
+    if dur <= 0:
+        return None
+    lo, hi = dur * 0.15, dur * 0.85
+    times = [lo + (hi - lo) * i / (samples - 1) for i in range(samples)]
+    with tempfile.TemporaryDirectory() as td:
+        grabbed = []
+        for i, t in enumerate(times):
+            f = Path(td) / f"f{i}.jpg"
+            if frame_cover.grab_frame(url, t, f):
+                grabbed.append(f)
+        if not grabbed:
+            return None
+        scores = vision_scores(grabbed)
+        if not scores:
+            return {"status": "no_score"}
+        ranked = sorted(scores, key=lambda s: s["score"], reverse=True)
+        keep = [s for s in ranked if not s["reject"]]
+        if not keep:
+            return {"status": "no_frame", "reason": "all_reject"}
+        best = keep[0]
+        frame_cover.crop_aspect(Path(best["path"]), out, aspect)
+        if keep_top > 1 and cand_dir is not None:
+            cand_dir.mkdir(parents=True, exist_ok=True)
+            for rank, s in enumerate(keep[:keep_top]):
+                frame_cover.crop_aspect(Path(s["path"]), cand_dir / f"c{rank}.jpg", aspect)
+        return {"status": "ok", "score": round(best["score"], 1),
+                "aesthetics": round(best["aesthetics"], 3),
+                "faceMaxArea": round(best["faceMaxArea"], 3),
+                "textCoverage": round(best["textCoverage"], 3),
+                "isUtility": best["isUtility"], "scorer": "vision"}
 
 REPO = Path(__file__).resolve().parent.parent
 CATALOG = REPO / "catalog.json"
@@ -124,7 +178,8 @@ def select_items(items: list[dict], content_type: str | None, retry_failed: bool
     return out
 
 
-def process(it: dict, posters: Path, aspect: str, samples: int, keep_top: int = 1) -> dict:
+def process(it: dict, posters: Path, aspect: str, samples: int,
+            keep_top: int = 1, use_vision: bool = True) -> dict:
     aid = it["archiveID"]
     slug = slug_for(aid)
     out = posters / f"{slug}.jpg"
@@ -145,22 +200,28 @@ def process(it: dict, posters: Path, aspect: str, samples: int, keep_top: int = 
         rec["status"] = "no_url"
         return rec
     try:
-        if keep_top > 1:
-            # Keep the top-N heuristic candidates so a later visual best-of-N pass
-            # can pick the winner without re-grabbing frames (the costly part).
+        if use_vision and COVERSCORER.exists():
+            cdir = posters.parent / "candidates" / slug if keep_top > 1 else None
+            res = generate_vision(url, out, aspect, samples, cdir, keep_top)
+            if res is None:
+                rec["status"] = "no_frame"
+                rec["reason"] = "grab_failed"
+            else:
+                rec.update(res)
+        elif keep_top > 1:
             cdir = posters.parent / "candidates" / slug
             cands = frame_cover.generate_candidates(url, cdir, aspect, samples, keep_top)
             if cands:
-                shutil.copyfile(cands[0][2], out)  # rank-0 = default cover until re-ranked
-                rec["status"] = "ok"
-                rec["score"] = cands[0][1]
-                rec["candidates"] = len(cands)
+                shutil.copyfile(cands[0][2], out)
+                rec.update({"status": "ok", "score": cands[0][1],
+                            "candidates": len(cands), "scorer": "opencv"})
             else:
                 rec["status"] = "no_frame"
         else:
             sc = frame_cover.generate(url, out, aspect, samples)
             rec["status"] = "ok" if sc > 0 else "no_frame"
             rec["score"] = round(sc, 1)
+            rec["scorer"] = "opencv"
     except Exception as e:  # noqa: BLE001 - record + continue the batch
         rec["status"] = "error"
         rec["error"] = str(e)[:200]
@@ -178,7 +239,9 @@ def main() -> int:
     ap.add_argument("--samples", type=int, default=16,
                     help="frames sampled per item; a wider pool = better best-of")
     ap.add_argument("--keep-top", type=int, default=1,
-                    help="keep the top-N candidates per item for a later visual re-rank")
+                    help="also save the top-N candidate crops per item (audit / re-rank)")
+    ap.add_argument("--no-vision", action="store_true",
+                    help="use the opencv heuristic instead of the on-device Vision scorer")
     ap.add_argument("--retry-failed", action="store_true",
                     help="reattempt items that previously failed")
     ap.add_argument("--dry-run", action="store_true",
@@ -205,8 +268,13 @@ def main() -> int:
 
     print(f"[batch] catalog {len(items):,} items | missing real art {total_missing:,} "
           f"| already done {sum(1 for v in done.values() if v=='ok'):,}")
+    scorer = "vision" if (not args.no_vision and COVERSCORER.exists()) else "opencv"
     print(f"[batch] this run: {len(work):,} items "
-          f"(type={args.content_type or 'any'}, workers={args.workers}, limit={args.limit or 'none'})")
+          f"(type={args.content_type or 'any'}, workers={args.workers}, "
+          f"limit={args.limit or 'none'}, scorer={scorer})")
+    if scorer == "opencv" and not args.no_vision:
+        print("[batch] NOTE: Vision binary not built — run "
+              "`cd tools/CoverScorerCLI && swift build -c release` for better covers")
     if args.dry_run or not work:
         return 0
 
@@ -216,7 +284,8 @@ def main() -> int:
 
     with open(manifest, "a") as mf, \
             ThreadPoolExecutor(max_workers=args.workers) as ex:
-        futs = {ex.submit(process, it, posters, args.aspect, args.samples, args.keep_top): it
+        futs = {ex.submit(process, it, posters, args.aspect, args.samples,
+                          args.keep_top, not args.no_vision): it
                 for it in work}
         for i, fut in enumerate(as_completed(futs), 1):
             rec = fut.result()
