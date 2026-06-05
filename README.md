@@ -1,116 +1,131 @@
-# Dual App Template — Web + iOS with Claude Code
+<p align="center">
+  <img src="assets/app-icon/icon-1024.svg" alt="Archive Watch" width="120" height="120">
+</p>
 
-A project template for building web and iOS apps in parallel with full
-feature parity. Designed for use with Claude Code, GitHub Pages, and Xcode
-Cloud.
+<h1 align="center">Archive Watch</h1>
 
-## What's in the Template
+<p align="center">
+  A cinematheque for Apple&nbsp;TV — the Internet Archive's public-domain
+  moving-image collection, presented with the care of a great repertory house.
+</p>
+
+---
+
+**Archive Watch** turns the Internet Archive's vast public-domain library —
+feature films, classic TV, silent cinema, animation, newsreels, and vintage
+commercials — into a beautiful, focus-driven tvOS browsing and viewing
+experience. Archival titles are enriched with posters, cast, synopses, and
+genres from TMDb (with Wikidata, Wikimedia Commons, TVmaze, and the Library of
+Congress as fallbacks), so a 1920s silent looks as considered as anything on a
+modern streaming service.
+
+The app is **free**, has **no ads, no subscriptions, and requires no account**,
+and collects no personal data. It's built for the curious viewer who'd rather
+wander a well-stocked repertory cinema than doomscroll a recommendation feed.
+
+- **Primary platform:** tvOS 17+ (built against **tvOS 26 / Liquid Glass**)
+- **Status:** in TestFlight; preparing for App Store submission
+- **Catalog:** ~37,000 public-domain titles, enriched and curated
+
+## Features
+
+- **Home** — a hero carousel plus curated and popularity-driven shelves
+- **Live Channels** — a programmed, deterministic TV-guide grid (what's on now /
+  next); tune in and it plays straight through, with vintage public-domain
+  **commercials between programs** for the 1990s-broadcast feel
+- **Movies / TV Shows / Collections** — browse by type, decade, genre, and
+  curated collection; TV is a canonical series → season → episode spine
+- **Search** — Siri Remote keyboard + dictation, live results
+- **Surprise Me** — a dozen ways to wander (random film, decade, Public Domain
+  Day, Cartoon Mode, Party Play, the cover-art screensaver, and more)
+- **Library** — Favorites, playlists, and watch history; optional **Sign in with
+  Apple** syncs them across a household's Apple TVs via your own iCloud
+- **Resilient playback** — a custom streaming loader that survives Archive.org
+  connection resets without buffer-flushing stalls, at full quality
+
+## Repository layout
 
 ```
-/
-├── CLAUDE.md              Project identity + standing instructions for Claude
-├── SCRATCHPAD.md          Session state, milestones, feature parity table
-├── DECISIONS.md           Append-only architecture decision record
-├── .claude/               Claude Code hooks and slash commands
-├── index.html             Web app entry point
-├── css/styles.css         Mobile-first CSS with custom properties
-├── js/app.js              Web app logic (view system scaffold)
-├── js/api.js              API abstraction layer
-├── manifest.json          PWA manifest
-├── assets/                Static assets (icons, images)
-├── ios/                   iOS Swift source files (starter kit)
-│   ├── App/               Entry point
-│   ├── ContentView.swift  Root view + sidebar
-│   ├── Models/            Data models
-│   ├── Views/             Feature views
-│   ├── Components/        Reusable UI components
-│   ├── Networking/        API client
-│   ├── Store/             @Observable global state
-│   └── Assets.xcassets/   App icon + colors
-├── AppVersion.xcconfig    Shared version numbers
-├── ci_scripts/            Xcode Cloud build scripts
-└── .gitignore             Ignores build artifacts, Xcode user data
+/                                  ← repo root
+├── ArchiveWatch/
+│   └── ArchiveWatch.xcodeproj      ← the tvOS app (Swift 6 · SwiftUI · SwiftData)
+│       └── ArchiveWatch/           ← App / Models / Views / Components /
+│                                     Networking / Services / Store / Resources
+├── index.html, css/, js/          ← public "Suggest & Curate" web tool (GitHub Pages)
+├── whats-new.html                 ← recent-uploads ticker
+├── privacy.html, support.html     ← App Store-required pages (hosted on Pages)
+├── featured.json                  ← curated home shelves + categories (editorial source)
+├── catalog-index.json             ← slim search index for the web tool
+├── series/*.json                  ← canonical TV spines (TVmaze-derived)
+├── tools/                         ← Python content pipeline (discover, ingest, enrich, build)
+├── .github/workflows/             ← scheduled catalog discovery / enrichment / DB publish
+├── docs/                          ← research, decisions, runbooks, the tvOS playbook
+├── AppVersion.xcconfig            ← single source of truth for version + build
+└── Secrets.xcconfig               ← gitignored; TMDB_BEARER_TOKEN
 ```
 
-## Setup — 7 Steps
+The full `catalog.json` (~90 MB) and the prebuilt `catalog.sqlite` are **not in
+git** — they're generated accumulators hosted as rolling **GitHub Release**
+assets (`catalog-source`, `catalog-db`). The app downloads the compressed SQLite,
+caches it, and queries it on-device. See `docs/architecture/` and DECISIONS
+017–020.
 
-1. **Use this template** on GitHub (or clone and re-init git)
-2. **Fill in CLAUDE.md** — project name, description, tech stack, design tokens
-3. **Fill in SCRATCHPAD.md** — milestones M1, M2, M3
-4. **Create the Xcode project**:
-   - Xcode → File → New → Project → iOS → App
-   - Product Name: `AppName` (NO SPACES — critical for Xcode Cloud)
-   - Save to the **repository root** (not a subdirectory)
-   - Move the Swift source files from `ios/` into the Xcode-created
-     `AppName/` group, then delete the `ios/` directory
-   - Add `AppVersion.xcconfig` to both Debug and Release configurations
-5. **Push to GitHub** and enable GitHub Pages (Settings → Pages → main branch)
-6. **Xcode Cloud** (optional): Create a workflow in App Store Connect.
-   The `.xcodeproj` at root means Xcode Cloud finds it automatically
-7. **Start coding** — Claude Code loads context automatically via the
-   session-start hook
+## Build & run (tvOS)
 
-## How Sessions Work
+Requires Xcode 26 (tvOS 26 SDK).
 
-1. Session-start hook injects CLAUDE.md + current state from SCRATCHPAD.md
-2. Claude follows standing instructions silently
-3. At session end, update SCRATCHPAD.md current state and append session log
-4. Slash commands: `/status`, `/milestone`, `/decision`
+```bash
+# Point xcrun at Xcode (not CommandLineTools)
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 
-## Xcode Cloud Compatibility
+# (optional) add your TMDb token for live enrichment
+echo 'TMDB_BEARER_TOKEN = <your v4 bearer token>' > Secrets.xcconfig
 
-This template solves the "Project does not exist at the root of the
-repository" error by keeping `.xcodeproj` at the repo root with no spaces
-in the project name. The `ci_scripts/ci_post_clone.sh` script runs after
-Xcode Cloud clones the repo — use it for any pre-build setup.
+xcodebuild -project ArchiveWatch/ArchiveWatch.xcodeproj \
+  -scheme ArchiveWatch -configuration Debug \
+  -destination 'platform=tvOS Simulator,name=Apple TV 4K (3rd generation)' build
+```
 
-## Key Conventions Baked In
+Or open `ArchiveWatch/ArchiveWatch.xcodeproj` in Xcode and run on the Apple TV
+simulator or a device. Version/build numbers live only in `AppVersion.xcconfig`
+(never the Xcode identity panel — DECISION 003).
 
-**From building Bsky Dreams (production web + iOS app):**
+## The content pipeline
 
-- Web: vanilla HTML/CSS/JS, single-page view system, API abstraction layer
-- iOS: SwiftUI + @Observable + SwiftData, no third-party packages
-- Shared: feature parity tracking, design token alignment, dual-platform
-  decision records
-- Version management via xcconfig (not Xcode UI)
-- In-memory caches for SwiftData queries to prevent cascade re-renders
-- NSFW/content label filtering pattern for feed views
-- Hybrid feed merging (multiple API sources in parallel, dedup, trending sort)
-- VideoPlayer crash prevention (`.transaction { $0.animation = nil }`)
-- Image resize as a shared static method (not duplicated per-view)
-- Share sheet via UIKit (not SwiftUI ShareLink) for full action support
+The catalog grows and self-heals automatically via scheduled GitHub Actions
+(`.github/workflows/`): discovery (Wikidata public-domain feeds, Archive
+collections, Library of Congress, TVmaze TV spines), ingestion of playable
+derivatives, enrichment (TMDb / OMDb / Commons / Wikipedia), data-quality
+remediation, and publishing the app's SQLite database. The pipeline is stateful
+and merge-guarded so a rebuild can never shrink or clobber the catalog
+(DECISION 020).
 
-## Claude Skills Available
+## The editorial web tool
 
-This template is designed to work with Claude Code skills that were used
-in building Bsky Dreams. See the full reference in CLAUDE.md. Highlights:
+The GitHub Pages root is a public **Suggest & Curate** tool:
 
-**UI/UX Design (Killer UI)**: `KUI:system`, `KUI:brand`, `KUI:screen`,
-`KUI:review`, `KUI:code`, `KUI:a11y`, `KUI:darkmode`, `KUI:trends`,
-`KUI:figma` — design system creation, accessibility audits, dark mode,
-design-to-code conversion.
+- **Anyone** can suggest a public-domain title to add (it emails the curator).
+- The **curator** arranges the app's home-screen shelves and searches the full
+  catalog to include titles, then emails / commits the updated `featured.json`.
 
-**App Store**: `app-store-screenshots` — generate screenshot pages and
-promotional assets for App Store listings.
+Run it locally with `python3 -m http.server` from the repo root, or visit the
+hosted version. Privacy and support pages are served from the same site.
 
-**iOS Development**: 40+ `all-ios-skills:*` skills covering SwiftUI,
-SwiftData, networking, security, concurrency, testing, performance,
-App Store review prep, and more.
+## Tech & conventions
 
-**Code Quality**: `simplify` for code review, `claude-api` for building
-with the Claude/Anthropic SDK.
+- Swift 6, SwiftUI (`@Observable`, `@FocusState`, `TabView(.sidebarAdaptable)`),
+  SwiftData, AVKit — **no third-party Swift packages**
+- All networking through shared clients (Archive / TMDb / Wikidata); never
+  `URLSession` directly from views
+- Read-only on-device SQLite (libsqlite3 + FTS5) as the catalog source of truth
+- tvOS-specific patterns (focus, sidebar, hero, the `@Query` cascade gotcha) live
+  in `docs/tvos-playbook.md`; architecture rationale in `DECISIONS.md`
 
-To use a skill, ask Claude directly: "Use KUI:system to create a design
-system" or "Run all-ios-skills:app-store-review to check for rejection
-risks."
+## Credits & attribution
 
-## Learning Orientation
-
-Every feature is evaluated against six criteria before implementation:
-
-1. Does it deepen understanding?
-2. Does it invite participation?
-3. Does it support human agency?
-4. Clarity over cleverness
-5. Accessible by default (WCAG AA)
-6. Responsive from the start (mobile-first)
+Content is public domain via the [Internet Archive](https://archive.org).
+Metadata and artwork from [TMDb](https://www.themoviedb.org) (this product uses
+the TMDb API but is not endorsed or certified by TMDb), Wikidata, Wikimedia
+Commons, TVmaze, and the Library of Congress. Archive Watch is a free,
+non-commercial labor of love; the only suggested support is a
+[donation to the Internet Archive](https://archive.org/donate).
