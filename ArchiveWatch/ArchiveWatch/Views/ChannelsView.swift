@@ -161,101 +161,123 @@ struct ChannelLineup: Identifiable {
     var startOffset: TimeInterval = 0
 }
 
-// MARK: - The guide grid (retro EPG)
+// MARK: - The guide grid (proportional EPG)
+//
+// A real channel guide: a fixed time WINDOW (now → now + 3h) mapped across the
+// width, with each program a block sized to its actual runtime (width ∝ minutes)
+// on a shared time ruler — so programs start and end at their true times and
+// stagger across channels instead of snapping to uniform columns.
+//
+// tvOS-native by construction: only the vertical axis scrolls (the reliable
+// one), so the focus engine + automatic scroll-to-focus handle navigation —
+// left/right walks a channel's programs, up/down lands on the temporally
+// overlapping program in the adjacent channel (geometry-based focus). No fragile
+// two-axis synchronized scrolling or offset-tracking required.
 
 private struct ChannelGuide: View {
     let channels: [GuideChannel]
     let now: Date
     let onTune: (GuideChannel, ScheduledProgram) -> Void
 
-    // 4 half-hour columns starting at the current half-hour floor.
-    private var columnTimes: [Date] {
-        let cal = Calendar.current
-        let minute = cal.component(.minute, from: now)
-        let floored = cal.date(bySettingHour: cal.component(.hour, from: now),
-                               minute: minute < 30 ? 0 : 30, second: 0, of: now) ?? now
-        return (0..<4).map { floored.addingTimeInterval(Double($0) * 1800) }
-    }
-
-    private let railW: CGFloat = 240
-    private let colW: CGFloat = 360
-    private let rowH: CGFloat = 116
+    private let railW: CGFloat = 220
+    private let rowH: CGFloat = 92
+    private let windowMinutes: Double = 180   // 3-hour glanceable window
+    private var windowEnd: Date { now.addingTimeInterval(windowMinutes * 60) }
 
     var body: some View {
-        ScrollView([.vertical], showsIndicators: false) {
-            VStack(spacing: 6) {
-                timeHeader
-                ForEach(channels) { ch in
-                    ChannelRow(channel: ch, columnTimes: columnTimes, now: now,
-                               railW: railW, colW: colW, rowH: rowH, onTune: onTune)
+        GeometryReader { geo in
+            let timelineW = max(600, geo.size.width - railW - 120)   // 60pt padding each side
+            let ppm = timelineW / windowMinutes
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 8) {
+                    ruler(timelineW: timelineW)
+                    ForEach(channels) { ch in
+                        ChannelRow(channel: ch, now: now, windowEnd: windowEnd,
+                                   railW: railW, rowH: rowH, ppm: ppm, timelineW: timelineW,
+                                   onTune: onTune)
+                    }
                 }
+                .padding(.horizontal, 60)
+                .padding(.bottom, 40)
             }
-            .padding(.horizontal, 60)
-            .padding(.bottom, 40)
         }
     }
 
-    private var timeHeader: some View {
-        HStack(spacing: 6) {
-            Text("NOW")
-                .font(.system(size: 20, weight: .heavy))
-                .foregroundStyle(.white.opacity(0.5))
-                .frame(width: railW, alignment: .leading)
-            ForEach(columnTimes, id: \.self) { t in
-                Text(t.formatted(date: .omitted, time: .shortened))
-                    .font(.system(size: 22, weight: .bold))
-                    .foregroundStyle(.white.opacity(0.85))
-                    .frame(width: colW, alignment: .leading)
+    // Half-hour tick labels aligned to the timeline (first tick = NOW).
+    private func ruler(timelineW: CGFloat) -> some View {
+        let tickW = timelineW / CGFloat(windowMinutes / 30)
+        return HStack(spacing: 0) {
+            Color.clear.frame(width: railW)
+            ForEach(0..<Int(windowMinutes / 30), id: \.self) { i in
+                let t = now.addingTimeInterval(Double(i) * 1800)
+                Text(i == 0 ? "NOW" : t.formatted(date: .omitted, time: .shortened))
+                    .font(.system(size: 17, weight: .bold))
+                    .foregroundStyle(i == 0 ? Color(hex: "#FF5C35") ?? .orange : .white.opacity(0.6))
+                    .frame(width: tickW, alignment: .leading)
+                    .overlay(alignment: .leading) {
+                        Rectangle().fill(.white.opacity(i == 0 ? 0.35 : 0.12)).frame(width: i == 0 ? 2 : 1)
+                    }
             }
         }
+        .frame(height: 30)
     }
 }
 
 private struct ChannelRow: View {
     let channel: GuideChannel
-    let columnTimes: [Date]
     let now: Date
+    let windowEnd: Date
     let railW: CGFloat
-    let colW: CGFloat
     let rowH: CGFloat
+    let ppm: CGFloat
+    let timelineW: CGFloat
     let onTune: (GuideChannel, ScheduledProgram) -> Void
 
+    private var visible: [ScheduledProgram] {
+        channel.slots.filter { $0.end > now && $0.start < windowEnd }
+    }
+
     var body: some View {
-        HStack(spacing: 6) {
-            // Channel rail
-            HStack(spacing: 12) {
-                Image(systemName: channel.icon).font(.system(size: 26))
-                    .foregroundStyle(channel.accent)
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(channel.title).font(.system(size: 21, weight: .bold))
-                        .foregroundStyle(.white).lineLimit(1)
-                    Text("CH \(channel.number)").font(.system(size: 15, weight: .semibold))
-                        .foregroundStyle(.white.opacity(0.5))
+        HStack(spacing: 8) {
+            rail
+            HStack(spacing: 3) {
+                ForEach(visible) { slot in
+                    let visStart = max(slot.start, now)
+                    let visEnd = min(slot.end, windowEnd)
+                    let w = max(28, CGFloat(visEnd.timeIntervalSince(visStart) / 60) * ppm - 3)
+                    ProgramBlock(slot: slot,
+                                 isNow: slot.start <= now && slot.end > now,
+                                 accent: channel.accent, width: w, height: rowH) {
+                        onTune(channel, slot)
+                    }
                 }
                 Spacer(minLength: 0)
             }
-            .padding(.horizontal, 16)
-            .frame(width: railW, height: rowH, alignment: .leading)
-            .background(channel.accent.opacity(0.18), in: RoundedRectangle(cornerRadius: 10))
-
-            ForEach(Array(columnTimes.enumerated()), id: \.offset) { idx, t in
-                let slot = ChannelScheduler.program(in: channel.slots, at: t)
-                let prevSlot = idx > 0 ? ChannelScheduler.program(in: channel.slots, at: columnTimes[idx - 1]) : nil
-                GuideCell(slot: slot,
-                          continues: slot != nil && slot?.id == prevSlot?.id,
-                          isNow: idx == 0,
-                          accent: channel.accent,
-                          width: colW, height: rowH) {
-                    if let slot { onTune(channel, slot) }
-                }
-            }
+            .frame(width: timelineW, height: rowH, alignment: .leading)
+            .clipped()
         }
+    }
+
+    private var rail: some View {
+        HStack(spacing: 12) {
+            Image(systemName: channel.icon).font(.system(size: 24))
+                .foregroundStyle(channel.accent)
+            VStack(alignment: .leading, spacing: 2) {
+                Text(channel.title).font(.system(size: 20, weight: .bold))
+                    .foregroundStyle(.white).lineLimit(1)
+                Text("CH \(channel.number)").font(.system(size: 14, weight: .semibold))
+                    .foregroundStyle(.white.opacity(0.5))
+            }
+            Spacer(minLength: 0)
+        }
+        .padding(.horizontal, 14)
+        .frame(width: railW, height: rowH, alignment: .leading)
+        .background(channel.accent.opacity(0.18), in: RoundedRectangle(cornerRadius: 10))
     }
 }
 
-private struct GuideCell: View {
-    let slot: ScheduledProgram?
-    let continues: Bool
+private struct ProgramBlock: View {
+    let slot: ScheduledProgram
     let isNow: Bool
     let accent: Color
     let width: CGFloat
@@ -265,55 +287,37 @@ private struct GuideCell: View {
 
     var body: some View {
         Button(action: action) {
-            ZStack(alignment: .leading) {
-                RoundedRectangle(cornerRadius: 10)
-                    .fill(isFocused ? accent.opacity(0.9) : Color.white.opacity(0.08))
-                if let slot {
-                    if continues {
-                        HStack(spacing: 8) {
-                            Image(systemName: "chevron.compact.right")
-                            Text(slot.item.title).lineLimit(1)
-                        }
-                        .font(.system(size: 17))
-                        .foregroundStyle((isFocused ? Color.white : .white.opacity(0.45)))
-                        .padding(.horizontal, 16)
-                    } else {
-                        VStack(alignment: .leading, spacing: 5) {
-                            if isNow {
-                                Text("ON NOW").font(.system(size: 13, weight: .heavy))
-                                    .foregroundStyle(isFocused ? .white : accent)
-                            }
-                            Text(slot.item.title)
-                                .font(.system(size: 20, weight: .semibold))
-                                .foregroundStyle(.white).lineLimit(2)
-                            HStack(spacing: 8) {
-                                if let r = slot.item.contentRating, !r.isEmpty {
-                                    Text(r)
-                                        .font(.system(size: 12, weight: .bold))
-                                        .padding(.horizontal, 6).padding(.vertical, 2)
-                                        .background(.white.opacity(isFocused ? 0.3 : 0.15),
-                                                    in: RoundedRectangle(cornerRadius: 4))
-                                        .foregroundStyle(.white.opacity(0.9))
-                                }
-                                if let y = slot.item.year {
-                                    Text(verbatim: String(y))
-                                        .font(.system(size: 15))
-                                        .foregroundStyle(.white.opacity(0.6))
-                                }
-                            }
-                        }
-                        .padding(.horizontal, 16).padding(.vertical, 10)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                    }
-                } else {
-                    Text("—").font(.system(size: 18)).foregroundStyle(.white.opacity(0.25))
-                        .padding(.horizontal, 16)
+            VStack(alignment: .leading, spacing: 4) {
+                if isNow {
+                    Text("ON NOW").font(.system(size: 11, weight: .heavy))
+                        .foregroundStyle(isFocused ? .white : accent)
                 }
+                Text(slot.item.title)
+                    .font(.system(size: 17, weight: .semibold))
+                    .foregroundStyle(.white).lineLimit(2)
+                if width > 150 {
+                    HStack(spacing: 6) {
+                        if let r = slot.item.contentRating, !r.isEmpty {
+                            Text(r).font(.system(size: 11, weight: .bold))
+                                .padding(.horizontal, 5).padding(.vertical, 1)
+                                .background(.white.opacity(isFocused ? 0.3 : 0.15),
+                                            in: RoundedRectangle(cornerRadius: 4))
+                                .foregroundStyle(.white.opacity(0.9))
+                        }
+                        if let y = slot.item.year {
+                            Text(verbatim: String(y)).font(.system(size: 13))
+                                .foregroundStyle(.white.opacity(0.6))
+                        }
+                    }
+                }
+                Spacer(minLength: 0)
             }
+            .padding(.horizontal, 12).padding(.vertical, 9)
+            .frame(width: width, height: height, alignment: .topLeading)
+            .background(RoundedRectangle(cornerRadius: 8)
+                .fill(isFocused ? accent.opacity(0.9) : Color.white.opacity(0.08)))
         }
         .buttonStyle(.card)
-        .frame(width: width, height: height)
-        .disabled(slot == nil)
     }
 }
 
