@@ -37,6 +37,7 @@ import argparse
 import hashlib
 import json
 import re
+import shutil
 import sys
 import threading
 import time
@@ -123,7 +124,7 @@ def select_items(items: list[dict], content_type: str | None, retry_failed: bool
     return out
 
 
-def process(it: dict, posters: Path, aspect: str, samples: int) -> dict:
+def process(it: dict, posters: Path, aspect: str, samples: int, keep_top: int = 1) -> dict:
     aid = it["archiveID"]
     slug = slug_for(aid)
     out = posters / f"{slug}.jpg"
@@ -144,8 +145,22 @@ def process(it: dict, posters: Path, aspect: str, samples: int) -> dict:
         rec["status"] = "no_url"
         return rec
     try:
-        ok = frame_cover.generate(url, out, aspect, samples)
-        rec["status"] = "ok" if ok else "no_frame"
+        if keep_top > 1:
+            # Keep the top-N heuristic candidates so a later visual best-of-N pass
+            # can pick the winner without re-grabbing frames (the costly part).
+            cdir = posters.parent / "candidates" / slug
+            cands = frame_cover.generate_candidates(url, cdir, aspect, samples, keep_top)
+            if cands:
+                shutil.copyfile(cands[0][2], out)  # rank-0 = default cover until re-ranked
+                rec["status"] = "ok"
+                rec["score"] = cands[0][1]
+                rec["candidates"] = len(cands)
+            else:
+                rec["status"] = "no_frame"
+        else:
+            sc = frame_cover.generate(url, out, aspect, samples)
+            rec["status"] = "ok" if sc > 0 else "no_frame"
+            rec["score"] = round(sc, 1)
     except Exception as e:  # noqa: BLE001 - record + continue the batch
         rec["status"] = "error"
         rec["error"] = str(e)[:200]
@@ -160,7 +175,10 @@ def main() -> int:
     ap.add_argument("--limit", type=int, default=0, help="cap items this run (0 = all)")
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--aspect", default="2:3")
-    ap.add_argument("--samples", type=int, default=9)
+    ap.add_argument("--samples", type=int, default=16,
+                    help="frames sampled per item; a wider pool = better best-of")
+    ap.add_argument("--keep-top", type=int, default=1,
+                    help="keep the top-N candidates per item for a later visual re-rank")
     ap.add_argument("--retry-failed", action="store_true",
                     help="reattempt items that previously failed")
     ap.add_argument("--dry-run", action="store_true",
@@ -198,7 +216,8 @@ def main() -> int:
 
     with open(manifest, "a") as mf, \
             ThreadPoolExecutor(max_workers=args.workers) as ex:
-        futs = {ex.submit(process, it, posters, args.aspect, args.samples): it for it in work}
+        futs = {ex.submit(process, it, posters, args.aspect, args.samples, args.keep_top): it
+                for it in work}
         for i, fut in enumerate(as_completed(futs), 1):
             rec = fut.result()
             with lock:
