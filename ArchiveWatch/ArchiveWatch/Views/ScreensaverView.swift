@@ -1,60 +1,62 @@
 import SwiftUI
 import Combine
 
-// #14 / #14b cover-art screensaver (tvOS-DESIGN §9.4). An iTunes-style cover wall:
-// a full-bleed grid of the catalog's poster art that periodically cross-dissolves
-// random tiles to fresh titles. Launchable from Surprise/Home and auto-triggered
-// when idle (RootView). Any remote press exits.
+// #14 / #14b cover-art screensaver (tvOS-DESIGN §9.4). A full-bleed grid of the
+// catalog's poster art that periodically cross-dissolves random tiles to fresh
+// titles. Launchable from Surprise/Home and auto-triggered when idle (RootView).
+// Any remote press exits.
 //
-// Design notes (this iteration):
-//  - tiles are EXACT 2:3 cells so every poster shows in FULL — no cropping, no
-//    overlap (the old fixed w/h cells didn't match poster aspect and the
-//    rotation3D + scale transition let neighbors bleed into each other).
-//  - the pool is deliberately DIVERSE + colorful: a mix of categories and eras,
-//    designed artwork only, silent B&W de-emphasized — so the wall reads as a
-//    vibrant mosaic rather than rows of the same popular films.
+// Why it used to show dark gaps: RemoteImage clears to its placeholder while a
+// poster loads over the network, and every swap tore the tile down and re-loaded
+// — so freshly-swapped (or broken-URL) posters sat dark for seconds. Fix: PREFETCH
+// the pool's images and only ever place posters that have ALREADY loaded
+// (`ready`), so a displayed cell is never empty. Broken URLs are filtered out by
+// the prefetch.
 struct ScreensaverView: View {
     @Environment(AppStore.self) private var store
     @Environment(\.dismiss) private var dismiss
 
     @State private var pool: [Catalog.Item] = []
+    @State private var ready: [Catalog.Item] = []   // prefetched + decodable only
     @State private var slots: [Catalog.Item] = []
+    @State private var count = 0
+    @State private var warming = false
     @FocusState private var exitFocused: Bool
 
     private let spacing: CGFloat = 16
-    private let targetWidth: CGFloat = 220   // ~2:3 poster width; grid fits to it
-    // Calm cadence: swap a couple tiles every few seconds. Faster than this churns
-    // posters quicker than they can load, leaving dark cells (and reads frantic).
-    private let tick = Timer.publish(every: 2.6, on: .main, in: .common).autoconnect()
+    private let targetWidth: CGFloat = 220
+    private let tick = Timer.publish(every: 2.2, on: .main, in: .common).autoconnect()
 
     var body: some View {
         GeometryReader { geo in
             let cols = max(5, Int((geo.size.width + spacing) / (targetWidth + spacing)))
             let w = (geo.size.width - spacing * CGFloat(cols + 1)) / CGFloat(cols)
-            let h = w * 1.5                                   // exact 2:3 -> full poster, no crop
+            let h = w * 1.5
             let rows = max(3, Int((geo.size.height + spacing) / (h + spacing)))
-            let count = cols * rows
+            let n = cols * rows
             let grid = Array(repeating: GridItem(.fixed(w), spacing: spacing), count: cols)
 
             LazyVGrid(columns: grid, spacing: spacing) {
-                ForEach(0..<count, id: \.self) { i in
+                ForEach(0..<max(n, slots.count), id: \.self) { i in
                     if i < slots.count {
                         SaverTile(item: slots[i], width: w, height: h)
                     } else {
-                        Color.white.opacity(0.04)
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.white.opacity(0.04))
                             .frame(width: w, height: h)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 }
             }
             .padding(spacing)
             .frame(width: geo.size.width, height: geo.size.height, alignment: .center)
-            .onAppear { start(count: count) }
-            .onChange(of: count) { _, n in start(count: n) }
+            .onAppear {
+                count = n
+                if !warming { warming = true; Task { await warm() } }
+                fillIfReady()
+            }
+            .onChange(of: n) { _, newN in count = newN; fillIfReady() }
         }
         .background(Color.black.ignoresSafeArea())
-        // Invisible focusable backstop so a remote press lands + exits (tvOS focus
-        // needs a target). Never .plain on tvOS.
         .overlay {
             Button { dismiss() } label: { Color.clear }
                 .buttonStyle(.borderless)
@@ -65,47 +67,78 @@ struct ScreensaverView: View {
         .onReceive(tick) { _ in advance() }
     }
 
-    /// A wide, varied, colorful pool: several categories + eras, designed art only,
-    /// silent B&W dropped so the wall stays vibrant. Deduped + shuffled.
+    /// A wide, varied, colorful candidate pool: several categories + eras, designed
+    /// art only, silent B&W dropped so the wall stays vibrant.
     private func buildPool() -> [Catalog.Item] {
         let mixes: [[Catalog.Item]] = [
             store.dbBrowse(contentType: "feature-film", sort: .popular, limit: 250),
             store.dbBrowse(contentType: "animation",    sort: .popular, limit: 200),
             store.dbBrowse(contentType: "tv-special",   sort: .popular, limit: 120),
             store.dbBrowse(contentType: "documentary",  sort: .popular, limit: 80),
-            store.dbBrowse(sort: .newest, limit: 200),     // a different slice for variety
+            store.dbBrowse(sort: .newest, limit: 200),
             store.dbBrowse(sort: .popular, limit: 300),
         ]
         var seen = Set<String>()
         var out: [Catalog.Item] = []
         for mix in mixes {
             for it in mix where it.posterURLParsed != nil && it.hasDesignedArtwork {
-                if it.isSilentFilm == true { continue }    // keep the wall colorful
+                if it.isSilentFilm == true { continue }
                 if seen.insert(it.archiveID).inserted { out.append(it) }
             }
         }
         return out.shuffled()
     }
 
-    private func start(count: Int) {
-        if pool.isEmpty { pool = buildPool() }
-        guard pool.count >= count, count > 0 else { return }
-        slots = Array(pool.shuffled().prefix(count))
+    /// Prefetch poster images with bounded concurrency; only successes join
+    /// `ready` (so broken URLs never become dark cells). Keeps warming the whole
+    /// pool in the background so `ready` grows for variety.
+    private func warm() async {
+        pool = buildPool()
+        guard !pool.isEmpty else { return }
+        let maxConcurrent = 8
+        var idx = 0
+        await withTaskGroup(of: Catalog.Item?.self) { group in
+            while idx < min(maxConcurrent, pool.count) {
+                let it = pool[idx]; idx += 1
+                group.addTask { await Self.prefetch(it) }
+            }
+            for await result in group {
+                if let result { ready.append(result); fillIfReady() }
+                if idx < pool.count {
+                    let it = pool[idx]; idx += 1
+                    group.addTask { await Self.prefetch(it) }
+                }
+            }
+        }
+    }
+
+    private static func prefetch(_ it: Catalog.Item) async -> Catalog.Item? {
+        guard let url = it.posterURLParsed else { return nil }
+        do {
+            _ = try await ImageLoader.shared.image(
+                for: url, targetSize: CGSize(width: 320, height: 480), scale: 2)
+            return it
+        } catch {
+            return nil
+        }
+    }
+
+    private func fillIfReady() {
+        guard slots.isEmpty, count > 0, ready.count >= count else { return }
+        slots = Array(ready.shuffled().prefix(count))
         exitFocused = true
     }
 
     private func advance() {
-        guard pool.count > slots.count, !slots.isEmpty else { return }
-        // Cross-dissolve a few random tiles each tick to fresh, non-visible posters.
+        guard !slots.isEmpty, ready.count > slots.count else { return }
         let onScreen = Set(slots.map(\.archiveID))
+        let candidates = ready.filter { !onScreen.contains($0.archiveID) }
+        guard !candidates.isEmpty else { return }
         for _ in 0..<Int.random(in: 1...2) {
-            guard let next = pool.first(where: { !onScreen.contains($0.archiveID) })
-                    ?? pool.randomElement() else { continue }
+            guard let next = candidates.randomElement() else { continue }
             let i = Int.random(in: 0..<slots.count)
             withAnimation(.easeInOut(duration: 1.0)) { slots[i] = next }
         }
-        // Re-shuffle the pool occasionally so "next unseen" stays varied.
-        if Int.random(in: 0..<12) == 0 { pool.shuffle() }
     }
 }
 
@@ -122,7 +155,7 @@ private struct SaverTile: View {
             .frame(width: width, height: height)          // exact 2:3 -> full poster
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .shadow(color: .black.opacity(0.45), radius: 7, y: 3)
+            .transition(.opacity)
             .id(item.archiveID)
-            .transition(.opacity)                          // clean cross-dissolve, no overlap
     }
 }

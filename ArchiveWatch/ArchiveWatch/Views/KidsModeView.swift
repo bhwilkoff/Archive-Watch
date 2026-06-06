@@ -31,9 +31,9 @@ struct KidsModeView: View {
                     header
                     if !characters.isEmpty {
                         KidsRow(title: "Characters") {
-                            ForEach(characters, id: \.name) { ch in
+                            ForEach(Array(characters.enumerated()), id: \.element.name) { idx, ch in
                                 NavigationLink(value: KidsGroup(title: ch.name, items: ch.items)) {
-                                    KidsTile(title: ch.name, cover: cover(ch.items), circular: true)
+                                    KidsTile(title: ch.name, cover: cover(ch.items, seed: ch.name), tint: Self.tint(idx))
                                 }
                                 .buttonStyle(.card)
                             }
@@ -41,9 +41,9 @@ struct KidsModeView: View {
                     }
                     if !collections.isEmpty {
                         KidsRow(title: "Collections") {
-                            ForEach(collections, id: \.title) { c in
+                            ForEach(Array(collections.enumerated()), id: \.element.title) { idx, c in
                                 NavigationLink(value: KidsGroup(title: c.title, items: c.items)) {
-                                    KidsTile(title: c.title, cover: cover(c.items), circular: false)
+                                    KidsTile(title: c.title, cover: cover(c.items, seed: c.title), tint: Self.tint(idx + 3))
                                 }
                                 .buttonStyle(.card)
                             }
@@ -97,10 +97,24 @@ struct KidsModeView: View {
             .focused($playAllFocused)
         }
         .padding(.horizontal, 80)
+        // Reach Play All by pressing Up from ANY tile, not just the rightmost.
+        .focusSection()
     }
 
-    private func cover(_ items: [Catalog.Item]) -> URL? {
-        items.first(where: { $0.posterURLParsed != nil })?.posterURLParsed
+    /// A representative cover, varied per group (a stable seed off the title) so
+    /// neighbouring collections don't all show the same lead poster.
+    private func cover(_ items: [Catalog.Item], seed: String) -> URL? {
+        let art = items.filter { $0.posterURLParsed != nil }
+        guard !art.isEmpty else { return nil }
+        let h = seed.unicodeScalars.reduce(0) { $0 &+ Int($1.value) }
+        return art[h % art.count].posterURLParsed
+    }
+
+    /// Bright per-tile accent so the cards stay colorful even when the cover art
+    /// is letterboxed (we show the WHOLE cover, never crop it).
+    static func tint(_ i: Int) -> Color {
+        let palette = ["#FF4D8D", "#FF5C35", "#E8A317", "#3FA796", "#2D5BFF", "#7C5BBA"]
+        return Color(hex: palette[i % palette.count]) ?? .pink
     }
 }
 
@@ -160,32 +174,36 @@ private struct KidsRow<Content: View>: View {
 private struct KidsTile: View {
     let title: String
     let cover: URL?
-    let circular: Bool
+    let tint: Color
 
-    private var size: CGSize { circular ? CGSize(width: 280, height: 280) : CGSize(width: 360, height: 240) }
+    // Uniform 3:2 cards. The cover is shown WHOLE (.fit) over a bright colored
+    // field — cartoon covers are a mix of landscape title-cards and portrait
+    // posters, so fitting (not cropping) is the only way nothing gets cut off,
+    // and the color keeps the card vibrant where the art letterboxes.
+    private let w: CGFloat = 320
+    private let h: CGFloat = 214
 
     var body: some View {
         VStack(spacing: 14) {
-            ZStack(alignment: .bottom) {
-                RemoteImage(url: cover,
-                            targetSize: CGSize(width: size.width * 2, height: size.height * 2),
-                            contentMode: .fill,
-                            placeholder: Color.white.opacity(0.15))
-                    .frame(width: size.width, height: size.height)
-                    .clipShape(RoundedRectangle(cornerRadius: circular ? size.width / 2 : 28))
-            }
-            .overlay(
-                RoundedRectangle(cornerRadius: circular ? size.width / 2 : 28)
-                    .strokeBorder(.white.opacity(0.85), lineWidth: 5)
-            )
-            .shadow(color: .black.opacity(0.35), radius: 10, y: 6)
+            RemoteImage(url: cover,
+                        targetSize: CGSize(width: w * 2, height: h * 2),
+                        contentMode: .fit,
+                        placeholder: tint.opacity(0.6))
+                .frame(width: w, height: h)
+                .background(
+                    LinearGradient(colors: [tint, tint.mix(with: .black, 0.45)],
+                                   startPoint: .topLeading, endPoint: .bottomTrailing)
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 26))
+                .overlay(RoundedRectangle(cornerRadius: 26).strokeBorder(.white.opacity(0.9), lineWidth: 4))
+                .shadow(color: .black.opacity(0.35), radius: 10, y: 6)
 
             Text(title)
                 .font(.system(size: 26, weight: .heavy, design: .rounded))
                 .foregroundStyle(.white)
                 .lineLimit(1)
                 .minimumScaleFactor(0.7)
-                .frame(width: size.width)
+                .frame(width: w)
         }
     }
 }
