@@ -35,6 +35,7 @@ struct SurpriseView: View {
         .init(id: "saver",     title: "Cover Art Wall",         icon: "square.grid.3x3.fill", hex: "#0047FF"),
     ]
     @State private var showSaver = false
+    @State private var showKids = false
 
     // #3/#2: a lineup presented full-screen (muted for party play).
     fileprivate struct ModeLineup: Identifiable {
@@ -74,6 +75,7 @@ struct SurpriseView: View {
             }
         }
         .fullScreenCover(isPresented: $showSaver) { ScreensaverView() }
+        .fullScreenCover(isPresented: $showKids) { KidsModeView() }
     }
 
     private var header: some View {
@@ -113,7 +115,7 @@ struct SurpriseView: View {
         case "party":
             mode = ModeLineup(items: store.partyLineup(), muted: true)
         case "cartoon":
-            mode = ModeLineup(items: store.cartoonLineup(), muted: false)
+            showKids = true   // #1: opens the full Kids/Cartoon Mode interface
         case "saver":
             showSaver = true
         default:

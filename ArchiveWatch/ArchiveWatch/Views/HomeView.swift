@@ -559,6 +559,7 @@ private struct ModesRow: View {
     @Environment(Router.self) private var router
     @State private var mode: HomeModeLineup?
     @State private var showSaver = false
+    @State private var showKids = false
 
     private struct Mode: Identifiable {
         let id: String; let title: String; let subtitle: String; let icon: String; let hex: String
@@ -590,12 +591,13 @@ private struct ModesRow: View {
             if let screen = PlayerScreen(lineup: m.items, startMuted: m.muted) { screen }
         }
         .fullScreenCover(isPresented: $showSaver) { ScreensaverView() }
+        .fullScreenCover(isPresented: $showKids) { KidsModeView() }
     }
 
     private func launch(_ m: Mode) {
         switch m.id {
         case "channels": router.tab = .channels
-        case "cartoon":  mode = HomeModeLineup(items: store.cartoonLineup(), muted: false)
+        case "cartoon":  showKids = true   // #1: full Kids/Cartoon Mode interface
         case "party":    mode = HomeModeLineup(items: store.partyLineup(), muted: true)
         case "saver":    showSaver = true
         default: break

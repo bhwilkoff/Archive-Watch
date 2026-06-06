@@ -303,6 +303,63 @@ final class AppStore {
         "fractal", "mandala", "op art", "oil", "liquid", "paint", "art", "visual",
         "fantasia", "rhythm", "geometric", "neon", "carnival", "parade",
     ]
+
+    // MARK: - Kids / Cartoon Mode (#1)
+
+    /// Public-domain cartoon characters kids recognize. Only the ones that
+    /// actually have catalog matches are surfaced (see kidsCharacters()).
+    static let kidsCharacterNames: [String] = [
+        "Popeye", "Superman", "Betty Boop", "Felix the Cat", "Gulliver",
+        "Casper", "Mighty Mouse", "Woody Woodpecker", "Bugs Bunny",
+        "Koko the Clown", "Little Lulu", "Gumby", "Mr. Magoo",
+        "Heckle and Jeckle", "Tom and Jerry", "Porky Pig",
+    ]
+
+    /// Kid-safe COLOR cartoons matching a character name (title or subject), drawn
+    /// from the FTS index then narrowed to the cartoon pool.
+    func kidsItems(matching query: String) -> [Catalog.Item] {
+        let q = query.lowercased()
+        let scary = ["horror", "nightmare", "macabre"]
+        return dbSearch(query).filter { it in
+            guard it.contentType == "animation", it.isSilentFilm != true,
+                  it.hasDesignedArtwork, it.videoURLParsed != nil else { return false }
+            let blob = (it.genres + it.subjects).map { $0.lowercased() }
+            if blob.contains(where: { g in scary.contains(where: g.contains) }) { return false }
+            let inTitle = it.title.lowercased().contains(q)
+            let inSubj = it.subjects.contains { $0.lowercased().contains(q) }
+            return inTitle || inSubj
+        }
+    }
+
+    /// Characters that have at least a few cartoons, each with its items + a cover.
+    func kidsCharacters() -> [(name: String, items: [Catalog.Item])] {
+        Self.kidsCharacterNames.compactMap { name in
+            let items = kidsItems(matching: name)
+            return items.count >= 3 ? (name, items) : nil
+        }
+    }
+
+    /// Themed cartoon collections (era + type), each non-empty, for Kids Mode.
+    func kidsCollections() -> [(title: String, items: [Catalog.Item])] {
+        let pool = kidsCartoonPool(limit: 600)
+        func byDecade(_ d: Int) -> [Catalog.Item] { pool.filter { $0.decade == d } }
+        func byWords(_ words: [String]) -> [Catalog.Item] {
+            pool.filter { it in
+                let blob = (it.genres + it.subjects + [it.title]).map { $0.lowercased() }.joined(separator: " ")
+                return words.contains { blob.contains($0) }
+            }
+        }
+        let groups: [(String, [Catalog.Item])] = [
+            ("Color Classics", byWords(["color", "colour", "technicolor"])),
+            ("Funny Animals",  byWords(["mouse", "cat", "dog", "rabbit", "bear", "duck", "pig"])),
+            ("Super Heroes",   byWords(["superman", "hero", "super"])),
+            ("Sing-Along",     byWords(["song", "music", "sing", "musical"])),
+            ("1930s Toons",    byDecade(1930)),
+            ("1940s Toons",    byDecade(1940)),
+            ("1950s Toons",    byDecade(1950)),
+        ]
+        return groups.compactMap { $0.1.count >= 6 ? ($0.0, $0.1) : nil }
+    }
     func dbRandomSeries() -> Catalog.Item? { db?.randomSeries() }
     func dbRandomByGenre(_ genres: [String]) -> Catalog.Item? { db?.randomByGenre(genres) }
     func dbSeriesCard(slug: String) -> Catalog.Item? { db?.seriesCard(slug: slug) }
