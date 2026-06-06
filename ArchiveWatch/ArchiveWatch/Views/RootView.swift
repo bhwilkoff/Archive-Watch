@@ -152,7 +152,7 @@ struct RootView: View {
             NavigationStack(path: $router.cartoonsPath) { KidsModeView() }
         }
         Tab("Party Play", systemImage: "sparkles.tv.fill", value: Router.Tab.party) {
-            NavigationStack(path: $router.partyPath) { PartyView() }
+            NavigationStack(path: $router.partyPath) { PartyView().attachDestinations() }
         }
         Tab("Screensaver", systemImage: "photo.stack.fill", value: Router.Tab.screensaver) {
             NavigationStack(path: $router.screensaverPath) { ScreensaverHomeView() }

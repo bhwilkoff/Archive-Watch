@@ -11,6 +11,7 @@ private struct ModeLineupBox: Identifiable { let id = UUID(); let items: [Catalo
 
 struct PartyView: View {
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
     @State private var playing: ModeLineupBox?
     @State private var preview: [Catalog.Item] = []
     @FocusState private var startFocused: Bool
@@ -33,7 +34,8 @@ struct PartyView: View {
                 .padding(.horizontal, 80)
 
                 if !preview.isEmpty {
-                    ModePreviewRow(title: "What's in the mix", items: preview)
+                    // Party Play: selecting a title opens its full Detail page.
+                    ModePreviewRow(title: "What's in the mix", items: preview) { router.push($0) }
                 }
             }
             .padding(.vertical, 56)
@@ -55,6 +57,7 @@ struct PartyView: View {
 struct ScreensaverHomeView: View {
     @Environment(AppStore.self) private var store
     @State private var showSaver = false
+    @State private var zoom: Catalog.Item?
     @State private var preview: [Catalog.Item] = []
     @FocusState private var startFocused: Bool
 
@@ -76,12 +79,14 @@ struct ScreensaverHomeView: View {
                 .padding(.horizontal, 80)
 
                 if !preview.isEmpty {
-                    ModePreviewRow(title: "A taste", items: preview)
+                    // Screensaver: selecting a poster zooms it in for a closer look.
+                    ModePreviewRow(title: "A taste", items: preview) { zoom = $0 }
                 }
             }
             .padding(.vertical, 56)
         }
         .background(Color.black.ignoresSafeArea())
+        .fullScreenCover(item: $zoom) { PosterZoomView(item: $0) }
         .task(id: store.dbGeneration) {
             // Same professional-poster pool the wall uses.
             preview = store.dbBrowse(sort: .popular, limit: 200)
@@ -123,6 +128,8 @@ private struct ModeHeader: View {
 private struct ModePreviewRow: View {
     let title: String
     let items: [Catalog.Item]
+    let onSelect: (Catalog.Item) -> Void
+
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             Text(title)
@@ -130,18 +137,63 @@ private struct ModePreviewRow: View {
                 .foregroundStyle(.white.opacity(0.7))
                 .padding(.horizontal, 80)
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 20) {
+                HStack(spacing: 24) {
                     ForEach(items) { item in
-                        RemoteImage(url: item.posterURLParsed,
-                                    targetSize: CGSize(width: 280, height: 420),
-                                    contentMode: .fill,
-                                    placeholder: Color(white: 0.1))
-                            .frame(width: 150, height: 225)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                        Button { onSelect(item) } label: {
+                            RemoteImage(url: item.posterURLParsed,
+                                        targetSize: CGSize(width: 300, height: 450),
+                                        contentMode: .fill,
+                                        placeholder: Color(white: 0.1))
+                                .frame(width: 160, height: 240)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                        }
+                        .buttonStyle(.card)   // focusable + scales on focus = navigable
                     }
                 }
                 .padding(.horizontal, 80)
+                .padding(.vertical, 10)
             }
+            .scrollClipDisabled()   // don't clip the focus scale
         }
+    }
+}
+
+/// Full-screen, high-resolution view of a single poster (#zoom). Menu / select exits.
+private struct PosterZoomView: View {
+    let item: Catalog.Item
+    @Environment(\.dismiss) private var dismiss
+    @FocusState private var focused: Bool
+
+    var body: some View {
+        ZStack {
+            Color.black.ignoresSafeArea()
+            VStack(spacing: 22) {
+                RemoteImage(url: item.posterURLParsed,
+                            targetSize: CGSize(width: 1000, height: 1500),
+                            contentMode: .fit,
+                            placeholder: Color(white: 0.1))
+                    .frame(maxHeight: 820)
+                    .clipShape(RoundedRectangle(cornerRadius: 16))
+                    .shadow(color: .black.opacity(0.5), radius: 20, y: 10)
+                VStack(spacing: 6) {
+                    Text(item.title)
+                        .font(.system(size: 30, weight: .bold))
+                        .foregroundStyle(.white)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(2)
+                    if let y = item.year {
+                        Text(verbatim: String(y))
+                            .font(.title3).foregroundStyle(.white.opacity(0.6))
+                    }
+                }
+            }
+            .padding(60)
+            // Focusable backstop so a remote press lands + exits (tvOS needs a target).
+            Button { dismiss() } label: { Color.clear }
+                .buttonStyle(.borderless)
+                .focused($focused)
+        }
+        .onExitCommand { dismiss() }
+        .onAppear { focused = true }
     }
 }
