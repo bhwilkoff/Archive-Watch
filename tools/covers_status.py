@@ -30,6 +30,10 @@ TARGET_CACHE = OUT / "target.json"
 C = {"g": "\033[32m", "r": "\033[31m", "y": "\033[33m", "c": "\033[36m",
      "b": "\033[1m", "d": "\033[2m", "x": "\033[0m"}
 
+# Disable ANSI when piped to a file/log, when NO_COLOR is set, or --plain is passed.
+if ("--plain" in sys.argv) or ("NO_COLOR" in __import__("os").environ) or (not sys.stdout.isatty()):
+    C = {k: "" for k in C}
+
 
 def col(s, k):
     return f"{C[k]}{s}{C['x']}"
@@ -217,6 +221,7 @@ def snapshot():
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--watch", type=int, default=0, help="refresh every N seconds")
+    ap.add_argument("--plain", action="store_true", help="no ANSI color (for logs)")
     args = ap.parse_args()
     if not args.watch:
         print(snapshot())
