@@ -241,23 +241,68 @@ final class AppStore {
 
     // Immersive-mode lineups (#2 cartoon / #3 party), shared by Surprise + Home so
     // both launch identical sessions.
+
+    /// #2 Cartoon/Kids: COLOR cartoons kids enjoy — animation, never silent (those
+    /// are pre-1930 B&W for older viewers), color-era leaning (year-weighted), with
+    /// real artwork. Scary subjects are filtered out for a kid-safe set.
     func cartoonLineup() -> [Catalog.Item] {
-        var pool = dbBrowse(contentType: "animation", sort: .popular, limit: 250)
-            .filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
-        pool.shuffle()
-        return pool
+        kidsCartoonPool(limit: 250)
     }
 
-    func partyLineup() -> [Catalog.Item] {
-        var pool = dbBrowse(contentType: "animation", sort: .popular, limit: 120)
-            + dbBrowse(contentType: "silent-film", sort: .popular, limit: 120)
-            + dbBrowse(sort: .popular, limit: 120)
-        pool = pool.filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
-        var seen = Set<String>()
-        pool = pool.filter { seen.insert($0.archiveID).inserted }
-        pool.shuffle()
-        return Array(pool.prefix(200))
+    /// Shared kid-friendly color-cartoon pool (used by cartoonLineup + Kids Mode).
+    func kidsCartoonPool(limit: Int) -> [Catalog.Item] {
+        let scary = ["horror", "war", "nightmare", "death", "ghost story", "macabre"]
+        var pool = dbBrowse(contentType: "animation", sort: .popular, limit: 600).filter { it in
+            guard it.videoURLParsed != nil, it.hasDesignedArtwork else { return false }
+            if it.isSilentFilm == true { return false }              // color-era, not silent B&W
+            let blob = (it.genres + it.subjects).map { $0.lowercased() }
+            if blob.contains(where: { g in scary.contains(where: g.contains) }) { return false }
+            return true
+        }
+        // Color leans newer (Technicolor era): bias the order toward later years +
+        // popularity, then shuffle WITHIN that lean so it's fresh but still colorful.
+        pool.sort { ($0.year ?? 0, $0.popularityScore ?? 0) > ($1.year ?? 0, $1.popularityScore ?? 0) }
+        let head = Array(pool.prefix(max(limit, 120)))
+        return head.shuffled()
     }
+
+    /// #3 Party Play: muted background eye-candy — COLOR (never silent B&W), SHORT
+    /// (≤ ~15 min so the wall keeps changing), and visually-engaging by subject
+    /// (abstract / animation / nature / dance / light, etc.). Ranked so the most
+    /// visual content leads.
+    func partyLineup() -> [Catalog.Item] {
+        let visual = Self.partyVisualKeywords
+        var seen = Set<String>()
+        var scored: [(Catalog.Item, Int)] = []
+        let raw = dbBrowse(contentType: "animation", sort: .popular, limit: 250)
+            + dbBrowse(contentType: "short-film", sort: .popular, limit: 250)
+            + dbBrowse(genre: "Animation", sort: .popular, limit: 120)
+        for it in raw {
+            guard it.videoURLParsed != nil, it.hasDesignedArtwork else { continue }
+            guard it.isSilentFilm != true else { continue }           // color only
+            if let r = it.runtimeSeconds, r > 0, r > 15 * 60 { continue }   // short only
+            guard seen.insert(it.archiveID).inserted else { continue }
+            let blob = (it.genres + it.subjects + [it.title]).map { $0.lowercased() }.joined(separator: " ")
+            let hits = visual.reduce(0) { $0 + (blob.contains($1) ? 1 : 0) }
+            let isAnim = it.contentType == "animation"
+            scored.append((it, hits * 3 + (isAnim ? 2 : 0) + (it.popularityScore ?? 0) / 25))
+        }
+        // Keep the most-visual 220, then shuffle so a session isn't identical.
+        let ranked = scored.sorted { $0.1 > $1.1 }.prefix(220).map { $0.0 }
+        return Array(ranked).shuffled()
+    }
+
+    /// Subject/genre words that signal visually-engaging, sound-optional content for
+    /// Party Play (researched from the kinds of PD shorts that read well muted).
+    static let partyVisualKeywords: [String] = [
+        "abstract", "experimental", "avant-garde", "avant garde", "psychedelic",
+        "kaleidoscope", "surreal", "animation", "animated", "cartoon", "color",
+        "colour", "technicolor", "dance", "ballet", "music", "musical", "light",
+        "fireworks", "nature", "scenic", "travelogue", "landscape", "flowers",
+        "garden", "ocean", "underwater", "aquarium", "space", "nasa", "aurora",
+        "fractal", "mandala", "op art", "oil", "liquid", "paint", "art", "visual",
+        "fantasia", "rhythm", "geometric", "neon", "carnival", "parade",
+    ]
     func dbRandomSeries() -> Catalog.Item? { db?.randomSeries() }
     func dbRandomByGenre(_ genres: [String]) -> Catalog.Item? { db?.randomByGenre(genres) }
     func dbSeriesCard(slug: String) -> Catalog.Item? { db?.seriesCard(slug: slug) }
