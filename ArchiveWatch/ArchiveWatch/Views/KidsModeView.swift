@@ -65,10 +65,15 @@ struct KidsModeView: View {
             }
         }
         .onExitCommand { dismiss() }
-        .task {
+        // Recompute when the catalog DB swaps (seed -> full): if Kids Mode opens
+        // before the full catalog has downloaded, the seed only has the most
+        // popular cartoons (Popeye/Betty Boop). Re-running on dbGeneration fills in
+        // the rest the moment the full DB is ready.
+        .task(id: store.dbGeneration) {
             characters = store.kidsCharacters()
             collections = store.kidsCollections()
             try? await Task.sleep(for: .milliseconds(120))
+            if characters.isEmpty && collections.isEmpty { return }
             playAllFocused = true
         }
         .fullScreenCover(item: $playing) { box in

@@ -306,35 +306,47 @@ final class AppStore {
 
     // MARK: - Kids / Cartoon Mode (#1)
 
-    /// Public-domain cartoon characters kids recognize. Only the ones that
-    /// actually have catalog matches are surfaced (see kidsCharacters()).
-    static let kidsCharacterNames: [String] = [
-        "Popeye", "Superman", "Betty Boop", "Felix the Cat", "Gulliver",
-        "Casper", "Mighty Mouse", "Woody Woodpecker", "Bugs Bunny",
-        "Koko the Clown", "Little Lulu", "Gumby", "Mr. Magoo",
-        "Heckle and Jeckle", "Tom and Jerry", "Porky Pig",
+    /// Well-known cartoon characters/series kids recognize, each with the
+    /// distinctive title/subject term(s) that identify it. Only the ones with
+    /// actual catalog matches are surfaced (see kidsCharacters()). Most Looney
+    /// Tunes headliners (Bugs, Tweety) aren't public domain, but Porky, Daffy,
+    /// and "Looney Tunes"-tagged items are present, so they appear.
+    static let kidsCharacterDefs: [(name: String, terms: [String])] = [
+        ("Popeye",              ["popeye"]),
+        ("Betty Boop",          ["betty boop"]),
+        ("Porky Pig",           ["porky"]),
+        ("Mr. Magoo",           ["magoo"]),
+        ("Looney Tunes",        ["looney tunes", "looney"]),
+        ("Felix the Cat",       ["felix"]),
+        ("Daffy Duck",          ["daffy"]),
+        ("Bosko",               ["bosko"]),
+        ("Mighty Mouse",        ["mighty mouse"]),
+        ("Casper",              ["casper"]),
+        ("Mickey Mouse",        ["mickey mouse"]),
+        ("Superman",            ["superman"]),
+        ("Little Lulu",         ["little lulu"]),
+        ("Gulliver",            ["gulliver"]),
+        ("Gerald McBoing-Boing", ["mcboing"]),
+        ("Bimbo",               ["bimbo"]),
     ]
 
-    /// Kid-safe COLOR cartoons matching a character name (title or subject), drawn
-    /// from the FTS index then narrowed to the cartoon pool.
-    func kidsItems(matching query: String) -> [Catalog.Item] {
-        let q = query.lowercased()
-        let scary = ["horror", "nightmare", "macabre"]
-        return dbSearch(query).filter { it in
-            guard it.contentType == "animation", it.isSilentFilm != true,
-                  it.hasDesignedArtwork, it.videoURLParsed != nil else { return false }
-            let blob = (it.genres + it.subjects).map { $0.lowercased() }
-            if blob.contains(where: { g in scary.contains(where: g.contains) }) { return false }
-            let inTitle = it.title.lowercased().contains(q)
-            let inSubj = it.subjects.contains { $0.lowercased().contains(q) }
-            return inTitle || inSubj
-        }
-    }
-
     /// Characters that have at least a few cartoons, each with its items + a cover.
+    /// Substring match over the kid-safe cartoon pool (the FTS search was too strict
+    /// and only ever surfaced Popeye + Betty Boop).
     func kidsCharacters() -> [(name: String, items: [Catalog.Item])] {
-        Self.kidsCharacterNames.compactMap { name in
-            let items = kidsItems(matching: name)
+        let scary = ["horror", "nightmare", "macabre"]
+        let pool = dbBrowse(contentType: "animation", sort: .popular, limit: 1500).filter { it in
+            guard it.isSilentFilm != true, it.hasDesignedArtwork, it.videoURLParsed != nil else { return false }
+            let g = (it.genres + it.subjects).map { $0.lowercased() }
+            return !g.contains { x in scary.contains(where: x.contains) }
+        }
+        return Self.kidsCharacterDefs.compactMap { name, terms in
+            let lc = terms.map { $0.lowercased() }
+            let items = pool.filter { it in
+                let hay = it.title.lowercased() + " "
+                    + it.subjects.map { $0.lowercased() }.joined(separator: " ")
+                return lc.contains(where: hay.contains)
+            }
             return items.count >= 3 ? (name, items) : nil
         }
     }
