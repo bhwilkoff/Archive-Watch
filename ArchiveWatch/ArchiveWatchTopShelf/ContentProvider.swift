@@ -21,6 +21,7 @@ private enum Snapshot {
             let archiveID: String
             let title: String
             let posterURL: String?
+            let backdropURL: String?
             let year: Int?
         }
         struct Section: Decodable {
@@ -47,24 +48,31 @@ class ContentProvider: TVTopShelfContentProvider {
             return
         }
 
-        let collections = payload.sections.map { section -> TVTopShelfItemCollection<TVTopShelfSectionedItem> in
-            let items = section.items.map { entry -> TVTopShelfSectionedItem in
-                let item = TVTopShelfSectionedItem(identifier: entry.archiveID)
-                item.title = entry.title
-                item.imageShape = .poster
-                if let poster = entry.posterURL, let url = URL(string: poster) {
-                    item.setImageURL(url, for: [.screenScale1x, .screenScale2x])
-                }
-                if let action = URL(string: "archivewatch://item/\(entry.archiveID)") {
-                    item.displayAction = TVTopShelfAction(url: action)
-                }
-                return item
+        // #11: render a CAROUSEL (the large rotating hero at the top of the Apple
+        // TV home when the app is in the top row), not sectioned shelves. Flatten
+        // the snapshot sections into one deduped list and prefer items that have a
+        // wide backdrop — a 2:3 poster looks wrong in the 16:9 hero.
+        var seen = Set<String>()
+        let unique = payload.sections.flatMap(\.items).filter { seen.insert($0.archiveID).inserted }
+        let withBackdrop = unique.filter { $0.backdropURL != nil }
+        let chosen = Array((withBackdrop.count >= 4 ? withBackdrop : unique).prefix(10))
+
+        let items = chosen.map { entry -> TVTopShelfCarouselItem in
+            let item = TVTopShelfCarouselItem(identifier: entry.archiveID)
+            item.title = entry.title   // carousel items are 16:9 hero by default
+            if let art = entry.backdropURL ?? entry.posterURL, let url = URL(string: art) {
+                item.setImageURL(url, for: [.screenScale1x, .screenScale2x])
             }
-            let collection = TVTopShelfItemCollection(items: items)
-            collection.title = section.title
-            return collection
+            if let detail = URL(string: "archivewatch://item/\(entry.archiveID)") {
+                item.displayAction = TVTopShelfAction(url: detail)
+            }
+            if let play = URL(string: "archivewatch://play/\(entry.archiveID)") {
+                item.playAction = TVTopShelfAction(url: play)
+            }
+            return item
         }
 
-        completionHandler(TVTopShelfSectionedContent(sections: collections))
+        guard !items.isEmpty else { completionHandler(nil); return }
+        completionHandler(TVTopShelfCarouselContent(style: .details, items: items))
     }
 }

@@ -35,15 +35,20 @@ struct HomeView: View {
 
     @State private var heroItems: [Catalog.Item] = []
 
-    /// Hero pool from the DB (Decision 017): the most-popular items with real
-    /// designed artwork + a usable backdrop/poster, shuffled per launch.
+    /// Hero pool from the DB (Decision 017): the most-popular items with art good
+    /// enough to fill the screen. #10: the hero is full-bleed, so it demands
+    /// HIGH-quality wide art — we prefer items with a true TMDb backdrop and
+    /// exclude frame-extracted ("generated") covers, which are only ~600px and
+    /// look pixelated blown up. Falls back to high-res posters only if too few
+    /// backdrops exist.
     private func loadHero() -> [Catalog.Item] {
-        let pool = store.filteringWatched(
-            store.dbBrowse(sort: .popular, limit: 200, homeOnly: true)
-        ).filter {
-            $0.hasDesignedArtwork &&
-            ($0.backdropURLParsed != nil || $0.posterURLParsed != nil)
-        }
+        let base = store.filteringWatched(
+            store.dbBrowse(sort: .popular, limit: 300, homeOnly: true)
+        ).filter { $0.hasDesignedArtwork && $0.artworkSource != "generated" }
+        let withBackdrop = base.filter { $0.backdropURLParsed != nil }
+        let pool = withBackdrop.count >= 5
+            ? withBackdrop
+            : base.filter { $0.backdropURLParsed != nil || $0.posterURLParsed != nil }
         var rng = SplitMix(seed: UInt64(heroSeed))
         return Array(pool.shuffled(using: &rng).prefix(7))
     }
@@ -150,7 +155,7 @@ struct HeroCarousel: View {
     @State private var hasClaimedInitialFocus = false
     @State private var autoAdvance = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
 
-    private let heroHeight: CGFloat = 720
+    private let heroHeight: CGFloat = 940   // #10: near-full-screen hero
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -237,8 +242,12 @@ struct HeroBanner: View {
                     .padding(.trailing, 80)
                     .padding(.bottom, 112)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .clipped()   // #10: full-bleed image stays within its page, no bleed
         }
-        .buttonStyle(.card)
+        // #10: a full-width hero must NOT scale on focus — .card scaled the
+        // focused banner past its page and overlapped the neighbors at the seam.
+        .buttonStyle(HeroButtonStyle())
     }
 
     private var heroOverlay: some View {
@@ -272,10 +281,11 @@ struct HeroBanner: View {
             RemoteImage(
                 url: url,
                 targetSize: CGSize(width: 1920, height: 1080),
-                contentMode: .fit,
+                contentMode: .fill,   // #10: fill + crop to the full hero, not letterboxed
                 placeholder: Color(white: 0.08)
             )
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .clipped()
         } else {
             LinearGradient(
                 colors: [store.accentColor(forCategory: categoryID).opacity(0.85), .black],
@@ -304,6 +314,18 @@ struct HeroBanner: View {
     private func formatRuntime(_ seconds: Int) -> String {
         let m = seconds / 60
         return m >= 60 ? "\(m / 60)h \(m % 60)m" : "\(m)m"
+    }
+}
+
+/// Non-scaling, still-focusable style for the full-width hero banner. A custom
+/// ButtonStyle stays focusable on tvOS but, unlike .card, doesn't scale the
+/// focused view — so each banner stays exactly one page wide and never overlaps
+/// its neighbors at the seam (#10).
+private struct HeroButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.99 : 1.0)
+            .animation(.easeOut(duration: 0.15), value: configuration.isPressed)
     }
 }
 

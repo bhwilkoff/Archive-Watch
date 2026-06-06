@@ -19,6 +19,7 @@ enum TopShelfSnapshot {
             let archiveID: String
             let title: String
             let posterURL: String?
+            let backdropURL: String?   // #11: wide art for the Top Shelf carousel hero
             let year: Int?
         }
         struct Section: Codable {
@@ -60,6 +61,7 @@ enum TopShelfSnapshot {
             list.prefix(10).map {
                 Payload.Item(archiveID: $0.archiveID, title: $0.title,
                              posterURL: $0.hasDesignedArtwork ? $0.posterURL : nil,
+                             backdropURL: $0.hasDesignedArtwork ? $0.backdropURL : nil,
                              year: $0.year)
             }
         }
