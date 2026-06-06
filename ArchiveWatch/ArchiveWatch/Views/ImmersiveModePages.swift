@@ -42,14 +42,19 @@ struct PartyView: View {
         }
         .background(Color.black.ignoresSafeArea())
         .task(id: store.dbGeneration) {
-            preview = Array(store.partyLineup().prefix(18))
+            loadPreview()
             try? await Task.sleep(for: .milliseconds(120))
             startFocused = true
         }
+        // Reshuffle the preview every time the tab is shown, so it's not the same
+        // titles each visit (partyLineup() is shuffled per call).
+        .onAppear { if store.isReady { loadPreview() } }
         .fullScreenCover(item: $playing) { box in
             if let screen = PlayerScreen(lineup: box.items, startMuted: true) { screen }
         }
     }
+
+    private func loadPreview() { preview = Array(store.partyLineup().prefix(18)) }
 }
 
 // MARK: - Screensaver
@@ -88,15 +93,21 @@ struct ScreensaverHomeView: View {
         .background(Color.black.ignoresSafeArea())
         .fullScreenCover(item: $zoom) { PosterZoomView(item: $0) }
         .task(id: store.dbGeneration) {
-            // Same professional-poster pool the wall uses.
-            preview = store.dbBrowse(sort: .popular, limit: 200)
-                .filter { ["tmdb", "omdb", "fanart"].contains($0.artworkSource)
-                          && $0.posterURLParsed != nil && $0.isSilentFilm != true }
-                .shuffled().prefix(18).map { $0 }
+            loadPreview()
             try? await Task.sleep(for: .milliseconds(120))
             startFocused = true
         }
+        // Reshuffle the preview on each visit so it varies.
+        .onAppear { if store.isReady { loadPreview() } }
         .fullScreenCover(isPresented: $showSaver) { ScreensaverView() }
+    }
+
+    /// A fresh random sample of professional 2:3 posters (same pool the wall uses).
+    private func loadPreview() {
+        preview = store.dbBrowse(sort: .popular, limit: 400)
+            .filter { ["tmdb", "omdb", "fanart"].contains($0.artworkSource)
+                      && $0.posterURLParsed != nil && $0.isSilentFilm != true }
+            .shuffled().prefix(18).map { $0 }
     }
 }
 
