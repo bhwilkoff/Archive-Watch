@@ -278,8 +278,11 @@ private struct ChannelRow: View {
             Image(systemName: channel.icon).font(.system(size: 24))
                 .foregroundStyle(channel.accent)
             VStack(alignment: .leading, spacing: 2) {
-                Text(channel.title).font(.system(size: 20, weight: .bold))
-                    .foregroundStyle(.white).lineLimit(1)
+                Text(channel.title).font(.system(size: 19, weight: .bold))
+                    .foregroundStyle(.white)
+                    .lineLimit(2)                       // #3a: don't truncate channel names
+                    .minimumScaleFactor(0.8)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text("CH \(channel.number)").font(.system(size: 14, weight: .semibold))
                     .foregroundStyle(.white.opacity(0.5))
             }
