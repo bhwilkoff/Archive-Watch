@@ -792,9 +792,14 @@ private struct PersonChip: View {
     let profilePath: String?
     let action: () -> Void
 
+    @FocusState private var isFocused: Bool
+
     var body: some View {
-        Button(action: action) {
-            VStack(spacing: 8) {
+        // #7: only the avatar lives inside the .card button. The name + role sit
+        // BELOW as siblings so focus scaling never clips them, and they wrap to
+        // two lines instead of truncating.
+        VStack(spacing: 10) {
+            Button(action: action) {
                 ZStack {
                     Circle().fill(Color.white.opacity(0.12))
                     if let url = profileURL {
@@ -807,19 +812,32 @@ private struct PersonChip: View {
                     }
                 }
                 .frame(width: 130, height: 130)
+            }
+            .buttonStyle(.card)
+            .focused($isFocused)
+
+            VStack(spacing: 3) {
                 Text(name)
-                    .font(.system(size: 22, weight: .semibold))
+                    .font(.system(size: 21, weight: .semibold))
                     .foregroundStyle(.white)
-                    .lineLimit(1).frame(width: 156)
+                    .lineLimit(2)
+                    .multilineTextAlignment(.center)
+                    .minimumScaleFactor(0.75)
+                    .fixedSize(horizontal: false, vertical: true)
                 if let role, !role.isEmpty {
                     Text(role)
-                        .font(.system(size: 18, weight: .regular))
+                        .font(.system(size: 17, weight: .regular))
                         .foregroundStyle(.white.opacity(0.5))
-                        .lineLimit(1).frame(width: 156)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.center)
+                        .minimumScaleFactor(0.75)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
             }
+            .frame(width: 184)
+            .opacity(isFocused ? 1.0 : 0.85)
+            .animation(Motion.focus, value: isFocused)
         }
-        .buttonStyle(.card)
     }
 
     private var profileURL: URL? {

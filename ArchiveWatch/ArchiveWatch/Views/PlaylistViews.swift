@@ -18,37 +18,38 @@ struct AddToPlaylistSheet: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 28) {
+            VStack(alignment: .leading, spacing: 36) {
                 Text("Add to Playlist")
-                    .font(.system(size: 46, weight: .heavy, design: .serif))
+                    .font(.system(size: 48, weight: .heavy, design: .serif))
                     .foregroundStyle(.white)
 
-                // Native creation: a big field + a clear primary action, on one line.
-                VStack(alignment: .leading, spacing: 10) {
+                // New playlist: full-width field, then a full-width primary action
+                // (stacked, so it never collides with the field and stays uniform).
+                VStack(alignment: .leading, spacing: 12) {
                     Text("New Playlist").font(.system(size: 24, weight: .bold))
                         .foregroundStyle(.white.opacity(0.85))
-                    HStack(spacing: 18) {
-                        TextField("Name", text: $newName)
-                            .textFieldStyle(.plain)
-                            .font(.title3)
-                            .padding(18)
-                            .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 12))
-                            .focused($nameFocused)
-                            .frame(maxWidth: 560)
-                        Button { createAndAdd() } label: {
-                            Label("Create", systemImage: "plus.circle.fill")
-                                .font(.title3.weight(.semibold))
-                        }
-                        .buttonStyle(.borderedProminent)
-                        .disabled(newName.trimmingCharacters(in: .whitespaces).isEmpty)
+                    TextField("Name", text: $newName)
+                        .textFieldStyle(.plain)
+                        .font(.title3)
+                        .padding(.horizontal, 24).padding(.vertical, 18)
+                        .background(.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 14))
+                        .overlay(RoundedRectangle(cornerRadius: 14)
+                            .strokeBorder(.white.opacity(0.12), lineWidth: 1))
+                        .focused($nameFocused)
+                    Button { createAndAdd() } label: {
+                        Label("Create Playlist", systemImage: "plus.circle.fill")
+                            .font(.title3.weight(.semibold))
+                            .frame(maxWidth: .infinity)
                     }
+                    .buttonStyle(.borderedProminent)
+                    .disabled(newName.trimmingCharacters(in: .whitespaces).isEmpty)
                 }
 
                 if !playlists.isEmpty {
                     Text("Your Playlists").font(.system(size: 24, weight: .bold))
                         .foregroundStyle(.white.opacity(0.85))
                         .padding(.top, 8)
-                    LazyVStack(spacing: 16) {
+                    LazyVStack(spacing: 14) {
                         ForEach(playlists) { pl in
                             PlaylistPickRow(name: pl.name,
                                             count: pl.archiveIDs.count,
@@ -57,13 +58,16 @@ struct AddToPlaylistSheet: View {
                     }
                 }
 
-                Button("Done") { dismiss() }
-                    .buttonStyle(.bordered)
-                    .padding(.top, 12)
+                Button { dismiss() } label: {
+                    Text("Done").font(.title3.weight(.semibold)).frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.bordered)
+                .padding(.top, 12)
             }
-            .padding(80)
-            .frame(maxWidth: 1100, alignment: .leading)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: 1080, alignment: .leading)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 80)
+            .padding(.vertical, 80)
         }
         .background(Color.black.ignoresSafeArea())
     }
@@ -97,13 +101,13 @@ private struct PlaylistPickRow: View {
                 Image(systemName: isOn ? "checkmark.circle.fill" : "circle")
                     .font(.system(size: 30))
                     .foregroundStyle(isOn ? (Color(hex: "#FF5C35") ?? .orange) : .white.opacity(0.5))
-                Text(name).font(.system(size: 26, weight: .semibold))
+                Text(name).font(.system(size: 24, weight: .semibold))
                     .foregroundStyle(.white).lineLimit(1)
                 Spacer()
                 Text("\(count) \(count == 1 ? "title" : "titles")")
-                    .font(.title3).foregroundStyle(.white.opacity(0.5))
+                    .font(.system(size: 20)).foregroundStyle(.white.opacity(0.5))
             }
-            .padding(.horizontal, 28).padding(.vertical, 22)
+            .padding(.horizontal, 28).padding(.vertical, 20)
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .buttonStyle(.card)
@@ -238,38 +242,87 @@ struct PlaylistsSection: View {
 private struct PlaylistTile: View {
     let playlist: Playlist
     let action: () -> Void
+    @Environment(AppStore.self) private var store
     @FocusState private var isFocused: Bool
 
     private let cardWidth: CGFloat = 240
     private let cardHeight: CGFloat = 360
 
+    // #9: build the cover from the playlist's own item posters, not a flat color.
+    private var posters: [URL] {
+        playlist.archiveIDs.prefix(8).compactMap { store.dbItem($0) }
+            .compactMap { $0.hasDesignedArtwork ? $0.posterURLParsed : nil }
+    }
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 14) {
             Button(action: action) {
-                RoundedRectangle(cornerRadius: 14)
-                    .fill(LinearGradient(colors: [Color(hex: "#2D5BFF") ?? .blue, .black],
-                                         startPoint: .topLeading, endPoint: .bottomTrailing))
-                    .frame(width: cardWidth, height: cardHeight)
-                    .overlay {
-                        Image(systemName: "music.note.list")
-                            .font(.system(size: 72))
-                            .foregroundStyle(.white.opacity(0.85))
-                    }
+                PlaylistCover(posters: posters, width: cardWidth, height: cardHeight)
             }
             .buttonStyle(.card)
             .focused($isFocused)
 
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: .leading, spacing: 6) {
                 Text(playlist.name)
-                    .font(.system(size: 19, weight: .semibold))
+                    .font(.system(size: 20, weight: .semibold))
                     .foregroundStyle(.white)
                     .lineLimit(1)
-                Text("\(playlist.archiveIDs.count) titles")
+                Text("\(playlist.archiveIDs.count) \(playlist.archiveIDs.count == 1 ? "title" : "titles")")
                     .font(.system(size: 17))
                     .foregroundStyle(.white.opacity(0.55))
             }
             .frame(width: cardWidth, alignment: .leading)
             .opacity(isFocused ? 1.0 : 0.85)
         }
+    }
+}
+
+/// A playlist cover composed from the posters of its items: 1 → full bleed,
+/// 2–3 → split, 4+ → 2×2 mosaic. Falls back to a film icon when none of the
+/// items have designed artwork yet (#9).
+private struct PlaylistCover: View {
+    let posters: [URL]
+    let width: CGFloat
+    let height: CGFloat
+
+    var body: some View {
+        Group {
+            switch posters.count {
+            case 0:
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(LinearGradient(colors: [Color(hex: "#2D5BFF") ?? .blue, .black],
+                                         startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .overlay {
+                        Image(systemName: "film.stack")
+                            .font(.system(size: 72)).foregroundStyle(.white.opacity(0.85))
+                    }
+            case 1:
+                tile(posters[0], width, height)
+            case 2:
+                HStack(spacing: 2) {
+                    tile(posters[0], width / 2, height)
+                    tile(posters[1], width / 2, height)
+                }
+            default:
+                VStack(spacing: 2) {
+                    HStack(spacing: 2) {
+                        tile(posters[0], width / 2, height / 2)
+                        tile(posters[1], width / 2, height / 2)
+                    }
+                    HStack(spacing: 2) {
+                        tile(posters[2], width / 2, height / 2)
+                        tile(posters.count > 3 ? posters[3] : posters[0], width / 2, height / 2)
+                    }
+                }
+            }
+        }
+        .frame(width: width, height: height)
+        .clipShape(RoundedRectangle(cornerRadius: 14))
+    }
+
+    private func tile(_ url: URL, _ w: CGFloat, _ h: CGFloat) -> some View {
+        RemoteImage(url: url, targetSize: CGSize(width: w * 2, height: h * 2),
+                    contentMode: .fill, placeholder: Color(white: 0.1))
+            .frame(width: w, height: h).clipped()
     }
 }
