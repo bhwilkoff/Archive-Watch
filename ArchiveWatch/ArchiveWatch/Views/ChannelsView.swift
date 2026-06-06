@@ -73,11 +73,14 @@ struct ChannelsView: View {
                 screen
             } else { ChannelUnavailable() }
         }
-        .sheet(isPresented: $showCreate, onDismiss: rebuild) { CreateChannelSheet() }
+        // fullScreenCover (not .sheet): a tvOS sheet leaves the TabView sidebar
+        // visible at the edge, overlapping the modal's title (#4).
+        .fullScreenCover(isPresented: $showCreate, onDismiss: rebuild) { CreateChannelSheet() }
     }
 
     private var header: some View {
-        HStack(alignment: .firstTextBaseline) {
+        @Bindable var store = store
+        return HStack(alignment: .center, spacing: 16) {
             VStack(alignment: .leading, spacing: 6) {
                 Text("Channels")
                     .font(.system(size: 48, weight: .heavy, design: .serif))
@@ -86,15 +89,25 @@ struct ChannelsView: View {
                     .font(.title3).foregroundStyle(.white.opacity(0.6))
             }
             Spacer()
+            // #3e: flip commercial breaks without digging into Settings.
+            Button { store.channelCommercialBreaks.toggle() } label: {
+                Label(store.channelCommercialBreaks ? "Commercials: On" : "Commercials: Off",
+                      systemImage: store.channelCommercialBreaks ? "tv.fill" : "tv.slash")
+                    .font(.system(size: 20, weight: .semibold))
+            }
+            .buttonStyle(.bordered)
             Button { showCreate = true } label: {
                 Label("Create Channel", systemImage: "plus.circle.fill")
-                    .font(.system(size: 22, weight: .semibold))
+                    .font(.system(size: 20, weight: .semibold))
             }
             .buttonStyle(.bordered)
         }
         .padding(.horizontal, 80)
         .padding(.top, 40)
         .padding(.bottom, 20)
+        // #2: reach the header controls by pressing Up from any program in the
+        // top channel row, not just the program beneath them (tvOS focus section).
+        .focusSection()
     }
 
     // MARK: - Schedule build
@@ -253,8 +266,10 @@ private struct ChannelRow: View {
                 }
                 Spacer(minLength: 0)
             }
+            // No .clipped(): clipping cut the focus-expanded block (#3b/#3d). The
+            // blocks already sum to ~timelineW (slots are capped at windowEnd), so
+            // only a focused block briefly overflows — which is what we want.
             .frame(width: timelineW, height: rowH, alignment: .leading)
-            .clipped()
         }
     }
 
@@ -285,6 +300,13 @@ private struct ProgramBlock: View {
     let action: () -> Void
     @Environment(\.isFocused) private var isFocused
 
+    // #3d: a focused block expands rightward to a readable width so even very
+    // short programs (cartoons, ad breaks) reveal their full title + info. We do
+    // NOT use .card (its scale pushed the leftmost block under the channel rail
+    // and let neighbors show through, #3b) — the focus treatment is an opaque
+    // fill + border + a wider frame, and it's raised above siblings via zIndex.
+    private var renderWidth: CGFloat { isFocused ? max(width, 360) : width }
+
     var body: some View {
         Button(action: action) {
             VStack(alignment: .leading, spacing: 4) {
@@ -292,32 +314,27 @@ private struct ProgramBlock: View {
                     Text("ON NOW").font(.system(size: 11, weight: .heavy))
                         .foregroundStyle(isFocused ? .white : accent)
                 }
-                Text(slot.item.title)
+                Text(slot.item.title)                         // #3a: wraps, never clipped when focused
                     .font(.system(size: 17, weight: .semibold))
-                    .foregroundStyle(.white).lineLimit(2)
-                if width > 150 {
-                    HStack(spacing: 6) {
-                        if let r = slot.item.contentRating, !r.isEmpty {
-                            Text(r).font(.system(size: 11, weight: .bold))
-                                .padding(.horizontal, 5).padding(.vertical, 1)
-                                .background(.white.opacity(isFocused ? 0.3 : 0.15),
-                                            in: RoundedRectangle(cornerRadius: 4))
-                                .foregroundStyle(.white.opacity(0.9))
-                        }
-                        if let y = slot.item.year {
-                            Text(verbatim: String(y)).font(.system(size: 13))
-                                .foregroundStyle(.white.opacity(0.6))
-                        }
-                    }
+                    .foregroundStyle(.white)
+                    .lineLimit(isFocused ? 4 : 2)
+                    .fixedSize(horizontal: false, vertical: true)
+                if isFocused, let y = slot.item.year {        // #3c: rating chip removed; keep year
+                    Text(verbatim: String(y)).font(.system(size: 14))
+                        .foregroundStyle(.white.opacity(0.75))
                 }
                 Spacer(minLength: 0)
             }
             .padding(.horizontal, 12).padding(.vertical, 9)
-            .frame(width: width, height: height, alignment: .topLeading)
+            .frame(width: renderWidth, height: height, alignment: .topLeading)
             .background(RoundedRectangle(cornerRadius: 8)
-                .fill(isFocused ? accent.opacity(0.9) : Color.white.opacity(0.08)))
+                .fill(isFocused ? accent : Color.white.opacity(0.08)))   // #3b: opaque on focus
+            .overlay(RoundedRectangle(cornerRadius: 8)
+                .strokeBorder(.white.opacity(isFocused ? 0.9 : 0.0), lineWidth: 3))
         }
-        .buttonStyle(.card)
+        .buttonStyle(.borderless)
+        .focusEffectDisabled()
+        .zIndex(isFocused ? 1 : 0)                            // #3b: draw over neighbors
     }
 }
 
@@ -370,10 +387,12 @@ private struct CreateChannelSheet: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 36) {
-                VStack(alignment: .leading, spacing: 8) {
+            // Centered, fixed-width column so the modal reads as a native tvOS
+            // form and never collides with the screen edges (#4).
+            VStack(alignment: .leading, spacing: 40) {
+                VStack(alignment: .leading, spacing: 10) {
                     Text("Create a Channel")
-                        .font(.system(size: 46, weight: .heavy, design: .serif))
+                        .font(.system(size: 48, weight: .heavy, design: .serif))
                         .foregroundStyle(.white)
                     Text("Pick any mix of filters — it plays straight through, all day.")
                         .font(.title3).foregroundStyle(.white.opacity(0.6))
@@ -392,14 +411,16 @@ private struct CreateChannelSheet: View {
                     TextField(autoName, text: $name)
                         .textFieldStyle(.plain)
                         .font(.title3)
-                        .padding(18)
-                        .background(.white.opacity(0.1), in: RoundedRectangle(cornerRadius: 12))
-                        .frame(maxWidth: 700)
+                        .padding(.horizontal, 24).padding(.vertical, 18)
+                        .background(.white.opacity(0.08), in: RoundedRectangle(cornerRadius: 14))
+                        .overlay(RoundedRectangle(cornerRadius: 14)
+                            .strokeBorder(.white.opacity(0.12), lineWidth: 1))
                     Text("Leave blank to use “\(autoName)”.")
                         .font(.callout).foregroundStyle(.white.opacity(0.45))
                 }
 
-                HStack(spacing: 20) {
+                // Uniform full-width primary + secondary buttons (#4).
+                VStack(spacing: 16) {
                     Button {
                         let n = name.trimmingCharacters(in: .whitespaces)
                         ctx.insert(UserChannel(name: n.isEmpty ? autoName : n,
@@ -408,14 +429,22 @@ private struct CreateChannelSheet: View {
                     } label: {
                         Label("Create Channel", systemImage: "plus.circle.fill")
                             .font(.title3.weight(.semibold))
+                            .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.borderedProminent).disabled(!canSave)
-                    Button("Cancel") { dismiss() }.buttonStyle(.bordered)
+
+                    Button { dismiss() } label: {
+                        Text("Cancel").font(.title3.weight(.semibold))
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(.bordered)
                 }
-                .padding(.top, 8)
+                .padding(.top, 12)
             }
-            .padding(80)
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(maxWidth: 1080, alignment: .leading)
+            .frame(maxWidth: .infinity)   // center the column
+            .padding(.horizontal, 80)
+            .padding(.vertical, 80)
         }
         .background(Color.black.ignoresSafeArea())
     }

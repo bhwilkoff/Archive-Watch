@@ -58,6 +58,9 @@ struct TVShowsView: View {
                 header
                     .padding(.horizontal, 80)
                     .padding(.top, 24)
+                    // Reach Sort by pressing Up from any grid cell, not just the
+                    // rightmost column (tvOS focus section).
+                    .focusSection()
 
                 if items.isEmpty {
                     EmptyState()

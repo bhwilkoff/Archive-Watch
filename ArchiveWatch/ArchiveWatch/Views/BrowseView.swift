@@ -162,6 +162,10 @@ struct BrowseView: View {
                 }
                 .padding(.horizontal, 80)
                 .padding(.top, 24)
+                // Make the Filters/Sort controls reachable by pressing Up from
+                // ANY grid tile, not just the column beneath them (tvOS focus
+                // sections route directional moves to the whole group).
+                .focusSection()
 
                 if filtersShown && !isPreFiltered {
                     FilterChipBar(filter: $filter)
@@ -234,6 +238,7 @@ struct FilterChipBar: View {
             decadeRow
             genreRow
         }
+        .focusSection()
         .task(id: store.dbGeneration) {
             decades = store.dbDecadeCounts().keys.sorted()
             genres = store.dbTopGenres()

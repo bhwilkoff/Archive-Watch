@@ -54,6 +54,10 @@ struct FavoritesView: View {
                     emptyState
                         .frame(maxWidth: .infinity)
                         .padding(.top, 60)
+                        // Reach "Browse the Collection" by pressing Up from any
+                        // item in the Watched/Playlists rows below, not just the
+                        // one beneath the centered button (tvOS focus section).
+                        .focusSection()
                 } else {
                     HStack(alignment: .firstTextBaseline, spacing: 16) {
                         Text("Favorites")
