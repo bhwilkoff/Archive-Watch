@@ -634,6 +634,13 @@ struct PlayerScreen: View {
         if let active {
             playerItem.externalMetadata = makeExternalMetadata(for: active)
         }
+        // Cap commercial breaks at the user's preferred length (Channels view /
+        // Settings; 0 = play in full). When capped, AVFoundation fires
+        // DidPlayToEndTime at the cap and the lineup advances to the next title.
+        if active?.contentType == "commercial", store.commercialBreakMaxSeconds > 0 {
+            playerItem.forwardPlaybackEndTime =
+                CMTime(seconds: Double(store.commercialBreakMaxSeconds), preferredTimescale: 600)
+        }
         let p = AVPlayer(playerItem: playerItem)
         tunePlaybackBuffering(item: playerItem, player: p)
         p.isMuted = muted   // #3 party play (persists across lineup advances)

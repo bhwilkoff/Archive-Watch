@@ -97,6 +97,16 @@ final class AppStore {
         return UserDefaults.standard.bool(forKey: commercialBreaksKey)
     }
 
+    /// Max length of a commercial break, in seconds. The player cuts a longer ad
+    /// off at this point and moves to the next full title. 0 = play the ad in full
+    /// (no cap). User-set from the Channels view + Settings; default 60s.
+    var commercialBreakMaxSeconds: Int = {
+        UserDefaults.standard.object(forKey: "commercialBreakMaxSeconds") != nil
+            ? UserDefaults.standard.integer(forKey: "commercialBreakMaxSeconds") : 60
+    }() {
+        didSet { UserDefaults.standard.set(commercialBreakMaxSeconds, forKey: "commercialBreakMaxSeconds") }
+    }
+
     // #83 idle screensaver. Transient flag set by the players so the idle
     // trigger can NEVER fire over a video. Opt-in (default off) so it can't
     // surprise anyone; RootView watches it.

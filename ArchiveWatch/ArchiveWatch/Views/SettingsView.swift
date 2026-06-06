@@ -144,7 +144,14 @@ struct SettingsView: View {
             } label: {
                 ToggleLabel(title: "Autoplay Next")
             }
-            Toggle(isOn: commercialBreaksBinding) {
+            Picker(selection: commercialLengthBinding) {
+                Text("Off").tag(-1)
+                Text("30 sec").tag(30)
+                Text("1 min").tag(60)
+                Text("2 min").tag(120)
+                Text("3 min").tag(180)
+                Text("Full length").tag(0)
+            } label: {
                 ToggleLabel(title: "Commercial Breaks on Channels")
             }
             Toggle(isOn: idleSaverBinding) {
@@ -165,8 +172,16 @@ struct SettingsView: View {
         Binding(get: { store.autoplayMode }, set: { store.autoplayMode = $0 })
     }
 
-    private var commercialBreaksBinding: Binding<Bool> {
-        Binding(get: { store.channelCommercialBreaks }, set: { store.channelCommercialBreaks = $0 })
+    /// Maps the on/off + max-length pair to a single Picker selection.
+    /// -1 = Off, 0 = Full length, otherwise the cap in seconds.
+    private var commercialLengthBinding: Binding<Int> {
+        Binding(
+            get: { store.channelCommercialBreaks ? store.commercialBreakMaxSeconds : -1 },
+            set: { v in
+                if v == -1 { store.channelCommercialBreaks = false }
+                else { store.channelCommercialBreaks = true; store.commercialBreakMaxSeconds = v }
+            }
+        )
     }
 
     private var matureSection: some View {

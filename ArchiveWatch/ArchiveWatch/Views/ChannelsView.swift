@@ -29,6 +29,11 @@ struct Channel: Identifiable, Hashable {
         .init(id: "cartoon", title: "Cartoon Classics",tagline: "Animation all day", hex: "#FF4D8D", icon: "paintbrush.fill", contentType: "animation"),
         .init(id: "news",    title: "Newsreel Desk",   tagline: "History as it broke", hex: "#8A8F98", icon: "newspaper.fill", contentType: "newsreel"),
         .init(id: "docs",    title: "Documentary",     tagline: "Real stories", hex: "#3FA796", icon: "globe.americas.fill", contentType: "documentary"),
+        // TV channels (not just movies) — built from playable classic-TV items.
+        .init(id: "tv",        title: "Classic TV",   tagline: "Vintage television", hex: "#2D5BFF", icon: "tv.fill", contentType: "tv-special"),
+        .init(id: "tv-comedy", title: "TV Comedy",    tagline: "Sitcoms & sketch", hex: "#E8A317", icon: "tv.fill", contentType: "tv-special", genre: "Comedy"),
+        .init(id: "tv-drama",  title: "TV Drama",     tagline: "Series drama", hex: "#FF5C35", icon: "tv.fill", contentType: "tv-special", genre: "Drama"),
+        .init(id: "tv-western",title: "TV Westerns",  tagline: "Saddle up, every hour", hex: "#C9A66B", icon: "tv.fill", contentType: "tv-special", genre: "Western"),
     ]
 }
 
@@ -48,12 +53,20 @@ struct ChannelsView: View {
     @Query(sort: \UserChannel.createdAt, order: .reverse) private var userChannels: [UserChannel]
     @State private var playing: ChannelLineup?
     @State private var showCreate = false
+    @State private var showCommercialOptions = false
     @State private var guide: [GuideChannel] = []
     @State private var builtAt = Date()
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             header
+            if showCommercialOptions {
+                CommercialBreakControl()
+                    .padding(.horizontal, 80)
+                    .padding(.bottom, 14)
+                    .focusSection()
+                    .transition(.opacity.combined(with: .move(edge: .top)))
+            }
             if guide.isEmpty {
                 Spacer()
                 Text("Building the guide…")
@@ -89,9 +102,10 @@ struct ChannelsView: View {
                     .font(.title3).foregroundStyle(.white.opacity(0.6))
             }
             Spacer()
-            // #3e: flip commercial breaks without digging into Settings.
-            Button { store.channelCommercialBreaks.toggle() } label: {
-                Label(store.channelCommercialBreaks ? "Commercials: On" : "Commercials: Off",
+            // #3e: set commercial breaks (on/off + length) right from the guide,
+            // without digging into Settings. Reveals the length pills below.
+            Button { withAnimation(Motion.chrome) { showCommercialOptions.toggle() } } label: {
+                Label("Commercials: \(commercialLabel)",
                       systemImage: store.channelCommercialBreaks ? "tv.fill" : "tv.slash")
                     .font(.system(size: 20, weight: .semibold))
             }
@@ -108,6 +122,11 @@ struct ChannelsView: View {
         // #2: reach the header controls by pressing Up from any program in the
         // top channel row, not just the program beneath them (tvOS focus section).
         .focusSection()
+    }
+
+    private var commercialLabel: String {
+        CommercialBreakControl.shortLabel(on: store.channelCommercialBreaks,
+                                          seconds: store.commercialBreakMaxSeconds)
     }
 
     // MARK: - Schedule build
@@ -127,8 +146,10 @@ struct ChannelsView: View {
             number += 1
         }
         for ch in Channel.all {
-            let raw = ch.genre.map { store.dbBrowse(genre: $0, sort: .popular, limit: 200) }
-                ?? store.dbBrowse(contentType: ch.contentType, sort: .popular, limit: 200)
+            // contentType + genre together (TV channels use both; movie genre
+            // channels pass contentType nil, type channels pass genre nil).
+            let raw = store.dbBrowse(contentType: ch.contentType, genre: ch.genre,
+                                     sort: .popular, limit: 200)
             let slots = ChannelScheduler.schedule(channelID: ch.id, programs: playable(raw), now: now)
             guard !slots.isEmpty else { continue }
             out.append(GuideChannel(id: ch.id, number: number, title: ch.title,
@@ -139,8 +160,11 @@ struct ChannelsView: View {
         guide = out
     }
 
+    // The EPG shows program TITLES, not posters, so a channel needs PLAYABLE
+    // items, not arty ones — requiring designed artwork needlessly emptied
+    // channels (especially TV, whose art is sparse).
     private func playable(_ items: [Catalog.Item]) -> [Catalog.Item] {
-        items.filter { $0.videoURLParsed != nil && $0.hasDesignedArtwork }
+        items.filter { $0.videoURLParsed != nil }
     }
 
     // MARK: - Tune in
@@ -172,6 +196,58 @@ struct ChannelLineup: Identifiable {
     let id = UUID()
     let items: [Catalog.Item]
     var startOffset: TimeInterval = 0
+}
+
+// MARK: - Commercial-break length control (Channels view + Settings)
+
+/// User-selectable commercial-break behavior shown as a pill row: Off, or a max
+/// length the player caps each ad at (0 = play in full). Drives
+/// `AppStore.channelCommercialBreaks` + `commercialBreakMaxSeconds`. Reused by
+/// the Channels header reveal and by Settings.
+struct CommercialBreakControl: View {
+    @Environment(AppStore.self) private var store
+
+    private struct Opt: Identifiable { let id: Int; let label: String; let on: Bool; let secs: Int }
+    private let opts: [Opt] = [
+        .init(id: 0, label: "Off",         on: false, secs: 0),
+        .init(id: 1, label: "30 sec",      on: true,  secs: 30),
+        .init(id: 2, label: "1 min",       on: true,  secs: 60),
+        .init(id: 3, label: "2 min",       on: true,  secs: 120),
+        .init(id: 4, label: "3 min",       on: true,  secs: 180),
+        .init(id: 5, label: "Full length", on: true,  secs: 0),
+    ]
+
+    private func isActive(_ o: Opt) -> Bool {
+        o.on ? (store.channelCommercialBreaks && store.commercialBreakMaxSeconds == o.secs)
+             : !store.channelCommercialBreaks
+    }
+
+    /// Short label for the toggle button ("Off" / "1 min" / "Full").
+    static func shortLabel(on: Bool, seconds: Int) -> String {
+        guard on else { return "Off" }
+        if seconds == 0 { return "Full" }
+        return seconds % 60 == 0 ? "\(seconds / 60) min" : "\(seconds) sec"
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Commercial breaks between titles")
+                .font(.system(size: 22, weight: .bold))
+                .foregroundStyle(.white.opacity(0.85))
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 14) {
+                    ForEach(opts) { o in
+                        Chip(label: o.label, isOn: isActive(o),
+                             accent: Color(hex: "#FF5C35") ?? .orange) {
+                            store.channelCommercialBreaks = o.on
+                            if o.on { store.commercialBreakMaxSeconds = o.secs }
+                        }
+                    }
+                }
+                .padding(.vertical, 4)
+            }
+        }
+    }
 }
 
 // MARK: - The guide grid (proportional EPG)
@@ -304,10 +380,7 @@ private struct ProgramBlock: View {
     @Environment(\.isFocused) private var isFocused
 
     // #3d: a focused block expands rightward to a readable width so even very
-    // short programs (cartoons, ad breaks) reveal their full title + info. We do
-    // NOT use .card (its scale pushed the leftmost block under the channel rail
-    // and let neighbors show through, #3b) — the focus treatment is an opaque
-    // fill + border + a wider frame, and it's raised above siblings via zIndex.
+    // short programs (cartoons, ad breaks) reveal their full title + info.
     private var renderWidth: CGFloat { isFocused ? max(width, 360) : width }
 
     var body: some View {
@@ -322,7 +395,7 @@ private struct ProgramBlock: View {
                     .foregroundStyle(.white)
                     .lineLimit(isFocused ? 4 : 2)
                     .fixedSize(horizontal: false, vertical: true)
-                if isFocused, let y = slot.item.year {        // #3c: rating chip removed; keep year
+                if isFocused || width > 150, let y = slot.item.year {   // year restored
                     Text(verbatim: String(y)).font(.system(size: 14))
                         .foregroundStyle(.white.opacity(0.75))
                 }
@@ -330,14 +403,16 @@ private struct ProgramBlock: View {
             }
             .padding(.horizontal, 12).padding(.vertical, 9)
             .frame(width: renderWidth, height: height, alignment: .topLeading)
+            // Fully opaque fill (#3b: never let neighbors show through the
+            // focused block — the old accent.opacity(0.9) was the culprit).
             .background(RoundedRectangle(cornerRadius: 8)
-                .fill(isFocused ? accent : Color.white.opacity(0.08)))   // #3b: opaque on focus
-            .overlay(RoundedRectangle(cornerRadius: 8)
-                .strokeBorder(.white.opacity(isFocused ? 0.9 : 0.0), lineWidth: 3))
+                .fill(isFocused ? accent : Color(white: 0.12)))
         }
-        .buttonStyle(.borderless)
-        .focusEffectDisabled()
-        .zIndex(isFocused ? 1 : 0)                            // #3b: draw over neighbors
+        // .card keeps the blocks FOCUSABLE (the .borderless swap made the whole
+        // guide inaccessible). The opaque fill above replaces the transparency
+        // that let neighbors show through; zIndex raises the focused block.
+        .buttonStyle(.card)
+        .zIndex(isFocused ? 1 : 0)
     }
 }
 
