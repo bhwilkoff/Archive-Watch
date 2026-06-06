@@ -137,7 +137,7 @@ struct BrowseView: View {
             VStack(alignment: .leading, spacing: 24) {
                 HStack(spacing: 20) {
                     Text(headline)
-                        .font(.title.bold())
+                        .font(.system(size: 54, weight: .heavy, design: .serif))  // #6: match every other page
                         .foregroundStyle(.white)
                     Text("\(totalCount.formatted()) titles")
                         .font(.title3)

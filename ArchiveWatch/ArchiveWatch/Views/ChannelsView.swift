@@ -94,13 +94,9 @@ struct ChannelsView: View {
     private var header: some View {
         @Bindable var store = store
         return HStack(alignment: .center, spacing: 16) {
-            VStack(alignment: .leading, spacing: 6) {
-                Text("Channels")
-                    .font(.system(size: 48, weight: .heavy, design: .serif))
-                    .foregroundStyle(.white)
-                Text("What's on now — tune in and it plays straight through.")
-                    .font(.title3).foregroundStyle(.white.opacity(0.6))
-            }
+            Text("Channels")
+                .font(.system(size: 54, weight: .heavy, design: .serif))
+                .foregroundStyle(.white)
             Spacer()
             // #3e: set commercial breaks (on/off + length) right from the guide,
             // without digging into Settings. Reveals the length pills below.
@@ -137,7 +133,7 @@ struct ChannelsView: View {
         var number = 2
         for uc in userChannels {
             let pool = playable(store.dbBrowse(contentType: uc.contentType, decade: uc.decade,
-                                               genre: uc.genre, sort: .popular, limit: 250))
+                                               genre: uc.genre, sort: .popular, limit: 150))
             let slots = ChannelScheduler.schedule(channelID: "user-\(uc.id)", programs: pool, now: now)
             guard !slots.isEmpty else { continue }
             out.append(GuideChannel(id: "user-\(uc.id)", number: number, title: uc.name,
@@ -148,8 +144,10 @@ struct ChannelsView: View {
         for ch in Channel.all {
             // contentType + genre together (TV channels use both; movie genre
             // channels pass contentType nil, type channels pass genre nil).
+            // #2: a tighter top-N pool so channels skew to higher-interest titles
+            // (the scheduler shuffles the WHOLE pool, so a big limit dilutes it).
             let raw = store.dbBrowse(contentType: ch.contentType, genre: ch.genre,
-                                     sort: .popular, limit: 200)
+                                     sort: .popular, limit: 90)
             let slots = ChannelScheduler.schedule(channelID: ch.id, programs: playable(raw), now: now)
             guard !slots.isEmpty else { continue }
             out.append(GuideChannel(id: ch.id, number: number, title: ch.title,
@@ -377,25 +375,29 @@ private struct ProgramBlock: View {
     let width: CGFloat
     let height: CGFloat
     let action: () -> Void
-    @Environment(\.isFocused) private var isFocused
+    // #1: drive focus visuals from @FocusState (the BUTTON's focus), not
+    // @Environment(\.isFocused) read at this parent level — that stayed false, so
+    // the width expansion / opaque fill never fired (only .card's own highlight
+    // showed). With this, short programs actually expand on highlight.
+    @FocusState private var focused: Bool
 
     // #3d: a focused block expands rightward to a readable width so even very
     // short programs (cartoons, ad breaks) reveal their full title + info.
-    private var renderWidth: CGFloat { isFocused ? max(width, 360) : width }
+    private var renderWidth: CGFloat { focused ? max(width, 360) : width }
 
     var body: some View {
         Button(action: action) {
             VStack(alignment: .leading, spacing: 4) {
                 if isNow {
                     Text("ON NOW").font(.system(size: 11, weight: .heavy))
-                        .foregroundStyle(isFocused ? .white : accent)
+                        .foregroundStyle(focused ? .white : accent)
                 }
                 Text(slot.item.title)                         // #3a: wraps, never clipped when focused
                     .font(.system(size: 17, weight: .semibold))
                     .foregroundStyle(.white)
-                    .lineLimit(isFocused ? 4 : 2)
+                    .lineLimit(focused ? 4 : 2)
                     .fixedSize(horizontal: false, vertical: true)
-                if isFocused || width > 150, let y = slot.item.year {   // year restored
+                if focused || width > 150, let y = slot.item.year {   // year restored
                     Text(verbatim: String(y)).font(.system(size: 14))
                         .foregroundStyle(.white.opacity(0.75))
                 }
@@ -406,13 +408,12 @@ private struct ProgramBlock: View {
             // Fully opaque fill (#3b: never let neighbors show through the
             // focused block — the old accent.opacity(0.9) was the culprit).
             .background(RoundedRectangle(cornerRadius: 8)
-                .fill(isFocused ? accent : Color(white: 0.12)))
+                .fill(focused ? accent : Color(white: 0.12)))
+            .animation(Motion.focus, value: focused)
         }
-        // .card keeps the blocks FOCUSABLE (the .borderless swap made the whole
-        // guide inaccessible). The opaque fill above replaces the transparency
-        // that let neighbors show through; zIndex raises the focused block.
         .buttonStyle(.card)
-        .zIndex(isFocused ? 1 : 0)
+        .focused($focused)
+        .zIndex(focused ? 1 : 0)
     }
 }
 

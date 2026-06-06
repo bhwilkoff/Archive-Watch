@@ -179,12 +179,19 @@ struct HeroCarousel: View {
         .overlay(alignment: .bottom) {
             pageIndicator.padding(.bottom, 56).allowsHitTesting(false)
         }
-        // Auto-advance only while the hero ISN'T focused (user is reading the
-        // shelves below) — never yank the page out from under an active swipe.
+        // #4: auto-advance whether or not the hero is focused. When it IS focused
+        // we move FOCUS to the next banner (not just the scroll position) — the old
+        // code advanced only when unfocused, so on Home (where the hero claims
+        // focus) it never advanced, and setting scrolledID alone while focused
+        // stranded focus on an off-screen banner.
         .onReceive(autoAdvance) { _ in
-            guard focusedID == nil, items.count > 1 else { return }
+            guard items.count > 1 else { return }
             let next = (currentIndex + 1) % items.count
-            withAnimation(Motion.heroCrossfade) { scrolledID = items[next].archiveID }
+            if focusedID != nil {
+                focusedID = items[next].archiveID
+            } else {
+                withAnimation(Motion.heroCrossfade) { scrolledID = items[next].archiveID }
+            }
         }
         // Claim focus + initial page ONCE on first appearance.
         .task {

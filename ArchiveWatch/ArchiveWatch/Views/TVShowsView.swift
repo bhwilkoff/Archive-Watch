@@ -99,7 +99,7 @@ struct TVShowsView: View {
         HStack(alignment: .center, spacing: 20) {
             VStack(alignment: .leading, spacing: 6) {
                 Text("TV Shows")
-                    .font(.title.bold())
+                    .font(.system(size: 54, weight: .heavy, design: .serif))  // #6: match every other page
                     .foregroundStyle(.white)
                 Text("\(items.count) series · tap to browse episodes")
                     .font(.title3)
