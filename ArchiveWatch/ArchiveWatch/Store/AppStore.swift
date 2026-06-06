@@ -350,15 +350,34 @@ final class AppStore {
             }
         }
         let groups: [(String, [Catalog.Item])] = [
-            ("Color Classics", byWords(["color", "colour", "technicolor"])),
-            ("Funny Animals",  byWords(["mouse", "cat", "dog", "rabbit", "bear", "duck", "pig"])),
-            ("Super Heroes",   byWords(["superman", "hero", "super"])),
-            ("Sing-Along",     byWords(["song", "music", "sing", "musical"])),
-            ("1930s Toons",    byDecade(1930)),
-            ("1940s Toons",    byDecade(1940)),
-            ("1950s Toons",    byDecade(1950)),
+            ("Color Classics",   byWords(["color", "colour", "technicolor"])),
+            ("Funny Animals",    byWords(["mouse", "cat", "dog", "rabbit", "bear", "duck", "pig", "fox", "squirrel"])),
+            ("Sing-Along",       byWords(["song", "music", "sing", "musical", "jazz", "band", "melody"])),
+            ("Fairy Tales",      byWords(["fairy", "tale", "prince", "princess", "king", "queen", "castle", "giant", "witch", "gnome", "elf"])),
+            ("Under the Sea",    byWords(["sea", "ocean", "fish", "underwater", "mermaid", "whale", "pirate", "sailor", "boat", "ship"])),
+            ("Space & Robots",   byWords(["space", "rocket", "planet", "moon", "robot", "mars", "martian", "future"])),
+            ("Spooky Fun",       byWords(["ghost", "spooky", "haunted", "skeleton", "goblin"])),
+            ("Holidays",         byWords(["christmas", "santa", "holiday", "new year", "easter", "halloween"])),
+            ("Circus & Clowns",  byWords(["circus", "clown", "carnival", "ringmaster"])),
+            ("Wild West",        byWords(["cowboy", "west", "western", "ranch", "rodeo"])),
+            ("Birds of a Feather", byWords(["bird", "owl", "crow", "chicken", "rooster", "penguin", "stork"])),
+            ("Bugs & Bees",      byWords(["bug", "bee", "ant", "insect", "spider", "grasshopper", "fly"])),
+            ("Things That Go",   byWords(["car", "auto", "airplane", "plane", "train", "truck", "race"])),
+            ("Super Heroes",     byWords(["superman", "hero", "super"])),
+            ("Big Adventures",   byWords(["adventure", "jungle", "island", "treasure", "explorer", "safari"])),
+            ("Dance Party",      byWords(["dance", "ballet", "party", "swing"])),
+            ("Fables & Morals",  byWords(["fable", "aesop", "moral", "lesson"])),
+            ("Laugh-Out-Loud",   byWords(["comedy", "slapstick", "gag", "funny", "laugh"])),
+            ("1930s Toons",      byDecade(1930)),
+            ("1940s Toons",      byDecade(1940)),
+            ("1950s Toons",      byDecade(1950)),
         ]
-        return groups.compactMap { $0.1.count >= 6 ? ($0.0, $0.1) : nil }
+        // Dedupe each group and require enough to fill a row; keep declared order.
+        return groups.compactMap { name, items in
+            var seen = Set<String>()
+            let uniq = items.filter { seen.insert($0.archiveID).inserted }
+            return uniq.count >= 6 ? (name, uniq) : nil
+        }
     }
     func dbRandomSeries() -> Catalog.Item? { db?.randomSeries() }
     func dbRandomByGenre(_ genres: [String]) -> Catalog.Item? { db?.randomByGenre(genres) }
