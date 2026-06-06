@@ -28,8 +28,11 @@ struct RootView: View {
     // low activity; resets on tab switch, scene change, or playback start/stop.
     @State private var idleSeconds = 0
     @State private var showSaver = false
+    @State private var devMode: DevMode?   // screenshot hook (AW_START_MODE), no-op in prod
     private let idleThreshold = 300   // 5 minutes
     private let idleTick = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
+
+    private struct DevMode: Identifiable { let id: String }
 
     var body: some View {
         @Bindable var router = router
@@ -104,6 +107,25 @@ struct RootView: View {
                     return
                 }
                 try? await Task.sleep(for: .milliseconds(200))
+            }
+        }
+        // Screenshot/dev affordance: `AW_START_MODE=kids|party|saver` opens that
+        // immersive mode once the catalog is ready. Unset in production (no-op).
+        .task {
+            guard let m = ProcessInfo.processInfo.environment["AW_START_MODE"] else { return }
+            for _ in 0..<50 {
+                if store.isReady { devMode = DevMode(id: m); return }
+                try? await Task.sleep(for: .milliseconds(200))
+            }
+        }
+        .fullScreenCover(item: $devMode) { dm in
+            switch dm.id {
+            case "kids":  KidsModeView()
+            case "saver": ScreensaverView()
+            case "party":
+                if let s = PlayerScreen(lineup: store.partyLineup(), startMuted: true) { s }
+                else { Color.black.ignoresSafeArea() }
+            default:      Color.black.ignoresSafeArea()
             }
         }
         // #83 idle screensaver (opt-in, never over playback).

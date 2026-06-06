@@ -23,7 +23,9 @@ struct ScreensaverView: View {
 
     private let spacing: CGFloat = 16
     private let targetWidth: CGFloat = 220   // ~2:3 poster width; grid fits to it
-    private let tick = Timer.publish(every: 0.9, on: .main, in: .common).autoconnect()
+    // Calm cadence: swap a couple tiles every few seconds. Faster than this churns
+    // posters quicker than they can load, leaving dark cells (and reads frantic).
+    private let tick = Timer.publish(every: 2.6, on: .main, in: .common).autoconnect()
 
     var body: some View {
         GeometryReader { geo in
@@ -96,11 +98,11 @@ struct ScreensaverView: View {
         guard pool.count > slots.count, !slots.isEmpty else { return }
         // Cross-dissolve a few random tiles each tick to fresh, non-visible posters.
         let onScreen = Set(slots.map(\.archiveID))
-        for _ in 0..<Int.random(in: 2...4) {
+        for _ in 0..<Int.random(in: 1...2) {
             guard let next = pool.first(where: { !onScreen.contains($0.archiveID) })
                     ?? pool.randomElement() else { continue }
             let i = Int.random(in: 0..<slots.count)
-            withAnimation(.easeInOut(duration: 0.8)) { slots[i] = next }
+            withAnimation(.easeInOut(duration: 1.0)) { slots[i] = next }
         }
         // Re-shuffle the pool occasionally so "next unseen" stays varied.
         if Int.random(in: 0..<12) == 0 { pool.shuffle() }
