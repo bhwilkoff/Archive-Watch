@@ -34,17 +34,6 @@ struct SurpriseView: View {
         .init(id: "cartoon",   title: "Cartoon Mode",           icon: "pawprint.fill",        hex: "#3FA796"),
         .init(id: "saver",     title: "Cover Art Wall",         icon: "square.grid.3x3.fill", hex: "#0047FF"),
     ]
-    @State private var showSaver = false
-    @State private var showKids = false
-
-    // #3/#2: a lineup presented full-screen (muted for party play).
-    fileprivate struct ModeLineup: Identifiable {
-        let id = UUID()
-        let items: [Catalog.Item]
-        let muted: Bool
-    }
-    @State private var mode: ModeLineup?
-
     private let cols = Array(repeating: GridItem(.flexible(), spacing: 32), count: 4)
 
     var body: some View {
@@ -69,13 +58,6 @@ struct SurpriseView: View {
             try? await Task.sleep(for: .milliseconds(80))
             focused = actions.first?.id
         }
-        .fullScreenCover(item: $mode) { m in
-            if let screen = PlayerScreen(lineup: m.items, startMuted: m.muted) {
-                screen
-            }
-        }
-        .fullScreenCover(isPresented: $showSaver) { ScreensaverView() }
-        .fullScreenCover(isPresented: $showKids) { KidsModeView() }
     }
 
     private var header: some View {
@@ -113,11 +95,11 @@ struct SurpriseView: View {
         case "pubdomain":
             router.push(PublicDomainRoute())
         case "party":
-            mode = ModeLineup(items: store.partyLineup(), muted: true)
+            router.tab = .party        // now a top-level tab
         case "cartoon":
-            showKids = true   // #1: opens the full Kids/Cartoon Mode interface
+            router.tab = .cartoons     // now a top-level tab
         case "saver":
-            showSaver = true
+            router.tab = .screensaver  // now a top-level tab
         default:
             break
         }

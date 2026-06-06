@@ -14,7 +14,8 @@ import SwiftUI
 final class Router {
 
     enum Tab: String, CaseIterable, Identifiable, Hashable {
-        case home, browse, tvShows, channels, collections, search, favorites, surprise, settings
+        case home, browse, tvShows, channels, cartoons, party, screensaver,
+             collections, search, favorites, surprise, settings
         var id: String { rawValue }
 
         var title: String {
@@ -23,6 +24,9 @@ final class Router {
             case .browse:      return "Movies"
             case .tvShows:     return "TV Shows"
             case .channels:    return "Channels"
+            case .cartoons:    return "Cartoons"
+            case .party:       return "Party Play"
+            case .screensaver: return "Screensaver"
             case .collections: return "Collections"
             case .search:      return "Search"
             case .favorites:   return "Library"
@@ -37,6 +41,9 @@ final class Router {
             case .browse:      return "film.fill"
             case .tvShows:     return "tv.fill"
             case .channels:    return "play.tv.fill"
+            case .cartoons:    return "pawprint.fill"
+            case .party:       return "sparkles.tv.fill"
+            case .screensaver: return "photo.stack.fill"
             case .collections: return "square.stack.3d.up.fill"
             case .search:      return "magnifyingglass"
             case .favorites:   return "books.vertical.fill"
@@ -64,6 +71,9 @@ final class Router {
     var browsePath = NavigationPath()
     var tvShowsPath = NavigationPath()
     var channelsPath = NavigationPath()
+    var cartoonsPath = NavigationPath()
+    var partyPath = NavigationPath()
+    var screensaverPath = NavigationPath()
     var collectionsPath = NavigationPath()
     var searchPath = NavigationPath()
     var favoritesPath = NavigationPath()
@@ -79,6 +89,9 @@ final class Router {
         case .browse:      browsePath.append(destination)
         case .tvShows:     tvShowsPath.append(destination)
         case .channels:    channelsPath.append(destination)
+        case .cartoons:    cartoonsPath.append(destination)
+        case .party:       partyPath.append(destination)
+        case .screensaver: screensaverPath.append(destination)
         case .collections: collectionsPath.append(destination)
         case .search:      searchPath.append(destination)
         case .favorites:   favoritesPath.append(destination)
@@ -94,6 +107,9 @@ final class Router {
         case .browse:      if !browsePath.isEmpty      { browsePath.removeLast() }
         case .tvShows:     if !tvShowsPath.isEmpty     { tvShowsPath.removeLast() }
         case .channels:    if !channelsPath.isEmpty    { channelsPath.removeLast() }
+        case .cartoons:    if !cartoonsPath.isEmpty    { cartoonsPath.removeLast() }
+        case .party:       if !partyPath.isEmpty       { partyPath.removeLast() }
+        case .screensaver: if !screensaverPath.isEmpty { screensaverPath.removeLast() }
         case .collections: if !collectionsPath.isEmpty { collectionsPath.removeLast() }
         case .search:      if !searchPath.isEmpty      { searchPath.removeLast() }
         case .favorites:   if !favoritesPath.isEmpty   { favoritesPath.removeLast() }

@@ -15,9 +15,10 @@ import SwiftUI
 //
 // Color-only, kid-safe content comes from AppStore.kids* (animation, never silent
 // B&W, scary subjects filtered). See [[home_filters_and_icon]].
+// A top-level tab page (its NavigationStack is provided by RootView's Cartoons
+// tab, so it must NOT wrap its own — and there's no presenting view to dismiss).
 struct KidsModeView: View {
     @Environment(AppStore.self) private var store
-    @Environment(\.dismiss) private var dismiss
 
     @State private var characters: [(name: String, items: [Catalog.Item])] = []
     @State private var collections: [(title: String, items: [Catalog.Item])] = []
@@ -25,46 +26,43 @@ struct KidsModeView: View {
     @FocusState private var playAllFocused: Bool
 
     var body: some View {
-        NavigationStack {
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .leading, spacing: 44) {
-                    header
-                    if !characters.isEmpty {
-                        KidsRow(title: "Characters") {
-                            ForEach(Array(characters.enumerated()), id: \.element.name) { idx, ch in
-                                NavigationLink(value: KidsGroup(title: ch.name, items: ch.items)) {
-                                    KidsTile(title: ch.name, cover: cover(ch.items, seed: ch.name), tint: Self.tint(idx))
-                                }
-                                .buttonStyle(.card)
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 44) {
+                header
+                if !characters.isEmpty {
+                    KidsRow(title: "Characters") {
+                        ForEach(Array(characters.enumerated()), id: \.element.name) { idx, ch in
+                            NavigationLink(value: KidsGroup(title: ch.name, items: ch.items)) {
+                                KidsTile(title: ch.name, cover: cover(ch.items, seed: ch.name), tint: Self.tint(idx))
                             }
+                            .buttonStyle(.card)
                         }
-                    }
-                    if !collections.isEmpty {
-                        KidsRow(title: "Collections") {
-                            ForEach(Array(collections.enumerated()), id: \.element.title) { idx, c in
-                                NavigationLink(value: KidsGroup(title: c.title, items: c.items)) {
-                                    KidsTile(title: c.title, cover: cover(c.items, seed: c.title), tint: Self.tint(idx + 3))
-                                }
-                                .buttonStyle(.card)
-                            }
-                        }
-                    }
-                    if characters.isEmpty && collections.isEmpty {
-                        Text("Loading cartoons…")
-                            .font(.system(size: 30, weight: .bold, design: .rounded))
-                            .foregroundStyle(.white.opacity(0.85))
-                            .padding(.horizontal, 80)
                     }
                 }
-                .padding(.vertical, 60)
+                if !collections.isEmpty {
+                    KidsRow(title: "Collections") {
+                        ForEach(Array(collections.enumerated()), id: \.element.title) { idx, c in
+                            NavigationLink(value: KidsGroup(title: c.title, items: c.items)) {
+                                KidsTile(title: c.title, cover: cover(c.items, seed: c.title), tint: Self.tint(idx + 3))
+                            }
+                            .buttonStyle(.card)
+                        }
+                    }
+                }
+                if characters.isEmpty && collections.isEmpty {
+                    Text("Loading cartoons…")
+                        .font(.system(size: 30, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white.opacity(0.85))
+                        .padding(.horizontal, 80)
+                }
             }
-            .background(KidsBackground().ignoresSafeArea())
-            .navigationDestination(for: KidsGroup.self) { group in
-                KidsGroupView(group: group) { start in playing = KidsLineup(items: start) }
-                    .background(KidsBackground().ignoresSafeArea())
-            }
+            .padding(.vertical, 60)
         }
-        .onExitCommand { dismiss() }
+        .background(KidsBackground().ignoresSafeArea())
+        .navigationDestination(for: KidsGroup.self) { group in
+            KidsGroupView(group: group) { start in playing = KidsLineup(items: start) }
+                .background(KidsBackground().ignoresSafeArea())
+        }
         // Recompute when the catalog DB swaps (seed -> full): if Kids Mode opens
         // before the full catalog has downloaded, the seed only has the most
         // popular cartoons (Popeye/Betty Boop). Re-running on dbGeneration fills in

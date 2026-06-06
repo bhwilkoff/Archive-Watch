@@ -67,21 +67,26 @@ struct ScreensaverView: View {
         .onReceive(tick) { _ in advance() }
     }
 
-    /// A wide, varied, colorful candidate pool: several categories + eras, designed
-    /// art only, silent B&W dropped so the wall stays vibrant.
+    // ONLY professional, 2:3-formatted movie posters belong on the wall — never
+    // our frame-captured covers (artworkSource "generated") or archive thumbnails.
+    // tmdb / omdb / fanart are the designed one-sheet posters; everything else
+    // (generated, archive, tvmaze, commons scans of varying aspect) is excluded.
+    private static let professionalPosterSources: Set<String> = ["tmdb", "omdb", "fanart"]
+
+    /// A wide, varied pool of professional movie posters across categories + eras.
     private func buildPool() -> [Catalog.Item] {
         let mixes: [[Catalog.Item]] = [
-            store.dbBrowse(contentType: "feature-film", sort: .popular, limit: 250),
+            store.dbBrowse(contentType: "feature-film", sort: .popular, limit: 400),
             store.dbBrowse(contentType: "animation",    sort: .popular, limit: 200),
             store.dbBrowse(contentType: "tv-special",   sort: .popular, limit: 120),
-            store.dbBrowse(contentType: "documentary",  sort: .popular, limit: 80),
-            store.dbBrowse(sort: .newest, limit: 200),
-            store.dbBrowse(sort: .popular, limit: 300),
+            store.dbBrowse(sort: .newest, limit: 250),
+            store.dbBrowse(sort: .popular, limit: 400),
         ]
         var seen = Set<String>()
         var out: [Catalog.Item] = []
         for mix in mixes {
-            for it in mix where it.posterURLParsed != nil && it.hasDesignedArtwork {
+            for it in mix where it.posterURLParsed != nil {
+                guard Self.professionalPosterSources.contains(it.artworkSource) else { continue }
                 if it.isSilentFilm == true { continue }
                 if seen.insert(it.archiveID).inserted { out.append(it) }
             }

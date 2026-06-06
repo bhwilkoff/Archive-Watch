@@ -28,61 +28,16 @@ struct RootView: View {
     // low activity; resets on tab switch, scene change, or playback start/stop.
     @State private var idleSeconds = 0
     @State private var showSaver = false
-    @State private var devMode: DevMode?   // screenshot hook (AW_START_MODE), no-op in prod
     private let idleThreshold = 300   // 5 minutes
     private let idleTick = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
 
-    private struct DevMode: Identifiable { let id: String }
-
     var body: some View {
-        @Bindable var router = router
-
+        // Tabs are split into builder groups; one 12-tab TabView closure trips the
+        // SwiftUI type-checker's "unable to type-check in reasonable time" limit.
         TabView(selection: tabSelection) {
-            Tab("Home", systemImage: "house.fill", value: Router.Tab.home) {
-                NavigationStack(path: $router.homePath) {
-                    HomeView().attachDestinations()
-                }
-            }
-            Tab("Movies", systemImage: "film.fill", value: Router.Tab.browse) {
-                NavigationStack(path: $router.browsePath) {
-                    BrowseView().attachDestinations()
-                }
-            }
-            Tab("TV Shows", systemImage: "tv.fill", value: Router.Tab.tvShows) {
-                NavigationStack(path: $router.tvShowsPath) {
-                    TVShowsView().attachDestinations()
-                }
-            }
-            Tab("Channels", systemImage: "play.tv.fill", value: Router.Tab.channels) {
-                NavigationStack(path: $router.channelsPath) {
-                    ChannelsView().attachDestinations()
-                }
-            }
-            Tab("Collections", systemImage: "square.stack.3d.up.fill", value: Router.Tab.collections) {
-                NavigationStack(path: $router.collectionsPath) {
-                    CollectionsView().attachDestinations()
-                }
-            }
-            Tab("Search", systemImage: "magnifyingglass", value: Router.Tab.search, role: .search) {
-                NavigationStack(path: $router.searchPath) {
-                    SearchView().attachDestinations()
-                }
-            }
-            Tab("Library", systemImage: "books.vertical.fill", value: Router.Tab.favorites) {
-                NavigationStack(path: $router.favoritesPath) {
-                    FavoritesView().attachDestinations()
-                }
-            }
-            Tab("Surprise", systemImage: "dice.fill", value: Router.Tab.surprise) {
-                NavigationStack(path: $router.surprisePath) {
-                    SurpriseView().attachDestinations()
-                }
-            }
-            Tab("Settings", systemImage: "gearshape.fill", value: Router.Tab.settings) {
-                NavigationStack(path: $router.settingsPath) {
-                    SettingsView().attachDestinations()
-                }
-            }
+            browseTabs
+            modeTabs
+            libraryTabs
         }
         .tabViewStyle(.sidebarAdaptable)
         .preferredColorScheme(.dark)
@@ -109,23 +64,15 @@ struct RootView: View {
                 try? await Task.sleep(for: .milliseconds(200))
             }
         }
-        // Screenshot/dev affordance: `AW_START_MODE=kids|party|saver` opens that
-        // immersive mode once the catalog is ready. Unset in production (no-op).
+        // Screenshot/dev affordance: `AW_START_MODE=kids|party|saver` lands on that
+        // immersive tab once the catalog is ready. Unset in production (no-op).
         .task {
             guard let m = ProcessInfo.processInfo.environment["AW_START_MODE"] else { return }
+            let tab: Router.Tab? = ["kids": .cartoons, "party": .party, "saver": .screensaver][m]
+            guard let tab else { return }
             for _ in 0..<50 {
-                if store.isReady { devMode = DevMode(id: m); return }
+                if store.isReady { router.tab = tab; return }
                 try? await Task.sleep(for: .milliseconds(200))
-            }
-        }
-        .fullScreenCover(item: $devMode) { dm in
-            switch dm.id {
-            case "kids":  KidsModeView()
-            case "saver": ScreensaverView()
-            case "party":
-                if let s = PlayerScreen(lineup: store.partyLineup(), startMuted: true) { s }
-                else { Color.black.ignoresSafeArea() }
-            default:      Color.black.ignoresSafeArea()
             }
         }
         // #83 idle screensaver (opt-in, never over playback).
@@ -181,6 +128,57 @@ struct RootView: View {
     ///     current tab takes you to top.
     /// On tvOS, the TabView binding setter fires for both cases
     /// (same-value writes are not suppressed by SwiftUI here).
+    @TabContentBuilder<Router.Tab>
+    private var browseTabs: some TabContent<Router.Tab> {
+        @Bindable var router = router
+        Tab("Home", systemImage: "house.fill", value: Router.Tab.home) {
+            NavigationStack(path: $router.homePath) { HomeView().attachDestinations() }
+        }
+        Tab("Movies", systemImage: "film.fill", value: Router.Tab.browse) {
+            NavigationStack(path: $router.browsePath) { BrowseView().attachDestinations() }
+        }
+        Tab("TV Shows", systemImage: "tv.fill", value: Router.Tab.tvShows) {
+            NavigationStack(path: $router.tvShowsPath) { TVShowsView().attachDestinations() }
+        }
+        Tab("Channels", systemImage: "play.tv.fill", value: Router.Tab.channels) {
+            NavigationStack(path: $router.channelsPath) { ChannelsView().attachDestinations() }
+        }
+    }
+
+    @TabContentBuilder<Router.Tab>
+    private var modeTabs: some TabContent<Router.Tab> {
+        @Bindable var router = router
+        Tab("Cartoons", systemImage: "pawprint.fill", value: Router.Tab.cartoons) {
+            NavigationStack(path: $router.cartoonsPath) { KidsModeView() }
+        }
+        Tab("Party Play", systemImage: "sparkles.tv.fill", value: Router.Tab.party) {
+            NavigationStack(path: $router.partyPath) { PartyView() }
+        }
+        Tab("Screensaver", systemImage: "photo.stack.fill", value: Router.Tab.screensaver) {
+            NavigationStack(path: $router.screensaverPath) { ScreensaverHomeView() }
+        }
+    }
+
+    @TabContentBuilder<Router.Tab>
+    private var libraryTabs: some TabContent<Router.Tab> {
+        @Bindable var router = router
+        Tab("Collections", systemImage: "square.stack.3d.up.fill", value: Router.Tab.collections) {
+            NavigationStack(path: $router.collectionsPath) { CollectionsView().attachDestinations() }
+        }
+        Tab("Search", systemImage: "magnifyingglass", value: Router.Tab.search, role: .search) {
+            NavigationStack(path: $router.searchPath) { SearchView().attachDestinations() }
+        }
+        Tab("Library", systemImage: "books.vertical.fill", value: Router.Tab.favorites) {
+            NavigationStack(path: $router.favoritesPath) { FavoritesView().attachDestinations() }
+        }
+        Tab("Surprise", systemImage: "dice.fill", value: Router.Tab.surprise) {
+            NavigationStack(path: $router.surprisePath) { SurpriseView().attachDestinations() }
+        }
+        Tab("Settings", systemImage: "gearshape.fill", value: Router.Tab.settings) {
+            NavigationStack(path: $router.settingsPath) { SettingsView().attachDestinations() }
+        }
+    }
+
     private var tabSelection: Binding<Router.Tab> {
         Binding(
             get: { router.tab },
@@ -200,6 +198,9 @@ struct RootView: View {
         case .browse:      router.browsePath = NavigationPath()
         case .tvShows:     router.tvShowsPath = NavigationPath()
         case .channels:    router.channelsPath = NavigationPath()
+        case .cartoons:    router.cartoonsPath = NavigationPath()
+        case .party:       router.partyPath = NavigationPath()
+        case .screensaver: router.screensaverPath = NavigationPath()
         case .collections: router.collectionsPath = NavigationPath()
         case .search:      router.searchPath = NavigationPath()
         case .favorites:   router.favoritesPath = NavigationPath()
