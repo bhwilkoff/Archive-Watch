@@ -1,188 +1,191 @@
 {
- "version": 2,
- "seriesID": "farscape-1999",
- "tvmazeID": 429,
- "title": "Farscape",
- "yearStart": 1999,
- "yearEnd": 2003,
- "overview": "Astronaut John Crichton assumes he'll be home in time for dinner. But a freak accident during an experimental space mission catapults him across a thousand galaxies to an alien battlefield. Suddenly, he's trapped among alien creatures wielding deadly technology - a battle that 20th century sci-fi pop culture never prepared him for. Hunted by a merciless military race, Crichton begins his quest for home from a galaxy far, far away...",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/3/7531.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure",
-  "Science-Fiction"
- ],
- "networks": [
-  "Syfy"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "farscape-1999",
+  "tvmazeID": 429,
+  "title": "Farscape",
+  "yearStart": 1999,
+  "yearEnd": 2003,
+  "overview": "Astronaut John Crichton assumes he'll be home in time for dinner. But a freak accident during an experimental space mission catapults him across a thousand galaxies to an alien battlefield. Suddenly, he's trapped among alien creatures wielding deadly technology - a battle that 20th century sci-fi pop culture never prepared him for. Hunted by a merciless military race, Crichton begins his quest for home from a galaxy far, far away...",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/3/7531.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "Syfy"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "farscape-s-01-e-01-premiere-march-19-1999-australia-and-united-states-premiere-episode",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Premiere",
-     "overview": "Astronaut John Crichton attempts to use the Earth's atmosphere to propel his module Farscape 1 at high speeds but he is hit by a radiation wave and sucked through a wormhole into a distant part of the universe and straight into the middle of a space battle. After almost colliding with another ship, which explodes shortly afterwards, he is brought aboard a ship full of alien prisoners attempting to escape custody. After being partnered with a captured Peacekeeper soldier, Crichton is drawn into the prisoners' daring plan to escape the clutches of the Peacekeeper forces and their vengefully obsessed military commander.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/199/499198.jpg",
-     "airDate": "1999-03-19",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Farscape S01E01 Premiere (March 19, 1999, Australia and United States, Premiere Episode).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 452335076,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/farscape-s-01-e-01-premiere-march-19-1999-australia-and-united-states-premiere-episode/Farscape S01E01 Premiere (March 19, 1999, Australia and United States, Premiere Episode).mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "farscape-s-01-e-01-premiere-march-19-1999-australia-and-united-states-premiere-episode",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Premiere",
+          "overview": "Astronaut John Crichton attempts to use the Earth's atmosphere to propel his module Farscape 1 at high speeds but he is hit by a radiation wave and sucked through a wormhole into a distant part of the universe and straight into the middle of a space battle. After almost colliding with another ship, which explodes shortly afterwards, he is brought aboard a ship full of alien prisoners attempting to escape custody. After being partnered with a captured Peacekeeper soldier, Crichton is drawn into the prisoners' daring plan to escape the clutches of the Peacekeeper forces and their vengefully obsessed military commander.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/199/499198.jpg",
+          "airDate": "1999-03-19",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Farscape S01E01 Premiere (March 19, 1999, Australia and United States, Premiere Episode).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 452335076,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-01-e-01-premiere-march-19-1999-australia-and-united-states-premiere-episode/Farscape S01E01 Premiere (March 19, 1999, Australia and United States, Premiere Episode).mp4"
+        },
+        {
+          "archiveID": "farscape-s-01-e-02-i-e.-t.-april-30-1999-australia-and-united-states_202602",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Back and Back and Back to the Future",
+          "overview": "The crew comes across a ship that is molecularly de-stabilizing. D'Argo makes everyone bring the ship's escape pod aboard when he discovers that the ship's passengers are Ilanics -- long-time allies of the Luxans. Aboard the escape pod, Crichton gets a shock and starts experiencing strange visions of the future, first of himself and one of the Ilanics, then of Moya's destruction.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/448/1121513.jpg",
+          "airDate": "1999-03-26",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Farscape S01E02 I, E.T. (April 30, 1999, Australia and United States).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 378609687,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-01-e-02-i-e.-t.-april-30-1999-australia-and-united-states_202602/Farscape S01E02 I, E.T. (April 30, 1999, Australia and United States).mp4"
+        },
+        {
+          "archiveID": "farscape-s-01-e-03-exodus-from-genesis-may-14-1999-australia-and-united-states_202602",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Throne for a Loss",
+          "overview": "When a group of Tavleks come aboard for trade negotiations, Rygel takes a vitally important crystal from Moya to make himself appear wealthy. The Tavleks kidnap Rygel to hold for ransom. Crichton, Aeryn and D'Argo attempt to rescue Rygel with the use of a Tavlek weapon. Meanwhile, Zhaan has interesting interactions with a wounded Tavlek left behind on Moya.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/586/1467271.jpg",
+          "airDate": "1999-04-09",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Farscape S01E03 Exodus from Genesis (May 14, 1999, Australia and United States).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 467490697,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-01-e-03-exodus-from-genesis-may-14-1999-australia-and-united-states_202602/Farscape S01E03 Exodus from Genesis (May 14, 1999, Australia and United States).mp4"
+        },
+        {
+          "archiveID": "farscape-s-01-e-04-throne-for-a-loss-april-9-1999-australia-and-united-states_202602",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "PK Tech Girl",
+          "overview": "The crew find an abandoned Peacekeeper ship adrift in space. On board they discover that Crais recently deposited a unit of techs to make repairs. Meanwhile Rygel learns that this was the ship where he was first held captive and starts getting paranoid. Things get worse when a group of fire-breathing aliens show up.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/199/499204.jpg",
+          "airDate": "1999-04-16",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Farscape S01E04 Throne for a Loss (April 9, 1999, Australia and United States).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 452538332,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-01-e-04-throne-for-a-loss-april-9-1999-australia-and-united-states_202602/Farscape S01E04 Throne for a Loss (April 9, 1999, Australia and United States).mp4"
+        },
+        {
+          "archiveID": "farscape-s-01-e-16-a-human-reaction-august-20-1999-australia-and-united-states",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "A Human Reaction",
+          "overview": "After discovering a wormhole that appears to lead back to Earth, Crichton takes the chance that it might be his ticket home. He crash lands on a beach in Australia and finds that although Earth is exactly as he remembered it, it is not exactly what he was expecting.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/199/499213.jpg",
+          "airDate": "1999-08-20",
+          "year": 1999,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Farscape S01E16 A Human Reaction (August 20, 1999, Australia and United States).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 416341654,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-01-e-16-a-human-reaction-august-20-1999-australia-and-united-states/Farscape S01E16 A Human Reaction (August 20, 1999, Australia and United States).mp4"
+        }
+      ]
     },
     {
-     "archiveID": "farscape-s-01-e-02-i-e.-t.-april-30-1999-australia-and-united-states_202602",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Back and Back and Back to the Future",
-     "overview": "The crew comes across a ship that is molecularly de-stabilizing. D'Argo makes everyone bring the ship's escape pod aboard when he discovers that the ship's passengers are Ilanics -- long-time allies of the Luxans. Aboard the escape pod, Crichton gets a shock and starts experiencing strange visions of the future, first of himself and one of the Ilanics, then of Moya's destruction.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/448/1121513.jpg",
-     "airDate": "1999-03-26",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Farscape S01E02 I, E.T. (April 30, 1999, Australia and United States).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 378609687,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/farscape-s-01-e-02-i-e.-t.-april-30-1999-australia-and-united-states_202602/Farscape S01E02 I, E.T. (April 30, 1999, Australia and United States).mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "farscape-s-02",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Home on the Remains",
+          "overview": "With Moya out of food, Chiana leads everyone to a dead Budong where she once worked. Meanwhile on Moya, Aeryn is left to deal with a carnivorous Zhaan.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/199/499226.jpg",
+          "airDate": "2000-06-16",
+          "year": 2000,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Farscape S02E07 Home on the Remains.mp4",
+            "format": "h.264",
+            "sizeBytes": 273653950,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-02/Farscape S02E07 Home on the Remains.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "farscape-s-01-e-03-exodus-from-genesis-may-14-1999-australia-and-united-states_202602",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Throne for a Loss",
-     "overview": "When a group of Tavleks come aboard for trade negotiations, Rygel takes a vitally important crystal from Moya to make himself appear wealthy. The Tavleks kidnap Rygel to hold for ransom. Crichton, Aeryn and D'Argo attempt to rescue Rygel with the use of a Tavlek weapon. Meanwhile, Zhaan has interesting interactions with a wounded Tavlek left behind on Moya.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/586/1467271.jpg",
-     "airDate": "1999-04-09",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Farscape S01E03 Exodus from Genesis (May 14, 1999, Australia and United States).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 467490697,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/farscape-s-01-e-03-exodus-from-genesis-may-14-1999-australia-and-united-states_202602/Farscape S01E03 Exodus from Genesis (May 14, 1999, Australia and United States).mp4"
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "farscape-s-03-",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "Infinite Possibilities Part II: Icarus Abides",
+          "overview": "Jack (The Ancient) unlocks the wormhole knowledge in Crichton's mind so together they can build a device to destroy the Scarran dreadnought.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/545/1364050.jpg",
+          "airDate": "2001-08-03",
+          "year": 2001,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Farscape S03E15 Infinite Possibilities (2) Icarus Abides.mp4",
+            "format": "h.264",
+            "sizeBytes": 272441770,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-03-/Farscape S03E15 Infinite Possibilities (2) Icarus Abides.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "farscape-s-01-e-04-throne-for-a-loss-april-9-1999-australia-and-united-states_202602",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "PK Tech Girl",
-     "overview": "The crew find an abandoned Peacekeeper ship adrift in space. On board they discover that Crais recently deposited a unit of techs to make repairs. Meanwhile Rygel learns that this was the ship where he was first held captive and starts getting paranoid. Things get worse when a group of fire-breathing aliens show up.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/199/499204.jpg",
-     "airDate": "1999-04-16",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Farscape S01E04 Throne for a Loss (April 9, 1999, Australia and United States).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 452538332,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/farscape-s-01-e-04-throne-for-a-loss-april-9-1999-australia-and-united-states_202602/Farscape S01E04 Throne for a Loss (April 9, 1999, Australia and United States).mp4"
-    },
-    {
-     "archiveID": "farscape-s-01-e-16-a-human-reaction-august-20-1999-australia-and-united-states",
-     "seasonNumber": 1,
-     "episodeNumber": 16,
-     "title": "A Human Reaction",
-     "overview": "After discovering a wormhole that appears to lead back to Earth, Crichton takes the chance that it might be his ticket home. He crash lands on a beach in Australia and finds that although Earth is exactly as he remembered it, it is not exactly what he was expecting.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/199/499213.jpg",
-     "airDate": "1999-08-20",
-     "year": 1999,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Farscape S01E16 A Human Reaction (August 20, 1999, Australia and United States).mp4",
-      "format": "MPEG4",
-      "sizeBytes": 416341654,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/farscape-s-01-e-16-a-human-reaction-august-20-1999-australia-and-united-states/Farscape S01E16 A Human Reaction (August 20, 1999, Australia and United States).mp4"
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "farscape-s-04",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "Natural Election",
+          "overview": "While in close proximity to a wormhole, Moya is preoccupied and doesn't notice a slowly moving object heading towards her. Moya collides with the object which then covers her entire hull, causing great discomfort to her as well as the crew.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/544/1361523.jpg",
+          "airDate": "2002-07-19",
+          "year": 2002,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Farscape S04E06 Natural Election.mp4",
+            "format": "h.264",
+            "sizeBytes": 272877168,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/farscape-s-04/Farscape S04E06 Natural Election.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
-    {
-     "archiveID": "farscape-s-02",
-     "seasonNumber": 2,
-     "episodeNumber": 7,
-     "title": "Home on the Remains",
-     "overview": "With Moya out of food, Chiana leads everyone to a dead Budong where she once worked. Meanwhile on Moya, Aeryn is left to deal with a carnivorous Zhaan.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/199/499226.jpg",
-     "airDate": "2000-06-16",
-     "year": 2000,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Farscape S02E07 Home on the Remains.mp4",
-      "format": "h.264",
-      "sizeBytes": 273653950,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/farscape-s-02/Farscape S02E07 Home on the Remains.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
-    {
-     "archiveID": "farscape-s-03-",
-     "seasonNumber": 3,
-     "episodeNumber": 15,
-     "title": "Infinite Possibilities Part II: Icarus Abides",
-     "overview": "Jack (The Ancient) unlocks the wormhole knowledge in Crichton's mind so together they can build a device to destroy the Scarran dreadnought.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/545/1364050.jpg",
-     "airDate": "2001-08-03",
-     "year": 2001,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Farscape S03E15 Infinite Possibilities (2) Icarus Abides.mp4",
-      "format": "h.264",
-      "sizeBytes": 272441770,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/farscape-s-03-/Farscape S03E15 Infinite Possibilities (2) Icarus Abides.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 4,
-   "episodes": [
-    {
-     "archiveID": "farscape-s-04",
-     "seasonNumber": 4,
-     "episodeNumber": 6,
-     "title": "Natural Election",
-     "overview": "While in close proximity to a wormhole, Moya is preoccupied and doesn't notice a slowly moving object heading towards her. Moya collides with the object which then covers her entire hull, causing great discomfort to her as well as the crew.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/544/1361523.jpg",
-     "airDate": "2002-07-19",
-     "year": 2002,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Farscape S04E06 Natural Election.mp4",
-      "format": "h.264",
-      "sizeBytes": 272877168,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/farscape-s-04/Farscape S04E06 Natural Election.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 8,
- "canonicalEpisodesCount": 88
+  ],
+  "episodesCount": 8,
+  "canonicalEpisodesCount": 88,
+  "seriesImdbID": "tt0187636",
+  "canonicalEpisodeCount": 88,
+  "canonicalSeasons": 4
 }

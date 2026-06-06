@@ -1,210 +1,213 @@
 {
- "version": 2,
- "seriesID": "space-patrol-1950",
- "tvmazeID": 10657,
- "title": "Space Patrol",
- "yearStart": 1950,
- "yearEnd": 1955,
- "overview": "Space Patrol is a science fiction adventure series that was originally aimed at juvenile audiences of the early 1950s via television, radio, and comic books. However, it soon developed a sizable adult audience such that by 1954, the program consistently ranked in the top 10 shows broadcast on a Saturday. The Space Patrol television show began broadcasting March 9, 1950, starting as a daily 15-minute show on a local Los Angeles station. However, on December 30, 1950, the American Broadcasting Company (ABC) added the show as a new half-hour program to its Saturday schedule. It became an overnight sensation such that the new weekly show broadcast and the 15-minute shows continued daily on a local basis, and was seen via kinescope in other cities. A 1953 30-minute episode was the subject of the first U.S. experimental 3D television broadcast on April 29 in Los Angeles on ABC affiliate KECA-TV.The series also made history by being the first regular live West Coast morning network program beamed to the East Coast. In modern times, there is a tendency to take national broadcast events for granted, but at the time, it took an intricate network of cable and relay stations to accomplish this enormous task. The ABC television Space Patrol broadcasts became one of the nation's first mass media phenomena, such that it was quickly moved to an ABC radio series of the same name. The radio program was popular and ran from September 18, 1950 until March 19, 1955 producing approximately 129 thirty-minute episodes. The televised Space Patrol aired continuously until July 2, 1954; after a short break, it reappeared on September 4, 1954, before finally disappearing from the air on February 26, 1955. 210 half-hour shows and close to 900 15-minute shows were made over Space Patrol's 5-year run. In addition, around 129 thirty-minute radio shows were produced.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89927.jpg",
- "backdropURL": null,
- "genres": [
-  "Adventure",
-  "Science-Fiction"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "space-patrol-1950",
+  "tvmazeID": 10657,
+  "title": "Space Patrol",
+  "yearStart": 1950,
+  "yearEnd": 1955,
+  "overview": "Space Patrol is a science fiction adventure series that was originally aimed at juvenile audiences of the early 1950s via television, radio, and comic books. However, it soon developed a sizable adult audience such that by 1954, the program consistently ranked in the top 10 shows broadcast on a Saturday. The Space Patrol television show began broadcasting March 9, 1950, starting as a daily 15-minute show on a local Los Angeles station. However, on December 30, 1950, the American Broadcasting Company (ABC) added the show as a new half-hour program to its Saturday schedule. It became an overnight sensation such that the new weekly show broadcast and the 15-minute shows continued daily on a local basis, and was seen via kinescope in other cities. A 1953 30-minute episode was the subject of the first U.S. experimental 3D television broadcast on April 29 in Los Angeles on ABC affiliate KECA-TV.The series also made history by being the first regular live West Coast morning network program beamed to the East Coast. In modern times, there is a tendency to take national broadcast events for granted, but at the time, it took an intricate network of cable and relay stations to accomplish this enormous task. The ABC television Space Patrol broadcasts became one of the nation's first mass media phenomena, such that it was quickly moved to an ABC radio series of the same name. The radio program was popular and ran from September 18, 1950 until March 19, 1955 producing approximately 129 thirty-minute episodes. The televised Space Patrol aired continuously until July 2, 1954; after a short break, it reappeared on September 4, 1954, before finally disappearing from the air on February 26, 1955. 210 half-hour shows and close to 900 15-minute shows were made over Space Patrol's 5-year run. In addition, around 129 thirty-minute radio shows were produced.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89927.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure",
+    "Science-Fiction"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "SpacePatrolS01e43TheSpacePatrolCodeBelt",
-     "seasonNumber": 1,
-     "episodeNumber": 43,
-     "title": "The Space Patrol Code Belt",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
-     "airDate": "1951-10-20",
-     "year": 1951,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Space Patrol - S01e43 - The Space Patrol Code Belt.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 265640758,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/SpacePatrolS01e43TheSpacePatrolCodeBelt/Space%20Patrol%20-%20S01e43%20-%20The%20Space%20Patrol%20Code%20Belt.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
-    {
-     "archiveID": "SpacePatrol-threatOfTheThormanoids1952",
-     "seasonNumber": 2,
-     "episodeNumber": 21,
-     "title": "The Threat of the Thormanoids",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
-     "airDate": "1952-05-24",
-     "year": 1952,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Space_patrol_Thormanoids_05_24_52.mp4",
-      "format": "h.264",
-      "sizeBytes": 150192393,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SpacePatrol-threatOfTheThormanoids1952/Space_patrol_Thormanoids_05_24_52.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
-    {
-     "archiveID": "SpacePatrol-operationRescue1953",
-     "seasonNumber": 3,
-     "episodeNumber": 8,
-     "title": "Operation Rescue",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
-     "airDate": "1953-02-21",
-     "year": 1953,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Space_patrol_Operation_rescue_02_21_1953.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 240091461,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SpacePatrol-operationRescue1953/Space_patrol_Operation_rescue_02_21_1953.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "SpacePatrolS01e43TheSpacePatrolCodeBelt",
+          "seasonNumber": 1,
+          "episodeNumber": 43,
+          "title": "The Space Patrol Code Belt",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
+          "airDate": "1951-10-20",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Space Patrol - S01e43 - The Space Patrol Code Belt.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 265640758,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/SpacePatrolS01e43TheSpacePatrolCodeBelt/Space%20Patrol%20-%20S01e43%20-%20The%20Space%20Patrol%20Code%20Belt.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "SpacePatrol-theLaughingAlien1953",
-     "seasonNumber": 3,
-     "episodeNumber": 13,
-     "title": "The Laughing Alien",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
-     "airDate": "1953-03-28",
-     "year": 1953,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Space_patrol_Laughing_Alien_03_28_53.mp4",
-      "format": "h.264",
-      "sizeBytes": 171623441,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SpacePatrol-theLaughingAlien1953/Space_patrol_Laughing_Alien_03_28_53.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 5,
-   "episodes": [
-    {
-     "archiveID": "space-patrol-s-01e-01-low-480x-360p",
-     "seasonNumber": 5,
-     "episodeNumber": 2,
-     "title": "The Web of Arachna",
-     "overview": null,
-     "stillURL": null,
-     "airDate": "1955-01-08",
-     "year": 1955,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Space Patrol S05e02 Web of Arachna.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 176794412,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/space-patrol-s-01e-01-low-480x-360p/Space%20Patrol%20S05e02%20Web%20of%20Arachna.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "space-patrol-16mmdub",
-     "seasonNumber": null,
-     "episodeNumber": 195,
-     "title": "Space Patrol episode 1954 - 16mm film",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
-     "airDate": null,
-     "year": 1954,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "SpacePatrol-16mmdub.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 431926577,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/space-patrol-16mmdub/SpacePatrol-16mmdub.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "SpacePatrol-threatOfTheThormanoids1952",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "The Threat of the Thormanoids",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
+          "airDate": "1952-05-24",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Space_patrol_Thormanoids_05_24_52.mp4",
+            "format": "h.264",
+            "sizeBytes": 150192393,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SpacePatrol-threatOfTheThormanoids1952/Space_patrol_Thormanoids_05_24_52.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "SpacePatrol-InterplanetarySmugglers1952",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Space Patrol - Interplanetary Smugglers",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
-     "airDate": null,
-     "year": 1952,
-     "runtimeSeconds": 1730,
-     "videoFile": {
-      "name": "Space_patrol_Smugglers_06_28_1952.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 223662637,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SpacePatrol-InterplanetarySmugglers1952/Space_patrol_Smugglers_06_28_1952.ia.mp4"
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "SpacePatrol-operationRescue1953",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Operation Rescue",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
+          "airDate": "1953-02-21",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Space_patrol_Operation_rescue_02_21_1953.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 240091461,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SpacePatrol-operationRescue1953/Space_patrol_Operation_rescue_02_21_1953.ia.mp4"
+        },
+        {
+          "archiveID": "SpacePatrol-theLaughingAlien1953",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "The Laughing Alien",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
+          "airDate": "1953-03-28",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Space_patrol_Laughing_Alien_03_28_53.mp4",
+            "format": "h.264",
+            "sizeBytes": 171623441,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SpacePatrol-theLaughingAlien1953/Space_patrol_Laughing_Alien_03_28_53.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "space-patrol-edit",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Space Patrol - The Martian Totem - 16mm",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Space Patrol - edit.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 419868327,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/space-patrol-edit/Space Patrol - edit.mp4"
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "space-patrol-s-01e-01-low-480x-360p",
+          "seasonNumber": 5,
+          "episodeNumber": 2,
+          "title": "The Web of Arachna",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1955-01-08",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Space Patrol S05e02 Web of Arachna.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 176794412,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/space-patrol-s-01e-01-low-480x-360p/Space%20Patrol%20S05e02%20Web%20of%20Arachna.ia.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "SpacePatrol1951",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Space patrol",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
-     "airDate": null,
-     "year": 1951,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Space_patrol_-_The_space_patrol_code_belt.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 174104917,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/SpacePatrol1951/Space_patrol_-_The_space_patrol_code_belt.ia.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "space-patrol-16mmdub",
+          "seasonNumber": null,
+          "episodeNumber": 195,
+          "title": "Space Patrol episode 1954 - 16mm film",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "SpacePatrol-16mmdub.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 431926577,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/space-patrol-16mmdub/SpacePatrol-16mmdub.mp4"
+        },
+        {
+          "archiveID": "SpacePatrol-InterplanetarySmugglers1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Space Patrol - Interplanetary Smugglers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1730,
+          "videoFile": {
+            "name": "Space_patrol_Smugglers_06_28_1952.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 223662637,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SpacePatrol-InterplanetarySmugglers1952/Space_patrol_Smugglers_06_28_1952.ia.mp4"
+        },
+        {
+          "archiveID": "space-patrol-edit",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Space Patrol - The Martian Totem - 16mm",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Space Patrol - edit.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 419868327,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/space-patrol-edit/Space Patrol - edit.mp4"
+        },
+        {
+          "archiveID": "SpacePatrol1951",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Space patrol",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Space_patrol_-_The_space_patrol_code_belt.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 174104917,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/SpacePatrol1951/Space_patrol_-_The_space_patrol_code_belt.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 9,
- "canonicalEpisodesCount": 210
+  ],
+  "episodesCount": 9,
+  "canonicalEpisodesCount": 210,
+  "seriesImdbID": "tt0043234",
+  "canonicalEpisodeCount": 139,
+  "canonicalSeasons": 5
 }

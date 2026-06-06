@@ -163,5 +163,8 @@
       ]
     }
   ],
-  "episodesCount": 8
+  "episodesCount": 8,
+  "seriesImdbID": "tt0043201",
+  "canonicalEpisodeCount": 16,
+  "canonicalSeasons": 1
 }

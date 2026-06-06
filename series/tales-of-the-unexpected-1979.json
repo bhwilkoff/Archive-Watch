@@ -1,191 +1,194 @@
 {
- "version": 2,
- "seriesID": "tales-of-the-unexpected-1979",
- "tvmazeID": 6084,
- "title": "Tales of the Unexpected",
- "yearStart": 1979,
- "yearEnd": 1988,
- "overview": "Tales of the Unexpected is a British television series originally aired between 1979 and 1988, made by Anglia Television for ITV. The series was an anthology of different tales. Initially episodes were based on the short stories collected in the books Tales of the Unexpected, Kiss Kiss and Someone Like You by Roald Dahl. The stories were sometimes sinister, sometimes wryly comedic, and usually had a twist ending. The upbeat theme music for the series was written by the prolific film and television composer Ron Grainer.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/23/59225.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Horror",
-  "Thriller"
- ],
- "networks": [
-  "ITV1"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": null,
-   "episodes": [
+  "version": 2,
+  "seriesID": "tales-of-the-unexpected-1979",
+  "tvmazeID": 6084,
+  "title": "Tales of the Unexpected",
+  "yearStart": 1979,
+  "yearEnd": 1988,
+  "overview": "Tales of the Unexpected is a British television series originally aired between 1979 and 1988, made by Anglia Television for ITV. The series was an anthology of different tales. Initially episodes were based on the short stories collected in the books Tales of the Unexpected, Kiss Kiss and Someone Like You by Roald Dahl. The stories were sometimes sinister, sometimes wryly comedic, and usually had a twist ending. The upbeat theme music for the series was written by the prolific film and television composer Ron Grainer.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/23/59225.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Horror",
+    "Thriller"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "TalesOfTheUnexpectedSeries1",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Tales Of The Unexpected Series 1",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
-     "airDate": null,
-     "year": 1979,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Tales of the Unexpected - 109 - The Way Up to Heaven.mp4",
-      "format": "h.264",
-      "sizeBytes": 155010127,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries1/Tales of the Unexpected - 109 - The Way Up to Heaven.mp4"
-    },
-    {
-     "archiveID": "TalesOfTheUnexpectedSeries2",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Tales Of The Unexpected Series 2",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
-     "airDate": null,
-     "year": 1979,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Tales of the Unexpected - 207 -taste.mp4",
-      "format": "h.264",
-      "sizeBytes": 168367940,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries2/Tales of the Unexpected - 207 -taste.mp4"
-    },
-    {
-     "archiveID": "TalesOfTheUnexpectedSeries3",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Tales Of The Unexpected Series 3",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
-     "airDate": null,
-     "year": 1979,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Tales of the Unexpected - 306 Parson's Pleasure.mp4",
-      "format": "h.264",
-      "sizeBytes": 170450096,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries3/Tales of the Unexpected - 306 Parson's Pleasure.mp4"
-    },
-    {
-     "archiveID": "TalesOfTheUnexpectedSeries4",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Tales Of The Unexpected Series 4",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
-     "airDate": null,
-     "year": 1980,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Tales of the Unexpected - 413 - theres one born every minute.mp4",
-      "format": "h.264",
-      "sizeBytes": 167977675,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries4/Tales of the Unexpected - 413 - theres one born every minute.mp4"
-    },
-    {
-     "archiveID": "TalesOfTheUnexpectedSeries5",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Tales Of The Unexpected Series 5",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
-     "airDate": null,
-     "year": 1981,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Tales of the Unexpected - 512 - death in the morning.mp4",
-      "format": "h.264",
-      "sizeBytes": 170695364,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries5/Tales of the Unexpected - 512 - death in the morning.mp4"
-    },
-    {
-     "archiveID": "TalesOfTheUnexpectedSeries6",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Tales Of The Unexpected Series 6",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
-     "airDate": null,
-     "year": 1983,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Tales of the Unexpected - 607 - down among the sheltering palms.mp4",
-      "format": "h.264",
-      "sizeBytes": 168210015,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries6/Tales of the Unexpected - 607 - down among the sheltering palms.mp4"
-    },
-    {
-     "archiveID": "TalesOfTheUnexpectedSeries7",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Tales Of The Unexpected Series 7",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
-     "airDate": null,
-     "year": 1985,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "TalesOfTheUnexpected-713-TheReconciliation.mp4",
-      "format": "h.264",
-      "sizeBytes": 166072967,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries7/TalesOfTheUnexpected-713-TheReconciliation.mp4"
-    },
-    {
-     "archiveID": "TalesOfTheUnexpectedSeries8-9",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Tales Of The Unexpected Series 8&9",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
-     "airDate": null,
-     "year": 1988,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Tales of the Unexpected - 901 - skeleton in the cupboard.mp4",
-      "format": "h.264",
-      "sizeBytes": 167289039,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries8-9/Tales of the Unexpected - 901 - skeleton in the cupboard.mp4"
-    },
-    {
-     "archiveID": "tales-of-the-unexpected-1979-88",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Tales of the Unexpected",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": 1979,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Tales of the Unexpected (1979 - 88)/Series 5 (1982 - 83)/063 - 05x12 - death in the morning.mp4",
-      "format": "h.264",
-      "sizeBytes": 160185202,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/tales-of-the-unexpected-1979-88/Tales%20of%20the%20Unexpected%20%281979%20-%2088%29/Series%205%20%281982%20-%2083%29/063%20-%2005x12%20-%20death%20in%20the%20morning.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 109 - The Way Up to Heaven.mp4",
+            "format": "h.264",
+            "sizeBytes": 155010127,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries1/Tales of the Unexpected - 109 - The Way Up to Heaven.mp4"
+        },
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 207 -taste.mp4",
+            "format": "h.264",
+            "sizeBytes": 168367940,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries2/Tales of the Unexpected - 207 -taste.mp4"
+        },
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 3",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 306 Parson's Pleasure.mp4",
+            "format": "h.264",
+            "sizeBytes": 170450096,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries3/Tales of the Unexpected - 306 Parson's Pleasure.mp4"
+        },
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1980,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 413 - theres one born every minute.mp4",
+            "format": "h.264",
+            "sizeBytes": 167977675,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries4/Tales of the Unexpected - 413 - theres one born every minute.mp4"
+        },
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 5",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1981,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 512 - death in the morning.mp4",
+            "format": "h.264",
+            "sizeBytes": 170695364,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries5/Tales of the Unexpected - 512 - death in the morning.mp4"
+        },
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries6",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 6",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1983,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 607 - down among the sheltering palms.mp4",
+            "format": "h.264",
+            "sizeBytes": 168210015,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries6/Tales of the Unexpected - 607 - down among the sheltering palms.mp4"
+        },
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries7",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 7",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1985,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TalesOfTheUnexpected-713-TheReconciliation.mp4",
+            "format": "h.264",
+            "sizeBytes": 166072967,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries7/TalesOfTheUnexpected-713-TheReconciliation.mp4"
+        },
+        {
+          "archiveID": "TalesOfTheUnexpectedSeries8-9",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales Of The Unexpected Series 8&9",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfG5gafbtxtfMvgDdNi56evx4Og.jpg",
+          "airDate": null,
+          "year": 1988,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected - 901 - skeleton in the cupboard.mp4",
+            "format": "h.264",
+            "sizeBytes": 167289039,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TalesOfTheUnexpectedSeries8-9/Tales of the Unexpected - 901 - skeleton in the cupboard.mp4"
+        },
+        {
+          "archiveID": "tales-of-the-unexpected-1979-88",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tales of the Unexpected",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1979,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tales of the Unexpected (1979 - 88)/Series 5 (1982 - 83)/063 - 05x12 - death in the morning.mp4",
+            "format": "h.264",
+            "sizeBytes": 160185202,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tales-of-the-unexpected-1979-88/Tales%20of%20the%20Unexpected%20%281979%20-%2088%29/Series%205%20%281982%20-%2083%29/063%20-%2005x12%20-%20death%20in%20the%20morning.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 9,
- "canonicalEpisodesCount": 112
+  ],
+  "episodesCount": 9,
+  "canonicalEpisodesCount": 112,
+  "seriesImdbID": "tt0075592",
+  "canonicalEpisodeCount": 91,
+  "canonicalSeasons": 9
 }
