@@ -504,6 +504,35 @@ def _strip_format_dump(t):
     return t
 
 
+# Source/transfer specs the uploader appended to the title that _strip_format_dump
+# (which only handles " / "-delimited dumps) misses (#3, 275 measured):
+#   - a trailing parenthetical that contains a pixel RESOLUTION — the whole paren is
+#     transfer metadata (runtime + WxH + subtitle/colour note):
+#       "1941 - Stukas (1h 31m, 512x384, CZ Untertitel)" -> "1941 - Stukas"
+#   - a bare trailing resolution: "The White Sister 716x480" -> "The White Sister"
+#   - a trailing run of container/codec/quality tokens (incl. containers the
+#     quality-tail rule omits): "The First Auto (1927) DVD MKV" -> "The First Auto (1927)"
+# Only touches trailing punctuation when a format token was actually removed, so
+# titles without source cruft are never altered.
+_RES_PAREN = re.compile(r"\s*[\(\[][^)\]]*\b\d{2,4}x\d{2,4}\b[^)\]]*[\)\]]\s*$")
+_RES_BARE  = re.compile(r"\s*\b\d{2,4}x\d{2,4}\b\s*$")
+_CONTAINER_TAIL = re.compile(
+    r"(?:\s*[-–—|,]?\s*\b(?:dvd|vhs|mkv|mp4|avi|m4v|ogv|x26[45]|h\.?26[45]|hevc|xvid|divx|"
+    r"bluray|blu-?ray|web-?rip|br-?rip|hdtv|dvd-?rip|720p|1080p|480p|576p|2160p|4k)\b[\s,)\]]*)+$",
+    re.I)
+
+
+def _strip_source_specs(t):
+    nt = _RES_PAREN.sub("", t)
+    nt = _RES_BARE.sub("", nt)
+    nt = _CONTAINER_TAIL.sub("", nt)
+    if nt == t:
+        return t
+    nt = re.sub(r"\s+", " ", nt).strip()
+    nt = re.sub(r"[\s\-–—|,]+$", "", nt)
+    return nt if len(nt) >= 2 else t
+
+
 def _synopsis_text(it):
     v = it.get("synopsis")
     return (" ".join(v) if isinstance(v, list) else (v or "")).strip()
@@ -546,6 +575,7 @@ def sanitize_title(it):
         return False
     t = _fix_mojibake(_html.unescape(raw))
     t = _strip_format_dump(t)
+    t = _strip_source_specs(t)
     t = _strip_quality_tail(t)
     t = _strip_uploader_cruft(t)
     t = _underscore_filename(t)
