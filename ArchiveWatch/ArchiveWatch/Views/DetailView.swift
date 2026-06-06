@@ -270,7 +270,7 @@ struct DetailView: View {
             // that person's other titles (films AND TV) via the FTS names index.
             if !item.cast.isEmpty || (item.director?.isEmpty == false) {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 20) {
+                    HStack(alignment: .top, spacing: 28) {
                         if let d = item.director, !d.isEmpty {
                             PersonChip(name: d, role: "Director", profilePath: nil) {
                                 router.push(BrowseFilter(person: d))
@@ -283,8 +283,11 @@ struct DetailView: View {
                             }
                         }
                     }
-                    .padding(.vertical, 8)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 4)
                 }
+                // Don't clip the focus scale or the second line of long names/roles.
+                .scrollClipDisabled()
                 .focusSection()
             }
 
@@ -801,50 +804,54 @@ private struct PersonChip: View {
 
     @FocusState private var isFocused: Bool
 
+    private let chipWidth: CGFloat = 200
+    private let avatar: CGFloat = 150
+
     var body: some View {
-        // #7: only the avatar lives inside the .card button. The name + role sit
-        // BELOW as siblings so focus scaling never clips them, and they wrap to
-        // two lines instead of truncating.
-        VStack(spacing: 10) {
+        // #7: only the avatar is the focusable .card button (so focus scaling
+        // never clips text). Name + role sit below in a FIXED-HEIGHT block so all
+        // chips align on one baseline and a 2-line name/role is never cut off.
+        VStack(spacing: 12) {
             Button(action: action) {
                 ZStack {
                     Circle().fill(Color.white.opacity(0.12))
                     if let url = profileURL {
-                        RemoteImage(url: url, targetSize: CGSize(width: 180, height: 180))
+                        RemoteImage(url: url, targetSize: CGSize(width: 300, height: 300))
                             .clipShape(Circle())
                     } else {
                         Text(initials)
-                            .font(.system(size: 42, weight: .bold))
+                            .font(.system(size: 48, weight: .bold))
                             .foregroundStyle(.white.opacity(0.7))
                     }
                 }
-                .frame(width: 130, height: 130)
+                .frame(width: avatar, height: avatar)
             }
             .buttonStyle(.card)
             .focused($isFocused)
 
-            VStack(spacing: 3) {
+            VStack(spacing: 4) {
                 Text(name)
-                    .font(.system(size: 21, weight: .semibold))
+                    .font(.system(size: 20, weight: .semibold))
                     .foregroundStyle(.white)
                     .lineLimit(2)
                     .multilineTextAlignment(.center)
-                    .minimumScaleFactor(0.75)
-                    .fixedSize(horizontal: false, vertical: true)
+                    .minimumScaleFactor(0.7)
                 if let role, !role.isEmpty {
                     Text(role)
-                        .font(.system(size: 17, weight: .regular))
-                        .foregroundStyle(.white.opacity(0.5))
+                        .font(.system(size: 16, weight: .regular))
+                        .foregroundStyle(.white.opacity(0.55))
                         .lineLimit(2)
                         .multilineTextAlignment(.center)
-                        .minimumScaleFactor(0.75)
-                        .fixedSize(horizontal: false, vertical: true)
+                        .minimumScaleFactor(0.7)
                 }
             }
-            .frame(width: 184)
-            .opacity(isFocused ? 1.0 : 0.85)
+            // Reserve room for 2-line name + 2-line role, top-aligned — uniform
+            // chips, no clipping, no overlap with neighbors.
+            .frame(width: chipWidth, height: 92, alignment: .top)
+            .opacity(isFocused ? 1.0 : 0.8)
             .animation(Motion.focus, value: isFocused)
         }
+        .frame(width: chipWidth)
     }
 
     private var profileURL: URL? {
