@@ -42,11 +42,16 @@ struct HomeView: View {
     /// look pixelated blown up. Falls back to high-res posters only if too few
     /// backdrops exist.
     private func loadHero() -> [Catalog.Item] {
+        // Backdrops (wide TMDb art) are sparse near the very top of the
+        // popularity ranking — only ~6 of the top 300 have one, which pinned the
+        // hero to the same handful every launch. Draw from a much deeper window
+        // so there are ~150+ backdrop-bearing candidates to shuffle through while
+        // keeping the high-quality wide-art bar.
         let base = store.filteringWatched(
-            store.dbBrowse(sort: .popular, limit: 300, homeOnly: true)
+            store.dbBrowse(sort: .popular, limit: 3000, homeOnly: true)
         ).filter { $0.hasDesignedArtwork && $0.artworkSource != "generated" }
         let withBackdrop = base.filter { $0.backdropURLParsed != nil }
-        let pool = withBackdrop.count >= 5
+        let pool = withBackdrop.count >= 7
             ? withBackdrop
             : base.filter { $0.backdropURLParsed != nil || $0.posterURLParsed != nil }
         var rng = SplitMix(seed: UInt64(heroSeed))
@@ -67,8 +72,15 @@ struct HomeView: View {
     }
 
     var body: some View {
+        // VStack (not LazyVStack): the hero is ~940pt tall, so the first row
+        // below it starts below the fold. A LazyVStack doesn't instantiate that
+        // row until it's scrolled near, but on first launch the focus engine has
+        // no instantiated focusable below the hero to move to — so Down is
+        // trapped on the hero. VStack instantiates every row up front (each row
+        // still lazy-loads its own tiles/images), giving Down a target. Home is
+        // ~20 rows, so eager row containers are cheap.
         ScrollView(.vertical, showsIndicators: false) {
-            LazyVStack(alignment: .leading, spacing: 48) {
+            VStack(alignment: .leading, spacing: 48) {
                 if !heroItems.isEmpty {
                     HeroCarousel(items: heroItems)
                 }
@@ -144,79 +156,57 @@ struct HomeView: View {
 
 struct HeroCarousel: View {
     let items: [Catalog.Item]
-    // A horizontal paging ScrollView of full-width focusable banners — so a
-    // Siri Remote SWIPE pages the hero exactly like every other row in the app
-    // (focus moves to the next banner, paging snaps it in). The old design was
-    // a single crossfading banner driven by onMoveCommand, which only responded
-    // to clickpad PRESSES, not touch swipes (#2).
-    @State private var scrolledID: String?
-    @FocusState private var focusedID: String?
-    @State private var hasClaimedInitialFocus = false
-    @State private var autoAdvance = Timer.publish(every: 8, on: .main, in: .common).autoconnect()
+    // A SINGLE stable focusable banner whose content auto-advances + wraps —
+    // NOT a horizontal paging ScrollView. The scrollview version trapped
+    // vertical focus: with the hero focused you couldn't press Down to the
+    // shelves below (the horizontal scroll container swallowed the move). One
+    // plain Button in the outer VStack lets Down fall through to the next row
+    // naturally, and the timer cycles through every hero and loops back to the
+    // start. The Button view itself is never rebuilt (only its label content
+    // crossfades), so focus is never disrupted as the item changes.
+    @Environment(Router.self) private var router
+    @State private var index = 0
+    @FocusState private var focused: Bool
+    private let autoAdvance = Timer.publish(every: 7, on: .main, in: .common).autoconnect()
 
     private let heroHeight: CGFloat = 940   // #10: near-full-screen hero
 
+    private var current: Catalog.Item { items[min(index, max(items.count - 1, 0))] }
+
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(spacing: 0) {
-                ForEach(items) { item in
-                    HeroBanner(item: item)
-                        .containerRelativeFrame(.horizontal)   // one banner per page
-                        .focused($focusedID, equals: item.archiveID)
-                        .id(item.archiveID)
-                }
-            }
-            .scrollTargetLayout()
+        Button { router.push(current) } label: {
+            HeroBanner(item: current)
+                .id(current.archiveID)        // crossfade the label on advance
+                .transition(.opacity)
         }
-        .scrollTargetBehavior(.paging)
-        .scrollPosition(id: $scrolledID)
+        .buttonStyle(HeroButtonStyle())
         .frame(height: heroHeight)
-        .scrollClipDisabled()
-        // One focus-traversal unit so up/down between the hero and the shelves
-        // below lands cleanly.
-        .focusSection()
+        .focused($focused)
+        .animation(Motion.heroCrossfade, value: index)
         .overlay(alignment: .bottom) {
             pageIndicator.padding(.bottom, 56).allowsHitTesting(false)
         }
-        // #4: auto-advance whether or not the hero is focused. When it IS focused
-        // we move FOCUS to the next banner (not just the scroll position) — the old
-        // code advanced only when unfocused, so on Home (where the hero claims
-        // focus) it never advanced, and setting scrolledID alone while focused
-        // stranded focus on an off-screen banner.
+        // Auto-advance + wrap (modulo) so it always loops back to the first hero
+        // after the last — runs whether or not the hero is focused.
         .onReceive(autoAdvance) { _ in
             guard items.count > 1 else { return }
-            let next = (currentIndex + 1) % items.count
-            if focusedID != nil {
-                focusedID = items[next].archiveID
-            } else {
-                withAnimation(Motion.heroCrossfade) { scrolledID = items[next].archiveID }
-            }
+            index = (index + 1) % items.count
         }
-        // Claim focus + initial page ONCE on first appearance.
+        // Initial-focus views must imperatively claim focus on appear (tvOS
+        // playbook); a tiny yield makes the claim reliable.
         .task {
-            guard !hasClaimedInitialFocus, let first = items.first else { return }
-            hasClaimedInitialFocus = true
-            scrolledID = first.archiveID
             try? await Task.sleep(for: .milliseconds(60))
-            focusedID = first.archiveID
+            focused = true
         }
-        // Keep the page indicator in step when focus drives the scroll.
-        .onChange(of: focusedID) { _, new in
-            if let new { scrolledID = new }
-        }
-    }
-
-    private var currentIndex: Int {
-        items.firstIndex { $0.archiveID == scrolledID } ?? 0
     }
 
     private var pageIndicator: some View {
         HStack(spacing: 12) {
             ForEach(0..<items.count, id: \.self) { i in
                 Capsule()
-                    .fill(i == currentIndex ? Color.white : Color.white.opacity(0.35))
-                    .frame(width: i == currentIndex ? 36 : 10, height: 10)
-                    .animation(Motion.chrome, value: currentIndex)
+                    .fill(i == index ? Color.white : Color.white.opacity(0.35))
+                    .frame(width: i == index ? 36 : 10, height: 10)
+                    .animation(Motion.chrome, value: index)
             }
         }
     }
@@ -226,34 +216,31 @@ struct HeroBanner: View {
     let item: Catalog.Item
 
     @Environment(AppStore.self) private var store
-    @Environment(Router.self) private var router
 
+    // Pure visual content (no Button) — HeroCarousel wraps it in a single stable
+    // focusable Button so the hero can change item without rebuilding the focused
+    // control or trapping vertical focus.
     var body: some View {
-        Button { router.push(item) } label: {
-            ZStack(alignment: .bottomLeading) {
-                backdrop
-                LinearGradient(
-                    colors: [
-                        .clear,
-                        .clear,
-                        .black.opacity(0.45),
-                        .black.opacity(0.9),
-                        .black
-                    ],
-                    startPoint: .top, endPoint: .bottom
-                )
-                .allowsHitTesting(false)
-                heroOverlay
-                    .padding(.leading, 80)
-                    .padding(.trailing, 80)
-                    .padding(.bottom, 112)
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .clipped()   // #10: full-bleed image stays within its page, no bleed
+        ZStack(alignment: .bottomLeading) {
+            backdrop
+            LinearGradient(
+                colors: [
+                    .clear,
+                    .clear,
+                    .black.opacity(0.45),
+                    .black.opacity(0.9),
+                    .black
+                ],
+                startPoint: .top, endPoint: .bottom
+            )
+            .allowsHitTesting(false)
+            heroOverlay
+                .padding(.leading, 80)
+                .padding(.trailing, 80)
+                .padding(.bottom, 112)
         }
-        // #10: a full-width hero must NOT scale on focus — .card scaled the
-        // focused banner past its page and overlapped the neighbors at the seam.
-        .buttonStyle(HeroButtonStyle())
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .clipped()   // #10: full-bleed image stays within its frame, no bleed
     }
 
     private var heroOverlay: some View {
