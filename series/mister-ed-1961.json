@@ -108,5 +108,49 @@
   "canonicalEpisodesCount": 143,
   "seriesImdbID": "tt0054557",
   "canonicalEpisodeCount": 131,
-  "canonicalSeasons": 6
+  "canonicalSeasons": 6,
+  "cast": [
+    {
+      "name": "Alan Young",
+      "character": "Wilbur Post",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/94638.jpg"
+    },
+    {
+      "name": "Connie Hines",
+      "character": "Carol Post",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/94639.jpg"
+    },
+    {
+      "name": "Allan Rocky Lane",
+      "character": "Mister Ed",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/94640.jpg"
+    },
+    {
+      "name": "Edna Skinner",
+      "character": "Kay",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/94641.jpg"
+    },
+    {
+      "name": "Larry Keating",
+      "character": "Roger",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/94642.jpg"
+    },
+    {
+      "name": "Florence MacMichael",
+      "character": "Winnie",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/399/997745.jpg"
+    },
+    {
+      "name": "Leon Ames",
+      "character": "Gordon Kirkwood",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/94643.jpg"
+    }
+  ]
 }

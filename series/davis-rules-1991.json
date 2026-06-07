@@ -44,5 +44,67 @@
   "canonicalEpisodesCount": 29,
   "seriesImdbID": "tt0101078",
   "canonicalEpisodeCount": 9,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Randy Quaid",
+      "character": "Dwight Davis",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24701.jpg"
+    },
+    {
+      "name": "Jonathan Winters",
+      "character": "Gunny Davis",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/424/1060201.jpg"
+    },
+    {
+      "name": "Luke Edwards",
+      "character": "Charlie Davis",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/48/121233.jpg"
+    },
+    {
+      "name": "Nathan Watt",
+      "character": "Ben Davis",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/61/153570.jpg"
+    },
+    {
+      "name": "Tamayo Otsuki",
+      "character": "Elaine Yamagami",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Debra Mooney",
+      "character": "Mrs. Mary Rush",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9928.jpg"
+    },
+    {
+      "name": "Bonnie Hunt",
+      "character": "Gwen Davis",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/35/88673.jpg"
+    },
+    {
+      "name": "Giovanni Ribisi",
+      "character": "Skinner Buckley",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/7671.jpg"
+    },
+    {
+      "name": "Trevor Bullock",
+      "character": "Robbie Davis",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "Patricia Clarkson",
+      "character": "Cosmo Yeargin",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/32/80634.jpg"
+    }
+  ]
 }

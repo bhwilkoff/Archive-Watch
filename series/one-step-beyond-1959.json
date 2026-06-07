@@ -1,1735 +1,1743 @@
 {
- "version": 2,
- "seriesID": "one-step-beyond-1959",
- "tvmazeID": 18552,
- "title": "One Step Beyond",
- "yearStart": 1959,
- "yearEnd": 1961,
- "overview": "During the era of The Twilight Zone, One Step Beyond is a show that told real stories about supernatural encounters. Host John Newland narrated stories of ghosts, monsters, mysterious disappearances, and supernatural circumstances in which no logical answer to explain the events was found. Along with dramatic and eerie re-enactments, viewers couldn't help but wonder if the paranormal truly exists.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/63/158032.jpg",
- "backdropURL": null,
- "genres": [
-  "Mystery",
-  "Supernatural"
- ],
- "networks": [
-  "ABC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "one-step-beyond-1959",
+  "tvmazeID": 18552,
+  "title": "One Step Beyond",
+  "yearStart": 1959,
+  "yearEnd": 1961,
+  "overview": "During the era of The Twilight Zone, One Step Beyond is a show that told real stories about supernatural encounters. Host John Newland narrated stories of ghosts, monsters, mysterious disappearances, and supernatural circumstances in which no logical answer to explain the events was found. Along with dramatic and eerie re-enactments, viewers couldn't help but wonder if the paranormal truly exists.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/63/158032.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Mystery",
+    "Supernatural"
+  ],
+  "networks": [
+    "ABC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "S1E1THEBRIDEPOSSESSED",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "The Bride Possessed",
-     "overview": "While driving with her husband to their honeymoon vacation, bride Sally Conroy begins to assume the identity of another person.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/401/1003652.jpg",
-     "airDate": "1959-01-20",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E1 - THE BRIDE POSSESSED.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 79190883,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S1E1THEBRIDEPOSSESSED/S1E1%20-%20THE%20BRIDE%20POSSESSED.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "S1E1THEBRIDEPOSSESSED",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Bride Possessed",
+          "overview": "While driving with her husband to their honeymoon vacation, bride Sally Conroy begins to assume the identity of another person.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/401/1003652.jpg",
+          "airDate": "1959-01-20",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E1 - THE BRIDE POSSESSED.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 79190883,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S1E1THEBRIDEPOSSESSED/S1E1%20-%20THE%20BRIDE%20POSSESSED.mp4"
+        },
+        {
+          "archiveID": "OSBS01E02NightOfApril14",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Night of April 14th",
+          "overview": "A young Englishwoman is suddenly wracked by dreams of drowning in the ocean. She is stunned when her fiancée tells her that he has prepared a surprise honeymoon trip for them--they're sailing to New York on the passenger liner Titanic.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/401/1003653.jpg",
+          "airDate": "1959-01-27",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "OSB S01E02 Night of April 14.mp4",
+            "format": "h.264",
+            "sizeBytes": 163295445,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSBS01E02NightOfApril14/OSB S01E02 Night of April 14.mp4"
+        },
+        {
+          "archiveID": "S1E3EMERGENCYONLY",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Emergency Only",
+          "overview": "Arthur Douglas attends a Manhattan cocktail party where a woman foretells his future.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/kNedXcR77TH0dpXzu8IOx6Bj3NK.jpg",
+          "airDate": "1959-02-03",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E3 -  EMERGENCY ONLY.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71079718,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S1E3EMERGENCYONLY/S1E3%20-%20%20EMERGENCY%20ONLY.mp4"
+        },
+        {
+          "archiveID": "S1E4THEDARKROOM",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Dark Room",
+          "overview": "A female, American photojournalist encounters an unusual subject while in France.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/nE5tD9vnVBq6NE7iMon5t5OMlzz.jpg",
+          "airDate": "1959-02-10",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E4 - THE DARK ROOM.mp4",
+            "format": "h.264",
+            "sizeBytes": 155397416,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E4THEDARKROOM/S1E4 - THE DARK ROOM.mp4"
+        },
+        {
+          "archiveID": "S1E512HOURSTOLIVE",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Twelve Hours to Live",
+          "overview": "After having an argument with his wife, a man storms out of the house and goes for a drive. But when he hasn't returned the next morning, the wife gets an uneasy feeling that something is wrong.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/57H1Uk8PGxjFBWJCUsqEnXEwPf9.jpg",
+          "airDate": "1959-02-17",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E5 - 12 HOURS TO LIVE.mp4",
+            "format": "h.264",
+            "sizeBytes": 152001339,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E512HOURSTOLIVE/S1E5 - 12 HOURS TO LIVE.mp4"
+        },
+        {
+          "archiveID": "S1E6Epilogue_201804",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Epilogue",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/lfQahyXIaO5z46Gim3ziq6TKll4.jpg",
+          "airDate": "1959-02-24",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E6 - Epilogue.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 501400964,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S1E6Epilogue_201804/S1E6%20-%20Epilogue.mp4"
+        },
+        {
+          "archiveID": "OneStepBeyondTheDream",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Dream",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/lJqUytZR0k4ByDBdKIC5jqri1Lp.jpg",
+          "airDate": "1959-03-03",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "OneStepBeyondTheDream.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 143132850,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OneStepBeyondTheDream/OneStepBeyondTheDream.ia.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-1-1959",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Premonition",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+          "airDate": "1959-03-10",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "One Step Beyond - s01e08 - Premonition.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 202178122,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One Step Beyond - s01e08 - Premonition.ia.mp4"
+        },
+        {
+          "archiveID": "S1E8PREMONITION",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Premonition",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/ca85g0R6nR8cfxWrGswRtbuyccs.jpg",
+          "airDate": "1959-03-10",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E8 - PREMONITION.mp4",
+            "format": "h.264",
+            "sizeBytes": 158744300,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E8PREMONITION/S1E8 - PREMONITION.mp4"
+        },
+        {
+          "archiveID": "S1E9THEDEADPARTOFTHEHOUSE_201804",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Dead Part of the House",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/2uOMJATAgOwwlcxSKLoEKkceauW.jpg",
+          "airDate": "1959-03-17",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E9 - THE DEAD PART OF THE HOUSE.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 505708093,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S1E9THEDEADPARTOFTHEHOUSE_201804/S1E9%20-%20THE%20DEAD%20PART%20OF%20THE%20HOUSE.mp4"
+        },
+        {
+          "archiveID": "S1E10THEVISION",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Vision",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/xq2EDgIPLbjqRkcyPamAuytOrSz.jpg",
+          "airDate": "1959-03-24",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E10 - THE VISION.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 498610476,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S1E10THEVISION/S1E10%20-%20THE%20VISION.mp4"
+        },
+        {
+          "archiveID": "S1E11THEDEVILSLAUGHTER",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Devil's Laughter",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/7pMpnoCi26k18nraxvgeo800Fsa.jpg",
+          "airDate": "1959-03-31",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E11 - THE DEVIL'S LAUGHTER.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 472062924,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S1E11THEDEVILSLAUGHTER/S1E11%20-%20THE%20DEVIL%27S%20LAUGHTER.mp4"
+        },
+        {
+          "archiveID": "S1E12THERETURNOFMITCHELLCAMPION",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Return of Mitchell Campion",
+          "overview": "Mitchell Campion is ordered to take a long vacation after recovering from a near fatal accident. He travels to a Mediterranean island where everyone seems to know him even though it's his first trip there.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4jewF5DcKuF1Rl82U7tZnTqeMpu.jpg",
+          "airDate": "1959-04-07",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E12 - THE RETURN OF MITCHELL CAMPION.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 503351536,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S1E12THERETURNOFMITCHELLCAMPION/S1E12%20-%20THE%20RETURN%20OF%20MITCHELL%20CAMPION.mp4"
+        },
+        {
+          "archiveID": "S1E14THESECRET",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Secret",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/uthxP6F2PH5PvfmguXtx9wMa7EL.jpg",
+          "airDate": "1959-04-21",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E14 - THE SECRET.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 495778782,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S1E14THESECRET/S1E14%20-%20THE%20SECRET.mp4"
+        },
+        {
+          "archiveID": "S1E15THEAERIALIST",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Aerialist",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/9FM1aAbfRnXYGCI8CSCzcLQKtBs.jpg",
+          "airDate": "1959-04-28",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E15 - THE AERIALIST.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 488620674,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S1E15THEAERIALIST/S1E15%20-%20THE%20AERIALIST.mp4"
+        },
+        {
+          "archiveID": "S1E16THEBURNINGGIRL_201804",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Burning Girl",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/sMlu6d3HvM6TvT95M1hLSvKROPZ.jpg",
+          "airDate": "1959-05-05",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E16 - THE BURNING GIRL.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 497129343,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S1E16THEBURNINGGIRL_201804/S1E16%20-%20THE%20BURNING%20GIRL.mp4"
+        },
+        {
+          "archiveID": "S1E17THEHAUNTEDUBOAT",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Haunted U-Boat",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/7ket1aIK8yrj0Sh0kQjGkkm8wk3.jpg",
+          "airDate": "1959-05-12",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E17 - THE HAUNTED U-BOAT.mp4",
+            "format": "h.264",
+            "sizeBytes": 158583663,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E17THEHAUNTEDUBOAT/S1E17 - THE HAUNTED U-BOAT.mp4"
+        },
+        {
+          "archiveID": "S1E18IMAGEOFDEATH",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "The Image of Death",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/4heYbYvnpQdyW3EsdBxxbindWMf.jpg",
+          "airDate": "1959-05-19",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E18 - IMAGE OF DEATH.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 73496500,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S1E18IMAGEOFDEATH/S1E18%20-%20IMAGE%20OF%20DEATH.mp4"
+        },
+        {
+          "archiveID": "S1E19THECAPTAINSGUESTS",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Captain's Guests",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/sSHYJMpmtnUMbY0kKmu482YK2vP.jpg",
+          "airDate": "1959-05-26",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E19 - THE CAPTAIN'S GUESTS.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 110915844,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S1E19THECAPTAINSGUESTS/S1E19%20-%20THE%20CAPTAIN%27S%20GUESTS.mp4"
+        },
+        {
+          "archiveID": "S1E20Echo",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Echo",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/o2wBT0II1Li6HnPLwNWQ26hN9Pm.jpg",
+          "airDate": "1959-06-02",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E20 - Echo.mp4",
+            "format": "h.264",
+            "sizeBytes": 158788779,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E20Echo/S1E20 - Echo.mp4"
+        },
+        {
+          "archiveID": "S1E21FrontRunner",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Front Runner",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/rhr6AXWYLPXbnGtbvvPYTnXQqu6.jpg",
+          "airDate": "1959-06-09",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E21 - front runner.mp4",
+            "format": "h.264",
+            "sizeBytes": 158648933,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E21FrontRunner/S1E21 - front runner.mp4"
+        },
+        {
+          "archiveID": "S1E22THERIDDLE",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Riddle",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/iGGkp7xWB4Hk5Qtj7fyuSsyP2kK.jpg",
+          "airDate": "1959-06-16",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S1E22 - THE RIDDLE.mp4",
+            "format": "h.264",
+            "sizeBytes": 156986176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S1E22THERIDDLE/S1E22 - THE RIDDLE.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "OSBS01E02NightOfApril14",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Night of April 14th",
-     "overview": "A young Englishwoman is suddenly wracked by dreams of drowning in the ocean. She is stunned when her fiancée tells her that he has prepared a surprise honeymoon trip for them--they're sailing to New York on the passenger liner Titanic.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/401/1003653.jpg",
-     "airDate": "1959-01-27",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "OSB S01E02 Night of April 14.mp4",
-      "format": "h.264",
-      "sizeBytes": 163295445,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/OSBS01E02NightOfApril14/OSB S01E02 Night of April 14.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "S2E1Delusion",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Delusion",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/xMeJW8xgu1BgfRJ8UIbZAFxolAC.jpg",
+          "airDate": "1959-09-15",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E1 - Delusion.mp4",
+            "format": "h.264",
+            "sizeBytes": 155650285,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E1Delusion/S2E1 - Delusion.mp4"
+        },
+        {
+          "archiveID": "S2E2ORDEALONLOCUSTSTREET",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Ordeal on Locust Street",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/igfDrCOzHfkl0Q1VTUWLS8pYOcz.jpg",
+          "airDate": "1959-09-22",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E2 - ORDEAL ON LOCUST STREET.mp4",
+            "format": "h.264",
+            "sizeBytes": 158852246,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E2ORDEALONLOCUSTSTREET/S2E2 - ORDEAL ON LOCUST STREET.mp4"
+        },
+        {
+          "archiveID": "S2E3Brainwave",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Brainwave",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/rGgKCJyYpfQYzWbOaoNEajTR3fc.jpg",
+          "airDate": "1959-10-06",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E3 - Brainwave.mp4",
+            "format": "h.264",
+            "sizeBytes": 161832707,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E3Brainwave/S2E3 - Brainwave.mp4"
+        },
+        {
+          "archiveID": "S2E4Doomsday",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Doomsday",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/5b195h8xB96mNENgfgLIVieYsvK.jpg",
+          "airDate": "1959-10-13",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E4 - Doomsday.mp4",
+            "format": "h.264",
+            "sizeBytes": 159944438,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E4Doomsday/S2E4 - Doomsday.mp4"
+        },
+        {
+          "archiveID": "S2E5NIGHTOFTHEKILL",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Night of the Kill",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/erjombBlLhYEAYWimNircwbCY72.jpg",
+          "airDate": "1959-10-20",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E5 -  NIGHT OF THE KILL.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85141830,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E5NIGHTOFTHEKILL/S2E5%20-%20%20NIGHT%20OF%20THE%20KILL.mp4"
+        },
+        {
+          "archiveID": "S2E6TheInheritance",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Inheritance",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/hpbbpHxkJbDPxmn4VY9GyIyo0H3.jpg",
+          "airDate": "1959-10-27",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E6 - The Inheritance.mp4",
+            "format": "h.264",
+            "sizeBytes": 159812960,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E6TheInheritance/S2E6 - The Inheritance.mp4"
+        },
+        {
+          "archiveID": "S2E7THEOPENWINDOW_201804",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The Open Window",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/yzBweXlnEoyMMNxGhb0Nc0jyRXq.jpg",
+          "airDate": "1959-11-03",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E7 - THE OPEN WINDOW.mp4",
+            "format": "h.264",
+            "sizeBytes": 158911592,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E7THEOPENWINDOW_201804/S2E7 - THE OPEN WINDOW.mp4"
+        },
+        {
+          "archiveID": "S2E8MESSAGEFROMCLARA",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Message from Clara",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/m2HUEYyY3eJZNRBOGnvoxV3y5tF.jpg",
+          "airDate": "1959-11-10",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E8 - MESSAGE FROM CLARA.mp4",
+            "format": "h.264",
+            "sizeBytes": 153352818,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E8MESSAGEFROMCLARA/S2E8 - MESSAGE FROM CLARA.mp4"
+        },
+        {
+          "archiveID": "S2E9ForkedLightning",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Forked Lightning",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/lSio2UWdUF7WPxMDJdjMkshoLlg.jpg",
+          "airDate": "1959-11-17",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E9 - Forked Lightning.mp4",
+            "format": "h.264",
+            "sizeBytes": 156649487,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E9ForkedLightning/S2E9 - Forked Lightning.mp4"
+        },
+        {
+          "archiveID": "S2E10REUNION",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Reunion",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+          "airDate": "1959-11-24",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E10 - REUNION.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 67639015,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E10REUNION/S2E10%20-%20REUNION.mp4"
+        },
+        {
+          "archiveID": "S2E11DEADRINGER",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Dead Ringer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/yoT1BlLc6TeJknkpK5QKS6t4GWW.jpg",
+          "airDate": "1959-12-01",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E11 - DEAD RINGER.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 167317801,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E11DEADRINGER/S2E11%20-%20DEAD%20RINGER.mp4"
+        },
+        {
+          "archiveID": "S2E12STONECUTTER",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "The Stone Cutter",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/8a9tyBcM2QiStKALVCNszW0mrLU.jpg",
+          "airDate": "1959-12-08",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E12 - STONE CUTTER.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 79981097,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E12STONECUTTER/S2E12%20-%20STONE%20CUTTER.mp4"
+        },
+        {
+          "archiveID": "S2E13FATHERIMAGE",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Father Image",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/3bKVqQyFOspJRM5ac7LijRy7jcv.jpg",
+          "airDate": "1959-12-15",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E13 - FATHER IMAGE.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 54818594,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E13FATHERIMAGE/S2E13%20-%20FATHER%20IMAGE.mp4"
+        },
+        {
+          "archiveID": "S2E14MAKEMENOTAWITCH",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Make Me Not a Witch",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/gleCLIvRiFvi9yI5M6r2Y3hKLgh.jpg",
+          "airDate": "1959-12-22",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E14 - MAKE ME NOT A WITCH.mp4",
+            "format": "h.264",
+            "sizeBytes": 155060924,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E14MAKEMENOTAWITCH/S2E14 - MAKE ME NOT A WITCH.mp4"
+        },
+        {
+          "archiveID": "S2E15THEHAND_201804",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "The Hand",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/rQFCdSmf6fnEp2D1VEIWJnVsqRW.jpg",
+          "airDate": "1959-12-29",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E15 - THE HAND.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 487638062,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E15THEHAND_201804/S2E15%20-%20THE%20HAND.mp4"
+        },
+        {
+          "archiveID": "S2E17EARTHQUAKE",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Earthquake",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/7UC9eaGSefpflXGfcd7b6E7CN4W.jpg",
+          "airDate": "1960-01-12",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E17 - EARTHQUAKE.mp4",
+            "format": "h.264",
+            "sizeBytes": 148416603,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E17EARTHQUAKE/S2E17 - EARTHQUAKE.mp4"
+        },
+        {
+          "archiveID": "S2E18FORESTSOFTHENIGHT",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "The Forests of the Night",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/pkOkPBufycTglbvFHEE30HNd9bL.jpg",
+          "airDate": "1960-01-19",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E18 -  FORESTS OF THE NIGHT.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 83666344,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E18FORESTSOFTHENIGHT/S2E18%20-%20%20FORESTS%20OF%20THE%20NIGHT.mp4"
+        },
+        {
+          "archiveID": "S2E19CALLFROMTOMORROW",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Call from Tomorrow",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/4sbJ55yroHoCdbOrbb1TIFfD9cp.jpg",
+          "airDate": "1960-01-26",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E19 - CALL FROM TOMORROW.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 153459963,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E19CALLFROMTOMORROW/S2E19%20-%20CALL%20FROM%20TOMORROW.mp4"
+        },
+        {
+          "archiveID": "S2E22THELOVERS",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "The Lovers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/mh1dUdZXzlWgbXbBuUGLTDxRsXH.jpg",
+          "airDate": "1960-02-16",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E22 - THE LOVERS.mp4",
+            "format": "h.264",
+            "sizeBytes": 156182092,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E22THELOVERS/S2E22 - THE LOVERS.mp4"
+        },
+        {
+          "archiveID": "S2E23VanishingPoint",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Vanishing Point",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/43trJyparLbDbx3h5Eo9wERPwBZ.jpg",
+          "airDate": "1960-02-23",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E23 - Vanishing Point.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 168157039,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E23VanishingPoint/S2E23%20-%20Vanishing%20Point.mp4"
+        },
+        {
+          "archiveID": "S2E24THEMASK_201804",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "The Mask",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/iOZcqD6H82GBp5ZJ2u84sOsTRHY.jpg",
+          "airDate": "1960-03-01",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E24 - THE MASK.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 500481213,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E24THEMASK_201804/S2E24%20-%20THE%20MASK.mp4"
+        },
+        {
+          "archiveID": "S2E25THEHAUNTING",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "The Haunting",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/4AaSX7dRF5C5lGx8hCG4YmO4ieK.jpg",
+          "airDate": "1960-03-08",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E25 - THE HAUNTING.mp4",
+            "format": "h.264",
+            "sizeBytes": 153395964,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E25THEHAUNTING/S2E25 - THE HAUNTING.mp4"
+        },
+        {
+          "archiveID": "S2E26THEEXPLORER",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "The Explorer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/t2iy3GsI8BgWVBVwqJyjb46Zd8L.jpg",
+          "airDate": "1960-03-15",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E26 - THE EXPLORER.mp4",
+            "format": "h.264",
+            "sizeBytes": 153838397,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E26THEEXPLORER/S2E26 - THE EXPLORER.mp4"
+        },
+        {
+          "archiveID": "S2E27THECLOWN_201804",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "The Clown",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/4gn8pDS6VC4yP40iHwsOHnLha6R.jpg",
+          "airDate": "1960-03-22",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E27 - THE CLOWN.mp4",
+            "format": "h.264",
+            "sizeBytes": 159325839,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E27THECLOWN_201804/S2E27 - THE CLOWN.mp4"
+        },
+        {
+          "archiveID": "S2E28ISAWYOUTOMORROW",
+          "seasonNumber": 2,
+          "episodeNumber": 28,
+          "title": "I Saw You Tomorrow",
+          "overview": "Donald Suart witnesses a man killing his wife, but as he tries to intervene the couple fades. The mansion owner, Ellie, calms him down until other guests arrive and Donald recognizes the couple.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/262/656453.jpg",
+          "airDate": "1960-04-05",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E28 - I SAW YOU TOMORROW.mp4",
+            "format": "h.264",
+            "sizeBytes": 159437066,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E28ISAWYOUTOMORROW/S2E28 - I SAW YOU TOMORROW.mp4"
+        },
+        {
+          "archiveID": "S2E29ENCOUNTER",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "Encounter",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/i3Vtk9xPVaVtTp7vbM9fKowfLTy.jpg",
+          "airDate": "1960-04-12",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E29 - ENCOUNTER.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76539911,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E29ENCOUNTER/S2E29%20-%20ENCOUNTER.mp4"
+        },
+        {
+          "archiveID": "S2E30THEPETERHURKOSSTORYPT1",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "The Peter Hurkos Story (1)",
+          "overview": "Peter Hurkos is a man with an uncanny gift, he can read people's minds. Although he is scared of such ability, he finally comes to terms with it and lives from it.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/bfG6hJ7kPPNjRYAI7WQayeGFpx.jpg",
+          "airDate": "1960-04-19",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E30 - THE PETER HURKOS STORY, PT 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 160234142,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E30THEPETERHURKOSSTORYPT1/S2E30 - THE PETER HURKOS STORY, PT 1.mp4"
+        },
+        {
+          "archiveID": "S2E31THEPETERHURKOSSTORYPT2",
+          "seasonNumber": 2,
+          "episodeNumber": 31,
+          "title": "The Peter Hurkos Story (2)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/l71dL8oSGt4xjhXR6QSAr5sBJG4.jpg",
+          "airDate": "1960-04-26",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E31 - THE PETER HURKOS STORY, PT 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 159677941,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E31THEPETERHURKOSSTORYPT2/S2E31 - THE PETER HURKOS STORY, PT 2.mp4"
+        },
+        {
+          "archiveID": "S2E32Delia",
+          "seasonNumber": 2,
+          "episodeNumber": 32,
+          "title": "Delia",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/pdsuO9fPKCUOQ9CPJSk4hNpy9LM.jpg",
+          "airDate": "1960-05-03",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E32 - Delia.mp4",
+            "format": "h.264",
+            "sizeBytes": 156380469,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E32Delia/S2E32 - Delia.mp4"
+        },
+        {
+          "archiveID": "S2E33THEVISITOR",
+          "seasonNumber": 2,
+          "episodeNumber": 33,
+          "title": "The Visitor",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/4KUrfvxcJkDNcOAd76t31KKCdSp.jpg",
+          "airDate": "1960-05-10",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E33 - THE VISITOR.mp4",
+            "format": "h.264",
+            "sizeBytes": 141482766,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E33THEVISITOR/S2E33 - THE VISITOR.mp4"
+        },
+        {
+          "archiveID": "S2E34Gypsy",
+          "seasonNumber": 2,
+          "episodeNumber": 34,
+          "title": "Gypsy",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/4SXIaO5RBS2AF9sCidMrvE0bXC5.jpg",
+          "airDate": "1960-05-17",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E34 - Gypsy.mp4",
+            "format": "h.264",
+            "sizeBytes": 154792752,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E34Gypsy/S2E34 - Gypsy.mp4"
+        },
+        {
+          "archiveID": "S2E35CONTACT",
+          "seasonNumber": 2,
+          "episodeNumber": 35,
+          "title": "Contact",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/52OlrYAZO5nViPp8f7XeBL4WlbQ.jpg",
+          "airDate": "1960-05-24",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E35 - CONTACT.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 450396564,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E35CONTACT/S2E35%20-%20CONTACT.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 35,
+          "title": "One Step Beyond - Season 2",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+          "airDate": "1960-05-24",
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "One Step Beyond - s02e35 - Contact.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 259098137,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-2/One Step Beyond - s02e35 - Contact.ia.mp4"
+        },
+        {
+          "archiveID": "S2E36THELONELYROOM",
+          "seasonNumber": 2,
+          "episodeNumber": 36,
+          "title": "The Lonely Room",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/meY1ex390qvUSsy0wCqy0URF9oF.jpg",
+          "airDate": "1960-05-31",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E36 - THE LONELY ROOM.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 66886053,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E36THELONELYROOM/S2E36%20-%20THE%20LONELY%20ROOM.mp4"
+        },
+        {
+          "archiveID": "S2E37HOUSEOFTHEDEAD",
+          "seasonNumber": 2,
+          "episodeNumber": 37,
+          "title": "House of the Dead",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/wVlPLd60uAdhwHk8v4OLpbSNsQQ.jpg",
+          "airDate": "1960-06-07",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E37 - HOUSE OF THE DEAD.mp4",
+            "format": "h.264",
+            "sizeBytes": 156975580,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S2E37HOUSEOFTHEDEAD/S2E37 - HOUSE OF THE DEAD.mp4"
+        },
+        {
+          "archiveID": "S2E38GOODBYEGRANDPA_201804",
+          "seasonNumber": 2,
+          "episodeNumber": 38,
+          "title": "Goodbye Grandpa",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/7Y26RhUTs3mC5eSopmp2Lt6rl9j.jpg",
+          "airDate": "1960-06-14",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E38 - GOODBYE GRANDPA.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 497608870,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E38GOODBYEGRANDPA_201804/S2E38%20-%20GOODBYE%20GRANDPA.mp4"
+        },
+        {
+          "archiveID": "S2E39THESTORM",
+          "seasonNumber": 2,
+          "episodeNumber": 39,
+          "title": "The Storm",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/t1IhLLyTpU6HPIo3JorhSIxqjIB.jpg",
+          "airDate": "1960-06-21",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E39 - THE STORM.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 140588317,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S2E39THESTORM/S2E39%20-%20THE%20STORM.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "S1E3EMERGENCYONLY",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Emergency Only",
-     "overview": "Arthur Douglas attends a Manhattan cocktail party where a woman foretells his future.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/kNedXcR77TH0dpXzu8IOx6Bj3NK.jpg",
-     "airDate": "1959-02-03",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E3 -  EMERGENCY ONLY.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 71079718,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S1E3EMERGENCYONLY/S1E3%20-%20%20EMERGENCY%20ONLY.mp4"
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "S3E1TIDALWAVE",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Tidal Wave",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/wpPzrn93yQ2FBXHX09w6xQvrR8b.jpg",
+          "airDate": "1960-08-30",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E1 - TIDAL WAVE.mp4",
+            "format": "h.264",
+            "sizeBytes": 157418784,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E1TIDALWAVE/S3E1 - TIDAL WAVE.mp4"
+        },
+        {
+          "archiveID": "S3E2ANNIVERSARYOFAMURDER",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Anniversary of a Murder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/9aRUpP8DTw4Vl6MbdlktzTwTPG1.jpg",
+          "airDate": "1960-09-27",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E2  - ANNIVERSARY OF A MURDER.mp4",
+            "format": "h.264",
+            "sizeBytes": 159502305,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E2ANNIVERSARYOFAMURDER/S3E2  - ANNIVERSARY OF A MURDER.mp4"
+        },
+        {
+          "archiveID": "S3E3DEATHWALTZ",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "The Death Waltz",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/sizh15Rj7IKlAqKfwmowQYnSTuU.jpg",
+          "airDate": "1960-10-04",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E3 - DEATH WALTZ.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 56819575,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E3DEATHWALTZ/S3E3%20-%20DEATH%20WALTZ.mp4"
+        },
+        {
+          "archiveID": "S3E4THERETURN",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "The Return",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/xGYIQWleZFpPRhQWFcZ3gvrqO9A.jpg",
+          "airDate": "1960-10-11",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E4 -  THE RETURN.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 72534883,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E4THERETURN/S3E4%20-%20%20THE%20RETURN.mp4"
+        },
+        {
+          "archiveID": "S3E5IFYOUSEESALLY",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "If You See Sally",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/q9hSH65IbxdC7iSTm2ZuAoJcY8b.jpg",
+          "airDate": "1960-10-18",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E5 - IF YOU SEE SALLY.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 58422693,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E5IFYOUSEESALLY/S3E5%20-%20IF%20YOU%20SEE%20SALLY.mp4"
+        },
+        {
+          "archiveID": "S3E6MOMENTOFHATE_201804",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Moment of Hate",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/fOGG8vTwddXiVxUUHHOrUXjmsaT.jpg",
+          "airDate": "1960-10-25",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E6 - MOMENT OF HATE.mp4",
+            "format": "h.264",
+            "sizeBytes": 156063631,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E6MOMENTOFHATE_201804/S3E6 - MOMENT OF HATE.mp4"
+        },
+        {
+          "archiveID": "S3E7TOKNOWTHEEND",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "To Know the End",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/AozVQZ5vcGu6p1d8z7KXPBxGtuL.jpg",
+          "airDate": "1960-11-01",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E7 - TO KNOW THE END.mp4",
+            "format": "h.264",
+            "sizeBytes": 159432669,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E7TOKNOWTHEEND/S3E7 - TO KNOW THE END.mp4"
+        },
+        {
+          "archiveID": "S3E8THETRAP",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "The Trap",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/rApPQc9UuXX7lUCktT5AgLB0eB4.jpg",
+          "airDate": "1960-11-15",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E8 - THE TRAP.mp4",
+            "format": "h.264",
+            "sizeBytes": 155449986,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E8THETRAP/S3E8 - THE TRAP.mp4"
+        },
+        {
+          "archiveID": "S3E9THEVOICE",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "The Voice",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/7il4oZwc1UpqGKfu6OSalHyGvUp.jpg",
+          "airDate": "1960-11-22",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E9 -  THE VOICE.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 54606984,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E9THEVOICE/S3E9%20-%20%20THE%20VOICE.mp4"
+        },
+        {
+          "archiveID": "S3E10THEPROMISE",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "The Promise",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/4jUa39r1OYxmxYQTK74aWcKh6Ey.jpg",
+          "airDate": "1960-11-29",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E10 - THE PROMISE.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 54786337,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E10THEPROMISE/S3E10%20-%20THE%20PROMISE.mp4"
+        },
+        {
+          "archiveID": "S3E11TONIGHTAT1217",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Tonight at 12:17",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/7a2MyCPuzdmx138JciwrK2MMjV2.jpg",
+          "airDate": "1960-12-06",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E11 - TONIGHT AT 12-17.mp4",
+            "format": "h.264",
+            "sizeBytes": 155857034,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E11TONIGHTAT1217/S3E11 - TONIGHT AT 12-17.mp4"
+        },
+        {
+          "archiveID": "S3E12WHEREARETHEY",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Where Are They?",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/1vOTgLWQraGHWygzpEUWautY8Zm.jpg",
+          "airDate": "1960-12-13",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E12 - WHERE ARE THEY.mp4",
+            "format": "h.264",
+            "sizeBytes": 155961781,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E12WHEREARETHEY/S3E12 - WHERE ARE THEY.mp4"
+        },
+        {
+          "archiveID": "S3E13LEGACYOFLOVE",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Legacy of Love",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/yE0cOxQW1w8Iqk1D48qrb4Kltfr.jpg",
+          "airDate": "1960-12-20",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E13 - LEGACY OF LOVE.mp4",
+            "format": "h.264",
+            "sizeBytes": 156583864,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E13LEGACYOFLOVE/S3E13 - LEGACY OF LOVE.mp4"
+        },
+        {
+          "archiveID": "S3E14RENDEZVOUS",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Rendezvous",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/umaIPtce4Cu9wQLpl61bnJFDypN.jpg",
+          "airDate": "1960-12-27",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E14 - RENDEZVOUS.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76891332,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E14RENDEZVOUS/S3E14%20-%20RENDEZVOUS.mp4"
+        },
+        {
+          "archiveID": "S3E15TheExecutioner",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "The Executioner",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/3u0DUkhoS3IZbx5zARRGtI0ADBA.jpg",
+          "airDate": "1961-01-03",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E15 - The Executioner.mp4",
+            "format": "h.264",
+            "sizeBytes": 155436389,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E15TheExecutioner/S3E15 - The Executioner.mp4"
+        },
+        {
+          "archiveID": "S3E16THELASTROUND",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "The Last Round",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/yMXqfvLWT8n8iDgRws7Vt1k2gJv.jpg",
+          "airDate": "1961-01-10",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E16 - THE LAST ROUND.mp4",
+            "format": "h.264",
+            "sizeBytes": 156055344,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E16THELASTROUND/S3E16 - THE LAST ROUND.mp4"
+        },
+        {
+          "archiveID": "S3E17DEADMANSTALE",
+          "seasonNumber": 3,
+          "episodeNumber": 17,
+          "title": "Dead Man's Tale",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/9RVQ4P1fnzW6ccwSQ9yIWZk8Knd.jpg",
+          "airDate": "1961-01-17",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E17 - DEAD MAN'S TALE.mp4",
+            "format": "h.264",
+            "sizeBytes": 155680469,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E17DEADMANSTALE/S3E17 - DEAD MAN'S TALE.mp4"
+        },
+        {
+          "archiveID": "S3E18THESACREDMUSHROOM_201804",
+          "seasonNumber": 3,
+          "episodeNumber": 18,
+          "title": "The Sacred Mushroom",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/yKM46DHUtl1wdqDiiEyj3JlSbLL.jpg",
+          "airDate": "1961-01-24",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E18 - THE SACRED MUSHROOM.mp4",
+            "format": "h.264",
+            "sizeBytes": 156095835,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E18THESACREDMUSHROOM_201804/S3E18 - THE SACRED MUSHROOM.mp4"
+        },
+        {
+          "archiveID": "S3E19THEGIFT",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "The Gift",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/qtErsnXvqnUXCIht9BL8EJODzcj.jpg",
+          "airDate": "1961-01-31",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E19 -  THE GIFT.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85891932,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E19THEGIFT/S3E19%20-%20%20THE%20GIFT.mp4"
+        },
+        {
+          "archiveID": "S3E20PERSONSUNKNOWN_201804",
+          "seasonNumber": 3,
+          "episodeNumber": 20,
+          "title": "Person Unknown",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/iaetasKwzDutJdAHGIaYRLVlYU.jpg",
+          "airDate": "1961-02-07",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E20 - PERSONS UNKNOWN.mp4",
+            "format": "h.264",
+            "sizeBytes": 158256849,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E20PERSONSUNKNOWN_201804/S3E20 - PERSONS UNKNOWN.mp4"
+        },
+        {
+          "archiveID": "S3E21NIGHTOFDECISION",
+          "seasonNumber": 3,
+          "episodeNumber": 21,
+          "title": "Night of Decision",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/fny5KlNY2leZUT6Br6kZ4shkB5c.jpg",
+          "airDate": "1961-02-21",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E21 - NIGHT OF DECISION.mp4",
+            "format": "h.264",
+            "sizeBytes": 158267149,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/S3E21NIGHTOFDECISION/S3E21 - NIGHT OF DECISION.mp4"
+        },
+        {
+          "archiveID": "S3E22THESTRANGER",
+          "seasonNumber": 3,
+          "episodeNumber": 22,
+          "title": "The Stranger",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/eRXK7t34qXAIJDdgeqZc8zb3Ckg.jpg",
+          "airDate": "1961-02-28",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E22 - THE STRANGER.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 90788911,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E22THESTRANGER/S3E22%20-%20THE%20STRANGER.mp4"
+        },
+        {
+          "archiveID": "S3E23JUSTICE",
+          "seasonNumber": 3,
+          "episodeNumber": 23,
+          "title": "Justice",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/f1vwSo8iXUkVAZ7ONM8CwuzIgGf.jpg",
+          "airDate": "1961-03-07",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E23 -  JUSTICE.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 72903591,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E23JUSTICE/S3E23%20-%20%20JUSTICE.mp4"
+        },
+        {
+          "archiveID": "S3E24THEFACE",
+          "seasonNumber": 3,
+          "episodeNumber": 24,
+          "title": "The Face",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/uxiVzqj0EiWllTPHv3aFkgPf1gF.jpg",
+          "airDate": "1961-03-14",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E24 - THE FACE.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 66407899,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E24THEFACE/S3E24%20-%20THE%20FACE.mp4"
+        },
+        {
+          "archiveID": "S3E25THEROOMUPSTAIRS",
+          "seasonNumber": 3,
+          "episodeNumber": 25,
+          "title": "The Room Upstairs",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/fW1KlSjtPxFT7EPAuLavNElHd2K.jpg",
+          "airDate": "1961-03-21",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E25 -  THE ROOM UPSTAIRS.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 63778600,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E25THEROOMUPSTAIRS/S3E25%20-%20%20THE%20ROOM%20UPSTAIRS.mp4"
+        },
+        {
+          "archiveID": "S3E26SIGNALRECEIVED",
+          "seasonNumber": 3,
+          "episodeNumber": 26,
+          "title": "Signal Received",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/wMDkwEziVihmbwxr5fk6msCnQQA.jpg",
+          "airDate": "1961-04-04",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E26 - SIGNAL RECEIVED.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 94226481,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E26SIGNALRECEIVED/S3E26%20-%20SIGNAL%20RECEIVED.mp4"
+        },
+        {
+          "archiveID": "S3E27THECONFESSION",
+          "seasonNumber": 3,
+          "episodeNumber": 27,
+          "title": "The Confession",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/4xNJTagdC34L28lEj7QopkH0l2B.jpg",
+          "airDate": "1961-04-11",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E27 - THE CONFESSION.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 58149234,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E27THECONFESSION/S3E27%20-%20THE%20CONFESSION.mp4"
+        },
+        {
+          "archiveID": "S3E28THEAVENGERS",
+          "seasonNumber": 3,
+          "episodeNumber": 28,
+          "title": "The Avengers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/gOwGzMJqxiHAAvBjzkejVucnCsC.jpg",
+          "airDate": "1961-04-25",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E28 - THE AVENGERS.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 74816563,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E28THEAVENGERS/S3E28%20-%20THE%20AVENGERS.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-3",
+          "seasonNumber": 3,
+          "episodeNumber": 29,
+          "title": "The Prisoner",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+          "airDate": "1961-05-02",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "One Step Beyond - s03e29 - The Prisoner.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 381633939,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-3/One Step Beyond - s03e29 - The Prisoner.ia.mp4"
+        },
+        {
+          "archiveID": "S3E29THEPRISONER",
+          "seasonNumber": 3,
+          "episodeNumber": 29,
+          "title": "The Prisoner",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/vNPdX6eWFH4bTQPL64dZmYQ65Gl.jpg",
+          "airDate": "1961-05-02",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E29 -  THE PRISONER.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 92301487,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E29THEPRISONER/S3E29%20-%20%20THE%20PRISONER.mp4"
+        },
+        {
+          "archiveID": "S3E30BLOODFLOWER",
+          "seasonNumber": 3,
+          "episodeNumber": 30,
+          "title": "Blood Flower",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/yONPI2DH1W1d1XfcOy60FjHuUiX.jpg",
+          "airDate": "1961-05-16",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E30 - BLOOD FLOWER.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 63170934,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E30BLOODFLOWER/S3E30%20-%20BLOOD%20FLOWER.mp4"
+        },
+        {
+          "archiveID": "S3E31THESORCERER_201804",
+          "seasonNumber": 3,
+          "episodeNumber": 31,
+          "title": "The Sorcerer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/4CzVNuJywhY37E4ww0WXV33LNm8.jpg",
+          "airDate": "1961-05-23",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E31 - THE SORCERER.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 247659096,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E31THESORCERER_201804/S3E31%20-%20THE%20SORCERER.mp4"
+        },
+        {
+          "archiveID": "S3E32THEVILLA",
+          "seasonNumber": 3,
+          "episodeNumber": 32,
+          "title": "The Villa",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/3mYa46cgcMPZItxNnn2s1uRgm8H.jpg",
+          "airDate": "1961-06-06",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S3E32 - THE VILLA.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 69110139,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/S3E32THEVILLA/S3E32%20-%20THE%20VILLA.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "S1E4THEDARKROOM",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "The Dark Room",
-     "overview": "A female, American photojournalist encounters an unusual subject while in France.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/nE5tD9vnVBq6NE7iMon5t5OMlzz.jpg",
-     "airDate": "1959-02-10",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E4 - THE DARK ROOM.mp4",
-      "format": "h.264",
-      "sizeBytes": 155397416,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S1E4THEDARKROOM/S1E4 - THE DARK ROOM.mp4"
-    },
-    {
-     "archiveID": "S1E512HOURSTOLIVE",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Twelve Hours to Live",
-     "overview": "After having an argument with his wife, a man storms out of the house and goes for a drive. But when he hasn't returned the next morning, the wife gets an uneasy feeling that something is wrong.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/57H1Uk8PGxjFBWJCUsqEnXEwPf9.jpg",
-     "airDate": "1959-02-17",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E5 - 12 HOURS TO LIVE.mp4",
-      "format": "h.264",
-      "sizeBytes": 152001339,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S1E512HOURSTOLIVE/S1E5 - 12 HOURS TO LIVE.mp4"
-    },
-    {
-     "archiveID": "S1E6Epilogue_201804",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Epilogue",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/lfQahyXIaO5z46Gim3ziq6TKll4.jpg",
-     "airDate": "1959-02-24",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E6 - Epilogue.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 501400964,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S1E6Epilogue_201804/S1E6%20-%20Epilogue.mp4"
-    },
-    {
-     "archiveID": "OneStepBeyondTheDream",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "The Dream",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/lJqUytZR0k4ByDBdKIC5jqri1Lp.jpg",
-     "airDate": "1959-03-03",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "OneStepBeyondTheDream.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 143132850,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/OneStepBeyondTheDream/OneStepBeyondTheDream.ia.mp4"
-    },
-    {
-     "archiveID": "one-step-beyond-season-1-1959",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "Premonition",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
-     "airDate": "1959-03-10",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "One Step Beyond - s01e08 - Premonition.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 202178122,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One Step Beyond - s01e08 - Premonition.ia.mp4"
-    },
-    {
-     "archiveID": "S1E8PREMONITION",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "Premonition",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/ca85g0R6nR8cfxWrGswRtbuyccs.jpg",
-     "airDate": null,
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E8 - PREMONITION.mp4",
-      "format": "h.264",
-      "sizeBytes": 158744300,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S1E8PREMONITION/S1E8 - PREMONITION.mp4"
-    },
-    {
-     "archiveID": "S1E9THEDEADPARTOFTHEHOUSE_201804",
-     "seasonNumber": 1,
-     "episodeNumber": 9,
-     "title": "The Dead Part of the House",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/2uOMJATAgOwwlcxSKLoEKkceauW.jpg",
-     "airDate": "1959-03-17",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E9 - THE DEAD PART OF THE HOUSE.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 505708093,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S1E9THEDEADPARTOFTHEHOUSE_201804/S1E9%20-%20THE%20DEAD%20PART%20OF%20THE%20HOUSE.mp4"
-    },
-    {
-     "archiveID": "S1E10THEVISION",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "The Vision",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/xq2EDgIPLbjqRkcyPamAuytOrSz.jpg",
-     "airDate": "1959-03-24",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E10 - THE VISION.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 498610476,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S1E10THEVISION/S1E10%20-%20THE%20VISION.mp4"
-    },
-    {
-     "archiveID": "S1E11THEDEVILSLAUGHTER",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "The Devil's Laughter",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/7pMpnoCi26k18nraxvgeo800Fsa.jpg",
-     "airDate": "1959-03-31",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E11 - THE DEVIL'S LAUGHTER.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 472062924,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S1E11THEDEVILSLAUGHTER/S1E11%20-%20THE%20DEVIL%27S%20LAUGHTER.mp4"
-    },
-    {
-     "archiveID": "S1E12THERETURNOFMITCHELLCAMPION",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "The Return of Mitchell Campion",
-     "overview": "Mitchell Campion is ordered to take a long vacation after recovering from a near fatal accident. He travels to a Mediterranean island where everyone seems to know him even though it's his first trip there.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/4jewF5DcKuF1Rl82U7tZnTqeMpu.jpg",
-     "airDate": "1959-04-07",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E12 - THE RETURN OF MITCHELL CAMPION.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 503351536,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S1E12THERETURNOFMITCHELLCAMPION/S1E12%20-%20THE%20RETURN%20OF%20MITCHELL%20CAMPION.mp4"
-    },
-    {
-     "archiveID": "S1E14THESECRET",
-     "seasonNumber": 1,
-     "episodeNumber": 14,
-     "title": "The Secret",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/uthxP6F2PH5PvfmguXtx9wMa7EL.jpg",
-     "airDate": "1959-04-21",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E14 - THE SECRET.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 495778782,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S1E14THESECRET/S1E14%20-%20THE%20SECRET.mp4"
-    },
-    {
-     "archiveID": "S1E15THEAERIALIST",
-     "seasonNumber": 1,
-     "episodeNumber": 15,
-     "title": "The Aerialist",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/9FM1aAbfRnXYGCI8CSCzcLQKtBs.jpg",
-     "airDate": "1959-04-28",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E15 - THE AERIALIST.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 488620674,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S1E15THEAERIALIST/S1E15%20-%20THE%20AERIALIST.mp4"
-    },
-    {
-     "archiveID": "S1E16THEBURNINGGIRL_201804",
-     "seasonNumber": 1,
-     "episodeNumber": 16,
-     "title": "The Burning Girl",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/sMlu6d3HvM6TvT95M1hLSvKROPZ.jpg",
-     "airDate": "1959-05-05",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E16 - THE BURNING GIRL.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 497129343,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S1E16THEBURNINGGIRL_201804/S1E16%20-%20THE%20BURNING%20GIRL.mp4"
-    },
-    {
-     "archiveID": "S1E17THEHAUNTEDUBOAT",
-     "seasonNumber": 1,
-     "episodeNumber": 17,
-     "title": "The Haunted U-Boat",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/7ket1aIK8yrj0Sh0kQjGkkm8wk3.jpg",
-     "airDate": "1959-05-12",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E17 - THE HAUNTED U-BOAT.mp4",
-      "format": "h.264",
-      "sizeBytes": 158583663,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S1E17THEHAUNTEDUBOAT/S1E17 - THE HAUNTED U-BOAT.mp4"
-    },
-    {
-     "archiveID": "S1E18IMAGEOFDEATH",
-     "seasonNumber": 1,
-     "episodeNumber": 18,
-     "title": "The Image of Death",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/4heYbYvnpQdyW3EsdBxxbindWMf.jpg",
-     "airDate": "1959-05-19",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E18 - IMAGE OF DEATH.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 73496500,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S1E18IMAGEOFDEATH/S1E18%20-%20IMAGE%20OF%20DEATH.mp4"
-    },
-    {
-     "archiveID": "S1E19THECAPTAINSGUESTS",
-     "seasonNumber": 1,
-     "episodeNumber": 19,
-     "title": "The Captain's Guests",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/sSHYJMpmtnUMbY0kKmu482YK2vP.jpg",
-     "airDate": "1959-05-26",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E19 - THE CAPTAIN'S GUESTS.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 110915844,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S1E19THECAPTAINSGUESTS/S1E19%20-%20THE%20CAPTAIN%27S%20GUESTS.mp4"
-    },
-    {
-     "archiveID": "S1E20Echo",
-     "seasonNumber": 1,
-     "episodeNumber": 20,
-     "title": "Echo",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/o2wBT0II1Li6HnPLwNWQ26hN9Pm.jpg",
-     "airDate": "1959-06-02",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E20 - Echo.mp4",
-      "format": "h.264",
-      "sizeBytes": 158788779,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S1E20Echo/S1E20 - Echo.mp4"
-    },
-    {
-     "archiveID": "S1E21FrontRunner",
-     "seasonNumber": 1,
-     "episodeNumber": 21,
-     "title": "Front Runner",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/rhr6AXWYLPXbnGtbvvPYTnXQqu6.jpg",
-     "airDate": "1959-06-09",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E21 - front runner.mp4",
-      "format": "h.264",
-      "sizeBytes": 158648933,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S1E21FrontRunner/S1E21 - front runner.mp4"
-    },
-    {
-     "archiveID": "S1E22THERIDDLE",
-     "seasonNumber": 1,
-     "episodeNumber": 22,
-     "title": "The Riddle",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/iGGkp7xWB4Hk5Qtj7fyuSsyP2kK.jpg",
-     "airDate": "1959-06-16",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S1E22 - THE RIDDLE.mp4",
-      "format": "h.264",
-      "sizeBytes": 156986176,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S1E22THERIDDLE/S1E22 - THE RIDDLE.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "OSB-TheBridePossessed",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "One Step Beyond - The Bride Possessed",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The_Bride_Possessed.mp4",
+            "format": "h.264",
+            "sizeBytes": 147231342,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-TheBridePossessed/The_Bride_Possessed.mp4"
+        },
+        {
+          "archiveID": "OSB-77_The_Last_Round",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "One Step Beyond : The Last Round",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "OSB-77_The_Last_Round.mp4",
+            "format": "h.264",
+            "sizeBytes": 149366342,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OSB-77_The_Last_Round/OSB-77_The_Last_Round.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  ],
+  "episodesCount": 94,
+  "canonicalEpisodesCount": 97,
+  "cast": [
     {
-     "archiveID": "S2E1Delusion",
-     "seasonNumber": 2,
-     "episodeNumber": 1,
-     "title": "Delusion",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/xMeJW8xgu1BgfRJ8UIbZAFxolAC.jpg",
-     "airDate": "1959-09-15",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E1 - Delusion.mp4",
-      "format": "h.264",
-      "sizeBytes": 155650285,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E1Delusion/S2E1 - Delusion.mp4"
-    },
-    {
-     "archiveID": "S2E2ORDEALONLOCUSTSTREET",
-     "seasonNumber": 2,
-     "episodeNumber": 2,
-     "title": "Ordeal on Locust Street",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/igfDrCOzHfkl0Q1VTUWLS8pYOcz.jpg",
-     "airDate": "1959-09-22",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E2 - ORDEAL ON LOCUST STREET.mp4",
-      "format": "h.264",
-      "sizeBytes": 158852246,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E2ORDEALONLOCUSTSTREET/S2E2 - ORDEAL ON LOCUST STREET.mp4"
-    },
-    {
-     "archiveID": "S2E3Brainwave",
-     "seasonNumber": 2,
-     "episodeNumber": 3,
-     "title": "Brainwave",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/rGgKCJyYpfQYzWbOaoNEajTR3fc.jpg",
-     "airDate": "1959-10-06",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E3 - Brainwave.mp4",
-      "format": "h.264",
-      "sizeBytes": 161832707,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E3Brainwave/S2E3 - Brainwave.mp4"
-    },
-    {
-     "archiveID": "S2E4Doomsday",
-     "seasonNumber": 2,
-     "episodeNumber": 4,
-     "title": "Doomsday",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/5b195h8xB96mNENgfgLIVieYsvK.jpg",
-     "airDate": "1959-10-13",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E4 - Doomsday.mp4",
-      "format": "h.264",
-      "sizeBytes": 159944438,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E4Doomsday/S2E4 - Doomsday.mp4"
-    },
-    {
-     "archiveID": "S2E5NIGHTOFTHEKILL",
-     "seasonNumber": 2,
-     "episodeNumber": 5,
-     "title": "Night of the Kill",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/erjombBlLhYEAYWimNircwbCY72.jpg",
-     "airDate": "1959-10-20",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E5 -  NIGHT OF THE KILL.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 85141830,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E5NIGHTOFTHEKILL/S2E5%20-%20%20NIGHT%20OF%20THE%20KILL.mp4"
-    },
-    {
-     "archiveID": "S2E6TheInheritance",
-     "seasonNumber": 2,
-     "episodeNumber": 6,
-     "title": "The Inheritance",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/hpbbpHxkJbDPxmn4VY9GyIyo0H3.jpg",
-     "airDate": "1959-10-27",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E6 - The Inheritance.mp4",
-      "format": "h.264",
-      "sizeBytes": 159812960,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E6TheInheritance/S2E6 - The Inheritance.mp4"
-    },
-    {
-     "archiveID": "S2E7THEOPENWINDOW_201804",
-     "seasonNumber": 2,
-     "episodeNumber": 7,
-     "title": "The Open Window",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/yzBweXlnEoyMMNxGhb0Nc0jyRXq.jpg",
-     "airDate": "1959-11-03",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E7 - THE OPEN WINDOW.mp4",
-      "format": "h.264",
-      "sizeBytes": 158911592,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E7THEOPENWINDOW_201804/S2E7 - THE OPEN WINDOW.mp4"
-    },
-    {
-     "archiveID": "S2E8MESSAGEFROMCLARA",
-     "seasonNumber": 2,
-     "episodeNumber": 8,
-     "title": "Message from Clara",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/m2HUEYyY3eJZNRBOGnvoxV3y5tF.jpg",
-     "airDate": "1959-11-10",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E8 - MESSAGE FROM CLARA.mp4",
-      "format": "h.264",
-      "sizeBytes": 153352818,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E8MESSAGEFROMCLARA/S2E8 - MESSAGE FROM CLARA.mp4"
-    },
-    {
-     "archiveID": "S2E9ForkedLightning",
-     "seasonNumber": 2,
-     "episodeNumber": 9,
-     "title": "Forked Lightning",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/lSio2UWdUF7WPxMDJdjMkshoLlg.jpg",
-     "airDate": "1959-11-17",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E9 - Forked Lightning.mp4",
-      "format": "h.264",
-      "sizeBytes": 156649487,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E9ForkedLightning/S2E9 - Forked Lightning.mp4"
-    },
-    {
-     "archiveID": "S2E10REUNION",
-     "seasonNumber": 2,
-     "episodeNumber": 10,
-     "title": "Reunion",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
-     "airDate": "1959-11-24",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E10 - REUNION.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 67639015,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E10REUNION/S2E10%20-%20REUNION.mp4"
-    },
-    {
-     "archiveID": "S2E11DEADRINGER",
-     "seasonNumber": 2,
-     "episodeNumber": 11,
-     "title": "Dead Ringer",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/yoT1BlLc6TeJknkpK5QKS6t4GWW.jpg",
-     "airDate": "1959-12-01",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E11 - DEAD RINGER.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 167317801,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E11DEADRINGER/S2E11%20-%20DEAD%20RINGER.mp4"
-    },
-    {
-     "archiveID": "S2E12STONECUTTER",
-     "seasonNumber": 2,
-     "episodeNumber": 12,
-     "title": "The Stone Cutter",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/8a9tyBcM2QiStKALVCNszW0mrLU.jpg",
-     "airDate": "1959-12-08",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E12 - STONE CUTTER.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 79981097,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E12STONECUTTER/S2E12%20-%20STONE%20CUTTER.mp4"
-    },
-    {
-     "archiveID": "S2E13FATHERIMAGE",
-     "seasonNumber": 2,
-     "episodeNumber": 13,
-     "title": "Father Image",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/3bKVqQyFOspJRM5ac7LijRy7jcv.jpg",
-     "airDate": "1959-12-15",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E13 - FATHER IMAGE.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 54818594,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E13FATHERIMAGE/S2E13%20-%20FATHER%20IMAGE.mp4"
-    },
-    {
-     "archiveID": "S2E14MAKEMENOTAWITCH",
-     "seasonNumber": 2,
-     "episodeNumber": 14,
-     "title": "Make Me Not a Witch",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/gleCLIvRiFvi9yI5M6r2Y3hKLgh.jpg",
-     "airDate": "1959-12-22",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E14 - MAKE ME NOT A WITCH.mp4",
-      "format": "h.264",
-      "sizeBytes": 155060924,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E14MAKEMENOTAWITCH/S2E14 - MAKE ME NOT A WITCH.mp4"
-    },
-    {
-     "archiveID": "S2E15THEHAND_201804",
-     "seasonNumber": 2,
-     "episodeNumber": 15,
-     "title": "The Hand",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/rQFCdSmf6fnEp2D1VEIWJnVsqRW.jpg",
-     "airDate": "1959-12-29",
-     "year": 1959,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E15 - THE HAND.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 487638062,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E15THEHAND_201804/S2E15%20-%20THE%20HAND.mp4"
-    },
-    {
-     "archiveID": "S2E17EARTHQUAKE",
-     "seasonNumber": 2,
-     "episodeNumber": 17,
-     "title": "Earthquake",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/7UC9eaGSefpflXGfcd7b6E7CN4W.jpg",
-     "airDate": "1960-01-12",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E17 - EARTHQUAKE.mp4",
-      "format": "h.264",
-      "sizeBytes": 148416603,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E17EARTHQUAKE/S2E17 - EARTHQUAKE.mp4"
-    },
-    {
-     "archiveID": "S2E18FORESTSOFTHENIGHT",
-     "seasonNumber": 2,
-     "episodeNumber": 18,
-     "title": "The Forests of the Night",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/pkOkPBufycTglbvFHEE30HNd9bL.jpg",
-     "airDate": "1960-01-19",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E18 -  FORESTS OF THE NIGHT.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 83666344,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E18FORESTSOFTHENIGHT/S2E18%20-%20%20FORESTS%20OF%20THE%20NIGHT.mp4"
-    },
-    {
-     "archiveID": "S2E19CALLFROMTOMORROW",
-     "seasonNumber": 2,
-     "episodeNumber": 19,
-     "title": "Call from Tomorrow",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/4sbJ55yroHoCdbOrbb1TIFfD9cp.jpg",
-     "airDate": "1960-01-26",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E19 - CALL FROM TOMORROW.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 153459963,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E19CALLFROMTOMORROW/S2E19%20-%20CALL%20FROM%20TOMORROW.mp4"
-    },
-    {
-     "archiveID": "S2E22THELOVERS",
-     "seasonNumber": 2,
-     "episodeNumber": 22,
-     "title": "The Lovers",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/mh1dUdZXzlWgbXbBuUGLTDxRsXH.jpg",
-     "airDate": "1960-02-16",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E22 - THE LOVERS.mp4",
-      "format": "h.264",
-      "sizeBytes": 156182092,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E22THELOVERS/S2E22 - THE LOVERS.mp4"
-    },
-    {
-     "archiveID": "S2E23VanishingPoint",
-     "seasonNumber": 2,
-     "episodeNumber": 23,
-     "title": "Vanishing Point",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/43trJyparLbDbx3h5Eo9wERPwBZ.jpg",
-     "airDate": "1960-02-23",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E23 - Vanishing Point.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 168157039,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E23VanishingPoint/S2E23%20-%20Vanishing%20Point.mp4"
-    },
-    {
-     "archiveID": "S2E24THEMASK_201804",
-     "seasonNumber": 2,
-     "episodeNumber": 24,
-     "title": "The Mask",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/iOZcqD6H82GBp5ZJ2u84sOsTRHY.jpg",
-     "airDate": "1960-03-01",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E24 - THE MASK.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 500481213,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E24THEMASK_201804/S2E24%20-%20THE%20MASK.mp4"
-    },
-    {
-     "archiveID": "S2E25THEHAUNTING",
-     "seasonNumber": 2,
-     "episodeNumber": 25,
-     "title": "The Haunting",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/4AaSX7dRF5C5lGx8hCG4YmO4ieK.jpg",
-     "airDate": "1960-03-08",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E25 - THE HAUNTING.mp4",
-      "format": "h.264",
-      "sizeBytes": 153395964,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E25THEHAUNTING/S2E25 - THE HAUNTING.mp4"
-    },
-    {
-     "archiveID": "S2E26THEEXPLORER",
-     "seasonNumber": 2,
-     "episodeNumber": 26,
-     "title": "The Explorer",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/t2iy3GsI8BgWVBVwqJyjb46Zd8L.jpg",
-     "airDate": "1960-03-15",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E26 - THE EXPLORER.mp4",
-      "format": "h.264",
-      "sizeBytes": 153838397,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E26THEEXPLORER/S2E26 - THE EXPLORER.mp4"
-    },
-    {
-     "archiveID": "S2E27THECLOWN_201804",
-     "seasonNumber": 2,
-     "episodeNumber": 27,
-     "title": "The Clown",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/4gn8pDS6VC4yP40iHwsOHnLha6R.jpg",
-     "airDate": "1960-03-22",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E27 - THE CLOWN.mp4",
-      "format": "h.264",
-      "sizeBytes": 159325839,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E27THECLOWN_201804/S2E27 - THE CLOWN.mp4"
-    },
-    {
-     "archiveID": "S2E28ISAWYOUTOMORROW",
-     "seasonNumber": 2,
-     "episodeNumber": 28,
-     "title": "I Saw You Tomorrow",
-     "overview": "Donald Suart witnesses a man killing his wife, but as he tries to intervene the couple fades. The mansion owner, Ellie, calms him down until other guests arrive and Donald recognizes the couple.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/262/656453.jpg",
-     "airDate": "1960-04-05",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E28 - I SAW YOU TOMORROW.mp4",
-      "format": "h.264",
-      "sizeBytes": 159437066,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E28ISAWYOUTOMORROW/S2E28 - I SAW YOU TOMORROW.mp4"
-    },
-    {
-     "archiveID": "S2E29ENCOUNTER",
-     "seasonNumber": 2,
-     "episodeNumber": 29,
-     "title": "Encounter",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/i3Vtk9xPVaVtTp7vbM9fKowfLTy.jpg",
-     "airDate": "1960-04-12",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E29 - ENCOUNTER.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 76539911,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E29ENCOUNTER/S2E29%20-%20ENCOUNTER.mp4"
-    },
-    {
-     "archiveID": "S2E30THEPETERHURKOSSTORYPT1",
-     "seasonNumber": 2,
-     "episodeNumber": 30,
-     "title": "The Peter Hurkos Story (1)",
-     "overview": "Peter Hurkos is a man with an uncanny gift, he can read people's minds. Although he is scared of such ability, he finally comes to terms with it and lives from it.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/bfG6hJ7kPPNjRYAI7WQayeGFpx.jpg",
-     "airDate": "1960-04-19",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E30 - THE PETER HURKOS STORY, PT 1.mp4",
-      "format": "h.264",
-      "sizeBytes": 160234142,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E30THEPETERHURKOSSTORYPT1/S2E30 - THE PETER HURKOS STORY, PT 1.mp4"
-    },
-    {
-     "archiveID": "S2E31THEPETERHURKOSSTORYPT2",
-     "seasonNumber": 2,
-     "episodeNumber": 31,
-     "title": "The Peter Hurkos Story (2)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/l71dL8oSGt4xjhXR6QSAr5sBJG4.jpg",
-     "airDate": "1960-04-26",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E31 - THE PETER HURKOS STORY, PT 2.mp4",
-      "format": "h.264",
-      "sizeBytes": 159677941,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E31THEPETERHURKOSSTORYPT2/S2E31 - THE PETER HURKOS STORY, PT 2.mp4"
-    },
-    {
-     "archiveID": "S2E32Delia",
-     "seasonNumber": 2,
-     "episodeNumber": 32,
-     "title": "Delia",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/pdsuO9fPKCUOQ9CPJSk4hNpy9LM.jpg",
-     "airDate": "1960-05-03",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E32 - Delia.mp4",
-      "format": "h.264",
-      "sizeBytes": 156380469,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E32Delia/S2E32 - Delia.mp4"
-    },
-    {
-     "archiveID": "S2E33THEVISITOR",
-     "seasonNumber": 2,
-     "episodeNumber": 33,
-     "title": "The Visitor",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/4KUrfvxcJkDNcOAd76t31KKCdSp.jpg",
-     "airDate": "1960-05-10",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E33 - THE VISITOR.mp4",
-      "format": "h.264",
-      "sizeBytes": 141482766,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E33THEVISITOR/S2E33 - THE VISITOR.mp4"
-    },
-    {
-     "archiveID": "S2E34Gypsy",
-     "seasonNumber": 2,
-     "episodeNumber": 34,
-     "title": "Gypsy",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/4SXIaO5RBS2AF9sCidMrvE0bXC5.jpg",
-     "airDate": "1960-05-17",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E34 - Gypsy.mp4",
-      "format": "h.264",
-      "sizeBytes": 154792752,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E34Gypsy/S2E34 - Gypsy.mp4"
-    },
-    {
-     "archiveID": "S2E35CONTACT",
-     "seasonNumber": 2,
-     "episodeNumber": 35,
-     "title": "Contact",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/52OlrYAZO5nViPp8f7XeBL4WlbQ.jpg",
-     "airDate": "1960-05-24",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E35 - CONTACT.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 450396564,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E35CONTACT/S2E35%20-%20CONTACT.mp4"
-    },
-    {
-     "archiveID": "one-step-beyond-season-2",
-     "seasonNumber": 2,
-     "episodeNumber": 35,
-     "title": "One Step Beyond - Season 2",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
-     "airDate": null,
-     "year": 1959,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "One Step Beyond - s02e35 - Contact.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 259098137,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/one-step-beyond-season-2/One Step Beyond - s02e35 - Contact.ia.mp4"
-    },
-    {
-     "archiveID": "S2E36THELONELYROOM",
-     "seasonNumber": 2,
-     "episodeNumber": 36,
-     "title": "The Lonely Room",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/meY1ex390qvUSsy0wCqy0URF9oF.jpg",
-     "airDate": "1960-05-31",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E36 - THE LONELY ROOM.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 66886053,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E36THELONELYROOM/S2E36%20-%20THE%20LONELY%20ROOM.mp4"
-    },
-    {
-     "archiveID": "S2E37HOUSEOFTHEDEAD",
-     "seasonNumber": 2,
-     "episodeNumber": 37,
-     "title": "House of the Dead",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/wVlPLd60uAdhwHk8v4OLpbSNsQQ.jpg",
-     "airDate": "1960-06-07",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E37 - HOUSE OF THE DEAD.mp4",
-      "format": "h.264",
-      "sizeBytes": 156975580,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S2E37HOUSEOFTHEDEAD/S2E37 - HOUSE OF THE DEAD.mp4"
-    },
-    {
-     "archiveID": "S2E38GOODBYEGRANDPA_201804",
-     "seasonNumber": 2,
-     "episodeNumber": 38,
-     "title": "Goodbye Grandpa",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/7Y26RhUTs3mC5eSopmp2Lt6rl9j.jpg",
-     "airDate": "1960-06-14",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E38 - GOODBYE GRANDPA.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 497608870,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E38GOODBYEGRANDPA_201804/S2E38%20-%20GOODBYE%20GRANDPA.mp4"
-    },
-    {
-     "archiveID": "S2E39THESTORM",
-     "seasonNumber": 2,
-     "episodeNumber": 39,
-     "title": "The Storm",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/t1IhLLyTpU6HPIo3JorhSIxqjIB.jpg",
-     "airDate": "1960-06-21",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S2E39 - THE STORM.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 140588317,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S2E39THESTORM/S2E39%20-%20THE%20STORM.mp4"
+      "name": "John Newland",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/119/298771.jpg"
     }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
-    {
-     "archiveID": "S3E1TIDALWAVE",
-     "seasonNumber": 3,
-     "episodeNumber": 1,
-     "title": "Tidal Wave",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/wpPzrn93yQ2FBXHX09w6xQvrR8b.jpg",
-     "airDate": "1960-08-30",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E1 - TIDAL WAVE.mp4",
-      "format": "h.264",
-      "sizeBytes": 157418784,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E1TIDALWAVE/S3E1 - TIDAL WAVE.mp4"
-    },
-    {
-     "archiveID": "S3E2ANNIVERSARYOFAMURDER",
-     "seasonNumber": 3,
-     "episodeNumber": 2,
-     "title": "Anniversary of a Murder",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/9aRUpP8DTw4Vl6MbdlktzTwTPG1.jpg",
-     "airDate": "1960-09-27",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E2  - ANNIVERSARY OF A MURDER.mp4",
-      "format": "h.264",
-      "sizeBytes": 159502305,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E2ANNIVERSARYOFAMURDER/S3E2  - ANNIVERSARY OF A MURDER.mp4"
-    },
-    {
-     "archiveID": "S3E3DEATHWALTZ",
-     "seasonNumber": 3,
-     "episodeNumber": 3,
-     "title": "The Death Waltz",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/sizh15Rj7IKlAqKfwmowQYnSTuU.jpg",
-     "airDate": "1960-10-04",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E3 - DEATH WALTZ.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 56819575,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E3DEATHWALTZ/S3E3%20-%20DEATH%20WALTZ.mp4"
-    },
-    {
-     "archiveID": "S3E4THERETURN",
-     "seasonNumber": 3,
-     "episodeNumber": 4,
-     "title": "The Return",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/xGYIQWleZFpPRhQWFcZ3gvrqO9A.jpg",
-     "airDate": "1960-10-11",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E4 -  THE RETURN.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 72534883,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E4THERETURN/S3E4%20-%20%20THE%20RETURN.mp4"
-    },
-    {
-     "archiveID": "S3E5IFYOUSEESALLY",
-     "seasonNumber": 3,
-     "episodeNumber": 5,
-     "title": "If You See Sally",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/q9hSH65IbxdC7iSTm2ZuAoJcY8b.jpg",
-     "airDate": "1960-10-18",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E5 - IF YOU SEE SALLY.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 58422693,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E5IFYOUSEESALLY/S3E5%20-%20IF%20YOU%20SEE%20SALLY.mp4"
-    },
-    {
-     "archiveID": "S3E6MOMENTOFHATE_201804",
-     "seasonNumber": 3,
-     "episodeNumber": 6,
-     "title": "Moment of Hate",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/fOGG8vTwddXiVxUUHHOrUXjmsaT.jpg",
-     "airDate": "1960-10-25",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E6 - MOMENT OF HATE.mp4",
-      "format": "h.264",
-      "sizeBytes": 156063631,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E6MOMENTOFHATE_201804/S3E6 - MOMENT OF HATE.mp4"
-    },
-    {
-     "archiveID": "S3E7TOKNOWTHEEND",
-     "seasonNumber": 3,
-     "episodeNumber": 7,
-     "title": "To Know the End",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/AozVQZ5vcGu6p1d8z7KXPBxGtuL.jpg",
-     "airDate": "1960-11-01",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E7 - TO KNOW THE END.mp4",
-      "format": "h.264",
-      "sizeBytes": 159432669,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E7TOKNOWTHEEND/S3E7 - TO KNOW THE END.mp4"
-    },
-    {
-     "archiveID": "S3E8THETRAP",
-     "seasonNumber": 3,
-     "episodeNumber": 8,
-     "title": "The Trap",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/rApPQc9UuXX7lUCktT5AgLB0eB4.jpg",
-     "airDate": "1960-11-15",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E8 - THE TRAP.mp4",
-      "format": "h.264",
-      "sizeBytes": 155449986,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E8THETRAP/S3E8 - THE TRAP.mp4"
-    },
-    {
-     "archiveID": "S3E9THEVOICE",
-     "seasonNumber": 3,
-     "episodeNumber": 9,
-     "title": "The Voice",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/7il4oZwc1UpqGKfu6OSalHyGvUp.jpg",
-     "airDate": "1960-11-22",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E9 -  THE VOICE.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 54606984,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E9THEVOICE/S3E9%20-%20%20THE%20VOICE.mp4"
-    },
-    {
-     "archiveID": "S3E10THEPROMISE",
-     "seasonNumber": 3,
-     "episodeNumber": 10,
-     "title": "The Promise",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/4jUa39r1OYxmxYQTK74aWcKh6Ey.jpg",
-     "airDate": "1960-11-29",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E10 - THE PROMISE.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 54786337,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E10THEPROMISE/S3E10%20-%20THE%20PROMISE.mp4"
-    },
-    {
-     "archiveID": "S3E11TONIGHTAT1217",
-     "seasonNumber": 3,
-     "episodeNumber": 11,
-     "title": "Tonight at 12:17",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/7a2MyCPuzdmx138JciwrK2MMjV2.jpg",
-     "airDate": "1960-12-06",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E11 - TONIGHT AT 12-17.mp4",
-      "format": "h.264",
-      "sizeBytes": 155857034,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E11TONIGHTAT1217/S3E11 - TONIGHT AT 12-17.mp4"
-    },
-    {
-     "archiveID": "S3E12WHEREARETHEY",
-     "seasonNumber": 3,
-     "episodeNumber": 12,
-     "title": "Where Are They?",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/1vOTgLWQraGHWygzpEUWautY8Zm.jpg",
-     "airDate": "1960-12-13",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E12 - WHERE ARE THEY.mp4",
-      "format": "h.264",
-      "sizeBytes": 155961781,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E12WHEREARETHEY/S3E12 - WHERE ARE THEY.mp4"
-    },
-    {
-     "archiveID": "S3E13LEGACYOFLOVE",
-     "seasonNumber": 3,
-     "episodeNumber": 13,
-     "title": "Legacy of Love",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/yE0cOxQW1w8Iqk1D48qrb4Kltfr.jpg",
-     "airDate": "1960-12-20",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E13 - LEGACY OF LOVE.mp4",
-      "format": "h.264",
-      "sizeBytes": 156583864,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E13LEGACYOFLOVE/S3E13 - LEGACY OF LOVE.mp4"
-    },
-    {
-     "archiveID": "S3E14RENDEZVOUS",
-     "seasonNumber": 3,
-     "episodeNumber": 14,
-     "title": "Rendezvous",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/umaIPtce4Cu9wQLpl61bnJFDypN.jpg",
-     "airDate": "1960-12-27",
-     "year": 1960,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E14 - RENDEZVOUS.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 76891332,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E14RENDEZVOUS/S3E14%20-%20RENDEZVOUS.mp4"
-    },
-    {
-     "archiveID": "S3E15TheExecutioner",
-     "seasonNumber": 3,
-     "episodeNumber": 15,
-     "title": "The Executioner",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/3u0DUkhoS3IZbx5zARRGtI0ADBA.jpg",
-     "airDate": "1961-01-03",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E15 - The Executioner.mp4",
-      "format": "h.264",
-      "sizeBytes": 155436389,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E15TheExecutioner/S3E15 - The Executioner.mp4"
-    },
-    {
-     "archiveID": "S3E16THELASTROUND",
-     "seasonNumber": 3,
-     "episodeNumber": 16,
-     "title": "The Last Round",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/yMXqfvLWT8n8iDgRws7Vt1k2gJv.jpg",
-     "airDate": "1961-01-10",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E16 - THE LAST ROUND.mp4",
-      "format": "h.264",
-      "sizeBytes": 156055344,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E16THELASTROUND/S3E16 - THE LAST ROUND.mp4"
-    },
-    {
-     "archiveID": "S3E17DEADMANSTALE",
-     "seasonNumber": 3,
-     "episodeNumber": 17,
-     "title": "Dead Man's Tale",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/9RVQ4P1fnzW6ccwSQ9yIWZk8Knd.jpg",
-     "airDate": "1961-01-17",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E17 - DEAD MAN'S TALE.mp4",
-      "format": "h.264",
-      "sizeBytes": 155680469,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E17DEADMANSTALE/S3E17 - DEAD MAN'S TALE.mp4"
-    },
-    {
-     "archiveID": "S3E18THESACREDMUSHROOM_201804",
-     "seasonNumber": 3,
-     "episodeNumber": 18,
-     "title": "The Sacred Mushroom",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/yKM46DHUtl1wdqDiiEyj3JlSbLL.jpg",
-     "airDate": "1961-01-24",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E18 - THE SACRED MUSHROOM.mp4",
-      "format": "h.264",
-      "sizeBytes": 156095835,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E18THESACREDMUSHROOM_201804/S3E18 - THE SACRED MUSHROOM.mp4"
-    },
-    {
-     "archiveID": "S3E19THEGIFT",
-     "seasonNumber": 3,
-     "episodeNumber": 19,
-     "title": "The Gift",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/qtErsnXvqnUXCIht9BL8EJODzcj.jpg",
-     "airDate": "1961-01-31",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E19 -  THE GIFT.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 85891932,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E19THEGIFT/S3E19%20-%20%20THE%20GIFT.mp4"
-    },
-    {
-     "archiveID": "S3E20PERSONSUNKNOWN_201804",
-     "seasonNumber": 3,
-     "episodeNumber": 20,
-     "title": "Person Unknown",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/iaetasKwzDutJdAHGIaYRLVlYU.jpg",
-     "airDate": "1961-02-07",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E20 - PERSONS UNKNOWN.mp4",
-      "format": "h.264",
-      "sizeBytes": 158256849,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E20PERSONSUNKNOWN_201804/S3E20 - PERSONS UNKNOWN.mp4"
-    },
-    {
-     "archiveID": "S3E21NIGHTOFDECISION",
-     "seasonNumber": 3,
-     "episodeNumber": 21,
-     "title": "Night of Decision",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/fny5KlNY2leZUT6Br6kZ4shkB5c.jpg",
-     "airDate": "1961-02-21",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E21 - NIGHT OF DECISION.mp4",
-      "format": "h.264",
-      "sizeBytes": 158267149,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/S3E21NIGHTOFDECISION/S3E21 - NIGHT OF DECISION.mp4"
-    },
-    {
-     "archiveID": "S3E22THESTRANGER",
-     "seasonNumber": 3,
-     "episodeNumber": 22,
-     "title": "The Stranger",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/eRXK7t34qXAIJDdgeqZc8zb3Ckg.jpg",
-     "airDate": "1961-02-28",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E22 - THE STRANGER.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 90788911,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E22THESTRANGER/S3E22%20-%20THE%20STRANGER.mp4"
-    },
-    {
-     "archiveID": "S3E23JUSTICE",
-     "seasonNumber": 3,
-     "episodeNumber": 23,
-     "title": "Justice",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/f1vwSo8iXUkVAZ7ONM8CwuzIgGf.jpg",
-     "airDate": "1961-03-07",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E23 -  JUSTICE.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 72903591,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E23JUSTICE/S3E23%20-%20%20JUSTICE.mp4"
-    },
-    {
-     "archiveID": "S3E24THEFACE",
-     "seasonNumber": 3,
-     "episodeNumber": 24,
-     "title": "The Face",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/uxiVzqj0EiWllTPHv3aFkgPf1gF.jpg",
-     "airDate": "1961-03-14",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E24 - THE FACE.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 66407899,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E24THEFACE/S3E24%20-%20THE%20FACE.mp4"
-    },
-    {
-     "archiveID": "S3E25THEROOMUPSTAIRS",
-     "seasonNumber": 3,
-     "episodeNumber": 25,
-     "title": "The Room Upstairs",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/fW1KlSjtPxFT7EPAuLavNElHd2K.jpg",
-     "airDate": "1961-03-21",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E25 -  THE ROOM UPSTAIRS.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 63778600,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E25THEROOMUPSTAIRS/S3E25%20-%20%20THE%20ROOM%20UPSTAIRS.mp4"
-    },
-    {
-     "archiveID": "S3E26SIGNALRECEIVED",
-     "seasonNumber": 3,
-     "episodeNumber": 26,
-     "title": "Signal Received",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/wMDkwEziVihmbwxr5fk6msCnQQA.jpg",
-     "airDate": "1961-04-04",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E26 - SIGNAL RECEIVED.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 94226481,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E26SIGNALRECEIVED/S3E26%20-%20SIGNAL%20RECEIVED.mp4"
-    },
-    {
-     "archiveID": "S3E27THECONFESSION",
-     "seasonNumber": 3,
-     "episodeNumber": 27,
-     "title": "The Confession",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/4xNJTagdC34L28lEj7QopkH0l2B.jpg",
-     "airDate": "1961-04-11",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E27 - THE CONFESSION.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 58149234,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E27THECONFESSION/S3E27%20-%20THE%20CONFESSION.mp4"
-    },
-    {
-     "archiveID": "S3E28THEAVENGERS",
-     "seasonNumber": 3,
-     "episodeNumber": 28,
-     "title": "The Avengers",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/gOwGzMJqxiHAAvBjzkejVucnCsC.jpg",
-     "airDate": "1961-04-25",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E28 - THE AVENGERS.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 74816563,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E28THEAVENGERS/S3E28%20-%20THE%20AVENGERS.mp4"
-    },
-    {
-     "archiveID": "one-step-beyond-season-3",
-     "seasonNumber": 3,
-     "episodeNumber": 29,
-     "title": "The Prisoner",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
-     "airDate": "1961-05-02",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "One Step Beyond - s03e29 - The Prisoner.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 381633939,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/one-step-beyond-season-3/One Step Beyond - s03e29 - The Prisoner.ia.mp4"
-    },
-    {
-     "archiveID": "S3E29THEPRISONER",
-     "seasonNumber": 3,
-     "episodeNumber": 29,
-     "title": "The Prisoner",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/vNPdX6eWFH4bTQPL64dZmYQ65Gl.jpg",
-     "airDate": null,
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E29 -  THE PRISONER.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 92301487,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E29THEPRISONER/S3E29%20-%20%20THE%20PRISONER.mp4"
-    },
-    {
-     "archiveID": "S3E30BLOODFLOWER",
-     "seasonNumber": 3,
-     "episodeNumber": 30,
-     "title": "Blood Flower",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/yONPI2DH1W1d1XfcOy60FjHuUiX.jpg",
-     "airDate": "1961-05-16",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E30 - BLOOD FLOWER.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 63170934,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E30BLOODFLOWER/S3E30%20-%20BLOOD%20FLOWER.mp4"
-    },
-    {
-     "archiveID": "S3E31THESORCERER_201804",
-     "seasonNumber": 3,
-     "episodeNumber": 31,
-     "title": "The Sorcerer",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/4CzVNuJywhY37E4ww0WXV33LNm8.jpg",
-     "airDate": "1961-05-23",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E31 - THE SORCERER.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 247659096,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E31THESORCERER_201804/S3E31%20-%20THE%20SORCERER.mp4"
-    },
-    {
-     "archiveID": "S3E32THEVILLA",
-     "seasonNumber": 3,
-     "episodeNumber": 32,
-     "title": "The Villa",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/3mYa46cgcMPZItxNnn2s1uRgm8H.jpg",
-     "airDate": "1961-06-06",
-     "year": 1961,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "S3E32 - THE VILLA.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 69110139,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/S3E32THEVILLA/S3E32%20-%20THE%20VILLA.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "OSB-TheBridePossessed",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "One Step Beyond - The Bride Possessed",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The_Bride_Possessed.mp4",
-      "format": "h.264",
-      "sizeBytes": 147231342,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/OSB-TheBridePossessed/The_Bride_Possessed.mp4"
-    },
-    {
-     "archiveID": "OSB-77_The_Last_Round",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "One Step Beyond : The Last Round",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "OSB-77_The_Last_Round.mp4",
-      "format": "h.264",
-      "sizeBytes": 149366342,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/OSB-77_The_Last_Round/OSB-77_The_Last_Round.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 94,
- "canonicalEpisodesCount": 97
+  ]
 }

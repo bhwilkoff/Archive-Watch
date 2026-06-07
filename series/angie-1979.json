@@ -108,5 +108,37 @@
   "canonicalEpisodesCount": 36,
   "seriesImdbID": "tt0078561",
   "canonicalEpisodeCount": 3,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Donna Pescow",
+      "character": "Angie Falco",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/17/42693.jpg"
+    },
+    {
+      "name": "Robert Hays",
+      "character": "Brad Benson",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/17/43117.jpg"
+    },
+    {
+      "name": "Sharon Spelman",
+      "character": "Joyce Benson",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/154/387250.jpg"
+    },
+    {
+      "name": "Debralee Scott",
+      "character": "Marie Falco",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/615/1539348.jpg"
+    },
+    {
+      "name": "Doris Roberts",
+      "character": "Theresa Falco",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13783.jpg"
+    }
+  ]
 }

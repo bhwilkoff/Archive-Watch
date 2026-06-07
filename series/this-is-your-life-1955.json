@@ -134,5 +134,25 @@
   "canonicalEpisodesCount": 497,
   "seriesImdbID": "tt0181260",
   "canonicalEpisodeCount": 254,
-  "canonicalSeasons": 43
+  "canonicalSeasons": 43,
+  "cast": [
+    {
+      "name": "Eamonn Andrews",
+      "character": "Presenter",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/31/77732.jpg"
+    },
+    {
+      "name": "Michael Aspel",
+      "character": "Presenter",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/18/46922.jpg"
+    },
+    {
+      "name": "Trevor McDonald",
+      "character": "Presenter",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/18/46910.jpg"
+    }
+  ]
 }

@@ -67,5 +67,61 @@
   "canonicalEpisodesCount": 13,
   "seriesImdbID": "tt0412221",
   "canonicalEpisodeCount": 8,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Zachary Knighton",
+      "character": "Laz Lackerson",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/560/1401989.jpg"
+    },
+    {
+      "name": "Rachelle Lefevre",
+      "character": "Lilly",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/82/207417.jpg"
+    },
+    {
+      "name": "Charlie Finn",
+      "character": "Fred",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/90/225632.jpg"
+    },
+    {
+      "name": "Amy Yasbeck",
+      "character": "Michelle Lackerson",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/1/2804.jpg"
+    },
+    {
+      "name": "Matthew Glave",
+      "character": "Rick Lackerson",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/159/397602.jpg"
+    },
+    {
+      "name": "Saige Thompson",
+      "character": "Molly Callahan",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/51360.jpg"
+    },
+    {
+      "name": "Maz Jobrani",
+      "character": "Mr. Hut",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/606/1516233.jpg"
+    },
+    {
+      "name": "Ryan Belleville",
+      "character": "Jasper",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25558.jpg"
+    },
+    {
+      "name": "Frankie Ryan Manriquez",
+      "character": "Gus Lackerson",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/472/1180653.jpg"
+    }
+  ]
 }

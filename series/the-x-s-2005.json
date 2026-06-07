@@ -64,5 +64,31 @@
   "canonicalEpisodesCount": 38,
   "seriesImdbID": "tt0443418",
   "canonicalEpisodeCount": 1,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Patrick Warburton",
+      "character": "Mr. X",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/8732.jpg"
+    },
+    {
+      "name": "Wendie Malick",
+      "character": "Mrs. X",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/152/380163.jpg"
+    },
+    {
+      "name": "Lynsey Bartilson",
+      "character": "Tuesday X",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/80/201041.jpg"
+    },
+    {
+      "name": "Jansen Panettiere",
+      "character": "Truman X",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/189/474031.jpg"
+    }
+  ]
 }

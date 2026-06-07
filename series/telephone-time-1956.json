@@ -175,5 +175,19 @@
   "canonicalEpisodesCount": 81,
   "seriesImdbID": "tt0048903",
   "canonicalEpisodeCount": 43,
-  "canonicalSeasons": 3
+  "canonicalSeasons": 3,
+  "cast": [
+    {
+      "name": "John Nesbitt",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "/yKGHIGmZ1Lr1pYvpDmBPcOqm0nB.jpg"
+    },
+    {
+      "name": "Frank C. Baxter",
+      "character": "Host",
+      "order": 1,
+      "profilePath": "/3C252ygRJ7UsAbexor3v6psE2L4.jpg"
+    }
+  ]
 }

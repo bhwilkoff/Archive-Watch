@@ -100,5 +100,61 @@
   "canonicalEpisodesCount": 32,
   "seriesImdbID": "tt0057790",
   "canonicalEpisodeCount": 16,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Peter Dyneley",
+      "character": "Jeff Tracy",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/434/1085700.jpg"
+    },
+    {
+      "name": "Shane Rimmer",
+      "character": "Scott Tracy",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/44/111985.jpg"
+    },
+    {
+      "name": "Matt Zimmerman",
+      "character": "Alan Tracy",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/94/236405.jpg"
+    },
+    {
+      "name": "David Graham",
+      "character": "Brains / Gordon Tracy / Aloysius Parker",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/31854.jpg"
+    },
+    {
+      "name": "David Holliday",
+      "character": "Virgil Tracy (1st Season)",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/18/46277.jpg"
+    },
+    {
+      "name": "Christine Finn",
+      "character": "Tin-Tin Kyrano",
+      "order": 5,
+      "profilePath": "/7tyZdVkDw1HmTcfLMuNmPtbT5Ow.jpg"
+    },
+    {
+      "name": "Ray Barrett",
+      "character": "John Tracy",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/276/690649.jpg"
+    },
+    {
+      "name": "Sylvia Anderson",
+      "character": "Lady Penelope Creighton-Ward",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/49/122825.jpg"
+    },
+    {
+      "name": "Jeremy Wilkin",
+      "character": "Virgil Tracy (2nd Season)",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/22/56549.jpg"
+    }
+  ]
 }

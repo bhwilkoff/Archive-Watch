@@ -157,5 +157,85 @@
   "canonicalEpisodesCount": 222,
   "seriesImdbID": "tt0056780",
   "canonicalEpisodeCount": 127,
-  "canonicalSeasons": 7
+  "canonicalSeasons": 7,
+  "cast": [
+    {
+      "name": "Edgar Buchanan",
+      "character": "Uncle Joe Carson",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/36689.jpg"
+    },
+    {
+      "name": "Linda Henning",
+      "character": "Betty Jo Bradley Elliott",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/500/1252284.jpg"
+    },
+    {
+      "name": "Bea Benaderet",
+      "character": "Kate Bradley",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/36524.jpg"
+    },
+    {
+      "name": "Frank Cady",
+      "character": "Sam Drucker",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30107.jpg"
+    },
+    {
+      "name": "Lori Saunders",
+      "character": "Bobbie Jo Bradley",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/36532.jpg"
+    },
+    {
+      "name": "Rufe Davis",
+      "character": "Floyd Smoot",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/36688.jpg"
+    },
+    {
+      "name": "Meredith MacRae",
+      "character": "Billie Jo Bradley",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/36529.jpg"
+    },
+    {
+      "name": "Mike Minor",
+      "character": "Steve Elliott",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/36534.jpg"
+    },
+    {
+      "name": "Smiley Burnette",
+      "character": "Charley Pratt",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/36536.jpg"
+    },
+    {
+      "name": "Jeannine Riley",
+      "character": "Billie Jo Bradley",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/588/1470544.jpg"
+    },
+    {
+      "name": "Pat Woodell",
+      "character": "Bobbie Jo Bradley",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/36533.jpg"
+    },
+    {
+      "name": "June Lockhart",
+      "character": "Dr. Janet Craig",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/523/1309999.jpg"
+    },
+    {
+      "name": "Gunilla Hutton",
+      "character": "Billie Jo Bradley",
+      "order": 12,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/592/1481970.jpg"
+    }
+  ]
 }

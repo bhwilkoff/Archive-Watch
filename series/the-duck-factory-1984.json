@@ -62,5 +62,55 @@
   "canonicalEpisodesCount": 13,
   "seriesImdbID": "tt0086702",
   "canonicalEpisodeCount": 4,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Jim Carrey",
+      "character": "Skip Tarkenton",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/31/78490.jpg"
+    },
+    {
+      "name": "Teresa Ganzel",
+      "character": "Mrs. Sheree Winkler",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/99/249680.jpg"
+    },
+    {
+      "name": "Jack Gilford",
+      "character": "Brooks Carmichael",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/99/249679.jpg"
+    },
+    {
+      "name": "Julie Payne",
+      "character": "Aggie Aylesworth",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/170/427328.jpg"
+    },
+    {
+      "name": "Nancy Lane",
+      "character": "Andrea Lewin",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Jay Tarses",
+      "character": "Marty Fenneman",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/99/249681.jpg"
+    },
+    {
+      "name": "Clarence Gilyard, Jr.",
+      "character": "Roland Culp",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9696.jpg"
+    },
+    {
+      "name": "Don Messick",
+      "character": "Wally Wooster",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/31483.jpg"
+    }
+  ]
 }

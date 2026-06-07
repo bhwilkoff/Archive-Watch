@@ -1,302 +1,310 @@
 {
- "version": 2,
- "seriesID": "sigmund-and-the-sea-monsters-1973",
- "tvmazeID": 7305,
- "title": "Sigmund and the Sea Monsters",
- "yearStart": 1973,
- "yearEnd": 1974,
- "overview": "Two beachcombing brothers, Johnny and Scott, find a friendly little sea monster that was kicked out of the cave by his monster family because he doesn't want to scare anyone. The boys hide Sigmund in their clubhouse located behind their house. But their nosy housekeeper and Sigmund's mean brothers keep the boys teetering on the brink of disaster.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/27/67708.jpg",
- "backdropURL": null,
- "genres": [
-  "Children"
- ],
- "networks": [
-  "NBC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "sigmund-and-the-sea-monsters-1973",
+  "tvmazeID": 7305,
+  "title": "Sigmund and the Sea Monsters",
+  "yearStart": 1973,
+  "yearEnd": 1974,
+  "overview": "Two beachcombing brothers, Johnny and Scott, find a friendly little sea monster that was kicked out of the cave by his monster family because he doesn't want to scare anyone. The boys hide Sigmund in their clubhouse located behind their house. But their nosy housekeeper and Sigmund's mean brothers keep the boys teetering on the brink of disaster.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/27/67708.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Children"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "sigmund-and-the-sea-monsters-s-01-e-01_202106",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "The Monster Who Came to Dinner",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": "1973-09-08",
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Sigmund and The Sea Monsters S01E01.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 272261120,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-01_202106/Sigmund and The Sea Monsters S01E01.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-01_202106",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Monster Who Came to Dinner",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-09-08",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 272261120,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-01_202106/Sigmund and The Sea Monsters S01E01.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-03_202106",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Puppy Love",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-09-15",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 244966415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-03_202106/Sigmund and The Sea Monsters S01E02.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-02_202106",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Puppy Love",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-09-15",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 251282222,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-02_202106/Sigmund and The Sea Monsters S01E02.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Is There a Doctor in the Cave?",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-09-29",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 243046172,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-04/Sigmund and The Sea Monsters S01E04.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Happy Birthdaze",
+          "overview": "Sigmund secretly cleans the house for the sheriff's birthday.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/548/1372177.jpg",
+          "airDate": "1973-10-06",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 246809199,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-05/Sigmund and The Sea Monsters S01E05.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Nasty Nephew",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-10-13",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E06.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 219281085,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-06/Sigmund and The Sea Monsters S01E06.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-07",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Monster Rock Festival",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-10-20",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E07.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 248464522,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-07/Sigmund and The Sea Monsters S01E07.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-08",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Ghoul School Days",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-10-27",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E08.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 260969771,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-08/Sigmund and The Sea Monsters S01E08.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-09",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Curfew Shall Ring Tonight",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-11-03",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E09.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 257084980,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-09/Sigmund and The Sea Monsters S01E09.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-10",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Sweet Mama Redecorates",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-11-10",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 250709038,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-10/Sigmund and The Sea Monsters S01E10.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-s-01-e-11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Make Room for Big Daddy",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-11-17",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sigmund and The Sea Monsters S01E11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 220311742,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-11/Sigmund and The Sea Monsters S01E11.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters-krofft",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Trick or Treat",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": "1973-12-01",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "videoplayback.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 93696729,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-krofft/videoplayback.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "sigmund-and-the-sea-monsters-s-01-e-03_202106",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Puppy Love",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": "1973-09-15",
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Sigmund and The Sea Monsters S01E02.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 244966415,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-03_202106/Sigmund and The Sea Monsters S01E02.ia.mp4"
-    },
-    {
-     "archiveID": "sigmund-and-the-sea-monsters-s-01-e-02_202106",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Puppy Love",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": null,
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Sigmund and The Sea Monsters S01E02.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 251282222,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-02_202106/Sigmund and The Sea Monsters S01E02.ia.mp4"
-    },
-    {
-     "archiveID": "sigmund-and-the-sea-monsters-s-01-e-04",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Is There a Doctor in the Cave?",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": "1973-09-29",
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Sigmund and The Sea Monsters S01E04.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 243046172,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-04/Sigmund and The Sea Monsters S01E04.ia.mp4"
-    },
-    {
-     "archiveID": "sigmund-and-the-sea-monsters-s-01-e-05",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Happy Birthdaze",
-     "overview": "Sigmund secretly cleans the house for the sheriff's birthday.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/548/1372177.jpg",
-     "airDate": "1973-10-06",
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Sigmund and The Sea Monsters S01E05.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 246809199,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-05/Sigmund and The Sea Monsters S01E05.ia.mp4"
-    },
-    {
-     "archiveID": "sigmund-and-the-sea-monsters-s-01-e-06",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "The Nasty Nephew",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": "1973-10-13",
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Sigmund and The Sea Monsters S01E06.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 219281085,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-06/Sigmund and The Sea Monsters S01E06.ia.mp4"
-    },
-    {
-     "archiveID": "sigmund-and-the-sea-monsters-s-01-e-07",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Monster Rock Festival",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": "1973-10-20",
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Sigmund and The Sea Monsters S01E07.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 248464522,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-07/Sigmund and The Sea Monsters S01E07.ia.mp4"
-    },
-    {
-     "archiveID": "sigmund-and-the-sea-monsters-s-01-e-08",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "Ghoul School Days",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": "1973-10-27",
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Sigmund and The Sea Monsters S01E08.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 260969771,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-08/Sigmund and The Sea Monsters S01E08.ia.mp4"
-    },
-    {
-     "archiveID": "sigmund-and-the-sea-monsters-s-01-e-09",
-     "seasonNumber": 1,
-     "episodeNumber": 9,
-     "title": "The Curfew Shall Ring Tonight",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": "1973-11-03",
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Sigmund and The Sea Monsters S01E09.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 257084980,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-09/Sigmund and The Sea Monsters S01E09.ia.mp4"
-    },
-    {
-     "archiveID": "sigmund-and-the-sea-monsters-s-01-e-10",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "Sweet Mama Redecorates",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": "1973-11-10",
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Sigmund and The Sea Monsters S01E10.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 250709038,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-10/Sigmund and The Sea Monsters S01E10.ia.mp4"
-    },
-    {
-     "archiveID": "sigmund-and-the-sea-monsters-s-01-e-11",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "Make Room for Big Daddy",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": "1973-11-17",
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Sigmund and The Sea Monsters S01E11.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 220311742,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-s-01-e-11/Sigmund and The Sea Monsters S01E11.ia.mp4"
-    },
-    {
-     "archiveID": "sigmund-and-the-sea-monsters-krofft",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "Trick or Treat",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": "1973-12-01",
-     "year": 1973,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "videoplayback.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 93696729,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters-krofft/videoplayback.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sigmund3",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sigmund and the Sea Monsters \"Frankenstein Drops In\"",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "S1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 125799387,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund3/S1.ia.mp4"
+        },
+        {
+          "archiveID": "sigmund-and-the-sea-monsters",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sigmund and the Sea Monsters \"Is There a Doctor in the Cave?\"",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "output2_x264.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 120621204,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters/output2_x264.ia.mp4"
+        },
+        {
+          "archiveID": "sigmundandtheseamonsters",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sigmund and the Sea Monsters \"The Monster Who Came to Dinner\"",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "output_x264_003.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 140031249,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sigmundandtheseamonsters/output_x264_003.ia.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": 29,
+  "cast": [
     {
-     "archiveID": "sigmund3",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Sigmund and the Sea Monsters \"Frankenstein Drops In\"",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": null,
-     "year": 1973,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "S1.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 125799387,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund3/S1.ia.mp4"
-    },
-    {
-     "archiveID": "sigmund-and-the-sea-monsters",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Sigmund and the Sea Monsters \"Is There a Doctor in the Cave?\"",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": null,
-     "year": 1973,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "output2_x264.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 120621204,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmund-and-the-sea-monsters/output2_x264.ia.mp4"
-    },
-    {
-     "archiveID": "sigmundandtheseamonsters",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Sigmund and the Sea Monsters \"The Monster Who Came to Dinner\"",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/soIVuFi1AZut7OYNcb2lLStLJ00.jpg",
-     "airDate": null,
-     "year": 1973,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "output_x264_003.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 140031249,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/sigmundandtheseamonsters/output_x264_003.ia.mp4"
+      "name": "Billy Barty",
+      "character": "Sigmund Ooze",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/261075.jpg"
     }
-   ]
-  }
- ],
- "episodesCount": 15,
- "canonicalEpisodesCount": 29
+  ]
 }

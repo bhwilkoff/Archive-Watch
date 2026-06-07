@@ -44,9 +44,9 @@
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "The Master - 1984",
-          "overview": null,
+          "overview": "After being attacked by Ninja's in Japan, John Peter McAllister heads to America to search for his daugher. He encounters Max who gives him assistance then offers to help him find his daughter if he will teach him his ninja skills. With the search for his daughter just getting underway, John McAllister is sidetracked by a ruthless land developer who has a local sheriff in his pocket.",
           "stillURL": "https://image.tmdb.org/t/p/w500/8MGIjGfjwl22HL9G0eYOwbMqSTT.jpg",
-          "airDate": null,
+          "airDate": "1984-01-20",
           "year": 1984,
           "runtimeSeconds": null,
           "videoFile": {
@@ -118,5 +118,25 @@
   "canonicalEpisodesCount": 13,
   "seriesImdbID": "tt0086756",
   "canonicalEpisodeCount": 12,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Lee Van Cleef",
+      "character": "John Peter McAllister",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/583/1459645.jpg"
+    },
+    {
+      "name": "Tim Van Patten",
+      "character": "Max Keller",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/69/174747.jpg"
+    },
+    {
+      "name": "Shô Kosugi",
+      "character": "Okasa",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/149/374094.jpg"
+    }
+  ]
 }

@@ -44,5 +44,55 @@
   "canonicalEpisodesCount": 28,
   "seriesImdbID": "tt0075511",
   "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 3
+  "canonicalSeasons": 3,
+  "cast": [
+    {
+      "name": "Richard Briers",
+      "character": "Tom Good",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/159/397629.jpg"
+    },
+    {
+      "name": "Felicity Kendal",
+      "character": "Barbara Good",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/31/77799.jpg"
+    },
+    {
+      "name": "Paul Eddington",
+      "character": "Jerry Leadbetter",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/292/731181.jpg"
+    },
+    {
+      "name": "Penelope Keith",
+      "character": "Margo Leadbetter",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/74274.jpg"
+    },
+    {
+      "name": "Moyra Fraser",
+      "character": "Felicity",
+      "order": 4,
+      "profilePath": "/1A5ps8kqKQFUs0gaJDHQxxOAJBD.jpg"
+    },
+    {
+      "name": "Charmian May",
+      "character": "Mrs. Weaver",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/421/1053112.jpg"
+    },
+    {
+      "name": "Reginald Marsh",
+      "character": "Andrew",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/70099.jpg"
+    },
+    {
+      "name": "Tony Selby",
+      "character": "Sam",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/186/466113.jpg"
+    }
+  ]
 }

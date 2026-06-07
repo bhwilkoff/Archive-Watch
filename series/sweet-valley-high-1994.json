@@ -114,5 +114,19 @@
   "canonicalEpisodesCount": 88,
   "seriesImdbID": "tt0108949",
   "canonicalEpisodeCount": 62,
-  "canonicalSeasons": 4
+  "canonicalSeasons": 4,
+  "cast": [
+    {
+      "name": "Brittany Daniel",
+      "character": "Jessica Wakefield",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/574/1435912.jpg"
+    },
+    {
+      "name": "Cynthia Daniel",
+      "character": "Elizabeth Wakefield",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/116/292497.jpg"
+    }
+  ]
 }

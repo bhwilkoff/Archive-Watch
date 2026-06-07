@@ -105,5 +105,79 @@
   "canonicalEpisodesCount": 48,
   "seriesImdbID": "tt0072564",
   "canonicalEpisodeCount": 47,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Martin Landau",
+      "character": "Com. John Koenig",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/19/49986.jpg"
+    },
+    {
+      "name": "Barbara Bain",
+      "character": "Dr. Helena Russell",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/50766.jpg"
+    },
+    {
+      "name": "Nick Tate",
+      "character": "Cap. Alan Carter",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/62/155572.jpg"
+    },
+    {
+      "name": "Zienia Merton",
+      "character": "Sandra Benes",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/156/390490.jpg"
+    },
+    {
+      "name": "Barry Morse",
+      "character": "Victor Bergman",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/42/107231.jpg"
+    },
+    {
+      "name": "Catherine Schell",
+      "character": "Maya",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/591/1478919.jpg"
+    },
+    {
+      "name": "Tony Anholt",
+      "character": "Tony Verdeschi",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/23/59448.jpg"
+    },
+    {
+      "name": "Prentis Hancock",
+      "character": "Paul Morrow",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/50/125732.jpg"
+    },
+    {
+      "name": "Clifton Jones",
+      "character": "David Kano",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/36/90908.jpg"
+    },
+    {
+      "name": "Anton Phillips",
+      "character": "Dr. Bob Mathias",
+      "order": 9,
+      "profilePath": "/xmPDGi1mEX3dMCr4yOzpn4ZIuUe.jpg"
+    },
+    {
+      "name": "Suzanne Roquette",
+      "character": "Tanya Alexander",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/161/402660.jpg"
+    },
+    {
+      "name": "Barbara Kelly",
+      "character": "Main Computer Voice",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/42/107196.jpg"
+    }
+  ]
 }

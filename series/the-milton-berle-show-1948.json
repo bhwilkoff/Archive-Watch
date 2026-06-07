@@ -171,5 +171,19 @@
   "canonicalEpisodesCount": 247,
   "seriesImdbID": "tt0040041",
   "canonicalEpisodeCount": 140,
-  "canonicalSeasons": 8
+  "canonicalSeasons": 8,
+  "cast": [
+    {
+      "name": "Milton Berle",
+      "character": "Milton Berle",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/55/139334.jpg"
+    },
+    {
+      "name": "Sid Stone",
+      "character": "Sid Stone",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/98/247285.jpg"
+    }
+  ]
 }

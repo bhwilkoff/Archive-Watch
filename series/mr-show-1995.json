@@ -98,5 +98,67 @@
   "canonicalEpisodesCount": 30,
   "seriesImdbID": "tt0112084",
   "canonicalEpisodeCount": 30,
-  "canonicalSeasons": 4
+  "canonicalSeasons": 4,
+  "cast": [
+    {
+      "name": "B.J. Porter",
+      "character": "Featured Player",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/13/34769.jpg"
+    },
+    {
+      "name": "Bob Odenkirk",
+      "character": "Host",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/54/136764.jpg"
+    },
+    {
+      "name": "Brian Posehn",
+      "character": "Featured Player",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/4/12234.jpg"
+    },
+    {
+      "name": "David Cross",
+      "character": "Host",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/4/10150.jpg"
+    },
+    {
+      "name": "Jill Talley",
+      "character": "Regular",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/605/1513614.jpg"
+    },
+    {
+      "name": "John Ennis",
+      "character": "Regular",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/13/34770.jpg"
+    },
+    {
+      "name": "Paul F. Tompkins",
+      "character": "Featured Player",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/175/439661.jpg"
+    },
+    {
+      "name": "Sarah Silverman",
+      "character": "Featured Player",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/575/1439357.jpg"
+    },
+    {
+      "name": "Scott Adsit",
+      "character": "Featured Player",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/7/17985.jpg"
+    },
+    {
+      "name": "Tom Kenny",
+      "character": "Regular",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/449/1123850.jpg"
+    }
+  ]
 }

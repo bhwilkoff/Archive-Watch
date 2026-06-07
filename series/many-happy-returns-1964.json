@@ -85,5 +85,37 @@
   "canonicalEpisodesCount": 26,
   "seriesImdbID": "tt0057766",
   "canonicalEpisodeCount": 20,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "John McGiver",
+      "character": "Walter Burnley",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/92/231550.jpg"
+    },
+    {
+      "name": "Elinor Donahue",
+      "character": "Joan Randall",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/501/1253492.jpg"
+    },
+    {
+      "name": "Mark Goddard",
+      "character": "Bob Randall",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25201.jpg"
+    },
+    {
+      "name": "Christopher Riordan",
+      "character": "Ronnie",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/142/357180.jpg"
+    },
+    {
+      "name": "Andrea Sacino",
+      "character": "Laurie Randall",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
 }

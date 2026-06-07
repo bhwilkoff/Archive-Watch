@@ -192,5 +192,13 @@
   "canonicalEpisodesCount": 156,
   "seriesImdbID": "tt0052520",
   "canonicalEpisodeCount": 156,
-  "canonicalSeasons": 5
+  "canonicalSeasons": 5,
+  "cast": [
+    {
+      "name": "Rod Serling",
+      "character": "Narrator",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24030.jpg"
+    }
+  ]
 }

@@ -207,5 +207,13 @@
   "canonicalEpisodesCount": 268,
   "seriesImdbID": "tt0047708",
   "canonicalEpisodeCount": 221,
-  "canonicalSeasons": 7
+  "canonicalSeasons": 7,
+  "cast": [
+    {
+      "name": "Alfred Hitchcock",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/609/1524833.jpg"
+    }
+  ]
 }

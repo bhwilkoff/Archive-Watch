@@ -105,5 +105,13 @@
   "canonicalEpisodesCount": 106,
   "seriesImdbID": "tt0045395",
   "canonicalEpisodeCount": 79,
-  "canonicalSeasons": 10
+  "canonicalSeasons": 10,
+  "cast": [
+    {
+      "name": "Ronald Reagan",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30791.jpg"
+    }
+  ]
 }

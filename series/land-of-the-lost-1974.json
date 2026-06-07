@@ -82,5 +82,49 @@
   "canonicalEpisodesCount": 43,
   "seriesImdbID": "tt0071005",
   "canonicalEpisodeCount": 37,
-  "canonicalSeasons": 3
+  "canonicalSeasons": 3,
+  "cast": [
+    {
+      "name": "Ron Harper",
+      "character": "Uncle Jack",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/263/659076.jpg"
+    },
+    {
+      "name": "Spencer Milligan",
+      "character": "Park Ranger Rick Marshall",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/267/667689.jpg"
+    },
+    {
+      "name": "Kathy Coleman",
+      "character": "Holly Marshall",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Wesley Eure",
+      "character": "Will Marshall",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/7/19076.jpg"
+    },
+    {
+      "name": "Jon Locke",
+      "character": "Sleestack Leader",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/190/476516.jpg"
+    },
+    {
+      "name": "Philip Paley",
+      "character": "Cha-Ka",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/190/476515.jpg"
+    },
+    {
+      "name": "Sharon Baird",
+      "character": "Sa",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/190/476514.jpg"
+    }
+  ]
 }

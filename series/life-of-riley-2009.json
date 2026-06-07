@@ -135,5 +135,37 @@
   "canonicalEpisodesCount": 20,
   "seriesImdbID": "tt1356374",
   "canonicalEpisodeCount": 11,
-  "canonicalSeasons": 3
+  "canonicalSeasons": 3,
+  "cast": [
+    {
+      "name": "Caroline Quentin",
+      "character": "Maddy Riley",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/565/1413844.jpg"
+    },
+    {
+      "name": "Lucinda Dryzek",
+      "character": "Katy Riley",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/186/467267.jpg"
+    },
+    {
+      "name": "Neil Dudgeon",
+      "character": "Jim Riley",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/186/465829.jpg"
+    },
+    {
+      "name": "Taylor Fawcett",
+      "character": "Danny Riley",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/94165.jpg"
+    },
+    {
+      "name": "Patrick Nolan",
+      "character": "Ted Jackson",
+      "order": 4,
+      "profilePath": "/7xy74GTKm9JTVf3fErsNluQ1mrF.jpg"
+    }
+  ]
 }

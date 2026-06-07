@@ -44,5 +44,55 @@
   "canonicalEpisodesCount": 19,
   "seriesImdbID": "tt0103382",
   "canonicalEpisodeCount": 11,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Meghann Haldeman",
+      "character": "Melissa Wilder",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Margaret Langrick",
+      "character": "Beth",
+      "order": 1,
+      "profilePath": "/axFEaAGgLxEgeaupsRRLndASyYw.jpg"
+    },
+    {
+      "name": "Mary Page Keller",
+      "character": "Ricky Wilder",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/1/3362.jpg"
+    },
+    {
+      "name": "Jerry O'Connell",
+      "character": "Brody Wilder",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13961.jpg"
+    },
+    {
+      "name": "Jay Mohr",
+      "character": "Dorfman",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/4/12000.jpg"
+    },
+    {
+      "name": "Hilary Swank",
+      "character": "Danielle",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/561/1403620.jpg"
+    },
+    {
+      "name": "Tina Majorino",
+      "character": "Sophie Wilder",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9644.jpg"
+    },
+    {
+      "name": "Jared Leto",
+      "character": "Dexter",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/47/119506.jpg"
+    }
+  ]
 }

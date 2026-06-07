@@ -159,5 +159,13 @@
   "canonicalEpisodesCount": 79,
   "seriesImdbID": "tt0041040",
   "canonicalEpisodeCount": 52,
-  "canonicalSeasons": 5
+  "canonicalSeasons": 5,
+  "cast": [
+    {
+      "name": "Ralph Bellamy",
+      "character": "Mike Barnett",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/523/1309888.jpg"
+    }
+  ]
 }

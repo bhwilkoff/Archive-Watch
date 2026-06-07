@@ -136,5 +136,13 @@
   "canonicalEpisodesCount": 13,
   "seriesImdbID": "tt0101092",
   "canonicalEpisodeCount": 9,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Jeffrey Meek",
+      "character": "John Phillips",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25105.jpg"
+    }
+  ]
 }

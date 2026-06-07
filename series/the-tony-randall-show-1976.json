@@ -69,5 +69,61 @@
   "canonicalEpisodesCount": 44,
   "seriesImdbID": "tt0074064",
   "canonicalEpisodeCount": 6,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Tony Randall",
+      "character": "Judge Walter Franklin",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/114344.jpg"
+    },
+    {
+      "name": "Barney Martin",
+      "character": "Jack Terwillinger",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/524/1310429.jpg"
+    },
+    {
+      "name": "Rachael Roberts",
+      "character": "Mrs. Bonnie McClellan",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/475/1189638.jpg"
+    },
+    {
+      "name": "Brad Savage",
+      "character": "Oliver Wendell Franklin",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/260448.jpg"
+    },
+    {
+      "name": "Allyn Ann McLerie",
+      "character": "Miss Janet Reubner",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/261404.jpg"
+    },
+    {
+      "name": "Zane Lasky",
+      "character": "Mario Lanza",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/261122.jpg"
+    },
+    {
+      "name": "Devon Scott",
+      "character": "Roberta \"Bobby\" Franklin #1 (season 1)",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/480/1201541.jpg"
+    },
+    {
+      "name": "Penny Peyser",
+      "character": "Roberta \"Bobby\" Franklin #2 (season 2)",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/184/460977.jpg"
+    },
+    {
+      "name": "Hans Conried",
+      "character": "Wyatt Franklin (season 2)",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/74/186208.jpg"
+    }
+  ]
 }

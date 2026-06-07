@@ -138,5 +138,37 @@
   "canonicalEpisodesCount": 87,
   "seriesImdbID": "tt3609634",
   "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Christopher Timothy",
+      "character": "James Herriot",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/30/75479.jpg"
+    },
+    {
+      "name": "Robert Hardy",
+      "character": "Siegfried Farnon",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/23674.jpg"
+    },
+    {
+      "name": "Peter Davison",
+      "character": "Tristan Farnon",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25759.jpg"
+    },
+    {
+      "name": "Lynda Bellingham",
+      "character": "Helen Herriot",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/30/75872.jpg"
+    },
+    {
+      "name": "Carol Drinkwater",
+      "character": "Helen Herriot",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/42/107201.jpg"
+    }
+  ]
 }

@@ -44,5 +44,43 @@
   "canonicalEpisodesCount": 25,
   "seriesImdbID": "tt9319744",
   "canonicalEpisodeCount": 1,
-  "canonicalSeasons": 23
+  "canonicalSeasons": 23,
+  "cast": [
+    {
+      "name": "Savannah Guthrie",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/23/59673.jpg"
+    },
+    {
+      "name": "Al Roker",
+      "character": "Host",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/432/1080125.jpg"
+    },
+    {
+      "name": "Hoda Kotb",
+      "character": "Host",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71899.jpg"
+    },
+    {
+      "name": "Craig Melvin",
+      "character": "Host",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/80/200166.jpg"
+    },
+    {
+      "name": "Matt Lauer",
+      "character": "Host",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/27/68725.jpg"
+    },
+    {
+      "name": "Les Marshak",
+      "character": "Announcer",
+      "order": 5,
+      "profilePath": "/qM5gd8h5CykjUPHQI3shPVgKRfG.jpg"
+    }
+  ]
 }

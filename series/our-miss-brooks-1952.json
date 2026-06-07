@@ -103,5 +103,25 @@
   "canonicalEpisodesCount": 130,
   "seriesImdbID": "tt0044287",
   "canonicalEpisodeCount": 90,
-  "canonicalSeasons": 4
+  "canonicalSeasons": 4,
+  "cast": [
+    {
+      "name": "Eve Arden",
+      "character": "Connie Brooks",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/487/1219018.jpg"
+    },
+    {
+      "name": "Gale Gordon",
+      "character": "Osgood Conklin",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30876.jpg"
+    },
+    {
+      "name": "Richard Crenna",
+      "character": "Walter Denton",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/85/214205.jpg"
+    }
+  ]
 }

@@ -1,564 +1,674 @@
 {
- "version": 2,
- "seriesID": "degrassi-high-1989",
- "tvmazeID": 3624,
- "title": "Degrassi High",
- "yearStart": 1989,
- "yearEnd": 1991,
- "overview": "The young denizens of Degrassi Street in Toronto, Canada, have graduated from two television series, The Kids of Degrassi Street and Degrassi Junior High. Degrassi High confronts life as teenage high school students during the heady, late 1980s. This sometimes-controversial series confronts serious issues (adolescent pregnancy, AIDS, suicide) in a head-on way.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/18/47017.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama"
- ],
- "networks": [
-  "CBC"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "degrassi-high-1989",
+  "tvmazeID": 3624,
+  "title": "Degrassi High",
+  "yearStart": 1989,
+  "yearEnd": 1991,
+  "overview": "The young denizens of Degrassi Street in Toronto, Canada, have graduated from two television series, The Kids of Degrassi Street and Degrassi Junior High. Degrassi High confronts life as teenage high school students during the heady, late 1980s. This sometimes-controversial series confronts serious issues (adolescent pregnancy, AIDS, suicide) in a head-on way.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/18/47017.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama"
+  ],
+  "networks": [
+    "CBC"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "degrassi-high-s-04-e-01-a-new-start-part-1",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "A New Start: Part 1",
-     "overview": "Erica has missed her period and fears she may be pregnant.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/uTmfFK4ACSkpS9YWb8HzDFabn7d.jpg",
-     "airDate": "1989-11-06",
-     "year": 1989,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S04E01 - A New Start (Part 1).mp4",
-      "format": "h.264",
-      "sizeBytes": 155462944,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-01-a-new-start-part-1/Degrassi High S04E01 - A New Start (Part 1).mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "degrassi-high-s-04-e-01-a-new-start-part-1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "A New Start: Part 1",
+          "overview": "Erica has missed her period and fears she may be pregnant.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/uTmfFK4ACSkpS9YWb8HzDFabn7d.jpg",
+          "airDate": "1989-11-06",
+          "year": 1989,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S04E01 - A New Start (Part 1).mp4",
+            "format": "h.264",
+            "sizeBytes": 155462944,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-01-a-new-start-part-1/Degrassi High S04E01 - A New Start (Part 1).mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-02-a-new-start-part-2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "A New Start: Part 2",
+          "overview": "Erica decides to keep the pregnancy a secret, only telling Heather about it. She also decides to have an abortion; Heather disapproves of this, and this difference could tear the twins apart.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/4XcsmAIsUya0DPnzxNgu4o3nQgV.jpg",
+          "airDate": "1989-11-06",
+          "year": 1989,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S04E02 - A New Start (Part 2).mp4",
+            "format": "h.264",
+            "sizeBytes": 152491529,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-02-a-new-start-part-2/Degrassi High S04E02 - A New Start (Part 2).mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-03-breaking-up-is-hard-to-do",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Breaking Up is Hard to Do",
+          "overview": "Michelle discovers the complicated nature of divorce when her parents decide to go their separate ways.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/uHGxcNfTW1KK7az1wFT1qvpIYwV.jpg",
+          "airDate": "1989-11-13",
+          "year": 1989,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S04E03 - Breaking Up Is Hard to Do.mp4",
+            "format": "h.264",
+            "sizeBytes": 155393349,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-03-breaking-up-is-hard-to-do/Degrassi High S04E03 - Breaking Up Is Hard to Do.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-04-dream-on",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Dream On",
+          "overview": "Arthur has a crush on Caitlin.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/8JjSLMzHkKc4rLGTII9mK62ofjT.jpg",
+          "airDate": "1989-11-20",
+          "year": 1989,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S04E04 - Dream On.mp4",
+            "format": "h.264",
+            "sizeBytes": 154787768,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-04-dream-on/Degrassi High S04E04 - Dream On.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-05-everybody-wants-something",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Everybody Wants Something",
+          "overview": "A hate campaign against Erica escalates, and Erica is determined to find out who is putting pro-life pamphlets and slogans on her locker. Caitlin becomes interested in drama student, Claude.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/1VJeTV1rOksyuamfUH60dF7BN81.jpg",
+          "airDate": "1989-11-27",
+          "year": 1989,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S04E05 - Everybody Wants Something.mp4",
+            "format": "h.264",
+            "sizeBytes": 154853216,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-05-everybody-wants-something/Degrassi High S04E05 - Everybody Wants Something.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-06-nobodys-perfect",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Nobody's Perfect",
+          "overview": "Kathleen's new boyfriend begins to abuse her physically. Meanwhile, Spike decides to give another try at dating.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/At01xK0hhBWaSee7J4Pefl2f9Cr.jpg",
+          "airDate": "1989-12-05",
+          "year": 1989,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S04E06 - Nobody's Perfect.mp4",
+            "format": "h.264",
+            "sizeBytes": 155102465,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-06-nobodys-perfect/Degrassi High S04E06 - Nobody's Perfect.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-07-just-friends",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Just Friends",
+          "overview": "Heather has a crush on Wheels, and plans a party so that she'll have a chance to get closer to him. Meanwhile, LD is hospitalized.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/z04QRdbX59GdqCnmCrhgTdVvwCz.jpg",
+          "airDate": "1989-12-12",
+          "year": 1989,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S04E07 - Just Friends.mp4",
+            "format": "h.264",
+            "sizeBytes": 154712683,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-07-just-friends/Degrassi High S04E07 - Just Friends.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-08-little-white-lies",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Little White Lies",
+          "overview": "Diana is determined to grow up, and sneaks out to a party. Meanwhile Joey, Snake, and Wheels decide it's time they expanded their horizons a little and attend a strip show.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/wFsfuoQJlwCfXgCalVm93XLBfax.jpg",
+          "airDate": "1989-12-19",
+          "year": 1989,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S04E08 - Little White Lies.mp4",
+            "format": "h.264",
+            "sizeBytes": 154976547,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-08-little-white-lies/Degrassi High S04E08 - Little White Lies.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-11-all-in-a-good-cause",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "All in a Good Cause",
+          "overview": "Caitlin and Claude want to do something to protest against a factory involved in nuclear missiles. Meanwhile Kathleen is stalked by her abusive ex-boyfriend Scott.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rWYS7PozmW2ZxJyZhAR3Yi8pbNi.jpg",
+          "airDate": "1990-01-16",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S04E11 - All in a Good Cause.mp4",
+            "format": "h.264",
+            "sizeBytes": 155004773,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-11-all-in-a-good-cause/Degrassi High S04E11 - All in a Good Cause.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-12-natural-attraction",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Natural Attraction",
+          "overview": "When Erica starts seeing a new boy, it frightens Heather. One abortion was bad enough, but what if she goes too far again?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3YeKbmEYEx65iQqaJufyt5C658O.jpg",
+          "airDate": "1990-01-23",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S04E12 - Natural Attraction.mp4",
+            "format": "h.264",
+            "sizeBytes": 154697348,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-12-natural-attraction/Degrassi High S04E12 - Natural Attraction.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-14-it-creeps",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "It Creeps!!",
+          "overview": "Lucy becomes director and writer of her first film: a feminist horror flick starring the Zits, Simon, and Caitlin, with Alexa, Tim, and Heather as crew.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/6JWomeJFjWN7h0V9Uyx1zRTUimz.jpg",
+          "airDate": "1990-02-06",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S04E14 - It Creeps!.mp4",
+            "format": "h.264",
+            "sizeBytes": 155290683,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-14-it-creeps/Degrassi High S04E14 - It Creeps!.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-15-stressed-out",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Stressed Out",
+          "overview": "Michelle starts taking caffeine pills to extend her study time. Meanwhile Caitlin is devastated when Ms Avery announces she is leaving Degrassi.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9C26aGHdYk8fdl2bxOIPfnSydad.jpg",
+          "airDate": "1990-02-13",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S04E15 - Stressed Out.mp4",
+            "format": "h.264",
+            "sizeBytes": 155295536,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-15-stressed-out/Degrassi High S04E15 - Stressed Out.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "degrassi-high-s-04-e-02-a-new-start-part-2",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "A New Start: Part 2",
-     "overview": "Erica decides to keep the pregnancy a secret, only telling Heather about it. She also decides to have an abortion; Heather disapproves of this, and this difference could tear the twins apart.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/4XcsmAIsUya0DPnzxNgu4o3nQgV.jpg",
-     "airDate": "1989-11-06",
-     "year": 1989,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S04E02 - A New Start (Part 2).mp4",
-      "format": "h.264",
-      "sizeBytes": 152491529,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-02-a-new-start-part-2/Degrassi High S04E02 - A New Start (Part 2).mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "degrassi-high-s-05-e-03-loyalties",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Loyalties",
+          "overview": "Caitlin discovers her father is seeing another woman. Meanwhile, Snake takes a romantic interest in Michelle.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ahvXrcBOoKMa8eyqILqMx7MovKw.jpg",
+          "airDate": "1990-11-19",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S05E03 - Loyalties.mp4",
+            "format": "h.264",
+            "sizeBytes": 154973622,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-03-loyalties/Degrassi High S05E03 - Loyalties.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-05-e-04-a-tangled-web",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "A Tangled Web",
+          "overview": "Caitlin becomes increasingly upset about her father's infidelity, but discovers that her mother already knows about it. Alex doesn't know what to do about his crush on Tessa. Wheels gets kicked out of the house by his grandmother.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/doviKVICXYgZTPfLz701ueXILKd.jpg",
+          "airDate": "1990-11-26",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S05E04 - A Tangled Web.mp4",
+            "format": "h.264",
+            "sizeBytes": 155410739,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-04-a-tangled-web/Degrassi High S05E04 - A Tangled Web.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-05-e-05-body-politics",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Body Politics",
+          "overview": "Lucy takes a stand on behalf of the girl's volleyball team.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/vjKxwqO1Ow8zmpCDNmcNXgb7fvb.jpg",
+          "airDate": "1990-12-03",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S05E05 - Body Politics.mp4",
+            "format": "h.264",
+            "sizeBytes": 154935899,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-05-body-politics/Degrassi High S05E05 - Body Politics.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-05-e-06-crossed-wires",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Crossed Wires",
+          "overview": "Liz begins to have repressed memories of being sexually abused as a child.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ufgsa9TLsFHQpbDCo5XLhEmWHNA.jpg",
+          "airDate": "1990-12-10",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S05E06 - Crossed Wires.mp4",
+            "format": "h.264",
+            "sizeBytes": 153855905,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-06-crossed-wires/Degrassi High S05E06 - Crossed Wires.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-05-e-07-the-all-nighter_202209",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The All-Nighter",
+          "overview": "Melanie's surprise sleepover promises to hold more than one surprise when Kathleen finds some marijuana.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/3c9WQN8z8K2UwyWgr3Gr3QXix93.jpg",
+          "airDate": "1990-12-17",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S05E07 - The All Nighter.mp4",
+            "format": "h.264",
+            "sizeBytes": 155277791,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-07-the-all-nighter_202209/Degrassi High S05E07 - The All Nighter.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-05-e-08-home-sweet-home",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Home Sweet Home",
+          "overview": "Wheels wears out his welcome at Joey's house when he steals money from Mrs. Jeremiah. Meanwhile, Michelle considers moving back in with her father.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/sMH2y7Covsv4B0F2C3sItaXKOMc.jpg",
+          "airDate": "1990-12-24",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S05E08 - Home Sweet Home.mp4",
+            "format": "h.264",
+            "sizeBytes": 154800546,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-08-home-sweet-home/Degrassi High S05E08 - Home Sweet Home.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-05-e-09-extracurricular-activities",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Extracurricular Activities",
+          "overview": "Lucy, Heather and Erica hear the rumor that their favorite band, The Savages, are making a rock video at the school.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/tdcARgFtjJ8eHM3eYe008AWWI4l.jpg",
+          "airDate": "1990-12-31",
+          "year": 1990,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S05E09 - Extracurricular Activities.mp4",
+            "format": "h.264",
+            "sizeBytes": 155001902,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-09-extracurricular-activities/Degrassi High S05E09 - Extracurricular Activities.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-05-e-12-threes-a-crowd",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Three's a Crowd",
+          "overview": "Spike invites Snake to the graduation formal, but then Michelle – whom he'd really rather go with – invites him. What's a guy to do?",
+          "stillURL": "https://image.tmdb.org/t/p/w300/gATgoyAk5yhI1ivuKZ9DNI7r7sP.jpg",
+          "airDate": "1991-01-21",
+          "year": 1991,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S05E12 - Three's a Crowd.mp4",
+            "format": "h.264",
+            "sizeBytes": 154921915,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-12-threes-a-crowd/Degrassi High S05E12 - Three's a Crowd.mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-05-e-13-one-last-dance",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "One Last Dance",
+          "overview": "The year's last dance takes on new significance when the news comes out. It's not just the year's last dance. It's Degrassi's last dance.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/cPQQx2tK5EsnsGitBZZAtgL3fnS.jpg",
+          "airDate": "1991-01-28",
+          "year": 1991,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Degrassi High S05E13 - One Last Dance.mp4",
+            "format": "h.264",
+            "sizeBytes": 155259980,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-13-one-last-dance/Degrassi High S05E13 - One Last Dance.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "degrassi-high-s-04-e-03-breaking-up-is-hard-to-do",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Breaking Up is Hard to Do",
-     "overview": "Michelle discovers the complicated nature of divorce when her parents decide to go their separate ways.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/uHGxcNfTW1KK7az1wFT1qvpIYwV.jpg",
-     "airDate": "1989-11-13",
-     "year": 1989,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S04E03 - Breaking Up Is Hard to Do.mp4",
-      "format": "h.264",
-      "sizeBytes": 155393349,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-03-breaking-up-is-hard-to-do/Degrassi High S04E03 - Breaking Up Is Hard to Do.mp4"
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "degrassi-high-s-04",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "Degrassi High Season 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi High S04E01 - A New Start (Part 1).mp4",
+            "format": "h.264",
+            "sizeBytes": 155460299,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04/Degrassi High S04E01 - A New Start (Part 1).mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-09-sixteen-part-1",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "Degrassi High S04E09 - Sixteen",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi High S04E09 - Sixteen (Part 1).mp4",
+            "format": "h.264",
+            "sizeBytes": 155115053,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-09-sixteen-part-1/Degrassi High S04E09 - Sixteen (Part 1).mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-10-sixteen-part-2",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "Degrassi High S04E10 - Sixteen",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi High S04E10 - Sixteen (Part 2).mp4",
+            "format": "h.264",
+            "sizeBytes": 154902851,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-10-sixteen-part-2/Degrassi High S04E10 - Sixteen (Part 2).mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-04-e-13-testing-123",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "Testing 1...2...3",
+          "overview": "Joey is diagnosed with a learning disability.  He contemplates dropping out of high school, but changes his mind after talking to Caitlin.  Caitlin tells him to stop feeling sorry for himself, because he's not the only one with a disability, because she has to deal with having epilepsy.\n\nElsewhere, everyone cheats on a test.  The teacher says since everyone gets an A, that test must not have been hard enough, so it won't count and he'd give everyone a harder test.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/zl1Ien4a4Cq1MXdYiFzZ4RIvG3B.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi High S04E13 - Testing 1...2...3....mp4",
+            "format": "h.264",
+            "sizeBytes": 154414892,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-13-testing-123/Degrassi High S04E13 - Testing 1...2...3....mp4"
+        }
+      ]
     },
     {
-     "archiveID": "degrassi-high-s-04-e-04-dream-on",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Dream On",
-     "overview": "Arthur has a crush on Caitlin.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/8JjSLMzHkKc4rLGTII9mK62ofjT.jpg",
-     "airDate": "1989-11-20",
-     "year": 1989,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S04E04 - Dream On.mp4",
-      "format": "h.264",
-      "sizeBytes": 154787768,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-04-dream-on/Degrassi High S04E04 - Dream On.mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-04-e-05-everybody-wants-something",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Everybody Wants Something",
-     "overview": "A hate campaign against Erica escalates, and Erica is determined to find out who is putting pro-life pamphlets and slogans on her locker. Caitlin becomes interested in drama student, Claude.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/1VJeTV1rOksyuamfUH60dF7BN81.jpg",
-     "airDate": "1989-11-27",
-     "year": 1989,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S04E05 - Everybody Wants Something.mp4",
-      "format": "h.264",
-      "sizeBytes": 154853216,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-05-everybody-wants-something/Degrassi High S04E05 - Everybody Wants Something.mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-04-e-06-nobodys-perfect",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Nobody's Perfect",
-     "overview": "Kathleen's new boyfriend begins to abuse her physically. Meanwhile, Spike decides to give another try at dating.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/At01xK0hhBWaSee7J4Pefl2f9Cr.jpg",
-     "airDate": "1989-12-05",
-     "year": 1989,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S04E06 - Nobody's Perfect.mp4",
-      "format": "h.264",
-      "sizeBytes": 155102465,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-06-nobodys-perfect/Degrassi High S04E06 - Nobody's Perfect.mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-04-e-07-just-friends",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Just Friends",
-     "overview": "Heather has a crush on Wheels, and plans a party so that she'll have a chance to get closer to him. Meanwhile, LD is hospitalized.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/z04QRdbX59GdqCnmCrhgTdVvwCz.jpg",
-     "airDate": "1989-12-12",
-     "year": 1989,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S04E07 - Just Friends.mp4",
-      "format": "h.264",
-      "sizeBytes": 154712683,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-07-just-friends/Degrassi High S04E07 - Just Friends.mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-04-e-08-little-white-lies",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "Little White Lies",
-     "overview": "Diana is determined to grow up, and sneaks out to a party. Meanwhile Joey, Snake, and Wheels decide it's time they expanded their horizons a little and attend a strip show.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/wFsfuoQJlwCfXgCalVm93XLBfax.jpg",
-     "airDate": "1989-12-19",
-     "year": 1989,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S04E08 - Little White Lies.mp4",
-      "format": "h.264",
-      "sizeBytes": 154976547,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-08-little-white-lies/Degrassi High S04E08 - Little White Lies.mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-04-e-11-all-in-a-good-cause",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "All in a Good Cause",
-     "overview": "Caitlin and Claude want to do something to protest against a factory involved in nuclear missiles. Meanwhile Kathleen is stalked by her abusive ex-boyfriend Scott.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/rWYS7PozmW2ZxJyZhAR3Yi8pbNi.jpg",
-     "airDate": "1990-01-16",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S04E11 - All in a Good Cause.mp4",
-      "format": "h.264",
-      "sizeBytes": 155004773,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-11-all-in-a-good-cause/Degrassi High S04E11 - All in a Good Cause.mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-04-e-12-natural-attraction",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "Natural Attraction",
-     "overview": "When Erica starts seeing a new boy, it frightens Heather. One abortion was bad enough, but what if she goes too far again?",
-     "stillURL": "https://image.tmdb.org/t/p/w300/3YeKbmEYEx65iQqaJufyt5C658O.jpg",
-     "airDate": "1990-01-23",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S04E12 - Natural Attraction.mp4",
-      "format": "h.264",
-      "sizeBytes": 154697348,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-12-natural-attraction/Degrassi High S04E12 - Natural Attraction.mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-04-e-14-it-creeps",
-     "seasonNumber": 1,
-     "episodeNumber": 14,
-     "title": "It Creeps!!",
-     "overview": "Lucy becomes director and writer of her first film: a feminist horror flick starring the Zits, Simon, and Caitlin, with Alexa, Tim, and Heather as crew.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/6JWomeJFjWN7h0V9Uyx1zRTUimz.jpg",
-     "airDate": "1990-02-06",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S04E14 - It Creeps!.mp4",
-      "format": "h.264",
-      "sizeBytes": 155290683,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-14-it-creeps/Degrassi High S04E14 - It Creeps!.mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-04-e-15-stressed-out",
-     "seasonNumber": 1,
-     "episodeNumber": 15,
-     "title": "Stressed Out",
-     "overview": "Michelle starts taking caffeine pills to extend her study time. Meanwhile Caitlin is devastated when Ms Avery announces she is leaving Degrassi.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/9C26aGHdYk8fdl2bxOIPfnSydad.jpg",
-     "airDate": "1990-02-13",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S04E15 - Stressed Out.mp4",
-      "format": "h.264",
-      "sizeBytes": 155295536,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-15-stressed-out/Degrassi High S04E15 - Stressed Out.mp4"
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "degrassi-high-s-05-e-01-bad-blood-part-1",
+          "seasonNumber": 5,
+          "episodeNumber": 1,
+          "title": "Degrassi High S05E01 - Bad Blood",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi High S05E01 - Bad Blood (Part 1).mp4",
+            "format": "h.264",
+            "sizeBytes": 163012080,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-01-bad-blood-part-1/Degrassi High S05E01 - Bad Blood (Part 1).mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-05-e-02-bad-blood-part-2",
+          "seasonNumber": 5,
+          "episodeNumber": 2,
+          "title": "Degrassi High S05E02 - Bad Blood",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi High S05E02 - Bad Blood (Part 2).mp4",
+            "format": "h.264",
+            "sizeBytes": 162728933,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-02-bad-blood-part-2/Degrassi High S05E02 - Bad Blood (Part 2).mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-05-e-10-e-11-showtime-part-1-and-2",
+          "seasonNumber": 5,
+          "episodeNumber": 10,
+          "title": "Degrassi High S05E10 & S05E11 - Showtime",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
+          "airDate": null,
+          "year": 1991,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi High S05E10 E11 - Showtime (Part 1 and 2).mp4",
+            "format": "h.264",
+            "sizeBytes": 305718226,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-10-e-11-showtime-part-1-and-2/Degrassi High S05E10 E11 - Showtime (Part 1 and 2).mp4"
+        },
+        {
+          "archiveID": "degrassi-high-s-05",
+          "seasonNumber": 5,
+          "episodeNumber": 10,
+          "title": "Degrassi High Season 5",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
+          "airDate": null,
+          "year": 1990,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Degrassi High S05e10 E11 - Showtime (Part 1 And 2).mp4",
+            "format": "h.264",
+            "sizeBytes": 306050148,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/degrassi-high-s-05/Degrassi High S05e10 E11 - Showtime (Part 1 And 2).mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  ],
+  "episodesCount": 29,
+  "canonicalEpisodesCount": 28,
+  "cast": [
     {
-     "archiveID": "degrassi-high-s-05-e-03-loyalties",
-     "seasonNumber": 2,
-     "episodeNumber": 3,
-     "title": "Loyalties",
-     "overview": "Caitlin discovers her father is seeing another woman. Meanwhile, Snake takes a romantic interest in Michelle.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/ahvXrcBOoKMa8eyqILqMx7MovKw.jpg",
-     "airDate": "1990-11-19",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S05E03 - Loyalties.mp4",
-      "format": "h.264",
-      "sizeBytes": 154973622,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-03-loyalties/Degrassi High S05E03 - Loyalties.mp4"
+      "name": "Dayo Ade",
+      "character": "Bryant Lester 'BLT' Thomas",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/1/3113.jpg"
     },
     {
-     "archiveID": "degrassi-high-s-05-e-04-a-tangled-web",
-     "seasonNumber": 2,
-     "episodeNumber": 4,
-     "title": "A Tangled Web",
-     "overview": "Caitlin becomes increasingly upset about her father's infidelity, but discovers that her mother already knows about it. Alex doesn't know what to do about his crush on Tessa. Wheels gets kicked out of the house by his grandmother.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/doviKVICXYgZTPfLz701ueXILKd.jpg",
-     "airDate": "1990-11-26",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S05E04 - A Tangled Web.mp4",
-      "format": "h.264",
-      "sizeBytes": 155410739,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-04-a-tangled-web/Degrassi High S05E04 - A Tangled Web.mp4"
+      "name": "David Armin-Parcells",
+      "character": "Claude Tanner",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/19/48573.jpg"
     },
     {
-     "archiveID": "degrassi-high-s-05-e-05-body-politics",
-     "seasonNumber": 2,
-     "episodeNumber": 5,
-     "title": "Body Politics",
-     "overview": "Lucy takes a stand on behalf of the girl's volleyball team.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/vjKxwqO1Ow8zmpCDNmcNXgb7fvb.jpg",
-     "airDate": "1990-12-03",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S05E05 - Body Politics.mp4",
-      "format": "h.264",
-      "sizeBytes": 154935899,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-05-body-politics/Degrassi High S05E05 - Body Politics.mp4"
+      "name": "Sara Ballingall",
+      "character": "Melanie Brodie",
+      "order": 2,
+      "profilePath": null
     },
     {
-     "archiveID": "degrassi-high-s-05-e-06-crossed-wires",
-     "seasonNumber": 2,
-     "episodeNumber": 6,
-     "title": "Crossed Wires",
-     "overview": "Liz begins to have repressed memories of being sexually abused as a child.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/ufgsa9TLsFHQpbDCo5XLhEmWHNA.jpg",
-     "airDate": "1990-12-10",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S05E06 - Crossed Wires.mp4",
-      "format": "h.264",
-      "sizeBytes": 153855905,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-06-crossed-wires/Degrassi High S05E06 - Crossed Wires.mp4"
+      "name": "Steve Bedernjak",
+      "character": "Clutch",
+      "order": 3,
+      "profilePath": null
     },
     {
-     "archiveID": "degrassi-high-s-05-e-07-the-all-nighter_202209",
-     "seasonNumber": 2,
-     "episodeNumber": 7,
-     "title": "The All-Nighter",
-     "overview": "Melanie's surprise sleepover promises to hold more than one surprise when Kathleen finds some marijuana.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/3c9WQN8z8K2UwyWgr3Gr3QXix93.jpg",
-     "airDate": "1990-12-17",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S05E07 - The All Nighter.mp4",
-      "format": "h.264",
-      "sizeBytes": 155277791,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-07-the-all-nighter_202209/Degrassi High S05E07 - The All Nighter.mp4"
+      "name": "Kirsten Bourne",
+      "character": "Tessa Campanelli",
+      "order": 4,
+      "profilePath": "/6y989tcEMJVCpORvTfBjVF3TJzE.jpg"
     },
     {
-     "archiveID": "degrassi-high-s-05-e-08-home-sweet-home",
-     "seasonNumber": 2,
-     "episodeNumber": 8,
-     "title": "Home Sweet Home",
-     "overview": "Wheels wears out his welcome at Joey's house when he steals money from Mrs. Jeremiah. Meanwhile, Michelle considers moving back in with her father.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/sMH2y7Covsv4B0F2C3sItaXKOMc.jpg",
-     "airDate": "1990-12-24",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S05E08 - Home Sweet Home.mp4",
-      "format": "h.264",
-      "sizeBytes": 154800546,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-08-home-sweet-home/Degrassi High S05E08 - Home Sweet Home.mp4"
+      "name": "Stefan Brogren",
+      "character": "Archie 'Snake' Simpson",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/19/48529.jpg"
     },
     {
-     "archiveID": "degrassi-high-s-05-e-09-extracurricular-activities",
-     "seasonNumber": 2,
-     "episodeNumber": 9,
-     "title": "Extracurricular Activities",
-     "overview": "Lucy, Heather and Erica hear the rumor that their favorite band, The Savages, are making a rock video at the school.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/tdcARgFtjJ8eHM3eYe008AWWI4l.jpg",
-     "airDate": "1990-12-31",
-     "year": 1990,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S05E09 - Extracurricular Activities.mp4",
-      "format": "h.264",
-      "sizeBytes": 155001902,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-09-extracurricular-activities/Degrassi High S05E09 - Extracurricular Activities.mp4"
+      "name": "Darrin Brown",
+      "character": "Dwayne Myers",
+      "order": 6,
+      "profilePath": null
     },
     {
-     "archiveID": "degrassi-high-s-05-e-12-threes-a-crowd",
-     "seasonNumber": 2,
-     "episodeNumber": 12,
-     "title": "Three's a Crowd",
-     "overview": "Spike invites Snake to the graduation formal, but then Michelle – whom he'd really rather go with – invites him. What's a guy to do?",
-     "stillURL": "https://image.tmdb.org/t/p/w300/gATgoyAk5yhI1ivuKZ9DNI7r7sP.jpg",
-     "airDate": "1991-01-21",
-     "year": 1991,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S05E12 - Three's a Crowd.mp4",
-      "format": "h.264",
-      "sizeBytes": 154921915,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-12-threes-a-crowd/Degrassi High S05E12 - Three's a Crowd.mp4"
+      "name": "Michael Carry",
+      "character": "Simon Dexter",
+      "order": 7,
+      "profilePath": null
     },
     {
-     "archiveID": "degrassi-high-s-05-e-13-one-last-dance",
-     "seasonNumber": 2,
-     "episodeNumber": 13,
-     "title": "One Last Dance",
-     "overview": "The year's last dance takes on new significance when the news comes out. It's not just the year's last dance. It's Degrassi's last dance.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/cPQQx2tK5EsnsGitBZZAtgL3fnS.jpg",
-     "airDate": "1991-01-28",
-     "year": 1991,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Degrassi High S05E13 - One Last Dance.mp4",
-      "format": "h.264",
-      "sizeBytes": 155259980,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-13-one-last-dance/Degrassi High S05E13 - One Last Dance.mp4"
+      "name": "Amanda Cook",
+      "character": "Lorraine 'L.D.' Delacorte",
+      "order": 8,
+      "profilePath": "/6O2JdHHfo1vFW18zd4inG1fQvT6.jpg"
+    },
+    {
+      "name": "Irene Courakos",
+      "character": "Alexa Pappadopoulos",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "Angela Deiseach",
+      "character": "Erica Farrell",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/19/48473.jpg"
+    },
+    {
+      "name": "Maureen Deiseach",
+      "character": "Heather Farrell",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/19/48498.jpg"
+    },
+    {
+      "name": "Byrd Dickens",
+      "character": "Scott Smith",
+      "order": 12,
+      "profilePath": null
+    },
+    {
+      "name": "Chrissa Erodotou",
+      "character": "Diana Economopoulos",
+      "order": 13,
+      "profilePath": null
+    },
+    {
+      "name": "Michelle Goodeve",
+      "character": "Ms. Karen Avery",
+      "order": 14,
+      "profilePath": null
+    },
+    {
+      "name": "Anais Granofsky",
+      "character": "Lucy Fernandez",
+      "order": 15,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/19/48406.jpg"
+    },
+    {
+      "name": "Rebecca Haines",
+      "character": "Kathleen Mead",
+      "order": 16,
+      "profilePath": "/nZHKdX9N5AKo1SgLOdXUUBxZfi2.jpg"
+    },
+    {
+      "name": "Sara Holmes",
+      "character": "Allison Hunter",
+      "order": 17,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/19/48540.jpg"
     }
-   ]
-  },
-  {
-   "seasonNumber": 4,
-   "episodes": [
-    {
-     "archiveID": "degrassi-high-s-04",
-     "seasonNumber": 4,
-     "episodeNumber": 1,
-     "title": "Degrassi High Season 4",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
-     "airDate": null,
-     "year": 1990,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Degrassi High S04E01 - A New Start (Part 1).mp4",
-      "format": "h.264",
-      "sizeBytes": 155460299,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04/Degrassi High S04E01 - A New Start (Part 1).mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-04-e-09-sixteen-part-1",
-     "seasonNumber": 4,
-     "episodeNumber": 9,
-     "title": "Degrassi High S04E09 - Sixteen",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
-     "airDate": null,
-     "year": 1990,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Degrassi High S04E09 - Sixteen (Part 1).mp4",
-      "format": "h.264",
-      "sizeBytes": 155115053,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-09-sixteen-part-1/Degrassi High S04E09 - Sixteen (Part 1).mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-04-e-10-sixteen-part-2",
-     "seasonNumber": 4,
-     "episodeNumber": 10,
-     "title": "Degrassi High S04E10 - Sixteen",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
-     "airDate": null,
-     "year": 1990,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Degrassi High S04E10 - Sixteen (Part 2).mp4",
-      "format": "h.264",
-      "sizeBytes": 154902851,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-10-sixteen-part-2/Degrassi High S04E10 - Sixteen (Part 2).mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-04-e-13-testing-123",
-     "seasonNumber": 4,
-     "episodeNumber": 13,
-     "title": "Testing 1...2...3",
-     "overview": "Joey is diagnosed with a learning disability.  He contemplates dropping out of high school, but changes his mind after talking to Caitlin.  Caitlin tells him to stop feeling sorry for himself, because he's not the only one with a disability, because she has to deal with having epilepsy.\n\nElsewhere, everyone cheats on a test.  The teacher says since everyone gets an A, that test must not have been hard enough, so it won't count and he'd give everyone a harder test.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/zl1Ien4a4Cq1MXdYiFzZ4RIvG3B.jpg",
-     "airDate": null,
-     "year": 1990,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Degrassi High S04E13 - Testing 1...2...3....mp4",
-      "format": "h.264",
-      "sizeBytes": 154414892,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-04-e-13-testing-123/Degrassi High S04E13 - Testing 1...2...3....mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 5,
-   "episodes": [
-    {
-     "archiveID": "degrassi-high-s-05-e-01-bad-blood-part-1",
-     "seasonNumber": 5,
-     "episodeNumber": 1,
-     "title": "Degrassi High S05E01 - Bad Blood",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
-     "airDate": null,
-     "year": 1990,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Degrassi High S05E01 - Bad Blood (Part 1).mp4",
-      "format": "h.264",
-      "sizeBytes": 163012080,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-01-bad-blood-part-1/Degrassi High S05E01 - Bad Blood (Part 1).mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-05-e-02-bad-blood-part-2",
-     "seasonNumber": 5,
-     "episodeNumber": 2,
-     "title": "Degrassi High S05E02 - Bad Blood",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
-     "airDate": null,
-     "year": 1990,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Degrassi High S05E02 - Bad Blood (Part 2).mp4",
-      "format": "h.264",
-      "sizeBytes": 162728933,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-02-bad-blood-part-2/Degrassi High S05E02 - Bad Blood (Part 2).mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-05-e-10-e-11-showtime-part-1-and-2",
-     "seasonNumber": 5,
-     "episodeNumber": 10,
-     "title": "Degrassi High S05E10 & S05E11 - Showtime",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
-     "airDate": null,
-     "year": 1991,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Degrassi High S05E10 E11 - Showtime (Part 1 and 2).mp4",
-      "format": "h.264",
-      "sizeBytes": 305718226,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-05-e-10-e-11-showtime-part-1-and-2/Degrassi High S05E10 E11 - Showtime (Part 1 and 2).mp4"
-    },
-    {
-     "archiveID": "degrassi-high-s-05",
-     "seasonNumber": 5,
-     "episodeNumber": 10,
-     "title": "Degrassi High Season 5",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/b3Lt9pSBVpLUx1ck4rlF8z7n5p2.jpg",
-     "airDate": null,
-     "year": 1990,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Degrassi High S05e10 E11 - Showtime (Part 1 And 2).mp4",
-      "format": "h.264",
-      "sizeBytes": 306050148,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/degrassi-high-s-05/Degrassi High S05e10 E11 - Showtime (Part 1 And 2).mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 29,
- "canonicalEpisodesCount": 28
+  ]
 }

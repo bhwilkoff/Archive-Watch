@@ -172,5 +172,31 @@
   "canonicalEpisodesCount": 4,
   "seriesImdbID": "tt0098849",
   "canonicalEpisodeCount": 1,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Dennis Waterman",
+      "character": "Bobbo",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/8287.jpg"
+    },
+    {
+      "name": "Patricia Hodge",
+      "character": "Mary Fisher",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/593/1483819.jpg"
+    },
+    {
+      "name": "Julie T. Wallace",
+      "character": "Ruth",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/120/300227.jpg"
+    },
+    {
+      "name": "Miriam Margolyes",
+      "character": "Nurse Hopkins",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/31978.jpg"
+    }
+  ]
 }

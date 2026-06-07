@@ -177,5 +177,13 @@
   "canonicalEpisodesCount": 39,
   "seriesImdbID": "tt0140738",
   "canonicalEpisodeCount": 12,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Steve Holland",
+      "character": "Flash Gordon",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/442/1107208.jpg"
+    }
+  ]
 }

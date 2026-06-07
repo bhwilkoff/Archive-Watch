@@ -178,5 +178,25 @@
   "canonicalEpisodesCount": 126,
   "seriesImdbID": "tt0200339",
   "canonicalEpisodeCount": 28,
-  "canonicalSeasons": 7
+  "canonicalSeasons": 7,
+  "cast": [
+    {
+      "name": "Patrick Moore",
+      "character": "The GamesMaster",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/42/107175.jpg"
+    },
+    {
+      "name": "Dominik Diamond",
+      "character": "Host",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/21/52984.jpg"
+    },
+    {
+      "name": "Dexter Fletcher",
+      "character": "Host",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/115/287535.jpg"
+    }
+  ]
 }

@@ -135,5 +135,43 @@
   "canonicalEpisodesCount": 26,
   "seriesImdbID": "tt0069577",
   "canonicalEpisodeCount": 20,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Bob Denver",
+      "character": "Dusty",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/121/303411.jpg"
+    },
+    {
+      "name": "Forrest Tucker",
+      "character": "Mr. Callahan",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/579/1447923.jpg"
+    },
+    {
+      "name": "Ivor Francis",
+      "character": "Mr. Carson Brookhaven",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73231.jpg"
+    },
+    {
+      "name": "Jeannine Riley",
+      "character": "Lulu McQueen",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/588/1470544.jpg"
+    },
+    {
+      "name": "Lori Saunders",
+      "character": "Betsy",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/36532.jpg"
+    },
+    {
+      "name": "Lynn Wood",
+      "character": "Mrs. Brookhaven",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/80/202360.jpg"
+    }
+  ]
 }

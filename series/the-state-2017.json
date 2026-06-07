@@ -86,5 +86,67 @@
   "canonicalEpisodesCount": 4,
   "seriesImdbID": "tt6068620",
   "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Sam Otto",
+      "character": "Jalal Hossein",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/127/317934.jpg"
+    },
+    {
+      "name": "Ony Uhiara",
+      "character": "Shakira Boothe",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/127/317935.jpg"
+    },
+    {
+      "name": "Shavani Cameron",
+      "character": "Ushna Kaleel",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/127/317936.jpg"
+    },
+    {
+      "name": "Hiam Abbass",
+      "character": "Umm Salamah",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/89/223219.jpg"
+    },
+    {
+      "name": "Ryan McKen",
+      "character": "Ziyaad Kader",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/127/317933.jpg"
+    },
+    {
+      "name": "Jessica Gunning",
+      "character": "Umm Walid",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/550/1377020.jpg"
+    },
+    {
+      "name": "Haaz Sleiman",
+      "character": "Dr. Rabia",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/8652.jpg"
+    },
+    {
+      "name": "Amir El-Masry",
+      "character": "Sayed",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/524/1312116.jpg"
+    },
+    {
+      "name": "Ali Suliman",
+      "character": "Abu Omar",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/2/6265.jpg"
+    },
+    {
+      "name": "Yasen Atour",
+      "character": "Abu Issa",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/127/317937.jpg"
+    }
+  ]
 }

@@ -62,5 +62,43 @@
   "canonicalEpisodesCount": 10,
   "seriesImdbID": "tt0096668",
   "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Cloris Leachman",
+      "character": "Ms. Frick",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/177/444690.jpg"
+    },
+    {
+      "name": "Harvey Korman",
+      "character": "Reginald Tarkington",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/91/227779.jpg"
+    },
+    {
+      "name": "Brian McNamara",
+      "character": "Charles Nutt III",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/183/459726.jpg"
+    },
+    {
+      "name": "Molly Hagan",
+      "character": "Sally Lonnaneck",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/596/1490070.jpg"
+    },
+    {
+      "name": "Gregory Itzin",
+      "character": "Dennis",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/182/455228.jpg"
+    },
+    {
+      "name": "Mark Blankfield",
+      "character": "Freddy",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/91/227777.jpg"
+    }
+  ]
 }

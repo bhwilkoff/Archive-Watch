@@ -80,5 +80,49 @@
   "canonicalEpisodesCount": 35,
   "seriesImdbID": "tt0098802",
   "canonicalEpisodeCount": 31,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Robin Riker",
+      "character": "Sharon Potter",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/164/410589.jpg"
+    },
+    {
+      "name": "Sam Robards",
+      "character": "Larry Potter",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/8788.jpg"
+    },
+    {
+      "name": "Brady Bluhm",
+      "character": "Bobby Potter",
+      "order": 2,
+      "profilePath": "/bMfBgF5wwbLvtbBYD3b1IJyWBda.jpg"
+    },
+    {
+      "name": "Taylor Fry",
+      "character": "Amy Potter",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/348/870723.jpg"
+    },
+    {
+      "name": "Chris Elliott",
+      "character": "Chris Peterson",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/164/410327.jpg"
+    },
+    {
+      "name": "Elinor Donahue",
+      "character": "Gladys Peterson",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/501/1253492.jpg"
+    },
+    {
+      "name": "Bob Elliott",
+      "character": "Fred Peterson",
+      "order": 6,
+      "profilePath": "/ApysF6vUAU5IdsuFQMtgjkXcfbs.jpg"
+    }
+  ]
 }

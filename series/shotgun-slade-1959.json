@@ -121,5 +121,25 @@
   "canonicalEpisodesCount": 78,
   "seriesImdbID": "tt0052508",
   "canonicalEpisodeCount": 64,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Scott Brady",
+      "character": "Shotgun Slade",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/172/431657.jpg"
+    },
+    {
+      "name": "Monica Lewis",
+      "character": "Monica Bristol",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/74/186982.jpg"
+    },
+    {
+      "name": "Frank Ferguson",
+      "character": "Mike Oliver",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/81/202700.jpg"
+    }
+  ]
 }

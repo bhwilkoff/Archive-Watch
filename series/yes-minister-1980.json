@@ -26,7 +26,7 @@
           "title": "Yes Minister: Open Government (1994 UK VHS)",
           "overview": "(c) BBC",
           "stillURL": "https://archive.org/services/img/vid-20220508-092950",
-          "airDate": null,
+          "airDate": "1980-02-25",
           "year": 1994,
           "runtimeSeconds": 6984,
           "videoFile": {
@@ -44,7 +44,7 @@
           "title": "Yes Minister: The Writing on the Wall (1994 UK VHS)",
           "overview": "(c) BBC",
           "stillURL": "https://archive.org/services/img/vid-20220508-150240",
-          "airDate": null,
+          "airDate": "1980-03-24",
           "year": 1994,
           "runtimeSeconds": 5243,
           "videoFile": {
@@ -67,7 +67,7 @@
           "title": "Yes Minister: The Compassionate Society (1996 UK VHS)",
           "overview": "(c) BBC",
           "stillURL": "https://archive.org/services/img/vid-20220506-144721",
-          "airDate": null,
+          "airDate": "1981-02-23",
           "year": 1996,
           "runtimeSeconds": 5316,
           "videoFile": {
@@ -85,7 +85,7 @@
           "title": "Yes Minister: The Greasy Pole (1996 UK VHS)",
           "overview": "(c) BBC",
           "stillURL": "https://archive.org/services/img/vid-20220506-100843",
-          "airDate": null,
+          "airDate": "1981-03-16",
           "year": 1996,
           "runtimeSeconds": 7120,
           "videoFile": {
@@ -108,7 +108,7 @@
           "title": "Yes Minister: Equal Opportunities (1998 UK VHS)",
           "overview": "(c) BBC",
           "stillURL": "https://archive.org/services/img/vid-20220502-172832",
-          "airDate": null,
+          "airDate": "1982-11-11",
           "year": 1998,
           "runtimeSeconds": 5537,
           "videoFile": {
@@ -167,5 +167,49 @@
   "canonicalEpisodesCount": 21,
   "seriesImdbID": "tt0080306",
   "canonicalEpisodeCount": 22,
-  "canonicalSeasons": 3
+  "canonicalSeasons": 3,
+  "cast": [
+    {
+      "name": "Paul Eddington",
+      "character": "Rt Hon James Hacker",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/292/731181.jpg"
+    },
+    {
+      "name": "Nigel Hawthorne",
+      "character": "Sir Humphrey \"Humpy\" Appleby",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/276/692016.jpg"
+    },
+    {
+      "name": "Derek Fowlds",
+      "character": "Bernard Wooley",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/236/590913.jpg"
+    },
+    {
+      "name": "Diana Hoddinott",
+      "character": "Annie Hacker",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/160/400205.jpg"
+    },
+    {
+      "name": "John Nettleton",
+      "character": "Sir Arnold Robinson",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/178/446823.jpg"
+    },
+    {
+      "name": "Neil Fitzwiliam",
+      "character": "Frank Weisel",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Edward Jewesbury",
+      "character": "Vic Gould",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/110/276633.jpg"
+    }
+  ]
 }

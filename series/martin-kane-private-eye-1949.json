@@ -81,5 +81,31 @@
   "episodesCount": 3,
   "canonicalEpisodesCount": 14,
   "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "canonicalEpisodeCount": 0,
+  "cast": [
+    {
+      "name": "Mark Stevens",
+      "character": "Martin Kane",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/285/713194.jpg"
+    },
+    {
+      "name": "Lloyd Nolan",
+      "character": "Martin Kane",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/92/231214.jpg"
+    },
+    {
+      "name": "William Gargan",
+      "character": "Martin Kane",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/401/1003443.jpg"
+    },
+    {
+      "name": "Lee Tracy",
+      "character": "Martin Kane",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/405/1014636.jpg"
+    }
+  ]
 }

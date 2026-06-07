@@ -175,5 +175,25 @@
   "canonicalEpisodesCount": 50,
   "seriesImdbID": "tt0053527",
   "canonicalEpisodeCount": 19,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Barton MacLane",
+      "character": "U. S. Marshal Frank Caine",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/115/288969.jpg"
+    },
+    {
+      "name": "Don Collier",
+      "character": "Deputy Marshal Will Foreman",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/357/893378.jpg"
+    },
+    {
+      "name": "Jock Gaynor",
+      "character": "Deputy Marshal Heck Martin",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/413/1034345.jpg"
+    }
+  ]
 }

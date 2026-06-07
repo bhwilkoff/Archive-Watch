@@ -1,345 +1,455 @@
 {
- "version": 2,
- "seriesID": "grange-hill-1978",
- "tvmazeID": 4743,
- "title": "Grange Hill",
- "yearStart": 1978,
- "yearEnd": 2008,
- "overview": "Grange Hill is one of the most successful television children's dramas of all time. The drama takes a look at teenagers and their dilemmas in a Secondary school. Grange Hill has been running for over 20 years and many of the actors have gone on to star in other well known programmes such as Brookside, ER and Eastenders. Its Powerful storyline's, brilliant characters and superb cast. It's no wonder Grange Hill is a brilliant success. Grange Hill was previously filmed in London but now the show creator Phil Redmond has moved filming up to Liverpool so a lot of Actors have not made the move from London to Liverpool.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/21/53059.jpg",
- "backdropURL": null,
- "genres": [
-  "Drama",
-  "Children"
- ],
- "networks": [
-  "BBC One"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "grange-hill-1978",
+  "tvmazeID": 4743,
+  "title": "Grange Hill",
+  "yearStart": 1978,
+  "yearEnd": 2008,
+  "overview": "Grange Hill is one of the most successful television children's dramas of all time. The drama takes a look at teenagers and their dilemmas in a Secondary school. Grange Hill has been running for over 20 years and many of the actors have gone on to star in other well known programmes such as Brookside, ER and Eastenders. Its Powerful storyline's, brilliant characters and superb cast. It's no wonder Grange Hill is a brilliant success. Grange Hill was previously filmed in London but now the show creator Phil Redmond has moved filming up to Liverpool so a lot of Actors have not made the move from London to Liverpool.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/21/53059.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Children"
+  ],
+  "networks": [
+    "BBC One"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "grange-hill-series-1",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Episode 4",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": "1978-03-01",
-     "year": 1978,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Grange Hill, Season 1_S01E04_Episode 4.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 248611923,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-series-1/Grange Hill, Season 1_S01E04_Episode 4.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-1",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": "1978-03-01",
+          "year": 1978,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Grange Hill, Season 1_S01E04_Episode 4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 248611923,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-1/Grange Hill, Season 1_S01E04_Episode 4.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "grange-hill-series-2",
-     "seasonNumber": 2,
-     "episodeNumber": 17,
-     "title": "Episode 17",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": "1979-02-27",
-     "year": 1979,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Grange Hill, Season 2_S02E17_Episode 17.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 338887939,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-series-2/Grange Hill, Season 2_S02E17_Episode 17.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-2",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Episode 17",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": "1979-02-27",
+          "year": 1979,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Grange Hill, Season 2_S02E17_Episode 17.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 338887939,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-2/Grange Hill, Season 2_S02E17_Episode 17.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "grange-hill-series-3",
-     "seasonNumber": 3,
-     "episodeNumber": 15,
-     "title": "Episode 15",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": "1980-02-26",
-     "year": 1980,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Grange Hill - Season 3_S03E15_Episode 15.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 334621008,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-series-3/Grange Hill - Season 3_S03E15_Episode 15.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 4,
-   "episodes": [
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-3",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "Episode 15",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": "1980-02-26",
+          "year": 1980,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Grange Hill - Season 3_S03E15_Episode 15.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 334621008,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-3/Grange Hill - Season 3_S03E15_Episode 15.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "grange-hill-season-4-s-04-e-09-episode-9",
-     "seasonNumber": 4,
-     "episodeNumber": 9,
-     "title": "Episode 9",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": "1981-01-27",
-     "year": 1981,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Grange Hill - Season 4_S04E09_Episode 9.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 1343082879,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-season-4-s-04-e-09-episode-9/Grange Hill - Season 4_S04E09_Episode 9.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 5,
-   "episodes": [
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-season-4-s-04-e-09-episode-9",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": "1981-01-27",
+          "year": 1981,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Grange Hill - Season 4_S04E09_Episode 9.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1343082879,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-season-4-s-04-e-09-episode-9/Grange Hill - Season 4_S04E09_Episode 9.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "grange-hill-series-5",
-     "seasonNumber": 5,
-     "episodeNumber": 6,
-     "title": "Sports Trials",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": "1982-01-22",
-     "year": 1982,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Grange Hill - Season 5_S05E06_Sports Trials.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 396263166,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-series-5/Grange Hill - Season 5_S05E06_Sports Trials.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 6,
-   "episodes": [
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-5",
+          "seasonNumber": 5,
+          "episodeNumber": 6,
+          "title": "Sports Trials",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": "1982-01-22",
+          "year": 1982,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Grange Hill - Season 5_S05E06_Sports Trials.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 396263166,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-5/Grange Hill - Season 5_S05E06_Sports Trials.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "grange-hill-series-6",
-     "seasonNumber": 6,
-     "episodeNumber": 6,
-     "title": "Field Trip",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": "1983-01-21",
-     "year": 1983,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Grange Hill - Season 6_S06E06_Field Trip.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 361306697,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-series-6/Grange Hill - Season 6_S06E06_Field Trip.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 7,
-   "episodes": [
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-6",
+          "seasonNumber": 6,
+          "episodeNumber": 6,
+          "title": "Field Trip",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": "1983-01-21",
+          "year": 1983,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Grange Hill - Season 6_S06E06_Field Trip.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 361306697,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-6/Grange Hill - Season 6_S06E06_Field Trip.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "grange-hill-series-7",
-     "seasonNumber": 7,
-     "episodeNumber": 16,
-     "title": "Episode 16",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": "1984-02-24",
-     "year": 1984,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Grange Hill - Season 7_S07E16_Episode 16.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 393323833,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-series-7/Grange Hill - Season 7_S07E16_Episode 16.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 9,
-   "episodes": [
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-7",
+          "seasonNumber": 7,
+          "episodeNumber": 16,
+          "title": "Episode 16",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": "1984-02-24",
+          "year": 1984,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Grange Hill - Season 7_S07E16_Episode 16.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 393323833,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-7/Grange Hill - Season 7_S07E16_Episode 16.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "grange-hill-series-9",
-     "seasonNumber": 9,
-     "episodeNumber": 18,
-     "title": "Episode 18",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": "1986-03-07",
-     "year": 1986,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Grange Hill - Season 9_S09E18_Episode 18.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 334743649,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-series-9/Grange Hill - Season 9_S09E18_Episode 18.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 10,
-   "episodes": [
+      "seasonNumber": 9,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-9",
+          "seasonNumber": 9,
+          "episodeNumber": 18,
+          "title": "Episode 18",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": "1986-03-07",
+          "year": 1986,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Grange Hill - Season 9_S09E18_Episode 18.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 334743649,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-9/Grange Hill - Season 9_S09E18_Episode 18.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "grange-hill-series-10",
-     "seasonNumber": 10,
-     "episodeNumber": 12,
-     "title": "Episode 12",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": "1987-02-13",
-     "year": 1987,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Grange Hill - Season 10_S10E12_Episode 12.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 241670355,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-series-10/Grange Hill - Season 10_S10E12_Episode 12.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 11,
-   "episodes": [
+      "seasonNumber": 10,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-10",
+          "seasonNumber": 10,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": "1987-02-13",
+          "year": 1987,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Grange Hill - Season 10_S10E12_Episode 12.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 241670355,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-10/Grange Hill - Season 10_S10E12_Episode 12.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "grange-hill-series-11",
-     "seasonNumber": 11,
-     "episodeNumber": 20,
-     "title": "Episode 20",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": "1988-03-11",
-     "year": 1988,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Grange Hill - Season 11_S11E20_Episode 20.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 233114957,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-series-11/Grange Hill - Season 11_S11E20_Episode 20.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 12,
-   "episodes": [
+      "seasonNumber": 11,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-11",
+          "seasonNumber": 11,
+          "episodeNumber": 20,
+          "title": "Episode 20",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": "1988-03-11",
+          "year": 1988,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Grange Hill - Season 11_S11E20_Episode 20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 233114957,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-11/Grange Hill - Season 11_S11E20_Episode 20.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "grange-hill-series-12",
-     "seasonNumber": 12,
-     "episodeNumber": 13,
-     "title": "Episode 13",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": "1989-02-14",
-     "year": 1989,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Grange Hill - Season 12_S12E13_Episode 13.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 201060236,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-series-12/Grange Hill - Season 12_S12E13_Episode 13.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 13,
-   "episodes": [
+      "seasonNumber": 12,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-12",
+          "seasonNumber": 12,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": "1989-02-14",
+          "year": 1989,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Grange Hill - Season 12_S12E13_Episode 13.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 201060236,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-12/Grange Hill - Season 12_S12E13_Episode 13.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "grange-hill-series-13",
-     "seasonNumber": 13,
-     "episodeNumber": 12,
-     "title": "Episode 12",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": "1990-02-08",
-     "year": 1990,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Grange Hill - Season 13_S13E12_Episode 12.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 223377657,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-series-13/Grange Hill - Season 13_S13E12_Episode 12.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 14,
-   "episodes": [
+      "seasonNumber": 13,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-13",
+          "seasonNumber": 13,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": "1990-02-08",
+          "year": 1990,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Grange Hill - Season 13_S13E12_Episode 12.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 223377657,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-13/Grange Hill - Season 13_S13E12_Episode 12.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "grange-hill-series-14",
-     "seasonNumber": 14,
-     "episodeNumber": 1,
-     "title": "Episode 1",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": "1991-01-08",
-     "year": 1991,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Grange Hill - Season 14_S14E01_Episode 1.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 224439438,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-series-14/Grange Hill - Season 14_S14E01_Episode 1.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+      "seasonNumber": 14,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-14",
+          "seasonNumber": 14,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": "1991-01-08",
+          "year": 1991,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Grange Hill - Season 14_S14E01_Episode 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 224439438,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-14/Grange Hill - Season 14_S14E01_Episode 1.ia.mp4"
+        }
+      ]
+    },
     {
-     "archiveID": "grange-hill-series-8",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Grange Hill Series 8",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Grange Hill - Christmas Special 1985.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 305682931,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/grange-hill-series-8/Grange Hill - Christmas Special 1985.ia.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "grange-hill-series-8",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Grange Hill Series 8",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/8SziJYek4dEumfweUY9GnnOtcJS.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Grange Hill - Christmas Special 1985.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 305682931,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/grange-hill-series-8/Grange Hill - Christmas Special 1985.ia.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 14,
- "canonicalEpisodesCount": 601
+  ],
+  "episodesCount": 14,
+  "canonicalEpisodesCount": 601,
+  "cast": [
+    {
+      "name": "Stuart Organ",
+      "character": "Mr. Robson",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65922.jpg"
+    },
+    {
+      "name": "Gwyneth Powell",
+      "character": "Mrs. McClusky",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/4/11112.jpg"
+    },
+    {
+      "name": "Lee Cornes",
+      "character": "Mr. Hankin",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65920.jpg"
+    },
+    {
+      "name": "Sally Geoghegan",
+      "character": "Miss Carver",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65901.jpg"
+    },
+    {
+      "name": "Sammy O'Grady",
+      "character": "Kathy McIlroy",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65902.jpg"
+    },
+    {
+      "name": "Simone Hyams",
+      "character": "Calley Donnington",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65900.jpg"
+    },
+    {
+      "name": "Aidan David",
+      "character": "James \"Arnie\" Arnold",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/162/406461.jpg"
+    },
+    {
+      "name": "Rachel Victoria Roberts",
+      "character": "Justine Dean",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65914.jpg"
+    },
+    {
+      "name": "John Alford",
+      "character": "Robbie Wright",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65896.jpg"
+    },
+    {
+      "name": "John Drummond",
+      "character": "Trevor Cleaver",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65918.jpg"
+    },
+    {
+      "name": "Tina Mahon",
+      "character": "Ronnie Birtles",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65921.jpg"
+    },
+    {
+      "name": "Karen Ford",
+      "character": "Miss Booth",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65897.jpg"
+    },
+    {
+      "name": "Michael Sheard",
+      "character": "Mr Maurice Bronson",
+      "order": 12,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/66/165871.jpg"
+    },
+    {
+      "name": "Kelly George",
+      "character": "Ray Haynes",
+      "order": 13,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65912.jpg"
+    },
+    {
+      "name": "Todd Carty",
+      "character": "Tucker Jenkins",
+      "order": 14,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/34/87366.jpg"
+    },
+    {
+      "name": "Michelle Herbert",
+      "character": "Trisha Yates",
+      "order": 15,
+      "profilePath": "/6DhrJfT31pRqMDNDFbtHPdeCCl1.jpg"
+    },
+    {
+      "name": "Robert Craig-Morgan",
+      "character": "Justin Bennett",
+      "order": 16,
+      "profilePath": null
+    },
+    {
+      "name": "George Armstrong",
+      "character": "Alan Humphries",
+      "order": 17,
+      "profilePath": null
+    }
+  ]
 }

@@ -141,5 +141,37 @@
   "canonicalEpisodesCount": 39,
   "seriesImdbID": "tt0051286",
   "canonicalEpisodeCount": 17,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Roger Moore",
+      "character": "Sir Wilfred of Ivanhoe",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/113/283073.jpg"
+    },
+    {
+      "name": "Robert Brown",
+      "character": "Gurth",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/339/849901.jpg"
+    },
+    {
+      "name": "Andrew Keir",
+      "character": "Prince John",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/432/1082335.jpg"
+    },
+    {
+      "name": "John Pike",
+      "character": "Bart",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/432/1082332.jpg"
+    },
+    {
+      "name": "Peter Gilmore",
+      "character": "Waldo Ivanhoe",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/100/250356.jpg"
+    }
+  ]
 }

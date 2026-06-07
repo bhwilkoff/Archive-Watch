@@ -1,411 +1,443 @@
 {
- "version": 2,
- "seriesID": "the-adventures-of-sir-lancelot-1956",
- "tvmazeID": 28388,
- "title": "The Adventures of Sir Lancelot",
- "yearStart": 1956,
- "yearEnd": 1957,
- "overview": "The Adventures of Sir Lancelot is a series about the most famous and dashing of King Arthur's knights, Sir Lancelot, who is challenged to a rigorous set of tests to prove he is worthy of the Round Table, and then serves King Arthur against pirates and renegade princes, always proving his steadfast courage and loyalty.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/112/282346.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure"
- ],
- "networks": [
-  "ITV1"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-adventures-of-sir-lancelot-1956",
+  "tvmazeID": 28388,
+  "title": "The Adventures of Sir Lancelot",
+  "yearStart": 1956,
+  "yearEnd": 1957,
+  "overview": "The Adventures of Sir Lancelot is a series about the most famous and dashing of King Arthur's knights, Sir Lancelot, who is challenged to a rigorous set of tests to prove he is worthy of the Round Table, and then serves King Arthur against pirates and renegade princes, always proving his steadfast courage and loyalty.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/112/282346.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "TheAdventuresOfSirLancelot-TheKnightWithTheRedPlume_122",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "The Knight with the Red Plume",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1956-09-15",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TheAdventuresOfSirLancelot-KnightWithTheRedPlume.mp4",
-      "format": "h.264",
-      "sizeBytes": 146214690,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-TheKnightWithTheRedPlume_122/TheAdventuresOfSirLancelot-KnightWithTheRedPlume.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-TheKnightWithTheRedPlume_122",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Knight with the Red Plume",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-09-15",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-KnightWithTheRedPlume.mp4",
+            "format": "h.264",
+            "sizeBytes": 146214690,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-TheKnightWithTheRedPlume_122/TheAdventuresOfSirLancelot-KnightWithTheRedPlume.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-TheFerociousFathers",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Ferocious Fathers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-09-22",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-TheFerociousFathers.mp4",
+            "format": "h.264",
+            "sizeBytes": 148490194,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-TheFerociousFathers/TheAdventuresOfSirLancelot-TheFerociousFathers.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-QueensKnight",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Queen's Knight",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-09-29",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-QueensKnight.mp4",
+            "format": "h.264",
+            "sizeBytes": 142356603,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-QueensKnight/TheAdventuresOfSirLancelot-QueensKnight.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-TheOutcast",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Outcast",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-10-06",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-TheOutcast.mp4",
+            "format": "h.264",
+            "sizeBytes": 149223346,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-TheOutcast/TheAdventuresOfSirLancelot-TheOutcast.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-WingedVictory",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Winged Victory",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-10-13",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-WingedVictory.mp4",
+            "format": "h.264",
+            "sizeBytes": 147324593,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-WingedVictory/TheAdventuresOfSirLancelot-WingedVictory.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-SirBliant",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Sir Bliant",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-10-20",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventureOfSirLancelot-SirBliant.mp4",
+            "format": "h.264",
+            "sizeBytes": 147414152,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-SirBliant/TheAdventureOfSirLancelot-SirBliant.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-ThePirates",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Pirates",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-10-27",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "AdventuresOfSirLancelot-ThePirates.mp4",
+            "format": "h.264",
+            "sizeBytes": 149390561,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-ThePirates/AdventuresOfSirLancelot-ThePirates.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-TheMagicSword",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Magic Sword",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-11-03",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-TheMagicSword.mp4",
+            "format": "h.264",
+            "sizeBytes": 149939523,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-TheMagicSword/TheAdventuresOfSirLancelot-TheMagicSword.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-LancelotsBanishment",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Lancelot's Banishment",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-11-10",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-LancelotsBanishment.mp4",
+            "format": "h.264",
+            "sizeBytes": 147562026,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-LancelotsBanishment/TheAdventuresOfSirLancelot-LancelotsBanishment.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelot-RomanWall",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Roman Wall",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1956-11-17",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfSirLancelot-1x10-RomanWall.mp4",
+            "format": "h.264",
+            "sizeBytes": 150050648,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-RomanWall/TheAdventuresOfSirLancelot-1x10-RomanWall.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp16",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Ruby of Radnor",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-01-12",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep16 The Ruby of Radnor (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158214856,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp16/The Adventures of Sir Lancelot Ep16 The Ruby of Radnor (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp17",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Lesser Breed",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-01-19",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep17 The Lesser Breed (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 168544756,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp17/The Adventures of Sir Lancelot Ep17 The Lesser Breed (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp18",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Witches' Brew",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-01-26",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep18 Witches' Brew (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160606922,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp18/The Adventures of Sir Lancelot Ep18 Witches' Brew (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp19",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Sir Crustabread",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-02-02",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep19 Sir Crustabread (1956 TV Series) William Russell, color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 172058917,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp19/The Adventures of Sir Lancelot Ep19 Sir Crustabread (1956 TV Series) William Russell, color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp20",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Maid of Somerset",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-02-09",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep20 Maid of Somerset (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 185231768,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp20/The Adventures of Sir Lancelot Ep20 Maid of Somerset (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp23",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Lady Lilith",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-03-02",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep23 The Lady Lilth (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151955549,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp23/The Adventures of Sir Lancelot Ep23 The Lady Lilth (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp26",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Knights' Choice",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-03-23",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep26 Knights Choice (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153073812,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp26/The Adventures of Sir Lancelot Ep26 Knights Choice (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp28",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "The Mortaise Fair",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-04-06",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep28 The Mortaise Fair (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159757709,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp28/The Adventures of Sir Lancelot Ep28 The Mortaise Fair (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp29",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "The Thieves",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-04-13",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep29 The Thieves (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 185391529,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp29/The Adventures of Sir Lancelot Ep29 The Thieves (1956 TV Series) William Russell color.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfSirLancelotEp30",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "The Prince of Limerick",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
+          "airDate": "1957-04-20",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Sir Lancelot Ep30 The Prince of Limerick (1956 TV Series) William Russell color.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 164691212,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp30/The Adventures of Sir Lancelot Ep30 The Prince of Limerick (1956 TV Series) William Russell color.ia.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "TheAdventuresOfSirLancelot-TheFerociousFathers",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Ferocious Fathers",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1956-09-22",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TheAdventuresOfSirLancelot-TheFerociousFathers.mp4",
-      "format": "h.264",
-      "sizeBytes": 148490194,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-TheFerociousFathers/TheAdventuresOfSirLancelot-TheFerociousFathers.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelot-QueensKnight",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "The Queen's Knight",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1956-09-29",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TheAdventuresOfSirLancelot-QueensKnight.mp4",
-      "format": "h.264",
-      "sizeBytes": 142356603,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-QueensKnight/TheAdventuresOfSirLancelot-QueensKnight.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelot-TheOutcast",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "The Outcast",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1956-10-06",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TheAdventuresOfSirLancelot-TheOutcast.mp4",
-      "format": "h.264",
-      "sizeBytes": 149223346,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-TheOutcast/TheAdventuresOfSirLancelot-TheOutcast.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelot-WingedVictory",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Winged Victory",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1956-10-13",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TheAdventuresOfSirLancelot-WingedVictory.mp4",
-      "format": "h.264",
-      "sizeBytes": 147324593,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-WingedVictory/TheAdventuresOfSirLancelot-WingedVictory.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelot-SirBliant",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Sir Bliant",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1956-10-20",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TheAdventureOfSirLancelot-SirBliant.mp4",
-      "format": "h.264",
-      "sizeBytes": 147414152,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-SirBliant/TheAdventureOfSirLancelot-SirBliant.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelot-ThePirates",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "The Pirates",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1956-10-27",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "AdventuresOfSirLancelot-ThePirates.mp4",
-      "format": "h.264",
-      "sizeBytes": 149390561,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-ThePirates/AdventuresOfSirLancelot-ThePirates.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelot-TheMagicSword",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "The Magic Sword",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1956-11-03",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TheAdventuresOfSirLancelot-TheMagicSword.mp4",
-      "format": "h.264",
-      "sizeBytes": 149939523,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-TheMagicSword/TheAdventuresOfSirLancelot-TheMagicSword.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelot-LancelotsBanishment",
-     "seasonNumber": 1,
-     "episodeNumber": 9,
-     "title": "Lancelot's Banishment",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1956-11-10",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TheAdventuresOfSirLancelot-LancelotsBanishment.mp4",
-      "format": "h.264",
-      "sizeBytes": 147562026,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-LancelotsBanishment/TheAdventuresOfSirLancelot-LancelotsBanishment.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelot-RomanWall",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "Roman Wall",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1956-11-17",
-     "year": 1956,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "TheAdventuresOfSirLancelot-1x10-RomanWall.mp4",
-      "format": "h.264",
-      "sizeBytes": 150050648,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelot-RomanWall/TheAdventuresOfSirLancelot-1x10-RomanWall.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelotEp16",
-     "seasonNumber": 1,
-     "episodeNumber": 16,
-     "title": "The Ruby of Radnor",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1957-01-12",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Sir Lancelot Ep16 The Ruby of Radnor (1956 TV Series) William Russell color.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 158214856,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp16/The Adventures of Sir Lancelot Ep16 The Ruby of Radnor (1956 TV Series) William Russell color.ia.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelotEp17",
-     "seasonNumber": 1,
-     "episodeNumber": 17,
-     "title": "The Lesser Breed",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1957-01-19",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Sir Lancelot Ep17 The Lesser Breed (1956 TV Series) William Russell color.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 168544756,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp17/The Adventures of Sir Lancelot Ep17 The Lesser Breed (1956 TV Series) William Russell color.ia.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelotEp18",
-     "seasonNumber": 1,
-     "episodeNumber": 18,
-     "title": "Witches' Brew",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1957-01-26",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Sir Lancelot Ep18 Witches' Brew (1956 TV Series) William Russell color.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 160606922,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp18/The Adventures of Sir Lancelot Ep18 Witches' Brew (1956 TV Series) William Russell color.ia.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelotEp19",
-     "seasonNumber": 1,
-     "episodeNumber": 19,
-     "title": "Sir Crustabread",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1957-02-02",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Sir Lancelot Ep19 Sir Crustabread (1956 TV Series) William Russell, color.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 172058917,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp19/The Adventures of Sir Lancelot Ep19 Sir Crustabread (1956 TV Series) William Russell, color.ia.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelotEp20",
-     "seasonNumber": 1,
-     "episodeNumber": 20,
-     "title": "Maid of Somerset",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1957-02-09",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Sir Lancelot Ep20 Maid of Somerset (1956 TV Series) William Russell color.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 185231768,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp20/The Adventures of Sir Lancelot Ep20 Maid of Somerset (1956 TV Series) William Russell color.ia.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelotEp23",
-     "seasonNumber": 1,
-     "episodeNumber": 23,
-     "title": "The Lady Lilith",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1957-03-02",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Sir Lancelot Ep23 The Lady Lilth (1956 TV Series) William Russell color.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 151955549,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp23/The Adventures of Sir Lancelot Ep23 The Lady Lilth (1956 TV Series) William Russell color.ia.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelotEp26",
-     "seasonNumber": 1,
-     "episodeNumber": 26,
-     "title": "Knights' Choice",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1957-03-23",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Sir Lancelot Ep26 Knights Choice (1956 TV Series) William Russell color.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 153073812,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp26/The Adventures of Sir Lancelot Ep26 Knights Choice (1956 TV Series) William Russell color.ia.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelotEp28",
-     "seasonNumber": 1,
-     "episodeNumber": 28,
-     "title": "The Mortaise Fair",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1957-04-06",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Sir Lancelot Ep28 The Mortaise Fair (1956 TV Series) William Russell color.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 159757709,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp28/The Adventures of Sir Lancelot Ep28 The Mortaise Fair (1956 TV Series) William Russell color.ia.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelotEp29",
-     "seasonNumber": 1,
-     "episodeNumber": 29,
-     "title": "The Thieves",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1957-04-13",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Sir Lancelot Ep29 The Thieves (1956 TV Series) William Russell color.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 185391529,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp29/The Adventures of Sir Lancelot Ep29 The Thieves (1956 TV Series) William Russell color.ia.mp4"
-    },
-    {
-     "archiveID": "TheAdventuresOfSirLancelotEp30",
-     "seasonNumber": 1,
-     "episodeNumber": 30,
-     "title": "The Prince of Limerick",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/rIYNwKsRPv50WceZsiu5hUQDfZf.jpg",
-     "airDate": "1957-04-20",
-     "year": 1957,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "The Adventures of Sir Lancelot Ep30 The Prince of Limerick (1956 TV Series) William Russell color.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 164691212,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheAdventuresOfSirLancelotEp30/The Adventures of Sir Lancelot Ep30 The Prince of Limerick (1956 TV Series) William Russell color.ia.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "The.Adventures.Of.SirLancelot",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The.Adventures.Of.Sir.Lancelot",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "29TheAdventuresOfSirLancelotthetheavesApril131957.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120766805,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The.Adventures.Of.SirLancelot/29TheAdventuresOfSirLancelotthetheavesApril131957.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+  ],
+  "episodesCount": 21,
+  "canonicalEpisodesCount": 30,
+  "cast": [
     {
-     "archiveID": "The.Adventures.Of.SirLancelot",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The.Adventures.Of.Sir.Lancelot",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "29TheAdventuresOfSirLancelotthetheavesApril131957.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 120766805,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/The.Adventures.Of.SirLancelot/29TheAdventuresOfSirLancelotthetheavesApril131957.mp4"
+      "name": "William Russell",
+      "character": "Sir Lancelot",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/50073.jpg"
+    },
+    {
+      "name": "Ronald Leigh-Hunt",
+      "character": "King Arthur",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/113/284246.jpg"
+    },
+    {
+      "name": "Bruce Seton",
+      "character": "King Arthur",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/113/284250.jpg"
+    },
+    {
+      "name": "Jane Hylton",
+      "character": "Guinevere",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/113/284247.jpg"
+    },
+    {
+      "name": "Cyril Smith",
+      "character": "Merlin",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/113/284252.jpg"
     }
-   ]
-  }
- ],
- "episodesCount": 21,
- "canonicalEpisodesCount": 30
+  ]
 }

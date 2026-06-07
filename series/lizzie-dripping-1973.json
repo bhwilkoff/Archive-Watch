@@ -99,5 +99,31 @@
   "canonicalEpisodesCount": 9,
   "seriesImdbID": "tt0173571",
   "canonicalEpisodeCount": 8,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Tina Heath",
+      "character": "Lizzie Dripping",
+      "order": 0,
+      "profilePath": "/rYXoAvfNcSBzPZm6TcC4gLC14Cg.jpg"
+    },
+    {
+      "name": "Barbara Mitchell",
+      "character": "Patty Arbuckle",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/49/124807.jpg"
+    },
+    {
+      "name": "Geoffrey Matthews",
+      "character": "Albert Arbuckle",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Jane Lowe",
+      "character": "Aunt Blodwen",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/230/577099.jpg"
+    }
+  ]
 }

@@ -80,5 +80,115 @@
   "canonicalEpisodesCount": 8788,
   "seriesImdbID": "tt0068069",
   "canonicalEpisodeCount": 100,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Jeff Hordley",
+      "character": "Cain Dingle",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/66/166471.jpg"
+    },
+    {
+      "name": "Emma Atkins",
+      "character": "Charity Dingle",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/66/166484.jpg"
+    },
+    {
+      "name": "Danny Miller",
+      "character": "Aaron Dingle",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/604/1511133.jpg"
+    },
+    {
+      "name": "Lucy Pargeter",
+      "character": "Chas Dingle",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/66/166578.jpg"
+    },
+    {
+      "name": "Natalie J. Robb",
+      "character": "Moira Dingle",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/71/177939.jpg"
+    },
+    {
+      "name": "Mark Charnock",
+      "character": "Marlon Dingle",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/65/164849.jpg"
+    },
+    {
+      "name": "Dominic Brunt",
+      "character": "Paddy Dingle",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/66/166461.jpg"
+    },
+    {
+      "name": "Nicola Wheeler",
+      "character": "Nicola King",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/66/166523.jpg"
+    },
+    {
+      "name": "Claire King",
+      "character": "Kim Tate",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/620/1550391.jpg"
+    },
+    {
+      "name": "Eden Taylor-Draper",
+      "character": "Belle Dingle",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/619/1549000.jpg"
+    },
+    {
+      "name": "Emily Mather",
+      "character": "Belle Dingle",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/128/320962.jpg"
+    },
+    {
+      "name": "William Ash",
+      "character": "Caleb Miligan",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/256/641191.jpg"
+    },
+    {
+      "name": "Zoë Henry",
+      "character": "Rhona Goskirk",
+      "order": 12,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/66/166551.jpg"
+    },
+    {
+      "name": "Charlotte Bellamy",
+      "character": "Laurel Thomas",
+      "order": 13,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/66/166566.jpg"
+    },
+    {
+      "name": "Lawrence Robb",
+      "character": "Mackenzie Boyd",
+      "order": 14,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/605/1512998.jpg"
+    },
+    {
+      "name": "Olivia Bromley",
+      "character": "Dawn Taylor",
+      "order": 15,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/608/1522134.jpg"
+    },
+    {
+      "name": "Beth Cordingly",
+      "character": "Ruby Miligan",
+      "order": 16,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/482/1206174.jpg"
+    },
+    {
+      "name": "Nick Miles",
+      "character": "Jimmy King",
+      "order": 17,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/69/174297.jpg"
+    }
+  ]
 }

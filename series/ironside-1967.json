@@ -160,5 +160,37 @@
   "canonicalEpisodesCount": 193,
   "seriesImdbID": "tt0061266",
   "canonicalEpisodeCount": 147,
-  "canonicalSeasons": 8
+  "canonicalSeasons": 8,
+  "cast": [
+    {
+      "name": "Raymond Burr",
+      "character": "Robert Ironside",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/75/189514.jpg"
+    },
+    {
+      "name": "Don Galloway",
+      "character": "Det. Sgt. Ed Brown",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/109/273233.jpg"
+    },
+    {
+      "name": "Don Mitchell",
+      "character": "Mark Sanger",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/259/648806.jpg"
+    },
+    {
+      "name": "Elizabeth Baur",
+      "character": "Fran Belding",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/74/187377.jpg"
+    },
+    {
+      "name": "Barbara Anderson",
+      "character": "Eve Whitfield",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/183/458665.jpg"
+    }
+  ]
 }

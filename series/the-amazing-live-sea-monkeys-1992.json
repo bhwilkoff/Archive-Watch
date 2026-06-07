@@ -171,5 +171,31 @@
   "canonicalEpisodesCount": 11,
   "seriesImdbID": "tt0103348",
   "canonicalEpisodeCount": 3,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Rob LaBelle",
+      "character": "Dave",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/163/409721.jpg"
+    },
+    {
+      "name": "Sean Whalen",
+      "character": "Aquarius",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/8953.jpg"
+    },
+    {
+      "name": "Peter Pitofsky",
+      "character": "Bill",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Howie Mandel",
+      "character": "Professor",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/449/1123861.jpg"
+    }
+  ]
 }

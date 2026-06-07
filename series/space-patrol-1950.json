@@ -209,5 +209,37 @@
   "canonicalEpisodesCount": 210,
   "seriesImdbID": "tt0043234",
   "canonicalEpisodeCount": 139,
-  "canonicalSeasons": 5
+  "canonicalSeasons": 5,
+  "cast": [
+    {
+      "name": "Ed Kemmer",
+      "character": "Cmdr. Buzz Corry",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/76/191872.jpg"
+    },
+    {
+      "name": "Lyn Osborn",
+      "character": "Cadet Happy",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/36/90830.jpg"
+    },
+    {
+      "name": "Nina Bara",
+      "character": "Tonga",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/36/90831.jpg"
+    },
+    {
+      "name": "Ken Mayer",
+      "character": "Maj. Robbie Robertson",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/36/90832.jpg"
+    },
+    {
+      "name": "Bela Kovacs",
+      "character": "Prince Baccarratti",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
 }

@@ -1,246 +1,278 @@
 {
- "version": 2,
- "seriesID": "the-wind-in-the-willows-1984",
- "tvmazeID": 31860,
- "title": "The Wind in the Willows",
- "yearStart": 1984,
- "yearEnd": 1990,
- "overview": "Based on the novels by Kenneth Grahame, The Wind in the Willows is the classic story of the adventures of Mole, Badger, Rat and Toad of Toad Hall, set in Edwardian England of 1908. Mole sets out from his underground home to discover the world and is befriended by the river loving Water Rat who introduces him to the madcap aristocrat Mr. Toad. Together with Grandfatherly Badger they encounter the rascally Weasels, face the terrors of Wild Wood, and see Mr. Toad through a series of headlong escapades until they return once again to the peace of the English countryside.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/319007.jpg",
- "backdropURL": null,
- "genres": [
-  "Children",
-  "Family"
- ],
- "networks": [
-  "ITV1"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-wind-in-the-willows-1984",
+  "tvmazeID": 31860,
+  "title": "The Wind in the Willows",
+  "yearStart": 1984,
+  "yearEnd": 1990,
+  "overview": "Based on the novels by Kenneth Grahame, The Wind in the Willows is the classic story of the adventures of Mole, Badger, Rat and Toad of Toad Hall, set in Edwardian England of 1908. Mole sets out from his underground home to discover the world and is befriended by the river loving Water Rat who introduces him to the madcap aristocrat Mr. Toad. Together with Grandfatherly Badger they encounter the rascally Weasels, face the terrors of Wild Wood, and see Mr. Toad through a series of headlong escapades until they return once again to the peace of the English countryside.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/319007.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Children",
+    "Family"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "witw-s-1-d-1-title-3",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "The Further Adventures of Toad",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/3rOSuM890D8ISNbud2dTS1PJtrL.jpg",
-     "airDate": "1984-04-27",
-     "year": 1984,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "WITW_S1_D1_Title3.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 398387880,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/witw-s-1-d-1-title-3/WITW_S1_D1_Title3.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "witw-s-1-d-1-title-3",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Further Adventures of Toad",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/3rOSuM890D8ISNbud2dTS1PJtrL.jpg",
+          "airDate": "1984-04-27",
+          "year": 1984,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "WITW_S1_D1_Title3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 398387880,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/witw-s-1-d-1-title-3/WITW_S1_D1_Title3.ia.mp4"
+        },
+        {
+          "archiveID": "witw-s-1-d-1-title-4",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Kidnapping of Toad",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/xhgZGPUcAJ0oFlcDoiTkPvN1EbI.jpg",
+          "airDate": "1984-05-04",
+          "year": 1984,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "WITW_S1_D1_Title4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 396353436,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/witw-s-1-d-1-title-4/WITW_S1_D1_Title4.ia.mp4"
+        },
+        {
+          "archiveID": "witw-s-1-d-1-title-8",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Mole's Cousin",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/ngSxazFFfCunD8k8Eyx0Xyv4kff.jpg",
+          "airDate": "1984-06-01",
+          "year": 1984,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "WITW_S1_D1_Title8.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 499784560,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/witw-s-1-d-1-title-8/WITW_S1_D1_Title8.ia.mp4"
+        },
+        {
+          "archiveID": "witw-s-1-d-1-title-10",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Open Road Again",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/55FvQZuVtxsjgMm9cFBvubcOvVi.jpg",
+          "airDate": "1984-11-16",
+          "year": 1984,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "WITW_S1_D1_Title10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 396492658,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/witw-s-1-d-1-title-10/WITW_S1_D1_Title10.ia.mp4"
+        },
+        {
+          "archiveID": "witw-s-1-d-2-title-3-1",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Wayfarers All",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/e2e0PFEW0ZkkmcMQwEbTVZFRajC.jpg",
+          "airDate": "1984-11-23",
+          "year": 1984,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "Witw S1 D2 Title3-1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 236049477,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/witw-s-1-d-2-title-3-1/Witw S1 D2 Title3-1.ia.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "witw-s-1-d-1-title-4",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "The Kidnapping of Toad",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/xhgZGPUcAJ0oFlcDoiTkPvN1EbI.jpg",
-     "airDate": "1984-05-04",
-     "year": 1984,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "WITW_S1_D1_Title4.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 396353436,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/witw-s-1-d-1-title-4/WITW_S1_D1_Title4.ia.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "10-bankruptcy",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Bankruptcy",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/1MfQ0uSI771OBD1Q4KalyF3JG71.jpg",
+          "airDate": "1986-01-21",
+          "year": 1986,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "10 bankruptcy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 458897217,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/10-bankruptcy/10 bankruptcy.mp4"
+        },
+        {
+          "archiveID": "12-gadget-mad",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Gadget Mad",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/wI4vhHK5DZ31wmrRL94tR65HfrV.jpg",
+          "airDate": "1986-03-11",
+          "year": 1986,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "12 - Gadget Mad.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 434827620,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/12-gadget-mad/12 - Gadget Mad.mp4"
+        },
+        {
+          "archiveID": "mayday_202303",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "May Day",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/dRwnwof9d3tmVV5frptVzy6JUKC.jpg",
+          "airDate": "1986-03-25",
+          "year": 1986,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "mayday.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 499449888,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/mayday_202303/mayday.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "witw-s-1-d-1-title-8",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Mole's Cousin",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/ngSxazFFfCunD8k8Eyx0Xyv4kff.jpg",
-     "airDate": "1984-06-01",
-     "year": 1984,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "WITW_S1_D1_Title8.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 499784560,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/witw-s-1-d-1-title-8/WITW_S1_D1_Title8.ia.mp4"
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "toad-astronomer",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Toad, Astronomer",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/nOMWDJQkzVSVJWP7dxncsxthpcK.jpg",
+          "airDate": "1987-01-22",
+          "year": 1987,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "toad, astronomer.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 116372684,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/toad-astronomer/toad, astronomer.ia.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "witw-s-1-d-1-title-10",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "The Open Road Again",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/55FvQZuVtxsjgMm9cFBvubcOvVi.jpg",
-     "airDate": "1984-11-16",
-     "year": 1984,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "WITW_S1_D1_Title10.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 396492658,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/witw-s-1-d-1-title-10/WITW_S1_D1_Title10.ia.mp4"
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "witw-auld-lang-syne",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "Auld Lang Syne",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/fewz5udZC6YYhyjf3xrXtKxKlOn.jpg",
+          "airDate": "1987-12-31",
+          "year": 1987,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "WITW - Auld Lang Syne.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 256221570,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/witw-auld-lang-syne/WITW - Auld Lang Syne.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "witw-s-1-d-2-title-3-1",
-     "seasonNumber": 1,
-     "episodeNumber": 9,
-     "title": "Wayfarers All",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/e2e0PFEW0ZkkmcMQwEbTVZFRajC.jpg",
-     "airDate": "1984-11-23",
-     "year": 1984,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "Witw S1 D2 Title3-1.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 236049477,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/witw-s-1-d-2-title-3-1/Witw S1 D2 Title3-1.ia.mp4"
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "witw-the-compleat-bungler",
+          "seasonNumber": 5,
+          "episodeNumber": 4,
+          "title": "The Compleat Bungler",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/AoOWoWhMYCMeLWURIaJ2Mkzgy20.jpg",
+          "airDate": "1990-04-17",
+          "year": 1990,
+          "runtimeSeconds": 1200,
+          "videoFile": {
+            "name": "WITW - The Compleat Bungler.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 317521155,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/witw-the-compleat-bungler/WITW - The Compleat Bungler.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  ],
+  "episodesCount": 11,
+  "canonicalEpisodesCount": 65,
+  "cast": [
     {
-     "archiveID": "10-bankruptcy",
-     "seasonNumber": 2,
-     "episodeNumber": 4,
-     "title": "Bankruptcy",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/1MfQ0uSI771OBD1Q4KalyF3JG71.jpg",
-     "airDate": "1986-01-21",
-     "year": 1986,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "10 bankruptcy.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 458897217,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/10-bankruptcy/10 bankruptcy.mp4"
+      "name": "Richard Pearson",
+      "character": "Mole",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71706.jpg"
     },
     {
-     "archiveID": "12-gadget-mad",
-     "seasonNumber": 2,
-     "episodeNumber": 11,
-     "title": "Gadget Mad",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/wI4vhHK5DZ31wmrRL94tR65HfrV.jpg",
-     "airDate": "1986-03-11",
-     "year": 1986,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "12 - Gadget Mad.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 434827620,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/12-gadget-mad/12 - Gadget Mad.mp4"
+      "name": "Peter Sallis",
+      "character": "Rat",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73262.jpg"
     },
     {
-     "archiveID": "mayday_202303",
-     "seasonNumber": 2,
-     "episodeNumber": 12,
-     "title": "May Day",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/dRwnwof9d3tmVV5frptVzy6JUKC.jpg",
-     "airDate": "1986-03-25",
-     "year": 1986,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "mayday.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 499449888,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/mayday_202303/mayday.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
+      "name": "Michael Hordern",
+      "character": "Badger",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/35/88611.jpg"
+    },
     {
-     "archiveID": "toad-astronomer",
-     "seasonNumber": 3,
-     "episodeNumber": 4,
-     "title": "Toad, Astronomer",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/nOMWDJQkzVSVJWP7dxncsxthpcK.jpg",
-     "airDate": "1987-01-22",
-     "year": 1987,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "toad, astronomer.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 116372684,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/toad-astronomer/toad, astronomer.ia.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 4,
-   "episodes": [
+      "name": "David Jason",
+      "character": "Toad",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/18/47080.jpg"
+    },
     {
-     "archiveID": "witw-auld-lang-syne",
-     "seasonNumber": 4,
-     "episodeNumber": 1,
-     "title": "Auld Lang Syne",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/fewz5udZC6YYhyjf3xrXtKxKlOn.jpg",
-     "airDate": "1987-12-31",
-     "year": 1987,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "WITW - Auld Lang Syne.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 256221570,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/witw-auld-lang-syne/WITW - Auld Lang Syne.mp4"
+      "name": "Ian Carmichael",
+      "character": "Narrator",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/182/456443.jpg"
     }
-   ]
-  },
-  {
-   "seasonNumber": 5,
-   "episodes": [
-    {
-     "archiveID": "witw-the-compleat-bungler",
-     "seasonNumber": 5,
-     "episodeNumber": 4,
-     "title": "The Compleat Bungler",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/AoOWoWhMYCMeLWURIaJ2Mkzgy20.jpg",
-     "airDate": "1990-04-17",
-     "year": 1990,
-     "runtimeSeconds": 1200,
-     "videoFile": {
-      "name": "WITW - The Compleat Bungler.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 317521155,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/witw-the-compleat-bungler/WITW - The Compleat Bungler.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 11,
- "canonicalEpisodesCount": 65
+  ]
 }

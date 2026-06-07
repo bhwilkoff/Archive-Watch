@@ -64,5 +64,31 @@
   "canonicalEpisodesCount": 1,
   "seriesImdbID": "tt0259776",
   "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null
+  "canonicalSeasons": null,
+  "cast": [
+    {
+      "name": "Neil McCaul",
+      "character": "Adolf Hitler",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/78/195384.jpg"
+    },
+    {
+      "name": "Gareth Marks",
+      "character": "Arny Goldenstein",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Caroline Gruber",
+      "character": "Rosa Goldenstein",
+      "order": 2,
+      "profilePath": "/2hAS6Bsq88mZo8aDopyBB15d8qM.jpg"
+    },
+    {
+      "name": "Denica Fairman",
+      "character": "Eva Braun",
+      "order": 3,
+      "profilePath": null
+    }
+  ]
 }

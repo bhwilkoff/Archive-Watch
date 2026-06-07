@@ -44,5 +44,49 @@
   "canonicalEpisodesCount": 37,
   "seriesImdbID": "tt0080202",
   "canonicalEpisodeCount": 11,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Tom Hanks",
+      "character": "Kip Wilson (Buffy)",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/72307.jpg"
+    },
+    {
+      "name": "Peter Scolari",
+      "character": "Henry Desmond (Hildegarde)",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/7/19997.jpg"
+    },
+    {
+      "name": "Donna Dixon",
+      "character": "Sonny Lumet",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71723.jpg"
+    },
+    {
+      "name": "Wendie Jo Sperber",
+      "character": "Amy Cassidy",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/502/1256757.jpg"
+    },
+    {
+      "name": "Telma Hopkins",
+      "character": "Isabelle Hammond",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/7/18109.jpg"
+    },
+    {
+      "name": "Holland Taylor",
+      "character": "Ruth Dunbar",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/2/7456.jpg"
+    },
+    {
+      "name": "Lucille Benson",
+      "character": "Lilly Sinclair",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/85/213489.jpg"
+    }
+  ]
 }

@@ -46,7 +46,7 @@
           "title": "The Lone Ranger",
           "overview": null,
           "stillURL": "https://archive.org/services/img/theloneranger_201705",
-          "airDate": null,
+          "airDate": "1949-09-15",
           "year": 1949,
           "runtimeSeconds": null,
           "videoFile": {
@@ -195,5 +195,43 @@
   "canonicalEpisodesCount": 221,
   "seriesImdbID": "tt0041038",
   "canonicalEpisodeCount": 177,
-  "canonicalSeasons": 5
+  "canonicalSeasons": 5,
+  "cast": [
+    {
+      "name": "Clayton Moore",
+      "character": "The Lone Ranger",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30037.jpg"
+    },
+    {
+      "name": "John Hart",
+      "character": "The Lone Ranger",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/257/643790.jpg"
+    },
+    {
+      "name": "Jay Silverheels",
+      "character": "Tonto",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30038.jpg"
+    },
+    {
+      "name": "Gerald Mohr",
+      "character": "Narrator",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30726.jpg"
+    },
+    {
+      "name": "Chuck Courtney",
+      "character": "Dan Reid",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/122/305990.jpg"
+    },
+    {
+      "name": "Fred Foy",
+      "character": "Narrator",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30728.jpg"
+    }
+  ]
 }

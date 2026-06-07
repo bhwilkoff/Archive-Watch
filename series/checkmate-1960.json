@@ -124,5 +124,25 @@
   "canonicalEpisodesCount": 70,
   "seriesImdbID": "tt0053491",
   "canonicalEpisodeCount": 17,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Anthony George",
+      "character": "Don Corey",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/17/43000.jpg"
+    },
+    {
+      "name": "Doug McClure",
+      "character": "Jed Sills",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/112602.jpg"
+    },
+    {
+      "name": "Sebastian Cabot",
+      "character": "Dr. Carl Hyatt",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/50/125432.jpg"
+    }
+  ]
 }

@@ -87,5 +87,13 @@
   "canonicalEpisodesCount": 39,
   "seriesImdbID": "tt0046639",
   "canonicalEpisodeCount": 23,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Richard Crane",
+      "character": "Rocky Jones",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/587/1467812.jpg"
+    }
+  ]
 }

@@ -231,5 +231,97 @@
   "canonicalEpisodesCount": 293,
   "seriesImdbID": "tt0069602",
   "canonicalEpisodeCount": 244,
-  "canonicalSeasons": 31
+  "canonicalSeasons": 31,
+  "cast": [
+    {
+      "name": "Peter Sallis",
+      "character": "Norman Clegg",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73262.jpg"
+    },
+    {
+      "name": "Bill Owen",
+      "character": "Albert \"Compo\" Simmonite",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/7/19612.jpg"
+    },
+    {
+      "name": "Frank Thornton",
+      "character": "Herbert \"Truly\" Truelove",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/72116.jpg"
+    },
+    {
+      "name": "Brian Wilde",
+      "character": "\"Foggy\" Dewhurst",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25095.jpg"
+    },
+    {
+      "name": "Michael Aldridge",
+      "character": "Seymour Utterthwaite",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/213/532954.jpg"
+    },
+    {
+      "name": "Michael Bates",
+      "character": "Cyril Blamire",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/93569.jpg"
+    },
+    {
+      "name": "Jean Alexander",
+      "character": "Auntie",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73257.jpg"
+    },
+    {
+      "name": "Jean Fergusson",
+      "character": "Marina",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73280.jpg"
+    },
+    {
+      "name": "Juliette Kaplan",
+      "character": "Pearl",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/216/540084.jpg"
+    },
+    {
+      "name": "Kathy Staff",
+      "character": "Nora Batty",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/66197.jpg"
+    },
+    {
+      "name": "Robert Fyfe",
+      "character": "Howard",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73268.jpg"
+    },
+    {
+      "name": "Stephen Lewis",
+      "character": "Smiler",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73277.jpg"
+    },
+    {
+      "name": "Gordon Wharmby",
+      "character": "Wesley",
+      "order": 12,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73270.jpg"
+    },
+    {
+      "name": "Jane Freeman",
+      "character": "Ivy",
+      "order": 13,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73275.jpg"
+    },
+    {
+      "name": "Thora Hird",
+      "character": "Edie",
+      "order": 14,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/29/73272.jpg"
+    }
+  ]
 }

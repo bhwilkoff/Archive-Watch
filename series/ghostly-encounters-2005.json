@@ -96,5 +96,13 @@
   "canonicalEpisodesCount": 92,
   "seriesImdbID": "tt0479573",
   "canonicalEpisodeCount": 44,
-  "canonicalSeasons": 4
+  "canonicalSeasons": 4,
+  "cast": [
+    {
+      "name": "Lawrence Chau",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "/9LoYHKajWdjU5jB81e5fpjIoSMs.jpg"
+    }
+  ]
 }

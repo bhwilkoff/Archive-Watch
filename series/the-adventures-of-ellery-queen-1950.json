@@ -123,5 +123,19 @@
   "canonicalEpisodesCount": 93,
   "seriesImdbID": "tt0042069",
   "canonicalEpisodeCount": 57,
-  "canonicalSeasons": 5
+  "canonicalSeasons": 5,
+  "cast": [
+    {
+      "name": "Lee Bowman",
+      "character": "Ellery Queen",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/119/298761.jpg"
+    },
+    {
+      "name": "Richard Hart",
+      "character": "Ellery Queen",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/360/901441.jpg"
+    }
+  ]
 }

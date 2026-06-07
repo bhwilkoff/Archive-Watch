@@ -97,5 +97,13 @@
   "episodesCount": 4,
   "canonicalEpisodesCount": 8,
   "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "canonicalEpisodeCount": 0,
+  "cast": [
+    {
+      "name": "Jimmy Carr",
+      "character": "Presenter",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/387/967611.jpg"
+    }
+  ]
 }

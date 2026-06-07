@@ -231,5 +231,13 @@
   "canonicalEpisodesCount": 44,
   "seriesImdbID": "tt0094466",
   "canonicalEpisodeCount": 7,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Robert Englund",
+      "character": "Freddy Krueger",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/195/487789.jpg"
+    }
+  ]
 }

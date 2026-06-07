@@ -211,5 +211,43 @@
   "canonicalEpisodesCount": 274,
   "seriesImdbID": "tt0055662",
   "canonicalEpisodeCount": 273,
-  "canonicalSeasons": 9
+  "canonicalSeasons": 9,
+  "cast": [
+    {
+      "name": "Buddy Ebsen",
+      "character": "Jed Clampett",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30751.jpg"
+    },
+    {
+      "name": "Irene Ryan",
+      "character": "Daisy May \"Granny\" Moses",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30754.jpg"
+    },
+    {
+      "name": "Donna Douglas",
+      "character": "Elly May Clampett",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/11/29959.jpg"
+    },
+    {
+      "name": "Max Baer, Jr.",
+      "character": "Jethro Bodine",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30759.jpg"
+    },
+    {
+      "name": "Raymond Bailey",
+      "character": "Milburn Drysdale",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/587/1467811.jpg"
+    },
+    {
+      "name": "Nancy Kulp",
+      "character": "Jane Hathaway",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30763.jpg"
+    }
+  ]
 }

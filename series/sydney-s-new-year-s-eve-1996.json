@@ -41,5 +41,37 @@
   "episodesCount": 1,
   "canonicalEpisodesCount": 83,
   "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "canonicalEpisodeCount": 0,
+  "cast": [
+    {
+      "name": "Cameron Williams",
+      "character": "Host",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Osher Günsberg",
+      "character": "Host",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/212/530883.jpg"
+    },
+    {
+      "name": "Richard Wilkins",
+      "character": "Host",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/465/1163462.jpg"
+    },
+    {
+      "name": "Alicia Gorey",
+      "character": "Host",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Kim Watkins",
+      "character": "Host",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
 }

@@ -187,5 +187,61 @@
   "canonicalEpisodesCount": 88,
   "seriesImdbID": "tt0187636",
   "canonicalEpisodeCount": 88,
-  "canonicalSeasons": 4
+  "canonicalSeasons": 4,
+  "cast": [
+    {
+      "name": "Ben Browder",
+      "character": "John Crichton",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/142/355440.jpg"
+    },
+    {
+      "name": "Jonathan Hardy",
+      "character": "Dominar Rygel XVI",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/7935.jpg"
+    },
+    {
+      "name": "Claudia Black",
+      "character": "Aeryn Sun",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/508/1270217.jpg"
+    },
+    {
+      "name": "Anthony Simcoe",
+      "character": "Ka D'Argo",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/7931.jpg"
+    },
+    {
+      "name": "Lani John Tupu",
+      "character": "Pilot",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/7934.jpg"
+    },
+    {
+      "name": "Gigi Edgley",
+      "character": "Chiana",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/7932.jpg"
+    },
+    {
+      "name": "Wayne Pygram",
+      "character": "Scorpius",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/1/2502.jpg"
+    },
+    {
+      "name": "Virginia Hey",
+      "character": "Pa'u Zotoh Zhaan",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/7930.jpg"
+    },
+    {
+      "name": "Paul Goddard",
+      "character": "Stark",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/596/1491239.jpg"
+    }
+  ]
 }

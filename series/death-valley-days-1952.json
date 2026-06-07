@@ -104,5 +104,37 @@
   "canonicalEpisodesCount": 452,
   "seriesImdbID": "tt0044259",
   "canonicalEpisodeCount": 176,
-  "canonicalSeasons": 18
+  "canonicalSeasons": 18,
+  "cast": [
+    {
+      "name": "Stanley Andrews",
+      "character": "Old Ranger",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/119/298846.jpg"
+    },
+    {
+      "name": "Robert Taylor",
+      "character": "Presenter",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/114/285964.jpg"
+    },
+    {
+      "name": "Ronald Reagan",
+      "character": "Presenter",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30791.jpg"
+    },
+    {
+      "name": "Rosemary DeCamp",
+      "character": "Presenter",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/128/321975.jpg"
+    },
+    {
+      "name": "Dale Robertson",
+      "character": "Presenter",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/260480.jpg"
+    }
+  ]
 }

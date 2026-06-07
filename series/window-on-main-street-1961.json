@@ -104,5 +104,25 @@
   "canonicalEpisodesCount": 34,
   "seriesImdbID": "tt0054579",
   "canonicalEpisodeCount": 16,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Robert Young",
+      "character": "Cameron Garrett Brooks",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/38/97260.jpg"
+    },
+    {
+      "name": "Constance Moore",
+      "character": "Chris Logan",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/217/544620.jpg"
+    },
+    {
+      "name": "Ford Rainey",
+      "character": "Lloyd Ramsey",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/65/163952.jpg"
+    }
+  ]
 }

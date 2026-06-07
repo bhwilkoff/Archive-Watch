@@ -184,5 +184,115 @@
   "canonicalEpisodesCount": 146,
   "seriesImdbID": "tt0081873",
   "canonicalEpisodeCount": 89,
-  "canonicalSeasons": 7
+  "canonicalSeasons": 7,
+  "cast": [
+    {
+      "name": "Daniel J. Travanti",
+      "character": "Frank Furillo",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/477/1193906.jpg"
+    },
+    {
+      "name": "Joe Spano",
+      "character": "Henry Goldblume",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/1/2967.jpg"
+    },
+    {
+      "name": "Taurean Blacque",
+      "character": "Neal Washington",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/260896.jpg"
+    },
+    {
+      "name": "Michael Warren",
+      "character": "Bobby Hill",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/84/210197.jpg"
+    },
+    {
+      "name": "Charles Haid",
+      "character": "Andy Renko",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/93/232758.jpg"
+    },
+    {
+      "name": "Bruce Weitz",
+      "character": "Mick Belker",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/120/301572.jpg"
+    },
+    {
+      "name": "Kiel Martin",
+      "character": "J.D. LaRue",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/36/92037.jpg"
+    },
+    {
+      "name": "Betty Thomas",
+      "character": "Lucille Bates",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/41/103066.jpg"
+    },
+    {
+      "name": "Veronica Hamel",
+      "character": "Joyce Davenport",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/488/1220377.jpg"
+    },
+    {
+      "name": "James Sikking",
+      "character": "Howard Hunter",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/606/1517493.jpg"
+    },
+    {
+      "name": "René Enríquez",
+      "character": "Ray Calletano",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/170/426845.jpg"
+    },
+    {
+      "name": "Barbara Bosson",
+      "character": "Fay Furillo",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/163/408054.jpg"
+    },
+    {
+      "name": "Ed Marinaro",
+      "character": "Joe Coffey",
+      "order": 12,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/7/19740.jpg"
+    },
+    {
+      "name": "Michael Conrad",
+      "character": "Phil Esterhaus",
+      "order": 13,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/596/1492221.jpg"
+    },
+    {
+      "name": "Robert Hirschfeld",
+      "character": "Leo Schnitz",
+      "order": 14,
+      "profilePath": null
+    },
+    {
+      "name": "Jon Cypher",
+      "character": "Chief Fletcher P. Daniels",
+      "order": 15,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65327.jpg"
+    },
+    {
+      "name": "Robert Prosky",
+      "character": "Stan Jablonski",
+      "order": 16,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/93791.jpg"
+    },
+    {
+      "name": "George Wyner",
+      "character": "A.D.A. Irwin Bernstein",
+      "order": 17,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/152/380165.jpg"
+    }
+  ]
 }

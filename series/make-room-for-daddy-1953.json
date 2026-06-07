@@ -116,5 +116,55 @@
   "episodesCount": 5,
   "canonicalEpisodesCount": 344,
   "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "canonicalEpisodeCount": 0,
+  "cast": [
+    {
+      "name": "Rusty Hamer",
+      "character": "Rusty Williams",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/95/237506.jpg"
+    },
+    {
+      "name": "Danny Thomas",
+      "character": "Danny Williams",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/60/151916.jpg"
+    },
+    {
+      "name": "Marjorie Lord",
+      "character": "Kathy Williams",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/60/151936.jpg"
+    },
+    {
+      "name": "Angela Cartwright",
+      "character": "Linda Williams",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/26156.jpg"
+    },
+    {
+      "name": "Sherry Jackson",
+      "character": "Terry Williams",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/75/188771.jpg"
+    },
+    {
+      "name": "Sid Melton",
+      "character": "Charley Halper",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/95/237510.jpg"
+    },
+    {
+      "name": "Jean Hagen",
+      "character": "Margaret Williams",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/95/237508.jpg"
+    },
+    {
+      "name": "Amanda Randolph",
+      "character": "Louise",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/95/237513.jpg"
+    }
+  ]
 }

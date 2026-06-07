@@ -133,5 +133,115 @@
   "canonicalEpisodesCount": 72,
   "seriesImdbID": "tt0412253",
   "canonicalEpisodeCount": 72,
-  "canonicalSeasons": 4
+  "canonicalSeasons": 4,
+  "cast": [
+    {
+      "name": "Kristen Bell",
+      "character": "Veronica Mars",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/550/1377439.jpg"
+    },
+    {
+      "name": "Enrico Colantoni",
+      "character": "Keith Mars",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/93262.jpg"
+    },
+    {
+      "name": "Jason Dohring",
+      "character": "Logan Echolls",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9643.jpg"
+    },
+    {
+      "name": "Percy Daggs III",
+      "character": "Wallace Fennel",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9641.jpg"
+    },
+    {
+      "name": "Francis Capra",
+      "character": "Eli \"Weevil\" Navarro",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/209/522690.jpg"
+    },
+    {
+      "name": "Ryan Hansen",
+      "character": "Dick Casablancas",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9648.jpg"
+    },
+    {
+      "name": "Michael Muhney",
+      "character": "Sheriff Don Lamb",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9647.jpg"
+    },
+    {
+      "name": "Teddy Dunn",
+      "character": "Duncan Kane",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/70/176246.jpg"
+    },
+    {
+      "name": "Tina Majorino",
+      "character": "Cindy \"Mac\" Mackenzie",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9644.jpg"
+    },
+    {
+      "name": "Julie Gonzalo",
+      "character": "Parker Lee",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/301/753183.jpg"
+    },
+    {
+      "name": "Chris Lowell",
+      "character": "Stosh \"Piz\" Piznarski",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9645.jpg"
+    },
+    {
+      "name": "Kyle Gallner",
+      "character": "Cassidy \"Beaver\" Casablancas",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/482/1206459.jpg"
+    },
+    {
+      "name": "Daran Norris",
+      "character": "Cliff McCormack",
+      "order": 12,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25980.jpg"
+    },
+    {
+      "name": "Tessa Thompson",
+      "character": "Jackie Cook",
+      "order": 13,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/607/1519700.jpg"
+    },
+    {
+      "name": "Max Greenfield",
+      "character": "Leo D'Amato",
+      "order": 14,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/8060.jpg"
+    },
+    {
+      "name": "Clifton Collins, Jr.",
+      "character": "Alonzo Lozano",
+      "order": 15,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/591/1479430.jpg"
+    },
+    {
+      "name": "Frank Gallegos",
+      "character": "Dodie Mendoza",
+      "order": 16,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/86/215897.jpg"
+    },
+    {
+      "name": "Dawnn Lewis",
+      "character": "Marcia Langdon",
+      "order": 17,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/8/22413.jpg"
+    }
+  ]
 }

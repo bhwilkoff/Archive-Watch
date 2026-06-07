@@ -251,5 +251,115 @@
   "canonicalEpisodesCount": 64,
   "seriesImdbID": "tt0068040",
   "canonicalEpisodeCount": 39,
-  "canonicalSeasons": 10
+  "canonicalSeasons": 10,
+  "cast": [
+    {
+      "name": "Sherrie Hewson",
+      "character": "Mrs. Betty Slocombe",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/36674.jpg"
+    },
+    {
+      "name": "Mollie Sugden",
+      "character": "Mrs. Betty Slocombe",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/72109.jpg"
+    },
+    {
+      "name": "Jason Watkins",
+      "character": "Mr. Wilberforce Clayborne Humphries",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/444/1110498.jpg"
+    },
+    {
+      "name": "John Inman",
+      "character": "Mr. Wilberforce Clayborne Humphries",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/72115.jpg"
+    },
+    {
+      "name": "John Challis",
+      "character": "Captain Stephen Peacock",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/66/165859.jpg"
+    },
+    {
+      "name": "Frank Thornton",
+      "character": "Captain Stephen Peacock",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/72116.jpg"
+    },
+    {
+      "name": "Wendy Richard",
+      "character": "Miss Shirley Brahms",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/230/576708.jpg"
+    },
+    {
+      "name": "Niky Wardley",
+      "character": "Miss Shirley Brahms",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/73/182592.jpg"
+    },
+    {
+      "name": "Justin Edwards",
+      "character": "Mr. Cuthbert Rumbold",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/46/116598.jpg"
+    },
+    {
+      "name": "Nicholas Smith",
+      "character": "Mr. Cuthbert Rumbold",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/72117.jpg"
+    },
+    {
+      "name": "Arthur Smith",
+      "character": "Mr. Beverley Harman",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/32/82042.jpg"
+    },
+    {
+      "name": "Arthur English",
+      "character": "Mr. Beverley Harman",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/72099.jpg"
+    },
+    {
+      "name": "Trevor Bannister",
+      "character": "Mr. Dick Lucas",
+      "order": 12,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/72119.jpg"
+    },
+    {
+      "name": "Mathew Horne",
+      "character": "Young Mr. Grace",
+      "order": 13,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24818.jpg"
+    },
+    {
+      "name": "Harold Bennett",
+      "character": "Young Mr. Grace",
+      "order": 14,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/72111.jpg"
+    },
+    {
+      "name": "Roy Barraclough",
+      "character": "Mr. Ernest Grainger",
+      "order": 15,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/43/108506.jpg"
+    },
+    {
+      "name": "Arthur Brough",
+      "character": "Mr. Ernest Grainger",
+      "order": 16,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/72114.jpg"
+    },
+    {
+      "name": "Larry Martyn",
+      "character": "Mr. Mash",
+      "order": 17,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/141/354140.jpg"
+    }
+  ]
 }

@@ -98,5 +98,13 @@
   "canonicalEpisodesCount": 6,
   "seriesImdbID": "tt1727678",
   "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Dick Clark",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30043.jpg"
+    }
+  ]
 }

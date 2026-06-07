@@ -101,5 +101,43 @@
   "canonicalEpisodesCount": 40,
   "seriesImdbID": "tt0041014",
   "canonicalEpisodeCount": 4,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Al Hodge",
+      "character": "Captain Video",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/398/997064.jpg"
+    },
+    {
+      "name": "Richard Coogan",
+      "character": "Captain Video",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/103/258516.jpg"
+    },
+    {
+      "name": "Don Hastings",
+      "character": "The Video Ranger",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/59/147672.jpg"
+    },
+    {
+      "name": "Ben Lackland",
+      "character": "Commissioner of Public Safety Charles Carey",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Hal Conklin",
+      "character": "Dr. Pauli",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Fred Scott",
+      "character": "Communications Officer Rogers",
+      "order": 5,
+      "profilePath": "/pjTEoagmq04LJUoGjUFrAX37KBl.jpg"
+    }
+  ]
 }

@@ -1,1592 +1,1690 @@
 {
- "version": 2,
- "seriesID": "the-dukes-of-hazzard-1979",
- "tvmazeID": 4284,
- "title": "The Dukes of Hazzard",
- "yearStart": 1979,
- "yearEnd": 1985,
- "overview": "Cousins Bo and Luke Duke and their car \"General Lee\", assisted by Cousin Daisy and Uncle Jesse, have a running battle with the authorities of Hazzard County (Boss Hogg and Sheriff Coltrane), plus a string of ne'er-do-wells often backed by the scheming Hogg.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/20/51133.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy",
-  "Action",
-  "Adventure"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-dukes-of-hazzard-1979",
+  "tvmazeID": 4284,
+  "title": "The Dukes of Hazzard",
+  "yearStart": 1979,
+  "yearEnd": 1985,
+  "overview": "Cousins Bo and Luke Duke and their car \"General Lee\", assisted by Cousin Daisy and Uncle Jesse, have a running battle with the authorities of Hazzard County (Boss Hogg and Sheriff Coltrane), plus a string of ne'er-do-wells often backed by the scheming Hogg.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/20/51133.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy",
+    "Action",
+    "Adventure"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "the-dukes-of-hazzard-s-01-e-01-one-armed-bandits",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "One Armed Bandits",
-     "overview": "Sherrif Coltrane is hissier than a sack of rattlesnakes! He sets up a slot machine operation to fund his election, but a pair of two-armed bandits - Bo and Luke - find a way to give the proceeds to charity.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/151/379053.jpg",
-     "airDate": "1979-01-26",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The Dukes of Hazzard S01E01 One Armed Bandits.mp4",
-      "format": "h.264",
-      "sizeBytes": 285719699,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-01-one-armed-bandits/The Dukes of Hazzard S01E01 One Armed Bandits.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-01-one-armed-bandits",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "One Armed Bandits",
+          "overview": "Sherrif Coltrane is hissier than a sack of rattlesnakes! He sets up a slot machine operation to fund his election, but a pair of two-armed bandits - Bo and Luke - find a way to give the proceeds to charity.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/151/379053.jpg",
+          "airDate": "1979-01-26",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E01 One Armed Bandits.mp4",
+            "format": "h.264",
+            "sizeBytes": 285719699,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-01-one-armed-bandits/The Dukes of Hazzard S01E01 One Armed Bandits.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-02-daisys-song",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Daisy's Song",
+          "overview": "Daisy is delighted to hear a song she wrote performed on the radio by Jesse Colter. The boys are elated too until they learned the music publishing company bilked poor Daisy off her profits. Bo and Duke speed out to Atlanta in order to right some wrogs.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rxJhTc35Qo2ku6YVrKR4cqpk2R9.jpg",
+          "airDate": "1979-02-02",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E02 Daisy's Song.mp4",
+            "format": "h.264",
+            "sizeBytes": 286078475,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-02-daisys-song/The Dukes of Hazzard S01E02 Daisy's Song.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-03-mary-kayes-baby",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Mary Kaye's Baby",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/veeATPfhLMfOQuCJCINwpaTXhUH.jpg",
+          "airDate": "1979-02-09",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E03 Mary Kaye's Baby.mp4",
+            "format": "h.264",
+            "sizeBytes": 286585959,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-03-mary-kayes-baby/The Dukes of Hazzard S01E03 Mary Kaye's Baby.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-04-repo-men",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Repo Men",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/tZwL3YpRS18qkSUOGKudbYpPexU.jpg",
+          "airDate": "1979-02-16",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E04  Repo Men.mp4",
+            "format": "h.264",
+            "sizeBytes": 286524475,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-04-repo-men/The Dukes of Hazzard S01E04  Repo Men.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-05-high-octane",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "High Octane",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/rtPoVmBnMc5CvlbC68xatS8xiM0.jpg",
+          "airDate": "1979-02-23",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E05  High Octane.mp4",
+            "format": "h.264",
+            "sizeBytes": 287097989,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-05-high-octane/The Dukes of Hazzard S01E05  High Octane.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-06-swamp-molly",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Swamp Molly",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/o8YvrBA6iQqw4otTEdZomUJXGH2.jpg",
+          "airDate": "1979-03-09",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E06  Swamp Molly.mp4",
+            "format": "h.264",
+            "sizeBytes": 286285256,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-06-swamp-molly/The Dukes of Hazzard S01E06  Swamp Molly.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-07-lukes-love-story",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Luke's Love Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/6oo0QxgP312W0bG6V0rmmHh6tH5.jpg",
+          "airDate": "1979-03-16",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E07  Luke's Love Story.mp4",
+            "format": "h.264",
+            "sizeBytes": 285802971,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-07-lukes-love-story/The Dukes of Hazzard S01E07  Luke's Love Story.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-08-the-big-heist",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Big Heist",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/5EhCpuV7F2rq5QAloyoCOPyUrVx.jpg",
+          "airDate": "1979-03-30",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E08  The Big Heist.mp4",
+            "format": "h.264",
+            "sizeBytes": 285995573,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-08-the-big-heist/The Dukes of Hazzard S01E08  The Big Heist.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-09-limo-one-is-missing",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Limo One is Missing",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/K6Q3lq8PardLu1YLIz3vjMByKe.jpg",
+          "airDate": "1979-04-06",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E09  Limo One Is Missing.mp4",
+            "format": "h.264",
+            "sizeBytes": 285804090,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-09-limo-one-is-missing/The Dukes of Hazzard S01E09  Limo One Is Missing.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-10-deputy-dukes",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Deputy Dukes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/gPUIXCa5XDCI3DZMmEqZVbCyj9F.jpg",
+          "airDate": "1979-04-13",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E10  Deputy Dukes.mp4",
+            "format": "h.264",
+            "sizeBytes": 285614831,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-10-deputy-dukes/The Dukes of Hazzard S01E10  Deputy Dukes.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-11-money-to-burn",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Money to Burn",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/bR4pZcM6M5pOwnxq3UyIOn3vh6O.jpg",
+          "airDate": "1979-04-20",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E11  Money To Burn.mp4",
+            "format": "h.264",
+            "sizeBytes": 285549071,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-11-money-to-burn/The Dukes of Hazzard S01E11  Money To Burn.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-12-route-7-11",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Route 7-11",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/asooaSuH0vPgDAcLF1V7Cj2rKqs.jpg",
+          "airDate": "1979-05-04",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E12  Route 7-11.mp4",
+            "format": "h.264",
+            "sizeBytes": 285710154,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-12-route-7-11/The Dukes of Hazzard S01E12  Route 7-11.mp4"
+        },
+        {
+          "archiveID": "the-dukes-of-hazzard-s-01-e-13-double-sting",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Double Sting",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/iTk3XuOo3v8WeAbCx08Orth8Mfh.jpg",
+          "airDate": "1979-05-11",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Dukes of Hazzard S01E13  Double Sting.mp4",
+            "format": "h.264",
+            "sizeBytes": 286377498,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-13-double-sting/The Dukes of Hazzard S01E13  Double Sting.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "the-dukes-of-hazzard-s-01-e-02-daisys-song",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Daisy's Song",
-     "overview": "Daisy is delighted to hear a song she wrote performed on the radio by Jesse Colter. The boys are elated too until they learned the music publishing company bilked poor Daisy off her profits. Bo and Duke speed out to Atlanta in order to right some wrogs.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/rxJhTc35Qo2ku6YVrKR4cqpk2R9.jpg",
-     "airDate": "1979-02-02",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The Dukes of Hazzard S01E02 Daisy's Song.mp4",
-      "format": "h.264",
-      "sizeBytes": 286078475,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-02-daisys-song/The Dukes of Hazzard S01E02 Daisy's Song.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-01-days-of-shine-and-roses",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Days of Shine and Roses",
+          "overview": "After seeing an old film of when Boss Hogg and Uncle Jesse were in the Ridge runners Association running moonshine, An argument of who was the better moonshiner around causes Boss and Jesse to declare a grudge race to determine who is the best. Boss Hogg however, doesn't believe in fair play and must win no matter what.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/hTMdPICymGh8PS9THFwfxXtqsQ6.jpg",
+          "airDate": "1979-09-21",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E01_Days Of Shine And Roses.mp4",
+            "format": "h.264",
+            "sizeBytes": 274301494,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-01-days-of-shine-and-roses/The.Dukes.Of.Hazzard_S02E01_Days Of Shine And Roses.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-02-gold-fever",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Gold Fever",
+          "overview": "A group of Texas con artists bring $3 million in fake gold bars to Hazzard and store it in Boss' bank. But Bo and Luke are framed for the robbery of the gold committed by the con artists to collect insurance from Boss.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/qhv8pfT3x6Xvx75zaZ3mSjKmD1W.jpg",
+          "airDate": "1979-09-28",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E02_Gold Fever.mp4",
+            "format": "h.264",
+            "sizeBytes": 275188722,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-02-gold-fever/The.Dukes.Of.Hazzard_S02E02_Gold Fever.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-03-the-rustlers",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "The Rustlers",
+          "overview": "Bo and Luke visit the Tolliver farm and discover that their horse can run very fast. Rosco also sees it too and when he notifies Boss Hogg, He schemes to steal the horse to race in the Mrs. J.D. Hogg's stake race and pin it on the Dukes. But a group of crooked horse ranchers have their own plans to steal the horse from Boss Hogg.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/9ChesvfGg2q0fKVtE1hcDJ5u9cM.jpg",
+          "airDate": "1979-10-05",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E03_The Rustlers.mp4",
+            "format": "h.264",
+            "sizeBytes": 274717628,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-03-the-rustlers/The.Dukes.Of.Hazzard_S02E03_The Rustlers.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-04-the-meeting",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The Meeting",
+          "overview": "Boss Hogg rents the Hazzard jail out for $10,000 to an old friend, Black Jack Bender and a group of syndicate kingpins where the hold a conspiracy meeting. When Bo and Luke find a lot of artillery in their cars, they get suspicious and investigate and find them out. But they must get to a phone and call the FBI before they get to them.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/mkkbvPLqSF5ZiiCrikd0Z1AK910.jpg",
+          "airDate": "1979-10-12",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E04_The Meeting.mp4",
+            "format": "h.264",
+            "sizeBytes": 274416750,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-04-the-meeting/The.Dukes.Of.Hazzard_S02E04_The Meeting.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-05-road-pirates",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Road Pirates",
+          "overview": "Boss Hogg buys $10,000 in stolen TV sets but the buyer Marty Garbade hijacks the truck delivering the stolen goods. A mistake by the driver frames Bo, Luke and Cletus for the robbery.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rr82aEk8k8acONbMiwDtihNZYd4.jpg",
+          "airDate": "1979-10-19",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E05_Road Pirates.mp4",
+            "format": "h.264",
+            "sizeBytes": 275553941,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-05-road-pirates/The.Dukes.Of.Hazzard_S02E05_Road Pirates.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-06-the-ghost-of-general-lee",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Ghost of General Lee",
+          "overview": "The General Lee is stolen by two pool hustlers who drive it into the pond while being chased by Rosco. Unaware that it wasn't Bo and Luke driving it, he thinks Bo and Luke drowned. Boss Hogg schemes to claim they stole his genuine gold watch and chain and when Bo and Luke hear of this, they figure the only way to prove their innocence is to haunt Boss and Rosco by making the General Lee look like a ghost.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/al6sva7NFnTnxhA2iVTpcFOTPbx.jpg",
+          "airDate": "1979-10-26",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E06_The Ghost Of General Lee.mp4",
+            "format": "h.264",
+            "sizeBytes": 273173913,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-06-the-ghost-of-general-lee/The.Dukes.Of.Hazzard_S02E06_The Ghost Of General Lee.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-07-dukes-meet-cale-yarborough",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Dukes Meet Cale Yarborough",
+          "overview": "Bo and Luke find Cale Yarborough is testing a new secret turbo charger and bring him to Hazzard County to get his car serviced by Cooter. But Boss find out about Cale being in town and frames Bo and Luke for crossing the state line and works with Cale's opponents, The Jethro Brothers to scheme to steal Cale's turbo-charger.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iuM2jaXHHo0Xha1hRcJRhnfHONl.jpg",
+          "airDate": "1979-11-02",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E07_Dukes Meet Cale Yarborough.mp4",
+            "format": "h.264",
+            "sizeBytes": 274912218,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-07-dukes-meet-cale-yarborough/The.Dukes.Of.Hazzard_S02E07_Dukes Meet Cale Yarborough.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-08-hazzard-connection",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Hazzard Connection",
+          "overview": "Bo and Luke are suspected of running a smuggling ring when they deliver cars to Augie Detwiler - the owner of the derby in town, but when they are told about the smuggling, they decide to investigate by joining the derby.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7V7Be7AP1UVH30gAcLAm5WeYGZI.jpg",
+          "airDate": "1979-11-09",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E08_Hazzard Connection.mp4",
+            "format": "h.264",
+            "sizeBytes": 275262616,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-08-hazzard-connection/The.Dukes.Of.Hazzard_S02E08_Hazzard Connection.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-09-witness-for-the-persecution",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Witness for the Persecution",
+          "overview": "Boss Hogg is an important government witness against one of the biggest racketeers in the south. But the racketeer has posted hitmen out to prevent Boss' testimony so Jesse offers the FBI to shelter him until the time comes for him to testify.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/fFiwatMvHPuQuEGtA2ZAES72KwL.jpg",
+          "airDate": "1979-11-16",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E09_Witness For The Persecution.mp4",
+            "format": "h.264",
+            "sizeBytes": 269371110,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-09-witness-for-the-persecution/The.Dukes.Of.Hazzard_S02E09_Witness For The Persecution.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-10-granny-annie",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Granny Annie",
+          "overview": "Bo and Luke are given counterfeit money from Granny Annie, the local artist. They investigate to find out where it came from but it turns out to be her. Boss Hogg finds out and wants the engraving plates that make the bills, so he can sell them to big-time counterfeiter Big Jim Downey. But when the Dukes try to retrieve the engraving plates by taking them behind Downey's back, their trickery could have deadly consequences -- and let's just say it would not be a good death -- for Boss. The Oak Ridge Boys perform \"Old Time Lovin'\" at the Boar's Nest.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/f2P6ugJAQWLGNrFrL4aminH17nN.jpg",
+          "airDate": "1979-11-23",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E10_Granny Annie.mp4",
+            "format": "h.264",
+            "sizeBytes": 275377675,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-10-granny-annie/The.Dukes.Of.Hazzard_S02E10_Granny Annie.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-11-peoples-choice",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "People's Choice",
+          "overview": "Bo and Luke become campaign managers to the gorgeous T.C. Rogers, who is running against Boss Hogg for Supervisory Administrator. But Boss Hogg will not stand to lose, so he pull out every dirty trick in the book to see that he wins. But the Dukes know how to fight the system - even for other people.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iW8dDCivaIlSgYdo84N98dAtQVs.jpg",
+          "airDate": "1979-11-30",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E11_People's Choice.mp4",
+            "format": "h.264",
+            "sizeBytes": 274406778,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-11-peoples-choice/The.Dukes.Of.Hazzard_S02E11_People's Choice.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-12-arrest-jessie-duke",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Arrest Jesse Duke",
+          "overview": "Jesse is arrested for car-stripping when he was seen at the scene of the crime by a motorist while the real strippers are a group of females that are tied up with Boss Hogg who doesn't want the temporary sheriff - his nephew Hughie Hogg - to find out about it.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/pWXsB2WiA2O03aAWYenPM8FxhyT.jpg",
+          "airDate": "1979-12-14",
+          "year": 1979,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E12_Arrest Jessie Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274424296,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-12-arrest-jessie-duke/The.Dukes.Of.Hazzard_S02E12_Arrest Jessie Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-13-duke-of-duke",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Duke of Duke",
+          "overview": "Gaylord Duke, the Dukes' cousin from London, England comes to Hazzard to claim a property that was willed to him, but the property has back taxes owed on it, which Boss Hogg is planning to buy for nothing at an auction.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/wpMNuqYICEdd1zwPGM0VdoqQPti.jpg",
+          "airDate": "1980-01-04",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E13_Duke Of Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274113291,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-13-duke-of-duke/The.Dukes.Of.Hazzard_S02E13_Duke Of Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-14-the-runaway",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "The Runaway",
+          "overview": "The Dukes help an eloping heiress escape from her irate big shot daddy's henchmen to bring her to her fiancé to get her across the county line to get married. But her daddy wants her back and will stop at nothing - even kidnapping Uncle Jesse.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/7lP1XqFaTM6XpSiyHiVga4WAX2c.jpg",
+          "airDate": "1980-01-11",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E14_The Runaway.mp4",
+            "format": "h.264",
+            "sizeBytes": 273795677,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-14-the-runaway/The.Dukes.Of.Hazzard_S02E14_The Runaway.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-15-follow-that-still",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Follow That Still",
+          "overview": "The Dukes help Hard Luck Jones, an old moonshiner get away from the revenuers until her builds a still on the Dukes' property inside an armored personal carrier that he stole from Boss Hogg, carrying contraband cigarettes, and has a mechanical problem.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/eDJOyOVfpE9XvdTPEkQnOjaTHOP.jpg",
+          "airDate": "1980-01-18",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E15_Follow That Still.mp4",
+            "format": "h.264",
+            "sizeBytes": 274417937,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-15-follow-that-still/The.Dukes.Of.Hazzard_S02E15_Follow That Still.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-16-treasure-of-hazzard",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Treasure of Hazzard",
+          "overview": "The Dukes help a history professor find a Civil War strongbox buried in Hazzard County that contains a regimental payroll. But Boss Hogg and a couple of thugs are after it too.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/iq3AjJCQCidYfjF3gmsAEPklTAO.jpg",
+          "airDate": "1980-01-25",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E16_Treasure Of Hazzard.mp4",
+            "format": "h.264",
+            "sizeBytes": 271831467,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-16-treasure-of-hazzard/The.Dukes.Of.Hazzard_S02E16_Treasure Of Hazzard.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-17-officer-daisy-duke",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Officer Daisy Duke",
+          "overview": "When Luke gets Daisy fired from the Boar's Nest, The new sheriff, Grady Byrd gives Daisy a written and physical test which she passes and becomes a deputy sheriff. But Bo and Luke interfere with her work and try and do everything for her.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/ihHCqc9aUGVAyZL4yELURqUgfBd.jpg",
+          "airDate": "1980-02-01",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E17_Officer Daisy Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274586781,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-17-officer-daisy-duke/The.Dukes.Of.Hazzard_S02E17_Officer Daisy Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-18-find-loretta-lynn",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Find Loretta Lynn",
+          "overview": "When Loretta Lynn detours through Hazzard County, she stops at the Boar's Nest where she is kidnapped by a trio mini-band who demand $1136.15 ransom.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/p1APVz3PyAR6lkiEkBHDHO8L7KI.jpg",
+          "airDate": "1980-02-08",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E18_Find Loretta Lynn.mp4",
+            "format": "h.264",
+            "sizeBytes": 274735022,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-18-find-loretta-lynn/The.Dukes.Of.Hazzard_S02E18_Find Loretta Lynn.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-19-jude-emery",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Jude Emery",
+          "overview": "Bo and Luke assist Texas ranger Jude Emery in tracking down hardened criminal \"Snake\" Harmon. But they must rely on a little help from their friends (as well as Boss and Sheriff Byrd) when they find themselves kidnapped by Harmon's henchmen.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/eNUtJfcAAhzYJtWa070Ya8mqTyG.jpg",
+          "airDate": "1980-02-15",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E19_Jude Emery.mp4",
+            "format": "h.264",
+            "sizeBytes": 274933478,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-19-jude-emery/The.Dukes.Of.Hazzard_S02E19_Jude Emery.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-20-return-of-the-ridge-raiders",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Return of the Ridge Raiders",
+          "overview": "The Ridge Raiders reunite to stop Boss Hogg from embezzling the money for the senior-citizens center to build a \"Play Pen\" girlie-joint by using bombs on his stills, properties etc. But Jesse tries to convince them to fight it the legal way.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/312/780278.jpg",
+          "airDate": "1980-02-22",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E20_Return Of The Ridge Raiders.mp4",
+            "format": "h.264",
+            "sizeBytes": 274860552,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-20-return-of-the-ridge-raiders/The.Dukes.Of.Hazzard_S02E20_Return Of The Ridge Raiders.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-21-mason-dixons-girls",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Mason Dixon's Girls",
+          "overview": "Bo and Luke accidentally pick up a crate of marijuana at the bus depot and end up on the run - But Mason Dixon, a private detective and his two sexy associates are on to the Dukes but end up working together to stop a drug-smuggling ring.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/rF1RbIiArVOdEWAufXv5HNGVHkm.jpg",
+          "airDate": "1980-02-29",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E21_Mason Dixon's Girls.mp4",
+            "format": "h.264",
+            "sizeBytes": 274794532,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-21-mason-dixons-girls/The.Dukes.Of.Hazzard_S02E21_Mason Dixon's Girls.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-22-r.-i.-p.-henry-flatt",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "R.I.P. Henry Flatt",
+          "overview": "Henry Flatt, a con man who faked his death a year ago show up and the Dukes try to help him with his problem: Boss Hogg is planning on plowing up an old veteran's cemetery to build a new highway - that would also reveal that Henry was never dead.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/1DXyySMdYJmIbOHPvF5GJnpqVxi.jpg",
+          "airDate": "1980-03-14",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E22_R.I.P. Henry Flatt.mp4",
+            "format": "h.264",
+            "sizeBytes": 274721607,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-22-r.-i.-p.-henry-flatt/The.Dukes.Of.Hazzard_S02E22_R.I.P. Henry Flatt.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-02-e-23-southern-comfurts",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Southern Comfurts",
+          "overview": "Jesse's cousin Holly Comfurt and her family suddenly strike it rich, but while in Hazzard, their car gets stolen with all of their money in the trunk. So the search is on to find the car before the thief finds the money.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/fKjnTqHwNbenP1CLMXgnVCUWUsm.jpg",
+          "airDate": "1980-03-21",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S02E23_Southern Comfurts.mp4",
+            "format": "h.264",
+            "sizeBytes": 274425780,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-23-southern-comfurts/The.Dukes.Of.Hazzard_S02E23_Southern Comfurts.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "the-dukes-of-hazzard-s-01-e-03-mary-kayes-baby",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Mary Kaye's Baby",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/veeATPfhLMfOQuCJCINwpaTXhUH.jpg",
-     "airDate": "1979-02-09",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The Dukes of Hazzard S01E03 Mary Kaye's Baby.mp4",
-      "format": "h.264",
-      "sizeBytes": 286585959,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-03-mary-kayes-baby/The Dukes of Hazzard S01E03 Mary Kaye's Baby.mp4"
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-01-carnival-of-thrills-part-1",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Carnival of Thrills (1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/1Ot6dXlwAKLCBx69rajkAx5GTU8.jpg",
+          "airDate": "1980-09-16",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E01_Carnival Of Thrills Part 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 274041234,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-01-carnival-of-thrills-part-1/The.Dukes.Of.Hazzard_S03E01_Carnival Of Thrills Part 1.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-02-carnival-of-thrills-part-2",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Carnival of Thrills (2)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/ay6Gkf3WxbHNRTut9Wfdadw7jDC.jpg",
+          "airDate": "1980-09-16",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E02_Carnival Of Thrills Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 274757917,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-02-carnival-of-thrills-part-2/The.Dukes.Of.Hazzard_S03E02_Carnival Of Thrills Part 2.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-03-enos-strate-to-the-top",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Enos Strate to the Top",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/3vYUF7d14R4N3HrqqVvO2FlgSN5.jpg",
+          "airDate": "1980-11-05",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E03_Enos Strate To The Top.mp4",
+            "format": "h.264",
+            "sizeBytes": 275472043,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-03-enos-strate-to-the-top/The.Dukes.Of.Hazzard_S03E03_Enos Strate To The Top.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-04-the-hazzardville-horror",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "The Hazzardville Horror",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/48QwEABkgqRBRRpzTdhAUfQNs3f.jpg",
+          "airDate": "1980-11-07",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E04_The Hazzardville Horror.mp4",
+            "format": "h.264",
+            "sizeBytes": 275312368,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-04-the-hazzardville-horror/The.Dukes.Of.Hazzard_S03E04_The Hazzardville Horror.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-05-and-in-this-corner-luke-duke",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "And in this Corner, Luke Duke",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/wbyuVgQbET65Ym21jBneWU4xc8x.jpg",
+          "airDate": "1980-11-14",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E05_And In This Corner, Luke Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274771408,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-05-and-in-this-corner-luke-duke/The.Dukes.Of.Hazzard_S03E05_And In This Corner, Luke Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-06-the-late-j.-d.-hogg",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "The Late J.D. Hogg",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/2lUh8Io8mGTdZg8o4u1NHO3RS3H.jpg",
+          "airDate": "1980-11-21",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E06_The Late J.D. Hogg.mp4",
+            "format": "h.264",
+            "sizeBytes": 274852104,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-06-the-late-j.-d.-hogg/The.Dukes.Of.Hazzard_S03E06_The Late J.D. Hogg.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-07-uncle-boss",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Uncle Boss",
+          "overview": "Boss Hogg imports his nasty nephew to help him bag the Dukes.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/sCQXC1LXj4Px3WC7PRsyXg0Jn6t.jpg",
+          "airDate": "1980-11-28",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E07_Uncle Boss.mp4",
+            "format": "h.264",
+            "sizeBytes": 274541278,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-07-uncle-boss/The.Dukes.Of.Hazzard_S03E07_Uncle Boss.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-08-baa-baa-white-sheep",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Baa, Baa, White Sheep",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/3CW3dG8PzVx4h7sGvT8gRJXnuBa.jpg",
+          "airDate": "1980-12-05",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E08_Baa, Baa White Sheep.mp4",
+            "format": "h.264",
+            "sizeBytes": 275181276,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-08-baa-baa-white-sheep/The.Dukes.Of.Hazzard_S03E08_Baa, Baa White Sheep.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-09-mrs.-rosco-p.-coltrane",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Mrs. Rosco P. Coltrane",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/lhufrsXuiW7ReQfp9riaGVq9hN6.jpg",
+          "airDate": "1980-12-12",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E09_Mrs.Rosco P. Coltrane.mp4",
+            "format": "h.264",
+            "sizeBytes": 274052241,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-09-mrs.-rosco-p.-coltrane/The.Dukes.Of.Hazzard_S03E09_Mrs.Rosco P. Coltrane.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-10-the-great-santa-claus-chase",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "The Great Santa Claus Chase",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/liIM8FfmBIBhVgWsnWMs0lOi9Jp.jpg",
+          "airDate": "1980-12-19",
+          "year": 1980,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E10_The Great Santa Claus Chase.mp4",
+            "format": "h.264",
+            "sizeBytes": 274962276,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-10-the-great-santa-claus-chase/The.Dukes.Of.Hazzard_S03E10_The Great Santa Claus Chase.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-11-good-neighbors-duke",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Good Neighbors, Duke",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/cYZcsPIsLMMQhBut25G9pove0R4.jpg",
+          "airDate": "1981-01-02",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E11_Good Neighbors Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274531988,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-11-good-neighbors-duke/The.Dukes.Of.Hazzard_S03E11_Good Neighbors Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-12-state-of-the-country",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "State of the County",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/1VFNUPeAWVg6eOOFSVztFWDvWxx.jpg",
+          "airDate": "1981-01-09",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E12_State Of The Country.mp4",
+            "format": "h.264",
+            "sizeBytes": 274375714,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-12-state-of-the-country/The.Dukes.Of.Hazzard_S03E12_State Of The Country.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-13-the-legacy",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "The Legacy",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/dK26PtVBhkN1AflAggqiZTwMNTH.jpg",
+          "airDate": "1981-01-16",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E13_The Legacy.mp4",
+            "format": "h.264",
+            "sizeBytes": 275081466,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-13-the-legacy/The.Dukes.Of.Hazzard_S03E13_The Legacy.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-14-duke-vs.-duke",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Duke vs. Duke",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/d1Oxq69k8qvzPiYGsaV2kllvNWF.jpg",
+          "airDate": "1981-01-23",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E14_Duke VS. Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274691249,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-14-duke-vs.-duke/The.Dukes.Of.Hazzard_S03E14_Duke VS. Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-15-my-son-bo-hogg",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "My Son, Bo Hogg",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/erk0xHlWdHNLv8RRTiA2vVsPkcJ.jpg",
+          "airDate": "1981-01-30",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E15_My Son, Bo Hogg.mp4",
+            "format": "h.264",
+            "sizeBytes": 274651421,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-15-my-son-bo-hogg/The.Dukes.Of.Hazzard_S03E15_My Son, Bo Hogg.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-16-to-catch-a-duke",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "To Catch a Duke",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/jpBSu4A9my353b7htm6d6uJAaSo.jpg",
+          "airDate": "1981-02-06",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E16_To Catch A Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 275171683,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-16-to-catch-a-duke/The.Dukes.Of.Hazzard_S03E16_To Catch A Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-17-along-came-a-duke",
+          "seasonNumber": 3,
+          "episodeNumber": 17,
+          "title": "Along Came a Duke",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/2fb2Gi1YbN0ltz0Ukn7Z2FAJniY.jpg",
+          "airDate": "1981-02-13",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E17_Along Came A Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274655503,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-17-along-came-a-duke/The.Dukes.Of.Hazzard_S03E17_Along Came A Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-18-by-line-daisy-duke",
+          "seasonNumber": 3,
+          "episodeNumber": 18,
+          "title": "By-Line, Daisy Duke",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/6kWCHz4R1bg55COpIThmJGO6WwT.jpg",
+          "airDate": "1981-02-20",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E18_By-Line, Daisy Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 274071942,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-18-by-line-daisy-duke/The.Dukes.Of.Hazzard_S03E18_By-Line, Daisy Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-19-the-return-of-hughie-hogg",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "The Return of Hughie Hogg",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/c7PSef73Lv1nnJ32bj7yiFvNkBA.jpg",
+          "airDate": "1981-03-06",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E19_The Return Of Hughie Hogg.mp4",
+            "format": "h.264",
+            "sizeBytes": 274493605,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-19-the-return-of-hughie-hogg/The.Dukes.Of.Hazzard_S03E19_The Return Of Hughie Hogg.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-20-bye-bye-boss",
+          "seasonNumber": 3,
+          "episodeNumber": 20,
+          "title": "Bye, Bye, Boss",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/vZruGnAH4rHQghkzXuuDP3L0lom.jpg",
+          "airDate": "1981-03-13",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E20_Bye, Bye Boss.mp4",
+            "format": "h.264",
+            "sizeBytes": 274579662,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-20-bye-bye-boss/The.Dukes.Of.Hazzard_S03E20_Bye, Bye Boss.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-21-the-great-hazzard-hijack",
+          "seasonNumber": 3,
+          "episodeNumber": 21,
+          "title": "The Great Hazzard Hijack",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/gDIBpAadVONEZT7izRx5EkLhvay.jpg",
+          "airDate": "1981-03-27",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E21_The Great Hazzard Hijack.mp4",
+            "format": "h.264",
+            "sizeBytes": 274610932,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-21-the-great-hazzard-hijack/The.Dukes.Of.Hazzard_S03E21_The Great Hazzard Hijack.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-22-the-hack-of-hazzard",
+          "seasonNumber": 3,
+          "episodeNumber": 22,
+          "title": "The Hack of Hazzard",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/2M3ODzfIbD3crVFlbTsFmhXtdYS.jpg",
+          "airDate": "1981-04-03",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E22_The Hack Of Hazzard.mp4",
+            "format": "h.264",
+            "sizeBytes": 274326497,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-22-the-hack-of-hazzard/The.Dukes.Of.Hazzard_S03E22_The Hack Of Hazzard.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-03-e-23-the-canterbury-crock",
+          "seasonNumber": 3,
+          "episodeNumber": 23,
+          "title": "The Canterbury Crock",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/n1sgVxvfSiyYRtjn0oXNjZT0zQF.jpg",
+          "airDate": "1981-04-10",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S03E23_The Canterbury Crock.mp4",
+            "format": "h.264",
+            "sizeBytes": 274679902,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-23-the-canterbury-crock/The.Dukes.Of.Hazzard_S03E23_The Canterbury Crock.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "the-dukes-of-hazzard-s-01-e-04-repo-men",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Repo Men",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/tZwL3YpRS18qkSUOGKudbYpPexU.jpg",
-     "airDate": "1979-02-16",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The Dukes of Hazzard S01E04  Repo Men.mp4",
-      "format": "h.264",
-      "sizeBytes": 286524475,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-04-repo-men/The Dukes of Hazzard S01E04  Repo Men.mp4"
-    },
-    {
-     "archiveID": "the-dukes-of-hazzard-s-01-e-05-high-octane",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "High Octane",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/rtPoVmBnMc5CvlbC68xatS8xiM0.jpg",
-     "airDate": "1979-02-23",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The Dukes of Hazzard S01E05  High Octane.mp4",
-      "format": "h.264",
-      "sizeBytes": 287097989,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-05-high-octane/The Dukes of Hazzard S01E05  High Octane.mp4"
-    },
-    {
-     "archiveID": "the-dukes-of-hazzard-s-01-e-06-swamp-molly",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Swamp Molly",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/o8YvrBA6iQqw4otTEdZomUJXGH2.jpg",
-     "airDate": "1979-03-09",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The Dukes of Hazzard S01E06  Swamp Molly.mp4",
-      "format": "h.264",
-      "sizeBytes": 286285256,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-06-swamp-molly/The Dukes of Hazzard S01E06  Swamp Molly.mp4"
-    },
-    {
-     "archiveID": "the-dukes-of-hazzard-s-01-e-07-lukes-love-story",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Luke's Love Story",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/6oo0QxgP312W0bG6V0rmmHh6tH5.jpg",
-     "airDate": "1979-03-16",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The Dukes of Hazzard S01E07  Luke's Love Story.mp4",
-      "format": "h.264",
-      "sizeBytes": 285802971,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-07-lukes-love-story/The Dukes of Hazzard S01E07  Luke's Love Story.mp4"
-    },
-    {
-     "archiveID": "the-dukes-of-hazzard-s-01-e-08-the-big-heist",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "The Big Heist",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/5EhCpuV7F2rq5QAloyoCOPyUrVx.jpg",
-     "airDate": "1979-03-30",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The Dukes of Hazzard S01E08  The Big Heist.mp4",
-      "format": "h.264",
-      "sizeBytes": 285995573,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-08-the-big-heist/The Dukes of Hazzard S01E08  The Big Heist.mp4"
-    },
-    {
-     "archiveID": "the-dukes-of-hazzard-s-01-e-09-limo-one-is-missing",
-     "seasonNumber": 1,
-     "episodeNumber": 9,
-     "title": "Limo One is Missing",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/K6Q3lq8PardLu1YLIz3vjMByKe.jpg",
-     "airDate": "1979-04-06",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The Dukes of Hazzard S01E09  Limo One Is Missing.mp4",
-      "format": "h.264",
-      "sizeBytes": 285804090,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-09-limo-one-is-missing/The Dukes of Hazzard S01E09  Limo One Is Missing.mp4"
-    },
-    {
-     "archiveID": "the-dukes-of-hazzard-s-01-e-10-deputy-dukes",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "Deputy Dukes",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/gPUIXCa5XDCI3DZMmEqZVbCyj9F.jpg",
-     "airDate": "1979-04-13",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The Dukes of Hazzard S01E10  Deputy Dukes.mp4",
-      "format": "h.264",
-      "sizeBytes": 285614831,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-10-deputy-dukes/The Dukes of Hazzard S01E10  Deputy Dukes.mp4"
-    },
-    {
-     "archiveID": "the-dukes-of-hazzard-s-01-e-11-money-to-burn",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "Money to Burn",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/bR4pZcM6M5pOwnxq3UyIOn3vh6O.jpg",
-     "airDate": "1979-04-20",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The Dukes of Hazzard S01E11  Money To Burn.mp4",
-      "format": "h.264",
-      "sizeBytes": 285549071,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-11-money-to-burn/The Dukes of Hazzard S01E11  Money To Burn.mp4"
-    },
-    {
-     "archiveID": "the-dukes-of-hazzard-s-01-e-12-route-7-11",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "Route 7-11",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/asooaSuH0vPgDAcLF1V7Cj2rKqs.jpg",
-     "airDate": "1979-05-04",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The Dukes of Hazzard S01E12  Route 7-11.mp4",
-      "format": "h.264",
-      "sizeBytes": 285710154,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-12-route-7-11/The Dukes of Hazzard S01E12  Route 7-11.mp4"
-    },
-    {
-     "archiveID": "the-dukes-of-hazzard-s-01-e-13-double-sting",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "Double Sting",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/iTk3XuOo3v8WeAbCx08Orth8Mfh.jpg",
-     "airDate": "1979-05-11",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The Dukes of Hazzard S01E13  Double Sting.mp4",
-      "format": "h.264",
-      "sizeBytes": 286377498,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-dukes-of-hazzard-s-01-e-13-double-sting/The Dukes of Hazzard S01E13  Double Sting.mp4"
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-01-mrs.-daisy-hogg",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "Mrs. Daisy Hogg",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/9Fxr80BotXFHPh9I4xqmhoNZKfn.jpg",
+          "airDate": "1981-10-09",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E01_Mrs. Daisy Hogg.mp4",
+            "format": "h.264",
+            "sizeBytes": 269563670,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-01-mrs.-daisy-hogg/The.Dukes.Of.Hazzard_S04E01_Mrs. Daisy Hogg.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-02-double-dukes",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "Double Dukes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/lN1mz5SeVmZ9Mbq1t6BoYx7hx1r.jpg",
+          "airDate": "1981-10-16",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E02_Double Dukes.mp4",
+            "format": "h.264",
+            "sizeBytes": 269398234,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-02-double-dukes/The.Dukes.Of.Hazzard_S04E02_Double Dukes.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-03-diamons-in-the-rough",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "Diamonds in the Rough",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/3o7z3usrv2ocb9vUbbPdt46fnXD.jpg",
+          "airDate": "1981-10-23",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E03_Diamons In The Rough.mp4",
+            "format": "h.264",
+            "sizeBytes": 269351800,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-03-diamons-in-the-rough/The.Dukes.Of.Hazzard_S04E03_Diamons In The Rough.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-04-coltrane-vs.-duke",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "Coltrane vs. Duke",
+          "overview": "The Dukes are sued by Roscoe Coltrane after the sheriff alleges that they caused him personal injury. The lawsuit could force the Dukes to sell their farm.",
+          "stillURL": "https://image.tmdb.org/t/p/w300/qImp30VD5cakoHUJSEzZfAQ62p0.jpg",
+          "airDate": "1981-10-30",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E04_Coltrane vs. Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 269765060,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-04-coltrane-vs.-duke/The.Dukes.Of.Hazzard_S04E04_Coltrane vs. Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-05-the-fugitive",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "The Fugitive",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/eTnErGm3pgnhHObmr3i9hHk5CKG.jpg",
+          "airDate": "1981-11-03",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E05_The Fugitive.mp4",
+            "format": "h.264",
+            "sizeBytes": 273043747,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-05-the-fugitive/The.Dukes.Of.Hazzard_S04E05_The Fugitive.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-06-the-great-bank-robbery",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "The Great Bank Robbery",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/1FVi4KhsjaO1CUZi51Z36aMx3ru.jpg",
+          "airDate": "1981-11-06",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E06_The Great Bank Robbery.mp4",
+            "format": "h.264",
+            "sizeBytes": 269759645,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-06-the-great-bank-robbery/The.Dukes.Of.Hazzard_S04E06_The Great Bank Robbery.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-07-sadie-hogg-day",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Sadie Hogg Day",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/9XVnW8rVUOevi0hIaq5zuoGM0sy.jpg",
+          "airDate": "1981-11-13",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E07_Sadie Hogg Day.mp4",
+            "format": "h.264",
+            "sizeBytes": 269759531,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-07-sadie-hogg-day/The.Dukes.Of.Hazzard_S04E07_Sadie Hogg Day.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-08-10-million-dollar-sheriff-part-1",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "10 Million Dollar Sheriff (1)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/9wIPfOXAif63bZA0tydlSpM9x3A.jpg",
+          "airDate": "1981-11-20",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E08_10 Million Dollar Sheriff Part 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 286709298,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-08-10-million-dollar-sheriff-part-1/The.Dukes.Of.Hazzard_S04E08_10 Million Dollar Sheriff Part 1.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-09-10-million-dollar-sheriff-part-2",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "10 Million Dollar Sheriff (2)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/9iGlW4AQctfsX4tLf2tXScdpLtg.jpg",
+          "airDate": "1981-11-20",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E09_10 Million Dollar Sheriff Part 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 266279395,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-09-10-million-dollar-sheriff-part-2/The.Dukes.Of.Hazzard_S04E09_10 Million Dollar Sheriff Part 2.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-10-trouble-at-cooters",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "Trouble at Cooter's",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/ri3j3b5ZbRmh6YlCGUWTwM42d23.jpg",
+          "airDate": "1981-11-27",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E10_Trouble At Cooter's.mp4",
+            "format": "h.264",
+            "sizeBytes": 269976598,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-10-trouble-at-cooters/The.Dukes.Of.Hazzard_S04E10_Trouble At Cooter's.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-11-goodbye-general-lee",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "Goodbye, General Lee",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/zjxYskcJyHxiyL2o80QUr4D348w.jpg",
+          "airDate": "1981-12-04",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E11_Goodbye, General Lee.mp4",
+            "format": "h.264",
+            "sizeBytes": 269730093,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-11-goodbye-general-lee/The.Dukes.Of.Hazzard_S04E11_Goodbye, General Lee.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-12-cletus-falls-in-love",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "Cletus Falls in Love",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/3LttRWmuZodecOPA8HGF8iKTlrk.jpg",
+          "airDate": "1981-12-11",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E12_Cletus Falls In Love.mp4",
+            "format": "h.264",
+            "sizeBytes": 270118594,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-12-cletus-falls-in-love/The.Dukes.Of.Hazzard_S04E12_Cletus Falls In Love.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-13-hughie-hogg-strikes-again",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "Hughie Hogg Strikes Again",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/a8unWiBGOgMPQPSGUqoh4b8kLXk.jpg",
+          "airDate": "1981-12-18",
+          "year": 1981,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E13_Hughie Hogg Strikes Again.mp4",
+            "format": "h.264",
+            "sizeBytes": 269171840,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-13-hughie-hogg-strikes-again/The.Dukes.Of.Hazzard_S04E13_Hughie Hogg Strikes Again.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-14-the-dukescam-scam",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "Dukescam Scam",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/hxNQNJe0Degvln5TOnUCk9bx0hh.jpg",
+          "airDate": "1982-01-01",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E14_The Dukescam Scam.mp4",
+            "format": "h.264",
+            "sizeBytes": 273270516,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-14-the-dukescam-scam/The.Dukes.Of.Hazzard_S04E14_The Dukescam Scam.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-15-the-sound-of-music-hazzard-style",
+          "seasonNumber": 4,
+          "episodeNumber": 15,
+          "title": "The Sound of Music - Hazzard Style",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/wSL5jYfU020o5fKFuq37ssgzPAh.jpg",
+          "airDate": "1982-01-08",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E15_The Sound Of Music Hazzard Style.mp4",
+            "format": "h.264",
+            "sizeBytes": 269226450,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-15-the-sound-of-music-hazzard-style/The.Dukes.Of.Hazzard_S04E15_The Sound Of Music Hazzard Style.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-16-shine-on-hazzard-moon",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "Shine on Hazzard Moon",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/p3xp9rjnnUoOp1PTpR2tBsFSsRA.jpg",
+          "airDate": "1982-01-15",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E16_Shine On Hazzard Moon.mp4",
+            "format": "h.264",
+            "sizeBytes": 269485964,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-16-shine-on-hazzard-moon/The.Dukes.Of.Hazzard_S04E16_Shine On Hazzard Moon.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-17-pin-the-tail-on-the-dukes",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "Pin the Tail on the Dukes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/sEnLKELdsmoNFf4TcGjB5gKjATh.jpg",
+          "airDate": "1982-01-22",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E17_Pin The Tail On The Dukes.mp4",
+            "format": "h.264",
+            "sizeBytes": 269307544,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-17-pin-the-tail-on-the-dukes/The.Dukes.Of.Hazzard_S04E17_Pin The Tail On The Dukes.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-18-miz-tisdale-on-the-lam",
+          "seasonNumber": 4,
+          "episodeNumber": 18,
+          "title": "Miz Tisdale on the Lam",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/4uWik5QNHZB9XSlUveO9onS7XfL.jpg",
+          "airDate": "1982-01-29",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E18_Miz Tisdale On The Lam.mp4",
+            "format": "h.264",
+            "sizeBytes": 269307843,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-18-miz-tisdale-on-the-lam/The.Dukes.Of.Hazzard_S04E18_Miz Tisdale On The Lam.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-19-nothin-but-the-truth",
+          "seasonNumber": 4,
+          "episodeNumber": 19,
+          "title": "Nothin' But the Truth",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/rlWQVGo3AOwGUa4yqhVGuPuASN1.jpg",
+          "airDate": "1982-02-05",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E19_Nothin' But The Truth.mp4",
+            "format": "h.264",
+            "sizeBytes": 269467930,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-19-nothin-but-the-truth/The.Dukes.Of.Hazzard_S04E19_Nothin' But The Truth.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-20-dear-diary",
+          "seasonNumber": 4,
+          "episodeNumber": 20,
+          "title": "Dear Diary",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/t6BYJ7pd40ujICgTgTIcB2eN7Sb.jpg",
+          "airDate": "1982-02-12",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E20_Dear Diary.mp4",
+            "format": "h.264",
+            "sizeBytes": 268591727,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-20-dear-diary/The.Dukes.Of.Hazzard_S04E20_Dear Diary.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-21-new-deputy-in-town",
+          "seasonNumber": 4,
+          "episodeNumber": 21,
+          "title": "New Deputy in Town",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/lA0kfJQjiODapDNtSfHkGWbyFyX.jpg",
+          "airDate": "1982-02-19",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E21_New Deputy In Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 269380209,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-21-new-deputy-in-town/The.Dukes.Of.Hazzard_S04E21_New Deputy In Town.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-22-birds-gotta-fly",
+          "seasonNumber": 4,
+          "episodeNumber": 22,
+          "title": "Birds Gotta Fly",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/pF2qKNb3S2tYlHuOf55VAWNQLHQ.jpg",
+          "airDate": "1982-02-26",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E22_Birds Gotta Fly.mp4",
+            "format": "h.264",
+            "sizeBytes": 269334521,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-22-birds-gotta-fly/The.Dukes.Of.Hazzard_S04E22_Birds Gotta Fly.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-23-bad-day-in-hazzard",
+          "seasonNumber": 4,
+          "episodeNumber": 23,
+          "title": "Bad Day in Hazzard",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/oK2OdIaNp4LkuZbZf8ZYeRe5BZD.jpg",
+          "airDate": "1982-03-05",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E23_Bad Day In Hazzard.mp4",
+            "format": "h.264",
+            "sizeBytes": 269637498,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-23-bad-day-in-hazzard/The.Dukes.Of.Hazzard_S04E23_Bad Day In Hazzard.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-24-miss-tri-counties",
+          "seasonNumber": 4,
+          "episodeNumber": 24,
+          "title": "Miss Tri-Counties",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/8rhMuwkC53ZoFD7FPixG1Zg3frm.jpg",
+          "airDate": "1982-03-12",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E24_Miss Tri-Counties.mp4",
+            "format": "h.264",
+            "sizeBytes": 269007945,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-24-miss-tri-counties/The.Dukes.Of.Hazzard_S04E24_Miss Tri-Counties.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-25-share-and-share-alike",
+          "seasonNumber": 4,
+          "episodeNumber": 25,
+          "title": "Share and Share Alike",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/rGhB6awEFh81UWBwpDBdI8sablG.jpg",
+          "airDate": "1982-03-19",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E25_Share And Share Alike.mp4",
+            "format": "h.264",
+            "sizeBytes": 268938902,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-25-share-and-share-alike/The.Dukes.Of.Hazzard_S04E25_Share And Share Alike.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-26-the-law-and-jesse-duke",
+          "seasonNumber": 4,
+          "episodeNumber": 26,
+          "title": "The Law and Jesse Duke",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/3WvGl2d0heQUswJriPRbOQSl65q.jpg",
+          "airDate": "1982-03-26",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E26_The Law And Jesse Duke.mp4",
+            "format": "h.264",
+            "sizeBytes": 269408678,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-26-the-law-and-jesse-duke/The.Dukes.Of.Hazzard_S04E26_The Law And Jesse Duke.mp4"
+        },
+        {
+          "archiveID": "the.-dukes.-of.-hazzard-s-04-e-27-dukes-in-danger",
+          "seasonNumber": 4,
+          "episodeNumber": 27,
+          "title": "Dukes in Danger",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w300/eaWKvY0NB3qX2TFJPfAiEDadYvt.jpg",
+          "airDate": "1982-04-02",
+          "year": 1982,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The.Dukes.Of.Hazzard_S04E27_Dukes In Danger.mp4",
+            "format": "h.264",
+            "sizeBytes": 268898298,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-27-dukes-in-danger/The.Dukes.Of.Hazzard_S04E27_Dukes In Danger.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  ],
+  "episodesCount": 86,
+  "canonicalEpisodesCount": 147,
+  "cast": [
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-01-days-of-shine-and-roses",
-     "seasonNumber": 2,
-     "episodeNumber": 1,
-     "title": "Days of Shine and Roses",
-     "overview": "After seeing an old film of when Boss Hogg and Uncle Jesse were in the Ridge runners Association running moonshine, An argument of who was the better moonshiner around causes Boss and Jesse to declare a grudge race to determine who is the best. Boss Hogg however, doesn't believe in fair play and must win no matter what.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/hTMdPICymGh8PS9THFwfxXtqsQ6.jpg",
-     "airDate": "1979-09-21",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E01_Days Of Shine And Roses.mp4",
-      "format": "h.264",
-      "sizeBytes": 274301494,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-01-days-of-shine-and-roses/The.Dukes.Of.Hazzard_S02E01_Days Of Shine And Roses.mp4"
+      "name": "Tom Wopat",
+      "character": "Luke Duke",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/256/640274.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-02-gold-fever",
-     "seasonNumber": 2,
-     "episodeNumber": 2,
-     "title": "Gold Fever",
-     "overview": "A group of Texas con artists bring $3 million in fake gold bars to Hazzard and store it in Boss' bank. But Bo and Luke are framed for the robbery of the gold committed by the con artists to collect insurance from Boss.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/qhv8pfT3x6Xvx75zaZ3mSjKmD1W.jpg",
-     "airDate": "1979-09-28",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E02_Gold Fever.mp4",
-      "format": "h.264",
-      "sizeBytes": 275188722,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-02-gold-fever/The.Dukes.Of.Hazzard_S02E02_Gold Fever.mp4"
+      "name": "John Schneider",
+      "character": "Bo Duke",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/489/1224297.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-03-the-rustlers",
-     "seasonNumber": 2,
-     "episodeNumber": 3,
-     "title": "The Rustlers",
-     "overview": "Bo and Luke visit the Tolliver farm and discover that their horse can run very fast. Rosco also sees it too and when he notifies Boss Hogg, He schemes to steal the horse to race in the Mrs. J.D. Hogg's stake race and pin it on the Dukes. But a group of crooked horse ranchers have their own plans to steal the horse from Boss Hogg.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/9ChesvfGg2q0fKVtE1hcDJ5u9cM.jpg",
-     "airDate": "1979-10-05",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E03_The Rustlers.mp4",
-      "format": "h.264",
-      "sizeBytes": 274717628,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-03-the-rustlers/The.Dukes.Of.Hazzard_S02E03_The Rustlers.mp4"
+      "name": "Catherine Bach",
+      "character": "Daisy Duke",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/42/105753.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-04-the-meeting",
-     "seasonNumber": 2,
-     "episodeNumber": 4,
-     "title": "The Meeting",
-     "overview": "Boss Hogg rents the Hazzard jail out for $10,000 to an old friend, Black Jack Bender and a group of syndicate kingpins where the hold a conspiracy meeting. When Bo and Luke find a lot of artillery in their cars, they get suspicious and investigate and find them out. But they must get to a phone and call the FBI before they get to them.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/mkkbvPLqSF5ZiiCrikd0Z1AK910.jpg",
-     "airDate": "1979-10-12",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E04_The Meeting.mp4",
-      "format": "h.264",
-      "sizeBytes": 274416750,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-04-the-meeting/The.Dukes.Of.Hazzard_S02E04_The Meeting.mp4"
+      "name": "Sorrell Booke",
+      "character": "Boss Jefferson Davis \"J.D.\" Hogg",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/525/1314089.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-05-road-pirates",
-     "seasonNumber": 2,
-     "episodeNumber": 5,
-     "title": "Road Pirates",
-     "overview": "Boss Hogg buys $10,000 in stolen TV sets but the buyer Marty Garbade hijacks the truck delivering the stolen goods. A mistake by the driver frames Bo, Luke and Cletus for the robbery.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/rr82aEk8k8acONbMiwDtihNZYd4.jpg",
-     "airDate": "1979-10-19",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E05_Road Pirates.mp4",
-      "format": "h.264",
-      "sizeBytes": 275553941,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-05-road-pirates/The.Dukes.Of.Hazzard_S02E05_Road Pirates.mp4"
+      "name": "Ben Jones",
+      "character": "Cooter Davenport",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/108/271350.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-06-the-ghost-of-general-lee",
-     "seasonNumber": 2,
-     "episodeNumber": 6,
-     "title": "The Ghost of General Lee",
-     "overview": "The General Lee is stolen by two pool hustlers who drive it into the pond while being chased by Rosco. Unaware that it wasn't Bo and Luke driving it, he thinks Bo and Luke drowned. Boss Hogg schemes to claim they stole his genuine gold watch and chain and when Bo and Luke hear of this, they figure the only way to prove their innocence is to haunt Boss and Rosco by making the General Lee look like a ghost.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/al6sva7NFnTnxhA2iVTpcFOTPbx.jpg",
-     "airDate": "1979-10-26",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E06_The Ghost Of General Lee.mp4",
-      "format": "h.264",
-      "sizeBytes": 273173913,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-06-the-ghost-of-general-lee/The.Dukes.Of.Hazzard_S02E06_The Ghost Of General Lee.mp4"
+      "name": "Denver Pyle",
+      "character": "Uncle Jesse Duke",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/70/175615.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-07-dukes-meet-cale-yarborough",
-     "seasonNumber": 2,
-     "episodeNumber": 7,
-     "title": "Dukes Meet Cale Yarborough",
-     "overview": "Bo and Luke find Cale Yarborough is testing a new secret turbo charger and bring him to Hazzard County to get his car serviced by Cooter. But Boss find out about Cale being in town and frames Bo and Luke for crossing the state line and works with Cale's opponents, The Jethro Brothers to scheme to steal Cale's turbo-charger.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/iuM2jaXHHo0Xha1hRcJRhnfHONl.jpg",
-     "airDate": "1979-11-02",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E07_Dukes Meet Cale Yarborough.mp4",
-      "format": "h.264",
-      "sizeBytes": 274912218,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-07-dukes-meet-cale-yarborough/The.Dukes.Of.Hazzard_S02E07_Dukes Meet Cale Yarborough.mp4"
+      "name": "James Best",
+      "character": "Sheriff Rosco Coltrane",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/606/1515022.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-08-hazzard-connection",
-     "seasonNumber": 2,
-     "episodeNumber": 8,
-     "title": "Hazzard Connection",
-     "overview": "Bo and Luke are suspected of running a smuggling ring when they deliver cars to Augie Detwiler - the owner of the derby in town, but when they are told about the smuggling, they decide to investigate by joining the derby.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/7V7Be7AP1UVH30gAcLAm5WeYGZI.jpg",
-     "airDate": "1979-11-09",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E08_Hazzard Connection.mp4",
-      "format": "h.264",
-      "sizeBytes": 275262616,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-08-hazzard-connection/The.Dukes.Of.Hazzard_S02E08_Hazzard Connection.mp4"
+      "name": "Waylon Jennings",
+      "character": "The Balladeer",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/114085.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-09-witness-for-the-persecution",
-     "seasonNumber": 2,
-     "episodeNumber": 9,
-     "title": "Witness for the Persecution",
-     "overview": "Boss Hogg is an important government witness against one of the biggest racketeers in the south. But the racketeer has posted hitmen out to prevent Boss' testimony so Jesse offers the FBI to shelter him until the time comes for him to testify.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/fFiwatMvHPuQuEGtA2ZAES72KwL.jpg",
-     "airDate": "1979-11-16",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E09_Witness For The Persecution.mp4",
-      "format": "h.264",
-      "sizeBytes": 269371110,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-09-witness-for-the-persecution/The.Dukes.Of.Hazzard_S02E09_Witness For The Persecution.mp4"
+      "name": "Sonny Shroyer",
+      "character": "Deputy Enos Strate",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/260256.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-10-granny-annie",
-     "seasonNumber": 2,
-     "episodeNumber": 10,
-     "title": "Granny Annie",
-     "overview": "Bo and Luke are given counterfeit money from Granny Annie, the local artist. They investigate to find out where it came from but it turns out to be her. Boss Hogg finds out and wants the engraving plates that make the bills, so he can sell them to big-time counterfeiter Big Jim Downey. But when the Dukes try to retrieve the engraving plates by taking them behind Downey's back, their trickery could have deadly consequences -- and let's just say it would not be a good death -- for Boss. The Oak Ridge Boys perform \"Old Time Lovin'\" at the Boar's Nest.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/f2P6ugJAQWLGNrFrL4aminH17nN.jpg",
-     "airDate": "1979-11-23",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E10_Granny Annie.mp4",
-      "format": "h.264",
-      "sizeBytes": 275377675,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-10-granny-annie/The.Dukes.Of.Hazzard_S02E10_Granny Annie.mp4"
+      "name": "Dick Sargent",
+      "character": "Sheriff Grady Byrd",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/175/438423.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-11-peoples-choice",
-     "seasonNumber": 2,
-     "episodeNumber": 11,
-     "title": "People's Choice",
-     "overview": "Bo and Luke become campaign managers to the gorgeous T.C. Rogers, who is running against Boss Hogg for Supervisory Administrator. But Boss Hogg will not stand to lose, so he pull out every dirty trick in the book to see that he wins. But the Dukes know how to fight the system - even for other people.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/iW8dDCivaIlSgYdo84N98dAtQVs.jpg",
-     "airDate": "1979-11-30",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E11_People's Choice.mp4",
-      "format": "h.264",
-      "sizeBytes": 274406778,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-11-peoples-choice/The.Dukes.Of.Hazzard_S02E11_People's Choice.mp4"
+      "name": "Nedra Volz",
+      "character": "Miz Emma Tisdale",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/261754.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-12-arrest-jessie-duke",
-     "seasonNumber": 2,
-     "episodeNumber": 12,
-     "title": "Arrest Jesse Duke",
-     "overview": "Jesse is arrested for car-stripping when he was seen at the scene of the crime by a motorist while the real strippers are a group of females that are tied up with Boss Hogg who doesn't want the temporary sheriff - his nephew Hughie Hogg - to find out about it.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/pWXsB2WiA2O03aAWYenPM8FxhyT.jpg",
-     "airDate": "1979-12-14",
-     "year": 1979,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E12_Arrest Jessie Duke.mp4",
-      "format": "h.264",
-      "sizeBytes": 274424296,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-12-arrest-jessie-duke/The.Dukes.Of.Hazzard_S02E12_Arrest Jessie Duke.mp4"
+      "name": "Don Pedro Colley",
+      "character": "Sheriff \"Big\" Ed Little",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/580/1451954.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-13-duke-of-duke",
-     "seasonNumber": 2,
-     "episodeNumber": 13,
-     "title": "Duke of Duke",
-     "overview": "Gaylord Duke, the Dukes' cousin from London, England comes to Hazzard to claim a property that was willed to him, but the property has back taxes owed on it, which Boss Hogg is planning to buy for nothing at an auction.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/wpMNuqYICEdd1zwPGM0VdoqQPti.jpg",
-     "airDate": "1980-01-04",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E13_Duke Of Duke.mp4",
-      "format": "h.264",
-      "sizeBytes": 274113291,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-13-duke-of-duke/The.Dukes.Of.Hazzard_S02E13_Duke Of Duke.mp4"
+      "name": "Rick Hurst",
+      "character": "Cletus Hogg",
+      "order": 12,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/253/634111.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-14-the-runaway",
-     "seasonNumber": 2,
-     "episodeNumber": 14,
-     "title": "The Runaway",
-     "overview": "The Dukes help an eloping heiress escape from her irate big shot daddy's henchmen to bring her to her fiancé to get her across the county line to get married. But her daddy wants her back and will stop at nothing - even kidnapping Uncle Jesse.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/7lP1XqFaTM6XpSiyHiVga4WAX2c.jpg",
-     "airDate": "1980-01-11",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E14_The Runaway.mp4",
-      "format": "h.264",
-      "sizeBytes": 273795677,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-14-the-runaway/The.Dukes.Of.Hazzard_S02E14_The Runaway.mp4"
+      "name": "Peggy Rea",
+      "character": "Lulu (Coltrane) Hogg",
+      "order": 13,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/102/256827.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-15-follow-that-still",
-     "seasonNumber": 2,
-     "episodeNumber": 15,
-     "title": "Follow That Still",
-     "overview": "The Dukes help Hard Luck Jones, an old moonshiner get away from the revenuers until her builds a still on the Dukes' property inside an armored personal carrier that he stole from Boss Hogg, carrying contraband cigarettes, and has a mechanical problem.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/eDJOyOVfpE9XvdTPEkQnOjaTHOP.jpg",
-     "airDate": "1980-01-18",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E15_Follow That Still.mp4",
-      "format": "h.264",
-      "sizeBytes": 274417937,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-15-follow-that-still/The.Dukes.Of.Hazzard_S02E15_Follow That Still.mp4"
+      "name": "Christopher Mayer",
+      "character": "Vance Duke",
+      "order": 14,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/93/234842.jpg"
     },
     {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-16-treasure-of-hazzard",
-     "seasonNumber": 2,
-     "episodeNumber": 16,
-     "title": "Treasure of Hazzard",
-     "overview": "The Dukes help a history professor find a Civil War strongbox buried in Hazzard County that contains a regimental payroll. But Boss Hogg and a couple of thugs are after it too.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/iq3AjJCQCidYfjF3gmsAEPklTAO.jpg",
-     "airDate": "1980-01-25",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E16_Treasure Of Hazzard.mp4",
-      "format": "h.264",
-      "sizeBytes": 271831467,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-16-treasure-of-hazzard/The.Dukes.Of.Hazzard_S02E16_Treasure Of Hazzard.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-17-officer-daisy-duke",
-     "seasonNumber": 2,
-     "episodeNumber": 17,
-     "title": "Officer Daisy Duke",
-     "overview": "When Luke gets Daisy fired from the Boar's Nest, The new sheriff, Grady Byrd gives Daisy a written and physical test which she passes and becomes a deputy sheriff. But Bo and Luke interfere with her work and try and do everything for her.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/ihHCqc9aUGVAyZL4yELURqUgfBd.jpg",
-     "airDate": "1980-02-01",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E17_Officer Daisy Duke.mp4",
-      "format": "h.264",
-      "sizeBytes": 274586781,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-17-officer-daisy-duke/The.Dukes.Of.Hazzard_S02E17_Officer Daisy Duke.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-18-find-loretta-lynn",
-     "seasonNumber": 2,
-     "episodeNumber": 18,
-     "title": "Find Loretta Lynn",
-     "overview": "When Loretta Lynn detours through Hazzard County, she stops at the Boar's Nest where she is kidnapped by a trio mini-band who demand $1136.15 ransom.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/p1APVz3PyAR6lkiEkBHDHO8L7KI.jpg",
-     "airDate": "1980-02-08",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E18_Find Loretta Lynn.mp4",
-      "format": "h.264",
-      "sizeBytes": 274735022,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-18-find-loretta-lynn/The.Dukes.Of.Hazzard_S02E18_Find Loretta Lynn.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-19-jude-emery",
-     "seasonNumber": 2,
-     "episodeNumber": 19,
-     "title": "Jude Emery",
-     "overview": "Bo and Luke assist Texas ranger Jude Emery in tracking down hardened criminal \"Snake\" Harmon. But they must rely on a little help from their friends (as well as Boss and Sheriff Byrd) when they find themselves kidnapped by Harmon's henchmen.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/eNUtJfcAAhzYJtWa070Ya8mqTyG.jpg",
-     "airDate": "1980-02-15",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E19_Jude Emery.mp4",
-      "format": "h.264",
-      "sizeBytes": 274933478,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-19-jude-emery/The.Dukes.Of.Hazzard_S02E19_Jude Emery.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-20-return-of-the-ridge-raiders",
-     "seasonNumber": 2,
-     "episodeNumber": 20,
-     "title": "Return of the Ridge Raiders",
-     "overview": "The Ridge Raiders reunite to stop Boss Hogg from embezzling the money for the senior-citizens center to build a \"Play Pen\" girlie-joint by using bombs on his stills, properties etc. But Jesse tries to convince them to fight it the legal way.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/312/780278.jpg",
-     "airDate": "1980-02-22",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E20_Return Of The Ridge Raiders.mp4",
-      "format": "h.264",
-      "sizeBytes": 274860552,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-20-return-of-the-ridge-raiders/The.Dukes.Of.Hazzard_S02E20_Return Of The Ridge Raiders.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-21-mason-dixons-girls",
-     "seasonNumber": 2,
-     "episodeNumber": 21,
-     "title": "Mason Dixon's Girls",
-     "overview": "Bo and Luke accidentally pick up a crate of marijuana at the bus depot and end up on the run - But Mason Dixon, a private detective and his two sexy associates are on to the Dukes but end up working together to stop a drug-smuggling ring.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/rF1RbIiArVOdEWAufXv5HNGVHkm.jpg",
-     "airDate": "1980-02-29",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E21_Mason Dixon's Girls.mp4",
-      "format": "h.264",
-      "sizeBytes": 274794532,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-21-mason-dixons-girls/The.Dukes.Of.Hazzard_S02E21_Mason Dixon's Girls.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-22-r.-i.-p.-henry-flatt",
-     "seasonNumber": 2,
-     "episodeNumber": 22,
-     "title": "R.I.P. Henry Flatt",
-     "overview": "Henry Flatt, a con man who faked his death a year ago show up and the Dukes try to help him with his problem: Boss Hogg is planning on plowing up an old veteran's cemetery to build a new highway - that would also reveal that Henry was never dead.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/1DXyySMdYJmIbOHPvF5GJnpqVxi.jpg",
-     "airDate": "1980-03-14",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E22_R.I.P. Henry Flatt.mp4",
-      "format": "h.264",
-      "sizeBytes": 274721607,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-22-r.-i.-p.-henry-flatt/The.Dukes.Of.Hazzard_S02E22_R.I.P. Henry Flatt.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-02-e-23-southern-comfurts",
-     "seasonNumber": 2,
-     "episodeNumber": 23,
-     "title": "Southern Comfurts",
-     "overview": "Jesse's cousin Holly Comfurt and her family suddenly strike it rich, but while in Hazzard, their car gets stolen with all of their money in the trunk. So the search is on to find the car before the thief finds the money.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/fKjnTqHwNbenP1CLMXgnVCUWUsm.jpg",
-     "airDate": "1980-03-21",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S02E23_Southern Comfurts.mp4",
-      "format": "h.264",
-      "sizeBytes": 274425780,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-02-e-23-southern-comfurts/The.Dukes.Of.Hazzard_S02E23_Southern Comfurts.mp4"
+      "name": "Byron Cherry",
+      "character": "Coy Duke",
+      "order": 15,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/272/680262.jpg"
     }
-   ]
-  },
-  {
-   "seasonNumber": 3,
-   "episodes": [
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-01-carnival-of-thrills-part-1",
-     "seasonNumber": 3,
-     "episodeNumber": 1,
-     "title": "Carnival of Thrills (1)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/1Ot6dXlwAKLCBx69rajkAx5GTU8.jpg",
-     "airDate": "1980-09-16",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E01_Carnival Of Thrills Part 1.mp4",
-      "format": "h.264",
-      "sizeBytes": 274041234,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-01-carnival-of-thrills-part-1/The.Dukes.Of.Hazzard_S03E01_Carnival Of Thrills Part 1.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-02-carnival-of-thrills-part-2",
-     "seasonNumber": 3,
-     "episodeNumber": 2,
-     "title": "Carnival of Thrills (2)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/ay6Gkf3WxbHNRTut9Wfdadw7jDC.jpg",
-     "airDate": "1980-09-16",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E02_Carnival Of Thrills Part 2.mp4",
-      "format": "h.264",
-      "sizeBytes": 274757917,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-02-carnival-of-thrills-part-2/The.Dukes.Of.Hazzard_S03E02_Carnival Of Thrills Part 2.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-03-enos-strate-to-the-top",
-     "seasonNumber": 3,
-     "episodeNumber": 3,
-     "title": "Enos Strate to the Top",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/3vYUF7d14R4N3HrqqVvO2FlgSN5.jpg",
-     "airDate": "1980-11-05",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E03_Enos Strate To The Top.mp4",
-      "format": "h.264",
-      "sizeBytes": 275472043,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-03-enos-strate-to-the-top/The.Dukes.Of.Hazzard_S03E03_Enos Strate To The Top.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-04-the-hazzardville-horror",
-     "seasonNumber": 3,
-     "episodeNumber": 4,
-     "title": "The Hazzardville Horror",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/48QwEABkgqRBRRpzTdhAUfQNs3f.jpg",
-     "airDate": "1980-11-07",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E04_The Hazzardville Horror.mp4",
-      "format": "h.264",
-      "sizeBytes": 275312368,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-04-the-hazzardville-horror/The.Dukes.Of.Hazzard_S03E04_The Hazzardville Horror.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-05-and-in-this-corner-luke-duke",
-     "seasonNumber": 3,
-     "episodeNumber": 5,
-     "title": "And in this Corner, Luke Duke",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/wbyuVgQbET65Ym21jBneWU4xc8x.jpg",
-     "airDate": "1980-11-14",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E05_And In This Corner, Luke Duke.mp4",
-      "format": "h.264",
-      "sizeBytes": 274771408,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-05-and-in-this-corner-luke-duke/The.Dukes.Of.Hazzard_S03E05_And In This Corner, Luke Duke.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-06-the-late-j.-d.-hogg",
-     "seasonNumber": 3,
-     "episodeNumber": 6,
-     "title": "The Late J.D. Hogg",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/2lUh8Io8mGTdZg8o4u1NHO3RS3H.jpg",
-     "airDate": "1980-11-21",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E06_The Late J.D. Hogg.mp4",
-      "format": "h.264",
-      "sizeBytes": 274852104,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-06-the-late-j.-d.-hogg/The.Dukes.Of.Hazzard_S03E06_The Late J.D. Hogg.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-07-uncle-boss",
-     "seasonNumber": 3,
-     "episodeNumber": 7,
-     "title": "Uncle Boss",
-     "overview": "Boss Hogg imports his nasty nephew to help him bag the Dukes.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/sCQXC1LXj4Px3WC7PRsyXg0Jn6t.jpg",
-     "airDate": "1980-11-28",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E07_Uncle Boss.mp4",
-      "format": "h.264",
-      "sizeBytes": 274541278,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-07-uncle-boss/The.Dukes.Of.Hazzard_S03E07_Uncle Boss.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-08-baa-baa-white-sheep",
-     "seasonNumber": 3,
-     "episodeNumber": 8,
-     "title": "Baa, Baa, White Sheep",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/3CW3dG8PzVx4h7sGvT8gRJXnuBa.jpg",
-     "airDate": "1980-12-05",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E08_Baa, Baa White Sheep.mp4",
-      "format": "h.264",
-      "sizeBytes": 275181276,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-08-baa-baa-white-sheep/The.Dukes.Of.Hazzard_S03E08_Baa, Baa White Sheep.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-09-mrs.-rosco-p.-coltrane",
-     "seasonNumber": 3,
-     "episodeNumber": 9,
-     "title": "Mrs. Rosco P. Coltrane",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/lhufrsXuiW7ReQfp9riaGVq9hN6.jpg",
-     "airDate": "1980-12-12",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E09_Mrs.Rosco P. Coltrane.mp4",
-      "format": "h.264",
-      "sizeBytes": 274052241,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-09-mrs.-rosco-p.-coltrane/The.Dukes.Of.Hazzard_S03E09_Mrs.Rosco P. Coltrane.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-10-the-great-santa-claus-chase",
-     "seasonNumber": 3,
-     "episodeNumber": 10,
-     "title": "The Great Santa Claus Chase",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/liIM8FfmBIBhVgWsnWMs0lOi9Jp.jpg",
-     "airDate": "1980-12-19",
-     "year": 1980,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E10_The Great Santa Claus Chase.mp4",
-      "format": "h.264",
-      "sizeBytes": 274962276,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-10-the-great-santa-claus-chase/The.Dukes.Of.Hazzard_S03E10_The Great Santa Claus Chase.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-11-good-neighbors-duke",
-     "seasonNumber": 3,
-     "episodeNumber": 11,
-     "title": "Good Neighbors, Duke",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/cYZcsPIsLMMQhBut25G9pove0R4.jpg",
-     "airDate": "1981-01-02",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E11_Good Neighbors Duke.mp4",
-      "format": "h.264",
-      "sizeBytes": 274531988,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-11-good-neighbors-duke/The.Dukes.Of.Hazzard_S03E11_Good Neighbors Duke.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-12-state-of-the-country",
-     "seasonNumber": 3,
-     "episodeNumber": 12,
-     "title": "State of the County",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/1VFNUPeAWVg6eOOFSVztFWDvWxx.jpg",
-     "airDate": "1981-01-09",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E12_State Of The Country.mp4",
-      "format": "h.264",
-      "sizeBytes": 274375714,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-12-state-of-the-country/The.Dukes.Of.Hazzard_S03E12_State Of The Country.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-13-the-legacy",
-     "seasonNumber": 3,
-     "episodeNumber": 13,
-     "title": "The Legacy",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/dK26PtVBhkN1AflAggqiZTwMNTH.jpg",
-     "airDate": "1981-01-16",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E13_The Legacy.mp4",
-      "format": "h.264",
-      "sizeBytes": 275081466,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-13-the-legacy/The.Dukes.Of.Hazzard_S03E13_The Legacy.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-14-duke-vs.-duke",
-     "seasonNumber": 3,
-     "episodeNumber": 14,
-     "title": "Duke vs. Duke",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/d1Oxq69k8qvzPiYGsaV2kllvNWF.jpg",
-     "airDate": "1981-01-23",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E14_Duke VS. Duke.mp4",
-      "format": "h.264",
-      "sizeBytes": 274691249,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-14-duke-vs.-duke/The.Dukes.Of.Hazzard_S03E14_Duke VS. Duke.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-15-my-son-bo-hogg",
-     "seasonNumber": 3,
-     "episodeNumber": 15,
-     "title": "My Son, Bo Hogg",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/erk0xHlWdHNLv8RRTiA2vVsPkcJ.jpg",
-     "airDate": "1981-01-30",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E15_My Son, Bo Hogg.mp4",
-      "format": "h.264",
-      "sizeBytes": 274651421,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-15-my-son-bo-hogg/The.Dukes.Of.Hazzard_S03E15_My Son, Bo Hogg.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-16-to-catch-a-duke",
-     "seasonNumber": 3,
-     "episodeNumber": 16,
-     "title": "To Catch a Duke",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/jpBSu4A9my353b7htm6d6uJAaSo.jpg",
-     "airDate": "1981-02-06",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E16_To Catch A Duke.mp4",
-      "format": "h.264",
-      "sizeBytes": 275171683,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-16-to-catch-a-duke/The.Dukes.Of.Hazzard_S03E16_To Catch A Duke.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-17-along-came-a-duke",
-     "seasonNumber": 3,
-     "episodeNumber": 17,
-     "title": "Along Came a Duke",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/2fb2Gi1YbN0ltz0Ukn7Z2FAJniY.jpg",
-     "airDate": "1981-02-13",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E17_Along Came A Duke.mp4",
-      "format": "h.264",
-      "sizeBytes": 274655503,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-17-along-came-a-duke/The.Dukes.Of.Hazzard_S03E17_Along Came A Duke.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-18-by-line-daisy-duke",
-     "seasonNumber": 3,
-     "episodeNumber": 18,
-     "title": "By-Line, Daisy Duke",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/6kWCHz4R1bg55COpIThmJGO6WwT.jpg",
-     "airDate": "1981-02-20",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E18_By-Line, Daisy Duke.mp4",
-      "format": "h.264",
-      "sizeBytes": 274071942,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-18-by-line-daisy-duke/The.Dukes.Of.Hazzard_S03E18_By-Line, Daisy Duke.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-19-the-return-of-hughie-hogg",
-     "seasonNumber": 3,
-     "episodeNumber": 19,
-     "title": "The Return of Hughie Hogg",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/c7PSef73Lv1nnJ32bj7yiFvNkBA.jpg",
-     "airDate": "1981-03-06",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E19_The Return Of Hughie Hogg.mp4",
-      "format": "h.264",
-      "sizeBytes": 274493605,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-19-the-return-of-hughie-hogg/The.Dukes.Of.Hazzard_S03E19_The Return Of Hughie Hogg.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-20-bye-bye-boss",
-     "seasonNumber": 3,
-     "episodeNumber": 20,
-     "title": "Bye, Bye, Boss",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/vZruGnAH4rHQghkzXuuDP3L0lom.jpg",
-     "airDate": "1981-03-13",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E20_Bye, Bye Boss.mp4",
-      "format": "h.264",
-      "sizeBytes": 274579662,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-20-bye-bye-boss/The.Dukes.Of.Hazzard_S03E20_Bye, Bye Boss.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-21-the-great-hazzard-hijack",
-     "seasonNumber": 3,
-     "episodeNumber": 21,
-     "title": "The Great Hazzard Hijack",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/gDIBpAadVONEZT7izRx5EkLhvay.jpg",
-     "airDate": "1981-03-27",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E21_The Great Hazzard Hijack.mp4",
-      "format": "h.264",
-      "sizeBytes": 274610932,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-21-the-great-hazzard-hijack/The.Dukes.Of.Hazzard_S03E21_The Great Hazzard Hijack.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-22-the-hack-of-hazzard",
-     "seasonNumber": 3,
-     "episodeNumber": 22,
-     "title": "The Hack of Hazzard",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/2M3ODzfIbD3crVFlbTsFmhXtdYS.jpg",
-     "airDate": "1981-04-03",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E22_The Hack Of Hazzard.mp4",
-      "format": "h.264",
-      "sizeBytes": 274326497,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-22-the-hack-of-hazzard/The.Dukes.Of.Hazzard_S03E22_The Hack Of Hazzard.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-03-e-23-the-canterbury-crock",
-     "seasonNumber": 3,
-     "episodeNumber": 23,
-     "title": "The Canterbury Crock",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/n1sgVxvfSiyYRtjn0oXNjZT0zQF.jpg",
-     "airDate": "1981-04-10",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S03E23_The Canterbury Crock.mp4",
-      "format": "h.264",
-      "sizeBytes": 274679902,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-03-e-23-the-canterbury-crock/The.Dukes.Of.Hazzard_S03E23_The Canterbury Crock.mp4"
-    }
-   ]
-  },
-  {
-   "seasonNumber": 4,
-   "episodes": [
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-01-mrs.-daisy-hogg",
-     "seasonNumber": 4,
-     "episodeNumber": 1,
-     "title": "Mrs. Daisy Hogg",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/9Fxr80BotXFHPh9I4xqmhoNZKfn.jpg",
-     "airDate": "1981-10-09",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E01_Mrs. Daisy Hogg.mp4",
-      "format": "h.264",
-      "sizeBytes": 269563670,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-01-mrs.-daisy-hogg/The.Dukes.Of.Hazzard_S04E01_Mrs. Daisy Hogg.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-02-double-dukes",
-     "seasonNumber": 4,
-     "episodeNumber": 2,
-     "title": "Double Dukes",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/lN1mz5SeVmZ9Mbq1t6BoYx7hx1r.jpg",
-     "airDate": "1981-10-16",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E02_Double Dukes.mp4",
-      "format": "h.264",
-      "sizeBytes": 269398234,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-02-double-dukes/The.Dukes.Of.Hazzard_S04E02_Double Dukes.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-03-diamons-in-the-rough",
-     "seasonNumber": 4,
-     "episodeNumber": 3,
-     "title": "Diamonds in the Rough",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/3o7z3usrv2ocb9vUbbPdt46fnXD.jpg",
-     "airDate": "1981-10-23",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E03_Diamons In The Rough.mp4",
-      "format": "h.264",
-      "sizeBytes": 269351800,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-03-diamons-in-the-rough/The.Dukes.Of.Hazzard_S04E03_Diamons In The Rough.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-04-coltrane-vs.-duke",
-     "seasonNumber": 4,
-     "episodeNumber": 4,
-     "title": "Coltrane vs. Duke",
-     "overview": "The Dukes are sued by Roscoe Coltrane after the sheriff alleges that they caused him personal injury. The lawsuit could force the Dukes to sell their farm.",
-     "stillURL": "https://image.tmdb.org/t/p/w300/qImp30VD5cakoHUJSEzZfAQ62p0.jpg",
-     "airDate": "1981-10-30",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E04_Coltrane vs. Duke.mp4",
-      "format": "h.264",
-      "sizeBytes": 269765060,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-04-coltrane-vs.-duke/The.Dukes.Of.Hazzard_S04E04_Coltrane vs. Duke.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-05-the-fugitive",
-     "seasonNumber": 4,
-     "episodeNumber": 5,
-     "title": "The Fugitive",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/eTnErGm3pgnhHObmr3i9hHk5CKG.jpg",
-     "airDate": "1981-11-03",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E05_The Fugitive.mp4",
-      "format": "h.264",
-      "sizeBytes": 273043747,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-05-the-fugitive/The.Dukes.Of.Hazzard_S04E05_The Fugitive.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-06-the-great-bank-robbery",
-     "seasonNumber": 4,
-     "episodeNumber": 6,
-     "title": "The Great Bank Robbery",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/1FVi4KhsjaO1CUZi51Z36aMx3ru.jpg",
-     "airDate": "1981-11-06",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E06_The Great Bank Robbery.mp4",
-      "format": "h.264",
-      "sizeBytes": 269759645,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-06-the-great-bank-robbery/The.Dukes.Of.Hazzard_S04E06_The Great Bank Robbery.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-07-sadie-hogg-day",
-     "seasonNumber": 4,
-     "episodeNumber": 7,
-     "title": "Sadie Hogg Day",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/9XVnW8rVUOevi0hIaq5zuoGM0sy.jpg",
-     "airDate": "1981-11-13",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E07_Sadie Hogg Day.mp4",
-      "format": "h.264",
-      "sizeBytes": 269759531,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-07-sadie-hogg-day/The.Dukes.Of.Hazzard_S04E07_Sadie Hogg Day.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-08-10-million-dollar-sheriff-part-1",
-     "seasonNumber": 4,
-     "episodeNumber": 8,
-     "title": "10 Million Dollar Sheriff (1)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/9wIPfOXAif63bZA0tydlSpM9x3A.jpg",
-     "airDate": "1981-11-20",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E08_10 Million Dollar Sheriff Part 1.mp4",
-      "format": "h.264",
-      "sizeBytes": 286709298,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-08-10-million-dollar-sheriff-part-1/The.Dukes.Of.Hazzard_S04E08_10 Million Dollar Sheriff Part 1.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-09-10-million-dollar-sheriff-part-2",
-     "seasonNumber": 4,
-     "episodeNumber": 9,
-     "title": "10 Million Dollar Sheriff (2)",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/9iGlW4AQctfsX4tLf2tXScdpLtg.jpg",
-     "airDate": "1981-11-20",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E09_10 Million Dollar Sheriff Part 2.mp4",
-      "format": "h.264",
-      "sizeBytes": 266279395,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-09-10-million-dollar-sheriff-part-2/The.Dukes.Of.Hazzard_S04E09_10 Million Dollar Sheriff Part 2.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-10-trouble-at-cooters",
-     "seasonNumber": 4,
-     "episodeNumber": 10,
-     "title": "Trouble at Cooter's",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/ri3j3b5ZbRmh6YlCGUWTwM42d23.jpg",
-     "airDate": "1981-11-27",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E10_Trouble At Cooter's.mp4",
-      "format": "h.264",
-      "sizeBytes": 269976598,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-10-trouble-at-cooters/The.Dukes.Of.Hazzard_S04E10_Trouble At Cooter's.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-11-goodbye-general-lee",
-     "seasonNumber": 4,
-     "episodeNumber": 11,
-     "title": "Goodbye, General Lee",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/zjxYskcJyHxiyL2o80QUr4D348w.jpg",
-     "airDate": "1981-12-04",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E11_Goodbye, General Lee.mp4",
-      "format": "h.264",
-      "sizeBytes": 269730093,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-11-goodbye-general-lee/The.Dukes.Of.Hazzard_S04E11_Goodbye, General Lee.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-12-cletus-falls-in-love",
-     "seasonNumber": 4,
-     "episodeNumber": 12,
-     "title": "Cletus Falls in Love",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/3LttRWmuZodecOPA8HGF8iKTlrk.jpg",
-     "airDate": "1981-12-11",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E12_Cletus Falls In Love.mp4",
-      "format": "h.264",
-      "sizeBytes": 270118594,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-12-cletus-falls-in-love/The.Dukes.Of.Hazzard_S04E12_Cletus Falls In Love.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-13-hughie-hogg-strikes-again",
-     "seasonNumber": 4,
-     "episodeNumber": 13,
-     "title": "Hughie Hogg Strikes Again",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/a8unWiBGOgMPQPSGUqoh4b8kLXk.jpg",
-     "airDate": "1981-12-18",
-     "year": 1981,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E13_Hughie Hogg Strikes Again.mp4",
-      "format": "h.264",
-      "sizeBytes": 269171840,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-13-hughie-hogg-strikes-again/The.Dukes.Of.Hazzard_S04E13_Hughie Hogg Strikes Again.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-14-the-dukescam-scam",
-     "seasonNumber": 4,
-     "episodeNumber": 14,
-     "title": "Dukescam Scam",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/hxNQNJe0Degvln5TOnUCk9bx0hh.jpg",
-     "airDate": "1982-01-01",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E14_The Dukescam Scam.mp4",
-      "format": "h.264",
-      "sizeBytes": 273270516,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-14-the-dukescam-scam/The.Dukes.Of.Hazzard_S04E14_The Dukescam Scam.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-15-the-sound-of-music-hazzard-style",
-     "seasonNumber": 4,
-     "episodeNumber": 15,
-     "title": "The Sound of Music - Hazzard Style",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/wSL5jYfU020o5fKFuq37ssgzPAh.jpg",
-     "airDate": "1982-01-08",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E15_The Sound Of Music Hazzard Style.mp4",
-      "format": "h.264",
-      "sizeBytes": 269226450,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-15-the-sound-of-music-hazzard-style/The.Dukes.Of.Hazzard_S04E15_The Sound Of Music Hazzard Style.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-16-shine-on-hazzard-moon",
-     "seasonNumber": 4,
-     "episodeNumber": 16,
-     "title": "Shine on Hazzard Moon",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/p3xp9rjnnUoOp1PTpR2tBsFSsRA.jpg",
-     "airDate": "1982-01-15",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E16_Shine On Hazzard Moon.mp4",
-      "format": "h.264",
-      "sizeBytes": 269485964,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-16-shine-on-hazzard-moon/The.Dukes.Of.Hazzard_S04E16_Shine On Hazzard Moon.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-17-pin-the-tail-on-the-dukes",
-     "seasonNumber": 4,
-     "episodeNumber": 17,
-     "title": "Pin the Tail on the Dukes",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/sEnLKELdsmoNFf4TcGjB5gKjATh.jpg",
-     "airDate": "1982-01-22",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E17_Pin The Tail On The Dukes.mp4",
-      "format": "h.264",
-      "sizeBytes": 269307544,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-17-pin-the-tail-on-the-dukes/The.Dukes.Of.Hazzard_S04E17_Pin The Tail On The Dukes.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-18-miz-tisdale-on-the-lam",
-     "seasonNumber": 4,
-     "episodeNumber": 18,
-     "title": "Miz Tisdale on the Lam",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/4uWik5QNHZB9XSlUveO9onS7XfL.jpg",
-     "airDate": "1982-01-29",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E18_Miz Tisdale On The Lam.mp4",
-      "format": "h.264",
-      "sizeBytes": 269307843,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-18-miz-tisdale-on-the-lam/The.Dukes.Of.Hazzard_S04E18_Miz Tisdale On The Lam.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-19-nothin-but-the-truth",
-     "seasonNumber": 4,
-     "episodeNumber": 19,
-     "title": "Nothin' But the Truth",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/rlWQVGo3AOwGUa4yqhVGuPuASN1.jpg",
-     "airDate": "1982-02-05",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E19_Nothin' But The Truth.mp4",
-      "format": "h.264",
-      "sizeBytes": 269467930,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-19-nothin-but-the-truth/The.Dukes.Of.Hazzard_S04E19_Nothin' But The Truth.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-20-dear-diary",
-     "seasonNumber": 4,
-     "episodeNumber": 20,
-     "title": "Dear Diary",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/t6BYJ7pd40ujICgTgTIcB2eN7Sb.jpg",
-     "airDate": "1982-02-12",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E20_Dear Diary.mp4",
-      "format": "h.264",
-      "sizeBytes": 268591727,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-20-dear-diary/The.Dukes.Of.Hazzard_S04E20_Dear Diary.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-21-new-deputy-in-town",
-     "seasonNumber": 4,
-     "episodeNumber": 21,
-     "title": "New Deputy in Town",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/lA0kfJQjiODapDNtSfHkGWbyFyX.jpg",
-     "airDate": "1982-02-19",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E21_New Deputy In Town.mp4",
-      "format": "h.264",
-      "sizeBytes": 269380209,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-21-new-deputy-in-town/The.Dukes.Of.Hazzard_S04E21_New Deputy In Town.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-22-birds-gotta-fly",
-     "seasonNumber": 4,
-     "episodeNumber": 22,
-     "title": "Birds Gotta Fly",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/pF2qKNb3S2tYlHuOf55VAWNQLHQ.jpg",
-     "airDate": "1982-02-26",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E22_Birds Gotta Fly.mp4",
-      "format": "h.264",
-      "sizeBytes": 269334521,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-22-birds-gotta-fly/The.Dukes.Of.Hazzard_S04E22_Birds Gotta Fly.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-23-bad-day-in-hazzard",
-     "seasonNumber": 4,
-     "episodeNumber": 23,
-     "title": "Bad Day in Hazzard",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/oK2OdIaNp4LkuZbZf8ZYeRe5BZD.jpg",
-     "airDate": "1982-03-05",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E23_Bad Day In Hazzard.mp4",
-      "format": "h.264",
-      "sizeBytes": 269637498,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-23-bad-day-in-hazzard/The.Dukes.Of.Hazzard_S04E23_Bad Day In Hazzard.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-24-miss-tri-counties",
-     "seasonNumber": 4,
-     "episodeNumber": 24,
-     "title": "Miss Tri-Counties",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/8rhMuwkC53ZoFD7FPixG1Zg3frm.jpg",
-     "airDate": "1982-03-12",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E24_Miss Tri-Counties.mp4",
-      "format": "h.264",
-      "sizeBytes": 269007945,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-24-miss-tri-counties/The.Dukes.Of.Hazzard_S04E24_Miss Tri-Counties.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-25-share-and-share-alike",
-     "seasonNumber": 4,
-     "episodeNumber": 25,
-     "title": "Share and Share Alike",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/rGhB6awEFh81UWBwpDBdI8sablG.jpg",
-     "airDate": "1982-03-19",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E25_Share And Share Alike.mp4",
-      "format": "h.264",
-      "sizeBytes": 268938902,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-25-share-and-share-alike/The.Dukes.Of.Hazzard_S04E25_Share And Share Alike.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-26-the-law-and-jesse-duke",
-     "seasonNumber": 4,
-     "episodeNumber": 26,
-     "title": "The Law and Jesse Duke",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/3WvGl2d0heQUswJriPRbOQSl65q.jpg",
-     "airDate": "1982-03-26",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E26_The Law And Jesse Duke.mp4",
-      "format": "h.264",
-      "sizeBytes": 269408678,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-26-the-law-and-jesse-duke/The.Dukes.Of.Hazzard_S04E26_The Law And Jesse Duke.mp4"
-    },
-    {
-     "archiveID": "the.-dukes.-of.-hazzard-s-04-e-27-dukes-in-danger",
-     "seasonNumber": 4,
-     "episodeNumber": 27,
-     "title": "Dukes in Danger",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w300/eaWKvY0NB3qX2TFJPfAiEDadYvt.jpg",
-     "airDate": "1982-04-02",
-     "year": 1982,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "The.Dukes.Of.Hazzard_S04E27_Dukes In Danger.mp4",
-      "format": "h.264",
-      "sizeBytes": 268898298,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the.-dukes.-of.-hazzard-s-04-e-27-dukes-in-danger/The.Dukes.Of.Hazzard_S04E27_Dukes In Danger.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 86,
- "canonicalEpisodesCount": 147
+  ]
 }

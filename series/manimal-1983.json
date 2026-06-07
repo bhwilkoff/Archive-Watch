@@ -46,5 +46,37 @@
   "canonicalEpisodesCount": 8,
   "seriesImdbID": "tt0085051",
   "canonicalEpisodeCount": 4,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Glynn Turman",
+      "character": "Tyrone \"Ty\" Earl",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/8677.jpg"
+    },
+    {
+      "name": "Michael D. Roberts",
+      "character": "Tyrone \"Ty\" Earl",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/43/108905.jpg"
+    },
+    {
+      "name": "Melody Anderson",
+      "character": "Detective Brooke McKenzie",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/263/658534.jpg"
+    },
+    {
+      "name": "Simon MacCorkindale",
+      "character": "Jonathan Chase",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/35424.jpg"
+    },
+    {
+      "name": "Reni Santoni",
+      "character": "Lt. Rivera",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/527/1318502.jpg"
+    }
+  ]
 }

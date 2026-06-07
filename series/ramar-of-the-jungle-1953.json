@@ -158,5 +158,13 @@
   "canonicalEpisodesCount": 52,
   "seriesImdbID": "tt0044289",
   "canonicalEpisodeCount": 38,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Jon Hall",
+      "character": "Dr. Tom 'Ramar' Reynolds",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/398/996004.jpg"
+    }
+  ]
 }

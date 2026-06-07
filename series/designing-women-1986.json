@@ -1,405 +1,461 @@
 {
- "version": 2,
- "seriesID": "designing-women-1986",
- "tvmazeID": 7243,
- "title": "Designing Women",
- "yearStart": 1986,
- "yearEnd": 1993,
- "overview": "Julia Sugarbaker, Mary Jo Shively, Charlene Frazier-Stillfield, and Suzanne Sugarbaker are associates at their design firm, Sugarbaker and Associates. Julia is the owner of and is very outspoken and strong-willed. Mary Jo Shively is a divorced single-parent who is just as strong-willed as Julia, but isn't as self-confident. Charlene is a naive and trusting farm girl from Poplar Bluff, Missouri. Suzanne Sugarbaker is a self-centered ex-beauty queen who has a number of wealthy ex-husbands.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/206/515181.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "designing-women-1986",
+  "tvmazeID": 7243,
+  "title": "Designing Women",
+  "yearStart": 1986,
+  "yearEnd": 1993,
+  "overview": "Julia Sugarbaker, Mary Jo Shively, Charlene Frazier-Stillfield, and Suzanne Sugarbaker are associates at their design firm, Sugarbaker and Associates. Julia is the owner of and is very outspoken and strong-willed. Mary Jo Shively is a divorced single-parent who is just as strong-willed as Julia, but isn't as self-confident. Charlene is a naive and trusting farm girl from Poplar Bluff, Missouri. Suzanne Sugarbaker is a self-centered ex-beauty queen who has a number of wealthy ex-husbands.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/206/515181.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "designing-women-S01E01",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Designing Women",
-     "overview": "Suzanne shocks her co-workers when she begins dating Mary Jo's ex-husband.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524133.jpg",
-     "airDate": "1986-09-29",
-     "year": 1986,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E01.mp4",
-      "format": "h.264",
-      "sizeBytes": 140787900,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E01/Designing Women S01E01.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E02",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "The Beauty Contest",
-     "overview": "Suzanne's substantial beauty contest expertise rises to the fore with surprising results when Charlene sponsors Mary Jo's daughter in the Miss Pre-Teen Atlanta Contest.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524135.jpg",
-     "airDate": "1986-10-06",
-     "year": 1986,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E02.mp4",
-      "format": "h.264",
-      "sizeBytes": 136001708,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E02/Designing Women S01E02.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E03",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "A Big Affair",
-     "overview": "Suzanne's intimate dinner party, planned to impress an important client, goes awry before it begins when she arranges a date between a more-than-hefty man and a reluc-tant Charlene.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524136.jpg",
-     "airDate": "1986-10-20",
-     "year": 1986,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E03.mp4",
-      "format": "h.264",
-      "sizeBytes": 138514231,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E03/Designing Women S01E03.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E04",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Julia's Son",
-     "overview": "When Julia's nineteen-year-old son brings his girlfriend home from college, diplomacy becomes impossible when Julia finds that the girl is a forty-year-old professor.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524137.jpg",
-     "airDate": "1986-10-27",
-     "year": 1986,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E04.mp4",
-      "format": "h.264",
-      "sizeBytes": 137892147,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E04/Designing Women S01E04.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E05",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Mary Jo's First Date",
-     "overview": "Concerned that Mary Jo is not having any fun since her divorce, Suzanne arranges a blind date for her with an old acquaintance, while Julia tries to get through an I. R. S. audit with a man she verbally abused when he tried to pick up the women.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524138.jpg",
-     "airDate": "1986-11-03",
-     "year": 1986,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E05.mp4",
-      "format": "h.264",
-      "sizeBytes": 135964891,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E05/Designing Women S01E05.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E06",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Design House",
-     "overview": "Suzanne is tired of her image as front bimbo for Sugarbaker's and wants to be a dec-orator. But she gets discouraged when her first design project burns to the ground.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524140.jpg",
-     "airDate": "1986-11-17",
-     "year": 1986,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E06.mp4",
-      "format": "h.264",
-      "sizeBytes": 137364444,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E06/Designing Women S01E06.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E07",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Perky's Visit",
-     "overview": "Julia and Suzanne's mother arrives with a friend hoping to escape the dull routine of their retirement home by visiting Sugarbakers for Thanksgiving and they find more excitement than they had ever hoped.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524134.jpg",
-     "airDate": "1986-11-24",
-     "year": 1986,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E07.mp4",
-      "format": "h.264",
-      "sizeBytes": 142265812,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E07/Designing Women S01E07.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E08",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "I Do, I Don't",
-     "overview": "Julia and her current beau go out for a celebratory dinner and on a whim decide to get married. The next morning finds Julia wanting to get out of the marriage until Reese shows up with the annulment papers.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524141.jpg",
-     "airDate": "1986-12-04",
-     "year": 1986,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E08.mp4",
-      "format": "h.264",
-      "sizeBytes": 136160360,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E08/Designing Women S01E08.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E09",
-     "seasonNumber": 1,
-     "episodeNumber": 9,
-     "title": "The IT Men",
-     "overview": "Although Charlene still has a relationship with Mason, she begins dating another man. Unfortunately, unknown to Charlene, her new boyfriend is married.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524143.jpg",
-     "airDate": "1986-12-04",
-     "year": 1986,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E09.mp4",
-      "format": "h.264",
-      "sizeBytes": 137926255,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E09/Designing Women S01E09.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E10",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "The Slumber Party",
-     "overview": "When Suzanne has a voodoo death curse placed on her by her maid, she convinces Julia, Charlene and Mary Jo to spend the night with her so she won't die alone.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524144.jpg",
-     "airDate": "1986-12-18",
-     "year": 1986,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E10.mp4",
-      "format": "h.264",
-      "sizeBytes": 134731295,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E10/Designing Women S01E10.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E11",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "New Year's Daze",
-     "overview": "Gala Plans for a New Year's Eve celebration bite the dust when it seems that Charlene's date is the \"armed and dangerous\" prison escapee Shadow.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524145.jpg",
-     "airDate": "1987-01-01",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E11.mp4",
-      "format": "h.264",
-      "sizeBytes": 139365372,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E11/Designing Women S01E11.mp4"
-    },
-    {
-     "archiveID": "designing-women-s01e12e13",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "Old Spouses Never Die (1)",
-     "overview": "Mary Jo finds the road to romance more than usually rocky and Charlene receives dis-turbing medical news.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524146.jpg",
-     "airDate": "1987-02-01",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E12+13.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 441060715,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-s01e12e13/Designing Women S01E12+13.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E14",
-     "seasonNumber": 1,
-     "episodeNumber": 14,
-     "title": "Monette",
-     "overview": "A dilemma faces Sugarbaker's when they ponder the morality of their latest -- and most lucrative -- client.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524148.jpg",
-     "airDate": "1987-02-08",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E14.mp4",
-      "format": "h.264",
-      "sizeBytes": 146943190,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E14/Designing Women S01E14.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E15",
-     "seasonNumber": 1,
-     "episodeNumber": 15,
-     "title": "And Justice for Paul",
-     "overview": "The women of Sugarbaker's are delighted to pick up sane authentic antique furniture at bargain prices until they wind up in jail for buying stolen furniture.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524149.jpg",
-     "airDate": "1987-02-15",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E15.mp4",
-      "format": "h.264",
-      "sizeBytes": 143662113,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E15/Designing Women S01E15.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E16",
-     "seasonNumber": 1,
-     "episodeNumber": 16,
-     "title": "Reese's Friend",
-     "overview": "Jealousy takes a giant step forward when Julia assumes her friend Reese is overly pre-occupied with the beautiful new attorney in his law office.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524150.jpg",
-     "airDate": "1987-02-22",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E16.mp4",
-      "format": "h.264",
-      "sizeBytes": 135717779,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E16/Designing Women S01E16.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E17",
-     "seasonNumber": 1,
-     "episodeNumber": 17,
-     "title": "Nashville Bound",
-     "overview": "A chance meeting with a hot-shot promoter at a party convinces Charlene that she will be the next big Nashville music star.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524152.jpg",
-     "airDate": "1987-03-16",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E17.mp4",
-      "format": "h.264",
-      "sizeBytes": 135624891,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E17/Designing Women S01E17.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E18",
-     "seasonNumber": 1,
-     "episodeNumber": 18,
-     "title": "Oh, Suzannah",
-     "overview": "Suzanne brings a new meaning to mother love when she agrees to become a temporary foster mother.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524153.jpg",
-     "airDate": "1987-03-23",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E18.mp4",
-      "format": "h.264",
-      "sizeBytes": 138025640,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E18/Designing Women S01E18.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E19",
-     "seasonNumber": 1,
-     "episodeNumber": 19,
-     "title": "Mary Jo's Dad Dates Charlene",
-     "overview": "When Mary Jo's father arrives in Atlanta for a visit and takes a fancy to Charlene, Mary Jo's imagination goes wild.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524154.jpg",
-     "airDate": "1987-04-06",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E19.mp4",
-      "format": "h.264",
-      "sizeBytes": 135869191,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E19/Designing Women S01E19.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E20",
-     "seasonNumber": 1,
-     "episodeNumber": 20,
-     "title": "Seams from a Marriage",
-     "overview": "Integrity and values are tested when Sugarbaker's acquires a flamboyant, spendthrift couple as their latest client.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524155.jpg",
-     "airDate": "1987-04-13",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "A1 t02.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 216095262,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E20/A1 t02.mp4"
-    },
-    {
-     "archiveID": "designing-women-s01e21",
-     "seasonNumber": 1,
-     "episodeNumber": 21,
-     "title": "Grand Slam, Thank You Ma'am",
-     "overview": "When Suzannes ex-husband, pro baseball player Jack Dent, writes his autobiography detailing his off-the-field activities, she decides to get even and play hardball herself .",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524156.jpg",
-     "airDate": "1987-05-04",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E21.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 220275827,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-s01e21/Designing Women S01E21.mp4"
-    },
-    {
-     "archiveID": "designing-women-S01E22",
-     "seasonNumber": 1,
-     "episodeNumber": 22,
-     "title": "Bachelor Suite",
-     "overview": "Sexual harassment becomes the order of the day when Mary Jo is subjected to special attention and pressure from a wealthy client.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524157.jpg",
-     "airDate": "1987-05-11",
-     "year": 1987,
-     "runtimeSeconds": 1800,
-     "videoFile": {
-      "name": "Designing Women S01E22.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 226756704,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/designing-women-S01E22/Designing Women S01E22.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "designing-women-S01E01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Designing Women",
+          "overview": "Suzanne shocks her co-workers when she begins dating Mary Jo's ex-husband.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524133.jpg",
+          "airDate": "1986-09-29",
+          "year": 1986,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E01.mp4",
+            "format": "h.264",
+            "sizeBytes": 140787900,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E01/Designing Women S01E01.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Beauty Contest",
+          "overview": "Suzanne's substantial beauty contest expertise rises to the fore with surprising results when Charlene sponsors Mary Jo's daughter in the Miss Pre-Teen Atlanta Contest.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524135.jpg",
+          "airDate": "1986-10-06",
+          "year": 1986,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E02.mp4",
+            "format": "h.264",
+            "sizeBytes": 136001708,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E02/Designing Women S01E02.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "A Big Affair",
+          "overview": "Suzanne's intimate dinner party, planned to impress an important client, goes awry before it begins when she arranges a date between a more-than-hefty man and a reluc-tant Charlene.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524136.jpg",
+          "airDate": "1986-10-20",
+          "year": 1986,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E03.mp4",
+            "format": "h.264",
+            "sizeBytes": 138514231,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E03/Designing Women S01E03.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Julia's Son",
+          "overview": "When Julia's nineteen-year-old son brings his girlfriend home from college, diplomacy becomes impossible when Julia finds that the girl is a forty-year-old professor.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524137.jpg",
+          "airDate": "1986-10-27",
+          "year": 1986,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E04.mp4",
+            "format": "h.264",
+            "sizeBytes": 137892147,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E04/Designing Women S01E04.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Mary Jo's First Date",
+          "overview": "Concerned that Mary Jo is not having any fun since her divorce, Suzanne arranges a blind date for her with an old acquaintance, while Julia tries to get through an I. R. S. audit with a man she verbally abused when he tried to pick up the women.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524138.jpg",
+          "airDate": "1986-11-03",
+          "year": 1986,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E05.mp4",
+            "format": "h.264",
+            "sizeBytes": 135964891,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E05/Designing Women S01E05.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Design House",
+          "overview": "Suzanne is tired of her image as front bimbo for Sugarbaker's and wants to be a dec-orator. But she gets discouraged when her first design project burns to the ground.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524140.jpg",
+          "airDate": "1986-11-17",
+          "year": 1986,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E06.mp4",
+            "format": "h.264",
+            "sizeBytes": 137364444,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E06/Designing Women S01E06.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E07",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Perky's Visit",
+          "overview": "Julia and Suzanne's mother arrives with a friend hoping to escape the dull routine of their retirement home by visiting Sugarbakers for Thanksgiving and they find more excitement than they had ever hoped.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524134.jpg",
+          "airDate": "1986-11-24",
+          "year": 1986,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E07.mp4",
+            "format": "h.264",
+            "sizeBytes": 142265812,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E07/Designing Women S01E07.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E08",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "I Do, I Don't",
+          "overview": "Julia and her current beau go out for a celebratory dinner and on a whim decide to get married. The next morning finds Julia wanting to get out of the marriage until Reese shows up with the annulment papers.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524141.jpg",
+          "airDate": "1986-12-04",
+          "year": 1986,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E08.mp4",
+            "format": "h.264",
+            "sizeBytes": 136160360,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E08/Designing Women S01E08.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E09",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The IT Men",
+          "overview": "Although Charlene still has a relationship with Mason, she begins dating another man. Unfortunately, unknown to Charlene, her new boyfriend is married.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524143.jpg",
+          "airDate": "1986-12-04",
+          "year": 1986,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E09.mp4",
+            "format": "h.264",
+            "sizeBytes": 137926255,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E09/Designing Women S01E09.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E10",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Slumber Party",
+          "overview": "When Suzanne has a voodoo death curse placed on her by her maid, she convinces Julia, Charlene and Mary Jo to spend the night with her so she won't die alone.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524144.jpg",
+          "airDate": "1986-12-18",
+          "year": 1986,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E10.mp4",
+            "format": "h.264",
+            "sizeBytes": 134731295,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E10/Designing Women S01E10.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "New Year's Daze",
+          "overview": "Gala Plans for a New Year's Eve celebration bite the dust when it seems that Charlene's date is the \"armed and dangerous\" prison escapee Shadow.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524145.jpg",
+          "airDate": "1987-01-01",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E11.mp4",
+            "format": "h.264",
+            "sizeBytes": 139365372,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E11/Designing Women S01E11.mp4"
+        },
+        {
+          "archiveID": "designing-women-s01e12e13",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Old Spouses Never Die (1)",
+          "overview": "Mary Jo finds the road to romance more than usually rocky and Charlene receives dis-turbing medical news.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524146.jpg",
+          "airDate": "1987-02-01",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E12+13.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 441060715,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-s01e12e13/Designing Women S01E12+13.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E14",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Monette",
+          "overview": "A dilemma faces Sugarbaker's when they ponder the morality of their latest -- and most lucrative -- client.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524148.jpg",
+          "airDate": "1987-02-08",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E14.mp4",
+            "format": "h.264",
+            "sizeBytes": 146943190,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E14/Designing Women S01E14.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E15",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "And Justice for Paul",
+          "overview": "The women of Sugarbaker's are delighted to pick up sane authentic antique furniture at bargain prices until they wind up in jail for buying stolen furniture.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524149.jpg",
+          "airDate": "1987-02-15",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E15.mp4",
+            "format": "h.264",
+            "sizeBytes": 143662113,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E15/Designing Women S01E15.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E16",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Reese's Friend",
+          "overview": "Jealousy takes a giant step forward when Julia assumes her friend Reese is overly pre-occupied with the beautiful new attorney in his law office.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524150.jpg",
+          "airDate": "1987-02-22",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E16.mp4",
+            "format": "h.264",
+            "sizeBytes": 135717779,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E16/Designing Women S01E16.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E17",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Nashville Bound",
+          "overview": "A chance meeting with a hot-shot promoter at a party convinces Charlene that she will be the next big Nashville music star.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524152.jpg",
+          "airDate": "1987-03-16",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E17.mp4",
+            "format": "h.264",
+            "sizeBytes": 135624891,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E17/Designing Women S01E17.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E18",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Oh, Suzannah",
+          "overview": "Suzanne brings a new meaning to mother love when she agrees to become a temporary foster mother.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524153.jpg",
+          "airDate": "1987-03-23",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E18.mp4",
+            "format": "h.264",
+            "sizeBytes": 138025640,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E18/Designing Women S01E18.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E19",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Mary Jo's Dad Dates Charlene",
+          "overview": "When Mary Jo's father arrives in Atlanta for a visit and takes a fancy to Charlene, Mary Jo's imagination goes wild.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524154.jpg",
+          "airDate": "1987-04-06",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E19.mp4",
+            "format": "h.264",
+            "sizeBytes": 135869191,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E19/Designing Women S01E19.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E20",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Seams from a Marriage",
+          "overview": "Integrity and values are tested when Sugarbaker's acquires a flamboyant, spendthrift couple as their latest client.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524155.jpg",
+          "airDate": "1987-04-13",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "A1 t02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 216095262,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E20/A1 t02.mp4"
+        },
+        {
+          "archiveID": "designing-women-s01e21",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Grand Slam, Thank You Ma'am",
+          "overview": "When Suzannes ex-husband, pro baseball player Jack Dent, writes his autobiography detailing his off-the-field activities, she decides to get even and play hardball herself .",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524156.jpg",
+          "airDate": "1987-05-04",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E21.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 220275827,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-s01e21/Designing Women S01E21.mp4"
+        },
+        {
+          "archiveID": "designing-women-S01E22",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Bachelor Suite",
+          "overview": "Sexual harassment becomes the order of the day when Mary Jo is subjected to special attention and pressure from a wealthy client.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/209/524157.jpg",
+          "airDate": "1987-05-11",
+          "year": 1987,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Designing Women S01E22.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 226756704,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/designing-women-S01E22/Designing Women S01E22.mp4"
+        }
+      ]
     }
-   ]
-  }
- ],
- "episodesCount": 21,
- "canonicalEpisodesCount": 163
+  ],
+  "episodesCount": 21,
+  "canonicalEpisodesCount": 163,
+  "cast": [
+    {
+      "name": "Annie Potts",
+      "character": "Mary Jo Shively",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/501/1253695.jpg"
+    },
+    {
+      "name": "Dixie Carter",
+      "character": "Julia Sugarbaker",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/96/240325.jpg"
+    },
+    {
+      "name": "Delta Burke",
+      "character": "Suzanne Sugarbaker",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/89/224892.jpg"
+    },
+    {
+      "name": "Jean Smart",
+      "character": "Charlene Frazier",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/550/1377438.jpg"
+    },
+    {
+      "name": "Meshach Taylor",
+      "character": "Anthony Bouvier",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71472.jpg"
+    },
+    {
+      "name": "Jan Hooks",
+      "character": "Carlene Frazier",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71754.jpg"
+    },
+    {
+      "name": "Alice Ghostley",
+      "character": "Bernice Clifton",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/609/1524079.jpg"
+    },
+    {
+      "name": "Judith Ivey",
+      "character": "B.J. Poteet",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/1/2993.jpg"
+    },
+    {
+      "name": "Julia Duffy",
+      "character": "Allison Sugarbaker",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/8/22188.jpg"
+    }
+  ]
 }

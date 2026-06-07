@@ -46,5 +46,49 @@
   "canonicalEpisodesCount": 26,
   "seriesImdbID": "tt0101190",
   "canonicalEpisodeCount": 9,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Blake Soper",
+      "character": "Ronny Pinsky",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/32/82346.jpg"
+    },
+    {
+      "name": "Danny Cooksey",
+      "character": "Bobby Budnick",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/492/1232018.jpg"
+    },
+    {
+      "name": "Heidi Lucas",
+      "character": "Dina Alexander",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Megan Berwick",
+      "character": "Z.Z. Ziff",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Michael Bower",
+      "character": "Eddie 'Donkeylips' Gelfen",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/39/99621.jpg"
+    },
+    {
+      "name": "Kirk Baily",
+      "character": "Kevin 'Ug' Lee",
+      "order": 5,
+      "profilePath": "/h2jB1FXZvCPiqkGGSf4l1jKKEwI.jpg"
+    },
+    {
+      "name": "Erin MacArthur",
+      "character": "Michael Stein",
+      "order": 6,
+      "profilePath": null
+    }
+  ]
 }

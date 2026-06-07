@@ -203,5 +203,55 @@
   "canonicalEpisodesCount": 13,
   "seriesImdbID": "tt0161718",
   "canonicalEpisodeCount": 5,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Mikey Kelley",
+      "character": "David Carter",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/44/112056.jpg"
+    },
+    {
+      "name": "Tony Jay",
+      "character": "The Dragit",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/23638.jpg"
+    },
+    {
+      "name": "Thom Adcox-Hernandez",
+      "character": "Simon",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/44/112069.jpg"
+    },
+    {
+      "name": "Greg Eagles",
+      "character": "Philip Stark",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/44/112075.jpg"
+    },
+    {
+      "name": "Kristy McNichol",
+      "character": "Angie Romar",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/44/112076.jpg"
+    },
+    {
+      "name": "Jim Cummings",
+      "character": "Major Lomack",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/449/1124561.jpg"
+    },
+    {
+      "name": "James Sikking",
+      "character": "General Gordon",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/606/1517493.jpg"
+    },
+    {
+      "name": "Rider Strong",
+      "character": "Jim Bailey",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/43/108890.jpg"
+    }
+  ]
 }

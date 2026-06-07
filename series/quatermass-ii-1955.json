@@ -158,5 +158,25 @@
   "canonicalEpisodesCount": 6,
   "seriesImdbID": "tt0047766",
   "canonicalEpisodeCount": 1,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "John Robinson",
+      "character": "Professor Bernard Quatermass",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/464/1161534.jpg"
+    },
+    {
+      "name": "Monica Grey",
+      "character": "Paula Quatermass",
+      "order": 1,
+      "profilePath": "/uJjOtR8G97CN1ZdbBrYTJ2UqhwA.jpg"
+    },
+    {
+      "name": "Hugh Griffith",
+      "character": "Dr. Leo Pugh",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/250/625820.jpg"
+    }
+  ]
 }

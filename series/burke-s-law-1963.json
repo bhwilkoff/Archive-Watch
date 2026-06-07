@@ -138,5 +138,19 @@
   "canonicalEpisodesCount": 81,
   "seriesImdbID": "tt0056745",
   "canonicalEpisodeCount": 55,
-  "canonicalSeasons": 3
+  "canonicalSeasons": 3,
+  "cast": [
+    {
+      "name": "Gene Barry",
+      "character": "Capt. Amos Burke",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/21/52554.jpg"
+    },
+    {
+      "name": "Gary Conway",
+      "character": "Det. Tim Tilson",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/18/46339.jpg"
+    }
+  ]
 }

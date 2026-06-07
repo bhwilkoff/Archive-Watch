@@ -62,7 +62,7 @@
           "title": "The Single Guy- Mother Love (S2E16)",
           "overview": "<p class=\"MsoNormal\">This episode of the '90s sitcom The Single Guy is named for\nJonathan's mother dating his boss. Also look for Russell and Marie rehearsing\nfor Rome and Juliet.</p><p></p>",
           "stillURL": "https://archive.org/services/img/TheSingleGuyMotherLoveS2E16",
-          "airDate": null,
+          "airDate": "1997-02-13",
           "year": null,
           "runtimeSeconds": 1328,
           "videoFile": {
@@ -80,5 +80,55 @@
   "canonicalEpisodesCount": 43,
   "seriesImdbID": "tt0112163",
   "canonicalEpisodeCount": 32,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Ming-Na Wen",
+      "character": "Trudy",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/2/5935.jpg"
+    },
+    {
+      "name": "Jonathan Silverman",
+      "character": "Jonathan Eliot",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/13/33144.jpg"
+    },
+    {
+      "name": "Joey Slotnick",
+      "character": "Sam Sloan",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/24/61666.jpg"
+    },
+    {
+      "name": "Ernest Borgnine",
+      "character": "Manny Cordoba",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24515.jpg"
+    },
+    {
+      "name": "Jessica Hecht",
+      "character": "Janeane Percy-Parker",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/7/18793.jpg"
+    },
+    {
+      "name": "Mark Moses",
+      "character": "Matt Parker",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/2/6671.jpg"
+    },
+    {
+      "name": "Olivia d'Abo",
+      "character": "Marie Blake",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/144/362398.jpg"
+    },
+    {
+      "name": "Shawn Michael Howard",
+      "character": "Russell",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24892.jpg"
+    }
+  ]
 }

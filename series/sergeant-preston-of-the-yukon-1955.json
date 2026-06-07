@@ -87,5 +87,13 @@
   "canonicalEpisodesCount": 78,
   "seriesImdbID": "tt0182633",
   "canonicalEpisodeCount": 30,
-  "canonicalSeasons": 3
+  "canonicalSeasons": 3,
+  "cast": [
+    {
+      "name": "Dick Simmons",
+      "character": "Sergeant Preston",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/385/963796.jpg"
+    }
+  ]
 }

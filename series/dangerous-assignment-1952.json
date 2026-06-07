@@ -191,5 +191,13 @@
   "canonicalEpisodesCount": 10,
   "seriesImdbID": "tt0044257",
   "canonicalEpisodeCount": 21,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Brian Donlevy",
+      "character": "Steve Mitchell",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/141/352862.jpg"
+    }
+  ]
 }

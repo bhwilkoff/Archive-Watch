@@ -99,5 +99,115 @@
   "canonicalEpisodesCount": 1854,
   "seriesImdbID": "tt0044265",
   "canonicalEpisodeCount": 100,
-  "canonicalSeasons": 47
+  "canonicalSeasons": 47,
+  "cast": [
+    {
+      "name": "Hayden Panettiere",
+      "character": "Lizzie Spaulding",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/528/1320913.jpg"
+    },
+    {
+      "name": "Emme Rylan",
+      "character": "Lizzie Spaulding",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/75/188171.jpg"
+    },
+    {
+      "name": "Crystal Hunt",
+      "character": "Lizzie Spaulding",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/87/217766.jpg"
+    },
+    {
+      "name": "Daniel Cosgrove",
+      "character": "Bill Lewis",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/6/16813.jpg"
+    },
+    {
+      "name": "Bryan Buffington",
+      "character": "Bill Lewis",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/469/1173200.jpg"
+    },
+    {
+      "name": "Kim Zimmer",
+      "character": "Reva Shayne",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/193/484544.jpg"
+    },
+    {
+      "name": "Frank Dicopoulos",
+      "character": "Frank Cooper",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/285/712647.jpg"
+    },
+    {
+      "name": "Crystal Chappell",
+      "character": "Olivia Spencer",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/59/147976.jpg"
+    },
+    {
+      "name": "Ron Raines",
+      "character": "Alan Spaulding",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/286/715194.jpg"
+    },
+    {
+      "name": "Wayne Tippit",
+      "character": "Alan Spaulding",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/434/1087395.jpg"
+    },
+    {
+      "name": "Daniel Pilon",
+      "character": "Alan Spaulding",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/159/398863.jpg"
+    },
+    {
+      "name": "Christopher Bernau",
+      "character": "Alan Spaulding",
+      "order": 11,
+      "profilePath": null
+    },
+    {
+      "name": "David Bailey",
+      "character": "Alan Spaulding",
+      "order": 12,
+      "profilePath": "/GdSDJJmkIcaFgS1XnCIRVcHyMn.jpg"
+    },
+    {
+      "name": "Paige Turco",
+      "character": "Dinah Marler",
+      "order": 13,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/7617.jpg"
+    },
+    {
+      "name": "Jennifer Gatti",
+      "character": "Dinah Marler",
+      "order": 14,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/93750.jpg"
+    },
+    {
+      "name": "Gina Tognoni",
+      "character": "Dinah Marler",
+      "order": 15,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/23/57733.jpg"
+    },
+    {
+      "name": "Wendy Moniz",
+      "character": "Dinah Marler",
+      "order": 16,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/26088.jpg"
+    },
+    {
+      "name": "Justin Deas",
+      "character": "Buzz Cooper",
+      "order": 17,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/469/1173358.jpg"
+    }
+  ]
 }

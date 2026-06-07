@@ -98,5 +98,115 @@
   "canonicalEpisodesCount": 335,
   "seriesImdbID": "tt0121955",
   "canonicalEpisodeCount": 339,
-  "canonicalSeasons": 28
+  "canonicalSeasons": 28,
+  "cast": [
+    {
+      "name": "Trey Parker",
+      "character": "Eric Theodore Cartman",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/0/1012.jpg"
+    },
+    {
+      "name": "Matt Stone",
+      "character": "Kyle Broflovski",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/0/1014.jpg"
+    },
+    {
+      "name": "April Stewart",
+      "character": "Sharon Marsh",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/0/1055.jpg"
+    },
+    {
+      "name": "Mary Kay Bergman",
+      "character": "Sharon Marsh",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/0/1056.jpg"
+    },
+    {
+      "name": "Mona Marshall",
+      "character": "Linda Stotch",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/0/1017.jpg"
+    },
+    {
+      "name": "Jennifer Howell",
+      "character": "Bebe Stevens",
+      "order": 5,
+      "profilePath": "/tYgRyRGtDRyo5LBVv7McaRNY7LX.jpg"
+    },
+    {
+      "name": "Franchesca Clifford",
+      "character": "Ike Broflovski",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Jesse Howell",
+      "character": "Ike Broflovski",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Vernon Chatman",
+      "character": "Towelie",
+      "order": 8,
+      "profilePath": "/1hY6RWVLbxSUXoF73FnbL4IllZ3.jpg"
+    },
+    {
+      "name": "Jessica Makinson",
+      "character": "Strong Woman",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/139/347980.jpg"
+    },
+    {
+      "name": "Kimberly Brooks",
+      "character": "Additional Voices",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/460/1151313.jpg"
+    },
+    {
+      "name": "Delilah Kujala",
+      "character": "Chat GPT",
+      "order": 11,
+      "profilePath": null
+    },
+    {
+      "name": "Betty Boogie Parker",
+      "character": "Betsy",
+      "order": 12,
+      "profilePath": null
+    },
+    {
+      "name": "Wing Han Tsang",
+      "character": "Wing Han Tsang",
+      "order": 13,
+      "profilePath": null
+    },
+    {
+      "name": "Jessica Chang",
+      "character": "Wing Han Tsang",
+      "order": 14,
+      "profilePath": "/uD7VLdz1Xar1Nc6ohOM0b13Ker7.jpg"
+    },
+    {
+      "name": "Bruce Howell",
+      "character": "Uncle Murray",
+      "order": 15,
+      "profilePath": "/iTVgWdHjFH1fZXusxfOPTDdY9ib.jpg"
+    },
+    {
+      "name": "Toddy Walters",
+      "character": "Phyllis",
+      "order": 16,
+      "profilePath": "/vM8ZLFM8TVSzUHELAh8WkkRN7nB.jpg"
+    },
+    {
+      "name": "Karri Turner",
+      "character": "Kathie Lee Gifford",
+      "order": 17,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12653.jpg"
+    }
+  ]
 }

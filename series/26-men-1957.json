@@ -189,5 +189,19 @@
   "canonicalEpisodesCount": 78,
   "seriesImdbID": "tt0049991",
   "canonicalEpisodeCount": 16,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Tristram Coffin",
+      "character": "Capt. Tom Rynning",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/63/158824.jpg"
+    },
+    {
+      "name": "Kelo Henderson",
+      "character": "Ranger Clint Travis",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/63/158826.jpg"
+    }
+  ]
 }

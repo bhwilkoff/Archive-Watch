@@ -135,7 +135,7 @@
           "title": "Topper TV Series",
           "overview": null,
           "stillURL": null,
-          "airDate": null,
+          "airDate": "1954-07-02",
           "year": null,
           "runtimeSeconds": null,
           "videoFile": {
@@ -176,5 +176,37 @@
   "canonicalEpisodesCount": 78,
   "seriesImdbID": "tt0045447",
   "canonicalEpisodeCount": 41,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Leo G. Carroll",
+      "character": "Cosmo Topper",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/597/1494543.jpg"
+    },
+    {
+      "name": "Anne Jeffreys",
+      "character": "Marion Kerby",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/521/1304877.jpg"
+    },
+    {
+      "name": "Robert Sterling",
+      "character": "George Kerby",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/39/98407.jpg"
+    },
+    {
+      "name": "Lee Patrick",
+      "character": "Henrietta Topper",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/39/98409.jpg"
+    },
+    {
+      "name": "Edna Skinner",
+      "character": "Maggie",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/94641.jpg"
+    }
+  ]
 }

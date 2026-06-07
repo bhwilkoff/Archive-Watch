@@ -1,0 +1,68 @@
+name: Cast/crew images
+
+# Fill missing cast photos on MOVIE cast (catalog.json) from TMDb /search/person.
+# ~21% of movie cast entries had no profilePath; TV cast images are handled in the
+# tv-canonical flow (series/*.json). Catalog lives on the catalog-source release
+# (Decision 018): fetch -> enrich -> publish -> rebuild DB. The name->path cache is
+# committed back so re-runs only look up genuinely new names.
+
+on:
+  schedule:
+    - cron: '0 3 * * 4'   # weekly, Thu 03:00 UTC
+  workflow_dispatch:
+    inputs:
+      limit_names:
+        description: 'Max unique names to look up this run (0 = all)'
+        required: false
+        default: '0'
+
+concurrency:
+  group: catalog-writers
+  cancel-in-progress: false
+
+jobs:
+  cast-images:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Fill movie cast images (TMDb /search/person)
+        env:
+          TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
+        run: |
+          python tools/enrich_cast_images.py --movies \
+            --limit-names ${{ github.event.inputs.limit_names || '0' }} | tee castimg.log
+          echo "## Cast/crew images" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -4 castimg.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Publish catalog to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
+
+      - name: Persist name->photo cache
+        run: |
+          if [ -n "$(git status --porcelain tools/cast_image_cache.json)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add tools/cast_image_cache.json
+            git commit -m "cast-images: refresh name->photo cache [skip ci]"
+            git push
+          fi
+
+      - name: Rebuild app DB
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run publish-db.yml

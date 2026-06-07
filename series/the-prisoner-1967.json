@@ -87,5 +87,13 @@
   "canonicalEpisodesCount": 17,
   "seriesImdbID": "tt0061287",
   "canonicalEpisodeCount": 17,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Patrick McGoohan",
+      "character": "Number Six",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/9633.jpg"
+    }
+  ]
 }

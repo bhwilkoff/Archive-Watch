@@ -62,5 +62,115 @@
   "canonicalEpisodesCount": 57,
   "seriesImdbID": "tt0123349",
   "canonicalEpisodeCount": 41,
-  "canonicalSeasons": 9
+  "canonicalSeasons": 9,
+  "cast": [
+    {
+      "name": "Paul Shane",
+      "character": "Ted Bovis",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71070.jpg"
+    },
+    {
+      "name": "Ruth Madoc",
+      "character": "Gladys Pugh",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71072.jpg"
+    },
+    {
+      "name": "Jeffrey Holland",
+      "character": "Spike Dixon",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71075.jpg"
+    },
+    {
+      "name": "Felix Bowness",
+      "character": "Fred Quilley",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71079.jpg"
+    },
+    {
+      "name": "Su Pollard",
+      "character": "Peggy Ollerenshaw",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71077.jpg"
+    },
+    {
+      "name": "Diane Holland",
+      "character": "Yvonne Stuart-Hargreaves",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71069.jpg"
+    },
+    {
+      "name": "Nikki Kelly",
+      "character": "Sylvia Garnsey",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71078.jpg"
+    },
+    {
+      "name": "David Webb",
+      "character": "Stanley Matthews",
+      "order": 7,
+      "profilePath": "/o0o5ZTsdHhKIKaF6CVQiIl7r0dA.jpg"
+    },
+    {
+      "name": "Tony Webb",
+      "character": "Bruce Matthews",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "Chris Andrews",
+      "character": "Gary",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "Barry Howard",
+      "character": "Barry Stuart-Hargreaves",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71071.jpg"
+    },
+    {
+      "name": "Leslie Dwyer",
+      "character": "Mr. Partridge",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71076.jpg"
+    },
+    {
+      "name": "Simon Cadell",
+      "character": "Jeffrey Fairbrother",
+      "order": 12,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71073.jpg"
+    },
+    {
+      "name": "Rikki Howard",
+      "character": "Betty Whistler",
+      "order": 13,
+      "profilePath": "/rFF9w8QciTIsc4n3HIfZzza8lJ6.jpg"
+    },
+    {
+      "name": "David Griffin",
+      "character": "Squadron Leader Clive Dempster DFC",
+      "order": 14,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71080.jpg"
+    },
+    {
+      "name": "Linda Regan",
+      "character": "April",
+      "order": 15,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71081.jpg"
+    },
+    {
+      "name": "Laura Jackson",
+      "character": "Dawn",
+      "order": 16,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/238/595598.jpg"
+    },
+    {
+      "name": "Susan Beagley",
+      "character": "Tracy Bentward",
+      "order": 17,
+      "profilePath": null
+    }
+  ]
 }

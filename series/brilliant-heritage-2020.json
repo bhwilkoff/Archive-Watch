@@ -172,5 +172,25 @@
   "canonicalEpisodesCount": 122,
   "seriesImdbID": "tt12179496",
   "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null
+  "canonicalSeasons": null,
+  "cast": [
+    {
+      "name": "Go Na Eun",
+      "character": "Kong Kye Ok",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/76/192098.jpg"
+    },
+    {
+      "name": "Shin Jung Yoon",
+      "character": "Boo Sul Ahk",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/249/624503.jpg"
+    },
+    {
+      "name": "Park In Hwan",
+      "character": "Boo Young Bae",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/251/629654.jpg"
+    }
+  ]
 }

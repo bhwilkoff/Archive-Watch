@@ -42,5 +42,49 @@
   "canonicalEpisodesCount": 143,
   "seriesImdbID": "tt0404665",
   "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null
+  "canonicalSeasons": null,
+  "cast": [
+    {
+      "name": "Mike Connell",
+      "character": "Mike Connell",
+      "order": 0,
+      "profilePath": "/wEE0oR3VyuPrcxVn1wTPHtthuXN.jpg"
+    },
+    {
+      "name": "Anne Saunders",
+      "character": "Anne Saunders",
+      "order": 1,
+      "profilePath": "/qMq91XSmWzlDZJmkjIo9yag6orb.jpg"
+    },
+    {
+      "name": "Dave Price",
+      "character": "Dave Price",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Robert Llewellyn",
+      "character": "Presenter",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/4/11232.jpg"
+    },
+    {
+      "name": "Dick Strawbridge",
+      "character": "Presenter",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/17/44084.jpg"
+    },
+    {
+      "name": "Cathy Rogers",
+      "character": "Presenter",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Lisa Rogers",
+      "character": "Presenter",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/30/76310.jpg"
+    }
+  ]
 }

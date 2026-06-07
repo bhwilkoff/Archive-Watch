@@ -113,5 +113,49 @@
   "canonicalEpisodesCount": 77,
   "seriesImdbID": "tt0062552",
   "canonicalEpisodeCount": 62,
-  "canonicalSeasons": 9
+  "canonicalSeasons": 9,
+  "cast": [
+    {
+      "name": "Arnold Ridley",
+      "character": "Pte. Charles Godfrey",
+      "order": 0,
+      "profilePath": "/ftnHG08ECdtXJUJWUif9QTdZsNJ.jpg"
+    },
+    {
+      "name": "Arthur Lowe",
+      "character": "Capt. George Mainwaring",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/423/1059315.jpg"
+    },
+    {
+      "name": "Ian Lavender",
+      "character": "Pte. Frank Pike",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/34/86369.jpg"
+    },
+    {
+      "name": "John Le Mesurier",
+      "character": "Sgt. Arthur Wilson",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71513.jpg"
+    },
+    {
+      "name": "Clive Dunn",
+      "character": "LCpl. Jack Jones",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/43/108259.jpg"
+    },
+    {
+      "name": "John Laurie",
+      "character": "Pte. James Frazer",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/585/1462548.jpg"
+    },
+    {
+      "name": "James Beck",
+      "character": "Pte. Joe Walker",
+      "order": 6,
+      "profilePath": "/ttnqDiWOeaZKYDy8EuefauHGxqZ.jpg"
+    }
+  ]
 }

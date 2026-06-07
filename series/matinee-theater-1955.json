@@ -81,5 +81,13 @@
   "episodesCount": 3,
   "canonicalEpisodesCount": 74,
   "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "canonicalEpisodeCount": 0,
+  "cast": [
+    {
+      "name": "John Conte",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/407/1019620.jpg"
+    }
+  ]
 }

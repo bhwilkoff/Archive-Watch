@@ -159,5 +159,73 @@
   "canonicalEpisodesCount": 2,
   "seriesImdbID": "tt0118414",
   "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Armand Assante",
+      "character": "Odysseus",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/62/156901.jpg"
+    },
+    {
+      "name": "Greta Scacchi",
+      "character": "Penelope",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/87/219515.jpg"
+    },
+    {
+      "name": "Isabella Rossellini",
+      "character": "Athena",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/550/1377090.jpg"
+    },
+    {
+      "name": "Bernadette Peters",
+      "character": "Circe",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/22716.jpg"
+    },
+    {
+      "name": "Eric Roberts",
+      "character": "Eurymachus",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/186/465490.jpg"
+    },
+    {
+      "name": "Christopher Lee",
+      "character": "Tiresias",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/11/29504.jpg"
+    },
+    {
+      "name": "Vanessa Williams",
+      "character": "Calypso",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/179/449784.jpg"
+    },
+    {
+      "name": "Geraldine Chaplin",
+      "character": "Eurycleia",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/62/156905.jpg"
+    },
+    {
+      "name": "Jeroen Krabbé",
+      "character": "King Alcinous",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/62/156910.jpg"
+    },
+    {
+      "name": "Irene Papas",
+      "character": "Anticleia",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/62/156907.jpg"
+    },
+    {
+      "name": "Michael J. Pollard",
+      "character": "Aeolus",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/119/298335.jpg"
+    }
+  ]
 }

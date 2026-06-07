@@ -172,5 +172,115 @@
   "canonicalEpisodesCount": 1225,
   "seriesImdbID": "tt0059978",
   "canonicalEpisodeCount": 100,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Carolyn Groves",
+      "character": "Victoria Winters",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Betsy Durkin",
+      "character": "Victoria Winters",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Alexandra Isles",
+      "character": "Victoria Winters",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/114299.jpg"
+    },
+    {
+      "name": "Anthony George",
+      "character": "Burke Devlin",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/17/43000.jpg"
+    },
+    {
+      "name": "Mitchell Ryan",
+      "character": "Burke Devlin",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13101.jpg"
+    },
+    {
+      "name": "Louis Edmonds",
+      "character": "Roger Collins",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/210/526717.jpg"
+    },
+    {
+      "name": "Joan Bennett",
+      "character": "Elizabeth Collins Stoddard",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/81/204259.jpg"
+    },
+    {
+      "name": "David Henesy",
+      "character": "David Collins",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/114303.jpg"
+    },
+    {
+      "name": "Nancy Barrett",
+      "character": "Carolyn Stoddard Hawkes",
+      "order": 8,
+      "profilePath": "/4SHoE8LdFK4IIfgNEhjvyEbj2RT.jpg"
+    },
+    {
+      "name": "Joel Crothers",
+      "character": "Joe Haskell",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/97/244747.jpg"
+    },
+    {
+      "name": "Kathryn Leigh Scott",
+      "character": "Maggie Evans",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/73/184020.jpg"
+    },
+    {
+      "name": "David Ford",
+      "character": "Sam Evans",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/342/855816.jpg"
+    },
+    {
+      "name": "John Karlen",
+      "character": "Willie Loomis",
+      "order": 12,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/177/444714.jpg"
+    },
+    {
+      "name": "Frank Schofield",
+      "character": "Bill Malloy",
+      "order": 13,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/113853.jpg"
+    },
+    {
+      "name": "Dennis Patrick",
+      "character": "Jason McGuire",
+      "order": 14,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/112797.jpg"
+    },
+    {
+      "name": "Thayer David",
+      "character": "Matthew Morgan",
+      "order": 15,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/60/152387.jpg"
+    },
+    {
+      "name": "Conrad Bain",
+      "character": "Mr. Wells",
+      "order": 16,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/65797.jpg"
+    },
+    {
+      "name": "Clarice Blackburn",
+      "character": "Sarah Johnson",
+      "order": 17,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/342/855815.jpg"
+    }
+  ]
 }

@@ -213,5 +213,37 @@
   "canonicalEpisodesCount": 158,
   "seriesImdbID": "tt0054533",
   "canonicalEpisodeCount": 131,
-  "canonicalSeasons": 5
+  "canonicalSeasons": 5,
+  "cast": [
+    {
+      "name": "Dick Van Dyke",
+      "character": "Robert 'Rob' Petrie",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/481/1202536.jpg"
+    },
+    {
+      "name": "Mary Tyler Moore",
+      "character": "Laura Petrie",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/35/89702.jpg"
+    },
+    {
+      "name": "Morey Amsterdam",
+      "character": "Maurice B. 'Buddy' Sorrell",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/603/1507740.jpg"
+    },
+    {
+      "name": "Rose Marie",
+      "character": "Sally Rogers",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/89/224562.jpg"
+    },
+    {
+      "name": "Larry Mathews",
+      "character": "Richard Rosebud 'Ritchie' Petrie",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/89/224557.jpg"
+    }
+  ]
 }

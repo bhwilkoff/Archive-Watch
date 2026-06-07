@@ -1,248 +1,256 @@
 {
- "version": 2,
- "seriesID": "the-jack-benny-program-1950",
- "tvmazeID": 21690,
- "title": "The Jack Benny Program",
- "yearStart": 1950,
- "yearEnd": 1965,
- "overview": "Jack Benny was a regular on his own radio program since 1932. He brought the program, with his underplayed humor, to TV along with his radio regulars. Jack, who remained 39-years-old, kept his money in his basement and drove his old Maxwell car just as he had done on the radio.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/77/194785.jpg",
- "backdropURL": null,
- "genres": [
-  "Comedy"
- ],
- "networks": [
-  "CBS"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-jack-benny-program-1950",
+  "tvmazeID": 21690,
+  "title": "The Jack Benny Program",
+  "yearStart": 1950,
+  "yearEnd": 1965,
+  "overview": "Jack Benny was a regular on his own radio program since 1932. He brought the program, with his underplayed humor, to TV along with his radio regulars. Jack, who remained 39-years-old, kept his money in his basement and drove his old Maxwell car just as he had done on the radio.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/77/194785.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "TheJackBennyProgramSeason2Episode1Aired11041951",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Premiere Show",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
-     "airDate": "1950-10-28",
-     "year": 1950,
-     "runtimeSeconds": 1500,
-     "videoFile": {
-      "name": "Jack_Benny_Program-2x01-Dorothy_Shay.mp4",
-      "format": "h.264",
-      "sizeBytes": 136783936,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheJackBennyProgramSeason2Episode1Aired11041951/Jack_Benny_Program-2x01-Dorothy_Shay.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheJackBennyProgramSeason2Episode1Aired11041951",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Premiere Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
+          "airDate": "1950-10-28",
+          "year": 1950,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Jack_Benny_Program-2x01-Dorothy_Shay.mp4",
+            "format": "h.264",
+            "sizeBytes": 136783936,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheJackBennyProgramSeason2Episode1Aired11041951/Jack_Benny_Program-2x01-Dorothy_Shay.mp4"
+        },
+        {
+          "archiveID": "TheJackBennyProgramSeason4Episode3HumphreyBogartGuest-Aired",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Claudette Colbert and Basil Rathbone Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
+          "airDate": "1951-04-01",
+          "year": 1951,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "JackBennyProgram-4x03-Humphrey_Bogart_Show.mp4",
+            "format": "h.264",
+            "sizeBytes": 171803608,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheJackBennyProgramSeason4Episode3HumphreyBogartGuest-Aired/JackBennyProgram-4x03-Humphrey_Bogart_Show.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "TheJackBennyProgramSeason4Episode3HumphreyBogartGuest-Aired",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Claudette Colbert and Basil Rathbone Show",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
-     "airDate": "1951-04-01",
-     "year": 1951,
-     "runtimeSeconds": 1500,
-     "videoFile": {
-      "name": "JackBennyProgram-4x03-Humphrey_Bogart_Show.mp4",
-      "format": "h.264",
-      "sizeBytes": 171803608,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheJackBennyProgramSeason4Episode3HumphreyBogartGuest-Aired/JackBennyProgram-4x03-Humphrey_Bogart_Show.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "JackBenny-DonInvitesGangOverForDinner",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny - Don Invites Gang Over for Dinner",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBenny-DonInvitesGangOverForDinner",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1545,
+          "videoFile": {
+            "name": "JackBennyProgram-DonInvitesGangOverForDinner.mp4",
+            "format": "h.264",
+            "sizeBytes": 146432981,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBenny-DonInvitesGangOverForDinner/JackBennyProgram-DonInvitesGangOverForDinner.mp4"
+        },
+        {
+          "archiveID": "JackBenny-FrankieAvalonAsGuest",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny - Frankie Avalon as Guest",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBenny-FrankieAvalonAsGuest",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1763,
+          "videoFile": {
+            "name": "JackBennyProgram-FrankieAvalonAsGuest.mp4",
+            "format": "h.264",
+            "sizeBytes": 169835751,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBenny-FrankieAvalonAsGuest/JackBennyProgram-FrankieAvalonAsGuest.mp4"
+        },
+        {
+          "archiveID": "JackBenny-GoldieFieldsAndGlide",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny - Goldie, Fields and Glide",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBenny-GoldieFieldsAndGlide",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1531,
+          "videoFile": {
+            "name": "JackBenny-GoldieFieldsAndGlide.mp4",
+            "format": "h.264",
+            "sizeBytes": 144942184,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBenny-GoldieFieldsAndGlide/JackBenny-GoldieFieldsAndGlide.mp4"
+        },
+        {
+          "archiveID": "JackBenny-JackWritesASong",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny - Jack Writes a Song",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBenny-JackWritesASong",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1482,
+          "videoFile": {
+            "name": "JackBenny-JackWritesASong.mp4",
+            "format": "h.264",
+            "sizeBytes": 141198310,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBenny-JackWritesASong/JackBenny-JackWritesASong.mp4"
+        },
+        {
+          "archiveID": "JackBenny-JackAtTheSupermarket",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny - Jack at the Supermarket",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBenny-JackAtTheSupermarket",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1555,
+          "videoFile": {
+            "name": "JackBennyProgram-JackAtTheSupermarket.mp4",
+            "format": "h.264",
+            "sizeBytes": 146568694,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBenny-JackAtTheSupermarket/JackBennyProgram-JackAtTheSupermarket.mp4"
+        },
+        {
+          "archiveID": "JackBennys20thAnniversaryTVSpecial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny's 20th Anniversary TV Special",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBennys20thAnniversaryTVSpecial",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "JackBennys20thAnniversaryTvSpecial.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 342881808,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/JackBennys20thAnniversaryTVSpecial/JackBennys20thAnniversaryTvSpecial.mp4"
+        },
+        {
+          "archiveID": "JackBennysSecondFarewellSpecial",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jack Benny's Second Farewell Special",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBennysSecondFarewellSpecial",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jack Benny's Second Farewell Special.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 342702101,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/JackBennysSecondFarewellSpecial/Jack%20Benny%27s%20Second%20Farewell%20Special.mp4"
+        },
+        {
+          "archiveID": "TheJackBennyProgram3april1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Jack Benny Program",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jack_Benny_Groucho_04_03_1955.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 220474604,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheJackBennyProgram3april1955/Jack_Benny_Groucho_04_03_1955.ia.mp4"
+        },
+        {
+          "archiveID": "Sunday_With_Jack_Benny_-_Western_Town",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Jack Benny Program : Western Town",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sunday_With_Jack_Benny_-_Western_Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 145928197,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Sunday_With_Jack_Benny_-_Western_Town/Sunday_With_Jack_Benny_-_Western_Town.mp4"
+        },
+        {
+          "archiveID": "TheJackBennyProgram-01171954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Jack Benny program",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Jack_Benny_Liberace_1_17_1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 173559871,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheJackBennyProgram-01171954/Jack_Benny_Liberace_1_17_1954.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": 260,
+  "cast": [
     {
-     "archiveID": "JackBenny-DonInvitesGangOverForDinner",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Jack Benny - Don Invites Gang Over for Dinner",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/JackBenny-DonInvitesGangOverForDinner",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1545,
-     "videoFile": {
-      "name": "JackBennyProgram-DonInvitesGangOverForDinner.mp4",
-      "format": "h.264",
-      "sizeBytes": 146432981,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/JackBenny-DonInvitesGangOverForDinner/JackBennyProgram-DonInvitesGangOverForDinner.mp4"
-    },
-    {
-     "archiveID": "JackBenny-FrankieAvalonAsGuest",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Jack Benny - Frankie Avalon as Guest",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/JackBenny-FrankieAvalonAsGuest",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1763,
-     "videoFile": {
-      "name": "JackBennyProgram-FrankieAvalonAsGuest.mp4",
-      "format": "h.264",
-      "sizeBytes": 169835751,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/JackBenny-FrankieAvalonAsGuest/JackBennyProgram-FrankieAvalonAsGuest.mp4"
-    },
-    {
-     "archiveID": "JackBenny-GoldieFieldsAndGlide",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Jack Benny - Goldie, Fields and Glide",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/JackBenny-GoldieFieldsAndGlide",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1531,
-     "videoFile": {
-      "name": "JackBenny-GoldieFieldsAndGlide.mp4",
-      "format": "h.264",
-      "sizeBytes": 144942184,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/JackBenny-GoldieFieldsAndGlide/JackBenny-GoldieFieldsAndGlide.mp4"
-    },
-    {
-     "archiveID": "JackBenny-JackWritesASong",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Jack Benny - Jack Writes a Song",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/JackBenny-JackWritesASong",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1482,
-     "videoFile": {
-      "name": "JackBenny-JackWritesASong.mp4",
-      "format": "h.264",
-      "sizeBytes": 141198310,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/JackBenny-JackWritesASong/JackBenny-JackWritesASong.mp4"
-    },
-    {
-     "archiveID": "JackBenny-JackAtTheSupermarket",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Jack Benny - Jack at the Supermarket",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/JackBenny-JackAtTheSupermarket",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1555,
-     "videoFile": {
-      "name": "JackBennyProgram-JackAtTheSupermarket.mp4",
-      "format": "h.264",
-      "sizeBytes": 146568694,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/JackBenny-JackAtTheSupermarket/JackBennyProgram-JackAtTheSupermarket.mp4"
-    },
-    {
-     "archiveID": "JackBennys20thAnniversaryTVSpecial",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Jack Benny's 20th Anniversary TV Special",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/JackBennys20thAnniversaryTVSpecial",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "JackBennys20thAnniversaryTvSpecial.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 342881808,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/JackBennys20thAnniversaryTVSpecial/JackBennys20thAnniversaryTvSpecial.mp4"
-    },
-    {
-     "archiveID": "JackBennysSecondFarewellSpecial",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Jack Benny's Second Farewell Special",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/JackBennysSecondFarewellSpecial",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Jack Benny's Second Farewell Special.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 342702101,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/JackBennysSecondFarewellSpecial/Jack%20Benny%27s%20Second%20Farewell%20Special.mp4"
-    },
-    {
-     "archiveID": "TheJackBennyProgram3april1955",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Jack Benny Program",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Jack_Benny_Groucho_04_03_1955.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 220474604,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/TheJackBennyProgram3april1955/Jack_Benny_Groucho_04_03_1955.ia.mp4"
-    },
-    {
-     "archiveID": "Sunday_With_Jack_Benny_-_Western_Town",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Jack Benny Program : Western Town",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Sunday_With_Jack_Benny_-_Western_Town.mp4",
-      "format": "h.264",
-      "sizeBytes": 145928197,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Sunday_With_Jack_Benny_-_Western_Town/Sunday_With_Jack_Benny_-_Western_Town.mp4"
-    },
-    {
-     "archiveID": "TheJackBennyProgram-01171954",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Jack Benny program",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "Jack_Benny_Liberace_1_17_1954.mp4",
-      "format": "h.264",
-      "sizeBytes": 173559871,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/TheJackBennyProgram-01171954/Jack_Benny_Liberace_1_17_1954.mp4"
+      "name": "Jack Benny",
+      "character": "Jack Benny",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/153/384283.jpg"
     }
-   ]
-  }
- ],
- "episodesCount": 12,
- "canonicalEpisodesCount": 260
+  ]
 }

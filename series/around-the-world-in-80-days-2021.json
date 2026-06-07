@@ -105,5 +105,25 @@
   "canonicalEpisodesCount": 8,
   "seriesImdbID": "tt9174578",
   "canonicalEpisodeCount": 8,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "David Tennant",
+      "character": "Phileas Fogg",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/2/6595.jpg"
+    },
+    {
+      "name": "Ibrahim Koma",
+      "character": "Passepartout",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/436/1091123.jpg"
+    },
+    {
+      "name": "Leonie Benesch",
+      "character": "Abigail ‘Fix' Fortescue",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/149/373705.jpg"
+    }
+  ]
 }

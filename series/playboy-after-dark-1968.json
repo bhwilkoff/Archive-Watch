@@ -1,966 +1,974 @@
 {
- "version": 2,
- "seriesID": "playboy-after-dark-1968",
- "tvmazeID": 16338,
- "title": "Playboy After Dark",
- "yearStart": 1968,
- "yearEnd": 1970,
- "overview": "Playboy After Dark was an entertainment show hosted by Hugh Hefner that aired in syndication from 1969-1970. The show portrayed a party at Hefner's mansion, complete with Playboy Playmates and celebrities, who would then chat with Hefner and perform for the party.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/54/136117.jpg",
- "backdropURL": null,
- "genres": [],
- "networks": [
-  "Syndication"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "playboy-after-dark-1968",
+  "tvmazeID": 16338,
+  "title": "Playboy After Dark",
+  "yearStart": 1968,
+  "yearEnd": 1970,
+  "overview": "Playboy After Dark was an entertainment show hosted by Hugh Hefner that aired in syndication from 1969-1970. The show portrayed a party at Hefner's mansion, complete with Playboy Playmates and celebrities, who would then chat with Hefner and perform for the party.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/54/136117.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "playboy-after-dark-s01e01-1968-07-23",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Johnny Mathis, Mort Sahl, The Chambers Brothers",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-07-23",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E01 - Johnny Mathis, Mort Sahl, Chambers Brothers, Bill Russell - 1968-07-23.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 524898128,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e01-1968-07-23/Playboy After Dark - S01E01 - Johnny Mathis, Mort Sahl, Chambers Brothers, Bill Russell - 1968-07-23.ia.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "playboy-after-dark-s01e01-1968-07-23",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Johnny Mathis, Mort Sahl, The Chambers Brothers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-07-23",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E01 - Johnny Mathis, Mort Sahl, Chambers Brothers, Bill Russell - 1968-07-23.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 524898128,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e01-1968-07-23/Playboy After Dark - S01E01 - Johnny Mathis, Mort Sahl, Chambers Brothers, Bill Russell - 1968-07-23.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e02-1968-07-24",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Roman Polanski, Sharon Tate, Della Reese, Don Adams",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-07-24",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E02 - Roman Polanski, Sharon Tate, Della Reese, Don Adams - 1968-07-24.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 525819780,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e02-1968-07-24/Playboy After Dark - S01E02 - Roman Polanski, Sharon Tate, Della Reese, Don Adams - 1968-07-24.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e03-1968-08-08",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Bill Cosby, Bill Medley, Iron Butterfly, Kaye Stevens",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-08-08",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E03 - Bill Cosby, Bill Medley, Iron Butterfly - 1968-08-08.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 522789341,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e03-1968-08-08/Playboy After Dark - S01E03 - Bill Cosby, Bill Medley, Iron Butterfly - 1968-08-08.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e04-1968-08-09",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Tony Bennett, Steppenwolf, George Plimpton",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-08-09",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E04 - Tony Bennett, Steppenwolf, George Plimpton - 1968-08-09.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 538875236,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e04-1968-08-09/Playboy After Dark - S01E04 - Tony Bennett, Steppenwolf, George Plimpton - 1968-08-09.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e05-1968-08-29",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Buddy Rich, James Cotton Blues Band, Joe Williams",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-08-29",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E05 - James Cotton Blue Band, Buddy Rich, Ray Hastings, Pat Mccormick - 1968-08-29.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 535532115,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e05-1968-08-29/Playboy After Dark - S01E05 - James Cotton Blue Band, Buddy Rich, Ray Hastings, Pat Mccormick - 1968-08-29.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e06-1968-08-30",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Otto Preminger, Harry Nilsson, Norm Crosby, Rich Little",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-08-30",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E06 - Rich Little, Nilsson, Otto Preminger, Norm Crosby - 1968-08-30.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 561293561,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e06-1968-08-30/Playboy After Dark - S01E06 - Rich Little, Nilsson, Otto Preminger, Norm Crosby - 1968-08-30.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e07-1968-09-09",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Bob Newhart, Bill Cosby, O.C. Smith, Pickle Brothers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-09-09",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E07 - George Chakos, Gary Le Mel, Bob Newhart, O.C. Smith - 1968-09-09.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 534994804,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e07-1968-09-09/Playboy After Dark - S01E07 - George Chakos, Gary Le Mel, Bob Newhart, O.C. Smith - 1968-09-09.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e08-1968-09-13",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Jim Webb, Gloria Loring, The Checkmates",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-09-13",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E08 - Harry Blackstone Jr, Jimmy Webb, Gloria Loring - 1968-09-13.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 539177002,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e08-1968-09-13/Playboy After Dark - S01E08 - Harry Blackstone Jr, Jimmy Webb, Gloria Loring - 1968-09-13.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e09-1968-09-28",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Byrds, Marvin Gaye, Pat Henry, The Committee",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-09-28",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E09 - Pete Barbutti, The Byrds, The Commitee, Marvin Gaye - 1968-09-28.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 526352026,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e09-1968-09-28/Playboy After Dark - S01E09 - Pete Barbutti, The Byrds, The Commitee, Marvin Gaye - 1968-09-28.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e10-1968-09-29",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Tommy Smothers, Buffy St. Marie, Louis Nye, John Stewart",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-09-29",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E10 - Dr William Schultz, Tommy Smothers, Louis Nye, Buffy Ford - 1968-09-29.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 528817112,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e10-1968-09-29/Playboy After Dark - S01E10 - Dr William Schultz, Tommy Smothers, Louis Nye, Buffy Ford - 1968-09-29.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e11-1968-10-15",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Pete Seeger, Bill Cosby, Carmen McRae, Jack E. Leonard",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-10-15",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E11 - Aaron & Freddie, Jack E. Leonard, Teddy Neeley, Pete Seeger - 1968-10-15.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 528188382,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e11-1968-10-15/Playboy After Dark - S01E11 - Aaron & Freddie, Jack E. Leonard, Teddy Neeley, Pete Seeger - 1968-10-15.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e12-1968-10-16",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Bill Cosby, Jackie DeShannon, Marty Ingels, Taj Mahal",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-10-16",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E12 - Bill Cosby, Jackie DeShannon, Taj Mahal, Jim Brown - 1968-10-16.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 562022223,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e12-1968-10-16/Playboy After Dark - S01E12 - Bill Cosby, Jackie DeShannon, Taj Mahal, Jim Brown - 1968-10-16.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e13-1968-10-22",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Rowan & Martin, Stu Gilliam, Paul Hampton, Clara Ward Singers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-10-22",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E13 - Cathy Carlson, Stu Gilliam, Paul Hampton, Rowan & Martin - 1968-10-22.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 529350048,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e13-1968-10-22/Playboy After Dark - S01E13 - Cathy Carlson, Stu Gilliam, Paul Hampton, Rowan & Martin - 1968-10-22.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e14-1968-10-23",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Don Adams, Deep Purple, Brenton Wood, Lynn Kellogg",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-10-23",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E14 - Deep Purple, Brenton Wood, Don Adams, Jackie Gayle - 1968-10-23.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 561949697,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e14-1968-10-23/Playboy After Dark - S01E14 - Deep Purple, Brenton Wood, Don Adams, Jackie Gayle - 1968-10-23.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e15-1968-11-10",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Gore Vidal, Three Dog Night, Pat Collins, John Hartford",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-11-10",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E15 - Gore Vidal, Three Dog Night, Morgana King, Mort Sahl - 1968-11-10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 534207618,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e15-1968-11-10/Playboy After Dark - S01E15 - Gore Vidal, Three Dog Night, Morgana King, Mort Sahl - 1968-11-10.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e16-1968-11-11",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Joan Baez, Don Adams, Tommy Smothers, Avante-Garde",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-11-11",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E16 - Joan Baez, Avant-Garde, Tommy Smothers, Don Adams - 1968-11-11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 550288692,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e16-1968-11-11/Playboy After Dark - S01E16 - Joan Baez, Avant-Garde, Tommy Smothers, Don Adams - 1968-11-11.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e17-1968-11-25",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "James Brown, Three Dog Night, Bill Cosby, Soupy Sales",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-11-25",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E17 - James Brown, Jack Carter, Three Dog Night, Soupy Sales - 1968-11-25.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 525471556,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e17-1968-11-25/Playboy After Dark - S01E17 - James Brown, Jack Carter, Three Dog Night, Soupy Sales - 1968-11-25.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e18-1968-11-26",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Don Rickles, Bill Cosby, Doug McClure, Kelly Garrett",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-11-26",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E18 - Shecky Greene, Don Rickles, Melvin Belli, The Checkmates LTD - 1968-11-26.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 519079876,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e18-1968-11-26/Playboy After Dark - S01E18 - Shecky Greene, Don Rickles, Melvin Belli, The Checkmates LTD - 1968-11-26.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e19-1968-12-10",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Lou Rawls, Shelley Berman, David Steinberg, Buddy Miles Express",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-12-10",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E19 - Shelly Berman, Lou Rawls, Buddy Miles Express, Joanie Sommers, David Steinberg, The Times Square Two - 1968-12-10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 526184318,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e19-1968-12-10/Playboy After Dark - S01E19 - Shelly Berman, Lou Rawls, Buddy Miles Express, Joanie Sommers, David Steinberg, The Times Square Two - 1968-12-10.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e20-1968-12-11",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Nitty Gritty Dirt Band, Lou Rawls, Pat Morita, Frankie Randall",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-12-11",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E20 - Shelly Berman, Pat Morita, Nitty Gritty Dirt Band, Frankie Randall, Lou Rawls, The Second City - 1968-12-11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 527336613,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e20-1968-12-11/Playboy After Dark - S01E20 - Shelly Berman, Pat Morita, Nitty Gritty Dirt Band, Frankie Randall, Lou Rawls, The Second City - 1968-12-11.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e21-1968-12-17",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Grass Roots, Rich Little, Billy Eckstine, Paul Mazursky",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-12-17",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E21 - The Grass Roots, Rich Little, Billy Eckstine, Paul Mazursky - 1968-12-17.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 527821867,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e21-1968-12-17/Playboy After Dark - S01E21 - The Grass Roots, Rich Little, Billy Eckstine, Paul Mazursky - 1968-12-17.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e22-1968-12-19",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Sammy Davis Jr., Anthony Newley, Jerry Lewis, Bill Cosby, Peter Lawford",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1968-12-19",
+          "year": 1968,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E22 - Sammy Davis Jr, Anthony Newley, Jerry Lewis, Bill Cosby, Peter Lawford, Checkmates Ltd - 1968-12-19.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 537252962,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e22-1968-12-19/Playboy After Dark - S01E22 - Sammy Davis Jr, Anthony Newley, Jerry Lewis, Bill Cosby, Peter Lawford, Checkmates Ltd - 1968-12-19.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e23-1969-01-18",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Grateful Dead, Sid Caesar, Noel Harrison, Sidney Omarr",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-01-18",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E23 - The Grateful Dead, Sid Caesar, Noel Harrison, Sidney Omarr - 1969-01-18.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 502208548,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e23-1969-01-18/Playboy After Dark - S01E23 - The Grateful Dead, Sid Caesar, Noel Harrison, Sidney Omarr - 1969-01-18.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e24-1969-01-20",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Canned Heat, Shari Lewis, Buddy Greco, Max Lerner, Johnny Janis",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-01-20",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E24 - Canned Heat, Shari Lewis, Buddy Greco, Max Lerner, Johnny Janis - 1969-01-20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 500124612,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e24-1969-01-20/Playboy After Dark - S01E24 - Canned Heat, Shari Lewis, Buddy Greco, Max Lerner, Johnny Janis - 1969-01-20.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e25-1969-01-25",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Michael Caine, Meredith MacRae, Sir Douglas Quintet, Mort Sahl",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-01-25",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E25 - Michael Caine, Meredith MacRae, Sir Douglas Quintet, Mort Sahl, Sammy Shore, The Clara Ward Singers - 1969-01-25.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 529767503,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e25-1969-01-25/Playboy After Dark - S01E25 - Michael Caine, Meredith MacRae, Sir Douglas Quintet, Mort Sahl, Sammy Shore, The Clara Ward Singers - 1969-01-25.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s01e26-1969-01-26",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Steppenwolf, Joey Bishop, Joe Williams, Joanne Vent, Skiles & Henderson",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-01-26",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S01E26 - Steppenwolf, Joey Bishop, Joe Williams, Joanne Vent, Skiles & Henderson - 1969-01-26.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 535782430,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s01e26-1969-01-26/Playboy After Dark - S01E26 - Steppenwolf, Joey Bishop, Joe Williams, Joanne Vent, Skiles & Henderson - 1969-01-26.ia.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "playboy-after-dark-s01e02-1968-07-24",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Roman Polanski, Sharon Tate, Della Reese, Don Adams",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-07-24",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E02 - Roman Polanski, Sharon Tate, Della Reese, Don Adams - 1968-07-24.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 525819780,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e02-1968-07-24/Playboy After Dark - S01E02 - Roman Polanski, Sharon Tate, Della Reese, Don Adams - 1968-07-24.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e03-1968-08-08",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Bill Cosby, Bill Medley, Iron Butterfly, Kaye Stevens",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-08-08",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E03 - Bill Cosby, Bill Medley, Iron Butterfly - 1968-08-08.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 522789341,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e03-1968-08-08/Playboy After Dark - S01E03 - Bill Cosby, Bill Medley, Iron Butterfly - 1968-08-08.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e04-1968-08-09",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Tony Bennett, Steppenwolf, George Plimpton",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-08-09",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E04 - Tony Bennett, Steppenwolf, George Plimpton - 1968-08-09.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 538875236,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e04-1968-08-09/Playboy After Dark - S01E04 - Tony Bennett, Steppenwolf, George Plimpton - 1968-08-09.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e05-1968-08-29",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "Buddy Rich, James Cotton Blues Band, Joe Williams",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-08-29",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E05 - James Cotton Blue Band, Buddy Rich, Ray Hastings, Pat Mccormick - 1968-08-29.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 535532115,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e05-1968-08-29/Playboy After Dark - S01E05 - James Cotton Blue Band, Buddy Rich, Ray Hastings, Pat Mccormick - 1968-08-29.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e06-1968-08-30",
-     "seasonNumber": 1,
-     "episodeNumber": 6,
-     "title": "Otto Preminger, Harry Nilsson, Norm Crosby, Rich Little",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-08-30",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E06 - Rich Little, Nilsson, Otto Preminger, Norm Crosby - 1968-08-30.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 561293561,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e06-1968-08-30/Playboy After Dark - S01E06 - Rich Little, Nilsson, Otto Preminger, Norm Crosby - 1968-08-30.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e07-1968-09-09",
-     "seasonNumber": 1,
-     "episodeNumber": 7,
-     "title": "Bob Newhart, Bill Cosby, O.C. Smith, Pickle Brothers",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-09-09",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E07 - George Chakos, Gary Le Mel, Bob Newhart, O.C. Smith - 1968-09-09.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 534994804,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e07-1968-09-09/Playboy After Dark - S01E07 - George Chakos, Gary Le Mel, Bob Newhart, O.C. Smith - 1968-09-09.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e08-1968-09-13",
-     "seasonNumber": 1,
-     "episodeNumber": 8,
-     "title": "Jim Webb, Gloria Loring, The Checkmates",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-09-13",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E08 - Harry Blackstone Jr, Jimmy Webb, Gloria Loring - 1968-09-13.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 539177002,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e08-1968-09-13/Playboy After Dark - S01E08 - Harry Blackstone Jr, Jimmy Webb, Gloria Loring - 1968-09-13.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e09-1968-09-28",
-     "seasonNumber": 1,
-     "episodeNumber": 9,
-     "title": "The Byrds, Marvin Gaye, Pat Henry, The Committee",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-09-28",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E09 - Pete Barbutti, The Byrds, The Commitee, Marvin Gaye - 1968-09-28.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 526352026,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e09-1968-09-28/Playboy After Dark - S01E09 - Pete Barbutti, The Byrds, The Commitee, Marvin Gaye - 1968-09-28.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e10-1968-09-29",
-     "seasonNumber": 1,
-     "episodeNumber": 10,
-     "title": "Tommy Smothers, Buffy St. Marie, Louis Nye, John Stewart",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-09-29",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E10 - Dr William Schultz, Tommy Smothers, Louis Nye, Buffy Ford - 1968-09-29.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 528817112,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e10-1968-09-29/Playboy After Dark - S01E10 - Dr William Schultz, Tommy Smothers, Louis Nye, Buffy Ford - 1968-09-29.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e11-1968-10-15",
-     "seasonNumber": 1,
-     "episodeNumber": 11,
-     "title": "Pete Seeger, Bill Cosby, Carmen McRae, Jack E. Leonard",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-10-15",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E11 - Aaron & Freddie, Jack E. Leonard, Teddy Neeley, Pete Seeger - 1968-10-15.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 528188382,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e11-1968-10-15/Playboy After Dark - S01E11 - Aaron & Freddie, Jack E. Leonard, Teddy Neeley, Pete Seeger - 1968-10-15.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e12-1968-10-16",
-     "seasonNumber": 1,
-     "episodeNumber": 12,
-     "title": "Bill Cosby, Jackie DeShannon, Marty Ingels, Taj Mahal",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-10-16",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E12 - Bill Cosby, Jackie DeShannon, Taj Mahal, Jim Brown - 1968-10-16.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 562022223,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e12-1968-10-16/Playboy After Dark - S01E12 - Bill Cosby, Jackie DeShannon, Taj Mahal, Jim Brown - 1968-10-16.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e13-1968-10-22",
-     "seasonNumber": 1,
-     "episodeNumber": 13,
-     "title": "Rowan & Martin, Stu Gilliam, Paul Hampton, Clara Ward Singers",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-10-22",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E13 - Cathy Carlson, Stu Gilliam, Paul Hampton, Rowan & Martin - 1968-10-22.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 529350048,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e13-1968-10-22/Playboy After Dark - S01E13 - Cathy Carlson, Stu Gilliam, Paul Hampton, Rowan & Martin - 1968-10-22.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e14-1968-10-23",
-     "seasonNumber": 1,
-     "episodeNumber": 14,
-     "title": "Don Adams, Deep Purple, Brenton Wood, Lynn Kellogg",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-10-23",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E14 - Deep Purple, Brenton Wood, Don Adams, Jackie Gayle - 1968-10-23.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 561949697,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e14-1968-10-23/Playboy After Dark - S01E14 - Deep Purple, Brenton Wood, Don Adams, Jackie Gayle - 1968-10-23.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e15-1968-11-10",
-     "seasonNumber": 1,
-     "episodeNumber": 15,
-     "title": "Gore Vidal, Three Dog Night, Pat Collins, John Hartford",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-11-10",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E15 - Gore Vidal, Three Dog Night, Morgana King, Mort Sahl - 1968-11-10.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 534207618,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e15-1968-11-10/Playboy After Dark - S01E15 - Gore Vidal, Three Dog Night, Morgana King, Mort Sahl - 1968-11-10.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e16-1968-11-11",
-     "seasonNumber": 1,
-     "episodeNumber": 16,
-     "title": "Joan Baez, Don Adams, Tommy Smothers, Avante-Garde",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-11-11",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E16 - Joan Baez, Avant-Garde, Tommy Smothers, Don Adams - 1968-11-11.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 550288692,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e16-1968-11-11/Playboy After Dark - S01E16 - Joan Baez, Avant-Garde, Tommy Smothers, Don Adams - 1968-11-11.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e17-1968-11-25",
-     "seasonNumber": 1,
-     "episodeNumber": 17,
-     "title": "James Brown, Three Dog Night, Bill Cosby, Soupy Sales",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-11-25",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E17 - James Brown, Jack Carter, Three Dog Night, Soupy Sales - 1968-11-25.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 525471556,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e17-1968-11-25/Playboy After Dark - S01E17 - James Brown, Jack Carter, Three Dog Night, Soupy Sales - 1968-11-25.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e18-1968-11-26",
-     "seasonNumber": 1,
-     "episodeNumber": 18,
-     "title": "Don Rickles, Bill Cosby, Doug McClure, Kelly Garrett",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-11-26",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E18 - Shecky Greene, Don Rickles, Melvin Belli, The Checkmates LTD - 1968-11-26.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 519079876,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e18-1968-11-26/Playboy After Dark - S01E18 - Shecky Greene, Don Rickles, Melvin Belli, The Checkmates LTD - 1968-11-26.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e19-1968-12-10",
-     "seasonNumber": 1,
-     "episodeNumber": 19,
-     "title": "Lou Rawls, Shelley Berman, David Steinberg, Buddy Miles Express",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-12-10",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E19 - Shelly Berman, Lou Rawls, Buddy Miles Express, Joanie Sommers, David Steinberg, The Times Square Two - 1968-12-10.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 526184318,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e19-1968-12-10/Playboy After Dark - S01E19 - Shelly Berman, Lou Rawls, Buddy Miles Express, Joanie Sommers, David Steinberg, The Times Square Two - 1968-12-10.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e20-1968-12-11",
-     "seasonNumber": 1,
-     "episodeNumber": 20,
-     "title": "Nitty Gritty Dirt Band, Lou Rawls, Pat Morita, Frankie Randall",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-12-11",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E20 - Shelly Berman, Pat Morita, Nitty Gritty Dirt Band, Frankie Randall, Lou Rawls, The Second City - 1968-12-11.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 527336613,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e20-1968-12-11/Playboy After Dark - S01E20 - Shelly Berman, Pat Morita, Nitty Gritty Dirt Band, Frankie Randall, Lou Rawls, The Second City - 1968-12-11.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e21-1968-12-17",
-     "seasonNumber": 1,
-     "episodeNumber": 21,
-     "title": "The Grass Roots, Rich Little, Billy Eckstine, Paul Mazursky",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-12-17",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E21 - The Grass Roots, Rich Little, Billy Eckstine, Paul Mazursky - 1968-12-17.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 527821867,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e21-1968-12-17/Playboy After Dark - S01E21 - The Grass Roots, Rich Little, Billy Eckstine, Paul Mazursky - 1968-12-17.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e22-1968-12-19",
-     "seasonNumber": 1,
-     "episodeNumber": 22,
-     "title": "Sammy Davis Jr., Anthony Newley, Jerry Lewis, Bill Cosby, Peter Lawford",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1968-12-19",
-     "year": 1968,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E22 - Sammy Davis Jr, Anthony Newley, Jerry Lewis, Bill Cosby, Peter Lawford, Checkmates Ltd - 1968-12-19.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 537252962,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e22-1968-12-19/Playboy After Dark - S01E22 - Sammy Davis Jr, Anthony Newley, Jerry Lewis, Bill Cosby, Peter Lawford, Checkmates Ltd - 1968-12-19.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e23-1969-01-18",
-     "seasonNumber": 1,
-     "episodeNumber": 23,
-     "title": "The Grateful Dead, Sid Caesar, Noel Harrison, Sidney Omarr",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1969-01-18",
-     "year": 1969,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E23 - The Grateful Dead, Sid Caesar, Noel Harrison, Sidney Omarr - 1969-01-18.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 502208548,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e23-1969-01-18/Playboy After Dark - S01E23 - The Grateful Dead, Sid Caesar, Noel Harrison, Sidney Omarr - 1969-01-18.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e24-1969-01-20",
-     "seasonNumber": 1,
-     "episodeNumber": 24,
-     "title": "Canned Heat, Shari Lewis, Buddy Greco, Max Lerner, Johnny Janis",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1969-01-20",
-     "year": 1969,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E24 - Canned Heat, Shari Lewis, Buddy Greco, Max Lerner, Johnny Janis - 1969-01-20.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 500124612,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e24-1969-01-20/Playboy After Dark - S01E24 - Canned Heat, Shari Lewis, Buddy Greco, Max Lerner, Johnny Janis - 1969-01-20.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e25-1969-01-25",
-     "seasonNumber": 1,
-     "episodeNumber": 25,
-     "title": "Michael Caine, Meredith MacRae, Sir Douglas Quintet, Mort Sahl",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1969-01-25",
-     "year": 1969,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E25 - Michael Caine, Meredith MacRae, Sir Douglas Quintet, Mort Sahl, Sammy Shore, The Clara Ward Singers - 1969-01-25.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 529767503,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e25-1969-01-25/Playboy After Dark - S01E25 - Michael Caine, Meredith MacRae, Sir Douglas Quintet, Mort Sahl, Sammy Shore, The Clara Ward Singers - 1969-01-25.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s01e26-1969-01-26",
-     "seasonNumber": 1,
-     "episodeNumber": 26,
-     "title": "Steppenwolf, Joey Bishop, Joe Williams, Joanne Vent, Skiles & Henderson",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1969-01-26",
-     "year": 1969,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S01E26 - Steppenwolf, Joey Bishop, Joe Williams, Joanne Vent, Skiles & Henderson - 1969-01-26.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 535782430,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s01e26-1969-01-26/Playboy After Dark - S01E26 - Steppenwolf, Joey Bishop, Joe Williams, Joanne Vent, Skiles & Henderson - 1969-01-26.ia.mp4"
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "playboy-after-dark-s02e01-1969-10-22",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Sid Caesar, Linda Ronstadt, Joe Cocker & The Grease Band, Mort Sahl, Billy Eckstine",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-10-22",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E01 - Sid Caesar, Billy Eckstine, Linda Ronstadt, Joe Cocker & the Grease Band, Mort Sahl - 1969-10-22.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 513739371,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e01-1969-10-22/Playboy After Dark - S02E01 - Sid Caesar, Billy Eckstine, Linda Ronstadt, Joe Cocker & the Grease Band, Mort Sahl - 1969-10-22.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e02-1969-10-23",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Scoey Mitchell, Sweetwater, Bill Cosby, Bill Medley, Hugh O'Brian",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-10-23",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E02 - Scoey Mitchell, Sweetwater, Bill Cosby, Bill Medley, Hugh O'Brian - 1969-10-23.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 521851080,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e02-1969-10-23/Playboy After Dark - S02E02 - Scoey Mitchell, Sweetwater, Bill Cosby, Bill Medley, Hugh O'Brian - 1969-10-23.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e03-1969-11-05",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Carla Thomas, Don Adams, Bill Dana, The Checkmates, Amazing Kreskin",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-11-05",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E03 - Don Adams, Checkmates LTD, Bil Dana, Kreskin, Biff Rose, Carla Thomas - 1969-11-05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 519600389,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e03-1969-11-05/Playboy After Dark - S02E03 - Don Adams, Checkmates LTD, Bil Dana, Kreskin, Biff Rose, Carla Thomas - 1969-11-05.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e04-1969-11-20",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Sonny & Cher, Vic Damone, Canned Heat, Larry Storch, Dick Shawn",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-11-20",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E04 - Vic Damone, Canned Heat, Dick Shawn, Sonny & Cher, Larry Storch - 1969-11-20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 514097580,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e04-1969-11-20/Playboy After Dark - S02E04 - Vic Damone, Canned Heat, Dick Shawn, Sonny & Cher, Larry Storch - 1969-11-20.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e05-1969-11-20",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Tony Bennett, Mitch Miller, Joe Williams, George Kirby, Moe Koffman",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-11-20",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E05 - Tony Bennett, Mitch Miller, Joe Williams, George Kirby, Moe Koffman - 1969-11-20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 513853887,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e05-1969-11-20/Playboy After Dark - S02E05 - Tony Bennett, Mitch Miller, Joe Williams, George Kirby, Moe Koffman - 1969-11-20.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e06-1969-12-03",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Lou Rawls, Tony Randall, Grand Funk Railroad, Cannonball Adderly Quintet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-12-03",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E06 - Lou Rawls, Tony Randall, Grand Funk Railroad, Cannonball Adderly Quintet - 1969-12-03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 426697597,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e06-1969-12-03/Playboy After Dark - S02E06 - Lou Rawls, Tony Randall, Grand Funk Railroad, Cannonball Adderly Quintet - 1969-12-03.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e07-1969-12-03",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Ike & Tina Turner Revue, Patty Duke, Rex Reed, Louis Nye, Doug Kershaw",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-12-03",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E07 - Ike & Tina Turner Revue, Patty Duke, Rex Reed, Louis Nye, Doug Kershaw - 1969-12-03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 536730590,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e07-1969-12-03/Playboy After Dark - S02E07 - Ike & Tina Turner Revue, Patty Duke, Rex Reed, Louis Nye, Doug Kershaw - 1969-12-03.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e08-1969-12-17",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Steve Allen, O.C. Smith, Nitty Gritty Dirt Band, The Blossoms",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-12-17",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E08 - Steve Allen, O.C. Smith, Nitty Gritty Dirt Band, The Blossoms - 1969-12-17.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 510380206,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e08-1969-12-17/Playboy After Dark - S02E08 - Steve Allen, O.C. Smith, Nitty Gritty Dirt Band, The Blossoms - 1969-12-17.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e09-1969-12-17",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Steppenwolf, John Hartford, Gig Young, Dolores Hall, McCall & Brill",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1969-12-17",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E09 - Steppenwolf, John Hartford, Gig Young, Dolores Hall, McCall & Brill - 1969-12-17.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 430776180,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e09-1969-12-17/Playboy After Dark - S02E09 - Steppenwolf, John Hartford, Gig Young, Dolores Hall, McCall & Brill - 1969-12-17.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e10-1970-01-07",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "James Brown, Norm Crosby, Chambers Brothers, Jack Jones",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-01-07",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E10 - James Brown, Norm Crosby, Chambers Brothers, Jack Jones - 1970-01-07.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 516128318,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e10-1970-01-07/Playboy After Dark - S02E10 - James Brown, Norm Crosby, Chambers Brothers, Jack Jones - 1970-01-07.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e11-1970-01-08",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Don Adams, Lesley Gore, Fleetwood Mac, Arte Johnson",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-01-08",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E11 - Don Adams, Lesley Gore, Fleetwood Mac, Arte Johnson - 1970-01-08.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 518943326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e11-1970-01-08/Playboy After Dark - S02E11 - Don Adams, Lesley Gore, Fleetwood Mac, Arte Johnson - 1970-01-08.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e12-1970-02-18",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Milton Berle, Barrie Chase, Jo Anne Worley, Tommy Joe White",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-02-18",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E12 - Milton Berle, Barrie Chase, Jo Anne Worley, Tommy Joe White - 1970-02-18.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 515433434,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e12-1970-02-18/Playboy After Dark - S02E12 - Milton Berle, Barrie Chase, Jo Anne Worley, Tommy Joe White - 1970-02-18.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e13-1970-02-20",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Smokey Robinson & The Miracles, Marty Ingels, Noel Harrison",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-02-20",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E13 - Smokey Robinson & The Miracles, Marty Ingels, Noel Harrison - 1970-02-20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 518819050,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e13-1970-02-20/Playboy After Dark - S02E13 - Smokey Robinson & The Miracles, Marty Ingels, Noel Harrison - 1970-02-20.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e14-1970-03-03",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Robert Goulet, Rich Little, Shari Lewis, Frankie Randall",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-03-03",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E14 - Robert Goulet, Rich Little, Shari Lewis, Frankie Randall - 1970-03-03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 512855819,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e14-1970-03-03/Playboy After Dark - S02E14 - Robert Goulet, Rich Little, Shari Lewis, Frankie Randall - 1970-03-03.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e15-1970-03-18",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Johnny Mathis, Modern Jazz Quartet, John Stewart",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-03-18",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E15 - Johnny Mathis, Modern Jazz Quartet, John Stewart - 1970-03-18.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 513737529,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e15-1970-03-18/Playboy After Dark - S02E15 - Johnny Mathis, Modern Jazz Quartet, John Stewart - 1970-03-18.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e16-1970-03-19",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Bill Cosby, The Grass Roots, Edie Adams, Robert Clary",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-03-19",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E16 - Bill Cosby, The Grass Roots, Edie Adams, Robert Clary - 1970-03-19.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 512955988,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e16-1970-03-19/Playboy After Dark - S02E16 - Bill Cosby, The Grass Roots, Edie Adams, Robert Clary - 1970-03-19.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e17-1970-03-20",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Sarah Vaughan, Trini Lopez, R.B. Greaves, Jackie Gayle",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-03-20",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E17 - Sarah Vaughan, Trini Lopez, R.B. Greaves, Jackie Gayle - 1970-03-20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 512923342,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e17-1970-03-20/Playboy After Dark - S02E17 - Sarah Vaughan, Trini Lopez, R.B. Greaves, Jackie Gayle - 1970-03-20.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e18-1970-04-01",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Carmen McRae, The Dillards, John Gary",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-01",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E18 - Carmen McRae, The Dillards, John Gary, Stu Gilliam, Dr. David Reuben, and Allan Sues - 1970-04-01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 424256847,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e18-1970-04-01/Playboy After Dark - S02E18 - Carmen McRae, The Dillards, John Gary, Stu Gilliam, Dr. David Reuben, and Allan Sues - 1970-04-01.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e19-1970-04-02",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Sandy Baron, Sonny Charles, Lola Falana, Don Ho, Pat Paulson",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-02",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E19 - Sandy Baron, Sonny Charles, Lola Falana, Don Ho, Pat Paulson - 1970-04-02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 511348563,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e19-1970-04-02/Playboy After Dark - S02E19 - Sandy Baron, Sonny Charles, Lola Falana, Don Ho, Pat Paulson - 1970-04-02.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e20-1970-04-15",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "B. B. King, Mel Torme, McCall & Brill, Barbara McNair",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-15",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E20 - B. B. King, Mel Torme, McCall & Brill, Barbara McNair - 1970-04-15.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 586763819,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e20-1970-04-15/Playboy After Dark - S02E20 - B. B. King, Mel Torme, McCall & Brill, Barbara McNair - 1970-04-15.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e21-1970-04-16",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Linda Ronstadt, Country Joe & The Fish, Woodstock Highlights",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-16",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E21 - Linda Ronstadt, Country Joe & The Fish, Woodstock Highlights - 1970-04-16.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 516093118,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e21-1970-04-16/Playboy After Dark - S02E21 - Linda Ronstadt, Country Joe & The Fish, Woodstock Highlights - 1970-04-16.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e22-1970-04-20",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Billy Preston, Sammy Davis Jr., Bill Medley, Moms Mabley",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-20",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E22 - Billy Preston, Sammy Davis Jr,  Bill Medley, Moms Mabley - 1970-04-20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 515524076,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e22-1970-04-20/Playboy After Dark - S02E22 - Billy Preston, Sammy Davis Jr,  Bill Medley, Moms Mabley - 1970-04-20.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e23-1970-04-29",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Buddy Miles Band, Fran Jeffries, Rich Little, Vic Damone, Bruce Belland & Dave Somerville",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-29",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E23 - Buddy Miles Band, Fran Jeffries, Rich Little, Vic Damone, Bruce Belland & Dave Somerville - 1970-04-29.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 518036824,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e23-1970-04-29/Playboy After Dark - S02E23 - Buddy Miles Band, Fran Jeffries, Rich Little, Vic Damone, Bruce Belland & Dave Somerville - 1970-04-29.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e24-1970-04-30",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "George Carlin, Lou Rawls, Spanky Wilson, Bossa Rio",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-04-29",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E24 - George Carlin, Lou Rawls, Spanky Wilson, Bossa Rio - 1970-04-30.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 520466096,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e24-1970-04-30/Playboy After Dark - S02E24 - George Carlin, Lou Rawls, Spanky Wilson, Bossa Rio - 1970-04-30.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e25-1970-05-14",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "Frankie Lane, Marty Allen, The Cowsills, Sue Raney",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-05-14",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E25 - Frankie Lane, Marty Allen, The Cowsills, Sue Raney - 1970-05-14.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 518247809,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e25-1970-05-14/Playboy After Dark - S02E25 - Frankie Lane, Marty Allen, The Cowsills, Sue Raney - 1970-05-14.ia.mp4"
+        },
+        {
+          "archiveID": "playboy-after-dark-s02e26-1970-05-31",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Buddy Rich, Hal Frazier, Chita Rivera, Don Adams, Carol Burnett, Charles Strouse, Jack Cassidy",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
+          "airDate": "1970-05-31",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Playboy After Dark - S02E26 - Buddy Rich, Hal Frazier, Chita Rivera, Don Adams, Carol Burnett, Charles Strouse, Jack Cassidy - 1970-05-31.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 495478482,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/playboy-after-dark-s02e26-1970-05-31/Playboy After Dark - S02E26 - Buddy Rich, Hal Frazier, Chita Rivera, Don Adams, Carol Burnett, Charles Strouse, Jack Cassidy - 1970-05-31.ia.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 2,
-   "episodes": [
+  ],
+  "episodesCount": 52,
+  "canonicalEpisodesCount": 52,
+  "cast": [
     {
-     "archiveID": "playboy-after-dark-s02e01-1969-10-22",
-     "seasonNumber": 2,
-     "episodeNumber": 1,
-     "title": "Sid Caesar, Linda Ronstadt, Joe Cocker & The Grease Band, Mort Sahl, Billy Eckstine",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1969-10-22",
-     "year": 1969,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E01 - Sid Caesar, Billy Eckstine, Linda Ronstadt, Joe Cocker & the Grease Band, Mort Sahl - 1969-10-22.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 513739371,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e01-1969-10-22/Playboy After Dark - S02E01 - Sid Caesar, Billy Eckstine, Linda Ronstadt, Joe Cocker & the Grease Band, Mort Sahl - 1969-10-22.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e02-1969-10-23",
-     "seasonNumber": 2,
-     "episodeNumber": 2,
-     "title": "Scoey Mitchell, Sweetwater, Bill Cosby, Bill Medley, Hugh O'Brian",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1969-10-23",
-     "year": 1969,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E02 - Scoey Mitchell, Sweetwater, Bill Cosby, Bill Medley, Hugh O'Brian - 1969-10-23.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 521851080,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e02-1969-10-23/Playboy After Dark - S02E02 - Scoey Mitchell, Sweetwater, Bill Cosby, Bill Medley, Hugh O'Brian - 1969-10-23.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e03-1969-11-05",
-     "seasonNumber": 2,
-     "episodeNumber": 3,
-     "title": "Carla Thomas, Don Adams, Bill Dana, The Checkmates, Amazing Kreskin",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1969-11-05",
-     "year": 1969,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E03 - Don Adams, Checkmates LTD, Bil Dana, Kreskin, Biff Rose, Carla Thomas - 1969-11-05.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 519600389,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e03-1969-11-05/Playboy After Dark - S02E03 - Don Adams, Checkmates LTD, Bil Dana, Kreskin, Biff Rose, Carla Thomas - 1969-11-05.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e04-1969-11-20",
-     "seasonNumber": 2,
-     "episodeNumber": 4,
-     "title": "Sonny & Cher, Vic Damone, Canned Heat, Larry Storch, Dick Shawn",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1969-11-20",
-     "year": 1969,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E04 - Vic Damone, Canned Heat, Dick Shawn, Sonny & Cher, Larry Storch - 1969-11-20.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 514097580,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e04-1969-11-20/Playboy After Dark - S02E04 - Vic Damone, Canned Heat, Dick Shawn, Sonny & Cher, Larry Storch - 1969-11-20.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e05-1969-11-20",
-     "seasonNumber": 2,
-     "episodeNumber": 5,
-     "title": "Tony Bennett, Mitch Miller, Joe Williams, George Kirby, Moe Koffman",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1969-11-20",
-     "year": 1969,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E05 - Tony Bennett, Mitch Miller, Joe Williams, George Kirby, Moe Koffman - 1969-11-20.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 513853887,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e05-1969-11-20/Playboy After Dark - S02E05 - Tony Bennett, Mitch Miller, Joe Williams, George Kirby, Moe Koffman - 1969-11-20.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e06-1969-12-03",
-     "seasonNumber": 2,
-     "episodeNumber": 6,
-     "title": "Lou Rawls, Tony Randall, Grand Funk Railroad, Cannonball Adderly Quintet",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1969-12-03",
-     "year": 1969,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E06 - Lou Rawls, Tony Randall, Grand Funk Railroad, Cannonball Adderly Quintet - 1969-12-03.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 426697597,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e06-1969-12-03/Playboy After Dark - S02E06 - Lou Rawls, Tony Randall, Grand Funk Railroad, Cannonball Adderly Quintet - 1969-12-03.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e07-1969-12-03",
-     "seasonNumber": 2,
-     "episodeNumber": 7,
-     "title": "Ike & Tina Turner Revue, Patty Duke, Rex Reed, Louis Nye, Doug Kershaw",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1969-12-03",
-     "year": 1969,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E07 - Ike & Tina Turner Revue, Patty Duke, Rex Reed, Louis Nye, Doug Kershaw - 1969-12-03.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 536730590,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e07-1969-12-03/Playboy After Dark - S02E07 - Ike & Tina Turner Revue, Patty Duke, Rex Reed, Louis Nye, Doug Kershaw - 1969-12-03.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e08-1969-12-17",
-     "seasonNumber": 2,
-     "episodeNumber": 8,
-     "title": "Steve Allen, O.C. Smith, Nitty Gritty Dirt Band, The Blossoms",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1969-12-17",
-     "year": 1969,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E08 - Steve Allen, O.C. Smith, Nitty Gritty Dirt Band, The Blossoms - 1969-12-17.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 510380206,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e08-1969-12-17/Playboy After Dark - S02E08 - Steve Allen, O.C. Smith, Nitty Gritty Dirt Band, The Blossoms - 1969-12-17.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e09-1969-12-17",
-     "seasonNumber": 2,
-     "episodeNumber": 9,
-     "title": "Steppenwolf, John Hartford, Gig Young, Dolores Hall, McCall & Brill",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1969-12-17",
-     "year": 1969,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E09 - Steppenwolf, John Hartford, Gig Young, Dolores Hall, McCall & Brill - 1969-12-17.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 430776180,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e09-1969-12-17/Playboy After Dark - S02E09 - Steppenwolf, John Hartford, Gig Young, Dolores Hall, McCall & Brill - 1969-12-17.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e10-1970-01-07",
-     "seasonNumber": 2,
-     "episodeNumber": 10,
-     "title": "James Brown, Norm Crosby, Chambers Brothers, Jack Jones",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-01-07",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E10 - James Brown, Norm Crosby, Chambers Brothers, Jack Jones - 1970-01-07.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 516128318,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e10-1970-01-07/Playboy After Dark - S02E10 - James Brown, Norm Crosby, Chambers Brothers, Jack Jones - 1970-01-07.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e11-1970-01-08",
-     "seasonNumber": 2,
-     "episodeNumber": 11,
-     "title": "Don Adams, Lesley Gore, Fleetwood Mac, Arte Johnson",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-01-08",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E11 - Don Adams, Lesley Gore, Fleetwood Mac, Arte Johnson - 1970-01-08.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 518943326,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e11-1970-01-08/Playboy After Dark - S02E11 - Don Adams, Lesley Gore, Fleetwood Mac, Arte Johnson - 1970-01-08.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e12-1970-02-18",
-     "seasonNumber": 2,
-     "episodeNumber": 12,
-     "title": "Milton Berle, Barrie Chase, Jo Anne Worley, Tommy Joe White",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-02-18",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E12 - Milton Berle, Barrie Chase, Jo Anne Worley, Tommy Joe White - 1970-02-18.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 515433434,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e12-1970-02-18/Playboy After Dark - S02E12 - Milton Berle, Barrie Chase, Jo Anne Worley, Tommy Joe White - 1970-02-18.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e13-1970-02-20",
-     "seasonNumber": 2,
-     "episodeNumber": 13,
-     "title": "Smokey Robinson & The Miracles, Marty Ingels, Noel Harrison",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-02-20",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E13 - Smokey Robinson & The Miracles, Marty Ingels, Noel Harrison - 1970-02-20.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 518819050,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e13-1970-02-20/Playboy After Dark - S02E13 - Smokey Robinson & The Miracles, Marty Ingels, Noel Harrison - 1970-02-20.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e14-1970-03-03",
-     "seasonNumber": 2,
-     "episodeNumber": 14,
-     "title": "Robert Goulet, Rich Little, Shari Lewis, Frankie Randall",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-03-03",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E14 - Robert Goulet, Rich Little, Shari Lewis, Frankie Randall - 1970-03-03.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 512855819,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e14-1970-03-03/Playboy After Dark - S02E14 - Robert Goulet, Rich Little, Shari Lewis, Frankie Randall - 1970-03-03.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e15-1970-03-18",
-     "seasonNumber": 2,
-     "episodeNumber": 15,
-     "title": "Johnny Mathis, Modern Jazz Quartet, John Stewart",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-03-18",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E15 - Johnny Mathis, Modern Jazz Quartet, John Stewart - 1970-03-18.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 513737529,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e15-1970-03-18/Playboy After Dark - S02E15 - Johnny Mathis, Modern Jazz Quartet, John Stewart - 1970-03-18.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e16-1970-03-19",
-     "seasonNumber": 2,
-     "episodeNumber": 16,
-     "title": "Bill Cosby, The Grass Roots, Edie Adams, Robert Clary",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-03-19",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E16 - Bill Cosby, The Grass Roots, Edie Adams, Robert Clary - 1970-03-19.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 512955988,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e16-1970-03-19/Playboy After Dark - S02E16 - Bill Cosby, The Grass Roots, Edie Adams, Robert Clary - 1970-03-19.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e17-1970-03-20",
-     "seasonNumber": 2,
-     "episodeNumber": 17,
-     "title": "Sarah Vaughan, Trini Lopez, R.B. Greaves, Jackie Gayle",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-03-20",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E17 - Sarah Vaughan, Trini Lopez, R.B. Greaves, Jackie Gayle - 1970-03-20.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 512923342,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e17-1970-03-20/Playboy After Dark - S02E17 - Sarah Vaughan, Trini Lopez, R.B. Greaves, Jackie Gayle - 1970-03-20.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e18-1970-04-01",
-     "seasonNumber": 2,
-     "episodeNumber": 18,
-     "title": "Carmen McRae, The Dillards, John Gary",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-04-01",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E18 - Carmen McRae, The Dillards, John Gary, Stu Gilliam, Dr. David Reuben, and Allan Sues - 1970-04-01.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 424256847,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e18-1970-04-01/Playboy After Dark - S02E18 - Carmen McRae, The Dillards, John Gary, Stu Gilliam, Dr. David Reuben, and Allan Sues - 1970-04-01.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e19-1970-04-02",
-     "seasonNumber": 2,
-     "episodeNumber": 19,
-     "title": "Sandy Baron, Sonny Charles, Lola Falana, Don Ho, Pat Paulson",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-04-02",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E19 - Sandy Baron, Sonny Charles, Lola Falana, Don Ho, Pat Paulson - 1970-04-02.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 511348563,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e19-1970-04-02/Playboy After Dark - S02E19 - Sandy Baron, Sonny Charles, Lola Falana, Don Ho, Pat Paulson - 1970-04-02.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e20-1970-04-15",
-     "seasonNumber": 2,
-     "episodeNumber": 20,
-     "title": "B. B. King, Mel Torme, McCall & Brill, Barbara McNair",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-04-15",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E20 - B. B. King, Mel Torme, McCall & Brill, Barbara McNair - 1970-04-15.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 586763819,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e20-1970-04-15/Playboy After Dark - S02E20 - B. B. King, Mel Torme, McCall & Brill, Barbara McNair - 1970-04-15.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e21-1970-04-16",
-     "seasonNumber": 2,
-     "episodeNumber": 21,
-     "title": "Linda Ronstadt, Country Joe & The Fish, Woodstock Highlights",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-04-16",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E21 - Linda Ronstadt, Country Joe & The Fish, Woodstock Highlights - 1970-04-16.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 516093118,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e21-1970-04-16/Playboy After Dark - S02E21 - Linda Ronstadt, Country Joe & The Fish, Woodstock Highlights - 1970-04-16.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e22-1970-04-20",
-     "seasonNumber": 2,
-     "episodeNumber": 22,
-     "title": "Billy Preston, Sammy Davis Jr., Bill Medley, Moms Mabley",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-04-20",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E22 - Billy Preston, Sammy Davis Jr,  Bill Medley, Moms Mabley - 1970-04-20.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 515524076,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e22-1970-04-20/Playboy After Dark - S02E22 - Billy Preston, Sammy Davis Jr,  Bill Medley, Moms Mabley - 1970-04-20.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e23-1970-04-29",
-     "seasonNumber": 2,
-     "episodeNumber": 23,
-     "title": "Buddy Miles Band, Fran Jeffries, Rich Little, Vic Damone, Bruce Belland & Dave Somerville",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-04-29",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E23 - Buddy Miles Band, Fran Jeffries, Rich Little, Vic Damone, Bruce Belland & Dave Somerville - 1970-04-29.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 518036824,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e23-1970-04-29/Playboy After Dark - S02E23 - Buddy Miles Band, Fran Jeffries, Rich Little, Vic Damone, Bruce Belland & Dave Somerville - 1970-04-29.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e24-1970-04-30",
-     "seasonNumber": 2,
-     "episodeNumber": 24,
-     "title": "George Carlin, Lou Rawls, Spanky Wilson, Bossa Rio",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-04-29",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E24 - George Carlin, Lou Rawls, Spanky Wilson, Bossa Rio - 1970-04-30.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 520466096,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e24-1970-04-30/Playboy After Dark - S02E24 - George Carlin, Lou Rawls, Spanky Wilson, Bossa Rio - 1970-04-30.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e25-1970-05-14",
-     "seasonNumber": 2,
-     "episodeNumber": 25,
-     "title": "Frankie Lane, Marty Allen, The Cowsills, Sue Raney",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-05-14",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E25 - Frankie Lane, Marty Allen, The Cowsills, Sue Raney - 1970-05-14.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 518247809,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e25-1970-05-14/Playboy After Dark - S02E25 - Frankie Lane, Marty Allen, The Cowsills, Sue Raney - 1970-05-14.ia.mp4"
-    },
-    {
-     "archiveID": "playboy-after-dark-s02e26-1970-05-31",
-     "seasonNumber": 2,
-     "episodeNumber": 26,
-     "title": "Buddy Rich, Hal Frazier, Chita Rivera, Don Adams, Carol Burnett, Charles Strouse, Jack Cassidy",
-     "overview": null,
-     "stillURL": "https://image.tmdb.org/t/p/w500/vfaBaGSibqeIgFE6owPTROlC54U.jpg",
-     "airDate": "1970-05-31",
-     "year": 1970,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Playboy After Dark - S02E26 - Buddy Rich, Hal Frazier, Chita Rivera, Don Adams, Carol Burnett, Charles Strouse, Jack Cassidy - 1970-05-31.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 495478482,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/playboy-after-dark-s02e26-1970-05-31/Playboy After Dark - S02E26 - Buddy Rich, Hal Frazier, Chita Rivera, Don Adams, Carol Burnett, Charles Strouse, Jack Cassidy - 1970-05-31.ia.mp4"
+      "name": "Hugh Hefner",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/31/79800.jpg"
     }
-   ]
-  }
- ],
- "episodesCount": 52,
- "canonicalEpisodesCount": 52
+  ]
 }

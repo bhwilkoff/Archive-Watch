@@ -45,7 +45,7 @@
           "title": "I Fought the Law",
           "overview": "Barbara is pitted against a traffic court judge, after her son gets a ticket. The pompous judge is someone who likes to make victims of the accused. Barbara objects to his actions, and he has her jailed for contempt.",
           "stillURL": "https://image.tmdb.org/t/p/w500/dErF9zyyBlEJIIaGhJVzrqbSyrO.jpg",
-          "airDate": null,
+          "airDate": "1989-10-01",
           "year": 1989,
           "runtimeSeconds": 3600,
           "videoFile": {
@@ -140,5 +140,49 @@
   "canonicalEpisodesCount": 5,
   "seriesImdbID": "tt0096974",
   "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null
+  "canonicalSeasons": null,
+  "cast": [
+    {
+      "name": "Barbara Eden",
+      "character": "Barbara McCray Gibbons",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/11/28702.jpg"
+    },
+    {
+      "name": "Alison Sweeney",
+      "character": "Christy McCray",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/27389.jpg"
+    },
+    {
+      "name": "Don Murray",
+      "character": "Roger Gibbons",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/524/1310844.jpg"
+    },
+    {
+      "name": "Byron Thames",
+      "character": "Laird Gibbons",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/55/139842.jpg"
+    },
+    {
+      "name": "David Tom",
+      "character": "Bart McCray",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/178/445175.jpg"
+    },
+    {
+      "name": "Jennie Garth",
+      "character": "Ericka McCray",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/13/33755.jpg"
+    },
+    {
+      "name": "Shawnee Smith",
+      "character": "Amanda Gibbons",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/7524.jpg"
+    }
+  ]
 }

@@ -132,5 +132,13 @@
   "canonicalEpisodesCount": 137,
   "seriesImdbID": "tt0046604",
   "canonicalEpisodeCount": 51,
-  "canonicalSeasons": 6
+  "canonicalSeasons": 6,
+  "cast": [
+    {
+      "name": "George Gobel",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/93/234295.jpg"
+    }
+  ]
 }

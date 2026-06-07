@@ -205,5 +205,115 @@
   "canonicalEpisodesCount": 700,
   "seriesImdbID": "tt0056751",
   "canonicalEpisodeCount": 695,
-  "canonicalSeasons": 26
+  "canonicalSeasons": 26,
+  "cast": [
+    {
+      "name": "Tom Baker",
+      "character": "The Fourth Doctor",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/491/1227790.jpg"
+    },
+    {
+      "name": "Richard Hurndall",
+      "character": "The First Doctor",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/75/187547.jpg"
+    },
+    {
+      "name": "William Hartnell",
+      "character": "The First Doctor",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/18/46762.jpg"
+    },
+    {
+      "name": "Jon Pertwee",
+      "character": "The Third Doctor",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25776.jpg"
+    },
+    {
+      "name": "Patrick Troughton",
+      "character": "The Second Doctor",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/18/46761.jpg"
+    },
+    {
+      "name": "Nicholas Courtney",
+      "character": "Alistair Gordon Lethbridge-Stewart",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25775.jpg"
+    },
+    {
+      "name": "Elisabeth Sladen",
+      "character": "Sarah Jane Smith",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/121/303641.jpg"
+    },
+    {
+      "name": "Peter Davison",
+      "character": "The Fifth Doctor",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25759.jpg"
+    },
+    {
+      "name": "Janet Fielding",
+      "character": "Tegan Jovanka",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/484/1212342.jpg"
+    },
+    {
+      "name": "John Leeson",
+      "character": "K-9",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25772.jpg"
+    },
+    {
+      "name": "Katy Manning",
+      "character": "Jo Grant",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/484/1212339.jpg"
+    },
+    {
+      "name": "Frazer Hines",
+      "character": "Jamie McCrimmon",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/50038.jpg"
+    },
+    {
+      "name": "John Levene",
+      "character": "Sergeant Benton",
+      "order": 12,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/51/128689.jpg"
+    },
+    {
+      "name": "Lalla Ward",
+      "character": "Romanadvoratrelundar \"Romana\" II",
+      "order": 13,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25769.jpg"
+    },
+    {
+      "name": "Sarah Sutton",
+      "character": "Nyssa",
+      "order": 14,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/10/25764.jpg"
+    },
+    {
+      "name": "Sylvester McCoy",
+      "character": "The Seventh Doctor",
+      "order": 15,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/8/20197.jpg"
+    },
+    {
+      "name": "William Russell",
+      "character": "Ian Chesterton",
+      "order": 16,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/50073.jpg"
+    },
+    {
+      "name": "Jacqueline Hill",
+      "character": "Barbara Wright",
+      "order": 17,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/50076.jpg"
+    }
+  ]
 }

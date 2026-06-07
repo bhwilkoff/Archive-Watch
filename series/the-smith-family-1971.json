@@ -381,5 +381,49 @@
   "canonicalEpisodesCount": 39,
   "seriesImdbID": "tt0066716",
   "canonicalEpisodeCount": 21,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Henry Fonda",
+      "character": "Det. Sgt. Chad Smith",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/107/269688.jpg"
+    },
+    {
+      "name": "Janet Blair",
+      "character": "Betty Smith",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/260109.jpg"
+    },
+    {
+      "name": "Darleen Carr",
+      "character": "Cindy Smith",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/163/408113.jpg"
+    },
+    {
+      "name": "Ron Howard",
+      "character": "Bob Smith",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/445/1112648.jpg"
+    },
+    {
+      "name": "Michael-James Wixted",
+      "character": "Brian Smith",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/609/1524990.jpg"
+    },
+    {
+      "name": "John Carter",
+      "character": "Sgt. Ray Martin",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/469/1173809.jpg"
+    },
+    {
+      "name": "Charles McGraw",
+      "character": "Capt. Hughes",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/45/113843.jpg"
+    }
+  ]
 }

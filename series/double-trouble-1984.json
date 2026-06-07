@@ -108,5 +108,67 @@
   "canonicalEpisodesCount": 23,
   "seriesImdbID": "tt0086696",
   "canonicalEpisodeCount": 8,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Jean Sagal",
+      "character": "Kate Foster.",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/558/1395091.jpg"
+    },
+    {
+      "name": "Liz Sagal",
+      "character": "Allison Foster",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/99/249803.jpg"
+    },
+    {
+      "name": "Barbara Barrie",
+      "character": "Aunt Margo",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/99/249801.jpg"
+    },
+    {
+      "name": "Jonathan Schmock",
+      "character": "Billy Batalato",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/4/12210.jpg"
+    },
+    {
+      "name": "James Vallely",
+      "character": "Charles Kincaid",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/99/249802.jpg"
+    },
+    {
+      "name": "Michael D. Roberts",
+      "character": "Mr. Arrechia",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/43/108905.jpg"
+    },
+    {
+      "name": "Donnelly Rhodes",
+      "character": "Art Foster",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/141/354377.jpg"
+    },
+    {
+      "name": "Patricia Richardson",
+      "character": "Beth McConnell",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/162/407334.jpg"
+    },
+    {
+      "name": "Jon Caliri",
+      "character": "Michael Gillette",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/55/139829.jpg"
+    },
+    {
+      "name": "Anne-Marie Johnson",
+      "character": "Aileen Lewis",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/193/483307.jpg"
+    }
+  ]
 }

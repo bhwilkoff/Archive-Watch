@@ -46,5 +46,25 @@
   "canonicalEpisodesCount": 26,
   "seriesImdbID": "tt0061293",
   "canonicalEpisodeCount": 18,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Monte Markham",
+      "character": "Luke Carpenter/Ken Carpenter",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/11/29991.jpg"
+    },
+    {
+      "name": "Arthur O'Connell",
+      "character": "Edwin Carpenter",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/116/290606.jpg"
+    },
+    {
+      "name": "Frank Maxwell",
+      "character": "Colonel Garroway",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/35/89504.jpg"
+    }
+  ]
 }

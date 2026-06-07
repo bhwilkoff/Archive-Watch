@@ -223,5 +223,13 @@
   "episodesCount": 11,
   "canonicalEpisodesCount": 251,
   "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  "canonicalEpisodeCount": 0,
+  "cast": [
+    {
+      "name": "Bob Vila",
+      "character": "Bob Vila",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/19/49251.jpg"
+    }
+  ]
 }

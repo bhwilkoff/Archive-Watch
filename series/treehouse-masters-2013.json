@@ -80,5 +80,13 @@
   "canonicalEpisodesCount": 98,
   "seriesImdbID": "tt2838492",
   "canonicalEpisodeCount": 46,
-  "canonicalSeasons": 11
+  "canonicalSeasons": 11,
+  "cast": [
+    {
+      "name": "Pete Nelson",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/35007.jpg"
+    }
+  ]
 }

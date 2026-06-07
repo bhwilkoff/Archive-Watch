@@ -67,5 +67,43 @@
   "canonicalEpisodesCount": 6,
   "seriesImdbID": "tt0086799",
   "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Michael Fontaine",
+      "character": "Ben Zachary",
+      "order": 0,
+      "profilePath": "/zPqW2GreNjRQnpsABRdOCmTObcU.jpg"
+    },
+    {
+      "name": "Leslie Nielsen",
+      "character": "Buddy Fox",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/31166.jpg"
+    },
+    {
+      "name": "Cathie Shirriff",
+      "character": "Zoya Antonova",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/88/221698.jpg"
+    },
+    {
+      "name": "Shawn Weatherly",
+      "character": "Melissa McDonald",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/73/183538.jpg"
+    },
+    {
+      "name": "Jennifer Tilly",
+      "character": "Shannon Winters",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/7/17758.jpg"
+    },
+    {
+      "name": "Jake Steinfeld",
+      "character": "Jerry",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/52/131428.jpg"
+    }
+  ]
 }

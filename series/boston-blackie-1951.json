@@ -78,5 +78,25 @@
   "canonicalEpisodesCount": 58,
   "seriesImdbID": "tt0043182",
   "canonicalEpisodeCount": 9,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Kent Taylor",
+      "character": "Boston Blackie",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/157/394388.jpg"
+    },
+    {
+      "name": "Lois Collier",
+      "character": "Mary Wesley",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/416/1041033.jpg"
+    },
+    {
+      "name": "Frank Orth",
+      "character": "Inspector Faraday",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/416/1041034.jpg"
+    }
+  ]
 }

@@ -116,5 +116,19 @@
   "canonicalEpisodesCount": 55,
   "seriesImdbID": "tt0057785",
   "canonicalEpisodeCount": 33,
-  "canonicalSeasons": 9
+  "canonicalSeasons": 9,
+  "cast": [
+    {
+      "name": "Harry H. Corbett",
+      "character": "Harold Steptoe",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/66200.jpg"
+    },
+    {
+      "name": "Wilfred Brambell",
+      "character": "Albert Steptoe",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/26/66201.jpg"
+    }
+  ]
 }

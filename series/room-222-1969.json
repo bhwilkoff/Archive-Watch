@@ -114,5 +114,37 @@
   "canonicalEpisodesCount": 112,
   "seriesImdbID": "tt0063948",
   "canonicalEpisodeCount": 56,
-  "canonicalSeasons": 5
+  "canonicalSeasons": 5,
+  "cast": [
+    {
+      "name": "Lloyd Haynes",
+      "character": "Pete Dixon",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/114/287329.jpg"
+    },
+    {
+      "name": "Denise Nicholas",
+      "character": "Liz McIntyre",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/85/213069.jpg"
+    },
+    {
+      "name": "Michael Constantine",
+      "character": "Principal Seymour Kaufman",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/93/233343.jpg"
+    },
+    {
+      "name": "Karen Valentine",
+      "character": "Alice Johnson",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/27/69524.jpg"
+    },
+    {
+      "name": "Heshimu Cumbuka",
+      "character": "Jason Allen",
+      "order": 4,
+      "profilePath": "/m2Ll6i23mtce5HYHuIiXnWnCc2R.jpg"
+    }
+  ]
 }

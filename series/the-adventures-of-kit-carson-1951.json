@@ -98,5 +98,19 @@
   "canonicalEpisodesCount": 103,
   "seriesImdbID": "tt0043169",
   "canonicalEpisodeCount": 28,
-  "canonicalSeasons": 4
+  "canonicalSeasons": 4,
+  "cast": [
+    {
+      "name": "Bill Williams",
+      "character": "Kit Carson",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/76/191468.jpg"
+    },
+    {
+      "name": "Don Diamond",
+      "character": "El Toro",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/50970.jpg"
+    }
+  ]
 }

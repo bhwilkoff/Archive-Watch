@@ -44,5 +44,43 @@
   "canonicalEpisodesCount": 8,
   "seriesImdbID": "tt0108851",
   "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Martin Short",
+      "character": "Marty Short",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/550/1377441.jpg"
+    },
+    {
+      "name": "Jan Hooks",
+      "character": "Meg Harper Short",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71754.jpg"
+    },
+    {
+      "name": "Noley Thornton",
+      "character": "Caroline Short",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/163/408297.jpg"
+    },
+    {
+      "name": "Zack Duhame",
+      "character": "Charlie Short",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/103/258330.jpg"
+    },
+    {
+      "name": "Andrea Martin",
+      "character": "Alice Manoogian",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/167/419274.jpg"
+    },
+    {
+      "name": "Brian Doyle-Murray",
+      "character": "Gary",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/1/4377.jpg"
+    }
+  ]
 }

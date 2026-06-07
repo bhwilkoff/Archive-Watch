@@ -139,5 +139,25 @@
   "canonicalEpisodesCount": 225,
   "seriesImdbID": "tt0190169",
   "canonicalEpisodeCount": 16,
-  "canonicalSeasons": 7
+  "canonicalSeasons": 7,
+  "cast": [
+    {
+      "name": "Ginny Ortiz",
+      "character": "Trini",
+      "order": 0,
+      "profilePath": "/qyseTl1u41MpkGCO0aVmMI7EVJD.jpg"
+    },
+    {
+      "name": "Liz Moses",
+      "character": "Lisa",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Leon W. Grant",
+      "character": "Mark",
+      "order": 2,
+      "profilePath": "/xbsmBk8bFkAEDFcMUSSYjWsONoT.jpg"
+    }
+  ]
 }

@@ -139,5 +139,37 @@
   "canonicalEpisodesCount": 13,
   "seriesImdbID": "tt0101101",
   "canonicalEpisodeCount": 6,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Shannon Tweed",
+      "character": "Sally \"Slick\" Monroe",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/72492.jpg"
+    },
+    {
+      "name": "David James Elliott",
+      "character": "Mack Sheppard",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/3/8161.jpg"
+    },
+    {
+      "name": "François Guétary",
+      "character": "Jean-Phillipe Pasteur",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/601/1504748.jpg"
+    },
+    {
+      "name": "Jean-Paul Solal",
+      "character": "Maurice",
+      "order": 3,
+      "profilePath": "/scvib5HdxZ3F0fMRz0L3oi3H3AY.jpg"
+    },
+    {
+      "name": "Ian Tracey",
+      "character": "Berry the Rat",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/612/1531892.jpg"
+    }
+  ]
 }

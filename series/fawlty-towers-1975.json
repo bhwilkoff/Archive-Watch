@@ -157,5 +157,55 @@
   "canonicalEpisodesCount": 12,
   "seriesImdbID": "tt0072500",
   "canonicalEpisodeCount": 12,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "John Cleese",
+      "character": "Basil Fawlty",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12648.jpg"
+    },
+    {
+      "name": "Prunella Scales",
+      "character": "Sybil Fawlty",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12649.jpg"
+    },
+    {
+      "name": "Connie Booth",
+      "character": "Polly Sherman",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/497/1243937.jpg"
+    },
+    {
+      "name": "Andrew Sachs",
+      "character": "Manuel",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/162/405305.jpg"
+    },
+    {
+      "name": "Ballard Berkeley",
+      "character": "The Major",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12659.jpg"
+    },
+    {
+      "name": "Gilly Flower",
+      "character": "Miss Tibbs",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12660.jpg"
+    },
+    {
+      "name": "Renee Roberts",
+      "character": "Miss Gatsby",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12661.jpg"
+    },
+    {
+      "name": "Brian Hall",
+      "character": "Terry",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/12662.jpg"
+    }
+  ]
 }

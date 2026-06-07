@@ -136,5 +136,13 @@
   "canonicalEpisodesCount": 253,
   "seriesImdbID": "tt0334878",
   "canonicalEpisodeCount": 42,
-  "canonicalSeasons": 33
+  "canonicalSeasons": 33,
+  "cast": [
+    {
+      "name": "David Attenborough",
+      "character": "Narrator",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/6/15322.jpg"
+    }
+  ]
 }

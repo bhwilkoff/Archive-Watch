@@ -152,5 +152,115 @@
   "canonicalEpisodesCount": 7253,
   "seriesImdbID": "tt0088512",
   "canonicalEpisodeCount": 100,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Adam Woodyatt",
+      "character": "Ian Beale",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24006.jpg"
+    },
+    {
+      "name": "Steve McFadden",
+      "character": "Phil Mitchell",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24009.jpg"
+    },
+    {
+      "name": "Letitia Dean",
+      "character": "Sharon Watts",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24005.jpg"
+    },
+    {
+      "name": "Gillian Taylforth",
+      "character": "Kathy Beale",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/573/1434256.jpg"
+    },
+    {
+      "name": "Pam St. Clement",
+      "character": "Pat Evans",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/22/57441.jpg"
+    },
+    {
+      "name": "Perry Fenwick",
+      "character": "Billy Mitchell",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24138.jpg"
+    },
+    {
+      "name": "Jessie Wallace",
+      "character": "Kat Moon",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24139.jpg"
+    },
+    {
+      "name": "Lacey Turner",
+      "character": "Stacey Slater",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24142.jpg"
+    },
+    {
+      "name": "James Bye",
+      "character": "Martin Fowler",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/425/1063567.jpg"
+    },
+    {
+      "name": "James Alexandrou",
+      "character": "Martin Fowler",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/34/86362.jpg"
+    },
+    {
+      "name": "Natalie Cassidy",
+      "character": "Sonia Fowler",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/445/1114503.jpg"
+    },
+    {
+      "name": "Diane Parish",
+      "character": "Denise Fox",
+      "order": 11,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24149.jpg"
+    },
+    {
+      "name": "Scott Maslen",
+      "character": "Jack Branning",
+      "order": 12,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/104/261962.jpg"
+    },
+    {
+      "name": "Rudolph Walker",
+      "character": "Patrick Trueman",
+      "order": 13,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24140.jpg"
+    },
+    {
+      "name": "Barbara Windsor",
+      "character": "Peggy Mitchell",
+      "order": 14,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/23/58166.jpg"
+    },
+    {
+      "name": "Linda Henry",
+      "character": "Shirley Carter",
+      "order": 15,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24152.jpg"
+    },
+    {
+      "name": "Shona McGarty",
+      "character": "Whitney Dean",
+      "order": 16,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/597/1493743.jpg"
+    },
+    {
+      "name": "Sid Owen",
+      "character": "Ricky Butcher",
+      "order": 17,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/9/24219.jpg"
+    }
+  ]
 }

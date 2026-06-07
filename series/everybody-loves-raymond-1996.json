@@ -27,7 +27,7 @@
           "title": "Everybody Loves Raymond - S01E01 - Pilot",
           "overview": "<span><span>Ray Barone's life seems perfect: he's a successful \nsportswriter living with his wife Debra and three kids, but trouble \ncomes in paradise in the shape of his interfering mother, grumpy father \nand resentful brother. In this opening episode of the series, Debra \nwants a peaceful birthday with Ray, so he</span><span class=\"yZlgBd\"> tells his parents and brother that there's no party: a lie with embarrassing consequences.</span></span>",
           "stillURL": "https://archive.org/services/img/everybody-loves-raymond-s01e01-pilot",
-          "airDate": null,
+          "airDate": "1996-09-13",
           "year": 1996,
           "runtimeSeconds": 1413,
           "videoFile": {
@@ -45,7 +45,7 @@
           "title": "Everybody Loves Raymond S01E01 Pilot Theatrical Version",
           "overview": "Debra yearns for a peaceful and quiet birthday at home with just Raymond. So he tells his parents and brother that there's no party. ",
           "stillURL": "https://archive.org/services/img/everybody-loves-raymond-s-01-e-01-pilot-theatical-version",
-          "airDate": null,
+          "airDate": "1996-09-13",
           "year": 1996,
           "runtimeSeconds": 1286,
           "videoFile": {
@@ -63,7 +63,7 @@
           "title": "Everybody Loves Raymond - Fighting In-Laws Clips",
           "overview": "A few clips of the episode “Fighting In Laws” on Everybody Loves Raymond, 2 of them are of the arguments of Debra’s parents, while one of them is of the argument between Ray &amp; Debra when they compare how bad each other’s parents are and everything wrong with each other’s parents in comparison to their own (Debra also repeatedly drops the Thanksgiving Day Turkey by accident before throwing it into the oven to heat up right after in that one by the way).",
           "stillURL": "https://archive.org/services/img/img-0252_202306",
-          "airDate": null,
+          "airDate": "1996-11-01",
           "year": 2023,
           "runtimeSeconds": 357,
           "videoFile": {
@@ -86,7 +86,7 @@
           "title": "Italy",
           "overview": "When Marie surprises the family with the news that she's treating them all to a two-week vacation in Rome, everybody loves the idea, except Raymond. Not willing to let his sour mood spoil it for the rest of the family, Debra, Frank, Marie, Robert and the kids go on their merry way and soak up the atmosphere, sights, smells and tastes of the city of love and try their best to ignore Ray. Meanwhile, Robert meets the girl of his dreams—she's stunningly beautiful, unbelievably sexy, and works in a gelato shop.",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/495/1238546.jpg",
-          "airDate": null,
+          "airDate": "2000-10-02",
           "year": 2000,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -145,5 +145,61 @@
   "canonicalEpisodesCount": 209,
   "seriesImdbID": "tt0115167",
   "canonicalEpisodeCount": 204,
-  "canonicalSeasons": 9
+  "canonicalSeasons": 9,
+  "cast": [
+    {
+      "name": "Ray Romano",
+      "character": "Raymond Barone",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/458/1146579.jpg"
+    },
+    {
+      "name": "Patricia Heaton",
+      "character": "Debra Barone",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/112/280443.jpg"
+    },
+    {
+      "name": "Brad Garrett",
+      "character": "Robert Barone",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13781.jpg"
+    },
+    {
+      "name": "Doris Roberts",
+      "character": "Marie Barone",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13783.jpg"
+    },
+    {
+      "name": "Peter Boyle",
+      "character": "Frank Barone",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13785.jpg"
+    },
+    {
+      "name": "Madylin Sweeten",
+      "character": "Ally Barone",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13791.jpg"
+    },
+    {
+      "name": "Sullivan Sweeten",
+      "character": "Michael Barone",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13795.jpg"
+    },
+    {
+      "name": "Sawyer Sweeten",
+      "character": "Geoffrey Barone",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13796.jpg"
+    },
+    {
+      "name": "Monica Horan",
+      "character": "Amy MacDougall-Barone",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/5/13787.jpg"
+    }
+  ]
 }

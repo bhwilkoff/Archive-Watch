@@ -152,5 +152,19 @@
   "canonicalEpisodesCount": 39,
   "seriesImdbID": "tt0051292",
   "canonicalEpisodeCount": 23,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Richard Carlson",
+      "character": "Col. Ranald S. Mackenzie",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/152/380992.jpg"
+    },
+    {
+      "name": "Art Gilmore",
+      "character": "Narrator",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30497.jpg"
+    }
+  ]
 }

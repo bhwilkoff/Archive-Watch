@@ -175,5 +175,67 @@
   "canonicalEpisodesCount": 158,
   "seriesImdbID": "tt0078569",
   "canonicalEpisodeCount": 45,
-  "canonicalSeasons": 7
+  "canonicalSeasons": 7,
+  "cast": [
+    {
+      "name": "Robert Guillaume",
+      "character": "Benson DuBois",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/36700.jpg"
+    },
+    {
+      "name": "James Noble",
+      "character": "Eugene X. Gatling",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/50/127436.jpg"
+    },
+    {
+      "name": "Inga Swenson",
+      "character": "Gretchen Kraus",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30532.jpg"
+    },
+    {
+      "name": "Missy Gold",
+      "character": "Katie Gatling",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/50/127431.jpg"
+    },
+    {
+      "name": "René Auberjonois",
+      "character": "Clayton Endicott III",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/429/1073290.jpg"
+    },
+    {
+      "name": "Ethan Phillips",
+      "character": "Pete Downey",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/183/459098.jpg"
+    },
+    {
+      "name": "Caroline McWilliams",
+      "character": "Marcy Hill",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/34/85942.jpg"
+    },
+    {
+      "name": "Lewis J. Stadlen",
+      "character": "John Taylor",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/50/127427.jpg"
+    },
+    {
+      "name": "Didi Conn",
+      "character": "Denise Stevens",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/50/127433.jpg"
+    },
+    {
+      "name": "Billie Bird",
+      "character": "Rose Cassidy",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/34/86950.jpg"
+    }
+  ]
 }

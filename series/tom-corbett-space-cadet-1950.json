@@ -154,5 +154,55 @@
   "canonicalEpisodesCount": 2,
   "seriesImdbID": "tt0042156",
   "canonicalEpisodeCount": 18,
-  "canonicalSeasons": 4
+  "canonicalSeasons": 4,
+  "cast": [
+    {
+      "name": "Frankie Thomas",
+      "character": "Tom Corbett",
+      "order": 0,
+      "profilePath": "/tAAmlHyH7XiuMFOrIx4NbF4GryB.jpg"
+    },
+    {
+      "name": "Al Markim",
+      "character": "Astro",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Jan Merlin",
+      "character": "Roger Manning",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/91/228154.jpg"
+    },
+    {
+      "name": "Jack Grimes",
+      "character": "T.J. Thistle",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/136/340869.jpg"
+    },
+    {
+      "name": "Ed Bryce",
+      "character": "Captain Steve Strong",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Carter Blake",
+      "character": "Commander Arkwright",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Frank Sutton",
+      "character": "Eric Raddison",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/112/281928.jpg"
+    },
+    {
+      "name": "Margaret Garland",
+      "character": "Dr. Joan Dale",
+      "order": 7,
+      "profilePath": null
+    }
+  ]
 }

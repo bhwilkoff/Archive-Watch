@@ -1,398 +1,406 @@
 {
- "version": 2,
- "seriesID": "the-challenge-1998",
- "tvmazeID": 2100,
- "title": "The Challenge",
- "yearStart": 1998,
- "yearEnd": null,
- "overview": "Set in the middle of the jungle, \"The Challenge: War of the Worlds 2\" returns to a classic team format; 14 Brits will battle it out against 14 Americans for their share of the $1 million-dollar prize.",
- "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/589/1473887.jpg",
- "backdropURL": null,
- "genres": [
-  "Action",
-  "Adventure"
- ],
- "networks": [
-  "MTV"
- ],
- "creator": null,
- "seasons": [
-  {
-   "seasonNumber": 1,
-   "episodes": [
+  "version": 2,
+  "seriesID": "the-challenge-1998",
+  "tvmazeID": 2100,
+  "title": "The Challenge",
+  "yearStart": 1998,
+  "yearEnd": null,
+  "overview": "Set in the middle of the jungle, \"The Challenge: War of the Worlds 2\" returns to a classic team format; 14 Brits will battle it out against 14 Americans for their share of the $1 million-dollar prize.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/589/1473887.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "networks": [
+    "MTV"
+  ],
+  "creator": null,
+  "seasons": [
     {
-     "archiveID": "4-k-zatoichi-monogatari-s-01-e-01-a-challenge-of-chance-v-2",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "4K Zatoichi Monogatari S01E01 A Challenge Of Chance V2",
-     "overview": "座頭市物語 のるかそるかの正念場<div><br /></div><div><div>Two Bosses fight for control of a mine. Will Zatoichi takes sides? A man with a musket wants to end that threat.</div><div><br /></div><div>Source: ZoDDto youtube.com/channel/UCka1VXG9TRYdPK47pF-k9vA</div><div><br /></div><div>ZoDDto: A little sneak peek at what Zatoichi TV 2.0 will look like.</div><div>Picture is sharper, more vibrant, high whites aren't crashed anymore + cinematic film noise.</div><div>Please note that youtube downgrades video quality. </div><div>Bitrate is 1/4 of original file (10GB) and loses it's full color pallet (10bit).</div></div>",
-     "stillURL": "https://archive.org/services/img/4-k-zatoichi-monogatari-s-01-e-01-a-challenge-of-chance-v-2",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 2781,
-     "videoFile": {
-      "name": "4K Zatoichi Monogatari S01E01 - A Challenge Of Chance 座頭市物語 - のるかそるかの正念場 - V2.mp4",
-      "format": "h.264",
-      "sizeBytes": 265907127,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/4-k-zatoichi-monogatari-s-01-e-01-a-challenge-of-chance-v-2/4K%20Zatoichi%20Monogatari%20S01E01%20-%20A%20Challenge%20Of%20Chance%20%E5%BA%A7%E9%A0%AD%E5%B8%82%E7%89%A9%E8%AA%9E%20-%20%E3%81%AE%E3%82%8B%E3%81%8B%E3%81%9D%E3%82%8B%E3%81%8B%E3%81%AE%E6%AD%A3%E5%BF%B5%E5%A0%B4%20-%20V2.mp4"
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "4-k-zatoichi-monogatari-s-01-e-01-a-challenge-of-chance-v-2",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "4K Zatoichi Monogatari S01E01 A Challenge Of Chance V2",
+          "overview": "座頭市物語 のるかそるかの正念場<div><br /></div><div><div>Two Bosses fight for control of a mine. Will Zatoichi takes sides? A man with a musket wants to end that threat.</div><div><br /></div><div>Source: ZoDDto youtube.com/channel/UCka1VXG9TRYdPK47pF-k9vA</div><div><br /></div><div>ZoDDto: A little sneak peek at what Zatoichi TV 2.0 will look like.</div><div>Picture is sharper, more vibrant, high whites aren't crashed anymore + cinematic film noise.</div><div>Please note that youtube downgrades video quality. </div><div>Bitrate is 1/4 of original file (10GB) and loses it's full color pallet (10bit).</div></div>",
+          "stillURL": "https://archive.org/services/img/4-k-zatoichi-monogatari-s-01-e-01-a-challenge-of-chance-v-2",
+          "airDate": "1998-06-01",
+          "year": null,
+          "runtimeSeconds": 2781,
+          "videoFile": {
+            "name": "4K Zatoichi Monogatari S01E01 - A Challenge Of Chance 座頭市物語 - のるかそるかの正念場 - V2.mp4",
+            "format": "h.264",
+            "sizeBytes": 265907127,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-k-zatoichi-monogatari-s-01-e-01-a-challenge-of-chance-v-2/4K%20Zatoichi%20Monogatari%20S01E01%20-%20A%20Challenge%20Of%20Chance%20%E5%BA%A7%E9%A0%AD%E5%B8%82%E7%89%A9%E8%AA%9E%20-%20%E3%81%AE%E3%82%8B%E3%81%8B%E3%81%9D%E3%82%8B%E3%81%8B%E3%81%AE%E6%AD%A3%E5%BF%B5%E5%A0%B4%20-%20V2.mp4"
+        },
+        {
+          "archiveID": "4-k-zatoichi-monogatari-s-01-e-01-a-challenge-of-chance",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Ghostbusters",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/4-k-zatoichi-monogatari-s-01-e-01-a-challenge-of-chance",
+          "airDate": "1998-06-01",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "4K Zatoichi Monogatari S01E01 - A Challenge Of Chance 座頭市物語 - のるかそるかの正念場.mp4",
+            "format": "h.264",
+            "sizeBytes": 262776283,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/4-k-zatoichi-monogatari-s-01-e-01-a-challenge-of-chance/4K%20Zatoichi%20Monogatari%20S01E01%20-%20A%20Challenge%20Of%20Chance%20%E5%BA%A7%E9%A0%AD%E5%B8%82%E7%89%A9%E8%AA%9E%20-%20%E3%81%AE%E3%82%8B%E3%81%8B%E3%81%9D%E3%82%8B%E3%81%8B%E3%81%AE%E6%AD%A3%E5%BF%B5%E5%A0%B4.mp4"
+        },
+        {
+          "archiveID": "Celebrity_Painting_Challenge_Series_1_-_2._Episode_2_m000426w_signed",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Sheer Madness",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Celebrity_Painting_Challenge_Series_1_-_2._Episode_2_m000426w_signed",
+          "airDate": "1998-06-08",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Celebrity_Painting_Challenge_Series_1_-_2._Episode_2_m000426w_signed.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2341253138,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Celebrity_Painting_Challenge_Series_1_-_2._Episode_2_m000426w_signed/Celebrity_Painting_Challenge_Series_1_-_2._Episode_2_m000426w_signed.mp4"
+        },
+        {
+          "archiveID": "speed-racer-1967-s-01e-03-challenge-of-the-masked-racer-1",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Speed Racer: Challenge Of The Masked Racer S01E03",
+          "overview": "Speed's first encounter with Racer X, a mysterious masked driver who is rumored to cause car crashes whenever he races.",
+          "stillURL": "https://archive.org/services/img/speed-racer-1967-s-01e-03-challenge-of-the-masked-racer-1",
+          "airDate": "1998-06-15",
+          "year": null,
+          "runtimeSeconds": 1542,
+          "videoFile": {
+            "name": "Mach GoGoGo 3.mp4",
+            "format": "h.264",
+            "sizeBytes": 147750314,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/speed-racer-1967-s-01e-03-challenge-of-the-masked-racer-1/Mach%20GoGoGo%203.mp4"
+        },
+        {
+          "archiveID": "s-01-e-03-challenge-of-the-masked-racer-part-1-trans-lux-edition",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Zorbing",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-03-challenge-of-the-masked-racer-part-1-trans-lux-edition",
+          "airDate": "1998-06-15",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "S01E03 - Challenge Of The Masked Racer (Part 1) - Trans-Lux Edition.mp4",
+            "format": "h.264",
+            "sizeBytes": 140185244,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-03-challenge-of-the-masked-racer-part-1-trans-lux-edition/S01E03%20-%20Challenge%20Of%20The%20Masked%20Racer%20%28Part%201%29%20-%20Trans-Lux%20Edition.mp4"
+        },
+        {
+          "archiveID": "speed-racer-challenge-of-the-masked-racer-part-2",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Speed Racer: Challenge Of The Masked Racer S01E04",
+          "overview": "Speed Racer and Racer X participate in the Trans-Country race... as well as competitors who stoop to dirty tricks to get rid of them.",
+          "stillURL": "https://archive.org/services/img/speed-racer-challenge-of-the-masked-racer-part-2",
+          "airDate": "1998-06-22",
+          "year": null,
+          "runtimeSeconds": 1542,
+          "videoFile": {
+            "name": "Mach GoGoGo The Mysterious Masked Racer (Part 2).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 612488502,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/speed-racer-challenge-of-the-masked-racer-part-2/Mach%20GoGoGo%20The%20Mysterious%20Masked%20Racer%20%28Part%202%29.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-04-challenge-of-the-masked-racer-part-2-trans-lux-edition",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Urban Rap Jumping",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/s-01-e-04-challenge-of-the-masked-racer-part-2-trans-lux-edition",
+          "airDate": "1998-06-22",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "S01E04 - Challenge Of The Masked Racer (Part 2) - Trans-Lux Edition.mp4",
+            "format": "h.264",
+            "sizeBytes": 142000112,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-04-challenge-of-the-masked-racer-part-2-trans-lux-edition/S01E04%20-%20Challenge%20Of%20The%20Masked%20Racer%20%28Part%202%29%20-%20Trans-Lux%20Edition.mp4"
+        },
+        {
+          "archiveID": "lv_0_20260521150328",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The \"Real\" Real World",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/lv_0_20260521150328",
+          "airDate": "1998-06-29",
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "lv_0_20260521150328.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 190509070,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lv_0_20260521150328/lv_0_20260521150328.ia.mp4"
+        },
+        {
+          "archiveID": "purples-pretty-pattern-challenge-full-episode-s-1-e-14-learn-colours-kids-cartoons",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Purple's Pretty Pattern Challenge! | FULL EPISODE - S1 E14 | Learn Colours - Kids Cartoons",
+          "overview": " ",
+          "stillURL": "https://archive.org/services/img/purples-pretty-pattern-challenge-full-episode-s-1-e-14-learn-colours-kids-cartoons",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 300,
+          "videoFile": {
+            "name": "Purple's Pretty Pattern Challenge! FULL EPISODE - S1 E14 Learn Colours - Kids Cartoons.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 9305614,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/purples-pretty-pattern-challenge-full-episode-s-1-e-14-learn-colours-kids-cartoons/Purple%27s%20Pretty%20Pattern%20Challenge%21%20FULL%20EPISODE%20-%20S1%20E14%20Learn%20Colours%20-%20Kids%20Cartoons.mp4"
+        },
+        {
+          "archiveID": "mystic-knights-of-tir-na-nog-s01e45-lugads-challenge",
+          "seasonNumber": 1,
+          "episodeNumber": 45,
+          "title": "Mystic Knights Of Tir Na Nog S01E45 Lugad's Challenge",
+          "overview": "Mystic Knights of Tir Na Nog S01E45 Lugad's Challenge",
+          "stillURL": "https://archive.org/services/img/mystic-knights-of-tir-na-nog-s01e45-lugads-challenge",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "Mystic Knights of Tir Na Nog S01E45 Lugad's Challenge.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 253702415,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mystic-knights-of-tir-na-nog-s01e45-lugads-challenge/Mystic%20Knights%20of%20Tir%20Na%20Nog%20S01E45%20Lugad%27s%20Challenge.ia.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "4-k-zatoichi-monogatari-s-01-e-01-a-challenge-of-chance",
-     "seasonNumber": 1,
-     "episodeNumber": 1,
-     "title": "Ghostbusters",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/4-k-zatoichi-monogatari-s-01-e-01-a-challenge-of-chance",
-     "airDate": "1998-06-01",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "4K Zatoichi Monogatari S01E01 - A Challenge Of Chance 座頭市物語 - のるかそるかの正念場.mp4",
-      "format": "h.264",
-      "sizeBytes": 262776283,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/4-k-zatoichi-monogatari-s-01-e-01-a-challenge-of-chance/4K%20Zatoichi%20Monogatari%20S01E01%20-%20A%20Challenge%20Of%20Chance%20%E5%BA%A7%E9%A0%AD%E5%B8%82%E7%89%A9%E8%AA%9E%20-%20%E3%81%AE%E3%82%8B%E3%81%8B%E3%81%9D%E3%82%8B%E3%81%8B%E3%81%AE%E6%AD%A3%E5%BF%B5%E5%A0%B4.mp4"
+      "seasonNumber": 41,
+      "episodes": [
+        {
+          "archiveID": "Robin_Hood_07_The_Challenge",
+          "seasonNumber": 41,
+          "episodeNumber": 3,
+          "title": "I Am The Challenge",
+          "overview": "One player's game is at risk, while their partner's competitiveness rears its ugly head and wishes it hadn't. The challenge tests the players' swimming skills for the first time.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/596/1490447.jpg",
+          "airDate": "2025-08-13",
+          "year": 2025,
+          "runtimeSeconds": 5400,
+          "videoFile": {
+            "name": "Robin_Hood_07_The_Challenge.mp4",
+            "format": "h.264",
+            "sizeBytes": 155694806,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Robin_Hood_07_The_Challenge/Robin_Hood_07_The_Challenge.mp4"
+        }
+      ]
     },
     {
-     "archiveID": "Celebrity_Painting_Challenge_Series_1_-_2._Episode_2_m000426w_signed",
-     "seasonNumber": 1,
-     "episodeNumber": 2,
-     "title": "Sheer Madness",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/Celebrity_Painting_Challenge_Series_1_-_2._Episode_2_m000426w_signed",
-     "airDate": "1998-06-08",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Celebrity_Painting_Challenge_Series_1_-_2._Episode_2_m000426w_signed.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 2341253138,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/Celebrity_Painting_Challenge_Series_1_-_2._Episode_2_m000426w_signed/Celebrity_Painting_Challenge_Series_1_-_2._Episode_2_m000426w_signed.mp4"
-    },
-    {
-     "archiveID": "speed-racer-1967-s-01e-03-challenge-of-the-masked-racer-1",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Speed Racer: Challenge Of The Masked Racer S01E03",
-     "overview": "Speed's first encounter with Racer X, a mysterious masked driver who is rumored to cause car crashes whenever he races.",
-     "stillURL": "https://archive.org/services/img/speed-racer-1967-s-01e-03-challenge-of-the-masked-racer-1",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1542,
-     "videoFile": {
-      "name": "Mach GoGoGo 3.mp4",
-      "format": "h.264",
-      "sizeBytes": 147750314,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/speed-racer-1967-s-01e-03-challenge-of-the-masked-racer-1/Mach%20GoGoGo%203.mp4"
-    },
-    {
-     "archiveID": "s-01-e-03-challenge-of-the-masked-racer-part-1-trans-lux-edition",
-     "seasonNumber": 1,
-     "episodeNumber": 3,
-     "title": "Zorbing",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-03-challenge-of-the-masked-racer-part-1-trans-lux-edition",
-     "airDate": "1998-06-15",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "S01E03 - Challenge Of The Masked Racer (Part 1) - Trans-Lux Edition.mp4",
-      "format": "h.264",
-      "sizeBytes": 140185244,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-03-challenge-of-the-masked-racer-part-1-trans-lux-edition/S01E03%20-%20Challenge%20Of%20The%20Masked%20Racer%20%28Part%201%29%20-%20Trans-Lux%20Edition.mp4"
-    },
-    {
-     "archiveID": "speed-racer-challenge-of-the-masked-racer-part-2",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Speed Racer: Challenge Of The Masked Racer S01E04",
-     "overview": "Speed Racer and Racer X participate in the Trans-Country race... as well as competitors who stoop to dirty tricks to get rid of them.",
-     "stillURL": "https://archive.org/services/img/speed-racer-challenge-of-the-masked-racer-part-2",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 1542,
-     "videoFile": {
-      "name": "Mach GoGoGo The Mysterious Masked Racer (Part 2).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 612488502,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/speed-racer-challenge-of-the-masked-racer-part-2/Mach%20GoGoGo%20The%20Mysterious%20Masked%20Racer%20%28Part%202%29.ia.mp4"
-    },
-    {
-     "archiveID": "s-01-e-04-challenge-of-the-masked-racer-part-2-trans-lux-edition",
-     "seasonNumber": 1,
-     "episodeNumber": 4,
-     "title": "Urban Rap Jumping",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/s-01-e-04-challenge-of-the-masked-racer-part-2-trans-lux-edition",
-     "airDate": "1998-06-22",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "S01E04 - Challenge Of The Masked Racer (Part 2) - Trans-Lux Edition.mp4",
-      "format": "h.264",
-      "sizeBytes": 142000112,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/s-01-e-04-challenge-of-the-masked-racer-part-2-trans-lux-edition/S01E04%20-%20Challenge%20Of%20The%20Masked%20Racer%20%28Part%202%29%20-%20Trans-Lux%20Edition.mp4"
-    },
-    {
-     "archiveID": "lv_0_20260521150328",
-     "seasonNumber": 1,
-     "episodeNumber": 5,
-     "title": "The \"Real\" Real World",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/lv_0_20260521150328",
-     "airDate": "1998-06-29",
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "lv_0_20260521150328.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 190509070,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/lv_0_20260521150328/lv_0_20260521150328.ia.mp4"
-    },
-    {
-     "archiveID": "purples-pretty-pattern-challenge-full-episode-s-1-e-14-learn-colours-kids-cartoons",
-     "seasonNumber": 1,
-     "episodeNumber": 14,
-     "title": "Purple's Pretty Pattern Challenge! | FULL EPISODE - S1 E14 | Learn Colours - Kids Cartoons",
-     "overview": " ",
-     "stillURL": "https://archive.org/services/img/purples-pretty-pattern-challenge-full-episode-s-1-e-14-learn-colours-kids-cartoons",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 300,
-     "videoFile": {
-      "name": "Purple's Pretty Pattern Challenge! FULL EPISODE - S1 E14 Learn Colours - Kids Cartoons.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 9305614,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/purples-pretty-pattern-challenge-full-episode-s-1-e-14-learn-colours-kids-cartoons/Purple%27s%20Pretty%20Pattern%20Challenge%21%20FULL%20EPISODE%20-%20S1%20E14%20Learn%20Colours%20-%20Kids%20Cartoons.mp4"
-    },
-    {
-     "archiveID": "mystic-knights-of-tir-na-nog-s01e45-lugads-challenge",
-     "seasonNumber": 1,
-     "episodeNumber": 45,
-     "title": "Mystic Knights Of Tir Na Nog S01E45 Lugad's Challenge",
-     "overview": "Mystic Knights of Tir Na Nog S01E45 Lugad's Challenge",
-     "stillURL": "https://archive.org/services/img/mystic-knights-of-tir-na-nog-s01e45-lugads-challenge",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 870,
-     "videoFile": {
-      "name": "Mystic Knights of Tir Na Nog S01E45 Lugad's Challenge.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 253702415,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/mystic-knights-of-tir-na-nog-s01e45-lugads-challenge/Mystic%20Knights%20of%20Tir%20Na%20Nog%20S01E45%20Lugad%27s%20Challenge.ia.mp4"
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "joshua-ashby-character-elimination-episode-2-challenge-of-daily-bumps-intro-2015",
+          "seasonNumber": null,
+          "episodeNumber": 2,
+          "title": "Joshua Ashby Character Elimination Episode 2 Challenge Of Daily Bumps Intro 2015",
+          "overview": "Made With <span style=\"color:rgb(54,54,54);font-weight:bolder;font-family:'Fira Sans', serif;font-size:24px;background-color:rgb(255,255,255);\"><u>vocodes.com</u></span><div><font color=\"#363636\" face=\"Fira Sans, serif\"><span style=\"font-size:24px;background-color:rgb(255,255,255);\"><b><u>https://vo.codes/#history</u></b></span></font><br /></div>",
+          "stillURL": "https://archive.org/services/img/joshua-ashby-character-elimination-episode-2-challenge-of-daily-bumps-intro-2015",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 426,
+          "videoFile": {
+            "name": "Joshua Ashby Character Elimination Episode 2 Challenge of daily bumps intro 2015.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 50512871,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/joshua-ashby-character-elimination-episode-2-challenge-of-daily-bumps-intro-2015/Joshua%20Ashby%20Character%20Elimination%20Episode%202%20Challenge%20of%20daily%20bumps%20intro%202015.ia.mp4"
+        },
+        {
+          "archiveID": "AdventuresOfRobinHoodEp7TheChallenge",
+          "seasonNumber": null,
+          "episodeNumber": 7,
+          "title": "Adventures Of Robin Hood Ep 7 the Challenge",
+          "overview": "<div>Television series that ran from 1955-1960 for a total of 144 episodes. Stars Richard Greene, Archie Duncan, Alexander Gauge, Alan Wheatley, Bernadette O’Farrell and Patricia Driscoll.</div><div><br /></div>",
+          "stillURL": "https://archive.org/services/img/AdventuresOfRobinHoodEp7TheChallenge",
+          "airDate": null,
+          "year": 2015,
+          "runtimeSeconds": 1522,
+          "videoFile": {
+            "name": "Adventures of Robin Hood ep 7 the Challenge.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 317500099,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/AdventuresOfRobinHoodEp7TheChallenge/Adventures%20of%20Robin%20Hood%20ep%207%20the%20Challenge.mp4"
+        },
+        {
+          "archiveID": "oil-wrestling-from-challenge-usa-season-2-episode-11",
+          "seasonNumber": null,
+          "episodeNumber": 11,
+          "title": "Oil Wrestling From Challenge USA Season 2 Episode 11",
+          "overview": "Women's Oil Wrestling Competition",
+          "stillURL": "https://archive.org/services/img/oil-wrestling-from-challenge-usa-season-2-episode-11",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 296,
+          "videoFile": {
+            "name": "Oil Wrestling from Challenge USA Season 2 Episode 11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 23876277,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/oil-wrestling-from-challenge-usa-season-2-episode-11/Oil%20Wrestling%20from%20Challenge%20USA%20Season%202%20Episode%2011.mp4"
+        },
+        {
+          "archiveID": "Celebrity_Painting_Challenge_Series_1_-_1._Episode_1_m0003wd5_signed",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Ghostbusters",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Celebrity_Painting_Challenge_Series_1_-_1._Episode_1_m0003wd5_signed",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Celebrity_Painting_Challenge_Series_1_-_1._Episode_1_m0003wd5_signed.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2337596921,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Celebrity_Painting_Challenge_Series_1_-_1._Episode_1_m0003wd5_signed/Celebrity_Painting_Challenge_Series_1_-_1._Episode_1_m0003wd5_signed.mp4"
+        },
+        {
+          "archiveID": "twitch-vod-v393456837",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Highlight: 10x10 Challenge - Es geht los",
+          "overview": "Source: <a href=\"https://www.twitch.tv/videos/393456837\" rel=\"nofollow\">https://www.twitch.tv/videos/393456837</a><br />Uploader: <a href=\"https://www.twitch.tv/videos/393456837\" rel=\"nofollow\">freiraumreh</a>",
+          "stillURL": "https://archive.org/services/img/twitch-vod-v393456837",
+          "airDate": null,
+          "year": 2019,
+          "runtimeSeconds": 1005,
+          "videoFile": {
+            "name": "Highlight_-_10x10_Challenge_-_Es_geht_los-v393456837.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 292602824,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/twitch-vod-v393456837/Highlight_-_10x10_Challenge_-_Es_geht_los-v393456837.mp4"
+        },
+        {
+          "archiveID": "Celebrity_Painting_Challenge_Series_1_-_04._Episode_4_m0004hk7_signed",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Urban Rap Jumping",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Celebrity_Painting_Challenge_Series_1_-_04._Episode_4_m0004hk7_signed",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Celebrity_Painting_Challenge_Series_1_-_04._Episode_4_m0004hk7_signed.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2344941367,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Celebrity_Painting_Challenge_Series_1_-_04._Episode_4_m0004hk7_signed/Celebrity_Painting_Challenge_Series_1_-_04._Episode_4_m0004hk7_signed.mp4"
+        },
+        {
+          "archiveID": "Celebrity_Painting_Challenge_Series_1_-_03._Episode_3_m000499z_signed",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Zorbing",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Celebrity_Painting_Challenge_Series_1_-_03._Episode_3_m000499z_signed",
+          "airDate": null,
+          "year": 1998,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Celebrity_Painting_Challenge_Series_1_-_03._Episode_3_m000499z_signed.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 2342148463,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Celebrity_Painting_Challenge_Series_1_-_03._Episode_3_m000499z_signed/Celebrity_Painting_Challenge_Series_1_-_03._Episode_3_m000499z_signed.mp4"
+        },
+        {
+          "archiveID": "hak5_11x16",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "hak5 11x16: 2-Factor SSH with Google Authenticator and Challenge Response Authentication",
+          "overview": "We challenge you... to respond... then we'll authenticate ya! That's right, we're getting into Challenge Response Authentication. Plus Two-Factor Authentication for SSH using the Google Authenticator, and how not to lock yourself out of your own workstation. All that and more, this time on Hak5!",
+          "stillURL": "https://archive.org/services/img/hak5_11x16",
+          "airDate": null,
+          "year": 2012,
+          "runtimeSeconds": 2105,
+          "videoFile": {
+            "name": "hak5--1116--how-to-setup-google-authenticator-for-ssh--hd720p30.h264.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 501409315,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hak5_11x16/hak5--1116--how-to-setup-google-authenticator-for-ssh--hd720p30.h264.mp4"
+        },
+        {
+          "archiveID": "hak5_7x05",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "hak5 7x05: Airport WiFi Challenge and Your Ultra Software Picks",
+          "overview": "While meeting up with family in Florida this week Darren takes on a WiFi Challenge using the airport friendly Pineapple Mark II and Airdrop-ng. Plus, Shannon has a follow-up to the Ultra Software including your picks.",
+          "stillURL": "https://archive.org/services/img/hak5_7x05",
+          "airDate": null,
+          "year": 2010,
+          "runtimeSeconds": 1213,
+          "videoFile": {
+            "name": "hak5--0705--airportchallenge--hd720p30.h264.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 306408187,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hak5_7x05/hak5--0705--airportchallenge--hd720p30.h264.mp4"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "seasonNumber": 41,
-   "episodes": [
+  ],
+  "episodesCount": 20,
+  "canonicalEpisodesCount": 637,
+  "cast": [
     {
-     "archiveID": "Robin_Hood_07_The_Challenge",
-     "seasonNumber": 41,
-     "episodeNumber": 3,
-     "title": "I Am The Challenge",
-     "overview": "One player's game is at risk, while their partner's competitiveness rears its ugly head and wishes it hadn't. The challenge tests the players' swimming skills for the first time.",
-     "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/596/1490447.jpg",
-     "airDate": "2025-08-13",
-     "year": 2025,
-     "runtimeSeconds": 5400,
-     "videoFile": {
-      "name": "Robin_Hood_07_The_Challenge.mp4",
-      "format": "h.264",
-      "sizeBytes": 155694806,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/Robin_Hood_07_The_Challenge/Robin_Hood_07_The_Challenge.mp4"
+      "name": "T.J. Lavin",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/42/106113.jpg"
     }
-   ]
-  },
-  {
-   "seasonNumber": null,
-   "episodes": [
-    {
-     "archiveID": "joshua-ashby-character-elimination-episode-2-challenge-of-daily-bumps-intro-2015",
-     "seasonNumber": null,
-     "episodeNumber": 2,
-     "title": "Joshua Ashby Character Elimination Episode 2 Challenge Of Daily Bumps Intro 2015",
-     "overview": "Made With <span style=\"color:rgb(54,54,54);font-weight:bolder;font-family:'Fira Sans', serif;font-size:24px;background-color:rgb(255,255,255);\"><u>vocodes.com</u></span><div><font color=\"#363636\" face=\"Fira Sans, serif\"><span style=\"font-size:24px;background-color:rgb(255,255,255);\"><b><u>https://vo.codes/#history</u></b></span></font><br /></div>",
-     "stillURL": "https://archive.org/services/img/joshua-ashby-character-elimination-episode-2-challenge-of-daily-bumps-intro-2015",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 426,
-     "videoFile": {
-      "name": "Joshua Ashby Character Elimination Episode 2 Challenge of daily bumps intro 2015.ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 50512871,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/joshua-ashby-character-elimination-episode-2-challenge-of-daily-bumps-intro-2015/Joshua%20Ashby%20Character%20Elimination%20Episode%202%20Challenge%20of%20daily%20bumps%20intro%202015.ia.mp4"
-    },
-    {
-     "archiveID": "AdventuresOfRobinHoodEp7TheChallenge",
-     "seasonNumber": null,
-     "episodeNumber": 7,
-     "title": "Adventures Of Robin Hood Ep 7 the Challenge",
-     "overview": "<div>Television series that ran from 1955-1960 for a total of 144 episodes. Stars Richard Greene, Archie Duncan, Alexander Gauge, Alan Wheatley, Bernadette O’Farrell and Patricia Driscoll.</div><div><br /></div>",
-     "stillURL": "https://archive.org/services/img/AdventuresOfRobinHoodEp7TheChallenge",
-     "airDate": null,
-     "year": 2015,
-     "runtimeSeconds": 1522,
-     "videoFile": {
-      "name": "Adventures of Robin Hood ep 7 the Challenge.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 317500099,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/AdventuresOfRobinHoodEp7TheChallenge/Adventures%20of%20Robin%20Hood%20ep%207%20the%20Challenge.mp4"
-    },
-    {
-     "archiveID": "oil-wrestling-from-challenge-usa-season-2-episode-11",
-     "seasonNumber": null,
-     "episodeNumber": 11,
-     "title": "Oil Wrestling From Challenge USA Season 2 Episode 11",
-     "overview": "Women's Oil Wrestling Competition",
-     "stillURL": "https://archive.org/services/img/oil-wrestling-from-challenge-usa-season-2-episode-11",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 296,
-     "videoFile": {
-      "name": "Oil Wrestling from Challenge USA Season 2 Episode 11.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 23876277,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/oil-wrestling-from-challenge-usa-season-2-episode-11/Oil%20Wrestling%20from%20Challenge%20USA%20Season%202%20Episode%2011.mp4"
-    },
-    {
-     "archiveID": "Celebrity_Painting_Challenge_Series_1_-_1._Episode_1_m0003wd5_signed",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Ghostbusters",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/Celebrity_Painting_Challenge_Series_1_-_1._Episode_1_m0003wd5_signed",
-     "airDate": null,
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Celebrity_Painting_Challenge_Series_1_-_1._Episode_1_m0003wd5_signed.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 2337596921,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/Celebrity_Painting_Challenge_Series_1_-_1._Episode_1_m0003wd5_signed/Celebrity_Painting_Challenge_Series_1_-_1._Episode_1_m0003wd5_signed.mp4"
-    },
-    {
-     "archiveID": "twitch-vod-v393456837",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Highlight: 10x10 Challenge - Es geht los",
-     "overview": "Source: <a href=\"https://www.twitch.tv/videos/393456837\" rel=\"nofollow\">https://www.twitch.tv/videos/393456837</a><br />Uploader: <a href=\"https://www.twitch.tv/videos/393456837\" rel=\"nofollow\">freiraumreh</a>",
-     "stillURL": "https://archive.org/services/img/twitch-vod-v393456837",
-     "airDate": null,
-     "year": 2019,
-     "runtimeSeconds": 1005,
-     "videoFile": {
-      "name": "Highlight_-_10x10_Challenge_-_Es_geht_los-v393456837.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 292602824,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/twitch-vod-v393456837/Highlight_-_10x10_Challenge_-_Es_geht_los-v393456837.mp4"
-    },
-    {
-     "archiveID": "Celebrity_Painting_Challenge_Series_1_-_04._Episode_4_m0004hk7_signed",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Urban Rap Jumping",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/Celebrity_Painting_Challenge_Series_1_-_04._Episode_4_m0004hk7_signed",
-     "airDate": null,
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Celebrity_Painting_Challenge_Series_1_-_04._Episode_4_m0004hk7_signed.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 2344941367,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/Celebrity_Painting_Challenge_Series_1_-_04._Episode_4_m0004hk7_signed/Celebrity_Painting_Challenge_Series_1_-_04._Episode_4_m0004hk7_signed.mp4"
-    },
-    {
-     "archiveID": "Celebrity_Painting_Challenge_Series_1_-_03._Episode_3_m000499z_signed",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Zorbing",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/Celebrity_Painting_Challenge_Series_1_-_03._Episode_3_m000499z_signed",
-     "airDate": null,
-     "year": 1998,
-     "runtimeSeconds": 3600,
-     "videoFile": {
-      "name": "Celebrity_Painting_Challenge_Series_1_-_03._Episode_3_m000499z_signed.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 2342148463,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/Celebrity_Painting_Challenge_Series_1_-_03._Episode_3_m000499z_signed/Celebrity_Painting_Challenge_Series_1_-_03._Episode_3_m000499z_signed.mp4"
-    },
-    {
-     "archiveID": "hak5_11x16",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "hak5 11x16: 2-Factor SSH with Google Authenticator and Challenge Response Authentication",
-     "overview": "We challenge you... to respond... then we'll authenticate ya! That's right, we're getting into Challenge Response Authentication. Plus Two-Factor Authentication for SSH using the Google Authenticator, and how not to lock yourself out of your own workstation. All that and more, this time on Hak5!",
-     "stillURL": "https://archive.org/services/img/hak5_11x16",
-     "airDate": null,
-     "year": 2012,
-     "runtimeSeconds": 2105,
-     "videoFile": {
-      "name": "hak5--1116--how-to-setup-google-authenticator-for-ssh--hd720p30.h264.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 501409315,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/hak5_11x16/hak5--1116--how-to-setup-google-authenticator-for-ssh--hd720p30.h264.mp4"
-    },
-    {
-     "archiveID": "hak5_7x05",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "hak5 7x05: Airport WiFi Challenge and Your Ultra Software Picks",
-     "overview": "While meeting up with family in Florida this week Darren takes on a WiFi Challenge using the airport friendly Pineapple Mark II and Airdrop-ng. Plus, Shannon has a follow-up to the Ultra Software including your picks.",
-     "stillURL": "https://archive.org/services/img/hak5_7x05",
-     "airDate": null,
-     "year": 2010,
-     "runtimeSeconds": 1213,
-     "videoFile": {
-      "name": "hak5--0705--airportchallenge--hd720p30.h264.mp4",
-      "format": "MPEG4",
-      "sizeBytes": 306408187,
-      "tier": 1
-     },
-     "downloadURL": "https://archive.org/download/hak5_7x05/hak5--0705--airportchallenge--hd720p30.h264.mp4"
-    }
-   ]
-  }
- ],
- "episodesCount": 20,
- "canonicalEpisodesCount": 637
+  ]
 }

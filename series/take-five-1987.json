@@ -80,5 +80,49 @@
   "canonicalEpisodesCount": 6,
   "seriesImdbID": "tt0092461",
   "canonicalEpisodeCount": 1,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "George Segal",
+      "character": "Andy Kooper",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/2/7197.jpg"
+    },
+    {
+      "name": "Severn Darden",
+      "character": "Dr. Noah Wolf",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/88/221425.jpg"
+    },
+    {
+      "name": "Derek McGrath",
+      "character": "Al",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/33/84780.jpg"
+    },
+    {
+      "name": "Bruce Jarchow",
+      "character": "Monty",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/162/406285.jpg"
+    },
+    {
+      "name": "Jim Haynie",
+      "character": "Lenny Goodman",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/92/230903.jpg"
+    },
+    {
+      "name": "Melanie Chartoff",
+      "character": "Laraine McDermott",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/159/397796.jpg"
+    },
+    {
+      "name": "Todd Field",
+      "character": "Kevin Davis",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/294/736767.jpg"
+    }
+  ]
 }

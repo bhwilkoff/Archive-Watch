@@ -206,5 +206,13 @@
   "canonicalEpisodesCount": 10,
   "seriesImdbID": "tt0199208",
   "canonicalEpisodeCount": 6,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "James Burke",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/98/246672.jpg"
+    }
+  ]
 }

@@ -43,9 +43,9 @@
           "seasonNumber": 2,
           "episodeNumber": 6,
           "title": "The Cosby Show",
-          "overview": null,
+          "overview": "Vanessa has a boy/girl Halloween party at home. Cliff takes Rudy and her friends trick or treating.",
           "stillURL": null,
-          "airDate": null,
+          "airDate": "1985-10-31",
           "year": null,
           "runtimeSeconds": null,
           "videoFile": {
@@ -104,5 +104,73 @@
   "canonicalEpisodesCount": 201,
   "seriesImdbID": "tt0086687",
   "canonicalEpisodeCount": 163,
-  "canonicalSeasons": 8
+  "canonicalSeasons": 8,
+  "cast": [
+    {
+      "name": "Phylicia Rashad",
+      "character": "Clair Olivia Hanks Huxtable",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/30/76241.jpg"
+    },
+    {
+      "name": "Bill Cosby",
+      "character": "Dr. Heathcliff \"Cliff\" Huxtable",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/71174.jpg"
+    },
+    {
+      "name": "Malcolm-Jamal Warner",
+      "character": "Theodore Aloysius \"Theo\" Huxtable",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/447/1118809.jpg"
+    },
+    {
+      "name": "Tempestt Bledsoe",
+      "character": "Vanessa Huxtable",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/83/209252.jpg"
+    },
+    {
+      "name": "Keshia Knight Pulliam",
+      "character": "Rudith Lillian \"Rudy\" Huxtable",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/57/142525.jpg"
+    },
+    {
+      "name": "Raven-Symoné",
+      "character": "Olivia Kendall",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/588/1471258.jpg"
+    },
+    {
+      "name": "Sabrina Le Beauf",
+      "character": "Sondra Huxtable Tibideaux",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/524/1310834.jpg"
+    },
+    {
+      "name": "Geoffrey Owens",
+      "character": "Elvin Tibideaux",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/131/329546.jpg"
+    },
+    {
+      "name": "Lisa Bonet",
+      "character": "Denise Huxtable",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/84/211282.jpg"
+    },
+    {
+      "name": "Joseph C. Phillips",
+      "character": "Lt. Martin Kendall",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/182/457184.jpg"
+    },
+    {
+      "name": "Erika Alexander",
+      "character": "Pam Tucker",
+      "order": 10,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/487/1219355.jpg"
+    }
+  ]
 }

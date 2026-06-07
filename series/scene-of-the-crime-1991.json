@@ -135,5 +135,13 @@
   "canonicalEpisodesCount": 22,
   "seriesImdbID": "tt0101191",
   "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+  "canonicalSeasons": 1,
+  "cast": [
+    {
+      "name": "Stephen J. Cannell",
+      "character": "Host",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/92/232377.jpg"
+    }
+  ]
 }

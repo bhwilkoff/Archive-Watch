@@ -159,5 +159,43 @@
   "canonicalEpisodesCount": 110,
   "seriesImdbID": "tt0090395",
   "canonicalEpisodeCount": 44,
-  "canonicalSeasons": 5
+  "canonicalSeasons": 5,
+  "cast": [
+    {
+      "name": "Sherman Hemsley",
+      "character": "Deacon Ernest Frye",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/22/55571.jpg"
+    },
+    {
+      "name": "Anna Maria Horsford",
+      "character": "Thelma Frye-Gregory",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/22/55879.jpg"
+    },
+    {
+      "name": "Jester Hairston",
+      "character": "Rolly Forbes",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/52/131477.jpg"
+    },
+    {
+      "name": "Roz Ryan",
+      "character": "Amelia Hetebrink",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/37/94154.jpg"
+    },
+    {
+      "name": "Clifton Davis",
+      "character": "Rev. Reuben Gregory",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/110/275151.jpg"
+    },
+    {
+      "name": "Barbara Montgomery",
+      "character": "Casietta Hetebrink",
+      "order": 5,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/52/131474.jpg"
+    }
+  ]
 }

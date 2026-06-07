@@ -26,7 +26,7 @@
           "title": "Rhianna’s CGUG Series | s01e01 | Caillou Makes A Grounded Video Out Of Evil Caillou And Gets Ungrounded | Caillou Wisconsin",
           "overview": "NOTE: This is my video",
           "stillURL": "https://archive.org/services/img/caillou-makes-a-grounded-video-out-of-evil-caillou-and-gets-ungrounded",
-          "airDate": null,
+          "airDate": "1998-01-01",
           "year": 2018,
           "runtimeSeconds": 146,
           "videoFile": {
@@ -44,7 +44,7 @@
           "title": "Rhianna’s CGUG Series | s01e02 | Caillou And Rosie Unground Kirby And Gets Ungrounded | Caillou Wisconsin",
           "overview": "NOTE: This is my video",
           "stillURL": "https://archive.org/services/img/caillou-and-rosie-unground-kirby-and-gets-ungrounded",
-          "airDate": null,
+          "airDate": "1998-01-02",
           "year": 2018,
           "runtimeSeconds": 92,
           "videoFile": {
@@ -80,7 +80,7 @@
           "title": "Rhianna’s CGUG Series | s01e03 | Caillou Says No Dora Gets Grounded And Gets Ungrounded | Caillou Wisconsin",
           "overview": "NOTE: This is my video",
           "stillURL": "https://archive.org/services/img/caillou-says-no-dora-gets-grounded-and-gets-ungrounded",
-          "airDate": null,
+          "airDate": "1998-01-03",
           "year": 2019,
           "runtimeSeconds": 58,
           "videoFile": {
@@ -98,7 +98,7 @@
           "title": "Rhianna’s CGUG Series | s01e04 | Caillou Rants On DGG/Ungrounded | Caillou Wisconsin",
           "overview": "NOTE: This is my video",
           "stillURL": "https://archive.org/services/img/caillou-rants-on-dgg-ungrounded",
-          "airDate": null,
+          "airDate": "1998-01-04",
           "year": 2019,
           "runtimeSeconds": 141,
           "videoFile": {
@@ -116,7 +116,7 @@
           "title": "Rhianna’s CGUG Series | s01e05 | Caillou Takes Down All Hate Art Of Himself/Ungrounded | Caillou Wisconsin",
           "overview": "NOTE: This is my video",
           "stillURL": "https://archive.org/services/img/caillou-takes-down-all-hate-art-of-himself-ungrounded",
-          "airDate": null,
+          "airDate": "1998-01-05",
           "year": 2020,
           "runtimeSeconds": 103,
           "videoFile": {
@@ -432,7 +432,7 @@
           "title": "Caillou FRANÇAIS - La leçon de karaté (S03E01) | conte pour enfant | Caillou en Français",
           "overview": "Caillou FRANÇAIS - La leçon de karaté (S03E01) | conte pour enfant | Caillou en Français",
           "stillURL": "https://archive.org/services/img/eiBoo1tho5pheiGhug7I",
-          "airDate": null,
+          "airDate": "2003-02-10",
           "year": null,
           "runtimeSeconds": 1359,
           "videoFile": {
@@ -450,7 +450,7 @@
           "title": "Caillou FRANÇAIS - La tirelire (S03E02) | conte pour enfant | Caillou en Français",
           "overview": "Caillou FRANÇAIS - La tirelire (S03E02) | conte pour enfant | Caillou en Français",
           "stillURL": "https://archive.org/services/img/Dioru1eduYaiS3ooneQu",
-          "airDate": null,
+          "airDate": "2003-02-11",
           "year": null,
           "runtimeSeconds": 1359,
           "videoFile": {
@@ -468,7 +468,7 @@
           "title": "Caillou FRANÇAIS - Caillou danse avec Grand-mère (S03E06) | conte pour enfant | Caillou en Français",
           "overview": "Caillou FRANÇAIS - Caillou danse avec Grand-mère (S03E06) | conte pour enfant | Caillou en Français",
           "stillURL": "https://archive.org/services/img/au2Ahv8umohwohjahthi",
-          "airDate": null,
+          "airDate": "2003-02-17",
           "year": null,
           "runtimeSeconds": 1359,
           "videoFile": {
@@ -486,7 +486,7 @@
           "title": "Caillou FRANÇAIS - Léo passe la nuit chez Caillou (S03E07) | conte pour enfant | Caillou en Français",
           "overview": "Caillou FRANÇAIS - Léo passe la nuit chez Caillou (S03E07) | conte pour enfant | Caillou en Français",
           "stillURL": "https://archive.org/services/img/ao3eekiej7Eaghaic6oo",
-          "airDate": null,
+          "airDate": "2003-02-18",
           "year": null,
           "runtimeSeconds": 1359,
           "videoFile": {
@@ -504,7 +504,7 @@
           "title": "Caillou FRANÇAIS - L'assiette préférée de Caillou (S03E08) | conte pour enfant | Caillou en Français",
           "overview": "Caillou FRANÇAIS - L'assiette préférée de Caillou (S03E08) | conte pour enfant | Caillou en Français",
           "stillURL": "https://archive.org/services/img/oingoh9OhgeidaiciKo7",
-          "airDate": null,
+          "airDate": "2003-02-19",
           "year": null,
           "runtimeSeconds": 1359,
           "videoFile": {
@@ -522,7 +522,7 @@
           "title": "Caillou FRANÇAIS - Super Caillou (S03E09) | conte pour enfant | Caillou en Français",
           "overview": "Caillou FRANÇAIS - Super Caillou (S03E09) | conte pour enfant | Caillou en Français",
           "stillURL": "https://archive.org/services/img/eechavah8AP6quaepahk",
-          "airDate": null,
+          "airDate": "2003-09-15",
           "year": null,
           "runtimeSeconds": 1359,
           "videoFile": {
@@ -676,5 +676,115 @@
   "canonicalEpisodesCount": 26,
   "seriesImdbID": "tt0262153",
   "canonicalEpisodeCount": 106,
-  "canonicalSeasons": 8
+  "canonicalSeasons": 8,
+  "cast": [
+    {
+      "name": "Annie Bovaird",
+      "character": "Caillou (8 episodes, 2005-2006)",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Bob Stutt",
+      "character": "Gilbert",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/55/138316.jpg"
+    },
+    {
+      "name": "Brigid Tierney",
+      "character": "Rosie; Clementine",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Bryn McAuley",
+      "character": "Caillou (2000-2001)",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/56/140143.jpg"
+    },
+    {
+      "name": "Claudie Verdant",
+      "character": "Clementine's Mom (French version)",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Dallas Jokic",
+      "character": "Daniel (3 episodes, 2010)",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Ellen David",
+      "character": "Miss Martin (40 episodes, 2000-2006)",
+      "order": 6,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/137/344793.jpg"
+    },
+    {
+      "name": "Graeme Jokic",
+      "character": "Leo (21 episodes, 2010)",
+      "order": 7,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/35/87785.jpg"
+    },
+    {
+      "name": "Jaclyn Linetsky",
+      "character": "Caillou (2002-2004)",
+      "order": 8,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/14/36468.jpg"
+    },
+    {
+      "name": "Jennifer Seguin",
+      "character": "Caillou's Mom",
+      "order": 9,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/230/575776.jpg"
+    },
+    {
+      "name": "Matt Ficner",
+      "character": "Teddy",
+      "order": 10,
+      "profilePath": null
+    },
+    {
+      "name": "Pat Fry",
+      "character": "Caillou's Dad",
+      "order": 11,
+      "profilePath": "/i1EEUajv39l4UVWkIdLODGP7H6C.jpg"
+    },
+    {
+      "name": "Pier Paquette",
+      "character": "Rexy",
+      "order": 12,
+      "profilePath": "/cJM0ehH5CD9D9Dn1Bm91JhLJtGR.jpg"
+    },
+    {
+      "name": "Sofie Uretsky",
+      "character": "Clementine (17 episodes, 2010)",
+      "order": 13,
+      "profilePath": null
+    },
+    {
+      "name": "Tyler Brody Stein",
+      "character": "Alan (4 episodes, 2005-2006)",
+      "order": 14,
+      "profilePath": null
+    },
+    {
+      "name": "Vanessa Lengies",
+      "character": "Boy",
+      "order": 15,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/36/90644.jpg"
+    },
+    {
+      "name": "Charlotte Bernard",
+      "character": "Dee-Dee (French version)",
+      "order": 16,
+      "profilePath": null
+    },
+    {
+      "name": "Claudia-Laurie Corbeil",
+      "character": "Caillou (French version)",
+      "order": 17,
+      "profilePath": null
+    }
+  ]
 }

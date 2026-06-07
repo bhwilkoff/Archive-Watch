@@ -43,9 +43,9 @@
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "The Outer Limits",
-          "overview": null,
+          "overview": "Engineer Allen Maxwell draws power from his brother's radio station to contact an alien explorer in a distant galaxy. However, when the transmission is overloaded, the Being is transported to Earth with disasterous results.",
           "stillURL": null,
-          "airDate": null,
+          "airDate": "1963-09-16",
           "year": null,
           "runtimeSeconds": null,
           "videoFile": {
@@ -61,9 +61,9 @@
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "The Outer Limits - Season 1",
-          "overview": null,
+          "overview": "Engineer Allen Maxwell draws power from his brother's radio station to contact an alien explorer in a distant galaxy. However, when the transmission is overloaded, the Being is transported to Earth with disasterous results.",
           "stillURL": "https://image.tmdb.org/t/p/w500/1mf3GKgYeEIBhsp61uTGmI58NIB.jpg",
-          "airDate": null,
+          "airDate": "1963-09-16",
           "year": null,
           "runtimeSeconds": null,
           "videoFile": {
@@ -104,5 +104,13 @@
   "canonicalEpisodesCount": 49,
   "seriesImdbID": "tt0056777",
   "canonicalEpisodeCount": 42,
-  "canonicalSeasons": 2
+  "canonicalSeasons": 2,
+  "cast": [
+    {
+      "name": "Vic Perrin",
+      "character": "The Control Voice",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/12/30869.jpg"
+    }
+  ]
 }
