@@ -272,12 +272,15 @@ final class AppStore {
             if blob.contains(where: { g in scary.contains(where: g.contains) }) { return false }
             return true
         }
-        // #7: prioritize COLOR cartoons over black-and-white. There's no color
-        // flag in the catalog, so score by the best signals we have: explicit
-        // color words in metadata, and year (full-color cartoons are ~1934+; the
-        // early-1930s sound era is mostly B&W; pre-1930 almost always B&W). Sort by
-        // that score, then shuffle within the color-leaning head so it stays fresh.
+        // #7: prioritize COLOR cartoons over black-and-white. The authoritative
+        // signal is `colorMode` (frame-classified by tools/classify_color.py):
+        // known color floats to the top, known B&W sinks to the bottom. For items
+        // not yet classified, fall back to metadata/year color-likelihood so the
+        // ordering is still sensible before classification has fully run.
         func colorScore(_ it: Catalog.Item) -> Int {
+            let pop = (it.popularityScore ?? 0) / 50
+            if it.isColor == true { return 1000 + pop }
+            if it.isBlackAndWhite { return -1000 + pop }
             var s = 0
             let blob = (it.genres + it.subjects + [it.title])
                 .map { $0.lowercased() }.joined(separator: " ")
@@ -285,8 +288,7 @@ final class AppStore {
                 || blob.contains(" color") || blob.contains("colour") { s += 8 }
             if blob.contains("black and white") || blob.contains("b&w") { s -= 6 }
             if let y = it.year { s += y >= 1935 ? 5 : (y >= 1930 ? 0 : -4) }
-            s += (it.popularityScore ?? 0) / 50
-            return s
+            return s + pop
         }
         pool.sort { colorScore($0) > colorScore($1) }
         let head = Array(pool.prefix(max(limit, 120)))
@@ -307,6 +309,7 @@ final class AppStore {
         for it in raw {
             guard it.videoURLParsed != nil, it.hasDesignedArtwork else { continue }
             guard it.isSilentFilm != true else { continue }           // color only
+            guard !it.isBlackAndWhite else { continue }               // drop frame-classified B&W
             if let r = it.runtimeSeconds, r > 0, r > 15 * 60 { continue }   // short only
             guard seen.insert(it.archiveID).inserted else { continue }
             let blob = (it.genres + it.subjects + [it.title]).map { $0.lowercased() }.joined(separator: " ")

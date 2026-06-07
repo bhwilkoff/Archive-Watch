@@ -1,0 +1,64 @@
+name: Color / B&W classification
+
+# Tags catalog items as color or black-and-white from their actual frames
+# (tools/classify_color.py, ffmpeg signalstats saturation). Resumable — only
+# items without a colorMode are processed — and bounded per run so it fits the
+# job time limit; the daily schedule chips away at the backlog and covers newly
+# ingested titles. The full first pass is faster run locally under caffeinate.
+# Catalog lives on the release (Decision 018): fetch -> classify -> publish.
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # daily 06:00 UTC
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max items to classify this run'
+        required: false
+        default: '4000'
+      workers:
+        description: 'Concurrent ffmpeg workers'
+        required: false
+        default: '16'
+
+concurrency:
+  group: catalog-writers
+  cancel-in-progress: false
+
+jobs:
+  classify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    permissions:
+      contents: read
+      actions: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Fetch catalog
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py fetch
+
+      - name: Classify color / B&W
+        run: |
+          python tools/classify_color.py \
+            --limit ${{ github.event.inputs.limit || '4000' }} \
+            --workers ${{ github.event.inputs.workers || '16' }} | tee color.log
+          echo "## Color classification" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 color.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Publish catalog to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python tools/catalog_release.py publish
+
+      - name: Rebuild app DB
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run publish-db.yml

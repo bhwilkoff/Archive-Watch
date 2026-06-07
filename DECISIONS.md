@@ -788,3 +788,42 @@ Aesthetics needs macOS 15+; faces + text work on macOS 14.
 **Consequences**: a generation run now requires a built macOS Swift binary, so the
 full batch is macOS-only (the opencv fallback keeps a Linux CI path alive at lower
 quality). Vision adds ~1s/item, negligible against the network-bound frame grab.
+
+---
+
+## 025 — Color vs B&W is classified from video frames (ffmpeg saturation), stored as `colorMode`
+*Date: 2026-06-07*
+
+Every catalog item gets a `colorMode` ("color" | "bw", nil = unclassified) derived
+from its ACTUAL video by `tools/classify_color.py`: sample ~3 frames across the
+runtime with ffmpeg `signalstats` and average SATAVG (mean chroma saturation).
+B&W footage — silent or sound — reads ~0; color reads ~15–25, so a threshold of 8
+splits them cleanly. The flag rides in `catalog.json` → `item_json` → the Swift
+`Catalog.Item` (no SQLite schema change; CatalogDB decodes the full JSON). First
+consumer: Cartoon Mode prioritizes `isColor`, Party Play drops `isBlackAndWhite`;
+it also enables a future color/B&W Browse filter or badge.
+
+**Why**: "prioritize color cartoons" (and color party content) needs a real
+color signal. There is none in TMDb/OMDb for most PD titles, and the year/keyword
+heuristic we shipped first is only a guess (a 1945 B&W cartoon outranks a 1935
+color one). Measuring the frames is authoritative and cheap: ffmpeg `signalstats`
+gives a per-frame saturation average, and on a calibration set the separation was
+decisive (Night of the Living Dead 1968 → 0.0; Carnival of Souls 1962 → ~0;
+Santa and the Three Bears 1970 → ~22; Sita Sings the Blues 2008 → ~22). Frame
+analysis (not poster analysis) is required because B&W films often shipped
+colorized posters.
+
+**How to apply**: don't reintroduce a year/keyword color guess as the primary
+signal — it stays only as the fallback for items not yet classified. New ingests
+are covered by re-running `classify_color.py` (resumable: it skips items that
+already have `colorMode`); the `color-classify.yml` workflow does a bounded pass
+daily, and the full first pass is run locally under `caffeinate` (network-bound,
+like the cover pipeline). Keep the threshold at ~8 — a heavily sepia-TINTED
+silent can exceed it and read "color"; that's an accepted edge case (tinting is
+a color cast), not a bug. `colorMode` is optional everywhere so older catalogs/
+builds decode unchanged.
+
+**Consequences**: ffmpeg becomes a build-time dependency for this tool (already
+used by the cover pipeline). A full classification pass touches every playable
+item once. If a true tri-state is ever needed (color / bw / tinted), extend the
+string rather than special-casing "bw" at every reader.

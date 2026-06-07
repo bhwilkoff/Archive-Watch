@@ -90,6 +90,12 @@ struct Catalog: Decodable, Sendable {
         let contentRating: String?
         let synopsisSource: String?
 
+        // Color vs black-and-white, classified from the actual video frames by
+        // tools/classify_color.py (mean ffmpeg signalstats saturation). "color"
+        // or "bw"; nil = not yet classified. Optional so old catalogs decode
+        // unchanged.
+        let colorMode: String?
+
         var id: String { archiveID }
         var posterURLParsed: URL? { posterURL.flatMap(URL.init(string:)) }
         var backdropURLParsed: URL? { backdropURL.flatMap(URL.init(string:)) }
@@ -107,6 +113,12 @@ struct Catalog: Decodable, Sendable {
         var hasProfessionalArtwork: Bool {
             hasDesignedArtwork && artworkSource != "generated"
         }
+
+        /// Known color status from frame analysis. nil when unclassified.
+        var isColor: Bool? {
+            switch colorMode { case "color": return true; case "bw": return false; default: return nil }
+        }
+        var isBlackAndWhite: Bool { colorMode == "bw" }
 
         /// Authoritative silent-film predicate. Prefers the pipeline's
         /// multi-signal flag; falls back to the legacy contentType check
