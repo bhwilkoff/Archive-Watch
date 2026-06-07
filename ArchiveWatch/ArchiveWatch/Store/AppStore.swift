@@ -115,6 +115,16 @@ final class AppStore {
         didSet { UserDefaults.standard.set(screensaverIdleEnabled, forKey: "screensaverIdleEnabled") }
     }
 
+    // Optional analog VHS/CRT veneer on the cover-art screensaver. On by default
+    // — for archival film/TV the tape look reads as more authentic, not less.
+    var screensaverVHS: Bool = AppStore.loadVHSDefault() {
+        didSet { UserDefaults.standard.set(screensaverVHS, forKey: "screensaverVHS") }
+    }
+    private static func loadVHSDefault() -> Bool {
+        guard UserDefaults.standard.object(forKey: "screensaverVHS") != nil else { return true }
+        return UserDefaults.standard.bool(forKey: "screensaverVHS")
+    }
+
     /// Drop completed titles from a Home list when the setting is on. No-op
     /// otherwise. Used by HomeView's hero + shelves.
     func filteringWatched(_ items: [Catalog.Item]) -> [Catalog.Item] {

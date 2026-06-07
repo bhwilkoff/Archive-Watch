@@ -157,15 +157,22 @@ struct SettingsView: View {
             Toggle(isOn: idleSaverBinding) {
                 ToggleLabel(title: "Idle Screensaver")
             }
+            Toggle(isOn: vhsBinding) {
+                ToggleLabel(title: "VHS Screensaver Look")
+            }
         } header: {
             Text("Playback")
         } footer: {
-            Text("When a film ends, automatically play another. Off by default. You can also change this for the current video from its transport menu. TV episodes always continue to the next episode. Commercial breaks play vintage public-domain ads between programs on Channels — the 1990s-TV feel. The idle screensaver shows the cover-art wall after a few minutes of inactivity (never during playback).")
+            Text("When a film ends, automatically play another. Off by default. You can also change this for the current video from its transport menu. TV episodes always continue to the next episode. Commercial breaks play vintage public-domain ads between programs on Channels — the 1990s-TV feel. The idle screensaver shows the cover-art wall after a few minutes of inactivity (never during playback). The VHS look gives the screensaver an analog tape/CRT veneer — scanlines, chroma bleed, and tracking shimmer — fitting for archival film and TV.")
         }
     }
 
     private var idleSaverBinding: Binding<Bool> {
         Binding(get: { store.screensaverIdleEnabled }, set: { store.screensaverIdleEnabled = $0 })
+    }
+
+    private var vhsBinding: Binding<Bool> {
+        Binding(get: { store.screensaverVHS }, set: { store.screensaverVHS = $0 })
     }
 
     private var autoplayBinding: Binding<AutoplayMode> {

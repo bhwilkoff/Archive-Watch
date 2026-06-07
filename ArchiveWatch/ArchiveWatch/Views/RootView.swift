@@ -65,13 +65,18 @@ struct RootView: View {
             }
         }
         // Screenshot/dev affordance: `AW_START_MODE=kids|party|saver` lands on that
-        // immersive tab once the catalog is ready. Unset in production (no-op).
+        // immersive tab once the catalog is ready (`saver` also opens the running
+        // screensaver directly). Unset in production (no-op).
         .task {
             guard let m = ProcessInfo.processInfo.environment["AW_START_MODE"] else { return }
             let tab: Router.Tab? = ["kids": .cartoons, "party": .party, "saver": .screensaver][m]
             guard let tab else { return }
-            for _ in 0..<50 {
-                if store.isReady { router.tab = tab; return }
+            for _ in 0..<150 {
+                if store.isReady {
+                    router.tab = tab
+                    if m == "saver" { showSaver = true }
+                    return
+                }
                 try? await Task.sleep(for: .milliseconds(200))
             }
         }
