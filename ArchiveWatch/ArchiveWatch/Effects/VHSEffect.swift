@@ -17,6 +17,32 @@ extension View {
     }
 }
 
+/// A translucent analog-VHS layer to composite OVER live video (where a
+/// sampling `.layerEffect` can't reach — AVPlayerViewController owns its video
+/// layer). Place it as an `.overlay` on the player with `.allowsHitTesting(false)`
+/// so the native transport still works. See `vhsOverlay` in VHS.metal.
+struct VHSVideoOverlay: View {
+    var amount: Double = 1.0
+
+    var body: some View {
+        TimelineView(.animation(minimumInterval: 1.0 / 30.0, paused: false)) { ctx in
+            let t = Float(ctx.date.timeIntervalSinceReferenceDate.truncatingRemainder(dividingBy: 600))
+            Rectangle()
+                .fill(.white)
+                .visualEffect { view, proxy in
+                    view.colorEffect(
+                        ShaderLibrary.vhsOverlay(
+                            .float2(proxy.size),
+                            .float(t),
+                            .float(Float(amount))
+                        )
+                    )
+                }
+                .ignoresSafeArea()
+        }
+    }
+}
+
 private struct VHSEffectModifier: ViewModifier {
     let amount: Double
 

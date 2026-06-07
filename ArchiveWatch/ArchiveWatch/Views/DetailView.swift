@@ -463,6 +463,7 @@ struct PlayerScreen: View {
     var lineup: [Catalog.Item]? = nil   // #1 channels: a fixed continuous lineup
     var startMuted: Bool = false        // #3 party play: video-only by default
     var startOffset: TimeInterval = 0   // #92 channels: join the live program in progress
+    var channelContext: Bool = false    // VHS: channels opt into the analog overlay
     @Environment(\.modelContext) private var modelContext
     @Environment(AppStore.self) private var store
     @State private var player: AVPlayer?
@@ -488,13 +489,15 @@ struct PlayerScreen: View {
     @Environment(\.dismiss) private var dismiss
 
     init(url: URL, archiveID: String, catalogItem: Catalog.Item? = nil,
-         lineup: [Catalog.Item]? = nil, startMuted: Bool = false, startOffset: TimeInterval = 0) {
+         lineup: [Catalog.Item]? = nil, startMuted: Bool = false, startOffset: TimeInterval = 0,
+         channelContext: Bool = false) {
         self.url = url
         self.archiveID = archiveID
         self.catalogItem = catalogItem
         self.lineup = lineup
         self.startMuted = startMuted
         self.startOffset = startOffset
+        self.channelContext = channelContext
         _current = State(initialValue: catalogItem)
         _muted = State(initialValue: startMuted)
         _joinOffset = State(initialValue: startOffset)
@@ -507,10 +510,12 @@ struct PlayerScreen: View {
 
     /// #1 channels / #3 party / #2 cartoon: start a continuous lineup at item 0.
     /// `startOffset` joins the first program in progress (#92 channels live tune-in).
-    init?(lineup: [Catalog.Item], startMuted: Bool = false, startOffset: TimeInterval = 0) {
+    init?(lineup: [Catalog.Item], startMuted: Bool = false, startOffset: TimeInterval = 0,
+          channelContext: Bool = false) {
         guard let first = lineup.first, let url = first.videoURLParsed else { return nil }
         self.init(url: url, archiveID: first.archiveID, catalogItem: first,
-                  lineup: lineup, startMuted: startMuted, startOffset: startOffset)
+                  lineup: lineup, startMuted: startMuted, startOffset: startOffset,
+                  channelContext: channelContext)
     }
 
     // #19: a broken item (dead URL, stale non-MP4 derivative, decode reject, or a
@@ -529,6 +534,13 @@ struct PlayerScreen: View {
                 AVPlayerContainer(player: player, menuItems: autoplayMenu)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
+                    // VHS: analog overlay over channel playback (opt-in, channels only).
+                    // allowsHitTesting(false) keeps the native transport fully usable.
+                    .overlay {
+                        if channelContext && store.channelVHS {
+                            VHSVideoOverlay().allowsHitTesting(false)
+                        }
+                    }
             } else {
                 ProgressView().controlSize(.large).tint(.white)
             }

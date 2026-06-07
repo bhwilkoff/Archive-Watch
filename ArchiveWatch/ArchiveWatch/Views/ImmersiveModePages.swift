@@ -74,23 +74,13 @@ struct ScreensaverHomeView: View {
                     subtitle: "A living wall of classic movie posters. Also appears on its own after a few idle minutes (Settings).",
                     accent: Color(hex: "#0047FF") ?? .blue)
 
-                HStack(spacing: 24) {
-                    Button { showSaver = true } label: {
-                        Label("Start Screensaver", systemImage: "photo.stack.fill")
-                            .font(.title2.weight(.bold))
-                            .padding(.horizontal, 44).padding(.vertical, 22)
-                    }
-                    .buttonStyle(.card)
-                    .focused($startFocused)
-
-                    Button { store.screensaverVHS.toggle() } label: {
-                        Label(store.screensaverVHS ? "VHS Look: On" : "VHS Look: Off",
-                              systemImage: store.screensaverVHS ? "tv.fill" : "tv")
-                            .font(.title3.weight(.semibold))
-                            .padding(.horizontal, 36).padding(.vertical, 22)
-                    }
-                    .buttonStyle(.card)
+                Button { showSaver = true } label: {
+                    Label("Start Screensaver", systemImage: "photo.stack.fill")
+                        .font(.title2.weight(.bold))
+                        .padding(.horizontal, 44).padding(.vertical, 22)
                 }
+                .buttonStyle(.card)
+                .focused($startFocused)
                 .padding(.horizontal, 80)
 
                 if !preview.isEmpty {

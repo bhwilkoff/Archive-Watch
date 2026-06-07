@@ -82,7 +82,8 @@ struct ChannelsView: View {
         .background(Color.black.ignoresSafeArea())
         .onAppear { if guide.isEmpty { rebuild() } }
         .fullScreenCover(item: $playing) { box in
-            if let screen = PlayerScreen(lineup: box.items, startOffset: box.startOffset) {
+            if let screen = PlayerScreen(lineup: box.items, startOffset: box.startOffset,
+                                         channelContext: true) {
                 screen
             } else { ChannelUnavailable() }
         }
@@ -103,6 +104,14 @@ struct ChannelsView: View {
             Button { withAnimation(Motion.chrome) { showCommercialOptions.toggle() } } label: {
                 Label("Commercials: \(commercialLabel)",
                       systemImage: store.channelCommercialBreaks ? "tv.fill" : "tv.slash")
+                    .font(.system(size: 20, weight: .semibold))
+            }
+            .buttonStyle(.bordered)
+            // Analog VHS/CRT veneer over channel playback — the retro-TV companion
+            // to commercial breaks. Toggled live; applied as an overlay in the player.
+            Button { store.channelVHS.toggle() } label: {
+                Label("VHS: \(store.channelVHS ? "On" : "Off")",
+                      systemImage: store.channelVHS ? "tv.fill" : "tv.slash")
                     .font(.system(size: 20, weight: .semibold))
             }
             .buttonStyle(.bordered)

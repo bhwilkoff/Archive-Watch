@@ -56,7 +56,6 @@ struct ScreensaverView: View {
             }
             .onChange(of: n) { _, newN in count = newN; fillIfReady() }
         }
-        .vhsEffect(enabled: store.screensaverVHS)
         .background(Color.black.ignoresSafeArea())
         .overlay {
             Button { dismiss() } label: { Color.clear }

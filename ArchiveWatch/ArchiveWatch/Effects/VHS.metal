@@ -34,6 +34,42 @@ static float vnoise(float2 p) {
     return mix(mix(a, b, u.x), mix(c, d, u.x), u.y);
 }
 
+// Procedural overlay variant for surfaces a layer effect can't SAMPLE — most
+// importantly live video (AVPlayerViewController renders into its own layer that
+// SwiftUI cannot rasterize for `.layerEffect`). This generates the analog
+// artifacts as a translucent layer composited OVER the video: scanlines and a
+// vignette darken, a rolling tracking band + dropout streaks + grain brighten,
+// with a faint warm tape cast. No chroma bleed / geometric wobble here (those
+// need to sample the source, which we can't over video). Applied via
+// `.colorEffect` on a filled rectangle (see VHSVideoOverlay). Returns
+// premultiplied RGBA so it blends correctly with the video beneath.
+[[ stitchable ]]
+half4 vhsOverlay(float2 pos, half4 color, float2 size, float time, float amount) {
+    float2 uv = pos / max(size, float2(1.0));
+
+    // darkening: CRT scanlines + vignette
+    float scan = 0.5 + 0.5 * sin(pos.y * 3.14159265);
+    float2 dd = uv - 0.5;
+    float vig = 1.0 - smoothstep(0.25, 0.95, dot(dd, dd) * 2.2);
+    float d = (0.12 * scan + 0.28 * vig) * amount;
+
+    // brightening: rolling tracking band + dropout streaks + positive grain
+    float band = fract(uv.y + time * 0.06);
+    float bandWarp = smoothstep(0.965, 0.99, band) * smoothstep(1.0, 0.99, band);
+    float head = smoothstep(0.975, 1.0, uv.y) * (0.5 + 0.5 * vnoise(float2(pos.y, time * 50.0)));
+    float streak = step(0.9975, vnoise(float2(floor(pos.y * 0.5), floor(time * 9.0))));
+    float grain = max(0.0, vnoise(pos * float2(0.7, 1.3) + time * 60.0) - 0.5);
+    float b = (bandWarp * 0.22 + head * 0.18 + streak * 0.5 + grain * 0.10) * amount;
+
+    d = clamp(d, 0.0, 1.0);
+    b = clamp(b, 0.0, 1.0);
+    // single premultiplied "over" layer: darken by reducing dst, brighten by
+    // adding tinted white. out = src + dst*(1-a), with a = d + b - d*b.
+    half a = half(d + b - d * b);
+    half3 premul = half3(b) * half3(1.0h, 0.98h, 0.94h);  // warm tape cast on the lift
+    return half4(premul, a);
+}
+
 [[ stitchable ]]
 half4 vhs(float2 pos, SwiftUI::Layer layer, float2 size, float time, float amount) {
     float2 uv = pos / max(size, float2(1.0));

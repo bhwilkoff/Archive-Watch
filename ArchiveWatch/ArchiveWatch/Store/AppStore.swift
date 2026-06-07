@@ -115,14 +115,16 @@ final class AppStore {
         didSet { UserDefaults.standard.set(screensaverIdleEnabled, forKey: "screensaverIdleEnabled") }
     }
 
-    // Optional analog VHS/CRT veneer on the cover-art screensaver. On by default
-    // — for archival film/TV the tape look reads as more authentic, not less.
-    var screensaverVHS: Bool = AppStore.loadVHSDefault() {
-        didSet { UserDefaults.standard.set(screensaverVHS, forKey: "screensaverVHS") }
+    // Optional analog VHS/CRT veneer on channel playback (the retro-TV experience,
+    // alongside commercial breaks). On by default — for archival film/TV the tape
+    // look reads as more authentic, not less. Toggled from the Channels header and
+    // Settings; applied as an overlay over the channel player.
+    var channelVHS: Bool = AppStore.loadVHSDefault() {
+        didSet { UserDefaults.standard.set(channelVHS, forKey: "channelVHS") }
     }
     private static func loadVHSDefault() -> Bool {
-        guard UserDefaults.standard.object(forKey: "screensaverVHS") != nil else { return true }
-        return UserDefaults.standard.bool(forKey: "screensaverVHS")
+        guard UserDefaults.standard.object(forKey: "channelVHS") != nil else { return true }
+        return UserDefaults.standard.bool(forKey: "channelVHS")
     }
 
     /// Drop completed titles from a Home list when the setting is on. No-op

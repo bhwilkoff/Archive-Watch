@@ -28,6 +28,10 @@ struct RootView: View {
     // low activity; resets on tab switch, scene change, or playback start/stop.
     @State private var idleSeconds = 0
     @State private var showSaver = false
+    // Screenshot/dev affordance only (AW_START_CHANNEL): opens a channel-context
+    // player to verify the VHS overlay over live video. No-op in production.
+    @State private var devChannelItems: [Catalog.Item] = []
+    @State private var showDevChannel = false
     private let idleThreshold = 300   // 5 minutes
     private let idleTick = Timer.publish(every: 30, on: .main, in: .common).autoconnect()
 
@@ -78,6 +82,24 @@ struct RootView: View {
                     return
                 }
                 try? await Task.sleep(for: .milliseconds(200))
+            }
+        }
+        // Screenshot/dev affordance: `AW_START_CHANNEL` opens a channel-context
+        // player (VHS overlay over live video) once the DB is ready. No-op in prod.
+        .task {
+            guard ProcessInfo.processInfo.environment["AW_START_CHANNEL"] != nil else { return }
+            for _ in 0..<150 {
+                if store.isReady {
+                    let items = store.dbBrowse(contentType: "feature-film", sort: .popular, limit: 12)
+                        .filter { $0.videoURLParsed != nil }
+                    if !items.isEmpty { devChannelItems = items; showDevChannel = true; return }
+                }
+                try? await Task.sleep(for: .milliseconds(200))
+            }
+        }
+        .fullScreenCover(isPresented: $showDevChannel) {
+            if let screen = PlayerScreen(lineup: devChannelItems, channelContext: true) {
+                screen
             }
         }
         // #83 idle screensaver (opt-in, never over playback).
