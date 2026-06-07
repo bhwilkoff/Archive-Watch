@@ -8,18 +8,21 @@ verifies on real Apple TVs.
 ## 1. Capabilities (Xcode → target ArchiveWatch → Signing & Capabilities)
 - **+ Capability → Sign in with Apple.**
 - **+ Capability → iCloud** → check **CloudKit** → add container
-  **`iCloud.com.bhwilkoff.archivewatch`** (must match `CloudSync.containerID` in
-  `Services/CloudKitSyncService.swift`).
+  **`iCloud.app.archivewatch.tvos`** (must match `CloudSync.containerID` in
+  `Services/CloudKitSyncService.swift` AND the container already declared in
+  `ArchiveWatch/ArchiveWatch.entitlements`). Do **NOT** use the old
+  `iCloud.com.bhwilkoff.archivewatch` id — it does not match the code/entitlements
+  and was the reason sync silently did nothing.
 - These also need enabling on the App ID in the Apple Developer portal (Xcode's
   automatic signing usually does this).
 
-## 2. Flip the gate
-In `ArchiveWatch/ArchiveWatch/Services/CloudKitSyncService.swift`:
-```swift
-enum CloudSync { static let entitlementConfigured = true   // was false }
-```
-With the gate off, `AccountStore` (Sign in with Apple) still works in the UI; only
-the CloudKit calls no-op.
+## 2. Flip the gate — DONE
+`CloudSync.entitlementConfigured` is now `true` in
+`Services/CloudKitSyncService.swift`. (With the gate off, Sign in with Apple still
+works in the UI but every CloudKit call no-ops — which is why saved data wasn't
+syncing.) If a device build now **crashes on launch**, the iCloud/CloudKit
+capability + container above is not provisioned on the App ID — complete step 1
+and rebuild.
 
 ## 3. Verify on device (two Apple TVs on the same iCloud account)
 - Settings → Account → **Sign in with Apple**.
