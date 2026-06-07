@@ -141,6 +141,9 @@ def main():
             "genres": s.get("genres"), "networks": s.get("networks"),
             "creator": s.get("creator"), "tvmazeID": s.get("tvmazeID"),
             "seasons": s.get("seasons"), "episodesCount": s.get("episodesCount"),
+            # carry the real artwork source (TheTVDB upgrades) + cast through to
+            # the card, instead of letting series_card default everything to tvmaze.
+            "artworkSource": s.get("artworkSource"), "cast": s.get("cast"),
         }))
         for season in s.get("seasons", []):
             for ep in season.get("episodes", []):
@@ -183,6 +186,12 @@ def main():
         return catalog
 
     for path, label in [(FULL_CATALOG, "full"), (SEED_CATALOG, "seed")]:
+        # The committed seed catalog.json was retired (Decision 018); the app's
+        # first-paint seed is now seed.sqlite, derived from the full catalog by
+        # build_sqlite.py. Skip it if absent instead of crashing.
+        if not path.exists():
+            print(f"[reconcile] {label} catalog absent ({path.name}) — skipping (Decision 018)")
+            continue
         cat = load(path)
         cat = transform(cat, label)
         if not args.dry_run:
