@@ -34,7 +34,11 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
     private var tasks: [ObjectIdentifier: Task<Void, Never>] = [:]
 
     private let chunkSize: Int64 = 2 * 1024 * 1024     // 2 MB range requests
-    private let maxRetries = 8
+    private let maxRetries = 12                         // #6: ride out long, flaky films
+    // #10: the FIRST handshake to a cold Archive storage node can be slow (302 to
+    // a node that then spins up). Give it a generous per-request timeout so the
+    // first play doesn't fail where a manual retry (warm node) would succeed.
+    private let firstByteTimeout: TimeInterval = 30
 
     private lazy var session: URLSession = {
         let cfg = URLSessionConfiguration.ephemeral
@@ -101,30 +105,45 @@ final class ResilientStreamLoader: NSObject, AVAssetResourceLoaderDelegate, @unc
                                  _ request: AVAssetResourceLoadingRequest) async {
         // A ranged GET both proves byte-range support (206) and yields the total
         // length via Content-Range — more reliable than HEAD on Archive nodes.
-        var req = URLRequest(url: realURL)
-        req.setValue("bytes=0-1", forHTTPHeaderField: "Range")
-        do {
-            let (_, response) = try await session.data(for: req)
-            guard let http = response as? HTTPURLResponse else { throw URLError(.badServerResponse) }
+        // #10: retry with backoff (the first handshake to a cold node is the most
+        // common first-play failure; a manual retry succeeds because the node is
+        // warm — so just do that retry automatically here).
+        var attempt = 0
+        while !request.isCancelled && !Task.isCancelled {
+            var req = URLRequest(url: realURL)
+            req.setValue("bytes=0-1", forHTTPHeaderField: "Range")
+            req.timeoutInterval = firstByteTimeout
+            do {
+                let (_, response) = try await session.data(for: req)
+                guard let http = response as? HTTPURLResponse,
+                      (200...299).contains(http.statusCode) else {
+                    throw URLError(.badServerResponse)
+                }
 
-            let mime = http.mimeType ?? "video/mp4"
-            info.contentType = UTType(mimeType: mime)?.identifier ?? AVFileType.mp4.rawValue
+                let mime = http.mimeType ?? "video/mp4"
+                info.contentType = UTType(mimeType: mime)?.identifier ?? AVFileType.mp4.rawValue
 
-            if http.statusCode == 206,
-               let range = http.value(forHTTPHeaderField: "Content-Range"),
-               let total = range.split(separator: "/").last.flatMap({ Int64($0) }) {
-                info.isByteRangeAccessSupported = true
-                info.contentLength = total
-                queue.sync { self.contentLength = total }
-            } else if http.expectedContentLength > 0 {
-                let len = http.expectedContentLength
-                info.isByteRangeAccessSupported = (http.statusCode == 206)
-                info.contentLength = len
-                queue.sync { self.contentLength = len }
+                if http.statusCode == 206,
+                   let range = http.value(forHTTPHeaderField: "Content-Range"),
+                   let total = range.split(separator: "/").last.flatMap({ Int64($0) }) {
+                    info.isByteRangeAccessSupported = true
+                    info.contentLength = total
+                    queue.sync { self.contentLength = total }
+                } else if http.expectedContentLength > 0 {
+                    let len = http.expectedContentLength
+                    info.isByteRangeAccessSupported = (http.statusCode == 206)
+                    info.contentLength = len
+                    queue.sync { self.contentLength = len }
+                }
+                request.finishLoading()
+                return
+            } catch {
+                if request.isCancelled || Task.isCancelled { return }
+                attempt += 1
+                if attempt > maxRetries { request.finishLoading(with: error as NSError); return }
+                let delay = min(2.5, 0.3 * Double(attempt))
+                try? await Task.sleep(nanoseconds: UInt64(delay * 1_000_000_000))
             }
-            request.finishLoading()
-        } catch {
-            if !Task.isCancelled { request.finishLoading(with: error as NSError) }
         }
     }
 

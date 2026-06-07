@@ -272,9 +272,23 @@ final class AppStore {
             if blob.contains(where: { g in scary.contains(where: g.contains) }) { return false }
             return true
         }
-        // Color leans newer (Technicolor era): bias the order toward later years +
-        // popularity, then shuffle WITHIN that lean so it's fresh but still colorful.
-        pool.sort { ($0.year ?? 0, $0.popularityScore ?? 0) > ($1.year ?? 0, $1.popularityScore ?? 0) }
+        // #7: prioritize COLOR cartoons over black-and-white. There's no color
+        // flag in the catalog, so score by the best signals we have: explicit
+        // color words in metadata, and year (full-color cartoons are ~1934+; the
+        // early-1930s sound era is mostly B&W; pre-1930 almost always B&W). Sort by
+        // that score, then shuffle within the color-leaning head so it stays fresh.
+        func colorScore(_ it: Catalog.Item) -> Int {
+            var s = 0
+            let blob = (it.genres + it.subjects + [it.title])
+                .map { $0.lowercased() }.joined(separator: " ")
+            if blob.contains("technicolor") || blob.contains("cinecolor")
+                || blob.contains(" color") || blob.contains("colour") { s += 8 }
+            if blob.contains("black and white") || blob.contains("b&w") { s -= 6 }
+            if let y = it.year { s += y >= 1935 ? 5 : (y >= 1930 ? 0 : -4) }
+            s += (it.popularityScore ?? 0) / 50
+            return s
+        }
+        pool.sort { colorScore($0) > colorScore($1) }
         let head = Array(pool.prefix(max(limit, 120)))
         return head.shuffled()
     }

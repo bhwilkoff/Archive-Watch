@@ -473,6 +473,8 @@ struct PlayerScreen: View {
     @State private var streamLoader: ResilientStreamLoader?
     @State private var statusObserver: NSKeyValueObservation?
     @State private var timeoutTask: Task<Void, Never>?
+    @State private var autoRetried = false   // #10: silently retry once before failing
+    @State private var skipCount = 0         // #7: bound auto-skips in a broken lineup
     @State private var endObserver: NSObjectProtocol?
     @State private var playback: PlaybackState = .loading
     // #10: the item currently playing. Autoplay swaps this on end-of-item; the
@@ -523,7 +525,9 @@ struct PlayerScreen: View {
     // Surface a visible, recoverable failure state — same contract as the episode
     // player.
     private enum PlaybackState: Equatable { case loading, ready, failed(String) }
-    private let loadTimeout: Duration = .seconds(30)
+    // #10: give the now-retrying ResilientStreamLoader room to warm a cold node
+    // (its first-byte handshake alone allows 30s) before the player-level backstop.
+    private let loadTimeout: Duration = .seconds(60)
 
     var body: some View {
         ZStack {
@@ -549,6 +553,7 @@ struct PlayerScreen: View {
         .onDisappear { store.isPlayingVideo = false; teardownPlayer() }
         // #10: autoplay swapped `current` -> rebuild the player for the next film.
         .onChange(of: current?.archiveID) { _, _ in
+            autoRetried = false          // #10: fresh retry budget per item
             teardownPlayer()
             playback = .loading
             setupPlayer()
@@ -617,6 +622,7 @@ struct PlayerScreen: View {
                 .frame(maxWidth: 900)
             HStack(spacing: 20) {
                 Button {
+                    autoRetried = false
                     teardownPlayer(persist: false)
                     playback = .loading
                     setupPlayer()
@@ -634,6 +640,29 @@ struct PlayerScreen: View {
                 .buttonStyle(.bordered)
             }
             .padding(.top, 12)
+        }
+    }
+
+    // #10: a load failure (status .failed or the load-timeout backstop) silently
+    // rebuilds the player ONCE before surfacing the error — the overwhelmingly
+    // common case is a cold Archive node that succeeds on the second attempt
+    // (exactly what hitting "Try Again" did manually). Only a second failure
+    // shows the recoverable error screen.
+    private func handleLoadFailure(_ message: String) {
+        if !autoRetried {
+            autoRetried = true
+            teardownPlayer(persist: false)
+            playback = .loading
+            setupPlayer()
+        } else if lineup != nil && skipCount < 10 {
+            // #7: continuous modes (channel / cartoon / party) must keep flowing —
+            // a title that won't load (after its one retry) is SKIPPED to the next,
+            // not turned into a dead-end error screen. Bounded so an all-broken
+            // lineup eventually surfaces the error instead of looping forever.
+            skipCount += 1
+            advanceNow()
+        } else {
+            playback = .failed(message)
         }
     }
 
@@ -671,6 +700,7 @@ struct PlayerScreen: View {
                 switch observed.status {
                 case .readyToPlay:
                     playback = .ready
+                    skipCount = 0          // #7: a good item resets the skip budget
                     timeoutTask?.cancel()
                     // Start playback on ready — covers BOTH the first item and
                     // every lineup/autoplay advance. The AVPlayerContainer's
@@ -680,9 +710,9 @@ struct PlayerScreen: View {
                     // its resume position but never starts (#5 Play Next bug).
                     p.play()
                 case .failed:
-                    playback = .failed(observed.error?.localizedDescription
-                                       ?? "The video couldn't be loaded.")
                     timeoutTask?.cancel()
+                    handleLoadFailure(observed.error?.localizedDescription
+                                      ?? "The video couldn't be loaded.")
                 default: break
                 }
             }
@@ -693,7 +723,7 @@ struct PlayerScreen: View {
             try? await Task.sleep(for: loadTimeout)
             guard !Task.isCancelled else { return }
             if playback == .loading {
-                playback = .failed("This title is taking too long to load. The source may be temporarily unavailable.")
+                handleLoadFailure("This title is taking too long to load. The source may be temporarily unavailable.")
             }
         }
 
