@@ -17,6 +17,7 @@ struct SeriesDetailView: View {
     let seriesCard: Catalog.Item
 
     @Environment(AppStore.self) private var store
+    @Environment(Router.self) private var router
     @Environment(\.modelContext) private var modelContext
     @State private var series: Series?
     @State private var isLoading = true
@@ -155,8 +156,30 @@ struct SeriesDetailView: View {
                     .frame(maxWidth: 1200, alignment: .leading)
                     .lineLimit(3)
             }
+            castRow
         }
         .frame(maxWidth: 1200, alignment: .leading)
+    }
+
+    @ViewBuilder
+    private var castRow: some View {
+        if let cast = series?.cast, !cast.isEmpty {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(alignment: .top, spacing: 28) {
+                    ForEach(Array(cast.prefix(14)), id: \.name) { member in
+                        PersonChip(name: member.name, role: member.character,
+                                   profilePath: member.profilePath) {
+                            router.push(BrowseFilter(person: member.name))
+                        }
+                    }
+                }
+                .padding(.vertical, 12)
+                .padding(.horizontal, 4)
+            }
+            .scrollClipDisabled()
+            .focusSection()
+            .padding(.top, 8)
+        }
     }
 
     private var yearRangeLabel: String? {

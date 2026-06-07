@@ -219,6 +219,7 @@ struct Series: Decodable, Sendable, Hashable, Identifiable {
     let genres: [String]
     let networks: [String]
     let creator: String?
+    let cast: [Catalog.CastMember]?   // from TVmaze (tools/enrich_tv_cast.py)
     let seasons: [Season]
     let episodesCount: Int?
     /// Total episodes in the canonical run (TVmaze), vs `episodesCount` which

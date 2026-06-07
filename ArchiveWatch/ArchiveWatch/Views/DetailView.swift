@@ -796,7 +796,7 @@ struct ProgressBar: View {
 
 // MARK: - Cast / crew chip (#4)
 
-private struct PersonChip: View {
+struct PersonChip: View {   // reused by SeriesDetailView's cast row
     let name: String
     let role: String?
     let profilePath: String?
