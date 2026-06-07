@@ -827,3 +827,43 @@ builds decode unchanged.
 used by the cover pipeline). A full classification pass touches every playable
 item once. If a true tri-state is ever needed (color / bw / tinted), extend the
 string rather than special-casing "bw" at every reader.
+
+---
+
+## 026 — External matches are verified against the Archive item's OWN signals
+*Date: 2026-06-07*
+
+`tools/verify_external_match.py` re-checks every TMDb/OMDb-matched item against
+the signals the matcher SHOULD have used, in priority order, and re-resolves or
+clears wrong matches: Tier 1 = the Archive `external-identifier` `urn:imdb:tt…`
+(authoritative — re-resolve to it via OMDb if the stored id differs); Tier 2 =
+the Archive `date`/`year` (re-resolve by title+year, or clear and keep the
+Archive year, when it disagrees with the matched year by >2); Tier 3 = the color
+flag (Decision 025) — a frame-verified B&W film matched to a modern (>=1970)
+release is wrong → clear. Items with no contradicting signal are left untouched.
+Runs weekly in CI (`verify-matches.yml`), resumable via a `matchVerified` marker.
+
+**Why**: wrong matches (the 1946 B&W Welles "The Stranger" showing the 2025
+film) come from enrichment matching by fuzzy TITLE when the Archive record had no
+year to constrain on — a title-only search returns the most popular/newest film.
+Investigation showed the broken items' Archive records are often nearly empty
+(no year, no id), so title-only matching was doomed; ~71% of matched items DO
+carry an Archive `date` and ~14% an Archive IMDb id, and those matched correctly.
+The fix is corroboration-required matching anchored on the Archive item's own
+truth + the video's color, not popularity. Verified high-precision: on 20 popular
+items it cleared 0 (no false positives); the Welles item resolves to `cleared_bw`
+once classified.
+
+**How to apply**: don't trust a title-only external match — adopt one only when
+the Archive IMDb id, the Archive date, or the color era agrees. New
+enrichment/match tools should consult `archive.org/metadata/{id}`
+external-identifier + date BEFORE a fuzzy title search. The verifier marks
+`matchVerified` (an extra JSON key the Swift model harmlessly ignores); a changed
+match is re-checked by a `--refresh` run. OMDb is only called to re-resolve a
+wrong match, so it stays within the daily quota (401 is handled — the item is
+left unmarked and retried).
+
+**Consequences**: a per-item Archive metadata fetch is the bulk cost (bounded per
+CI run). This complements, not replaces, `tmdb_verify_matches.py` (#75, which
+compares the stored tmdbID's canonical TMDb title) and the internal cleaners in
+`remediate_catalog.py`.
